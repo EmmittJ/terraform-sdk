@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for runtime in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncFunctionRuntimeBlock
+public partial class AwsAppsyncFunctionRuntimeBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The runtime_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
-    [TerraformPropertyName("runtime_version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("runtime_version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RuntimeVersion { get; set; }
 
 }
@@ -30,20 +30,20 @@ public class AwsAppsyncFunctionRuntimeBlock
 /// Block type for sync_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncFunctionSyncConfigBlock
+public partial class AwsAppsyncFunctionSyncConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The conflict_detection attribute.
     /// </summary>
-    [TerraformPropertyName("conflict_detection")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("conflict_detection")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConflictDetection { get; set; }
 
     /// <summary>
     /// The conflict_handler attribute.
     /// </summary>
-    [TerraformPropertyName("conflict_handler")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("conflict_handler")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConflictHandler { get; set; }
 
 }
@@ -52,7 +52,7 @@ public class AwsAppsyncFunctionSyncConfigBlock
 /// Manages a aws_appsync_function resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsAppsyncFunction : TerraformResource
+public partial class AwsAppsyncFunction : TerraformResource
 {
     public AwsAppsyncFunction(string name) : base("aws_appsync_function", name)
     {
@@ -62,80 +62,80 @@ public class AwsAppsyncFunction : TerraformResource
     /// The api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
-    [TerraformPropertyName("api_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("api_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApiId { get; set; }
 
     /// <summary>
     /// The code attribute.
     /// </summary>
-    [TerraformPropertyName("code")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("code")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Code { get; set; }
 
     /// <summary>
     /// The data_source attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSource is required")]
-    [TerraformPropertyName("data_source")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data_source")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DataSource { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The function_version attribute.
     /// </summary>
-    [TerraformPropertyName("function_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> FunctionVersion { get; set; } = default!;
+    [TerraformProperty("function_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> FunctionVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The max_batch_size attribute.
     /// </summary>
-    [TerraformPropertyName("max_batch_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_batch_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxBatchSize { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The request_mapping_template attribute.
     /// </summary>
-    [TerraformPropertyName("request_mapping_template")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("request_mapping_template")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RequestMappingTemplate { get; set; }
 
     /// <summary>
     /// The response_mapping_template attribute.
     /// </summary>
-    [TerraformPropertyName("response_mapping_template")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("response_mapping_template")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ResponseMappingTemplate { get; set; }
 
     /// <summary>
@@ -143,7 +143,7 @@ public class AwsAppsyncFunction : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Runtime block(s) allowed")]
-    [TerraformPropertyName("runtime")]
+    [TerraformProperty("runtime")]
     public TerraformList<TerraformBlock<AwsAppsyncFunctionRuntimeBlock>>? Runtime { get; set; }
 
     /// <summary>
@@ -151,21 +151,21 @@ public class AwsAppsyncFunction : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SyncConfig block(s) allowed")]
-    [TerraformPropertyName("sync_config")]
+    [TerraformProperty("sync_config")]
     public TerraformList<TerraformBlock<AwsAppsyncFunctionSyncConfigBlock>>? SyncConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The function_id attribute.
     /// </summary>
-    [TerraformPropertyName("function_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FunctionId => new TerraformReference(this, "function_id");
+    [TerraformProperty("function_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FunctionId { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_dx_connection.
 /// </summary>
-public class AwsDxConnectionDataSource : TerraformDataSource
+public partial class AwsDxConnectionDataSource : TerraformDataSource
 {
     public AwsDxConnectionDataSource(string name) : base("aws_dx_connection", name)
     {
@@ -14,93 +14,93 @@ public class AwsDxConnectionDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The aws_device attribute.
     /// </summary>
-    [TerraformPropertyName("aws_device")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AwsDevice => new TerraformReference(this, "aws_device");
+    [TerraformProperty("aws_device")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AwsDevice { get; }
 
     /// <summary>
     /// The bandwidth attribute.
     /// </summary>
-    [TerraformPropertyName("bandwidth")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Bandwidth => new TerraformReference(this, "bandwidth");
+    [TerraformProperty("bandwidth")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Bandwidth { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_account_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerAccountId => new TerraformReference(this, "owner_account_id");
+    [TerraformProperty("owner_account_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerAccountId { get; }
 
     /// <summary>
     /// The partner_name attribute.
     /// </summary>
-    [TerraformPropertyName("partner_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PartnerName => new TerraformReference(this, "partner_name");
+    [TerraformProperty("partner_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PartnerName { get; }
 
     /// <summary>
     /// The provider_name attribute.
     /// </summary>
-    [TerraformPropertyName("provider_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ProviderName => new TerraformReference(this, "provider_name");
+    [TerraformProperty("provider_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ProviderName { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The vlan_id attribute.
     /// </summary>
-    [TerraformPropertyName("vlan_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> VlanId => new TerraformReference(this, "vlan_id");
+    [TerraformProperty("vlan_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> VlanId { get; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCdnFrontdoorCustomDomainDataSourceTimeoutsBlock
+public partial class AzurermCdnFrontdoorCustomDomainDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermCdnFrontdoorCustomDomainDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_cdn_frontdoor_custom_domain.
 /// </summary>
-public class AzurermCdnFrontdoorCustomDomainDataSource : TerraformDataSource
+public partial class AzurermCdnFrontdoorCustomDomainDataSource : TerraformDataSource
 {
     public AzurermCdnFrontdoorCustomDomainDataSource(string name) : base("azurerm_cdn_frontdoor_custom_domain", name)
     {
@@ -29,81 +29,81 @@ public class AzurermCdnFrontdoorCustomDomainDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The profile_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
-    [TerraformPropertyName("profile_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("profile_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProfileName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermCdnFrontdoorCustomDomainDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The cdn_frontdoor_profile_id attribute.
     /// </summary>
-    [TerraformPropertyName("cdn_frontdoor_profile_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CdnFrontdoorProfileId => new TerraformReference(this, "cdn_frontdoor_profile_id");
+    [TerraformProperty("cdn_frontdoor_profile_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CdnFrontdoorProfileId { get; }
 
     /// <summary>
     /// The dns_zone_id attribute.
     /// </summary>
-    [TerraformPropertyName("dns_zone_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DnsZoneId => new TerraformReference(this, "dns_zone_id");
+    [TerraformProperty("dns_zone_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DnsZoneId { get; }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    [TerraformPropertyName("expiration_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExpirationDate => new TerraformReference(this, "expiration_date");
+    [TerraformProperty("expiration_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExpirationDate { get; }
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
-    [TerraformPropertyName("host_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> HostName => new TerraformReference(this, "host_name");
+    [TerraformProperty("host_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> HostName { get; }
 
     /// <summary>
     /// The tls attribute.
     /// </summary>
-    [TerraformPropertyName("tls")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Tls => new TerraformReference(this, "tls");
+    [TerraformProperty("tls")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Tls { get; }
 
     /// <summary>
     /// The validation_token attribute.
     /// </summary>
-    [TerraformPropertyName("validation_token")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ValidationToken => new TerraformReference(this, "validation_token");
+    [TerraformProperty("validation_token")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ValidationToken { get; }
 
 }

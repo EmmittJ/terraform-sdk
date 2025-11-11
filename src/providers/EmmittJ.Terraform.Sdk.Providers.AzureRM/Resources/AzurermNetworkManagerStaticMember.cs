@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetworkManagerStaticMemberTimeoutsBlock
+public partial class AzurermNetworkManagerStaticMemberTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermNetworkManagerStaticMemberTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_network_manager_static_member resource.
 /// </summary>
-public class AzurermNetworkManagerStaticMember : TerraformResource
+public partial class AzurermNetworkManagerStaticMember : TerraformResource
 {
     public AzurermNetworkManagerStaticMember(string name) : base("azurerm_network_manager_static_member", name)
     {
@@ -43,46 +43,46 @@ public class AzurermNetworkManagerStaticMember : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupId is required")]
-    [TerraformPropertyName("network_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NetworkGroupId { get; set; }
 
     /// <summary>
     /// The target_virtual_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVirtualNetworkId is required")]
-    [TerraformPropertyName("target_virtual_network_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_virtual_network_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TargetVirtualNetworkId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermNetworkManagerStaticMemberTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Region => new TerraformReference(this, "region");
+    [TerraformProperty("region")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Region { get; }
 
 }

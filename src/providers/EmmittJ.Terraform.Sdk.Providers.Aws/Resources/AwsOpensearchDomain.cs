@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for advanced_security_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainAdvancedSecurityOptionsBlock
+public partial class AwsOpensearchDomainAdvancedSecurityOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The anonymous_auth_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("anonymous_auth_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> AnonymousAuthEnabled { get; set; } = default!;
+    [TerraformProperty("anonymous_auth_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> AnonymousAuthEnabled { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The internal_user_database_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("internal_user_database_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("internal_user_database_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? InternalUserDatabaseEnabled { get; set; }
 
 }
@@ -36,7 +36,7 @@ public class AwsOpensearchDomainAdvancedSecurityOptionsBlock
 /// Block type for aiml_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainAimlOptionsBlock
+public partial class AwsOpensearchDomainAimlOptionsBlock : TerraformBlockBase
 {
 }
 
@@ -44,28 +44,28 @@ public class AwsOpensearchDomainAimlOptionsBlock
 /// Block type for auto_tune_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainAutoTuneOptionsBlock
+public partial class AwsOpensearchDomainAutoTuneOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The desired_state attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredState is required")]
-    [TerraformPropertyName("desired_state")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("desired_state")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DesiredState { get; set; }
 
     /// <summary>
     /// The rollback_on_disable attribute.
     /// </summary>
-    [TerraformPropertyName("rollback_on_disable")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> RollbackOnDisable { get; set; } = default!;
+    [TerraformProperty("rollback_on_disable")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> RollbackOnDisable { get; set; }
 
     /// <summary>
     /// The use_off_peak_window attribute.
     /// </summary>
-    [TerraformPropertyName("use_off_peak_window")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("use_off_peak_window")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? UseOffPeakWindow { get; set; }
 
 }
@@ -74,76 +74,76 @@ public class AwsOpensearchDomainAutoTuneOptionsBlock
 /// Block type for cluster_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainClusterConfigBlock
+public partial class AwsOpensearchDomainClusterConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The dedicated_master_count attribute.
     /// </summary>
-    [TerraformPropertyName("dedicated_master_count")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dedicated_master_count")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? DedicatedMasterCount { get; set; }
 
     /// <summary>
     /// The dedicated_master_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("dedicated_master_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dedicated_master_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DedicatedMasterEnabled { get; set; }
 
     /// <summary>
     /// The dedicated_master_type attribute.
     /// </summary>
-    [TerraformPropertyName("dedicated_master_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dedicated_master_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DedicatedMasterType { get; set; }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    [TerraformPropertyName("instance_count")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("instance_count")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? InstanceCount { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    [TerraformPropertyName("instance_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("instance_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? InstanceType { get; set; }
 
     /// <summary>
     /// The multi_az_with_standby_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("multi_az_with_standby_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("multi_az_with_standby_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? MultiAzWithStandbyEnabled { get; set; }
 
     /// <summary>
     /// The warm_count attribute.
     /// </summary>
-    [TerraformPropertyName("warm_count")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("warm_count")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? WarmCount { get; set; }
 
     /// <summary>
     /// The warm_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("warm_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("warm_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? WarmEnabled { get; set; }
 
     /// <summary>
     /// The warm_type attribute.
     /// </summary>
-    [TerraformPropertyName("warm_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("warm_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? WarmType { get; set; }
 
     /// <summary>
     /// The zone_awareness_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("zone_awareness_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("zone_awareness_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ZoneAwarenessEnabled { get; set; }
 
 }
@@ -152,37 +152,37 @@ public class AwsOpensearchDomainClusterConfigBlock
 /// Block type for cognito_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainCognitoOptionsBlock
+public partial class AwsOpensearchDomainCognitoOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The identity_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolId is required")]
-    [TerraformPropertyName("identity_pool_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("identity_pool_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IdentityPoolId { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
-    [TerraformPropertyName("user_pool_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_pool_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserPoolId { get; set; }
 
 }
@@ -191,42 +191,42 @@ public class AwsOpensearchDomainCognitoOptionsBlock
 /// Block type for domain_endpoint_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainDomainEndpointOptionsBlock
+public partial class AwsOpensearchDomainDomainEndpointOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The custom_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("custom_endpoint")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("custom_endpoint")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CustomEndpoint { get; set; }
 
     /// <summary>
     /// The custom_endpoint_certificate_arn attribute.
     /// </summary>
-    [TerraformPropertyName("custom_endpoint_certificate_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("custom_endpoint_certificate_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CustomEndpointCertificateArn { get; set; }
 
     /// <summary>
     /// The custom_endpoint_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("custom_endpoint_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("custom_endpoint_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? CustomEndpointEnabled { get; set; }
 
     /// <summary>
     /// The enforce_https attribute.
     /// </summary>
-    [TerraformPropertyName("enforce_https")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enforce_https")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnforceHttps { get; set; }
 
     /// <summary>
     /// The tls_security_policy attribute.
     /// </summary>
-    [TerraformPropertyName("tls_security_policy")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> TlsSecurityPolicy { get; set; } = default!;
+    [TerraformProperty("tls_security_policy")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> TlsSecurityPolicy { get; set; }
 
 }
 
@@ -234,43 +234,43 @@ public class AwsOpensearchDomainDomainEndpointOptionsBlock
 /// Block type for ebs_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainEbsOptionsBlock
+public partial class AwsOpensearchDomainEbsOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The ebs_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EbsEnabled is required")]
-    [TerraformPropertyName("ebs_enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("ebs_enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> EbsEnabled { get; set; }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    [TerraformPropertyName("iops")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Iops { get; set; } = default!;
+    [TerraformProperty("iops")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Iops { get; set; }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    [TerraformPropertyName("throughput")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Throughput { get; set; } = default!;
+    [TerraformProperty("throughput")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Throughput { get; set; }
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    [TerraformPropertyName("volume_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("volume_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? VolumeSize { get; set; }
 
     /// <summary>
     /// The volume_type attribute.
     /// </summary>
-    [TerraformPropertyName("volume_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> VolumeType { get; set; } = default!;
+    [TerraformProperty("volume_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> VolumeType { get; set; }
 
 }
 
@@ -278,22 +278,22 @@ public class AwsOpensearchDomainEbsOptionsBlock
 /// Block type for encrypt_at_rest in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainEncryptAtRestBlock
+public partial class AwsOpensearchDomainEncryptAtRestBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KmsKeyId { get; set; } = default!;
+    [TerraformProperty("kms_key_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KmsKeyId { get; set; }
 
 }
 
@@ -301,29 +301,29 @@ public class AwsOpensearchDomainEncryptAtRestBlock
 /// Block type for log_publishing_options in .
 /// Nesting mode: set
 /// </summary>
-public class AwsOpensearchDomainLogPublishingOptionsBlock
+public partial class AwsOpensearchDomainLogPublishingOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cloudwatch_log_group_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudwatchLogGroupArn is required")]
-    [TerraformPropertyName("cloudwatch_log_group_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cloudwatch_log_group_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CloudwatchLogGroupArn { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The log_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
-    [TerraformPropertyName("log_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("log_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LogType { get; set; }
 
 }
@@ -332,14 +332,14 @@ public class AwsOpensearchDomainLogPublishingOptionsBlock
 /// Block type for node_to_node_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainNodeToNodeEncryptionBlock
+public partial class AwsOpensearchDomainNodeToNodeEncryptionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
 }
@@ -348,14 +348,14 @@ public class AwsOpensearchDomainNodeToNodeEncryptionBlock
 /// Block type for off_peak_window_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainOffPeakWindowOptionsBlock
+public partial class AwsOpensearchDomainOffPeakWindowOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> Enabled { get; set; } = default!;
+    [TerraformProperty("enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> Enabled { get; set; }
 
 }
 
@@ -363,14 +363,14 @@ public class AwsOpensearchDomainOffPeakWindowOptionsBlock
 /// Block type for snapshot_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainSnapshotOptionsBlock
+public partial class AwsOpensearchDomainSnapshotOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The automated_snapshot_start_hour attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomatedSnapshotStartHour is required")]
-    [TerraformPropertyName("automated_snapshot_start_hour")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("automated_snapshot_start_hour")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> AutomatedSnapshotStartHour { get; set; }
 
 }
@@ -379,14 +379,14 @@ public class AwsOpensearchDomainSnapshotOptionsBlock
 /// Block type for software_update_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainSoftwareUpdateOptionsBlock
+public partial class AwsOpensearchDomainSoftwareUpdateOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The auto_software_update_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("auto_software_update_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> AutoSoftwareUpdateEnabled { get; set; } = default!;
+    [TerraformProperty("auto_software_update_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> AutoSoftwareUpdateEnabled { get; set; }
 
 }
 
@@ -394,27 +394,27 @@ public class AwsOpensearchDomainSoftwareUpdateOptionsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsOpensearchDomainTimeoutsBlock
+public partial class AwsOpensearchDomainTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -423,21 +423,21 @@ public class AwsOpensearchDomainTimeoutsBlock
 /// Block type for vpc_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsOpensearchDomainVpcOptionsBlock
+public partial class AwsOpensearchDomainVpcOptionsBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_group_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subnet_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SubnetIds { get; set; }
 
 
@@ -447,7 +447,7 @@ public class AwsOpensearchDomainVpcOptionsBlock
 /// Manages a aws_opensearch_domain resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsOpensearchDomain : TerraformResource
+public partial class AwsOpensearchDomain : TerraformResource
 {
     public AwsOpensearchDomain(string name) : base("aws_opensearch_domain", name)
     {
@@ -456,73 +456,73 @@ public class AwsOpensearchDomain : TerraformResource
     /// <summary>
     /// The access_policies attribute.
     /// </summary>
-    [TerraformPropertyName("access_policies")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AccessPolicies { get; set; } = default!;
+    [TerraformProperty("access_policies")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AccessPolicies { get; set; }
 
     /// <summary>
     /// The advanced_options attribute.
     /// </summary>
-    [TerraformPropertyName("advanced_options")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> AdvancedOptions { get; set; } = default!;
+    [TerraformProperty("advanced_options")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> AdvancedOptions { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    [TerraformPropertyName("domain_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("domain_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    [TerraformPropertyName("engine_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EngineVersion { get; set; } = default!;
+    [TerraformProperty("engine_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EngineVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    [TerraformPropertyName("ip_address_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> IpAddressType { get; set; } = default!;
+    [TerraformProperty("ip_address_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> IpAddressType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for advanced_security_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSecurityOptions block(s) allowed")]
-    [TerraformPropertyName("advanced_security_options")]
+    [TerraformProperty("advanced_security_options")]
     public TerraformList<TerraformBlock<AwsOpensearchDomainAdvancedSecurityOptionsBlock>>? AdvancedSecurityOptions { get; set; }
 
     /// <summary>
@@ -530,7 +530,7 @@ public class AwsOpensearchDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AimlOptions block(s) allowed")]
-    [TerraformPropertyName("aiml_options")]
+    [TerraformProperty("aiml_options")]
     public TerraformList<TerraformBlock<AwsOpensearchDomainAimlOptionsBlock>>? AimlOptions { get; set; }
 
     /// <summary>
@@ -538,7 +538,7 @@ public class AwsOpensearchDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoTuneOptions block(s) allowed")]
-    [TerraformPropertyName("auto_tune_options")]
+    [TerraformProperty("auto_tune_options")]
     public TerraformList<TerraformBlock<AwsOpensearchDomainAutoTuneOptionsBlock>>? AutoTuneOptions { get; set; }
 
     /// <summary>
@@ -546,7 +546,7 @@ public class AwsOpensearchDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterConfig block(s) allowed")]
-    [TerraformPropertyName("cluster_config")]
+    [TerraformProperty("cluster_config")]
     public TerraformList<TerraformBlock<AwsOpensearchDomainClusterConfigBlock>>? ClusterConfig { get; set; }
 
     /// <summary>
@@ -554,7 +554,7 @@ public class AwsOpensearchDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CognitoOptions block(s) allowed")]
-    [TerraformPropertyName("cognito_options")]
+    [TerraformProperty("cognito_options")]
     public TerraformList<TerraformBlock<AwsOpensearchDomainCognitoOptionsBlock>>? CognitoOptions { get; set; }
 
     /// <summary>
@@ -562,7 +562,7 @@ public class AwsOpensearchDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainEndpointOptions block(s) allowed")]
-    [TerraformPropertyName("domain_endpoint_options")]
+    [TerraformProperty("domain_endpoint_options")]
     public TerraformList<TerraformBlock<AwsOpensearchDomainDomainEndpointOptionsBlock>>? DomainEndpointOptions { get; set; }
 
     /// <summary>
@@ -570,7 +570,7 @@ public class AwsOpensearchDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EbsOptions block(s) allowed")]
-    [TerraformPropertyName("ebs_options")]
+    [TerraformProperty("ebs_options")]
     public TerraformList<TerraformBlock<AwsOpensearchDomainEbsOptionsBlock>>? EbsOptions { get; set; }
 
     /// <summary>
@@ -578,14 +578,14 @@ public class AwsOpensearchDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptAtRest block(s) allowed")]
-    [TerraformPropertyName("encrypt_at_rest")]
+    [TerraformProperty("encrypt_at_rest")]
     public TerraformList<TerraformBlock<AwsOpensearchDomainEncryptAtRestBlock>>? EncryptAtRest { get; set; }
 
     /// <summary>
     /// Block for log_publishing_options.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("log_publishing_options")]
+    [TerraformProperty("log_publishing_options")]
     public TerraformSet<TerraformBlock<AwsOpensearchDomainLogPublishingOptionsBlock>>? LogPublishingOptions { get; set; }
 
     /// <summary>
@@ -593,7 +593,7 @@ public class AwsOpensearchDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeToNodeEncryption block(s) allowed")]
-    [TerraformPropertyName("node_to_node_encryption")]
+    [TerraformProperty("node_to_node_encryption")]
     public TerraformList<TerraformBlock<AwsOpensearchDomainNodeToNodeEncryptionBlock>>? NodeToNodeEncryption { get; set; }
 
     /// <summary>
@@ -601,7 +601,7 @@ public class AwsOpensearchDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OffPeakWindowOptions block(s) allowed")]
-    [TerraformPropertyName("off_peak_window_options")]
+    [TerraformProperty("off_peak_window_options")]
     public TerraformList<TerraformBlock<AwsOpensearchDomainOffPeakWindowOptionsBlock>>? OffPeakWindowOptions { get; set; }
 
     /// <summary>
@@ -609,7 +609,7 @@ public class AwsOpensearchDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotOptions block(s) allowed")]
-    [TerraformPropertyName("snapshot_options")]
+    [TerraformProperty("snapshot_options")]
     public TerraformList<TerraformBlock<AwsOpensearchDomainSnapshotOptionsBlock>>? SnapshotOptions { get; set; }
 
     /// <summary>
@@ -617,14 +617,14 @@ public class AwsOpensearchDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoftwareUpdateOptions block(s) allowed")]
-    [TerraformPropertyName("software_update_options")]
+    [TerraformProperty("software_update_options")]
     public TerraformList<TerraformBlock<AwsOpensearchDomainSoftwareUpdateOptionsBlock>>? SoftwareUpdateOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsOpensearchDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -632,56 +632,56 @@ public class AwsOpensearchDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcOptions block(s) allowed")]
-    [TerraformPropertyName("vpc_options")]
+    [TerraformProperty("vpc_options")]
     public TerraformList<TerraformBlock<AwsOpensearchDomainVpcOptionsBlock>>? VpcOptions { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The dashboard_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("dashboard_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DashboardEndpoint => new TerraformReference(this, "dashboard_endpoint");
+    [TerraformProperty("dashboard_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DashboardEndpoint { get; }
 
     /// <summary>
     /// The dashboard_endpoint_v2 attribute.
     /// </summary>
-    [TerraformPropertyName("dashboard_endpoint_v2")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DashboardEndpointV2 => new TerraformReference(this, "dashboard_endpoint_v2");
+    [TerraformProperty("dashboard_endpoint_v2")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DashboardEndpointV2 { get; }
 
     /// <summary>
     /// The domain_endpoint_v2_hosted_zone_id attribute.
     /// </summary>
-    [TerraformPropertyName("domain_endpoint_v2_hosted_zone_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DomainEndpointV2HostedZoneId => new TerraformReference(this, "domain_endpoint_v2_hosted_zone_id");
+    [TerraformProperty("domain_endpoint_v2_hosted_zone_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DomainEndpointV2HostedZoneId { get; }
 
     /// <summary>
     /// The domain_id attribute.
     /// </summary>
-    [TerraformPropertyName("domain_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DomainId => new TerraformReference(this, "domain_id");
+    [TerraformProperty("domain_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DomainId { get; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Endpoint => new TerraformReference(this, "endpoint");
+    [TerraformProperty("endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Endpoint { get; }
 
     /// <summary>
     /// The endpoint_v2 attribute.
     /// </summary>
-    [TerraformPropertyName("endpoint_v2")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EndpointV2 => new TerraformReference(this, "endpoint_v2");
+    [TerraformProperty("endpoint_v2")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EndpointV2 { get; }
 
 }

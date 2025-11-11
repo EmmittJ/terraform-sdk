@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDatasyncAgentTimeoutsBlock
+public partial class AwsDatasyncAgentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsDatasyncAgentTimeoutsBlock
 /// <summary>
 /// Manages a aws_datasync_agent resource.
 /// </summary>
-public class AwsDatasyncAgent : TerraformResource
+public partial class AwsDatasyncAgent : TerraformResource
 {
     public AwsDatasyncAgent(string name) : base("aws_datasync_agent", name)
     {
@@ -29,92 +29,92 @@ public class AwsDatasyncAgent : TerraformResource
     /// <summary>
     /// The activation_key attribute.
     /// </summary>
-    [TerraformPropertyName("activation_key")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ActivationKey { get; set; } = default!;
+    [TerraformProperty("activation_key")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ActivationKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    [TerraformPropertyName("ip_address")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> IpAddress { get; set; } = default!;
+    [TerraformProperty("ip_address")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> IpAddress { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The private_link_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("private_link_endpoint")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PrivateLinkEndpoint { get; set; } = default!;
+    [TerraformProperty("private_link_endpoint")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PrivateLinkEndpoint { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_group_arns attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_arns")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_group_arns")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SecurityGroupArns { get; set; }
 
     /// <summary>
     /// The subnet_arns attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_arns")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subnet_arns")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SubnetArns { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The vpc_endpoint_id attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_endpoint_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vpc_endpoint_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VpcEndpointId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsDatasyncAgentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

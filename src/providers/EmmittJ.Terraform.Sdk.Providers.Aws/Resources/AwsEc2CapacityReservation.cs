@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2CapacityReservationTimeoutsBlock
+public partial class AwsEc2CapacityReservationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsEc2CapacityReservationTimeoutsBlock
 /// <summary>
 /// Manages a aws_ec2_capacity_reservation resource.
 /// </summary>
-public class AwsEc2CapacityReservation : TerraformResource
+public partial class AwsEc2CapacityReservation : TerraformResource
 {
     public AwsEc2CapacityReservation(string name) : base("aws_ec2_capacity_reservation", name)
     {
@@ -44,137 +44,137 @@ public class AwsEc2CapacityReservation : TerraformResource
     /// The availability_zone attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AvailabilityZone is required")]
-    [TerraformPropertyName("availability_zone")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("availability_zone")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AvailabilityZone { get; set; }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    [TerraformPropertyName("ebs_optimized")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ebs_optimized")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EbsOptimized { get; set; }
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    [TerraformPropertyName("end_date")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("end_date")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EndDate { get; set; }
 
     /// <summary>
     /// The end_date_type attribute.
     /// </summary>
-    [TerraformPropertyName("end_date_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("end_date_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EndDateType { get; set; }
 
     /// <summary>
     /// The ephemeral_storage attribute.
     /// </summary>
-    [TerraformPropertyName("ephemeral_storage")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ephemeral_storage")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EphemeralStorage { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceCount is required")]
-    [TerraformPropertyName("instance_count")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_count")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> InstanceCount { get; set; }
 
     /// <summary>
     /// The instance_match_criteria attribute.
     /// </summary>
-    [TerraformPropertyName("instance_match_criteria")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("instance_match_criteria")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? InstanceMatchCriteria { get; set; }
 
     /// <summary>
     /// The instance_platform attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePlatform is required")]
-    [TerraformPropertyName("instance_platform")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_platform")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstancePlatform { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    [TerraformPropertyName("instance_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    [TerraformPropertyName("outpost_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("outpost_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OutpostArn { get; set; }
 
     /// <summary>
     /// The placement_group_arn attribute.
     /// </summary>
-    [TerraformPropertyName("placement_group_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("placement_group_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PlacementGroupArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
-    [TerraformPropertyName("tenancy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tenancy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Tenancy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsEc2CapacityReservationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerId => new TerraformReference(this, "owner_id");
+    [TerraformProperty("owner_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerId { get; }
 
 }

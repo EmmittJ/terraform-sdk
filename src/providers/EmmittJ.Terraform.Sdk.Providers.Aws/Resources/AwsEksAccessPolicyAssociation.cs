@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_scope in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEksAccessPolicyAssociationAccessScopeBlock
+public partial class AwsEksAccessPolicyAssociationAccessScopeBlock : TerraformBlockBase
 {
     /// <summary>
     /// The namespaces attribute.
     /// </summary>
-    [TerraformPropertyName("namespaces")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("namespaces")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Namespaces { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -29,20 +29,20 @@ public class AwsEksAccessPolicyAssociationAccessScopeBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEksAccessPolicyAssociationTimeoutsBlock
+public partial class AwsEksAccessPolicyAssociationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -51,7 +51,7 @@ public class AwsEksAccessPolicyAssociationTimeoutsBlock
 /// Manages a aws_eks_access_policy_association resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsEksAccessPolicyAssociation : TerraformResource
+public partial class AwsEksAccessPolicyAssociation : TerraformResource
 {
     public AwsEksAccessPolicyAssociation(string name) : base("aws_eks_access_policy_association", name)
     {
@@ -61,39 +61,39 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    [TerraformPropertyName("cluster_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
-    [TerraformPropertyName("policy_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PolicyArn { get; set; }
 
     /// <summary>
     /// The principal_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalArn is required")]
-    [TerraformPropertyName("principal_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("principal_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrincipalArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for access_scope.
@@ -102,28 +102,28 @@ public class AwsEksAccessPolicyAssociation : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessScope is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AccessScope block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessScope block(s) allowed")]
-    [TerraformPropertyName("access_scope")]
+    [TerraformProperty("access_scope")]
     public TerraformList<TerraformBlock<AwsEksAccessPolicyAssociationAccessScopeBlock>>? AccessScope { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsEksAccessPolicyAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The associated_at attribute.
     /// </summary>
-    [TerraformPropertyName("associated_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AssociatedAt => new TerraformReference(this, "associated_at");
+    [TerraformProperty("associated_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AssociatedAt { get; }
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
-    [TerraformPropertyName("modified_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ModifiedAt => new TerraformReference(this, "modified_at");
+    [TerraformProperty("modified_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ModifiedAt { get; }
 
 }

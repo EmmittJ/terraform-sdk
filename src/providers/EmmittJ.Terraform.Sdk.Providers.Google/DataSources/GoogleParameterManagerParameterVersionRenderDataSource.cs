@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_parameter_manager_parameter_version_render.
 /// </summary>
-public class GoogleParameterManagerParameterVersionRenderDataSource : TerraformDataSource
+public partial class GoogleParameterManagerParameterVersionRenderDataSource : TerraformDataSource
 {
     public GoogleParameterManagerParameterVersionRenderDataSource(string name) : base("google_parameter_manager_parameter_version_render", name)
     {
@@ -14,59 +14,59 @@ public class GoogleParameterManagerParameterVersionRenderDataSource : TerraformD
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The parameter attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
-    [TerraformPropertyName("parameter")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parameter")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Parameter { get; set; }
 
     /// <summary>
     /// The parameter_version_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterVersionId is required")]
-    [TerraformPropertyName("parameter_version_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parameter_version_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ParameterVersionId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Disabled => new TerraformReference(this, "disabled");
+    [TerraformProperty("disabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Disabled { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The parameter_data attribute.
     /// </summary>
-    [TerraformPropertyName("parameter_data")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ParameterData => new TerraformReference(this, "parameter_data");
+    [TerraformProperty("parameter_data")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ParameterData { get; }
 
     /// <summary>
     /// The rendered_parameter_data attribute.
     /// </summary>
-    [TerraformPropertyName("rendered_parameter_data")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RenderedParameterData => new TerraformReference(this, "rendered_parameter_data");
+    [TerraformProperty("rendered_parameter_data")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RenderedParameterData { get; }
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for high_availability_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsM2EnvironmentHighAvailabilityConfigBlock
+public partial class AwsM2EnvironmentHighAvailabilityConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The desired_capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DesiredCapacity is required")]
-    [TerraformPropertyName("desired_capacity")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("desired_capacity")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> DesiredCapacity { get; set; }
 
 }
@@ -22,7 +22,7 @@ public class AwsM2EnvironmentHighAvailabilityConfigBlock
 /// Block type for storage_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsM2EnvironmentStorageConfigurationBlock
+public partial class AwsM2EnvironmentStorageConfigurationBlock : TerraformBlockBase
 {
 }
 
@@ -30,27 +30,27 @@ public class AwsM2EnvironmentStorageConfigurationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsM2EnvironmentTimeoutsBlock
+public partial class AwsM2EnvironmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -58,7 +58,7 @@ public class AwsM2EnvironmentTimeoutsBlock
 /// <summary>
 /// Manages a aws_m2_environment resource.
 /// </summary>
-public class AwsM2Environment : TerraformResource
+public partial class AwsM2Environment : TerraformResource
 {
     public AwsM2Environment(string name) : base("aws_m2_environment", name)
     {
@@ -67,158 +67,158 @@ public class AwsM2Environment : TerraformResource
     /// <summary>
     /// The apply_changes_during_maintenance_window attribute.
     /// </summary>
-    [TerraformPropertyName("apply_changes_during_maintenance_window")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("apply_changes_during_maintenance_window")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ApplyChangesDuringMaintenanceWindow { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The engine_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
-    [TerraformPropertyName("engine_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("engine_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EngineType { get; set; }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    [TerraformPropertyName("engine_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EngineVersion { get; set; } = default!;
+    [TerraformProperty("engine_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EngineVersion { get; set; }
 
     /// <summary>
     /// The force_update attribute.
     /// </summary>
-    [TerraformPropertyName("force_update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("force_update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ForceUpdate { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    [TerraformPropertyName("instance_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The preferred_maintenance_window attribute.
     /// </summary>
-    [TerraformPropertyName("preferred_maintenance_window")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PreferredMaintenanceWindow { get; set; } = default!;
+    [TerraformProperty("preferred_maintenance_window")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PreferredMaintenanceWindow { get; set; }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    [TerraformPropertyName("publicly_accessible")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> PubliclyAccessible { get; set; } = default!;
+    [TerraformProperty("publicly_accessible")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> PubliclyAccessible { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_ids")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> SecurityGroupIds { get; set; } = default!;
+    [TerraformProperty("security_group_ids")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_ids")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> SubnetIds { get; set; } = default!;
+    [TerraformProperty("subnet_ids")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> SubnetIds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for high_availability_config.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("high_availability_config")]
+    [TerraformProperty("high_availability_config")]
     public TerraformList<TerraformBlock<AwsM2EnvironmentHighAvailabilityConfigBlock>>? HighAvailabilityConfig { get; set; }
 
     /// <summary>
     /// Block for storage_configuration.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("storage_configuration")]
+    [TerraformProperty("storage_configuration")]
     public TerraformList<TerraformBlock<AwsM2EnvironmentStorageConfigurationBlock>>? StorageConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsM2EnvironmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
-    [TerraformPropertyName("environment_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EnvironmentId => new TerraformReference(this, "environment_id");
+    [TerraformProperty("environment_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EnvironmentId { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The load_balancer_arn attribute.
     /// </summary>
-    [TerraformPropertyName("load_balancer_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LoadBalancerArn => new TerraformReference(this, "load_balancer_arn");
+    [TerraformProperty("load_balancer_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LoadBalancerArn { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
 }

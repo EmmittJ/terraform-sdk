@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleServiceNetworkingVpcServiceControlsTimeoutsBlock
+public partial class GoogleServiceNetworkingVpcServiceControlsTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleServiceNetworkingVpcServiceControlsTimeoutsBlock
 /// <summary>
 /// Manages a google_service_networking_vpc_service_controls resource.
 /// </summary>
-public class GoogleServiceNetworkingVpcServiceControls : TerraformResource
+public partial class GoogleServiceNetworkingVpcServiceControls : TerraformResource
 {
     public GoogleServiceNetworkingVpcServiceControls(string name) : base("google_service_networking_vpc_service_controls", name)
     {
@@ -45,30 +45,30 @@ public class GoogleServiceNetworkingVpcServiceControls : TerraformResource
     /// described at the top of this page.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The network that the consumer is using to connect with services.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
-    [TerraformPropertyName("network")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The id of the Google Cloud project containing the consumer network.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
@@ -77,15 +77,15 @@ public class GoogleServiceNetworkingVpcServiceControls : TerraformResource
     /// functionality, this value is &#39;servicenetworking.googleapis.com&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
-    [TerraformPropertyName("service")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleServiceNetworkingVpcServiceControlsTimeoutsBlock>? Timeouts { get; set; }
 
 }

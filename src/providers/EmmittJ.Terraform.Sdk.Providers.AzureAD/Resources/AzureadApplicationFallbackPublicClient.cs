@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationFallbackPublicClientTimeoutsBlock
+public partial class AzureadApplicationFallbackPublicClientTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzureadApplicationFallbackPublicClientTimeoutsBlock
 /// <summary>
 /// Manages a azuread_application_fallback_public_client resource.
 /// </summary>
-public class AzureadApplicationFallbackPublicClient : TerraformResource
+public partial class AzureadApplicationFallbackPublicClient : TerraformResource
 {
     public AzureadApplicationFallbackPublicClient(string name) : base("azuread_application_fallback_public_client", name)
     {
@@ -44,29 +44,29 @@ public class AzureadApplicationFallbackPublicClient : TerraformResource
     /// The resource ID of the application to which the fallback public client setting should be applied
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    [TerraformPropertyName("application_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("application_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// Specifies explicitly whether the application is a public client. Appropriate for apps using token grant flows that don&#39;t use a redirect URI
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadApplicationFallbackPublicClientTimeoutsBlock>? Timeouts { get; set; }
 
 }

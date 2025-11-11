@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for activated_rule in .
 /// Nesting mode: set
 /// </summary>
-public class AwsWafRuleGroupActivatedRuleBlock
+public partial class AwsWafRuleGroupActivatedRuleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformPropertyName("priority")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("priority")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// The rule_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
-    [TerraformPropertyName("rule_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("rule_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RuleId { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
 }
@@ -36,7 +36,7 @@ public class AwsWafRuleGroupActivatedRuleBlock
 /// <summary>
 /// Manages a aws_waf_rule_group resource.
 /// </summary>
-public class AwsWafRuleGroup : TerraformResource
+public partial class AwsWafRuleGroup : TerraformResource
 {
     public AwsWafRuleGroup(string name) : base("aws_waf_rule_group", name)
     {
@@ -45,52 +45,52 @@ public class AwsWafRuleGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metric_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
-    [TerraformPropertyName("metric_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("metric_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MetricName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for activated_rule.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("activated_rule")]
+    [TerraformProperty("activated_rule")]
     public TerraformSet<TerraformBlock<AwsWafRuleGroupActivatedRuleBlock>>? ActivatedRule { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

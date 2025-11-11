@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for hive_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBiglakeTableHiveOptionsBlock
+public partial class GoogleBiglakeTableHiveOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// Stores user supplied Hive table parameters. An object containing a
     /// list of &amp;quot;key&amp;quot;: value pairs.
     /// Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    [TerraformPropertyName("parameters")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parameters")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// Hive table type. For example, MANAGED_TABLE, EXTERNAL_TABLE.
     /// </summary>
-    [TerraformPropertyName("table_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("table_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TableType { get; set; }
 
 }
@@ -30,27 +30,27 @@ public class GoogleBiglakeTableHiveOptionsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBiglakeTableTimeoutsBlock
+public partial class GoogleBiglakeTableTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -59,7 +59,7 @@ public class GoogleBiglakeTableTimeoutsBlock
 /// Manages a google_biglake_table resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleBiglakeTable : TerraformResource
+public partial class GoogleBiglakeTable : TerraformResource
 {
     public GoogleBiglakeTable(string name) : base("google_biglake_table", name)
     {
@@ -68,31 +68,31 @@ public class GoogleBiglakeTable : TerraformResource
     /// <summary>
     /// The id of the parent database.
     /// </summary>
-    [TerraformPropertyName("database")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("database")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Database { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Output only. The name of the Table. Format:
     /// projects/{project_id_or_number}/locations/{locationId}/catalogs/{catalogId}/databases/{databaseId}/tables/{tableId}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The database type. Possible values: [&amp;quot;HIVE&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
@@ -100,14 +100,14 @@ public class GoogleBiglakeTable : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HiveOptions block(s) allowed")]
-    [TerraformPropertyName("hive_options")]
+    [TerraformProperty("hive_options")]
     public TerraformList<TerraformBlock<GoogleBiglakeTableHiveOptionsBlock>>? HiveOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleBiglakeTableTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -116,9 +116,9 @@ public class GoogleBiglakeTable : TerraformResource
     /// digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Output only. The deletion time of the table. Only set after the
@@ -126,9 +126,9 @@ public class GoogleBiglakeTable : TerraformResource
     /// nanosecond resolution and up to nine fractional digits. Examples:
     /// &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("delete_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeleteTime => new TerraformReference(this, "delete_time");
+    [TerraformProperty("delete_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// The checksum of a table object computed by the server based on the value
@@ -136,9 +136,9 @@ public class GoogleBiglakeTable : TerraformResource
     /// has an up-to-date value before proceeding. It is only checked for update
     /// table operations.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Output only. The time when this table is considered expired. Only set
@@ -146,9 +146,9 @@ public class GoogleBiglakeTable : TerraformResource
     /// with nanosecond resolution and up to nine fractional digits. Examples:
     /// &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("expire_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExpireTime => new TerraformReference(this, "expire_time");
+    [TerraformProperty("expire_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// Output only. The last modification time of the table. A timestamp in
@@ -156,8 +156,8 @@ public class GoogleBiglakeTable : TerraformResource
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

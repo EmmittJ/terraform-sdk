@@ -6,30 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketLifecycleConfigurationRuleBlock
+public partial class AwsS3BucketLifecycleConfigurationRuleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Prefix { get; set; } = default!;
+    [TerraformProperty("prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Prefix { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
-    [TerraformPropertyName("status")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("status")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Status { get; set; }
 
 }
@@ -38,20 +38,20 @@ public class AwsS3BucketLifecycleConfigurationRuleBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsS3BucketLifecycleConfigurationTimeoutsBlock
+public partial class AwsS3BucketLifecycleConfigurationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -59,7 +59,7 @@ public class AwsS3BucketLifecycleConfigurationTimeoutsBlock
 /// <summary>
 /// Manages a aws_s3_bucket_lifecycle_configuration resource.
 /// </summary>
-public class AwsS3BucketLifecycleConfiguration : TerraformResource
+public partial class AwsS3BucketLifecycleConfiguration : TerraformResource
 {
     public AwsS3BucketLifecycleConfiguration(string name) : base("aws_s3_bucket_lifecycle_configuration", name)
     {
@@ -69,50 +69,50 @@ public class AwsS3BucketLifecycleConfiguration : TerraformResource
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    [TerraformPropertyName("bucket")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    [TerraformPropertyName("expected_bucket_owner")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ExpectedBucketOwner { get; set; } = default!;
+    [TerraformProperty("expected_bucket_owner")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The transition_default_minimum_object_size attribute.
     /// </summary>
-    [TerraformPropertyName("transition_default_minimum_object_size")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> TransitionDefaultMinimumObjectSize { get; set; } = default!;
+    [TerraformProperty("transition_default_minimum_object_size")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> TransitionDefaultMinimumObjectSize { get; set; }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("rule")]
+    [TerraformProperty("rule")]
     public TerraformList<TerraformBlock<AwsS3BucketLifecycleConfigurationRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsS3BucketLifecycleConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
 }

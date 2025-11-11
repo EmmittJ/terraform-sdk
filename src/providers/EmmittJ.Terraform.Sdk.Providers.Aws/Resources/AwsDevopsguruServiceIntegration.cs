@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for kms_server_side_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock
+public partial class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KmsKeyId { get; set; } = default!;
+    [TerraformProperty("kms_key_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KmsKeyId { get; set; }
 
     /// <summary>
     /// The opt_in_status attribute.
     /// </summary>
-    [TerraformPropertyName("opt_in_status")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> OptInStatus { get; set; } = default!;
+    [TerraformProperty("opt_in_status")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> OptInStatus { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Type { get; set; } = default!;
+    [TerraformProperty("type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Type { get; set; }
 
 }
 
@@ -35,14 +35,14 @@ public class AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock
 /// Block type for logs_anomaly_detection in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock
+public partial class AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The opt_in_status attribute.
     /// </summary>
-    [TerraformPropertyName("opt_in_status")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> OptInStatus { get; set; } = default!;
+    [TerraformProperty("opt_in_status")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> OptInStatus { get; set; }
 
 }
 
@@ -50,21 +50,21 @@ public class AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock
 /// Block type for ops_center in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDevopsguruServiceIntegrationOpsCenterBlock
+public partial class AwsDevopsguruServiceIntegrationOpsCenterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The opt_in_status attribute.
     /// </summary>
-    [TerraformPropertyName("opt_in_status")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> OptInStatus { get; set; } = default!;
+    [TerraformProperty("opt_in_status")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> OptInStatus { get; set; }
 
 }
 
 /// <summary>
 /// Manages a aws_devopsguru_service_integration resource.
 /// </summary>
-public class AwsDevopsguruServiceIntegration : TerraformResource
+public partial class AwsDevopsguruServiceIntegration : TerraformResource
 {
     public AwsDevopsguruServiceIntegration(string name) : base("aws_devopsguru_service_integration", name)
     {
@@ -73,36 +73,36 @@ public class AwsDevopsguruServiceIntegration : TerraformResource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for kms_server_side_encryption.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("kms_server_side_encryption")]
+    [TerraformProperty("kms_server_side_encryption")]
     public TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationKmsServerSideEncryptionBlock>>? KmsServerSideEncryption { get; set; }
 
     /// <summary>
     /// Block for logs_anomaly_detection.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("logs_anomaly_detection")]
+    [TerraformProperty("logs_anomaly_detection")]
     public TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationLogsAnomalyDetectionBlock>>? LogsAnomalyDetection { get; set; }
 
     /// <summary>
     /// Block for ops_center.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("ops_center")]
+    [TerraformProperty("ops_center")]
     public TerraformList<TerraformBlock<AwsDevopsguruServiceIntegrationOpsCenterBlock>>? OpsCenter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
 }

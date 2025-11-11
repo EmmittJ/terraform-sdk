@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAutoscalingGroupsDataSourceFilterBlock
+public partial class AwsAutoscalingGroupsDataSourceFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    [TerraformPropertyName("values")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("values")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Values { get; set; }
 
 }
@@ -29,7 +29,7 @@ public class AwsAutoscalingGroupsDataSourceFilterBlock
 /// <summary>
 /// Retrieves information about a aws_autoscaling_groups.
 /// </summary>
-public class AwsAutoscalingGroupsDataSource : TerraformDataSource
+public partial class AwsAutoscalingGroupsDataSource : TerraformDataSource
 {
     public AwsAutoscalingGroupsDataSource(string name) : base("aws_autoscaling_groups", name)
     {
@@ -38,36 +38,36 @@ public class AwsAutoscalingGroupsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The names attribute.
     /// </summary>
-    [TerraformPropertyName("names")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> Names { get; set; } = default!;
+    [TerraformProperty("names")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> Names { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformSet<TerraformBlock<AwsAutoscalingGroupsDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
-    [TerraformPropertyName("arns")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Arns => new TerraformReference(this, "arns");
+    [TerraformProperty("arns")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Arns { get; }
 
 }

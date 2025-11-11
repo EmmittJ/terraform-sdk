@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_workspacesweb_session_logger_association resource.
 /// </summary>
-public class AwsWorkspaceswebSessionLoggerAssociation : TerraformResource
+public partial class AwsWorkspaceswebSessionLoggerAssociation : TerraformResource
 {
     public AwsWorkspaceswebSessionLoggerAssociation(string name) : base("aws_workspacesweb_session_logger_association", name)
     {
@@ -15,23 +15,23 @@ public class AwsWorkspaceswebSessionLoggerAssociation : TerraformResource
     /// The portal_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
-    [TerraformPropertyName("portal_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("portal_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PortalArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The session_logger_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SessionLoggerArn is required")]
-    [TerraformPropertyName("session_logger_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("session_logger_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SessionLoggerArn { get; set; }
 
 }

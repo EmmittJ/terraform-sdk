@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeFirewallPolicyAssociationTimeoutsBlock
+public partial class GoogleComputeFirewallPolicyAssociationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleComputeFirewallPolicyAssociationTimeoutsBlock
 /// <summary>
 /// Manages a google_compute_firewall_policy_association resource.
 /// </summary>
-public class GoogleComputeFirewallPolicyAssociation : TerraformResource
+public partial class GoogleComputeFirewallPolicyAssociation : TerraformResource
 {
     public GoogleComputeFirewallPolicyAssociation(string name) : base("google_compute_firewall_policy_association", name)
     {
@@ -44,8 +44,8 @@ public class GoogleComputeFirewallPolicyAssociation : TerraformResource
     /// The target that the firewall policy is attached to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachmentTarget is required")]
-    [TerraformPropertyName("attachment_target")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("attachment_target")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AttachmentTarget { get; set; }
 
     /// <summary>
@@ -58,37 +58,37 @@ public class GoogleComputeFirewallPolicyAssociation : TerraformResource
     /// on your exisiting firewall policy so as to prevent a situation where your attachment target has no associated policy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicy is required")]
-    [TerraformPropertyName("firewall_policy")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("firewall_policy")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FirewallPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name for an association.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeFirewallPolicyAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The short name of the firewall policy of the association.
     /// </summary>
-    [TerraformPropertyName("short_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ShortName => new TerraformReference(this, "short_name");
+    [TerraformProperty("short_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ShortName { get; }
 
 }

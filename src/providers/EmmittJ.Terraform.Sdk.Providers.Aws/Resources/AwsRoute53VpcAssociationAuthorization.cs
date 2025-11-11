@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRoute53VpcAssociationAuthorizationTimeoutsBlock
+public partial class AwsRoute53VpcAssociationAuthorizationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsRoute53VpcAssociationAuthorizationTimeoutsBlock
 /// <summary>
 /// Manages a aws_route53_vpc_association_authorization resource.
 /// </summary>
-public class AwsRoute53VpcAssociationAuthorization : TerraformResource
+public partial class AwsRoute53VpcAssociationAuthorization : TerraformResource
 {
     public AwsRoute53VpcAssociationAuthorization(string name) : base("aws_route53_vpc_association_authorization", name)
     {
@@ -43,38 +43,38 @@ public class AwsRoute53VpcAssociationAuthorization : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    [TerraformPropertyName("vpc_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vpc_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VpcId { get; set; }
 
     /// <summary>
     /// The vpc_region attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> VpcRegion { get; set; } = default!;
+    [TerraformProperty("vpc_region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> VpcRegion { get; set; }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneId is required")]
-    [TerraformPropertyName("zone_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("zone_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ZoneId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsRoute53VpcAssociationAuthorizationTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_iam_virtual_mfa_device resource.
 /// </summary>
-public class AwsIamVirtualMfaDevice : TerraformResource
+public partial class AwsIamVirtualMfaDevice : TerraformResource
 {
     public AwsIamVirtualMfaDevice(string name) : base("aws_iam_virtual_mfa_device", name)
     {
@@ -14,72 +14,72 @@ public class AwsIamVirtualMfaDevice : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformPropertyName("path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The virtual_mfa_device_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMfaDeviceName is required")]
-    [TerraformPropertyName("virtual_mfa_device_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("virtual_mfa_device_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VirtualMfaDeviceName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The base_32_string_seed attribute.
     /// </summary>
-    [TerraformPropertyName("base_32_string_seed")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Base32StringSeed => new TerraformReference(this, "base_32_string_seed");
+    [TerraformProperty("base_32_string_seed")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Base32StringSeed { get; }
 
     /// <summary>
     /// The enable_date attribute.
     /// </summary>
-    [TerraformPropertyName("enable_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EnableDate => new TerraformReference(this, "enable_date");
+    [TerraformProperty("enable_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EnableDate { get; }
 
     /// <summary>
     /// The qr_code_png attribute.
     /// </summary>
-    [TerraformPropertyName("qr_code_png")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> QrCodePng => new TerraformReference(this, "qr_code_png");
+    [TerraformProperty("qr_code_png")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> QrCodePng { get; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    [TerraformPropertyName("user_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UserName => new TerraformReference(this, "user_name");
+    [TerraformProperty("user_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UserName { get; }
 
 }

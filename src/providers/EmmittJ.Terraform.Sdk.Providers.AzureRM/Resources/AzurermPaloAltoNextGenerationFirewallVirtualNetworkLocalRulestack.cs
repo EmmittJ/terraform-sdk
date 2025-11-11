@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for destination_nat in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBlock
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformPropertyName("protocol")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("protocol")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Protocol { get; set; }
 
 }
@@ -30,21 +30,21 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDe
 /// Block type for dns_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsBlock
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    [TerraformPropertyName("dns_servers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dns_servers")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? DnsServers { get; set; }
 
     /// <summary>
     /// The use_azure_dns attribute.
     /// </summary>
-    [TerraformPropertyName("use_azure_dns")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("use_azure_dns")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? UseAzureDns { get; set; }
 
 }
@@ -53,13 +53,13 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDn
 /// Block type for network_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileBlock
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileBlock : TerraformBlockBase
 {
     /// <summary>
     /// The egress_nat_ip_address_ids attribute.
     /// </summary>
-    [TerraformPropertyName("egress_nat_ip_address_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("egress_nat_ip_address_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? EgressNatIpAddressIds { get; set; }
 
 
@@ -67,16 +67,16 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackNe
     /// The public_ip_address_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressIds is required")]
-    [TerraformPropertyName("public_ip_address_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("public_ip_address_ids")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? PublicIpAddressIds { get; set; }
 
 
     /// <summary>
     /// The trusted_address_ranges attribute.
     /// </summary>
-    [TerraformPropertyName("trusted_address_ranges")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("trusted_address_ranges")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? TrustedAddressRanges { get; set; }
 
 }
@@ -85,34 +85,34 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackNe
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackTimeoutsBlock
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -121,7 +121,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackTi
 /// Manages a azurerm_palo_alto_next_generation_firewall_virtual_network_local_rulestack resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestack : TerraformResource
+public partial class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestack : TerraformResource
 {
     public AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestack(string name) : base("azurerm_palo_alto_next_generation_firewall_virtual_network_local_rulestack", name)
     {
@@ -130,60 +130,60 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestack :
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The marketplace_offer_id attribute.
     /// </summary>
-    [TerraformPropertyName("marketplace_offer_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("marketplace_offer_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MarketplaceOfferId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The plan_id attribute.
     /// </summary>
-    [TerraformPropertyName("plan_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("plan_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PlanId { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The rulestack_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
-    [TerraformPropertyName("rulestack_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("rulestack_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RulestackId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for destination_nat.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("destination_nat")]
+    [TerraformProperty("destination_nat")]
     public TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDestinationNatBlock>>? DestinationNat { get; set; }
 
     /// <summary>
@@ -191,7 +191,7 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestack :
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsSettings block(s) allowed")]
-    [TerraformPropertyName("dns_settings")]
+    [TerraformProperty("dns_settings")]
     public TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackDnsSettingsBlock>>? DnsSettings { get; set; }
 
     /// <summary>
@@ -201,14 +201,14 @@ public class AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestack :
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkProfile block(s) allowed")]
-    [TerraformPropertyName("network_profile")]
+    [TerraformProperty("network_profile")]
     public TerraformList<TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileBlock>>? NetworkProfile { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermPaloAltoNextGenerationFirewallVirtualNetworkLocalRulestackTimeoutsBlock>? Timeouts { get; set; }
 
 }

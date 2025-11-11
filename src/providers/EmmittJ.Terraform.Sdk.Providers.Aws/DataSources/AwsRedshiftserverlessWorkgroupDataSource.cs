@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_redshiftserverless_workgroup.
 /// </summary>
-public class AwsRedshiftserverlessWorkgroupDataSource : TerraformDataSource
+public partial class AwsRedshiftserverlessWorkgroupDataSource : TerraformDataSource
 {
     public AwsRedshiftserverlessWorkgroupDataSource(string name) : base("aws_redshiftserverless_workgroup", name)
     {
@@ -14,86 +14,86 @@ public class AwsRedshiftserverlessWorkgroupDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The workgroup_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkgroupName is required")]
-    [TerraformPropertyName("workgroup_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("workgroup_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WorkgroupName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Endpoint => new TerraformReference(this, "endpoint");
+    [TerraformProperty("endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Endpoint { get; }
 
     /// <summary>
     /// The enhanced_vpc_routing attribute.
     /// </summary>
-    [TerraformPropertyName("enhanced_vpc_routing")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EnhancedVpcRouting => new TerraformReference(this, "enhanced_vpc_routing");
+    [TerraformProperty("enhanced_vpc_routing")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EnhancedVpcRouting { get; }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
-    [TerraformPropertyName("namespace_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> NamespaceName => new TerraformReference(this, "namespace_name");
+    [TerraformProperty("namespace_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> NamespaceName { get; }
 
     /// <summary>
     /// The publicly_accessible attribute.
     /// </summary>
-    [TerraformPropertyName("publicly_accessible")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> PubliclyAccessible => new TerraformReference(this, "publicly_accessible");
+    [TerraformProperty("publicly_accessible")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> PubliclyAccessible { get; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> SecurityGroupIds => new TerraformReference(this, "security_group_ids");
+    [TerraformProperty("security_group_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> SecurityGroupIds { get; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> SubnetIds => new TerraformReference(this, "subnet_ids");
+    [TerraformProperty("subnet_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> SubnetIds { get; }
 
     /// <summary>
     /// The track_name attribute.
     /// </summary>
-    [TerraformPropertyName("track_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TrackName => new TerraformReference(this, "track_name");
+    [TerraformProperty("track_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TrackName { get; }
 
     /// <summary>
     /// The workgroup_id attribute.
     /// </summary>
-    [TerraformPropertyName("workgroup_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WorkgroupId => new TerraformReference(this, "workgroup_id");
+    [TerraformProperty("workgroup_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WorkgroupId { get; }
 
 }

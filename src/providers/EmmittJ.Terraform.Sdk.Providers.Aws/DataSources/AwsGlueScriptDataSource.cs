@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dag_edge in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueScriptDataSourceDagEdgeBlock
+public partial class AwsGlueScriptDataSourceDagEdgeBlock : TerraformBlockBase
 {
     /// <summary>
     /// The source attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
-    [TerraformPropertyName("source")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Source { get; set; }
 
     /// <summary>
     /// The target attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
-    [TerraformPropertyName("target")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Target { get; set; }
 
     /// <summary>
     /// The target_parameter attribute.
     /// </summary>
-    [TerraformPropertyName("target_parameter")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("target_parameter")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TargetParameter { get; set; }
 
 }
@@ -37,29 +37,29 @@ public class AwsGlueScriptDataSourceDagEdgeBlock
 /// Block type for dag_node in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlueScriptDataSourceDagNodeBlock
+public partial class AwsGlueScriptDataSourceDagNodeBlock : TerraformBlockBase
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The line_number attribute.
     /// </summary>
-    [TerraformPropertyName("line_number")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("line_number")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? LineNumber { get; set; }
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
-    [TerraformPropertyName("node_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("node_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NodeType { get; set; }
 
 }
@@ -68,7 +68,7 @@ public class AwsGlueScriptDataSourceDagNodeBlock
 /// Retrieves information about a aws_glue_script.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsGlueScriptDataSource : TerraformDataSource
+public partial class AwsGlueScriptDataSource : TerraformDataSource
 {
     public AwsGlueScriptDataSource(string name) : base("aws_glue_script", name)
     {
@@ -77,23 +77,23 @@ public class AwsGlueScriptDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The language attribute.
     /// </summary>
-    [TerraformPropertyName("language")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("language")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Language { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for dag_edge.
@@ -101,7 +101,7 @@ public class AwsGlueScriptDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DagEdge is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DagEdge block(s) required")]
-    [TerraformPropertyName("dag_edge")]
+    [TerraformProperty("dag_edge")]
     public TerraformList<TerraformBlock<AwsGlueScriptDataSourceDagEdgeBlock>>? DagEdge { get; set; }
 
     /// <summary>
@@ -110,21 +110,21 @@ public class AwsGlueScriptDataSource : TerraformDataSource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DagNode is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DagNode block(s) required")]
-    [TerraformPropertyName("dag_node")]
+    [TerraformProperty("dag_node")]
     public TerraformList<TerraformBlock<AwsGlueScriptDataSourceDagNodeBlock>>? DagNode { get; set; }
 
     /// <summary>
     /// The python_script attribute.
     /// </summary>
-    [TerraformPropertyName("python_script")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PythonScript => new TerraformReference(this, "python_script");
+    [TerraformProperty("python_script")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PythonScript { get; }
 
     /// <summary>
     /// The scala_code attribute.
     /// </summary>
-    [TerraformPropertyName("scala_code")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ScalaCode => new TerraformReference(this, "scala_code");
+    [TerraformProperty("scala_code")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ScalaCode { get; }
 
 }

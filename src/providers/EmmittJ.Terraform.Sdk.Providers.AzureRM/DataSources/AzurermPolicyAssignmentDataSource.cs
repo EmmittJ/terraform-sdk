@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPolicyAssignmentDataSourceTimeoutsBlock
+public partial class AzurermPolicyAssignmentDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermPolicyAssignmentDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_policy_assignment.
 /// </summary>
-public class AzurermPolicyAssignmentDataSource : TerraformDataSource
+public partial class AzurermPolicyAssignmentDataSource : TerraformDataSource
 {
     public AzurermPolicyAssignmentDataSource(string name) : base("azurerm_policy_assignment", name)
     {
@@ -29,101 +29,101 @@ public class AzurermPolicyAssignmentDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The scope_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
-    [TerraformPropertyName("scope_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("scope_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ScopeId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermPolicyAssignmentDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The enforce attribute.
     /// </summary>
-    [TerraformPropertyName("enforce")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Enforce => new TerraformReference(this, "enforce");
+    [TerraformProperty("enforce")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Enforce { get; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    [TerraformPropertyName("identity")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Identity => new TerraformReference(this, "identity");
+    [TerraformProperty("identity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    [TerraformPropertyName("metadata")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Metadata => new TerraformReference(this, "metadata");
+    [TerraformProperty("metadata")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Metadata { get; }
 
     /// <summary>
     /// The non_compliance_message attribute.
     /// </summary>
-    [TerraformPropertyName("non_compliance_message")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> NonComplianceMessage => new TerraformReference(this, "non_compliance_message");
+    [TerraformProperty("non_compliance_message")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> NonComplianceMessage { get; }
 
     /// <summary>
     /// The not_scopes attribute.
     /// </summary>
-    [TerraformPropertyName("not_scopes")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> NotScopes => new TerraformReference(this, "not_scopes");
+    [TerraformProperty("not_scopes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> NotScopes { get; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformPropertyName("parameters")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Parameters => new TerraformReference(this, "parameters");
+    [TerraformProperty("parameters")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Parameters { get; }
 
     /// <summary>
     /// The policy_definition_id attribute.
     /// </summary>
-    [TerraformPropertyName("policy_definition_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PolicyDefinitionId => new TerraformReference(this, "policy_definition_id");
+    [TerraformProperty("policy_definition_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PolicyDefinitionId { get; }
 
 }

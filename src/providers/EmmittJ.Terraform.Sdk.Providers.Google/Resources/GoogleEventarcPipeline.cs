@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for destinations in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEventarcPipelineDestinationsBlock
+public partial class GoogleEventarcPipelineDestinationsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The resource name of the Message Bus to which events should be
@@ -14,8 +14,8 @@ public class GoogleEventarcPipelineDestinationsBlock
     /// the Pipeline. Format:
     /// &#39;projects/{project}/locations/{location}/messageBuses/{message_bus}&#39;
     /// </summary>
-    [TerraformPropertyName("message_bus")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("message_bus")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MessageBus { get; set; }
 
     /// <summary>
@@ -23,8 +23,8 @@ public class GoogleEventarcPipelineDestinationsBlock
     /// published. Format:
     /// &#39;projects/{project}/locations/{location}/topics/{topic}&#39;
     /// </summary>
-    [TerraformPropertyName("topic")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("topic")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Topic { get; set; }
 
     /// <summary>
@@ -33,8 +33,8 @@ public class GoogleEventarcPipelineDestinationsBlock
     /// project as the Pipeline. Format:
     /// &#39;projects/{project}/locations/{location}/workflows/{workflow}&#39;
     /// </summary>
-    [TerraformPropertyName("workflow")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("workflow")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Workflow { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class GoogleEventarcPipelineDestinationsBlock
 /// Block type for input_payload_format in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEventarcPipelineInputPayloadFormatBlock
+public partial class GoogleEventarcPipelineInputPayloadFormatBlock : TerraformBlockBase
 {
 }
 
@@ -51,15 +51,15 @@ public class GoogleEventarcPipelineInputPayloadFormatBlock
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEventarcPipelineLoggingConfigBlock
+public partial class GoogleEventarcPipelineLoggingConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The minimum severity of logs that will be sent to Stackdriver/Platform
     /// Telemetry. Logs at severitiy ≥ this value will be sent, unless it is NONE. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;DEBUG&amp;quot;, &amp;quot;INFO&amp;quot;, &amp;quot;NOTICE&amp;quot;, &amp;quot;WARNING&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;CRITICAL&amp;quot;, &amp;quot;ALERT&amp;quot;, &amp;quot;EMERGENCY&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("log_severity")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LogSeverity { get; set; } = default!;
+    [TerraformProperty("log_severity")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LogSeverity { get; set; }
 
 }
 
@@ -67,7 +67,7 @@ public class GoogleEventarcPipelineLoggingConfigBlock
 /// Block type for mediations in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEventarcPipelineMediationsBlock
+public partial class GoogleEventarcPipelineMediationsBlock : TerraformBlockBase
 {
 }
 
@@ -75,15 +75,15 @@ public class GoogleEventarcPipelineMediationsBlock
 /// Block type for retry_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleEventarcPipelineRetryPolicyBlock
+public partial class GoogleEventarcPipelineRetryPolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The maximum number of delivery attempts for any message. The value must
     /// be between 1 and 100.
     /// The default value for this field is 5.
     /// </summary>
-    [TerraformPropertyName("max_attempts")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_attempts")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxAttempts { get; set; }
 
     /// <summary>
@@ -91,8 +91,8 @@ public class GoogleEventarcPipelineRetryPolicyBlock
     /// must be between 1 and 600.
     /// The default value for this field is 60.
     /// </summary>
-    [TerraformPropertyName("max_retry_delay")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_retry_delay")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MaxRetryDelay { get; set; }
 
     /// <summary>
@@ -100,8 +100,8 @@ public class GoogleEventarcPipelineRetryPolicyBlock
     /// must be between 1 and 600.
     /// The default value for this field is 5.
     /// </summary>
-    [TerraformPropertyName("min_retry_delay")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("min_retry_delay")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MinRetryDelay { get; set; }
 
 }
@@ -110,27 +110,27 @@ public class GoogleEventarcPipelineRetryPolicyBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleEventarcPipelineTimeoutsBlock
+public partial class GoogleEventarcPipelineTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -139,7 +139,7 @@ public class GoogleEventarcPipelineTimeoutsBlock
 /// Manages a google_eventarc_pipeline resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleEventarcPipeline : TerraformResource
+public partial class GoogleEventarcPipeline : TerraformResource
 {
     public GoogleEventarcPipeline(string name) : base("google_eventarc_pipeline", name)
     {
@@ -151,8 +151,8 @@ public class GoogleEventarcPipeline : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    [TerraformPropertyName("annotations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("annotations")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
@@ -161,23 +161,23 @@ public class GoogleEventarcPipeline : TerraformResource
     /// will be used to encrypt messages. It must match the pattern
     /// &amp;quot;projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("crypto_key_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("crypto_key_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CryptoKeyName { get; set; }
 
     /// <summary>
     /// Display name of resource.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// User labels attached to the Pipeline that can be used to group
@@ -187,16 +187,16 @@ public class GoogleEventarcPipeline : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
@@ -204,16 +204,16 @@ public class GoogleEventarcPipeline : TerraformResource
     /// format &#39;^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
-    [TerraformPropertyName("pipeline_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("pipeline_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PipelineId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for destinations.
@@ -221,7 +221,7 @@ public class GoogleEventarcPipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destinations block(s) required")]
-    [TerraformPropertyName("destinations")]
+    [TerraformProperty("destinations")]
     public TerraformList<TerraformBlock<GoogleEventarcPipelineDestinationsBlock>>? Destinations { get; set; }
 
     /// <summary>
@@ -229,7 +229,7 @@ public class GoogleEventarcPipeline : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InputPayloadFormat block(s) allowed")]
-    [TerraformPropertyName("input_payload_format")]
+    [TerraformProperty("input_payload_format")]
     public TerraformList<TerraformBlock<GoogleEventarcPipelineInputPayloadFormatBlock>>? InputPayloadFormat { get; set; }
 
     /// <summary>
@@ -237,14 +237,14 @@ public class GoogleEventarcPipeline : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
-    [TerraformPropertyName("logging_config")]
+    [TerraformProperty("logging_config")]
     public TerraformList<TerraformBlock<GoogleEventarcPipelineLoggingConfigBlock>>? LoggingConfig { get; set; }
 
     /// <summary>
     /// Block for mediations.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("mediations")]
+    [TerraformProperty("mediations")]
     public TerraformList<TerraformBlock<GoogleEventarcPipelineMediationsBlock>>? Mediations { get; set; }
 
     /// <summary>
@@ -252,14 +252,14 @@ public class GoogleEventarcPipeline : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryPolicy block(s) allowed")]
-    [TerraformPropertyName("retry_policy")]
+    [TerraformProperty("retry_policy")]
     public TerraformList<TerraformBlock<GoogleEventarcPipelineRetryPolicyBlock>>? RetryPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleEventarcPipelineTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -268,58 +268,58 @@ public class GoogleEventarcPipeline : TerraformResource
     /// to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_annotations")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
+    [TerraformProperty("effective_annotations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// This checksum is computed by the server based on the value of
     /// other fields, and might be sent only on create requests to ensure that the
     /// client has an up-to-date value before proceeding.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The resource name of the Pipeline. Must be unique within the
     /// location of the project and must be in
     /// &#39;projects/{project}/locations/{location}/pipelines/{pipeline}&#39; format.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Server-assigned unique identifier for the Pipeline. The value
     /// is a UUID4 string and guaranteed to remain unchanged until the resource is
     /// deleted.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The last-modified time.
@@ -327,8 +327,8 @@ public class GoogleEventarcPipeline : TerraformResource
     /// to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

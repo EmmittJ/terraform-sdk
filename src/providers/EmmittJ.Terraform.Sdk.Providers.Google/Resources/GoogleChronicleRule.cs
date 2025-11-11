@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleChronicleRuleTimeoutsBlock
+public partial class GoogleChronicleRuleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleChronicleRuleTimeoutsBlock
 /// <summary>
 /// Manages a google_chronicle_rule resource.
 /// </summary>
-public class GoogleChronicleRule : TerraformResource
+public partial class GoogleChronicleRule : TerraformResource
 {
     public GoogleChronicleRule(string name) : base("google_chronicle_rule", name)
     {
@@ -49,8 +49,8 @@ public class GoogleChronicleRule : TerraformResource
     /// deployment associated with this rule will also be deleted.
     /// Possible values: DEFAULT, FORCE
     /// </summary>
-    [TerraformPropertyName("deletion_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deletion_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
@@ -60,46 +60,46 @@ public class GoogleChronicleRule : TerraformResource
     /// otherwise.
     /// Populated in BASIC view and FULL view.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Etag { get; set; } = default!;
+    [TerraformProperty("etag")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Etag { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    [TerraformPropertyName("instance")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Rule Id is the ID of the Rule.
     /// </summary>
-    [TerraformPropertyName("rule_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> RuleId { get; set; } = default!;
+    [TerraformProperty("rule_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> RuleId { get; set; }
 
     /// <summary>
     /// Resource name of the DataAccessScope bound to this rule.
@@ -110,49 +110,49 @@ public class GoogleChronicleRule : TerraformResource
     /// The scope should be in the format:
     /// &amp;quot;projects/{project}/locations/{location}/instances/{instance}/dataAccessScopes/{scope}&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("scope")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("scope")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Scope { get; set; }
 
     /// <summary>
     /// The YARA-L content of the rule.
     /// Populated in FULL view.
     /// </summary>
-    [TerraformPropertyName("text")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("text")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Text { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleChronicleRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The run frequencies that are allowed for the rule.
     /// Populated in BASIC view and FULL view.
     /// </summary>
-    [TerraformPropertyName("allowed_run_frequencies")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AllowedRunFrequencies => new TerraformReference(this, "allowed_run_frequencies");
+    [TerraformProperty("allowed_run_frequencies")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AllowedRunFrequencies { get; }
 
     /// <summary>
     /// Output only. The author of the rule. Extracted from the meta section of text.
     /// Populated in BASIC view and FULL view.
     /// </summary>
-    [TerraformPropertyName("author")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Author => new TerraformReference(this, "author");
+    [TerraformProperty("author")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Author { get; }
 
     /// <summary>
     /// Output only. A list of a rule&#39;s corresponding compilation diagnostic messages
     /// such as compilation errors and compilation warnings.
     /// Populated in FULL view.
     /// </summary>
-    [TerraformPropertyName("compilation_diagnostics")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CompilationDiagnostics => new TerraformReference(this, "compilation_diagnostics");
+    [TerraformProperty("compilation_diagnostics")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CompilationDiagnostics { get; }
 
     /// <summary>
     /// Output only. The current compilation state of the rule.
@@ -162,74 +162,74 @@ public class GoogleChronicleRule : TerraformResource
     /// SUCCEEDED
     /// FAILED
     /// </summary>
-    [TerraformPropertyName("compilation_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CompilationState => new TerraformReference(this, "compilation_state");
+    [TerraformProperty("compilation_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CompilationState { get; }
 
     /// <summary>
     /// Output only. The timestamp of when the rule was created.
     /// Populated in FULL view.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Output only. Resource names of the data tables used in this rule.
     /// </summary>
-    [TerraformPropertyName("data_tables")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> DataTables => new TerraformReference(this, "data_tables");
+    [TerraformProperty("data_tables")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> DataTables { get; }
 
     /// <summary>
     /// Output only. Display name of the rule.
     /// Populated in BASIC view and FULL view.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// Output only. Additional metadata specified in the meta section of text.
     /// Populated in FULL view.
     /// </summary>
-    [TerraformPropertyName("metadata")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Metadata => new TerraformReference(this, "metadata");
+    [TerraformProperty("metadata")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Metadata { get; }
 
     /// <summary>
     /// Full resource name for the rule. This unique identifier is generated using values provided for the URL parameters.
     /// Format:
     /// projects/{project}/locations/{location}/instances/{instance}/rules/{rule}
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. Indicate the rule can run in near real time live rule.
     /// If this is true, the rule uses the near real time live rule when the run
     /// frequency is set to LIVE.
     /// </summary>
-    [TerraformPropertyName("near_real_time_live_rule_eligible")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> NearRealTimeLiveRuleEligible => new TerraformReference(this, "near_real_time_live_rule_eligible");
+    [TerraformProperty("near_real_time_live_rule_eligible")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> NearRealTimeLiveRuleEligible { get; }
 
     /// <summary>
     /// Output only. Resource names of the reference lists used in this rule.
     /// Populated in FULL view.
     /// </summary>
-    [TerraformPropertyName("reference_lists")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ReferenceLists => new TerraformReference(this, "reference_lists");
+    [TerraformProperty("reference_lists")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ReferenceLists { get; }
 
     /// <summary>
     /// Output only. The timestamp of when the rule revision was created.
     /// Populated in FULL, REVISION_METADATA_ONLY views.
     /// </summary>
-    [TerraformPropertyName("revision_create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RevisionCreateTime => new TerraformReference(this, "revision_create_time");
+    [TerraformProperty("revision_create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RevisionCreateTime { get; }
 
     /// <summary>
     /// Output only. The revision ID of the rule.
@@ -237,16 +237,16 @@ public class GoogleChronicleRule : TerraformResource
     /// Format: v_{10 digits}_{9 digits}
     /// Populated in REVISION_METADATA_ONLY view and FULL view.
     /// </summary>
-    [TerraformPropertyName("revision_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RevisionId => new TerraformReference(this, "revision_id");
+    [TerraformProperty("revision_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RevisionId { get; }
 
     /// <summary>
     /// Severity represents the severity level of the rule.
     /// </summary>
-    [TerraformPropertyName("severity")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Severity => new TerraformReference(this, "severity");
+    [TerraformProperty("severity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Severity { get; }
 
     /// <summary>
     /// Possible values:
@@ -254,8 +254,8 @@ public class GoogleChronicleRule : TerraformResource
     /// SINGLE_EVENT
     /// MULTI_EVENT
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
 }

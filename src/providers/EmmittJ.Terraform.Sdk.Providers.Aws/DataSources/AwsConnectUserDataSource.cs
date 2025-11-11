@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_connect_user.
 /// </summary>
-public class AwsConnectUserDataSource : TerraformDataSource
+public partial class AwsConnectUserDataSource : TerraformDataSource
 {
     public AwsConnectUserDataSource(string name) : base("aws_connect_user", name)
     {
@@ -14,93 +14,93 @@ public class AwsConnectUserDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
-    [TerraformPropertyName("instance_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    [TerraformPropertyName("user_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> UserId { get; set; } = default!;
+    [TerraformProperty("user_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> UserId { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The directory_user_id attribute.
     /// </summary>
-    [TerraformPropertyName("directory_user_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DirectoryUserId => new TerraformReference(this, "directory_user_id");
+    [TerraformProperty("directory_user_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DirectoryUserId { get; }
 
     /// <summary>
     /// The hierarchy_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("hierarchy_group_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> HierarchyGroupId => new TerraformReference(this, "hierarchy_group_id");
+    [TerraformProperty("hierarchy_group_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> HierarchyGroupId { get; }
 
     /// <summary>
     /// The identity_info attribute.
     /// </summary>
-    [TerraformPropertyName("identity_info")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> IdentityInfo => new TerraformReference(this, "identity_info");
+    [TerraformProperty("identity_info")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> IdentityInfo { get; }
 
     /// <summary>
     /// The phone_config attribute.
     /// </summary>
-    [TerraformPropertyName("phone_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PhoneConfig => new TerraformReference(this, "phone_config");
+    [TerraformProperty("phone_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PhoneConfig { get; }
 
     /// <summary>
     /// The routing_profile_id attribute.
     /// </summary>
-    [TerraformPropertyName("routing_profile_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RoutingProfileId => new TerraformReference(this, "routing_profile_id");
+    [TerraformProperty("routing_profile_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RoutingProfileId { get; }
 
     /// <summary>
     /// The security_profile_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_profile_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> SecurityProfileIds => new TerraformReference(this, "security_profile_ids");
+    [TerraformProperty("security_profile_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> SecurityProfileIds { get; }
 
 }

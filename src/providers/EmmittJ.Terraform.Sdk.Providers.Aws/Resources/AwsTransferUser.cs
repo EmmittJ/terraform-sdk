@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for home_directory_mappings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTransferUserHomeDirectoryMappingsBlock
+public partial class AwsTransferUserHomeDirectoryMappingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The entry attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entry is required")]
-    [TerraformPropertyName("entry")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("entry")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Entry { get; set; }
 
     /// <summary>
     /// The target attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
-    [TerraformPropertyName("target")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Target { get; set; }
 
 }
@@ -30,29 +30,29 @@ public class AwsTransferUserHomeDirectoryMappingsBlock
 /// Block type for posix_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTransferUserPosixProfileBlock
+public partial class AwsTransferUserPosixProfileBlock : TerraformBlockBase
 {
     /// <summary>
     /// The gid attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
-    [TerraformPropertyName("gid")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("gid")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Gid { get; set; }
 
     /// <summary>
     /// The secondary_gids attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_gids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("secondary_gids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<double>? SecondaryGids { get; set; }
 
     /// <summary>
     /// The uid attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
-    [TerraformPropertyName("uid")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("uid")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Uid { get; set; }
 
 }
@@ -61,13 +61,13 @@ public class AwsTransferUserPosixProfileBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsTransferUserTimeoutsBlock
+public partial class AwsTransferUserTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -76,7 +76,7 @@ public class AwsTransferUserTimeoutsBlock
 /// Manages a aws_transfer_user resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsTransferUser : TerraformResource
+public partial class AwsTransferUser : TerraformResource
 {
     public AwsTransferUser(string name) : base("aws_transfer_user", name)
     {
@@ -85,81 +85,81 @@ public class AwsTransferUser : TerraformResource
     /// <summary>
     /// The home_directory attribute.
     /// </summary>
-    [TerraformPropertyName("home_directory")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("home_directory")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HomeDirectory { get; set; }
 
     /// <summary>
     /// The home_directory_type attribute.
     /// </summary>
-    [TerraformPropertyName("home_directory_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("home_directory_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HomeDirectoryType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    [TerraformPropertyName("policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Policy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
-    [TerraformPropertyName("role")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    [TerraformPropertyName("server_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("server_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServerId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
-    [TerraformPropertyName("user_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserName { get; set; }
 
     /// <summary>
     /// Block for home_directory_mappings.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("home_directory_mappings")]
+    [TerraformProperty("home_directory_mappings")]
     public TerraformList<TerraformBlock<AwsTransferUserHomeDirectoryMappingsBlock>>? HomeDirectoryMappings { get; set; }
 
     /// <summary>
@@ -167,21 +167,21 @@ public class AwsTransferUser : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PosixProfile block(s) allowed")]
-    [TerraformPropertyName("posix_profile")]
+    [TerraformProperty("posix_profile")]
     public TerraformList<TerraformBlock<AwsTransferUserPosixProfileBlock>>? PosixProfile { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsTransferUserTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

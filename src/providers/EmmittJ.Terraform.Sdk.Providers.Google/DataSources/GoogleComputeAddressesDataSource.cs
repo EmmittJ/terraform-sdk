@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_addresses.
 /// </summary>
-public class GoogleComputeAddressesDataSource : TerraformDataSource
+public partial class GoogleComputeAddressesDataSource : TerraformDataSource
 {
     public GoogleComputeAddressesDataSource(string name) : base("google_compute_addresses", name)
     {
@@ -35,36 +35,36 @@ public class GoogleComputeAddressesDataSource : TerraformDataSource
     /// (cpuPlatform = &amp;quot;Intel Skylake&amp;quot;) OR (cpuPlatform = &amp;quot;Intel Broadwell&amp;quot;)
     /// AND (scheduling.automaticRestart = true) &amp;quot;&amp;quot;&amp;quot;
     /// </summary>
-    [TerraformPropertyName("filter")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filter")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The google project in which addresses are listed. Defaults to provider&#39;s configuration if missing.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Region that should be considered to search addresses. All regions are considered if missing.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The addresses attribute.
     /// </summary>
-    [TerraformPropertyName("addresses")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Addresses => new TerraformReference(this, "addresses");
+    [TerraformProperty("addresses")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Addresses { get; }
 
 }

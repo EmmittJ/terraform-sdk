@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowEncryptionSpecEncryptionSpecBlock
+public partial class GoogleDialogflowEncryptionSpecEncryptionSpecBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name of customer-managed encryption key that is used to secure a resource and its sub-resources.
@@ -15,8 +15,8 @@ public class GoogleDialogflowEncryptionSpecEncryptionSpecBlock
     /// Format: projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{key}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
-    [TerraformPropertyName("kms_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kms_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KmsKey { get; set; }
 
 }
@@ -25,20 +25,20 @@ public class GoogleDialogflowEncryptionSpecEncryptionSpecBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowEncryptionSpecTimeoutsBlock
+public partial class GoogleDialogflowEncryptionSpecTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -47,7 +47,7 @@ public class GoogleDialogflowEncryptionSpecTimeoutsBlock
 /// Manages a google_dialogflow_encryption_spec resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleDialogflowEncryptionSpec : TerraformResource
+public partial class GoogleDialogflowEncryptionSpec : TerraformResource
 {
     public GoogleDialogflowEncryptionSpec(string name) : base("google_dialogflow_encryption_spec", name)
     {
@@ -56,24 +56,24 @@ public class GoogleDialogflowEncryptionSpec : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location in which the encryptionSpec is to be initialized.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for encryption_spec.
@@ -82,14 +82,14 @@ public class GoogleDialogflowEncryptionSpec : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionSpec is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EncryptionSpec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
-    [TerraformPropertyName("encryption_spec")]
+    [TerraformProperty("encryption_spec")]
     public TerraformList<TerraformBlock<GoogleDialogflowEncryptionSpecEncryptionSpecBlock>>? EncryptionSpec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDialogflowEncryptionSpecTimeoutsBlock>? Timeouts { get; set; }
 
 }

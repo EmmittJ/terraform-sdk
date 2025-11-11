@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock
+public partial class AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_static_web_app_function_app_registration resource.
 /// </summary>
-public class AzurermStaticWebAppFunctionAppRegistration : TerraformResource
+public partial class AzurermStaticWebAppFunctionAppRegistration : TerraformResource
 {
     public AzurermStaticWebAppFunctionAppRegistration(string name) : base("azurerm_static_web_app_function_app_registration", name)
     {
@@ -44,30 +44,30 @@ public class AzurermStaticWebAppFunctionAppRegistration : TerraformResource
     /// The function_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionAppId is required")]
-    [TerraformPropertyName("function_app_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("function_app_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FunctionAppId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The static_web_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StaticWebAppId is required")]
-    [TerraformPropertyName("static_web_app_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("static_web_app_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StaticWebAppId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermStaticWebAppFunctionAppRegistrationTimeoutsBlock>? Timeouts { get; set; }
 
 }

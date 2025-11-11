@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_storagegateway_upload_buffer resource.
 /// </summary>
-public class AwsStoragegatewayUploadBuffer : TerraformResource
+public partial class AwsStoragegatewayUploadBuffer : TerraformResource
 {
     public AwsStoragegatewayUploadBuffer(string name) : base("aws_storagegateway_upload_buffer", name)
     {
@@ -14,37 +14,37 @@ public class AwsStoragegatewayUploadBuffer : TerraformResource
     /// <summary>
     /// The disk_id attribute.
     /// </summary>
-    [TerraformPropertyName("disk_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DiskId { get; set; } = default!;
+    [TerraformProperty("disk_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DiskId { get; set; }
 
     /// <summary>
     /// The disk_path attribute.
     /// </summary>
-    [TerraformPropertyName("disk_path")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DiskPath { get; set; } = default!;
+    [TerraformProperty("disk_path")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DiskPath { get; set; }
 
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
-    [TerraformPropertyName("gateway_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("gateway_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GatewayArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
 }

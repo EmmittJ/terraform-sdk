@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_service_account.
 /// </summary>
-public class GoogleServiceAccountDataSource : TerraformDataSource
+public partial class GoogleServiceAccountDataSource : TerraformDataSource
 {
     public GoogleServiceAccountDataSource(string name) : base("google_service_account", name)
     {
@@ -15,64 +15,64 @@ public class GoogleServiceAccountDataSource : TerraformDataSource
     /// The account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
-    [TerraformPropertyName("account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Disabled => new TerraformReference(this, "disabled");
+    [TerraformProperty("disabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Disabled { get; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    [TerraformPropertyName("email")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Email => new TerraformReference(this, "email");
+    [TerraformProperty("email")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Email { get; }
 
     /// <summary>
     /// The member attribute.
     /// </summary>
-    [TerraformPropertyName("member")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Member => new TerraformReference(this, "member");
+    [TerraformProperty("member")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Member { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The unique_id attribute.
     /// </summary>
-    [TerraformPropertyName("unique_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UniqueId => new TerraformReference(this, "unique_id");
+    [TerraformProperty("unique_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UniqueId { get; }
 
 }

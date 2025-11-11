@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for logs in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermElasticCloudElasticsearchDataSourceLogsBlock
+public partial class AzurermElasticCloudElasticsearchDataSourceLogsBlock : TerraformBlockBase
 {
 
 
@@ -18,13 +18,13 @@ public class AzurermElasticCloudElasticsearchDataSourceLogsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock
+public partial class AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -32,7 +32,7 @@ public class AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_elastic_cloud_elasticsearch.
 /// </summary>
-public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
+public partial class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
 {
     public AzurermElasticCloudElasticsearchDataSource(string name) : base("azurerm_elastic_cloud_elasticsearch", name)
     {
@@ -41,115 +41,115 @@ public class AzurermElasticCloudElasticsearchDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for logs.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("logs")]
+    [TerraformProperty("logs")]
     public TerraformList<TerraformBlock<AzurermElasticCloudElasticsearchDataSourceLogsBlock>>? Logs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermElasticCloudElasticsearchDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The elastic_cloud_deployment_id attribute.
     /// </summary>
-    [TerraformPropertyName("elastic_cloud_deployment_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ElasticCloudDeploymentId => new TerraformReference(this, "elastic_cloud_deployment_id");
+    [TerraformProperty("elastic_cloud_deployment_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ElasticCloudDeploymentId { get; }
 
     /// <summary>
     /// The elastic_cloud_email_address attribute.
     /// </summary>
-    [TerraformPropertyName("elastic_cloud_email_address")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ElasticCloudEmailAddress => new TerraformReference(this, "elastic_cloud_email_address");
+    [TerraformProperty("elastic_cloud_email_address")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ElasticCloudEmailAddress { get; }
 
     /// <summary>
     /// The elastic_cloud_sso_default_url attribute.
     /// </summary>
-    [TerraformPropertyName("elastic_cloud_sso_default_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ElasticCloudSsoDefaultUrl => new TerraformReference(this, "elastic_cloud_sso_default_url");
+    [TerraformProperty("elastic_cloud_sso_default_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ElasticCloudSsoDefaultUrl { get; }
 
     /// <summary>
     /// The elastic_cloud_user_id attribute.
     /// </summary>
-    [TerraformPropertyName("elastic_cloud_user_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ElasticCloudUserId => new TerraformReference(this, "elastic_cloud_user_id");
+    [TerraformProperty("elastic_cloud_user_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ElasticCloudUserId { get; }
 
     /// <summary>
     /// The elasticsearch_service_url attribute.
     /// </summary>
-    [TerraformPropertyName("elasticsearch_service_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ElasticsearchServiceUrl => new TerraformReference(this, "elasticsearch_service_url");
+    [TerraformProperty("elasticsearch_service_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ElasticsearchServiceUrl { get; }
 
     /// <summary>
     /// The kibana_service_url attribute.
     /// </summary>
-    [TerraformPropertyName("kibana_service_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KibanaServiceUrl => new TerraformReference(this, "kibana_service_url");
+    [TerraformProperty("kibana_service_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KibanaServiceUrl { get; }
 
     /// <summary>
     /// The kibana_sso_uri attribute.
     /// </summary>
-    [TerraformPropertyName("kibana_sso_uri")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KibanaSsoUri => new TerraformReference(this, "kibana_sso_uri");
+    [TerraformProperty("kibana_sso_uri")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KibanaSsoUri { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The monitoring_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("monitoring_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> MonitoringEnabled => new TerraformReference(this, "monitoring_enabled");
+    [TerraformProperty("monitoring_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> MonitoringEnabled { get; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    [TerraformPropertyName("sku_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SkuName => new TerraformReference(this, "sku_name");
+    [TerraformProperty("sku_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SkuName { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
 }

@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for category in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPaloAltoLocalRulestackRuleCategoryBlock
+public partial class AzurermPaloAltoLocalRulestackRuleCategoryBlock : TerraformBlockBase
 {
     /// <summary>
     /// The custom_urls attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomUrls is required")]
-    [TerraformPropertyName("custom_urls")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("custom_urls")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? CustomUrls { get; set; }
 
     /// <summary>
     /// The feeds attribute.
     /// </summary>
-    [TerraformPropertyName("feeds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("feeds")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Feeds { get; set; }
 
 }
@@ -29,41 +29,41 @@ public class AzurermPaloAltoLocalRulestackRuleCategoryBlock
 /// Block type for destination in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPaloAltoLocalRulestackRuleDestinationBlock
+public partial class AzurermPaloAltoLocalRulestackRuleDestinationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cidrs attribute.
     /// </summary>
-    [TerraformPropertyName("cidrs")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cidrs")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Cidrs { get; set; }
 
     /// <summary>
     /// The countries attribute.
     /// </summary>
-    [TerraformPropertyName("countries")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("countries")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Countries { get; set; }
 
     /// <summary>
     /// The feeds attribute.
     /// </summary>
-    [TerraformPropertyName("feeds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("feeds")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Feeds { get; set; }
 
     /// <summary>
     /// The local_rulestack_fqdn_list_ids attribute.
     /// </summary>
-    [TerraformPropertyName("local_rulestack_fqdn_list_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("local_rulestack_fqdn_list_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? LocalRulestackFqdnListIds { get; set; }
 
     /// <summary>
     /// The local_rulestack_prefix_list_ids attribute.
     /// </summary>
-    [TerraformPropertyName("local_rulestack_prefix_list_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("local_rulestack_prefix_list_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? LocalRulestackPrefixListIds { get; set; }
 
 }
@@ -72,34 +72,34 @@ public class AzurermPaloAltoLocalRulestackRuleDestinationBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPaloAltoLocalRulestackRuleSourceBlock
+public partial class AzurermPaloAltoLocalRulestackRuleSourceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cidrs attribute.
     /// </summary>
-    [TerraformPropertyName("cidrs")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cidrs")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Cidrs { get; set; }
 
     /// <summary>
     /// The countries attribute.
     /// </summary>
-    [TerraformPropertyName("countries")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("countries")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Countries { get; set; }
 
     /// <summary>
     /// The feeds attribute.
     /// </summary>
-    [TerraformPropertyName("feeds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("feeds")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Feeds { get; set; }
 
     /// <summary>
     /// The local_rulestack_prefix_list_ids attribute.
     /// </summary>
-    [TerraformPropertyName("local_rulestack_prefix_list_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("local_rulestack_prefix_list_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? LocalRulestackPrefixListIds { get; set; }
 
 }
@@ -108,34 +108,34 @@ public class AzurermPaloAltoLocalRulestackRuleSourceBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPaloAltoLocalRulestackRuleTimeoutsBlock
+public partial class AzurermPaloAltoLocalRulestackRuleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -144,7 +144,7 @@ public class AzurermPaloAltoLocalRulestackRuleTimeoutsBlock
 /// Manages a azurerm_palo_alto_local_rulestack_rule resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermPaloAltoLocalRulestackRule : TerraformResource
+public partial class AzurermPaloAltoLocalRulestackRule : TerraformResource
 {
     public AzurermPaloAltoLocalRulestackRule(string name) : base("azurerm_palo_alto_local_rulestack_rule", name)
     {
@@ -154,124 +154,124 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformPropertyName("action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The applications attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Applications is required")]
-    [TerraformPropertyName("applications")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("applications")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Applications { get; set; }
 
     /// <summary>
     /// The audit_comment attribute.
     /// </summary>
-    [TerraformPropertyName("audit_comment")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("audit_comment")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuditComment { get; set; }
 
     /// <summary>
     /// The decryption_rule_type attribute.
     /// </summary>
-    [TerraformPropertyName("decryption_rule_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("decryption_rule_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DecryptionRuleType { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The inspection_certificate_id attribute.
     /// </summary>
-    [TerraformPropertyName("inspection_certificate_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("inspection_certificate_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? InspectionCertificateId { get; set; }
 
     /// <summary>
     /// The logging_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("logging_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("logging_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LoggingEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The negate_destination attribute.
     /// </summary>
-    [TerraformPropertyName("negate_destination")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("negate_destination")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? NegateDestination { get; set; }
 
     /// <summary>
     /// The negate_source attribute.
     /// </summary>
-    [TerraformPropertyName("negate_source")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("negate_source")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? NegateSource { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformPropertyName("priority")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("priority")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    [TerraformPropertyName("protocol")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("protocol")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Protocol { get; set; }
 
     /// <summary>
     /// The protocol_ports attribute.
     /// </summary>
-    [TerraformPropertyName("protocol_ports")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("protocol_ports")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ProtocolPorts { get; set; }
 
     /// <summary>
     /// The rulestack_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RulestackId is required")]
-    [TerraformPropertyName("rulestack_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("rulestack_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RulestackId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -279,7 +279,7 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Category block(s) allowed")]
-    [TerraformPropertyName("category")]
+    [TerraformProperty("category")]
     public TerraformList<TerraformBlock<AzurermPaloAltoLocalRulestackRuleCategoryBlock>>? Category { get; set; }
 
     /// <summary>
@@ -289,7 +289,7 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destination block(s) allowed")]
-    [TerraformPropertyName("destination")]
+    [TerraformProperty("destination")]
     public TerraformList<TerraformBlock<AzurermPaloAltoLocalRulestackRuleDestinationBlock>>? Destination { get; set; }
 
     /// <summary>
@@ -299,14 +299,14 @@ public class AzurermPaloAltoLocalRulestackRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    [TerraformPropertyName("source")]
+    [TerraformProperty("source")]
     public TerraformList<TerraformBlock<AzurermPaloAltoLocalRulestackRuleSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermPaloAltoLocalRulestackRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

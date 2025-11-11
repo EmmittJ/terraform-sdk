@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeGlobalNetworkEndpointGroupTimeoutsBlock
+public partial class GoogleComputeGlobalNetworkEndpointGroupTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class GoogleComputeGlobalNetworkEndpointGroupTimeoutsBlock
 /// <summary>
 /// Manages a google_compute_global_network_endpoint_group resource.
 /// </summary>
-public class GoogleComputeGlobalNetworkEndpointGroup : TerraformResource
+public partial class GoogleComputeGlobalNetworkEndpointGroup : TerraformResource
 {
     public GoogleComputeGlobalNetworkEndpointGroup(string name) : base("google_compute_global_network_endpoint_group", name)
     {
@@ -37,24 +37,24 @@ public class GoogleComputeGlobalNetworkEndpointGroup : TerraformResource
     /// The default port used if the port number is not specified in the
     /// network endpoint.
     /// </summary>
-    [TerraformPropertyName("default_port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? DefaultPort { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is
@@ -66,37 +66,37 @@ public class GoogleComputeGlobalNetworkEndpointGroup : TerraformResource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Type of network endpoints in this network endpoint group. Possible values: [&amp;quot;INTERNET_IP_PORT&amp;quot;, &amp;quot;INTERNET_FQDN_PORT&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkEndpointType is required")]
-    [TerraformPropertyName("network_endpoint_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network_endpoint_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NetworkEndpointType { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeGlobalNetworkEndpointGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
 }

@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for soa_record in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPrivateDnsZoneSoaRecordBlock
+public partial class AzurermPrivateDnsZoneSoaRecordBlock : TerraformBlockBase
 {
     /// <summary>
     /// The email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    [TerraformPropertyName("email")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("email")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Email { get; set; }
 
     /// <summary>
     /// The expire_time attribute.
     /// </summary>
-    [TerraformPropertyName("expire_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expire_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ExpireTime { get; set; }
 
 
@@ -28,37 +28,37 @@ public class AzurermPrivateDnsZoneSoaRecordBlock
     /// <summary>
     /// The minimum_ttl attribute.
     /// </summary>
-    [TerraformPropertyName("minimum_ttl")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("minimum_ttl")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MinimumTtl { get; set; }
 
     /// <summary>
     /// The refresh_time attribute.
     /// </summary>
-    [TerraformPropertyName("refresh_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("refresh_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RefreshTime { get; set; }
 
     /// <summary>
     /// The retry_time attribute.
     /// </summary>
-    [TerraformPropertyName("retry_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retry_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RetryTime { get; set; }
 
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    [TerraformPropertyName("ttl")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ttl")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Ttl { get; set; }
 
 }
@@ -67,34 +67,34 @@ public class AzurermPrivateDnsZoneSoaRecordBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPrivateDnsZoneTimeoutsBlock
+public partial class AzurermPrivateDnsZoneTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -103,7 +103,7 @@ public class AzurermPrivateDnsZoneTimeoutsBlock
 /// Manages a azurerm_private_dns_zone resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermPrivateDnsZone : TerraformResource
+public partial class AzurermPrivateDnsZone : TerraformResource
 {
     public AzurermPrivateDnsZone(string name) : base("azurerm_private_dns_zone", name)
     {
@@ -112,31 +112,31 @@ public class AzurermPrivateDnsZone : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -144,42 +144,42 @@ public class AzurermPrivateDnsZone : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoaRecord block(s) allowed")]
-    [TerraformPropertyName("soa_record")]
+    [TerraformProperty("soa_record")]
     public TerraformList<TerraformBlock<AzurermPrivateDnsZoneSoaRecordBlock>>? SoaRecord { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermPrivateDnsZoneTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The max_number_of_record_sets attribute.
     /// </summary>
-    [TerraformPropertyName("max_number_of_record_sets")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaxNumberOfRecordSets => new TerraformReference(this, "max_number_of_record_sets");
+    [TerraformProperty("max_number_of_record_sets")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaxNumberOfRecordSets { get; }
 
     /// <summary>
     /// The max_number_of_virtual_network_links attribute.
     /// </summary>
-    [TerraformPropertyName("max_number_of_virtual_network_links")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaxNumberOfVirtualNetworkLinks => new TerraformReference(this, "max_number_of_virtual_network_links");
+    [TerraformProperty("max_number_of_virtual_network_links")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaxNumberOfVirtualNetworkLinks { get; }
 
     /// <summary>
     /// The max_number_of_virtual_network_links_with_registration attribute.
     /// </summary>
-    [TerraformPropertyName("max_number_of_virtual_network_links_with_registration")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaxNumberOfVirtualNetworkLinksWithRegistration => new TerraformReference(this, "max_number_of_virtual_network_links_with_registration");
+    [TerraformProperty("max_number_of_virtual_network_links_with_registration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaxNumberOfVirtualNetworkLinksWithRegistration { get; }
 
     /// <summary>
     /// The number_of_record_sets attribute.
     /// </summary>
-    [TerraformPropertyName("number_of_record_sets")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> NumberOfRecordSets => new TerraformReference(this, "number_of_record_sets");
+    [TerraformProperty("number_of_record_sets")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> NumberOfRecordSets { get; }
 
 }

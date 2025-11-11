@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for terms in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRouterRoutePolicyTermsBlock
+public partial class GoogleComputeRouterRoutePolicyTermsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The evaluation priority for this term, which must be between 0 (inclusive) and 231 (exclusive), and unique within the list.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformPropertyName("priority")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("priority")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Priority { get; set; }
 
 }
@@ -22,27 +22,27 @@ public class GoogleComputeRouterRoutePolicyTermsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRouterRoutePolicyTimeoutsBlock
+public partial class GoogleComputeRouterRoutePolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -51,7 +51,7 @@ public class GoogleComputeRouterRoutePolicyTimeoutsBlock
 /// Manages a google_compute_router_route_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputeRouterRoutePolicy : TerraformResource
+public partial class GoogleComputeRouterRoutePolicy : TerraformResource
 {
     public GoogleComputeRouterRoutePolicy(string name) : base("google_compute_router_route_policy", name)
     {
@@ -60,45 +60,45 @@ public class GoogleComputeRouterRoutePolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the route policy. This policy&#39;s name, which must be a resource ID segment and unique within all policies owned by the Router
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Region where the router and NAT reside.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The name of the Cloud Router in which this route policy will be configured.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
-    [TerraformPropertyName("router")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("router")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Router { get; set; }
 
     /// <summary>
     /// This is policy&#39;s type, which is one of IMPORT or EXPORT Possible values: [&amp;quot;ROUTE_POLICY_TYPE_IMPORT&amp;quot;, &amp;quot;ROUTE_POLICY_TYPE_EXPORT&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
@@ -107,22 +107,22 @@ public class GoogleComputeRouterRoutePolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Terms is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Terms block(s) required")]
-    [TerraformPropertyName("terms")]
+    [TerraformProperty("terms")]
     public TerraformList<TerraformBlock<GoogleComputeRouterRoutePolicyTermsBlock>>? Terms { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeRouterRoutePolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
-    [TerraformPropertyName("fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
+    [TerraformProperty("fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fingerprint { get; }
 
 }

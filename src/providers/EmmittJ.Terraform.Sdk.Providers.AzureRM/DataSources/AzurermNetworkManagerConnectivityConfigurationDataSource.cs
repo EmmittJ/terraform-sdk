@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetworkManagerConnectivityConfigurationDataSourceTimeoutsBlock
+public partial class AzurermNetworkManagerConnectivityConfigurationDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermNetworkManagerConnectivityConfigurationDataSourceTimeoutsBlo
 /// <summary>
 /// Retrieves information about a azurerm_network_manager_connectivity_configuration.
 /// </summary>
-public class AzurermNetworkManagerConnectivityConfigurationDataSource : TerraformDataSource
+public partial class AzurermNetworkManagerConnectivityConfigurationDataSource : TerraformDataSource
 {
     public AzurermNetworkManagerConnectivityConfigurationDataSource(string name) : base("azurerm_network_manager_connectivity_configuration", name)
     {
@@ -29,73 +29,73 @@ public class AzurermNetworkManagerConnectivityConfigurationDataSource : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_manager_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
-    [TerraformPropertyName("network_manager_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network_manager_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NetworkManagerId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermNetworkManagerConnectivityConfigurationDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The applies_to_group attribute.
     /// </summary>
-    [TerraformPropertyName("applies_to_group")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> AppliesToGroup => new TerraformReference(this, "applies_to_group");
+    [TerraformProperty("applies_to_group")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> AppliesToGroup { get; }
 
     /// <summary>
     /// The connectivity_topology attribute.
     /// </summary>
-    [TerraformPropertyName("connectivity_topology")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ConnectivityTopology => new TerraformReference(this, "connectivity_topology");
+    [TerraformProperty("connectivity_topology")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ConnectivityTopology { get; }
 
     /// <summary>
     /// The delete_existing_peering_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("delete_existing_peering_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DeleteExistingPeeringEnabled => new TerraformReference(this, "delete_existing_peering_enabled");
+    [TerraformProperty("delete_existing_peering_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DeleteExistingPeeringEnabled { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The global_mesh_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("global_mesh_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> GlobalMeshEnabled => new TerraformReference(this, "global_mesh_enabled");
+    [TerraformProperty("global_mesh_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> GlobalMeshEnabled { get; }
 
     /// <summary>
     /// The hub attribute.
     /// </summary>
-    [TerraformPropertyName("hub")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Hub => new TerraformReference(this, "hub");
+    [TerraformProperty("hub")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Hub { get; }
 
 }

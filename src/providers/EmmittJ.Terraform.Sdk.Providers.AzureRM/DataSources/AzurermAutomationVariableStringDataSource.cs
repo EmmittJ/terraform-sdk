@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAutomationVariableStringDataSourceTimeoutsBlock
+public partial class AzurermAutomationVariableStringDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermAutomationVariableStringDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_automation_variable_string.
 /// </summary>
-public class AzurermAutomationVariableStringDataSource : TerraformDataSource
+public partial class AzurermAutomationVariableStringDataSource : TerraformDataSource
 {
     public AzurermAutomationVariableStringDataSource(string name) : base("azurerm_automation_variable_string", name)
     {
@@ -30,59 +30,59 @@ public class AzurermAutomationVariableStringDataSource : TerraformDataSource
     /// The automation_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
-    [TerraformPropertyName("automation_account_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("automation_account_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AutomationAccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermAutomationVariableStringDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    [TerraformPropertyName("encrypted")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Encrypted => new TerraformReference(this, "encrypted");
+    [TerraformProperty("encrypted")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Encrypted { get; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    [TerraformPropertyName("value")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Value => new TerraformReference(this, "value");
+    [TerraformProperty("value")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Value { get; }
 
 }

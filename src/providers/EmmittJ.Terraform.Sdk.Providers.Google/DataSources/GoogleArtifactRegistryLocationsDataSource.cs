@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_artifact_registry_locations.
 /// </summary>
-public class GoogleArtifactRegistryLocationsDataSource : TerraformDataSource
+public partial class GoogleArtifactRegistryLocationsDataSource : TerraformDataSource
 {
     public GoogleArtifactRegistryLocationsDataSource(string name) : base("google_artifact_registry_locations", name)
     {
@@ -14,22 +14,22 @@ public class GoogleArtifactRegistryLocationsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The locations attribute.
     /// </summary>
-    [TerraformPropertyName("locations")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Locations => new TerraformReference(this, "locations");
+    [TerraformProperty("locations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Locations { get; }
 
 }

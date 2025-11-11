@@ -6,76 +6,76 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for match in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionNetworkFirewallPolicyRuleMatchBlock
+public partial class GoogleComputeRegionNetworkFirewallPolicyRuleMatchBlock : TerraformBlockBase
 {
     /// <summary>
     /// Address groups which should be matched against the traffic destination. Maximum number of destination address groups is 10.
     /// </summary>
-    [TerraformPropertyName("dest_address_groups")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dest_address_groups")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? DestAddressGroups { get; set; }
 
     /// <summary>
     /// Fully Qualified Domain Name (FQDN) which should be matched against traffic destination. Maximum number of destination fqdn allowed is 100.
     /// </summary>
-    [TerraformPropertyName("dest_fqdns")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dest_fqdns")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? DestFqdns { get; set; }
 
     /// <summary>
     /// CIDR IP address range. Maximum number of destination CIDR IP ranges allowed is 5000.
     /// </summary>
-    [TerraformPropertyName("dest_ip_ranges")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dest_ip_ranges")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? DestIpRanges { get; set; }
 
     /// <summary>
     /// Region codes whose IP addresses will be used to match for destination of traffic. Should be specified as 2 letter country code defined as per ISO 3166 alpha-2 country codes. ex.&amp;quot;US&amp;quot; Maximum number of dest region codes allowed is 5000.
     /// </summary>
-    [TerraformPropertyName("dest_region_codes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dest_region_codes")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? DestRegionCodes { get; set; }
 
     /// <summary>
     /// Names of Network Threat Intelligence lists. The IPs in these lists will be matched against traffic destination.
     /// </summary>
-    [TerraformPropertyName("dest_threat_intelligences")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dest_threat_intelligences")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? DestThreatIntelligences { get; set; }
 
     /// <summary>
     /// Address groups which should be matched against the traffic source. Maximum number of source address groups is 10.
     /// </summary>
-    [TerraformPropertyName("src_address_groups")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("src_address_groups")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? SrcAddressGroups { get; set; }
 
     /// <summary>
     /// Fully Qualified Domain Name (FQDN) which should be matched against traffic source. Maximum number of source fqdn allowed is 100.
     /// </summary>
-    [TerraformPropertyName("src_fqdns")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("src_fqdns")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? SrcFqdns { get; set; }
 
     /// <summary>
     /// CIDR IP address range. Maximum number of source CIDR IP ranges allowed is 5000.
     /// </summary>
-    [TerraformPropertyName("src_ip_ranges")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("src_ip_ranges")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? SrcIpRanges { get; set; }
 
     /// <summary>
     /// Region codes whose IP addresses will be used to match for source of traffic. Should be specified as 2 letter country code defined as per ISO 3166 alpha-2 country codes. ex.&amp;quot;US&amp;quot; Maximum number of source region codes allowed is 5000.
     /// </summary>
-    [TerraformPropertyName("src_region_codes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("src_region_codes")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? SrcRegionCodes { get; set; }
 
     /// <summary>
     /// Names of Network Threat Intelligence lists. The IPs in these lists will be matched against traffic source.
     /// </summary>
-    [TerraformPropertyName("src_threat_intelligences")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("src_threat_intelligences")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? SrcThreatIntelligences { get; set; }
 
 }
@@ -84,13 +84,13 @@ public class GoogleComputeRegionNetworkFirewallPolicyRuleMatchBlock
 /// Block type for target_secure_tags in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionNetworkFirewallPolicyRuleTargetSecureTagsBlock
+public partial class GoogleComputeRegionNetworkFirewallPolicyRuleTargetSecureTagsBlock : TerraformBlockBase
 {
     /// <summary>
     /// Name of the secure tag, created with TagManager&#39;s TagValue API.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
 
@@ -100,27 +100,27 @@ public class GoogleComputeRegionNetworkFirewallPolicyRuleTargetSecureTagsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRegionNetworkFirewallPolicyRuleTimeoutsBlock
+public partial class GoogleComputeRegionNetworkFirewallPolicyRuleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -129,7 +129,7 @@ public class GoogleComputeRegionNetworkFirewallPolicyRuleTimeoutsBlock
 /// Manages a google_compute_region_network_firewall_policy_rule resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputeRegionNetworkFirewallPolicyRule : TerraformResource
+public partial class GoogleComputeRegionNetworkFirewallPolicyRule : TerraformResource
 {
     public GoogleComputeRegionNetworkFirewallPolicyRule(string name) : base("google_compute_region_network_firewall_policy_rule", name)
     {
@@ -139,23 +139,23 @@ public class GoogleComputeRegionNetworkFirewallPolicyRule : TerraformResource
     /// The Action to perform when the client connection triggers the rule. Valid actions are &amp;quot;allow&amp;quot;, &amp;quot;deny&amp;quot;, &amp;quot;goto_next&amp;quot; and &amp;quot;apply_security_profile_group&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformPropertyName("action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// An optional description for this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The direction in which this rule applies. Possible values: [&amp;quot;INGRESS&amp;quot;, &amp;quot;EGRESS&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Direction is required")]
-    [TerraformPropertyName("direction")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("direction")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Direction { get; set; }
 
     /// <summary>
@@ -163,8 +163,8 @@ public class GoogleComputeRegionNetworkFirewallPolicyRule : TerraformResource
     /// When set to true, the firewall policy rule is not enforced and traffic behaves as if it did not exist.
     /// If this is unspecified, the firewall policy rule will be enabled.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
@@ -173,24 +173,24 @@ public class GoogleComputeRegionNetworkFirewallPolicyRule : TerraformResource
     /// Logs may be exported to BigQuery or Pub/Sub.
     /// Note: you cannot enable logging on &amp;quot;goto_next&amp;quot; rules.
     /// </summary>
-    [TerraformPropertyName("enable_logging")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_logging")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableLogging { get; set; }
 
     /// <summary>
     /// The firewall policy of the resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicy is required")]
-    [TerraformPropertyName("firewall_policy")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("firewall_policy")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FirewallPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// An integer indicating the priority of a rule in the list.
@@ -198,29 +198,29 @@ public class GoogleComputeRegionNetworkFirewallPolicyRule : TerraformResource
     /// Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest prority.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformPropertyName("priority")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("priority")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The location of this resource.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// An optional name for the rule. This field is not a unique identifier and can be updated.
     /// </summary>
-    [TerraformPropertyName("rule_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("rule_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RuleName { get; set; }
 
     /// <summary>
@@ -230,23 +230,23 @@ public class GoogleComputeRegionNetworkFirewallPolicyRule : TerraformResource
     /// 
     /// Security Profile Group and Firewall Policy Rule must be in the same scope.
     /// </summary>
-    [TerraformPropertyName("security_profile_group")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_profile_group")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SecurityProfileGroup { get; set; }
 
     /// <summary>
     /// A list of service accounts indicating the sets of instances that are applied with this rule.
     /// </summary>
-    [TerraformPropertyName("target_service_accounts")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("target_service_accounts")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? TargetServiceAccounts { get; set; }
 
     /// <summary>
     /// Boolean flag indicating if the traffic should be TLS decrypted.
     /// Can be set only if action = &#39;apply_security_profile_group&#39; and cannot be set for other actions.
     /// </summary>
-    [TerraformPropertyName("tls_inspect")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tls_inspect")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? TlsInspect { get; set; }
 
     /// <summary>
@@ -256,42 +256,42 @@ public class GoogleComputeRegionNetworkFirewallPolicyRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Match is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Match block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Match block(s) allowed")]
-    [TerraformPropertyName("match")]
+    [TerraformProperty("match")]
     public TerraformList<TerraformBlock<GoogleComputeRegionNetworkFirewallPolicyRuleMatchBlock>>? Match { get; set; }
 
     /// <summary>
     /// Block for target_secure_tags.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("target_secure_tags")]
+    [TerraformProperty("target_secure_tags")]
     public TerraformList<TerraformBlock<GoogleComputeRegionNetworkFirewallPolicyRuleTargetSecureTagsBlock>>? TargetSecureTags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeRegionNetworkFirewallPolicyRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Type of the resource. Always &#39;compute#firewallPolicyRule&#39; for firewall policy rules
     /// </summary>
-    [TerraformPropertyName("kind")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Kind => new TerraformReference(this, "kind");
+    [TerraformProperty("kind")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Kind { get; }
 
     /// <summary>
     /// Calculation of the complexity of a single firewall policy rule.
     /// </summary>
-    [TerraformPropertyName("rule_tuple_count")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> RuleTupleCount => new TerraformReference(this, "rule_tuple_count");
+    [TerraformProperty("rule_tuple_count")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> RuleTupleCount { get; }
 
 }

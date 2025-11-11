@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for access_logs in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElbAccessLogsBlock
+public partial class AwsElbAccessLogsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    [TerraformPropertyName("bucket")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The bucket_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("bucket_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bucket_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BucketPrefix { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    [TerraformPropertyName("interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Interval { get; set; }
 
 }
@@ -43,46 +43,46 @@ public class AwsElbAccessLogsBlock
 /// Block type for health_check in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElbHealthCheckBlock
+public partial class AwsElbHealthCheckBlock : TerraformBlockBase
 {
     /// <summary>
     /// The healthy_threshold attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HealthyThreshold is required")]
-    [TerraformPropertyName("healthy_threshold")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("healthy_threshold")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> HealthyThreshold { get; set; }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Interval is required")]
-    [TerraformPropertyName("interval")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("interval")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Interval { get; set; }
 
     /// <summary>
     /// The target attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
-    [TerraformPropertyName("target")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Target { get; set; }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Timeout is required")]
-    [TerraformPropertyName("timeout")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("timeout")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Timeout { get; set; }
 
     /// <summary>
     /// The unhealthy_threshold attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UnhealthyThreshold is required")]
-    [TerraformPropertyName("unhealthy_threshold")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("unhealthy_threshold")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> UnhealthyThreshold { get; set; }
 
 }
@@ -91,45 +91,45 @@ public class AwsElbHealthCheckBlock
 /// Block type for listener in .
 /// Nesting mode: set
 /// </summary>
-public class AwsElbListenerBlock
+public partial class AwsElbListenerBlock : TerraformBlockBase
 {
     /// <summary>
     /// The instance_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePort is required")]
-    [TerraformPropertyName("instance_port")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_port")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> InstancePort { get; set; }
 
     /// <summary>
     /// The instance_protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceProtocol is required")]
-    [TerraformPropertyName("instance_protocol")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_protocol")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstanceProtocol { get; set; }
 
     /// <summary>
     /// The lb_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbPort is required")]
-    [TerraformPropertyName("lb_port")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("lb_port")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> LbPort { get; set; }
 
     /// <summary>
     /// The lb_protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LbProtocol is required")]
-    [TerraformPropertyName("lb_protocol")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("lb_protocol")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LbProtocol { get; set; }
 
     /// <summary>
     /// The ssl_certificate_id attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_certificate_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_certificate_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SslCertificateId { get; set; }
 
 }
@@ -138,20 +138,20 @@ public class AwsElbListenerBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsElbTimeoutsBlock
+public partial class AwsElbTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -160,7 +160,7 @@ public class AwsElbTimeoutsBlock
 /// Manages a aws_elb resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsElb : TerraformResource
+public partial class AwsElb : TerraformResource
 {
     public AwsElb(string name) : base("aws_elb", name)
     {
@@ -169,128 +169,128 @@ public class AwsElb : TerraformResource
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    [TerraformPropertyName("availability_zones")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> AvailabilityZones { get; set; } = default!;
+    [TerraformProperty("availability_zones")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> AvailabilityZones { get; set; }
 
     /// <summary>
     /// The connection_draining attribute.
     /// </summary>
-    [TerraformPropertyName("connection_draining")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("connection_draining")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ConnectionDraining { get; set; }
 
     /// <summary>
     /// The connection_draining_timeout attribute.
     /// </summary>
-    [TerraformPropertyName("connection_draining_timeout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("connection_draining_timeout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ConnectionDrainingTimeout { get; set; }
 
     /// <summary>
     /// The cross_zone_load_balancing attribute.
     /// </summary>
-    [TerraformPropertyName("cross_zone_load_balancing")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cross_zone_load_balancing")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? CrossZoneLoadBalancing { get; set; }
 
     /// <summary>
     /// The desync_mitigation_mode attribute.
     /// </summary>
-    [TerraformPropertyName("desync_mitigation_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("desync_mitigation_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DesyncMitigationMode { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The idle_timeout attribute.
     /// </summary>
-    [TerraformPropertyName("idle_timeout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("idle_timeout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? IdleTimeout { get; set; }
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
-    [TerraformPropertyName("instances")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> Instances { get; set; } = default!;
+    [TerraformProperty("instances")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> Instances { get; set; }
 
     /// <summary>
     /// The internal attribute.
     /// </summary>
-    [TerraformPropertyName("internal")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> Internal { get; set; } = default!;
+    [TerraformProperty("internal")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> Internal { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NamePrefix { get; set; } = default!;
+    [TerraformProperty("name_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    [TerraformPropertyName("security_groups")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> SecurityGroups { get; set; } = default!;
+    [TerraformProperty("security_groups")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> SecurityGroups { get; set; }
 
     /// <summary>
     /// The source_security_group attribute.
     /// </summary>
-    [TerraformPropertyName("source_security_group")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SourceSecurityGroup { get; set; } = default!;
+    [TerraformProperty("source_security_group")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SourceSecurityGroup { get; set; }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    [TerraformPropertyName("subnets")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> Subnets { get; set; } = default!;
+    [TerraformProperty("subnets")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> Subnets { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for access_logs.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessLogs block(s) allowed")]
-    [TerraformPropertyName("access_logs")]
+    [TerraformProperty("access_logs")]
     public TerraformList<TerraformBlock<AwsElbAccessLogsBlock>>? AccessLogs { get; set; }
 
     /// <summary>
@@ -298,7 +298,7 @@ public class AwsElb : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheck block(s) allowed")]
-    [TerraformPropertyName("health_check")]
+    [TerraformProperty("health_check")]
     public TerraformList<TerraformBlock<AwsElbHealthCheckBlock>>? HealthCheck { get; set; }
 
     /// <summary>
@@ -307,42 +307,42 @@ public class AwsElb : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Listener is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Listener block(s) required")]
-    [TerraformPropertyName("listener")]
+    [TerraformProperty("listener")]
     public TerraformSet<TerraformBlock<AwsElbListenerBlock>>? Listener { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsElbTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    [TerraformPropertyName("dns_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DnsName => new TerraformReference(this, "dns_name");
+    [TerraformProperty("dns_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DnsName { get; }
 
     /// <summary>
     /// The source_security_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_security_group_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceSecurityGroupId => new TerraformReference(this, "source_security_group_id");
+    [TerraformProperty("source_security_group_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceSecurityGroupId { get; }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    [TerraformPropertyName("zone_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ZoneId => new TerraformReference(this, "zone_id");
+    [TerraformProperty("zone_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ZoneId { get; }
 
 }

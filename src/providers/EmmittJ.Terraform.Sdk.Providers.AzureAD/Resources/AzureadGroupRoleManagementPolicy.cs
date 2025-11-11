@@ -6,49 +6,49 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for activation_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadGroupRoleManagementPolicyActivationRulesBlock
+public partial class AzureadGroupRoleManagementPolicyActivationRulesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The time after which the an activation can be valid for
     /// </summary>
-    [TerraformPropertyName("maximum_duration")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MaximumDuration { get; set; } = default!;
+    [TerraformProperty("maximum_duration")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MaximumDuration { get; set; }
 
     /// <summary>
     /// Whether an approval is required for activation
     /// </summary>
-    [TerraformPropertyName("require_approval")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> RequireApproval { get; set; } = default!;
+    [TerraformProperty("require_approval")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> RequireApproval { get; set; }
 
     /// <summary>
     /// Whether a justification is required during activation
     /// </summary>
-    [TerraformPropertyName("require_justification")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> RequireJustification { get; set; } = default!;
+    [TerraformProperty("require_justification")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> RequireJustification { get; set; }
 
     /// <summary>
     /// Whether multi-factor authentication is required during activation
     /// </summary>
-    [TerraformPropertyName("require_multifactor_authentication")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> RequireMultifactorAuthentication { get; set; } = default!;
+    [TerraformProperty("require_multifactor_authentication")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> RequireMultifactorAuthentication { get; set; }
 
     /// <summary>
     /// Whether ticket information is required during activation
     /// </summary>
-    [TerraformPropertyName("require_ticket_info")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> RequireTicketInfo { get; set; } = default!;
+    [TerraformProperty("require_ticket_info")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> RequireTicketInfo { get; set; }
 
     /// <summary>
     /// Whether a conditional access context is required during activation
     /// </summary>
-    [TerraformPropertyName("required_conditional_access_authentication_context")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> RequiredConditionalAccessAuthenticationContext { get; set; } = default!;
+    [TerraformProperty("required_conditional_access_authentication_context")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> RequiredConditionalAccessAuthenticationContext { get; set; }
 
 }
 
@@ -56,42 +56,42 @@ public class AzureadGroupRoleManagementPolicyActivationRulesBlock
 /// Block type for active_assignment_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock
+public partial class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock : TerraformBlockBase
 {
     /// <summary>
     /// Must the assignment have an expiry date
     /// </summary>
-    [TerraformPropertyName("expiration_required")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> ExpirationRequired { get; set; } = default!;
+    [TerraformProperty("expiration_required")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> ExpirationRequired { get; set; }
 
     /// <summary>
     /// The duration after which assignments expire
     /// </summary>
-    [TerraformPropertyName("expire_after")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ExpireAfter { get; set; } = default!;
+    [TerraformProperty("expire_after")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ExpireAfter { get; set; }
 
     /// <summary>
     /// Whether a justification is required to make an assignment
     /// </summary>
-    [TerraformPropertyName("require_justification")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> RequireJustification { get; set; } = default!;
+    [TerraformProperty("require_justification")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> RequireJustification { get; set; }
 
     /// <summary>
     /// Whether multi-factor authentication is required to make an assignment
     /// </summary>
-    [TerraformPropertyName("require_multifactor_authentication")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> RequireMultifactorAuthentication { get; set; } = default!;
+    [TerraformProperty("require_multifactor_authentication")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> RequireMultifactorAuthentication { get; set; }
 
     /// <summary>
     /// Whether ticket information is required to make an assignment
     /// </summary>
-    [TerraformPropertyName("require_ticket_info")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> RequireTicketInfo { get; set; } = default!;
+    [TerraformProperty("require_ticket_info")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> RequireTicketInfo { get; set; }
 
 }
 
@@ -99,21 +99,21 @@ public class AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock
 /// Block type for eligible_assignment_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadGroupRoleManagementPolicyEligibleAssignmentRulesBlock
+public partial class AzureadGroupRoleManagementPolicyEligibleAssignmentRulesBlock : TerraformBlockBase
 {
     /// <summary>
     /// Must the assignment have an expiry date
     /// </summary>
-    [TerraformPropertyName("expiration_required")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> ExpirationRequired { get; set; } = default!;
+    [TerraformProperty("expiration_required")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> ExpirationRequired { get; set; }
 
     /// <summary>
     /// The duration after which assignments expire
     /// </summary>
-    [TerraformPropertyName("expire_after")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ExpireAfter { get; set; } = default!;
+    [TerraformProperty("expire_after")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ExpireAfter { get; set; }
 
 }
 
@@ -121,7 +121,7 @@ public class AzureadGroupRoleManagementPolicyEligibleAssignmentRulesBlock
 /// Block type for notification_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AzureadGroupRoleManagementPolicyNotificationRulesBlock
+public partial class AzureadGroupRoleManagementPolicyNotificationRulesBlock : TerraformBlockBase
 {
 }
 
@@ -129,34 +129,34 @@ public class AzureadGroupRoleManagementPolicyNotificationRulesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadGroupRoleManagementPolicyTimeoutsBlock
+public partial class AzureadGroupRoleManagementPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -165,7 +165,7 @@ public class AzureadGroupRoleManagementPolicyTimeoutsBlock
 /// Manages a azuread_group_role_management_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzureadGroupRoleManagementPolicy : TerraformResource
+public partial class AzureadGroupRoleManagementPolicy : TerraformResource
 {
     public AzureadGroupRoleManagementPolicy(string name) : base("azuread_group_role_management_policy", name)
     {
@@ -175,23 +175,23 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
     /// ID of the group to which this policy is assigned
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
-    [TerraformPropertyName("group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the role of this policy to the group
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
-    [TerraformPropertyName("role_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleId { get; set; }
 
     /// <summary>
@@ -199,7 +199,7 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActivationRules block(s) allowed")]
-    [TerraformPropertyName("activation_rules")]
+    [TerraformProperty("activation_rules")]
     public TerraformList<TerraformBlock<AzureadGroupRoleManagementPolicyActivationRulesBlock>>? ActivationRules { get; set; }
 
     /// <summary>
@@ -207,7 +207,7 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveAssignmentRules block(s) allowed")]
-    [TerraformPropertyName("active_assignment_rules")]
+    [TerraformProperty("active_assignment_rules")]
     public TerraformList<TerraformBlock<AzureadGroupRoleManagementPolicyActiveAssignmentRulesBlock>>? ActiveAssignmentRules { get; set; }
 
     /// <summary>
@@ -215,7 +215,7 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EligibleAssignmentRules block(s) allowed")]
-    [TerraformPropertyName("eligible_assignment_rules")]
+    [TerraformProperty("eligible_assignment_rules")]
     public TerraformList<TerraformBlock<AzureadGroupRoleManagementPolicyEligibleAssignmentRulesBlock>>? EligibleAssignmentRules { get; set; }
 
     /// <summary>
@@ -223,28 +223,28 @@ public class AzureadGroupRoleManagementPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationRules block(s) allowed")]
-    [TerraformPropertyName("notification_rules")]
+    [TerraformProperty("notification_rules")]
     public TerraformList<TerraformBlock<AzureadGroupRoleManagementPolicyNotificationRulesBlock>>? NotificationRules { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadGroupRoleManagementPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Description of the policy
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The display name of the policy
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
 }

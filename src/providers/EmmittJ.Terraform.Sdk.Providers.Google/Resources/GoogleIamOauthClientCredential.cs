@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIamOauthClientCredentialTimeoutsBlock
+public partial class GoogleIamOauthClientCredentialTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleIamOauthClientCredentialTimeoutsBlock
 /// <summary>
 /// Manages a google_iam_oauth_client_credential resource.
 /// </summary>
-public class GoogleIamOauthClientCredential : TerraformResource
+public partial class GoogleIamOauthClientCredential : TerraformResource
 {
     public GoogleIamOauthClientCredential(string name) : base("google_iam_oauth_client_credential", name)
     {
@@ -44,8 +44,8 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// Whether the OauthClientCredential is disabled. You cannot use a
     /// disabled OauthClientCredential.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
@@ -53,23 +53,23 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// 
     /// Cannot exceed 32 characters.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
@@ -79,30 +79,30 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// reserved for use by Google, and may not be specified.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OauthClientCredentialId is required")]
-    [TerraformPropertyName("oauth_client_credential_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("oauth_client_credential_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OauthClientCredentialId { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauthclient is required")]
-    [TerraformPropertyName("oauthclient")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("oauthclient")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Oauthclient { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleIamOauthClientCredentialTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -113,9 +113,9 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// more, see [OAuth client and credential security risks and
     /// mitigations](https://cloud.google.com/iam/docs/workforce-oauth-app#security)
     /// </summary>
-    [TerraformPropertyName("client_secret")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ClientSecret => new TerraformReference(this, "client_secret");
+    [TerraformProperty("client_secret")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ClientSecret { get; }
 
     /// <summary>
     /// Immutable. Identifier. The resource name of the OauthClientCredential.
@@ -123,8 +123,8 @@ public class GoogleIamOauthClientCredential : TerraformResource
     /// Format:
     /// &#39;projects/{project}/locations/{location}/oauthClients/{oauth_client}/credentials/{credential}&#39;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

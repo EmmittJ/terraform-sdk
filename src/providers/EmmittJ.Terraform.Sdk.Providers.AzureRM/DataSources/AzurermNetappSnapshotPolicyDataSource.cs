@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetappSnapshotPolicyDataSourceTimeoutsBlock
+public partial class AzurermNetappSnapshotPolicyDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermNetappSnapshotPolicyDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_netapp_snapshot_policy.
 /// </summary>
-public class AzurermNetappSnapshotPolicyDataSource : TerraformDataSource
+public partial class AzurermNetappSnapshotPolicyDataSource : TerraformDataSource
 {
     public AzurermNetappSnapshotPolicyDataSource(string name) : base("azurerm_netapp_snapshot_policy", name)
     {
@@ -30,87 +30,87 @@ public class AzurermNetappSnapshotPolicyDataSource : TerraformDataSource
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    [TerraformPropertyName("account_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("account_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermNetappSnapshotPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The daily_schedule attribute.
     /// </summary>
-    [TerraformPropertyName("daily_schedule")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> DailySchedule => new TerraformReference(this, "daily_schedule");
+    [TerraformProperty("daily_schedule")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> DailySchedule { get; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Enabled => new TerraformReference(this, "enabled");
+    [TerraformProperty("enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Enabled { get; }
 
     /// <summary>
     /// The hourly_schedule attribute.
     /// </summary>
-    [TerraformPropertyName("hourly_schedule")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> HourlySchedule => new TerraformReference(this, "hourly_schedule");
+    [TerraformProperty("hourly_schedule")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> HourlySchedule { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The monthly_schedule attribute.
     /// </summary>
-    [TerraformPropertyName("monthly_schedule")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> MonthlySchedule => new TerraformReference(this, "monthly_schedule");
+    [TerraformProperty("monthly_schedule")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> MonthlySchedule { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The weekly_schedule attribute.
     /// </summary>
-    [TerraformPropertyName("weekly_schedule")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> WeeklySchedule => new TerraformReference(this, "weekly_schedule");
+    [TerraformProperty("weekly_schedule")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> WeeklySchedule { get; }
 
 }

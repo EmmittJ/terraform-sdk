@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKustoCosmosdbDataConnectionTimeoutsBlock
+public partial class AzurermKustoCosmosdbDataConnectionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermKustoCosmosdbDataConnectionTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_kusto_cosmosdb_data_connection resource.
 /// </summary>
-public class AzurermKustoCosmosdbDataConnection : TerraformResource
+public partial class AzurermKustoCosmosdbDataConnection : TerraformResource
 {
     public AzurermKustoCosmosdbDataConnection(string name) : base("azurerm_kusto_cosmosdb_data_connection", name)
     {
@@ -44,76 +44,76 @@ public class AzurermKustoCosmosdbDataConnection : TerraformResource
     /// The cosmosdb_container_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbContainerId is required")]
-    [TerraformPropertyName("cosmosdb_container_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cosmosdb_container_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CosmosdbContainerId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kusto_database_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KustoDatabaseId is required")]
-    [TerraformPropertyName("kusto_database_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kusto_database_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KustoDatabaseId { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The managed_identity_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedIdentityId is required")]
-    [TerraformPropertyName("managed_identity_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("managed_identity_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ManagedIdentityId { get; set; }
 
     /// <summary>
     /// The mapping_rule_name attribute.
     /// </summary>
-    [TerraformPropertyName("mapping_rule_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("mapping_rule_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MappingRuleName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The retrieval_start_date attribute.
     /// </summary>
-    [TerraformPropertyName("retrieval_start_date")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retrieval_start_date")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RetrievalStartDate { get; set; }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
-    [TerraformPropertyName("table_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("table_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TableName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermKustoCosmosdbDataConnectionTimeoutsBlock>? Timeouts { get; set; }
 
 }

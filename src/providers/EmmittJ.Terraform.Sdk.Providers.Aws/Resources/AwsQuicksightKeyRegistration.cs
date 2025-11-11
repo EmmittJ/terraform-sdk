@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for key_registration in .
 /// Nesting mode: set
 /// </summary>
-public class AwsQuicksightKeyRegistrationKeyRegistrationBlock
+public partial class AwsQuicksightKeyRegistrationKeyRegistrationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The default_key attribute.
     /// </summary>
-    [TerraformPropertyName("default_key")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> DefaultKey { get; set; } = default!;
+    [TerraformProperty("default_key")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> DefaultKey { get; set; }
 
     /// <summary>
     /// The key_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyArn is required")]
-    [TerraformPropertyName("key_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyArn { get; set; }
 
 }
@@ -28,7 +28,7 @@ public class AwsQuicksightKeyRegistrationKeyRegistrationBlock
 /// <summary>
 /// Manages a aws_quicksight_key_registration resource.
 /// </summary>
-public class AwsQuicksightKeyRegistration : TerraformResource
+public partial class AwsQuicksightKeyRegistration : TerraformResource
 {
     public AwsQuicksightKeyRegistration(string name) : base("aws_quicksight_key_registration", name)
     {
@@ -37,22 +37,22 @@ public class AwsQuicksightKeyRegistration : TerraformResource
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("aws_account_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AwsAccountId { get; set; } = default!;
+    [TerraformProperty("aws_account_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AwsAccountId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for key_registration.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("key_registration")]
+    [TerraformProperty("key_registration")]
     public TerraformSet<TerraformBlock<AwsQuicksightKeyRegistrationKeyRegistrationBlock>>? KeyRegistration { get; set; }
 
 }

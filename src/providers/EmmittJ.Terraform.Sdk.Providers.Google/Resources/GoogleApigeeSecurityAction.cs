@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for allow in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeSecurityActionAllowBlock
+public partial class GoogleApigeeSecurityActionAllowBlock : TerraformBlockBase
 {
 }
 
@@ -14,35 +14,35 @@ public class GoogleApigeeSecurityActionAllowBlock
 /// Block type for condition_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeSecurityActionConditionConfigBlock
+public partial class GoogleApigeeSecurityActionConditionConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// A list of accessTokens. Limit 1000 per action.
     /// </summary>
-    [TerraformPropertyName("access_tokens")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("access_tokens")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? AccessTokens { get; set; }
 
     /// <summary>
     /// A list of API keys. Limit 1000 per action.
     /// </summary>
-    [TerraformPropertyName("api_keys")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("api_keys")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ApiKeys { get; set; }
 
     /// <summary>
     /// A list of API Products. Limit 1000 per action.
     /// </summary>
-    [TerraformPropertyName("api_products")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("api_products")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ApiProducts { get; set; }
 
     /// <summary>
     /// A list of ASN numbers to act on, e.g. 23. https://en.wikipedia.org/wiki/Autonomous_system_(Internet)
     /// This uses int64 instead of uint32 because of https://linter.aip.dev/141/forbidden-types.
     /// </summary>
-    [TerraformPropertyName("asns")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("asns")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Asns { get; set; }
 
     /// <summary>
@@ -50,51 +50,51 @@ public class GoogleApigeeSecurityActionConditionConfigBlock
     /// OAuth Abuser, Robot Abuser, TorListRule, Advanced Anomaly Detection, Advanced API Scraper,
     /// Search Engine Crawlers, Public Clouds, Public Cloud AWS, Public Cloud Azure, and Public Cloud Google.
     /// </summary>
-    [TerraformPropertyName("bot_reasons")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bot_reasons")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? BotReasons { get; set; }
 
     /// <summary>
     /// A list of developer apps. Limit 1000 per action.
     /// </summary>
-    [TerraformPropertyName("developer_apps")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("developer_apps")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? DeveloperApps { get; set; }
 
     /// <summary>
     /// A list of developers. Limit 1000 per action.
     /// </summary>
-    [TerraformPropertyName("developers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("developers")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Developers { get; set; }
 
     /// <summary>
     /// Act only on particular HTTP methods. E.g. A read-only API can block POST/PUT/DELETE methods.
     /// Accepted values are: GET, HEAD, POST, PUT, DELETE, CONNECT, OPTIONS, TRACE and PATCH.
     /// </summary>
-    [TerraformPropertyName("http_methods")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("http_methods")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? HttpMethods { get; set; }
 
     /// <summary>
     /// A list of IP addresses. This could be either IPv4 or IPv6. Limited to 100 per action.
     /// </summary>
-    [TerraformPropertyName("ip_address_ranges")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_address_ranges")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? IpAddressRanges { get; set; }
 
     /// <summary>
     /// A list of countries/region codes to act on, e.g. US. This follows https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2.
     /// </summary>
-    [TerraformPropertyName("region_codes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region_codes")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? RegionCodes { get; set; }
 
     /// <summary>
     /// A list of user agents to deny. We look for exact matches. Limit 50 per action.
     /// </summary>
-    [TerraformPropertyName("user_agents")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user_agents")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? UserAgents { get; set; }
 
 }
@@ -103,13 +103,13 @@ public class GoogleApigeeSecurityActionConditionConfigBlock
 /// Block type for deny in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeSecurityActionDenyBlock
+public partial class GoogleApigeeSecurityActionDenyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The HTTP response code if the Action = DENY.
     /// </summary>
-    [TerraformPropertyName("response_code")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("response_code")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ResponseCode { get; set; }
 
 }
@@ -118,7 +118,7 @@ public class GoogleApigeeSecurityActionDenyBlock
 /// Block type for flag in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeSecurityActionFlagBlock
+public partial class GoogleApigeeSecurityActionFlagBlock : TerraformBlockBase
 {
 }
 
@@ -126,20 +126,20 @@ public class GoogleApigeeSecurityActionFlagBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeSecurityActionTimeoutsBlock
+public partial class GoogleApigeeSecurityActionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -148,7 +148,7 @@ public class GoogleApigeeSecurityActionTimeoutsBlock
 /// Manages a google_apigee_security_action resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleApigeeSecurityAction : TerraformResource
+public partial class GoogleApigeeSecurityAction : TerraformResource
 {
     public GoogleApigeeSecurityAction(string name) : base("google_apigee_security_action", name)
     {
@@ -161,23 +161,23 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// There can be at most 100 enabled actions with proxies set in an env.
     /// Several other restrictions apply on conditions and are detailed later.
     /// </summary>
-    [TerraformPropertyName("api_proxies")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("api_proxies")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ApiProxies { get; set; }
 
     /// <summary>
     /// An optional user provided description of the SecurityAction.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The Apigee environment that this security action applies to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
-    [TerraformPropertyName("env_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("env_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EnvId { get; set; }
 
     /// <summary>
@@ -186,23 +186,23 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// fractional digits. Offsets other than &amp;quot;Z&amp;quot; are also accepted.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("expire_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expire_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExpireTime { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The organization that this security action applies to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    [TerraformPropertyName("org_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("org_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
@@ -210,24 +210,24 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// This value should be 0-61 characters, and valid format is (^a-z?$).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityActionId is required")]
-    [TerraformPropertyName("security_action_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("security_action_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SecurityActionId { get; set; }
 
     /// <summary>
     /// Only an ENABLED SecurityAction is enforced. An ENABLED SecurityAction past its expiration time will not be enforced. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
-    [TerraformPropertyName("state")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("state")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> State { get; set; }
 
     /// <summary>
     /// The TTL for this SecurityAction.
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("ttl")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ttl")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Ttl { get; set; }
 
     /// <summary>
@@ -235,7 +235,7 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Allow block(s) allowed")]
-    [TerraformPropertyName("allow")]
+    [TerraformProperty("allow")]
     public TerraformList<TerraformBlock<GoogleApigeeSecurityActionAllowBlock>>? Allow { get; set; }
 
     /// <summary>
@@ -245,7 +245,7 @@ public class GoogleApigeeSecurityAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConditionConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConditionConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConditionConfig block(s) allowed")]
-    [TerraformPropertyName("condition_config")]
+    [TerraformProperty("condition_config")]
     public TerraformList<TerraformBlock<GoogleApigeeSecurityActionConditionConfigBlock>>? ConditionConfig { get; set; }
 
     /// <summary>
@@ -253,7 +253,7 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Deny block(s) allowed")]
-    [TerraformPropertyName("deny")]
+    [TerraformProperty("deny")]
     public TerraformList<TerraformBlock<GoogleApigeeSecurityActionDenyBlock>>? Deny { get; set; }
 
     /// <summary>
@@ -261,14 +261,14 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Flag block(s) allowed")]
-    [TerraformPropertyName("flag")]
+    [TerraformProperty("flag")]
     public TerraformList<TerraformBlock<GoogleApigeeSecurityActionFlagBlock>>? Flag { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleApigeeSecurityActionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -276,17 +276,17 @@ public class GoogleApigeeSecurityAction : TerraformResource
     /// Uses RFC 3339, where generated output will always be Z-normalized and uses 0, 3, 6 or 9 fractional digits.
     /// Offsets other than &amp;quot;Z&amp;quot; are also accepted. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The update time for this SecurityAction. This reflects when this SecurityAction changed states.
     /// Uses RFC 3339, where generated output will always be Z-normalized and uses 0, 3, 6 or 9 fractional digits.
     /// Offsets other than &amp;quot;Z&amp;quot; are also accepted. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot;, &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot; or &amp;quot;2014-10-02T15:01:23+05:30&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

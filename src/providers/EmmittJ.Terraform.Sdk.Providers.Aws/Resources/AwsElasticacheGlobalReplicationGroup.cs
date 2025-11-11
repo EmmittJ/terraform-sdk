@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsElasticacheGlobalReplicationGroupTimeoutsBlock
+public partial class AwsElasticacheGlobalReplicationGroupTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsElasticacheGlobalReplicationGroupTimeoutsBlock
 /// <summary>
 /// Manages a aws_elasticache_global_replication_group resource.
 /// </summary>
-public class AwsElasticacheGlobalReplicationGroup : TerraformResource
+public partial class AwsElasticacheGlobalReplicationGroup : TerraformResource
 {
     public AwsElasticacheGlobalReplicationGroup(string name) : base("aws_elasticache_global_replication_group", name)
     {
@@ -43,143 +43,143 @@ public class AwsElasticacheGlobalReplicationGroup : TerraformResource
     /// <summary>
     /// The automatic_failover_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("automatic_failover_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> AutomaticFailoverEnabled { get; set; } = default!;
+    [TerraformProperty("automatic_failover_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> AutomaticFailoverEnabled { get; set; }
 
     /// <summary>
     /// The cache_node_type attribute.
     /// </summary>
-    [TerraformPropertyName("cache_node_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CacheNodeType { get; set; } = default!;
+    [TerraformProperty("cache_node_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CacheNodeType { get; set; }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    [TerraformPropertyName("engine")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Engine { get; set; } = default!;
+    [TerraformProperty("engine")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Engine { get; set; }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    [TerraformPropertyName("engine_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EngineVersion { get; set; } = default!;
+    [TerraformProperty("engine_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EngineVersion { get; set; }
 
     /// <summary>
     /// The global_replication_group_description attribute.
     /// </summary>
-    [TerraformPropertyName("global_replication_group_description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("global_replication_group_description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? GlobalReplicationGroupDescription { get; set; }
 
     /// <summary>
     /// The global_replication_group_id_suffix attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalReplicationGroupIdSuffix is required")]
-    [TerraformPropertyName("global_replication_group_id_suffix")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("global_replication_group_id_suffix")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GlobalReplicationGroupIdSuffix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The num_node_groups attribute.
     /// </summary>
-    [TerraformPropertyName("num_node_groups")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> NumNodeGroups { get; set; } = default!;
+    [TerraformProperty("num_node_groups")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> NumNodeGroups { get; set; }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    [TerraformPropertyName("parameter_group_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parameter_group_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ParameterGroupName { get; set; }
 
     /// <summary>
     /// The primary_replication_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryReplicationGroupId is required")]
-    [TerraformPropertyName("primary_replication_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("primary_replication_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrimaryReplicationGroupId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsElasticacheGlobalReplicationGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The at_rest_encryption_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("at_rest_encryption_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AtRestEncryptionEnabled => new TerraformReference(this, "at_rest_encryption_enabled");
+    [TerraformProperty("at_rest_encryption_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AtRestEncryptionEnabled { get; }
 
     /// <summary>
     /// The auth_token_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("auth_token_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AuthTokenEnabled => new TerraformReference(this, "auth_token_enabled");
+    [TerraformProperty("auth_token_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AuthTokenEnabled { get; }
 
     /// <summary>
     /// The cluster_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("cluster_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ClusterEnabled => new TerraformReference(this, "cluster_enabled");
+    [TerraformProperty("cluster_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ClusterEnabled { get; }
 
     /// <summary>
     /// The engine_version_actual attribute.
     /// </summary>
-    [TerraformPropertyName("engine_version_actual")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EngineVersionActual => new TerraformReference(this, "engine_version_actual");
+    [TerraformProperty("engine_version_actual")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EngineVersionActual { get; }
 
     /// <summary>
     /// The global_node_groups attribute.
     /// </summary>
-    [TerraformPropertyName("global_node_groups")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> GlobalNodeGroups => new TerraformReference(this, "global_node_groups");
+    [TerraformProperty("global_node_groups")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> GlobalNodeGroups { get; }
 
     /// <summary>
     /// The global_replication_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("global_replication_group_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> GlobalReplicationGroupId => new TerraformReference(this, "global_replication_group_id");
+    [TerraformProperty("global_replication_group_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> GlobalReplicationGroupId { get; }
 
     /// <summary>
     /// The transit_encryption_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("transit_encryption_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> TransitEncryptionEnabled => new TerraformReference(this, "transit_encryption_enabled");
+    [TerraformProperty("transit_encryption_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> TransitEncryptionEnabled { get; }
 
 }

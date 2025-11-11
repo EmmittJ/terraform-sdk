@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_scaling_group_provider in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcsCapacityProviderAutoScalingGroupProviderBlock
+public partial class AwsEcsCapacityProviderAutoScalingGroupProviderBlock : TerraformBlockBase
 {
     /// <summary>
     /// The auto_scaling_group_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoScalingGroupArn is required")]
-    [TerraformPropertyName("auto_scaling_group_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("auto_scaling_group_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AutoScalingGroupArn { get; set; }
 
     /// <summary>
     /// The managed_draining attribute.
     /// </summary>
-    [TerraformPropertyName("managed_draining")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ManagedDraining { get; set; } = default!;
+    [TerraformProperty("managed_draining")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ManagedDraining { get; set; }
 
     /// <summary>
     /// The managed_termination_protection attribute.
     /// </summary>
-    [TerraformPropertyName("managed_termination_protection")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ManagedTerminationProtection { get; set; } = default!;
+    [TerraformProperty("managed_termination_protection")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ManagedTerminationProtection { get; set; }
 
 }
 
@@ -36,21 +36,21 @@ public class AwsEcsCapacityProviderAutoScalingGroupProviderBlock
 /// Block type for managed_instances_provider in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcsCapacityProviderManagedInstancesProviderBlock
+public partial class AwsEcsCapacityProviderManagedInstancesProviderBlock : TerraformBlockBase
 {
     /// <summary>
     /// The infrastructure_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureRoleArn is required")]
-    [TerraformPropertyName("infrastructure_role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("infrastructure_role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InfrastructureRoleArn { get; set; }
 
     /// <summary>
     /// The propagate_tags attribute.
     /// </summary>
-    [TerraformPropertyName("propagate_tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("propagate_tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PropagateTags { get; set; }
 
 }
@@ -59,7 +59,7 @@ public class AwsEcsCapacityProviderManagedInstancesProviderBlock
 /// Manages a aws_ecs_capacity_provider resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsEcsCapacityProvider : TerraformResource
+public partial class AwsEcsCapacityProvider : TerraformResource
 {
     public AwsEcsCapacityProvider(string name) : base("aws_ecs_capacity_provider", name)
     {
@@ -68,52 +68,52 @@ public class AwsEcsCapacityProvider : TerraformResource
     /// <summary>
     /// The cluster attribute.
     /// </summary>
-    [TerraformPropertyName("cluster")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cluster")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Cluster { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for auto_scaling_group_provider.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScalingGroupProvider block(s) allowed")]
-    [TerraformPropertyName("auto_scaling_group_provider")]
+    [TerraformProperty("auto_scaling_group_provider")]
     public TerraformList<TerraformBlock<AwsEcsCapacityProviderAutoScalingGroupProviderBlock>>? AutoScalingGroupProvider { get; set; }
 
     /// <summary>
@@ -121,14 +121,14 @@ public class AwsEcsCapacityProvider : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManagedInstancesProvider block(s) allowed")]
-    [TerraformPropertyName("managed_instances_provider")]
+    [TerraformProperty("managed_instances_provider")]
     public TerraformList<TerraformBlock<AwsEcsCapacityProviderManagedInstancesProviderBlock>>? ManagedInstancesProvider { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

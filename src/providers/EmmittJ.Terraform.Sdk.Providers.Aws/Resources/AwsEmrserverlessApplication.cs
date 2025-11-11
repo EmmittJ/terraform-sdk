@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_start_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEmrserverlessApplicationAutoStartConfigurationBlock
+public partial class AwsEmrserverlessApplicationAutoStartConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
 }
@@ -21,20 +21,20 @@ public class AwsEmrserverlessApplicationAutoStartConfigurationBlock
 /// Block type for auto_stop_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEmrserverlessApplicationAutoStopConfigurationBlock
+public partial class AwsEmrserverlessApplicationAutoStopConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The idle_timeout_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("idle_timeout_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("idle_timeout_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? IdleTimeoutMinutes { get; set; }
 
 }
@@ -43,14 +43,14 @@ public class AwsEmrserverlessApplicationAutoStopConfigurationBlock
 /// Block type for image_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEmrserverlessApplicationImageConfigurationBlock
+public partial class AwsEmrserverlessApplicationImageConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The image_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ImageUri is required")]
-    [TerraformPropertyName("image_uri")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("image_uri")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ImageUri { get; set; }
 
 }
@@ -59,14 +59,14 @@ public class AwsEmrserverlessApplicationImageConfigurationBlock
 /// Block type for initial_capacity in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEmrserverlessApplicationInitialCapacityBlock
+public partial class AwsEmrserverlessApplicationInitialCapacityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The initial_capacity_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialCapacityType is required")]
-    [TerraformPropertyName("initial_capacity_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("initial_capacity_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InitialCapacityType { get; set; }
 
 }
@@ -75,21 +75,21 @@ public class AwsEmrserverlessApplicationInitialCapacityBlock
 /// Block type for interactive_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEmrserverlessApplicationInteractiveConfigurationBlock
+public partial class AwsEmrserverlessApplicationInteractiveConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The livy_endpoint_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("livy_endpoint_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> LivyEndpointEnabled { get; set; } = default!;
+    [TerraformProperty("livy_endpoint_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> LivyEndpointEnabled { get; set; }
 
     /// <summary>
     /// The studio_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("studio_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> StudioEnabled { get; set; } = default!;
+    [TerraformProperty("studio_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> StudioEnabled { get; set; }
 
 }
 
@@ -97,29 +97,29 @@ public class AwsEmrserverlessApplicationInteractiveConfigurationBlock
 /// Block type for maximum_capacity in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEmrserverlessApplicationMaximumCapacityBlock
+public partial class AwsEmrserverlessApplicationMaximumCapacityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cpu attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cpu is required")]
-    [TerraformPropertyName("cpu")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cpu")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Cpu { get; set; }
 
     /// <summary>
     /// The disk attribute.
     /// </summary>
-    [TerraformPropertyName("disk")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Disk { get; set; } = default!;
+    [TerraformProperty("disk")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Disk { get; set; }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Memory is required")]
-    [TerraformPropertyName("memory")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("memory")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Memory { get; set; }
 
 }
@@ -128,7 +128,7 @@ public class AwsEmrserverlessApplicationMaximumCapacityBlock
 /// Block type for monitoring_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEmrserverlessApplicationMonitoringConfigurationBlock
+public partial class AwsEmrserverlessApplicationMonitoringConfigurationBlock : TerraformBlockBase
 {
 }
 
@@ -136,20 +136,20 @@ public class AwsEmrserverlessApplicationMonitoringConfigurationBlock
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEmrserverlessApplicationNetworkConfigurationBlock
+public partial class AwsEmrserverlessApplicationNetworkConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_group_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subnet_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SubnetIds { get; set; }
 
 }
@@ -158,21 +158,21 @@ public class AwsEmrserverlessApplicationNetworkConfigurationBlock
 /// Block type for runtime_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEmrserverlessApplicationRuntimeConfigurationBlock
+public partial class AwsEmrserverlessApplicationRuntimeConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The classification attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Classification is required")]
-    [TerraformPropertyName("classification")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("classification")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Classification { get; set; }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    [TerraformPropertyName("properties")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("properties")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Properties { get; set; }
 
 }
@@ -181,21 +181,21 @@ public class AwsEmrserverlessApplicationRuntimeConfigurationBlock
 /// Block type for scheduler_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEmrserverlessApplicationSchedulerConfigurationBlock
+public partial class AwsEmrserverlessApplicationSchedulerConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The max_concurrent_runs attribute.
     /// </summary>
-    [TerraformPropertyName("max_concurrent_runs")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxConcurrentRuns { get; set; } = default!;
+    [TerraformProperty("max_concurrent_runs")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxConcurrentRuns { get; set; }
 
     /// <summary>
     /// The queue_timeout_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("queue_timeout_minutes")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> QueueTimeoutMinutes { get; set; } = default!;
+    [TerraformProperty("queue_timeout_minutes")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> QueueTimeoutMinutes { get; set; }
 
 }
 
@@ -203,7 +203,7 @@ public class AwsEmrserverlessApplicationSchedulerConfigurationBlock
 /// Manages a aws_emrserverless_application resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsEmrserverlessApplication : TerraformResource
+public partial class AwsEmrserverlessApplication : TerraformResource
 {
     public AwsEmrserverlessApplication(string name) : base("aws_emrserverless_application", name)
     {
@@ -212,60 +212,60 @@ public class AwsEmrserverlessApplication : TerraformResource
     /// <summary>
     /// The architecture attribute.
     /// </summary>
-    [TerraformPropertyName("architecture")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("architecture")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Architecture { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The release_label attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReleaseLabel is required")]
-    [TerraformPropertyName("release_label")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("release_label")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ReleaseLabel { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
@@ -273,7 +273,7 @@ public class AwsEmrserverlessApplication : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoStartConfiguration block(s) allowed")]
-    [TerraformPropertyName("auto_start_configuration")]
+    [TerraformProperty("auto_start_configuration")]
     public TerraformList<TerraformBlock<AwsEmrserverlessApplicationAutoStartConfigurationBlock>>? AutoStartConfiguration { get; set; }
 
     /// <summary>
@@ -281,7 +281,7 @@ public class AwsEmrserverlessApplication : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoStopConfiguration block(s) allowed")]
-    [TerraformPropertyName("auto_stop_configuration")]
+    [TerraformProperty("auto_stop_configuration")]
     public TerraformList<TerraformBlock<AwsEmrserverlessApplicationAutoStopConfigurationBlock>>? AutoStopConfiguration { get; set; }
 
     /// <summary>
@@ -289,14 +289,14 @@ public class AwsEmrserverlessApplication : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageConfiguration block(s) allowed")]
-    [TerraformPropertyName("image_configuration")]
+    [TerraformProperty("image_configuration")]
     public TerraformList<TerraformBlock<AwsEmrserverlessApplicationImageConfigurationBlock>>? ImageConfiguration { get; set; }
 
     /// <summary>
     /// Block for initial_capacity.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("initial_capacity")]
+    [TerraformProperty("initial_capacity")]
     public TerraformSet<TerraformBlock<AwsEmrserverlessApplicationInitialCapacityBlock>>? InitialCapacity { get; set; }
 
     /// <summary>
@@ -304,7 +304,7 @@ public class AwsEmrserverlessApplication : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InteractiveConfiguration block(s) allowed")]
-    [TerraformPropertyName("interactive_configuration")]
+    [TerraformProperty("interactive_configuration")]
     public TerraformList<TerraformBlock<AwsEmrserverlessApplicationInteractiveConfigurationBlock>>? InteractiveConfiguration { get; set; }
 
     /// <summary>
@@ -312,7 +312,7 @@ public class AwsEmrserverlessApplication : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaximumCapacity block(s) allowed")]
-    [TerraformPropertyName("maximum_capacity")]
+    [TerraformProperty("maximum_capacity")]
     public TerraformList<TerraformBlock<AwsEmrserverlessApplicationMaximumCapacityBlock>>? MaximumCapacity { get; set; }
 
     /// <summary>
@@ -320,7 +320,7 @@ public class AwsEmrserverlessApplication : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitoringConfiguration block(s) allowed")]
-    [TerraformPropertyName("monitoring_configuration")]
+    [TerraformProperty("monitoring_configuration")]
     public TerraformList<TerraformBlock<AwsEmrserverlessApplicationMonitoringConfigurationBlock>>? MonitoringConfiguration { get; set; }
 
     /// <summary>
@@ -328,14 +328,14 @@ public class AwsEmrserverlessApplication : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
-    [TerraformPropertyName("network_configuration")]
+    [TerraformProperty("network_configuration")]
     public TerraformList<TerraformBlock<AwsEmrserverlessApplicationNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
 
     /// <summary>
     /// Block for runtime_configuration.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("runtime_configuration")]
+    [TerraformProperty("runtime_configuration")]
     public TerraformList<TerraformBlock<AwsEmrserverlessApplicationRuntimeConfigurationBlock>>? RuntimeConfiguration { get; set; }
 
     /// <summary>
@@ -343,14 +343,14 @@ public class AwsEmrserverlessApplication : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SchedulerConfiguration block(s) allowed")]
-    [TerraformPropertyName("scheduler_configuration")]
+    [TerraformProperty("scheduler_configuration")]
     public TerraformList<TerraformBlock<AwsEmrserverlessApplicationSchedulerConfigurationBlock>>? SchedulerConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

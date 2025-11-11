@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsM2DeploymentTimeoutsBlock
+public partial class AwsM2DeploymentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsM2DeploymentTimeoutsBlock
 /// <summary>
 /// Manages a aws_m2_deployment resource.
 /// </summary>
-public class AwsM2Deployment : TerraformResource
+public partial class AwsM2Deployment : TerraformResource
 {
     public AwsM2Deployment(string name) : base("aws_m2_deployment", name)
     {
@@ -44,67 +44,67 @@ public class AwsM2Deployment : TerraformResource
     /// The application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    [TerraformPropertyName("application_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("application_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The application_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationVersion is required")]
-    [TerraformPropertyName("application_version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("application_version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> ApplicationVersion { get; set; }
 
     /// <summary>
     /// The environment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
-    [TerraformPropertyName("environment_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("environment_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EnvironmentId { get; set; }
 
     /// <summary>
     /// The force_stop attribute.
     /// </summary>
-    [TerraformPropertyName("force_stop")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("force_stop")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ForceStop { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The start attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Start is required")]
-    [TerraformPropertyName("start")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("start")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Start { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsM2DeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The deployment_id attribute.
     /// </summary>
-    [TerraformPropertyName("deployment_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeploymentId => new TerraformReference(this, "deployment_id");
+    [TerraformProperty("deployment_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeploymentId { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
 }

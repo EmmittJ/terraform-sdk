@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Manages a google_tags_tag_value_iam_policy resource.
 /// </summary>
-public class GoogleTagsTagValueIamPolicy : TerraformResource
+public partial class GoogleTagsTagValueIamPolicy : TerraformResource
 {
     public GoogleTagsTagValueIamPolicy(string name) : base("google_tags_tag_value_iam_policy", name)
     {
@@ -14,31 +14,31 @@ public class GoogleTagsTagValueIamPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
-    [TerraformPropertyName("policy_data")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_data")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PolicyData { get; set; }
 
     /// <summary>
     /// The tag_value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagValue is required")]
-    [TerraformPropertyName("tag_value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("tag_value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TagValue { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
 }

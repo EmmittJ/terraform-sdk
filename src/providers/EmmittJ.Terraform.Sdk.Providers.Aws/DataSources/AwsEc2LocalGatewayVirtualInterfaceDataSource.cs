@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEc2LocalGatewayVirtualInterfaceDataSourceFilterBlock
+public partial class AwsEc2LocalGatewayVirtualInterfaceDataSourceFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    [TerraformPropertyName("values")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("values")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Values { get; set; }
 
 }
@@ -30,13 +30,13 @@ public class AwsEc2LocalGatewayVirtualInterfaceDataSourceFilterBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2LocalGatewayVirtualInterfaceDataSourceTimeoutsBlock
+public partial class AwsEc2LocalGatewayVirtualInterfaceDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -44,7 +44,7 @@ public class AwsEc2LocalGatewayVirtualInterfaceDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a aws_ec2_local_gateway_virtual_interface.
 /// </summary>
-public class AwsEc2LocalGatewayVirtualInterfaceDataSource : TerraformDataSource
+public partial class AwsEc2LocalGatewayVirtualInterfaceDataSource : TerraformDataSource
 {
     public AwsEc2LocalGatewayVirtualInterfaceDataSource(string name) : base("aws_ec2_local_gateway_virtual_interface", name)
     {
@@ -53,85 +53,85 @@ public class AwsEc2LocalGatewayVirtualInterfaceDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformSet<TerraformBlock<AwsEc2LocalGatewayVirtualInterfaceDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsEc2LocalGatewayVirtualInterfaceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The local_address attribute.
     /// </summary>
-    [TerraformPropertyName("local_address")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LocalAddress => new TerraformReference(this, "local_address");
+    [TerraformProperty("local_address")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LocalAddress { get; }
 
     /// <summary>
     /// The local_bgp_asn attribute.
     /// </summary>
-    [TerraformPropertyName("local_bgp_asn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> LocalBgpAsn => new TerraformReference(this, "local_bgp_asn");
+    [TerraformProperty("local_bgp_asn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> LocalBgpAsn { get; }
 
     /// <summary>
     /// The local_gateway_id attribute.
     /// </summary>
-    [TerraformPropertyName("local_gateway_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LocalGatewayId => new TerraformReference(this, "local_gateway_id");
+    [TerraformProperty("local_gateway_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LocalGatewayId { get; }
 
     /// <summary>
     /// The local_gateway_virtual_interface_ids attribute.
     /// </summary>
-    [TerraformPropertyName("local_gateway_virtual_interface_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> LocalGatewayVirtualInterfaceIds => new TerraformReference(this, "local_gateway_virtual_interface_ids");
+    [TerraformProperty("local_gateway_virtual_interface_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> LocalGatewayVirtualInterfaceIds { get; }
 
     /// <summary>
     /// The peer_address attribute.
     /// </summary>
-    [TerraformPropertyName("peer_address")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PeerAddress => new TerraformReference(this, "peer_address");
+    [TerraformProperty("peer_address")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PeerAddress { get; }
 
     /// <summary>
     /// The peer_bgp_asn attribute.
     /// </summary>
-    [TerraformPropertyName("peer_bgp_asn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> PeerBgpAsn => new TerraformReference(this, "peer_bgp_asn");
+    [TerraformProperty("peer_bgp_asn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> PeerBgpAsn { get; }
 
     /// <summary>
     /// The vlan attribute.
     /// </summary>
-    [TerraformPropertyName("vlan")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Vlan => new TerraformReference(this, "vlan");
+    [TerraformProperty("vlan")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Vlan { get; }
 
 }

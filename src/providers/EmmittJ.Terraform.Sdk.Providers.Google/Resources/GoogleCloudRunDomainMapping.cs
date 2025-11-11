@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunDomainMappingMetadataBlock
+public partial class GoogleCloudRunDomainMappingMetadataBlock : TerraformBlockBase
 {
     /// <summary>
     /// Annotations is a key value map stored with a resource that
@@ -20,8 +20,8 @@ public class GoogleCloudRunDomainMappingMetadataBlock
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    [TerraformPropertyName("annotations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("annotations")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Annotations { get; set; }
 
 
@@ -36,8 +36,8 @@ public class GoogleCloudRunDomainMappingMetadataBlock
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -45,8 +45,8 @@ public class GoogleCloudRunDomainMappingMetadataBlock
     /// project ID or project number.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
-    [TerraformPropertyName("namespace")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("namespace")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Namespace { get; set; }
 
 
@@ -59,13 +59,13 @@ public class GoogleCloudRunDomainMappingMetadataBlock
 /// Block type for spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunDomainMappingSpecBlock
+public partial class GoogleCloudRunDomainMappingSpecBlock : TerraformBlockBase
 {
     /// <summary>
     /// The mode of the certificate. Default value: &amp;quot;AUTOMATIC&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;AUTOMATIC&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("certificate_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CertificateMode { get; set; }
 
     /// <summary>
@@ -74,8 +74,8 @@ public class GoogleCloudRunDomainMappingSpecBlock
     /// warning about a potential conflict and only set it once the respective UI
     /// has given such a warning.
     /// </summary>
-    [TerraformPropertyName("force_override")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("force_override")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ForceOverride { get; set; }
 
     /// <summary>
@@ -83,8 +83,8 @@ public class GoogleCloudRunDomainMappingSpecBlock
     /// The route must exist.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteName is required")]
-    [TerraformPropertyName("route_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("route_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RouteName { get; set; }
 
 }
@@ -93,20 +93,20 @@ public class GoogleCloudRunDomainMappingSpecBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCloudRunDomainMappingTimeoutsBlock
+public partial class GoogleCloudRunDomainMappingTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -115,7 +115,7 @@ public class GoogleCloudRunDomainMappingTimeoutsBlock
 /// Manages a google_cloud_run_domain_mapping resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleCloudRunDomainMapping : TerraformResource
+public partial class GoogleCloudRunDomainMapping : TerraformResource
 {
     public GoogleCloudRunDomainMapping(string name) : base("google_cloud_run_domain_mapping", name)
     {
@@ -124,39 +124,39 @@ public class GoogleCloudRunDomainMapping : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the cloud run instance. eg us-central1
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Name should be a [verified](https://support.google.com/webmasters/answer/9008080) domain
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for metadata.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
-    [TerraformPropertyName("metadata")]
+    [TerraformProperty("metadata")]
     public TerraformList<TerraformBlock<GoogleCloudRunDomainMappingMetadataBlock>>? Metadata { get; set; }
 
     /// <summary>
@@ -166,21 +166,21 @@ public class GoogleCloudRunDomainMapping : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Spec is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Spec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
-    [TerraformPropertyName("spec")]
+    [TerraformProperty("spec")]
     public TerraformList<TerraformBlock<GoogleCloudRunDomainMappingSpecBlock>>? Spec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleCloudRunDomainMappingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The current status of the DomainMapping.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Status { get; }
 
 }

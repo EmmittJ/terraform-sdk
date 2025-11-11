@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_codebuild_fleet.
 /// </summary>
-public class AwsCodebuildFleetDataSource : TerraformDataSource
+public partial class AwsCodebuildFleetDataSource : TerraformDataSource
 {
     public AwsCodebuildFleetDataSource(string name) : base("aws_codebuild_fleet", name)
     {
@@ -15,120 +15,120 @@ public class AwsCodebuildFleetDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The base_capacity attribute.
     /// </summary>
-    [TerraformPropertyName("base_capacity")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> BaseCapacity => new TerraformReference(this, "base_capacity");
+    [TerraformProperty("base_capacity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> BaseCapacity { get; }
 
     /// <summary>
     /// The compute_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("compute_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ComputeConfiguration => new TerraformReference(this, "compute_configuration");
+    [TerraformProperty("compute_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ComputeConfiguration { get; }
 
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
-    [TerraformPropertyName("compute_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ComputeType => new TerraformReference(this, "compute_type");
+    [TerraformProperty("compute_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ComputeType { get; }
 
     /// <summary>
     /// The created attribute.
     /// </summary>
-    [TerraformPropertyName("created")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Created => new TerraformReference(this, "created");
+    [TerraformProperty("created")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Created { get; }
 
     /// <summary>
     /// The environment_type attribute.
     /// </summary>
-    [TerraformPropertyName("environment_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EnvironmentType => new TerraformReference(this, "environment_type");
+    [TerraformProperty("environment_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EnvironmentType { get; }
 
     /// <summary>
     /// The fleet_service_role attribute.
     /// </summary>
-    [TerraformPropertyName("fleet_service_role")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FleetServiceRole => new TerraformReference(this, "fleet_service_role");
+    [TerraformProperty("fleet_service_role")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FleetServiceRole { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
-    [TerraformPropertyName("image_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ImageId => new TerraformReference(this, "image_id");
+    [TerraformProperty("image_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ImageId { get; }
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModified => new TerraformReference(this, "last_modified");
+    [TerraformProperty("last_modified")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModified { get; }
 
     /// <summary>
     /// The overflow_behavior attribute.
     /// </summary>
-    [TerraformPropertyName("overflow_behavior")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OverflowBehavior => new TerraformReference(this, "overflow_behavior");
+    [TerraformProperty("overflow_behavior")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OverflowBehavior { get; }
 
     /// <summary>
     /// The scaling_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("scaling_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ScalingConfiguration => new TerraformReference(this, "scaling_configuration");
+    [TerraformProperty("scaling_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ScalingConfiguration { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Status { get; }
 
     /// <summary>
     /// The vpc_config attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> VpcConfig => new TerraformReference(this, "vpc_config");
+    [TerraformProperty("vpc_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> VpcConfig { get; }
 
 }

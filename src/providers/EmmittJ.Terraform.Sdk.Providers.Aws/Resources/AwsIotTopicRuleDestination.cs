@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsIotTopicRuleDestinationTimeoutsBlock
+public partial class AwsIotTopicRuleDestinationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -35,37 +35,37 @@ public class AwsIotTopicRuleDestinationTimeoutsBlock
 /// Block type for vpc_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIotTopicRuleDestinationVpcConfigurationBlock
+public partial class AwsIotTopicRuleDestinationVpcConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    [TerraformPropertyName("security_groups")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_groups")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SecurityGroups { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    [TerraformPropertyName("subnet_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_ids")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> SubnetIds { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    [TerraformPropertyName("vpc_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vpc_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VpcId { get; set; }
 
 }
@@ -74,7 +74,7 @@ public class AwsIotTopicRuleDestinationVpcConfigurationBlock
 /// Manages a aws_iot_topic_rule_destination resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsIotTopicRuleDestination : TerraformResource
+public partial class AwsIotTopicRuleDestination : TerraformResource
 {
     public AwsIotTopicRuleDestination(string name) : base("aws_iot_topic_rule_destination", name)
     {
@@ -83,29 +83,29 @@ public class AwsIotTopicRuleDestination : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsIotTopicRuleDestinationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -115,14 +115,14 @@ public class AwsIotTopicRuleDestination : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
-    [TerraformPropertyName("vpc_configuration")]
+    [TerraformProperty("vpc_configuration")]
     public TerraformList<TerraformBlock<AwsIotTopicRuleDestinationVpcConfigurationBlock>>? VpcConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

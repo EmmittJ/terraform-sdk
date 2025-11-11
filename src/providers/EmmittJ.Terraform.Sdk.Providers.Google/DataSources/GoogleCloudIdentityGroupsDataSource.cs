@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_cloud_identity_groups.
 /// </summary>
-public class GoogleCloudIdentityGroupsDataSource : TerraformDataSource
+public partial class GoogleCloudIdentityGroupsDataSource : TerraformDataSource
 {
     public GoogleCloudIdentityGroupsDataSource(string name) : base("google_cloud_identity_groups", name)
     {
@@ -14,9 +14,9 @@ public class GoogleCloudIdentityGroupsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name of the entity under which this Group resides in the
@@ -26,15 +26,15 @@ public class GoogleCloudIdentityGroupsDataSource : TerraformDataSource
     /// groups or customers/{customer_id} for Google Groups.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    [TerraformPropertyName("parent")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parent")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// List of Cloud Identity groups.
     /// </summary>
-    [TerraformPropertyName("groups")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Groups => new TerraformReference(this, "groups");
+    [TerraformProperty("groups")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Groups { get; }
 
 }

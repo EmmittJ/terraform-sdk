@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationFromTemplateTimeoutsBlock
+public partial class AzureadApplicationFromTemplateTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzureadApplicationFromTemplateTimeoutsBlock
 /// <summary>
 /// Manages a azuread_application_from_template resource.
 /// </summary>
-public class AzureadApplicationFromTemplate : TerraformResource
+public partial class AzureadApplicationFromTemplate : TerraformResource
 {
     public AzureadApplicationFromTemplate(string name) : base("azuread_application_from_template", name)
     {
@@ -51,58 +51,58 @@ public class AzureadApplicationFromTemplate : TerraformResource
     /// The display name for the application
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The UUID of the template to instantiate for this application
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateId is required")]
-    [TerraformPropertyName("template_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("template_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TemplateId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadApplicationFromTemplateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The resource ID for this application
     /// </summary>
-    [TerraformPropertyName("application_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ApplicationId => new TerraformReference(this, "application_id");
+    [TerraformProperty("application_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ApplicationId { get; }
 
     /// <summary>
     /// The object ID for this application
     /// </summary>
-    [TerraformPropertyName("application_object_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ApplicationObjectId => new TerraformReference(this, "application_object_id");
+    [TerraformProperty("application_object_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ApplicationObjectId { get; }
 
     /// <summary>
     /// The resource ID for this service principal
     /// </summary>
-    [TerraformPropertyName("service_principal_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServicePrincipalId => new TerraformReference(this, "service_principal_id");
+    [TerraformProperty("service_principal_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServicePrincipalId { get; }
 
     /// <summary>
     /// The object ID for this service principal
     /// </summary>
-    [TerraformPropertyName("service_principal_object_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServicePrincipalObjectId => new TerraformReference(this, "service_principal_object_id");
+    [TerraformProperty("service_principal_object_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServicePrincipalObjectId { get; }
 
 }

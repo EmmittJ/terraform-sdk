@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_cloud_asset_search_all_resources.
 /// </summary>
-public class GoogleCloudAssetSearchAllResourcesDataSource : TerraformDataSource
+public partial class GoogleCloudAssetSearchAllResourcesDataSource : TerraformDataSource
 {
     public GoogleCloudAssetSearchAllResourcesDataSource(string name) : base("google_cloud_asset_search_all_resources", name)
     {
@@ -14,37 +14,37 @@ public class GoogleCloudAssetSearchAllResourcesDataSource : TerraformDataSource
     /// <summary>
     /// The asset_types attribute.
     /// </summary>
-    [TerraformPropertyName("asset_types")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("asset_types")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? AssetTypes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The query attribute.
     /// </summary>
-    [TerraformPropertyName("query")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("query")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Query { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
-    [TerraformPropertyName("scope")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("scope")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// The results attribute.
     /// </summary>
-    [TerraformPropertyName("results")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Results => new TerraformReference(this, "results");
+    [TerraformProperty("results")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Results { get; }
 
 }

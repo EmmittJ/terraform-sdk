@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_quicksight_user resource.
 /// </summary>
-public class AwsQuicksightUser : TerraformResource
+public partial class AwsQuicksightUser : TerraformResource
 {
     public AwsQuicksightUser(string name) : base("aws_quicksight_user", name)
     {
@@ -14,88 +14,88 @@ public class AwsQuicksightUser : TerraformResource
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("aws_account_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AwsAccountId { get; set; } = default!;
+    [TerraformProperty("aws_account_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AwsAccountId { get; set; }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    [TerraformPropertyName("email")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("email")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Email { get; set; }
 
     /// <summary>
     /// The iam_arn attribute.
     /// </summary>
-    [TerraformPropertyName("iam_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("iam_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IamArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The identity_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityType is required")]
-    [TerraformPropertyName("identity_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("identity_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IdentityType { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    [TerraformPropertyName("namespace")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("namespace")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Namespace { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The session_name attribute.
     /// </summary>
-    [TerraformPropertyName("session_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("session_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SessionName { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    [TerraformPropertyName("user_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> UserName { get; set; } = default!;
+    [TerraformProperty("user_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> UserName { get; set; }
 
     /// <summary>
     /// The user_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserRole is required")]
-    [TerraformPropertyName("user_role")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_role")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserRole { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The user_invitation_url attribute.
     /// </summary>
-    [TerraformPropertyName("user_invitation_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UserInvitationUrl => new TerraformReference(this, "user_invitation_url");
+    [TerraformProperty("user_invitation_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UserInvitationUrl { get; }
 
 }

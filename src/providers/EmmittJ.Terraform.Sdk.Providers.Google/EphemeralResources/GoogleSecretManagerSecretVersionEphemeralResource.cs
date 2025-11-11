@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Manages a google_secret_manager_secret_version ephemeral resource (temporary credentials/tokens).
 /// Ephemeral resources are used for temporary credentials, tokens, and secrets.
 /// </summary>
-public class GoogleSecretManagerSecretVersionEphemeralResource : TerraformEphemeralResource
+public partial class GoogleSecretManagerSecretVersionEphemeralResource : TerraformEphemeralResource
 {
     public GoogleSecretManagerSecretVersionEphemeralResource(string name) : base("google_secret_manager_secret_version", name)
     {
@@ -15,65 +15,65 @@ public class GoogleSecretManagerSecretVersionEphemeralResource : TerraformEpheme
     /// <summary>
     /// If true, the secret data returned will not get base64 decoded. Defaults to false.
     /// </summary>
-    [TerraformPropertyName("is_secret_data_base64")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("is_secret_data_base64")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IsSecretDataBase64 { get; set; }
 
     /// <summary>
     /// The project to get the secret version for. If it is not provided, the provider project is used.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The secret to get the secret version for.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
-    [TerraformPropertyName("secret")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("secret")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Secret { get; set; }
 
     /// <summary>
     /// The version of the secret to get. If it is not provided, the latest version is retrieved.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Version { get; set; }
 
     /// <summary>
     /// The time at which the Secret was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The time at which the Secret was destroyed. Only present if state is DESTROYED.
     /// </summary>
-    [TerraformPropertyName("destroy_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DestroyTime => new TerraformReference(this, "destroy_time");
+    [TerraformProperty("destroy_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DestroyTime { get; }
 
     /// <summary>
     /// True if the current state of the SecretVersion is enabled.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Enabled => new TerraformReference(this, "enabled");
+    [TerraformProperty("enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Enabled { get; }
 
     /// <summary>
     /// The resource name of the SecretVersion. Format: `projects/{{project}}/secrets/{{secret_id}}/versions/{{version}}`.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The secret data. No larger than 64KiB.
     /// </summary>
-    [TerraformPropertyName("secret_data")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecretData => new TerraformReference(this, "secret_data");
+    [TerraformProperty("secret_data")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecretData { get; }
 
 }

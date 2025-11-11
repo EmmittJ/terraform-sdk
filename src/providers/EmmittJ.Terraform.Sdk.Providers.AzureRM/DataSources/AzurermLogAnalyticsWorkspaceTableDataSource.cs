@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock
+public partial class AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_log_analytics_workspace_table.
 /// </summary>
-public class AzurermLogAnalyticsWorkspaceTableDataSource : TerraformDataSource
+public partial class AzurermLogAnalyticsWorkspaceTableDataSource : TerraformDataSource
 {
     public AzurermLogAnalyticsWorkspaceTableDataSource(string name) : base("azurerm_log_analytics_workspace_table", name)
     {
@@ -29,52 +29,52 @@ public class AzurermLogAnalyticsWorkspaceTableDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformPropertyName("workspace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("workspace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermLogAnalyticsWorkspaceTableDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
-    [TerraformPropertyName("plan")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Plan => new TerraformReference(this, "plan");
+    [TerraformProperty("plan")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Plan { get; }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    [TerraformPropertyName("retention_in_days")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> RetentionInDays => new TerraformReference(this, "retention_in_days");
+    [TerraformProperty("retention_in_days")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> RetentionInDays { get; }
 
     /// <summary>
     /// The total_retention_in_days attribute.
     /// </summary>
-    [TerraformPropertyName("total_retention_in_days")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> TotalRetentionInDays => new TerraformReference(this, "total_retention_in_days");
+    [TerraformProperty("total_retention_in_days")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> TotalRetentionInDays { get; }
 
 }

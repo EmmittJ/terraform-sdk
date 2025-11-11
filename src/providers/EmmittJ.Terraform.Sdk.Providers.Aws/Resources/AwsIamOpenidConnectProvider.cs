@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_iam_openid_connect_provider resource.
 /// </summary>
-public class AwsIamOpenidConnectProvider : TerraformResource
+public partial class AwsIamOpenidConnectProvider : TerraformResource
 {
     public AwsIamOpenidConnectProvider(string name) : base("aws_iam_openid_connect_provider", name)
     {
@@ -15,51 +15,51 @@ public class AwsIamOpenidConnectProvider : TerraformResource
     /// The client_id_list attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientIdList is required")]
-    [TerraformPropertyName("client_id_list")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("client_id_list")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> ClientIdList { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The thumbprint_list attribute.
     /// </summary>
-    [TerraformPropertyName("thumbprint_list")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> ThumbprintList { get; set; } = default!;
+    [TerraformProperty("thumbprint_list")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> ThumbprintList { get; set; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
-    [TerraformPropertyName("url")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("url")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Url { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_billing_account.
 /// </summary>
-public class GoogleBillingAccountDataSource : TerraformDataSource
+public partial class GoogleBillingAccountDataSource : TerraformDataSource
 {
     public GoogleBillingAccountDataSource(string name) : base("google_billing_account", name)
     {
@@ -14,57 +14,57 @@ public class GoogleBillingAccountDataSource : TerraformDataSource
     /// <summary>
     /// The billing_account attribute.
     /// </summary>
-    [TerraformPropertyName("billing_account")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("billing_account")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BillingAccount { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DisplayName { get; set; } = default!;
+    [TerraformProperty("display_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The lookup_projects attribute.
     /// </summary>
-    [TerraformPropertyName("lookup_projects")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("lookup_projects")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LookupProjects { get; set; }
 
     /// <summary>
     /// The open attribute.
     /// </summary>
-    [TerraformPropertyName("open")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> Open { get; set; } = default!;
+    [TerraformProperty("open")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> Open { get; set; }
 
     /// <summary>
     /// The currency_code attribute.
     /// </summary>
-    [TerraformPropertyName("currency_code")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CurrencyCode => new TerraformReference(this, "currency_code");
+    [TerraformProperty("currency_code")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CurrencyCode { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The project_ids attribute.
     /// </summary>
-    [TerraformPropertyName("project_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> ProjectIds => new TerraformReference(this, "project_ids");
+    [TerraformProperty("project_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> ProjectIds { get; }
 
 }

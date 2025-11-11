@@ -6,36 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ebs_config in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEmrInstanceGroupEbsConfigBlock
+public partial class AwsEmrInstanceGroupEbsConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    [TerraformPropertyName("iops")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("iops")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Iops { get; set; }
 
     /// <summary>
     /// The size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Size is required")]
-    [TerraformPropertyName("size")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("size")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Size { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The volumes_per_instance attribute.
     /// </summary>
-    [TerraformPropertyName("volumes_per_instance")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("volumes_per_instance")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? VolumesPerInstance { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class AwsEmrInstanceGroupEbsConfigBlock
 /// <summary>
 /// Manages a aws_emr_instance_group resource.
 /// </summary>
-public class AwsEmrInstanceGroup : TerraformResource
+public partial class AwsEmrInstanceGroup : TerraformResource
 {
     public AwsEmrInstanceGroup(string name) : base("aws_emr_instance_group", name)
     {
@@ -52,94 +52,94 @@ public class AwsEmrInstanceGroup : TerraformResource
     /// <summary>
     /// The autoscaling_policy attribute.
     /// </summary>
-    [TerraformPropertyName("autoscaling_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("autoscaling_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AutoscalingPolicy { get; set; }
 
     /// <summary>
     /// The bid_price attribute.
     /// </summary>
-    [TerraformPropertyName("bid_price")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bid_price")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BidPrice { get; set; }
 
     /// <summary>
     /// The cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    [TerraformPropertyName("cluster_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The configurations_json attribute.
     /// </summary>
-    [TerraformPropertyName("configurations_json")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("configurations_json")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConfigurationsJson { get; set; }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    [TerraformPropertyName("ebs_optimized")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ebs_optimized")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EbsOptimized { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    [TerraformPropertyName("instance_count")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> InstanceCount { get; set; } = default!;
+    [TerraformProperty("instance_count")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> InstanceCount { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    [TerraformPropertyName("instance_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for ebs_config.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("ebs_config")]
+    [TerraformProperty("ebs_config")]
     public TerraformSet<TerraformBlock<AwsEmrInstanceGroupEbsConfigBlock>>? EbsConfig { get; set; }
 
     /// <summary>
     /// The running_instance_count attribute.
     /// </summary>
-    [TerraformPropertyName("running_instance_count")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> RunningInstanceCount => new TerraformReference(this, "running_instance_count");
+    [TerraformProperty("running_instance_count")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> RunningInstanceCount { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

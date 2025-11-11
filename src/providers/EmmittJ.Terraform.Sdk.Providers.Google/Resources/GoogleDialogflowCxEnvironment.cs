@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDialogflowCxEnvironmentTimeoutsBlock
+public partial class GoogleDialogflowCxEnvironmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -35,14 +35,14 @@ public class GoogleDialogflowCxEnvironmentTimeoutsBlock
 /// Block type for version_configs in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDialogflowCxEnvironmentVersionConfigsBlock
+public partial class GoogleDialogflowCxEnvironmentVersionConfigsBlock : TerraformBlockBase
 {
     /// <summary>
     /// Format: projects/{{project}}/locations/{{location}}/agents/{{agent}}/flows/{{flow}}/versions/{{version}}.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformPropertyName("version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Version { get; set; }
 
 }
@@ -51,7 +51,7 @@ public class GoogleDialogflowCxEnvironmentVersionConfigsBlock
 /// Manages a google_dialogflow_cx_environment resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleDialogflowCxEnvironment : TerraformResource
+public partial class GoogleDialogflowCxEnvironment : TerraformResource
 {
     public GoogleDialogflowCxEnvironment(string name) : base("google_dialogflow_cx_environment", name)
     {
@@ -60,38 +60,38 @@ public class GoogleDialogflowCxEnvironment : TerraformResource
     /// <summary>
     /// The human-readable description of the environment. The maximum length is 500 characters. If exceeded, the request is rejected.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The human-readable name of the environment (unique in an agent). Limit of 64 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The Agent to create an Environment for.
     /// Format: projects/&amp;lt;Project ID&amp;gt;/locations/&amp;lt;Location ID&amp;gt;/agents/&amp;lt;Agent ID&amp;gt;.
     /// </summary>
-    [TerraformPropertyName("parent")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parent")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Parent { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDialogflowCxEnvironmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -100,21 +100,21 @@ public class GoogleDialogflowCxEnvironment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionConfigs is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VersionConfigs block(s) required")]
-    [TerraformPropertyName("version_configs")]
+    [TerraformProperty("version_configs")]
     public TerraformList<TerraformBlock<GoogleDialogflowCxEnvironmentVersionConfigsBlock>>? VersionConfigs { get; set; }
 
     /// <summary>
     /// The name of the environment.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Update time of this environment. A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

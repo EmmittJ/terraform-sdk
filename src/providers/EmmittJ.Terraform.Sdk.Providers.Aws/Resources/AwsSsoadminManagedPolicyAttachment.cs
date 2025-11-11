@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSsoadminManagedPolicyAttachmentTimeoutsBlock
+public partial class AwsSsoadminManagedPolicyAttachmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class AwsSsoadminManagedPolicyAttachmentTimeoutsBlock
 /// <summary>
 /// Manages a aws_ssoadmin_managed_policy_attachment resource.
 /// </summary>
-public class AwsSsoadminManagedPolicyAttachment : TerraformResource
+public partial class AwsSsoadminManagedPolicyAttachment : TerraformResource
 {
     public AwsSsoadminManagedPolicyAttachment(string name) : base("aws_ssoadmin_managed_policy_attachment", name)
     {
@@ -36,53 +36,53 @@ public class AwsSsoadminManagedPolicyAttachment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
-    [TerraformPropertyName("instance_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstanceArn { get; set; }
 
     /// <summary>
     /// The managed_policy_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedPolicyArn is required")]
-    [TerraformPropertyName("managed_policy_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("managed_policy_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ManagedPolicyArn { get; set; }
 
     /// <summary>
     /// The permission_set_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionSetArn is required")]
-    [TerraformPropertyName("permission_set_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("permission_set_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PermissionSetArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsSsoadminManagedPolicyAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The managed_policy_name attribute.
     /// </summary>
-    [TerraformPropertyName("managed_policy_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ManagedPolicyName => new TerraformReference(this, "managed_policy_name");
+    [TerraformProperty("managed_policy_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ManagedPolicyName { get; }
 
 }

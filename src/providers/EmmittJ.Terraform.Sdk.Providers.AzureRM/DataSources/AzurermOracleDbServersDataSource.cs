@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermOracleDbServersDataSourceTimeoutsBlock
+public partial class AzurermOracleDbServersDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermOracleDbServersDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_oracle_db_servers.
 /// </summary>
-public class AzurermOracleDbServersDataSource : TerraformDataSource
+public partial class AzurermOracleDbServersDataSource : TerraformDataSource
 {
     public AzurermOracleDbServersDataSource(string name) : base("azurerm_oracle_db_servers", name)
     {
@@ -30,37 +30,37 @@ public class AzurermOracleDbServersDataSource : TerraformDataSource
     /// The cloud_exadata_infrastructure_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureName is required")]
-    [TerraformPropertyName("cloud_exadata_infrastructure_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cloud_exadata_infrastructure_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CloudExadataInfrastructureName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermOracleDbServersDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The db_servers attribute.
     /// </summary>
-    [TerraformPropertyName("db_servers")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> DbServers => new TerraformReference(this, "db_servers");
+    [TerraformProperty("db_servers")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> DbServers { get; }
 
 }

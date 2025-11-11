@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for protocol in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDatasyncLocationFsxOntapFileSystemProtocolBlock
+public partial class AwsDatasyncLocationFsxOntapFileSystemProtocolBlock : TerraformBlockBase
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsDatasyncLocationFsxOntapFileSystemProtocolBlock
 /// Manages a aws_datasync_location_fsx_ontap_file_system resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsDatasyncLocationFsxOntapFileSystem : TerraformResource
+public partial class AwsDatasyncLocationFsxOntapFileSystem : TerraformResource
 {
     public AwsDatasyncLocationFsxOntapFileSystem(string name) : base("aws_datasync_location_fsx_ontap_file_system", name)
     {
@@ -23,53 +23,53 @@ public class AwsDatasyncLocationFsxOntapFileSystem : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_group_arns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupArns is required")]
-    [TerraformPropertyName("security_group_arns")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("security_group_arns")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> SecurityGroupArns { get; set; }
 
     /// <summary>
     /// The storage_virtual_machine_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageVirtualMachineArn is required")]
-    [TerraformPropertyName("storage_virtual_machine_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_virtual_machine_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageVirtualMachineArn { get; set; }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    [TerraformPropertyName("subdirectory")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Subdirectory { get; set; } = default!;
+    [TerraformProperty("subdirectory")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Subdirectory { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for protocol.
@@ -78,35 +78,35 @@ public class AwsDatasyncLocationFsxOntapFileSystem : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Protocol block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Protocol block(s) allowed")]
-    [TerraformPropertyName("protocol")]
+    [TerraformProperty("protocol")]
     public TerraformList<TerraformBlock<AwsDatasyncLocationFsxOntapFileSystemProtocolBlock>>? Protocol { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    [TerraformPropertyName("creation_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTime => new TerraformReference(this, "creation_time");
+    [TerraformProperty("creation_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTime { get; }
 
     /// <summary>
     /// The fsx_filesystem_arn attribute.
     /// </summary>
-    [TerraformPropertyName("fsx_filesystem_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FsxFilesystemArn => new TerraformReference(this, "fsx_filesystem_arn");
+    [TerraformProperty("fsx_filesystem_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FsxFilesystemArn { get; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    [TerraformPropertyName("uri")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uri => new TerraformReference(this, "uri");
+    [TerraformProperty("uri")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uri { get; }
 
 }

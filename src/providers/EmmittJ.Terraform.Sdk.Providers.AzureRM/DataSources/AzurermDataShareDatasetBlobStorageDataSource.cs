@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock
+public partial class AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_data_share_dataset_blob_storage.
 /// </summary>
-public class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
+public partial class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
 {
     public AzurermDataShareDatasetBlobStorageDataSource(string name) : base("azurerm_data_share_dataset_blob_storage", name)
     {
@@ -30,65 +30,65 @@ public class AzurermDataShareDatasetBlobStorageDataSource : TerraformDataSource
     /// The data_share_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataShareId is required")]
-    [TerraformPropertyName("data_share_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data_share_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DataShareId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermDataShareDatasetBlobStorageDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    [TerraformPropertyName("container_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ContainerName => new TerraformReference(this, "container_name");
+    [TerraformProperty("container_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ContainerName { get; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The file_path attribute.
     /// </summary>
-    [TerraformPropertyName("file_path")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FilePath => new TerraformReference(this, "file_path");
+    [TerraformProperty("file_path")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FilePath { get; }
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
-    [TerraformPropertyName("folder_path")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FolderPath => new TerraformReference(this, "folder_path");
+    [TerraformProperty("folder_path")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FolderPath { get; }
 
     /// <summary>
     /// The storage_account attribute.
     /// </summary>
-    [TerraformPropertyName("storage_account")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> StorageAccount => new TerraformReference(this, "storage_account");
+    [TerraformProperty("storage_account")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> StorageAccount { get; }
 
 }

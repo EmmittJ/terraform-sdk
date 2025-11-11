@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for destination_dataset in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock
+public partial class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock : TerraformBlockBase
 {
     /// <summary>
     /// A user-friendly description of the dataset.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A descriptive name for the dataset.
     /// </summary>
-    [TerraformPropertyName("friendly_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("friendly_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? FriendlyName { get; set; }
 
     /// <summary>
     /// The labels associated with this dataset. You can use these to
     /// organize and group your datasets.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -35,8 +35,8 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
     /// See https://cloud.google.com/bigquery/docs/locations for supported locations.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
 }
@@ -45,20 +45,20 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock
+public partial class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -67,7 +67,7 @@ public class GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock
 /// Manages a google_bigquery_analytics_hub_listing_subscription resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
+public partial class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
 {
     public GoogleBigqueryAnalyticsHubListingSubscription(string name) : base("google_bigquery_analytics_hub_listing_subscription", name)
     {
@@ -77,39 +77,39 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     /// The ID of the data exchange. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataExchangeId is required")]
-    [TerraformPropertyName("data_exchange_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data_exchange_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DataExchangeId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the listing. Must contain only Unicode letters, numbers (0-9), underscores (_). Should not use characters that require URL-escaping, or characters outside of ASCII, spaces.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ListingId is required")]
-    [TerraformPropertyName("listing_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("listing_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ListingId { get; set; }
 
     /// <summary>
     /// The name of the location of the data exchange. Distinct from the location of the destination data set.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for destination_dataset.
@@ -118,106 +118,106 @@ public class GoogleBigqueryAnalyticsHubListingSubscription : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationDataset is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationDataset block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DestinationDataset block(s) allowed")]
-    [TerraformPropertyName("destination_dataset")]
+    [TerraformProperty("destination_dataset")]
     public TerraformList<TerraformBlock<GoogleBigqueryAnalyticsHubListingSubscriptionDestinationDatasetBlock>>? DestinationDataset { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleBigqueryAnalyticsHubListingSubscriptionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Commercial info metadata for this subscription. This is set if this is a commercial subscription i.e. if this subscription was created from subscribing to a commercial listing.
     /// </summary>
-    [TerraformPropertyName("commercial_info")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CommercialInfo => new TerraformReference(this, "commercial_info");
+    [TerraformProperty("commercial_info")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CommercialInfo { get; }
 
     /// <summary>
     /// Timestamp when the subscription was created.
     /// </summary>
-    [TerraformPropertyName("creation_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTime => new TerraformReference(this, "creation_time");
+    [TerraformProperty("creation_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTime { get; }
 
     /// <summary>
     /// Timestamp when the subscription was last modified.
     /// </summary>
-    [TerraformPropertyName("last_modify_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModifyTime => new TerraformReference(this, "last_modify_time");
+    [TerraformProperty("last_modify_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModifyTime { get; }
 
     /// <summary>
     /// Output only. Map of listing resource names to associated linked resource,
     /// e.g. projects/123/locations/US/dataExchanges/456/listings/789 -&amp;gt; projects/123/datasets/my_dataset
     /// </summary>
-    [TerraformPropertyName("linked_dataset_map")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> LinkedDatasetMap => new TerraformReference(this, "linked_dataset_map");
+    [TerraformProperty("linked_dataset_map")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> LinkedDatasetMap { get; }
 
     /// <summary>
     /// Output only. Linked resources created in the subscription. Only contains values if state = STATE_ACTIVE.
     /// </summary>
-    [TerraformPropertyName("linked_resources")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> LinkedResources => new TerraformReference(this, "linked_resources");
+    [TerraformProperty("linked_resources")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> LinkedResources { get; }
 
     /// <summary>
     /// Output only. By default, false. If true, the Subscriber agreed to the email sharing mandate that is enabled for Listing.
     /// </summary>
-    [TerraformPropertyName("log_linked_dataset_query_user_email")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> LogLinkedDatasetQueryUserEmail => new TerraformReference(this, "log_linked_dataset_query_user_email");
+    [TerraformProperty("log_linked_dataset_query_user_email")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> LogLinkedDatasetQueryUserEmail { get; }
 
     /// <summary>
     /// The resource name of the subscription. e.g. &amp;quot;projects/myproject/locations/US/subscriptions/123&amp;quot;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Display name of the project of this subscription.
     /// </summary>
-    [TerraformPropertyName("organization_display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OrganizationDisplayName => new TerraformReference(this, "organization_display_name");
+    [TerraformProperty("organization_display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OrganizationDisplayName { get; }
 
     /// <summary>
     /// Organization of the project this subscription belongs to.
     /// </summary>
-    [TerraformPropertyName("organization_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OrganizationId => new TerraformReference(this, "organization_id");
+    [TerraformProperty("organization_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OrganizationId { get; }
 
     /// <summary>
     /// Listing shared asset type.
     /// </summary>
-    [TerraformPropertyName("resource_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceType => new TerraformReference(this, "resource_type");
+    [TerraformProperty("resource_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceType { get; }
 
     /// <summary>
     /// Current state of the subscription.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// Email of the subscriber.
     /// </summary>
-    [TerraformPropertyName("subscriber_contact")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SubscriberContact => new TerraformReference(this, "subscriber_contact");
+    [TerraformProperty("subscriber_contact")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SubscriberContact { get; }
 
     /// <summary>
     /// The subscription id used to reference the subscription.
     /// </summary>
-    [TerraformPropertyName("subscription_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SubscriptionId => new TerraformReference(this, "subscription_id");
+    [TerraformProperty("subscription_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SubscriptionId { get; }
 
 }

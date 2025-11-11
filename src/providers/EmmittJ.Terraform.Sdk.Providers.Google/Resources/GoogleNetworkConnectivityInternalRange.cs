@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for allocation_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock
+public partial class GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// Optional. Sets the strategy used to automatically find a free range of a size given by prefixLength. Can be set only when trying to create a reservation that automatically finds the free range to reserve. Possible values: [&amp;quot;RANDOM&amp;quot;, &amp;quot;FIRST_AVAILABLE&amp;quot;, &amp;quot;RANDOM_FIRST_N_AVAILABLE&amp;quot;, &amp;quot;FIRST_SMALLEST_FITTING&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("allocation_strategy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allocation_strategy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AllocationStrategy { get; set; }
 
     /// <summary>
     /// Must be set when allocation_strategy is RANDOM_FIRST_N_AVAILABLE, otherwise must remain unset. Defines the size of the set of free ranges from which RANDOM_FIRST_N_AVAILABLE strategy randomy selects one,
     /// in other words it sets the N in the RANDOM_FIRST_N_AVAILABLE.
     /// </summary>
-    [TerraformPropertyName("first_available_ranges_lookup_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("first_available_ranges_lookup_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? FirstAvailableRangesLookupSize { get; set; }
 
 }
@@ -29,7 +29,7 @@ public class GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock
 /// Block type for migration in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkConnectivityInternalRangeMigrationBlock
+public partial class GoogleNetworkConnectivityInternalRangeMigrationBlock : TerraformBlockBase
 {
     /// <summary>
     /// Resource path as an URI of the source resource, for example a subnet.
@@ -38,8 +38,8 @@ public class GoogleNetworkConnectivityInternalRangeMigrationBlock
     /// An example /projects/{project}/regions/{region}/subnetworks/{subnet}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
-    [TerraformPropertyName("source")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Source { get; set; }
 
     /// <summary>
@@ -49,8 +49,8 @@ public class GoogleNetworkConnectivityInternalRangeMigrationBlock
     /// For example /projects/{project}/regions/{region}/subnetworks/{subnet}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
-    [TerraformPropertyName("target")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Target { get; set; }
 
 }
@@ -59,27 +59,27 @@ public class GoogleNetworkConnectivityInternalRangeMigrationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkConnectivityInternalRangeTimeoutsBlock
+public partial class GoogleNetworkConnectivityInternalRangeTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -88,7 +88,7 @@ public class GoogleNetworkConnectivityInternalRangeTimeoutsBlock
 /// Manages a google_network_connectivity_internal_range resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleNetworkConnectivityInternalRange : TerraformResource
+public partial class GoogleNetworkConnectivityInternalRange : TerraformResource
 {
     public GoogleNetworkConnectivityInternalRange(string name) : base("google_network_connectivity_internal_range", name)
     {
@@ -97,30 +97,30 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Optional. List of IP CIDR ranges to be excluded. Resulting reserved Internal Range will not overlap with any CIDR blocks mentioned in this list.
     /// Only IPv4 CIDR ranges are supported.
     /// </summary>
-    [TerraformPropertyName("exclude_cidr_ranges")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("exclude_cidr_ranges")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ExcludeCidrRanges { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Immutable ranges cannot have their fields modified, except for labels and description.
     /// </summary>
-    [TerraformPropertyName("immutable")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("immutable")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Immutable { get; set; }
 
     /// <summary>
@@ -128,9 +128,9 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// NOTE: IPv6 ranges are limited to usage=EXTERNAL_TO_VPC and peering=FOR_SELF
     /// NOTE: For IPv6 Ranges this field is compulsory, i.e. the address range must be specified explicitly.
     /// </summary>
-    [TerraformPropertyName("ip_cidr_range")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> IpCidrRange { get; set; } = default!;
+    [TerraformProperty("ip_cidr_range")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> IpCidrRange { get; set; }
 
     /// <summary>
     /// User-defined labels.
@@ -139,39 +139,39 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The name of the policy based route.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Fully-qualified URL of the network that this route applies to, for example: projects/my-project/global/networks/my-network.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
-    [TerraformPropertyName("network")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// Optional. Types of resources that are allowed to overlap with the current internal range. Possible values: [&amp;quot;OVERLAP_ROUTE_RANGE&amp;quot;, &amp;quot;OVERLAP_EXISTING_SUBNET_RANGE&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("overlaps")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("overlaps")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Overlaps { get; set; }
 
     /// <summary>
     /// The type of peering set for this internal range. Possible values: [&amp;quot;FOR_SELF&amp;quot;, &amp;quot;FOR_PEER&amp;quot;, &amp;quot;NOT_SHARED&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Peering is required")]
-    [TerraformPropertyName("peering")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("peering")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Peering { get; set; }
 
     /// <summary>
@@ -180,31 +180,31 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// NOTE: For IPv6 this field only works if ip_cidr_range is set as well, and both fields must match. In other words, with IPv6 this field only works as
     /// a redundant parameter.
     /// </summary>
-    [TerraformPropertyName("prefix_length")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("prefix_length")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? PrefixLength { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Optional. Can be set to narrow down or pick a different address space while searching for a free range.
     /// If not set, defaults to the &amp;quot;10.0.0.0/8&amp;quot; address space. This can be used to search in other rfc-1918 address spaces like &amp;quot;172.16.0.0/12&amp;quot; and &amp;quot;192.168.0.0/16&amp;quot; or non-rfc-1918 address spaces used in the VPC.
     /// </summary>
-    [TerraformPropertyName("target_cidr_range")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("target_cidr_range")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? TargetCidrRange { get; set; }
 
     /// <summary>
     /// The type of usage set for this InternalRange. Possible values: [&amp;quot;FOR_VPC&amp;quot;, &amp;quot;EXTERNAL_TO_VPC&amp;quot;, &amp;quot;FOR_MIGRATION&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Usage is required")]
-    [TerraformPropertyName("usage")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("usage")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Usage { get; set; }
 
     /// <summary>
@@ -212,7 +212,7 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllocationOptions block(s) allowed")]
-    [TerraformPropertyName("allocation_options")]
+    [TerraformProperty("allocation_options")]
     public TerraformList<TerraformBlock<GoogleNetworkConnectivityInternalRangeAllocationOptionsBlock>>? AllocationOptions { get; set; }
 
     /// <summary>
@@ -220,38 +220,38 @@ public class GoogleNetworkConnectivityInternalRange : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Migration block(s) allowed")]
-    [TerraformPropertyName("migration")]
+    [TerraformProperty("migration")]
     public TerraformList<TerraformBlock<GoogleNetworkConnectivityInternalRangeMigrationBlock>>? Migration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleNetworkConnectivityInternalRangeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. The list of resources that refer to this internal range.
     /// Resources that use the internal range for their range allocation are referred to as users of the range.
     /// Other resources mark themselves as users while doing so by creating a reference to this internal range. Having a user, based on this reference, prevents deletion of the internal range referred to. Can be empty.
     /// </summary>
-    [TerraformPropertyName("users")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Users => new TerraformReference(this, "users");
+    [TerraformProperty("users")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Users { get; }
 
 }

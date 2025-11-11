@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for capacity_provider_strategy in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEcsTaskSetCapacityProviderStrategyBlock
+public partial class AwsEcsTaskSetCapacityProviderStrategyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The base attribute.
     /// </summary>
-    [TerraformPropertyName("base")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("base")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Base { get; set; }
 
     /// <summary>
     /// The capacity_provider attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityProvider is required")]
-    [TerraformPropertyName("capacity_provider")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("capacity_provider")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CapacityProvider { get; set; }
 
     /// <summary>
     /// The weight attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Weight is required")]
-    [TerraformPropertyName("weight")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("weight")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Weight { get; set; }
 
 }
@@ -37,35 +37,35 @@ public class AwsEcsTaskSetCapacityProviderStrategyBlock
 /// Block type for load_balancer in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEcsTaskSetLoadBalancerBlock
+public partial class AwsEcsTaskSetLoadBalancerBlock : TerraformBlockBase
 {
     /// <summary>
     /// The container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
-    [TerraformPropertyName("container_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("container_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ContainerName { get; set; }
 
     /// <summary>
     /// The container_port attribute.
     /// </summary>
-    [TerraformPropertyName("container_port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("container_port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ContainerPort { get; set; }
 
     /// <summary>
     /// The load_balancer_name attribute.
     /// </summary>
-    [TerraformPropertyName("load_balancer_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("load_balancer_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LoadBalancerName { get; set; }
 
     /// <summary>
     /// The target_group_arn attribute.
     /// </summary>
-    [TerraformPropertyName("target_group_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("target_group_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TargetGroupArn { get; set; }
 
 }
@@ -74,28 +74,28 @@ public class AwsEcsTaskSetLoadBalancerBlock
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcsTaskSetNetworkConfigurationBlock
+public partial class AwsEcsTaskSetNetworkConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The assign_public_ip attribute.
     /// </summary>
-    [TerraformPropertyName("assign_public_ip")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("assign_public_ip")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AssignPublicIp { get; set; }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    [TerraformPropertyName("security_groups")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_groups")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SecurityGroups { get; set; }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
-    [TerraformPropertyName("subnets")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnets")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Subnets { get; set; }
 
 }
@@ -104,20 +104,20 @@ public class AwsEcsTaskSetNetworkConfigurationBlock
 /// Block type for scale in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcsTaskSetScaleBlock
+public partial class AwsEcsTaskSetScaleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The unit attribute.
     /// </summary>
-    [TerraformPropertyName("unit")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("unit")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Unit { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    [TerraformPropertyName("value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Value { get; set; }
 
 }
@@ -126,35 +126,35 @@ public class AwsEcsTaskSetScaleBlock
 /// Block type for service_registries in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEcsTaskSetServiceRegistriesBlock
+public partial class AwsEcsTaskSetServiceRegistriesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The container_name attribute.
     /// </summary>
-    [TerraformPropertyName("container_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("container_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ContainerName { get; set; }
 
     /// <summary>
     /// The container_port attribute.
     /// </summary>
-    [TerraformPropertyName("container_port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("container_port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ContainerPort { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    [TerraformPropertyName("port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// The registry_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegistryArn is required")]
-    [TerraformPropertyName("registry_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("registry_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RegistryArn { get; set; }
 
 }
@@ -163,7 +163,7 @@ public class AwsEcsTaskSetServiceRegistriesBlock
 /// Manages a aws_ecs_task_set resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsEcsTaskSet : TerraformResource
+public partial class AwsEcsTaskSet : TerraformResource
 {
     public AwsEcsTaskSet(string name) : base("aws_ecs_task_set", name)
     {
@@ -173,108 +173,108 @@ public class AwsEcsTaskSet : TerraformResource
     /// The cluster attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
-    [TerraformPropertyName("cluster")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Cluster { get; set; }
 
     /// <summary>
     /// The external_id attribute.
     /// </summary>
-    [TerraformPropertyName("external_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ExternalId { get; set; } = default!;
+    [TerraformProperty("external_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ExternalId { get; set; }
 
     /// <summary>
     /// The force_delete attribute.
     /// </summary>
-    [TerraformPropertyName("force_delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("force_delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ForceDelete { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The launch_type attribute.
     /// </summary>
-    [TerraformPropertyName("launch_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LaunchType { get; set; } = default!;
+    [TerraformProperty("launch_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LaunchType { get; set; }
 
     /// <summary>
     /// The platform_version attribute.
     /// </summary>
-    [TerraformPropertyName("platform_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PlatformVersion { get; set; } = default!;
+    [TerraformProperty("platform_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PlatformVersion { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
-    [TerraformPropertyName("service")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The task_definition attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
-    [TerraformPropertyName("task_definition")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("task_definition")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TaskDefinition { get; set; }
 
     /// <summary>
     /// The wait_until_stable attribute.
     /// </summary>
-    [TerraformPropertyName("wait_until_stable")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("wait_until_stable")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? WaitUntilStable { get; set; }
 
     /// <summary>
     /// The wait_until_stable_timeout attribute.
     /// </summary>
-    [TerraformPropertyName("wait_until_stable_timeout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("wait_until_stable_timeout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? WaitUntilStableTimeout { get; set; }
 
     /// <summary>
     /// Block for capacity_provider_strategy.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("capacity_provider_strategy")]
+    [TerraformProperty("capacity_provider_strategy")]
     public TerraformSet<TerraformBlock<AwsEcsTaskSetCapacityProviderStrategyBlock>>? CapacityProviderStrategy { get; set; }
 
     /// <summary>
     /// Block for load_balancer.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("load_balancer")]
+    [TerraformProperty("load_balancer")]
     public TerraformSet<TerraformBlock<AwsEcsTaskSetLoadBalancerBlock>>? LoadBalancer { get; set; }
 
     /// <summary>
@@ -282,7 +282,7 @@ public class AwsEcsTaskSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
-    [TerraformPropertyName("network_configuration")]
+    [TerraformProperty("network_configuration")]
     public TerraformList<TerraformBlock<AwsEcsTaskSetNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
 
     /// <summary>
@@ -290,7 +290,7 @@ public class AwsEcsTaskSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scale block(s) allowed")]
-    [TerraformPropertyName("scale")]
+    [TerraformProperty("scale")]
     public TerraformList<TerraformBlock<AwsEcsTaskSetScaleBlock>>? Scale { get; set; }
 
     /// <summary>
@@ -298,35 +298,35 @@ public class AwsEcsTaskSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceRegistries block(s) allowed")]
-    [TerraformPropertyName("service_registries")]
+    [TerraformProperty("service_registries")]
     public TerraformList<TerraformBlock<AwsEcsTaskSetServiceRegistriesBlock>>? ServiceRegistries { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The stability_status attribute.
     /// </summary>
-    [TerraformPropertyName("stability_status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StabilityStatus => new TerraformReference(this, "stability_status");
+    [TerraformProperty("stability_status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StabilityStatus { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The task_set_id attribute.
     /// </summary>
-    [TerraformPropertyName("task_set_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TaskSetId => new TerraformReference(this, "task_set_id");
+    [TerraformProperty("task_set_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TaskSetId { get; }
 
 }

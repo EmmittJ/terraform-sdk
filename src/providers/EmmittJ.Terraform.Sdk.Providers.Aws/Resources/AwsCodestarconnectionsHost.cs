@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsCodestarconnectionsHostTimeoutsBlock
+public partial class AwsCodestarconnectionsHostTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -35,37 +35,37 @@ public class AwsCodestarconnectionsHostTimeoutsBlock
 /// Block type for vpc_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodestarconnectionsHostVpcConfigurationBlock
+public partial class AwsCodestarconnectionsHostVpcConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
-    [TerraformPropertyName("security_group_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("security_group_ids")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    [TerraformPropertyName("subnet_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_ids")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> SubnetIds { get; set; }
 
     /// <summary>
     /// The tls_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("tls_certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tls_certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TlsCertificate { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    [TerraformPropertyName("vpc_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vpc_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VpcId { get; set; }
 
 }
@@ -74,7 +74,7 @@ public class AwsCodestarconnectionsHostVpcConfigurationBlock
 /// Manages a aws_codestarconnections_host resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsCodestarconnectionsHost : TerraformResource
+public partial class AwsCodestarconnectionsHost : TerraformResource
 {
     public AwsCodestarconnectionsHost(string name) : base("aws_codestarconnections_host", name)
     {
@@ -83,46 +83,46 @@ public class AwsCodestarconnectionsHost : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The provider_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderEndpoint is required")]
-    [TerraformPropertyName("provider_endpoint")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("provider_endpoint")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProviderEndpoint { get; set; }
 
     /// <summary>
     /// The provider_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
-    [TerraformPropertyName("provider_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("provider_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProviderType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsCodestarconnectionsHostTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -130,21 +130,21 @@ public class AwsCodestarconnectionsHost : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfiguration block(s) allowed")]
-    [TerraformPropertyName("vpc_configuration")]
+    [TerraformProperty("vpc_configuration")]
     public TerraformList<TerraformBlock<AwsCodestarconnectionsHostVpcConfigurationBlock>>? VpcConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

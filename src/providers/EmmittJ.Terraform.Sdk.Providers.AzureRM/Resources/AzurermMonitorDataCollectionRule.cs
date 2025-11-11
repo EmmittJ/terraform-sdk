@@ -6,43 +6,43 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for data_flow in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorDataCollectionRuleDataFlowBlock
+public partial class AzurermMonitorDataCollectionRuleDataFlowBlock : TerraformBlockBase
 {
     /// <summary>
     /// The built_in_transform attribute.
     /// </summary>
-    [TerraformPropertyName("built_in_transform")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("built_in_transform")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BuiltInTransform { get; set; }
 
     /// <summary>
     /// The destinations attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
-    [TerraformPropertyName("destinations")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("destinations")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Destinations { get; set; }
 
     /// <summary>
     /// The output_stream attribute.
     /// </summary>
-    [TerraformPropertyName("output_stream")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("output_stream")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OutputStream { get; set; }
 
     /// <summary>
     /// The streams attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Streams is required")]
-    [TerraformPropertyName("streams")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("streams")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Streams { get; set; }
 
     /// <summary>
     /// The transform_kql attribute.
     /// </summary>
-    [TerraformPropertyName("transform_kql")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("transform_kql")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TransformKql { get; set; }
 
 }
@@ -51,7 +51,7 @@ public class AzurermMonitorDataCollectionRuleDataFlowBlock
 /// Block type for data_sources in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorDataCollectionRuleDataSourcesBlock
+public partial class AzurermMonitorDataCollectionRuleDataSourcesBlock : TerraformBlockBase
 {
 }
 
@@ -59,7 +59,7 @@ public class AzurermMonitorDataCollectionRuleDataSourcesBlock
 /// Block type for destinations in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorDataCollectionRuleDestinationsBlock
+public partial class AzurermMonitorDataCollectionRuleDestinationsBlock : TerraformBlockBase
 {
 }
 
@@ -67,13 +67,13 @@ public class AzurermMonitorDataCollectionRuleDestinationsBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorDataCollectionRuleIdentityBlock
+public partial class AzurermMonitorDataCollectionRuleIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformPropertyName("identity_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IdentityIds { get; set; }
 
 
@@ -82,8 +82,8 @@ public class AzurermMonitorDataCollectionRuleIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -92,14 +92,14 @@ public class AzurermMonitorDataCollectionRuleIdentityBlock
 /// Block type for stream_declaration in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermMonitorDataCollectionRuleStreamDeclarationBlock
+public partial class AzurermMonitorDataCollectionRuleStreamDeclarationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The stream_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
-    [TerraformPropertyName("stream_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("stream_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StreamName { get; set; }
 
 }
@@ -108,34 +108,34 @@ public class AzurermMonitorDataCollectionRuleStreamDeclarationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorDataCollectionRuleTimeoutsBlock
+public partial class AzurermMonitorDataCollectionRuleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -144,7 +144,7 @@ public class AzurermMonitorDataCollectionRuleTimeoutsBlock
 /// Manages a azurerm_monitor_data_collection_rule resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMonitorDataCollectionRule : TerraformResource
+public partial class AzurermMonitorDataCollectionRule : TerraformResource
 {
     public AzurermMonitorDataCollectionRule(string name) : base("azurerm_monitor_data_collection_rule", name)
     {
@@ -153,60 +153,60 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// <summary>
     /// The data_collection_endpoint_id attribute.
     /// </summary>
-    [TerraformPropertyName("data_collection_endpoint_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("data_collection_endpoint_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DataCollectionEndpointId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    [TerraformPropertyName("kind")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kind")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Kind { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -215,7 +215,7 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFlow is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DataFlow block(s) required")]
-    [TerraformPropertyName("data_flow")]
+    [TerraformProperty("data_flow")]
     public TerraformList<TerraformBlock<AzurermMonitorDataCollectionRuleDataFlowBlock>>? DataFlow { get; set; }
 
     /// <summary>
@@ -223,7 +223,7 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DataSources block(s) allowed")]
-    [TerraformPropertyName("data_sources")]
+    [TerraformProperty("data_sources")]
     public TerraformList<TerraformBlock<AzurermMonitorDataCollectionRuleDataSourcesBlock>>? DataSources { get; set; }
 
     /// <summary>
@@ -233,7 +233,7 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destinations is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Destinations block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Destinations block(s) allowed")]
-    [TerraformPropertyName("destinations")]
+    [TerraformProperty("destinations")]
     public TerraformList<TerraformBlock<AzurermMonitorDataCollectionRuleDestinationsBlock>>? Destinations { get; set; }
 
     /// <summary>
@@ -241,28 +241,28 @@ public class AzurermMonitorDataCollectionRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermMonitorDataCollectionRuleIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for stream_declaration.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("stream_declaration")]
+    [TerraformProperty("stream_declaration")]
     public TerraformSet<TerraformBlock<AzurermMonitorDataCollectionRuleStreamDeclarationBlock>>? StreamDeclaration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMonitorDataCollectionRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The immutable_id attribute.
     /// </summary>
-    [TerraformPropertyName("immutable_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ImmutableId => new TerraformReference(this, "immutable_id");
+    [TerraformProperty("immutable_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ImmutableId { get; }
 
 }

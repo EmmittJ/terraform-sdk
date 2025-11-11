@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for details in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock
+public partial class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The version number that indicates which Google Cloud services
@@ -14,9 +14,9 @@ public class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock
     /// PAB policy version will be set to the current latest version, and this version
     /// won&#39;t get updated when new versions are released.
     /// </summary>
-    [TerraformPropertyName("enforcement_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EnforcementVersion { get; set; } = default!;
+    [TerraformProperty("enforcement_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EnforcementVersion { get; set; }
 
 }
 
@@ -24,27 +24,27 @@ public class GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock
+public partial class GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -53,7 +53,7 @@ public class GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock
 /// Manages a google_iam_principal_access_boundary_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
+public partial class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
 {
     public GoogleIamPrincipalAccessBoundaryPolicy(string name) : base("google_iam_principal_access_boundary_policy", name)
     {
@@ -67,38 +67,38 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    [TerraformPropertyName("annotations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("annotations")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// The description of the principal access boundary policy. Must be less than or equal to 63 characters.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location the principal access boundary policy is in.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The parent organization of the principal access boundary policy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
-    [TerraformPropertyName("organization")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("organization")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Organization { get; set; }
 
     /// <summary>
@@ -106,8 +106,8 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     /// This value must start with a lowercase letter followed by up to 62 lowercase letters, numbers, hyphens, or dots. Pattern, /a-z{2,62}/.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalAccessBoundaryPolicyId is required")]
-    [TerraformPropertyName("principal_access_boundary_policy_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("principal_access_boundary_policy_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrincipalAccessBoundaryPolicyId { get; set; }
 
     /// <summary>
@@ -115,57 +115,57 @@ public class GoogleIamPrincipalAccessBoundaryPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Details block(s) allowed")]
-    [TerraformPropertyName("details")]
+    [TerraformProperty("details")]
     public TerraformList<TerraformBlock<GoogleIamPrincipalAccessBoundaryPolicyDetailsBlock>>? Details { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleIamPrincipalAccessBoundaryPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time when the principal access boundary policy was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_annotations")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
+    [TerraformProperty("effective_annotations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// The etag for the principal access boundary. If this is provided on update, it must match the server&#39;s etag.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Identifier. The resource name of the principal access boundary policy.  The following format is supported:
     ///  &#39;organizations/{organization_id}/locations/{location}/principalAccessBoundaryPolicies/{policy_id}&#39;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. The globally unique ID of the principal access boundary policy.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Output only. The time when the principal access boundary policy was most recently updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

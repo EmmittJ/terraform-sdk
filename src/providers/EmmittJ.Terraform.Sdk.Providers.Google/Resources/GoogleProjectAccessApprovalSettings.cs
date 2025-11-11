@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for enrolled_services in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleProjectAccessApprovalSettingsEnrolledServicesBlock
+public partial class GoogleProjectAccessApprovalSettingsEnrolledServicesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The product for which Access Approval will be enrolled. Allowed values are listed (case-sensitive):
@@ -22,15 +22,15 @@ public class GoogleProjectAccessApprovalSettingsEnrolledServicesBlock
     ///   storage.googleapis.com
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudProduct is required")]
-    [TerraformPropertyName("cloud_product")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cloud_product")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CloudProduct { get; set; }
 
     /// <summary>
     /// The enrollment level of the service. Default value: &amp;quot;BLOCK_ALL&amp;quot; Possible values: [&amp;quot;BLOCK_ALL&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("enrollment_level")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enrollment_level")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EnrollmentLevel { get; set; }
 
 }
@@ -39,27 +39,27 @@ public class GoogleProjectAccessApprovalSettingsEnrolledServicesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleProjectAccessApprovalSettingsTimeoutsBlock
+public partial class GoogleProjectAccessApprovalSettingsTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -68,7 +68,7 @@ public class GoogleProjectAccessApprovalSettingsTimeoutsBlock
 /// Manages a google_project_access_approval_settings resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleProjectAccessApprovalSettings : TerraformResource
+public partial class GoogleProjectAccessApprovalSettings : TerraformResource
 {
     public GoogleProjectAccessApprovalSettings(string name) : base("google_project_access_approval_settings", name)
     {
@@ -79,40 +79,40 @@ public class GoogleProjectAccessApprovalSettings : TerraformResource
     /// Empty active_key_version indicates that a Google-managed key should be used for signing.
     /// This property will be ignored if set by an ancestor of the resource, and new non-empty values may not be set.
     /// </summary>
-    [TerraformPropertyName("active_key_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("active_key_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ActiveKeyVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A list of email addresses to which notifications relating to approval requests should be sent.
     /// Notifications relating to a resource will be sent to all emails in the settings of ancestor
     /// resources of that resource. A maximum of 50 email addresses are allowed.
     /// </summary>
-    [TerraformPropertyName("notification_emails")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> NotificationEmails { get; set; } = default!;
+    [TerraformProperty("notification_emails")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> NotificationEmails { get; set; }
 
     /// <summary>
     /// Project id.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// ID of the project of the access approval settings.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectId is required")]
-    [TerraformPropertyName("project_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("project_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProjectId { get; set; }
 
     /// <summary>
@@ -121,29 +121,29 @@ public class GoogleProjectAccessApprovalSettings : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrolledServices is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnrolledServices block(s) required")]
-    [TerraformPropertyName("enrolled_services")]
+    [TerraformProperty("enrolled_services")]
     public TerraformSet<TerraformBlock<GoogleProjectAccessApprovalSettingsEnrolledServicesBlock>>? EnrolledServices { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleProjectAccessApprovalSettingsTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// If the field is true, that indicates that an ancestor of this Project has set active_key_version.
     /// </summary>
-    [TerraformPropertyName("ancestor_has_active_key_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AncestorHasActiveKeyVersion => new TerraformReference(this, "ancestor_has_active_key_version");
+    [TerraformProperty("ancestor_has_active_key_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AncestorHasActiveKeyVersion { get; }
 
     /// <summary>
     /// If the field is true, that indicates that at least one service is enrolled for Access Approval in one or more ancestors of the Project.
     /// </summary>
-    [TerraformPropertyName("enrolled_ancestor")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EnrolledAncestor => new TerraformReference(this, "enrolled_ancestor");
+    [TerraformProperty("enrolled_ancestor")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EnrolledAncestor { get; }
 
     /// <summary>
     /// If the field is true, that indicates that there is some configuration issue with the active_key_version
@@ -151,15 +151,15 @@ public class GoogleProjectAccessApprovalSettings : TerraformResource
     /// correct permissions on it, etc.) This key version is not necessarily the effective key version at this level,
     /// as key versions are inherited top-down.
     /// </summary>
-    [TerraformPropertyName("invalid_key_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> InvalidKeyVersion => new TerraformReference(this, "invalid_key_version");
+    [TerraformProperty("invalid_key_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> InvalidKeyVersion { get; }
 
     /// <summary>
     /// The resource name of the settings. Format is &amp;quot;projects/{project_id}/accessApprovalSettings&amp;quot;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

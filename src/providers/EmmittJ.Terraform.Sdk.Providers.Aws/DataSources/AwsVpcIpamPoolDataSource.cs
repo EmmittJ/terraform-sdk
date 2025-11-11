@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsVpcIpamPoolDataSourceFilterBlock
+public partial class AwsVpcIpamPoolDataSourceFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    [TerraformPropertyName("values")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("values")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Values { get; set; }
 
 }
@@ -30,13 +30,13 @@ public class AwsVpcIpamPoolDataSourceFilterBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsVpcIpamPoolDataSourceTimeoutsBlock
+public partial class AwsVpcIpamPoolDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -44,7 +44,7 @@ public class AwsVpcIpamPoolDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a aws_vpc_ipam_pool.
 /// </summary>
-public class AwsVpcIpamPoolDataSource : TerraformDataSource
+public partial class AwsVpcIpamPoolDataSource : TerraformDataSource
 {
     public AwsVpcIpamPoolDataSource(string name) : base("aws_vpc_ipam_pool", name)
     {
@@ -53,155 +53,155 @@ public class AwsVpcIpamPoolDataSource : TerraformDataSource
     /// <summary>
     /// The allocation_resource_tags attribute.
     /// </summary>
-    [TerraformPropertyName("allocation_resource_tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> AllocationResourceTags { get; set; } = default!;
+    [TerraformProperty("allocation_resource_tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> AllocationResourceTags { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Id { get; set; }
 
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
-    [TerraformPropertyName("ipam_pool_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ipam_pool_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IpamPoolId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformSet<TerraformBlock<AwsVpcIpamPoolDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsVpcIpamPoolDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The address_family attribute.
     /// </summary>
-    [TerraformPropertyName("address_family")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AddressFamily => new TerraformReference(this, "address_family");
+    [TerraformProperty("address_family")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AddressFamily { get; }
 
     /// <summary>
     /// The allocation_default_netmask_length attribute.
     /// </summary>
-    [TerraformPropertyName("allocation_default_netmask_length")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> AllocationDefaultNetmaskLength => new TerraformReference(this, "allocation_default_netmask_length");
+    [TerraformProperty("allocation_default_netmask_length")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> AllocationDefaultNetmaskLength { get; }
 
     /// <summary>
     /// The allocation_max_netmask_length attribute.
     /// </summary>
-    [TerraformPropertyName("allocation_max_netmask_length")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> AllocationMaxNetmaskLength => new TerraformReference(this, "allocation_max_netmask_length");
+    [TerraformProperty("allocation_max_netmask_length")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> AllocationMaxNetmaskLength { get; }
 
     /// <summary>
     /// The allocation_min_netmask_length attribute.
     /// </summary>
-    [TerraformPropertyName("allocation_min_netmask_length")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> AllocationMinNetmaskLength => new TerraformReference(this, "allocation_min_netmask_length");
+    [TerraformProperty("allocation_min_netmask_length")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> AllocationMinNetmaskLength { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The auto_import attribute.
     /// </summary>
-    [TerraformPropertyName("auto_import")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AutoImport => new TerraformReference(this, "auto_import");
+    [TerraformProperty("auto_import")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AutoImport { get; }
 
     /// <summary>
     /// The aws_service attribute.
     /// </summary>
-    [TerraformPropertyName("aws_service")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AwsService => new TerraformReference(this, "aws_service");
+    [TerraformProperty("aws_service")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AwsService { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The ipam_scope_id attribute.
     /// </summary>
-    [TerraformPropertyName("ipam_scope_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IpamScopeId => new TerraformReference(this, "ipam_scope_id");
+    [TerraformProperty("ipam_scope_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IpamScopeId { get; }
 
     /// <summary>
     /// The ipam_scope_type attribute.
     /// </summary>
-    [TerraformPropertyName("ipam_scope_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IpamScopeType => new TerraformReference(this, "ipam_scope_type");
+    [TerraformProperty("ipam_scope_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IpamScopeType { get; }
 
     /// <summary>
     /// The locale attribute.
     /// </summary>
-    [TerraformPropertyName("locale")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Locale => new TerraformReference(this, "locale");
+    [TerraformProperty("locale")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Locale { get; }
 
     /// <summary>
     /// The pool_depth attribute.
     /// </summary>
-    [TerraformPropertyName("pool_depth")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> PoolDepth => new TerraformReference(this, "pool_depth");
+    [TerraformProperty("pool_depth")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> PoolDepth { get; }
 
     /// <summary>
     /// The publicly_advertisable attribute.
     /// </summary>
-    [TerraformPropertyName("publicly_advertisable")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> PubliclyAdvertisable => new TerraformReference(this, "publicly_advertisable");
+    [TerraformProperty("publicly_advertisable")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> PubliclyAdvertisable { get; }
 
     /// <summary>
     /// The source_ipam_pool_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_ipam_pool_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceIpamPoolId => new TerraformReference(this, "source_ipam_pool_id");
+    [TerraformProperty("source_ipam_pool_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceIpamPoolId { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
 }

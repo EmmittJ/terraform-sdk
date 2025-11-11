@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for initial_replica_set in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock
+public partial class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock : TerraformBlockBase
 {
 
 
@@ -17,8 +17,8 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformPropertyName("subnet_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SubnetId { get; set; }
 
 }
@@ -27,27 +27,27 @@ public class AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock
 /// Block type for notifications in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermActiveDirectoryDomainServiceNotificationsBlock
+public partial class AzurermActiveDirectoryDomainServiceNotificationsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The additional_recipients attribute.
     /// </summary>
-    [TerraformPropertyName("additional_recipients")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("additional_recipients")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? AdditionalRecipients { get; set; }
 
     /// <summary>
     /// The notify_dc_admins attribute.
     /// </summary>
-    [TerraformPropertyName("notify_dc_admins")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("notify_dc_admins")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? NotifyDcAdmins { get; set; }
 
     /// <summary>
     /// The notify_global_admins attribute.
     /// </summary>
-    [TerraformPropertyName("notify_global_admins")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("notify_global_admins")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? NotifyGlobalAdmins { get; set; }
 
 }
@@ -56,7 +56,7 @@ public class AzurermActiveDirectoryDomainServiceNotificationsBlock
 /// Block type for secure_ldap in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermActiveDirectoryDomainServiceSecureLdapBlock
+public partial class AzurermActiveDirectoryDomainServiceSecureLdapBlock : TerraformBlockBase
 {
 
 
@@ -64,31 +64,31 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The external_access_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("external_access_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("external_access_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ExternalAccessEnabled { get; set; }
 
     /// <summary>
     /// The pfx_certificate attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfxCertificate is required")]
-    [TerraformPropertyName("pfx_certificate")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("pfx_certificate")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PfxCertificate { get; set; }
 
     /// <summary>
     /// The pfx_certificate_password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PfxCertificatePassword is required")]
-    [TerraformPropertyName("pfx_certificate_password")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("pfx_certificate_password")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PfxCertificatePassword { get; set; }
 
 
@@ -98,55 +98,55 @@ public class AzurermActiveDirectoryDomainServiceSecureLdapBlock
 /// Block type for security in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermActiveDirectoryDomainServiceSecurityBlock
+public partial class AzurermActiveDirectoryDomainServiceSecurityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The kerberos_armoring_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("kerberos_armoring_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kerberos_armoring_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? KerberosArmoringEnabled { get; set; }
 
     /// <summary>
     /// The kerberos_rc4_encryption_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("kerberos_rc4_encryption_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kerberos_rc4_encryption_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? KerberosRc4EncryptionEnabled { get; set; }
 
     /// <summary>
     /// The ntlm_v1_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("ntlm_v1_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ntlm_v1_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? NtlmV1Enabled { get; set; }
 
     /// <summary>
     /// The sync_kerberos_passwords attribute.
     /// </summary>
-    [TerraformPropertyName("sync_kerberos_passwords")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sync_kerberos_passwords")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SyncKerberosPasswords { get; set; }
 
     /// <summary>
     /// The sync_ntlm_passwords attribute.
     /// </summary>
-    [TerraformPropertyName("sync_ntlm_passwords")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sync_ntlm_passwords")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SyncNtlmPasswords { get; set; }
 
     /// <summary>
     /// The sync_on_prem_passwords attribute.
     /// </summary>
-    [TerraformPropertyName("sync_on_prem_passwords")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sync_on_prem_passwords")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SyncOnPremPasswords { get; set; }
 
     /// <summary>
     /// The tls_v1_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("tls_v1_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tls_v1_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? TlsV1Enabled { get; set; }
 
 }
@@ -155,34 +155,34 @@ public class AzurermActiveDirectoryDomainServiceSecurityBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermActiveDirectoryDomainServiceTimeoutsBlock
+public partial class AzurermActiveDirectoryDomainServiceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -191,7 +191,7 @@ public class AzurermActiveDirectoryDomainServiceTimeoutsBlock
 /// Manages a azurerm_active_directory_domain_service resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermActiveDirectoryDomainService : TerraformResource
+public partial class AzurermActiveDirectoryDomainService : TerraformResource
 {
     public AzurermActiveDirectoryDomainService(string name) : base("azurerm_active_directory_domain_service", name)
     {
@@ -200,69 +200,69 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     /// <summary>
     /// The domain_configuration_type attribute.
     /// </summary>
-    [TerraformPropertyName("domain_configuration_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("domain_configuration_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DomainConfigurationType { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    [TerraformPropertyName("domain_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("domain_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The filtered_sync_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("filtered_sync_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filtered_sync_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? FilteredSyncEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    [TerraformPropertyName("sku")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sku")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -272,7 +272,7 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialReplicaSet is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InitialReplicaSet block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialReplicaSet block(s) allowed")]
-    [TerraformPropertyName("initial_replica_set")]
+    [TerraformProperty("initial_replica_set")]
     public TerraformList<TerraformBlock<AzurermActiveDirectoryDomainServiceInitialReplicaSetBlock>>? InitialReplicaSet { get; set; }
 
     /// <summary>
@@ -280,7 +280,7 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notifications block(s) allowed")]
-    [TerraformPropertyName("notifications")]
+    [TerraformProperty("notifications")]
     public TerraformList<TerraformBlock<AzurermActiveDirectoryDomainServiceNotificationsBlock>>? Notifications { get; set; }
 
     /// <summary>
@@ -288,7 +288,7 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecureLdap block(s) allowed")]
-    [TerraformPropertyName("secure_ldap")]
+    [TerraformProperty("secure_ldap")]
     public TerraformList<TerraformBlock<AzurermActiveDirectoryDomainServiceSecureLdapBlock>>? SecureLdap { get; set; }
 
     /// <summary>
@@ -296,49 +296,49 @@ public class AzurermActiveDirectoryDomainService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Security block(s) allowed")]
-    [TerraformPropertyName("security")]
+    [TerraformProperty("security")]
     public TerraformList<TerraformBlock<AzurermActiveDirectoryDomainServiceSecurityBlock>>? Security { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermActiveDirectoryDomainServiceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The deployment_id attribute.
     /// </summary>
-    [TerraformPropertyName("deployment_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeploymentId => new TerraformReference(this, "deployment_id");
+    [TerraformProperty("deployment_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeploymentId { get; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("resource_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceId => new TerraformReference(this, "resource_id");
+    [TerraformProperty("resource_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceId { get; }
 
     /// <summary>
     /// The sync_owner attribute.
     /// </summary>
-    [TerraformPropertyName("sync_owner")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SyncOwner => new TerraformReference(this, "sync_owner");
+    [TerraformProperty("sync_owner")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SyncOwner { get; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TenantId => new TerraformReference(this, "tenant_id");
+    [TerraformProperty("tenant_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TenantId { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Version => new TerraformReference(this, "version");
+    [TerraformProperty("version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Version { get; }
 
 }

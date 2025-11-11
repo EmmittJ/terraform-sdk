@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermHpcCacheBlobTargetTimeoutsBlock
+public partial class AzurermHpcCacheBlobTargetTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -42,7 +42,7 @@ public class AzurermHpcCacheBlobTargetTimeoutsBlock
 /// Manages a azurerm_hpc_cache_blob_target resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
-public class AzurermHpcCacheBlobTarget : TerraformResource
+public partial class AzurermHpcCacheBlobTarget : TerraformResource
 {
     public AzurermHpcCacheBlobTarget(string name) : base("azurerm_hpc_cache_blob_target", name)
     {
@@ -51,62 +51,62 @@ public class AzurermHpcCacheBlobTarget : TerraformResource
     /// <summary>
     /// The access_policy_name attribute.
     /// </summary>
-    [TerraformPropertyName("access_policy_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("access_policy_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AccessPolicyName { get; set; }
 
     /// <summary>
     /// The cache_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheName is required")]
-    [TerraformPropertyName("cache_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cache_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CacheName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespacePath is required")]
-    [TerraformPropertyName("namespace_path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("namespace_path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NamespacePath { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The storage_container_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerId is required")]
-    [TerraformPropertyName("storage_container_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_container_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageContainerId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermHpcCacheBlobTargetTimeoutsBlock>? Timeouts { get; set; }
 
 }

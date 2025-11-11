@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cidr_authorization_context in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVpcIpamPoolCidrCidrAuthorizationContextBlock
+public partial class AwsVpcIpamPoolCidrCidrAuthorizationContextBlock : TerraformBlockBase
 {
     /// <summary>
     /// The message attribute.
     /// </summary>
-    [TerraformPropertyName("message")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("message")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Message { get; set; }
 
     /// <summary>
     /// The signature attribute.
     /// </summary>
-    [TerraformPropertyName("signature")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("signature")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Signature { get; set; }
 
 }
@@ -28,20 +28,20 @@ public class AwsVpcIpamPoolCidrCidrAuthorizationContextBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsVpcIpamPoolCidrTimeoutsBlock
+public partial class AwsVpcIpamPoolCidrTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -50,7 +50,7 @@ public class AwsVpcIpamPoolCidrTimeoutsBlock
 /// Manages a aws_vpc_ipam_pool_cidr resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsVpcIpamPoolCidr : TerraformResource
+public partial class AwsVpcIpamPoolCidr : TerraformResource
 {
     public AwsVpcIpamPoolCidr(string name) : base("aws_vpc_ipam_pool_cidr", name)
     {
@@ -59,59 +59,59 @@ public class AwsVpcIpamPoolCidr : TerraformResource
     /// <summary>
     /// The cidr attribute.
     /// </summary>
-    [TerraformPropertyName("cidr")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Cidr { get; set; } = default!;
+    [TerraformProperty("cidr")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Cidr { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ipam_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpamPoolId is required")]
-    [TerraformPropertyName("ipam_pool_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("ipam_pool_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IpamPoolId { get; set; }
 
     /// <summary>
     /// The netmask_length attribute.
     /// </summary>
-    [TerraformPropertyName("netmask_length")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> NetmaskLength { get; set; } = default!;
+    [TerraformProperty("netmask_length")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> NetmaskLength { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for cidr_authorization_context.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CidrAuthorizationContext block(s) allowed")]
-    [TerraformPropertyName("cidr_authorization_context")]
+    [TerraformProperty("cidr_authorization_context")]
     public TerraformList<TerraformBlock<AwsVpcIpamPoolCidrCidrAuthorizationContextBlock>>? CidrAuthorizationContext { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsVpcIpamPoolCidrTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The ipam_pool_cidr_id attribute.
     /// </summary>
-    [TerraformPropertyName("ipam_pool_cidr_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IpamPoolCidrId => new TerraformReference(this, "ipam_pool_cidr_id");
+    [TerraformProperty("ipam_pool_cidr_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IpamPoolCidrId { get; }
 
 }

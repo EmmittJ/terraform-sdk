@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermRoleDefinitionDataSourceTimeoutsBlock
+public partial class AzurermRoleDefinitionDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermRoleDefinitionDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_role_definition.
 /// </summary>
-public class AzurermRoleDefinitionDataSource : TerraformDataSource
+public partial class AzurermRoleDefinitionDataSource : TerraformDataSource
 {
     public AzurermRoleDefinitionDataSource(string name) : base("azurerm_role_definition", name)
     {
@@ -29,64 +29,64 @@ public class AzurermRoleDefinitionDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    [TerraformPropertyName("role_definition_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> RoleDefinitionId { get; set; } = default!;
+    [TerraformProperty("role_definition_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> RoleDefinitionId { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
-    [TerraformPropertyName("scope")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("scope")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Scope { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermRoleDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The assignable_scopes attribute.
     /// </summary>
-    [TerraformPropertyName("assignable_scopes")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AssignableScopes => new TerraformReference(this, "assignable_scopes");
+    [TerraformProperty("assignable_scopes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AssignableScopes { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    [TerraformPropertyName("permissions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Permissions => new TerraformReference(this, "permissions");
+    [TerraformProperty("permissions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Permissions { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
 }

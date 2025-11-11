@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GooglePubsubLiteReservationTimeoutsBlock
+public partial class GooglePubsubLiteReservationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GooglePubsubLiteReservationTimeoutsBlock
 /// <summary>
 /// Manages a google_pubsub_lite_reservation resource.
 /// </summary>
-public class GooglePubsubLiteReservation : TerraformResource
+public partial class GooglePubsubLiteReservation : TerraformResource
 {
     public GooglePubsubLiteReservation(string name) : base("google_pubsub_lite_reservation", name)
     {
@@ -43,30 +43,30 @@ public class GooglePubsubLiteReservation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the reservation.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region of the pubsub lite reservation.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
@@ -75,15 +75,15 @@ public class GooglePubsubLiteReservation : TerraformResource
     /// messages.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThroughputCapacity is required")]
-    [TerraformPropertyName("throughput_capacity")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("throughput_capacity")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> ThroughputCapacity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GooglePubsubLiteReservationTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,43 +6,43 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAccessanalyzerArchiveRuleFilterBlock
+public partial class AwsAccessanalyzerArchiveRuleFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The contains attribute.
     /// </summary>
-    [TerraformPropertyName("contains")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> Contains { get; set; } = default!;
+    [TerraformProperty("contains")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> Contains { get; set; }
 
     /// <summary>
     /// The criteria attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Criteria is required")]
-    [TerraformPropertyName("criteria")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("criteria")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Criteria { get; set; }
 
     /// <summary>
     /// The eq attribute.
     /// </summary>
-    [TerraformPropertyName("eq")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> Eq { get; set; } = default!;
+    [TerraformProperty("eq")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> Eq { get; set; }
 
     /// <summary>
     /// The exists attribute.
     /// </summary>
-    [TerraformPropertyName("exists")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Exists { get; set; } = default!;
+    [TerraformProperty("exists")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Exists { get; set; }
 
     /// <summary>
     /// The neq attribute.
     /// </summary>
-    [TerraformPropertyName("neq")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> Neq { get; set; } = default!;
+    [TerraformProperty("neq")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> Neq { get; set; }
 
 }
 
@@ -50,7 +50,7 @@ public class AwsAccessanalyzerArchiveRuleFilterBlock
 /// Manages a aws_accessanalyzer_archive_rule resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsAccessanalyzerArchiveRule : TerraformResource
+public partial class AwsAccessanalyzerArchiveRule : TerraformResource
 {
     public AwsAccessanalyzerArchiveRule(string name) : base("aws_accessanalyzer_archive_rule", name)
     {
@@ -60,30 +60,30 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
     /// The analyzer_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AnalyzerName is required")]
-    [TerraformPropertyName("analyzer_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("analyzer_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AnalyzerName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The rule_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
-    [TerraformPropertyName("rule_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("rule_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RuleName { get; set; }
 
     /// <summary>
@@ -92,7 +92,7 @@ public class AwsAccessanalyzerArchiveRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformSet<TerraformBlock<AwsAccessanalyzerArchiveRuleFilterBlock>>? Filter { get; set; }
 
 }

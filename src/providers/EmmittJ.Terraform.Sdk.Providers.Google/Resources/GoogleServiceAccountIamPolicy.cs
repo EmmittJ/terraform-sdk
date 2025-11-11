@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Manages a google_service_account_iam_policy resource.
 /// </summary>
-public class GoogleServiceAccountIamPolicy : TerraformResource
+public partial class GoogleServiceAccountIamPolicy : TerraformResource
 {
     public GoogleServiceAccountIamPolicy(string name) : base("google_service_account_iam_policy", name)
     {
@@ -14,31 +14,31 @@ public class GoogleServiceAccountIamPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
-    [TerraformPropertyName("policy_data")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_data")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PolicyData { get; set; }
 
     /// <summary>
     /// The service_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountId is required")]
-    [TerraformPropertyName("service_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceAccountId { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
 }

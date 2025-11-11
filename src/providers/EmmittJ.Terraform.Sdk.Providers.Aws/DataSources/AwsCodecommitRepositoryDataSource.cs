@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_codecommit_repository.
 /// </summary>
-public class AwsCodecommitRepositoryDataSource : TerraformDataSource
+public partial class AwsCodecommitRepositoryDataSource : TerraformDataSource
 {
     public AwsCodecommitRepositoryDataSource(string name) : base("aws_codecommit_repository", name)
     {
@@ -14,58 +14,58 @@ public class AwsCodecommitRepositoryDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
-    [TerraformPropertyName("repository_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("repository_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RepositoryName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The clone_url_http attribute.
     /// </summary>
-    [TerraformPropertyName("clone_url_http")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CloneUrlHttp => new TerraformReference(this, "clone_url_http");
+    [TerraformProperty("clone_url_http")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CloneUrlHttp { get; }
 
     /// <summary>
     /// The clone_url_ssh attribute.
     /// </summary>
-    [TerraformPropertyName("clone_url_ssh")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CloneUrlSsh => new TerraformReference(this, "clone_url_ssh");
+    [TerraformProperty("clone_url_ssh")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CloneUrlSsh { get; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KmsKeyId => new TerraformReference(this, "kms_key_id");
+    [TerraformProperty("kms_key_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KmsKeyId { get; }
 
     /// <summary>
     /// The repository_id attribute.
     /// </summary>
-    [TerraformPropertyName("repository_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RepositoryId => new TerraformReference(this, "repository_id");
+    [TerraformProperty("repository_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RepositoryId { get; }
 
 }

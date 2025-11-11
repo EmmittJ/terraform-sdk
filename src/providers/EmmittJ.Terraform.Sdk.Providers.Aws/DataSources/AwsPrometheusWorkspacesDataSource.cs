@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_prometheus_workspaces.
 /// </summary>
-public class AwsPrometheusWorkspacesDataSource : TerraformDataSource
+public partial class AwsPrometheusWorkspacesDataSource : TerraformDataSource
 {
     public AwsPrometheusWorkspacesDataSource(string name) : base("aws_prometheus_workspaces", name)
     {
@@ -14,43 +14,43 @@ public class AwsPrometheusWorkspacesDataSource : TerraformDataSource
     /// <summary>
     /// The alias_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("alias_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("alias_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AliasPrefix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The aliases attribute.
     /// </summary>
-    [TerraformPropertyName("aliases")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Aliases => new TerraformReference(this, "aliases");
+    [TerraformProperty("aliases")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Aliases { get; }
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
-    [TerraformPropertyName("arns")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Arns => new TerraformReference(this, "arns");
+    [TerraformProperty("arns")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Arns { get; }
 
     /// <summary>
     /// The workspace_ids attribute.
     /// </summary>
-    [TerraformPropertyName("workspace_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> WorkspaceIds => new TerraformReference(this, "workspace_ids");
+    [TerraformProperty("workspace_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> WorkspaceIds { get; }
 
 }

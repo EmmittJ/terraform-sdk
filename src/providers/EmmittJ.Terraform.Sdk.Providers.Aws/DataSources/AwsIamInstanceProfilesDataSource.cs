@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_iam_instance_profiles.
 /// </summary>
-public class AwsIamInstanceProfilesDataSource : TerraformDataSource
+public partial class AwsIamInstanceProfilesDataSource : TerraformDataSource
 {
     public AwsIamInstanceProfilesDataSource(string name) : base("aws_iam_instance_profiles", name)
     {
@@ -14,37 +14,37 @@ public class AwsIamInstanceProfilesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
-    [TerraformPropertyName("role_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleName { get; set; }
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
-    [TerraformPropertyName("arns")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> Arns => new TerraformReference(this, "arns");
+    [TerraformProperty("arns")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> Arns { get; }
 
     /// <summary>
     /// The names attribute.
     /// </summary>
-    [TerraformPropertyName("names")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> Names => new TerraformReference(this, "names");
+    [TerraformProperty("names")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> Names { get; }
 
     /// <summary>
     /// The paths attribute.
     /// </summary>
-    [TerraformPropertyName("paths")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> Paths => new TerraformReference(this, "paths");
+    [TerraformProperty("paths")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> Paths { get; }
 
 }

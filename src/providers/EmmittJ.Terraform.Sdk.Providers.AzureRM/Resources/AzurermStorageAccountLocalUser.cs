@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for permission_scope in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountLocalUserPermissionScopeBlock
+public partial class AzurermStorageAccountLocalUserPermissionScopeBlock : TerraformBlockBase
 {
     /// <summary>
     /// The resource_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceName is required")]
-    [TerraformPropertyName("resource_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceName { get; set; }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
-    [TerraformPropertyName("service")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Service { get; set; }
 
 }
@@ -30,21 +30,21 @@ public class AzurermStorageAccountLocalUserPermissionScopeBlock
 /// Block type for ssh_authorized_key in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock
+public partial class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformPropertyName("key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Key { get; set; }
 
 }
@@ -53,34 +53,34 @@ public class AzurermStorageAccountLocalUserSshAuthorizedKeyBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageAccountLocalUserTimeoutsBlock
+public partial class AzurermStorageAccountLocalUserTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -88,7 +88,7 @@ public class AzurermStorageAccountLocalUserTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_storage_account_local_user resource.
 /// </summary>
-public class AzurermStorageAccountLocalUser : TerraformResource
+public partial class AzurermStorageAccountLocalUser : TerraformResource
 {
     public AzurermStorageAccountLocalUser(string name) : base("azurerm_storage_account_local_user", name)
     {
@@ -97,80 +97,80 @@ public class AzurermStorageAccountLocalUser : TerraformResource
     /// <summary>
     /// The home_directory attribute.
     /// </summary>
-    [TerraformPropertyName("home_directory")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("home_directory")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HomeDirectory { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The ssh_key_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("ssh_key_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssh_key_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SshKeyEnabled { get; set; }
 
     /// <summary>
     /// The ssh_password_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("ssh_password_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssh_password_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SshPasswordEnabled { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformPropertyName("storage_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for permission_scope.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("permission_scope")]
+    [TerraformProperty("permission_scope")]
     public TerraformList<TerraformBlock<AzurermStorageAccountLocalUserPermissionScopeBlock>>? PermissionScope { get; set; }
 
     /// <summary>
     /// Block for ssh_authorized_key.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("ssh_authorized_key")]
+    [TerraformProperty("ssh_authorized_key")]
     public TerraformList<TerraformBlock<AzurermStorageAccountLocalUserSshAuthorizedKeyBlock>>? SshAuthorizedKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermStorageAccountLocalUserTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    [TerraformPropertyName("password")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Password => new TerraformReference(this, "password");
+    [TerraformProperty("password")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Password { get; }
 
     /// <summary>
     /// The sid attribute.
     /// </summary>
-    [TerraformPropertyName("sid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Sid => new TerraformReference(this, "sid");
+    [TerraformProperty("sid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Sid { get; }
 
 }

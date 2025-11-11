@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filters in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEmrReleaseLabelsDataSourceFiltersBlock
+public partial class AwsEmrReleaseLabelsDataSourceFiltersBlock : TerraformBlockBase
 {
     /// <summary>
     /// The application attribute.
     /// </summary>
-    [TerraformPropertyName("application")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("application")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Application { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    [TerraformPropertyName("prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Prefix { get; set; }
 
 }
@@ -28,7 +28,7 @@ public class AwsEmrReleaseLabelsDataSourceFiltersBlock
 /// Retrieves information about a aws_emr_release_labels.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsEmrReleaseLabelsDataSource : TerraformDataSource
+public partial class AwsEmrReleaseLabelsDataSource : TerraformDataSource
 {
     public AwsEmrReleaseLabelsDataSource(string name) : base("aws_emr_release_labels", name)
     {
@@ -37,30 +37,30 @@ public class AwsEmrReleaseLabelsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for filters.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filters block(s) allowed")]
-    [TerraformPropertyName("filters")]
+    [TerraformProperty("filters")]
     public TerraformList<TerraformBlock<AwsEmrReleaseLabelsDataSourceFiltersBlock>>? Filters { get; set; }
 
     /// <summary>
     /// The release_labels attribute.
     /// </summary>
-    [TerraformPropertyName("release_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ReleaseLabels => new TerraformReference(this, "release_labels");
+    [TerraformProperty("release_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ReleaseLabels { get; }
 
 }

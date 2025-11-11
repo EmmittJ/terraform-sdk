@@ -6,15 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for telemetry in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMonitoringCustomServiceTelemetryBlock
+public partial class GoogleMonitoringCustomServiceTelemetryBlock : TerraformBlockBase
 {
     /// <summary>
     /// The full name of the resource that defines this service.
     /// Formatted as described in
     /// https://cloud.google.com/apis/design/resource_names.
     /// </summary>
-    [TerraformPropertyName("resource_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("resource_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ResourceName { get; set; }
 
 }
@@ -23,27 +23,27 @@ public class GoogleMonitoringCustomServiceTelemetryBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleMonitoringCustomServiceTimeoutsBlock
+public partial class GoogleMonitoringCustomServiceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -52,7 +52,7 @@ public class GoogleMonitoringCustomServiceTimeoutsBlock
 /// Manages a google_monitoring_custom_service resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleMonitoringCustomService : TerraformResource
+public partial class GoogleMonitoringCustomService : TerraformResource
 {
     public GoogleMonitoringCustomService(string name) : base("google_monitoring_custom_service", name)
     {
@@ -61,31 +61,31 @@ public class GoogleMonitoringCustomService : TerraformResource
     /// <summary>
     /// Name used for UI elements listing this Service.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// An optional service ID to use. If not given, the server will generate a
     /// service ID.
     /// </summary>
-    [TerraformPropertyName("service_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ServiceId { get; set; } = default!;
+    [TerraformProperty("service_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ServiceId { get; set; }
 
     /// <summary>
     /// Labels which have been used to annotate the service. Label keys must start
@@ -95,8 +95,8 @@ public class GoogleMonitoringCustomService : TerraformResource
     /// label entries may be stored. For labels which do not have a semantic value,
     /// the empty string may be supplied for the label value.
     /// </summary>
-    [TerraformPropertyName("user_labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user_labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? UserLabels { get; set; }
 
     /// <summary>
@@ -104,22 +104,22 @@ public class GoogleMonitoringCustomService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Telemetry block(s) allowed")]
-    [TerraformPropertyName("telemetry")]
+    [TerraformProperty("telemetry")]
     public TerraformList<TerraformBlock<GoogleMonitoringCustomServiceTelemetryBlock>>? Telemetry { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleMonitoringCustomServiceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The full resource name for this service. The syntax is:
     /// projects/[PROJECT_ID]/services/[SERVICE_ID].
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

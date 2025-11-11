@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_networkmanager_connection.
 /// </summary>
-public class AwsNetworkmanagerConnectionDataSource : TerraformDataSource
+public partial class AwsNetworkmanagerConnectionDataSource : TerraformDataSource
 {
     public AwsNetworkmanagerConnectionDataSource(string name) : base("aws_networkmanager_connection", name)
     {
@@ -15,72 +15,72 @@ public class AwsNetworkmanagerConnectionDataSource : TerraformDataSource
     /// The connection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
-    [TerraformPropertyName("connection_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connection_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConnectionId { get; set; }
 
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
-    [TerraformPropertyName("global_network_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("global_network_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GlobalNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The connected_device_id attribute.
     /// </summary>
-    [TerraformPropertyName("connected_device_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ConnectedDeviceId => new TerraformReference(this, "connected_device_id");
+    [TerraformProperty("connected_device_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ConnectedDeviceId { get; }
 
     /// <summary>
     /// The connected_link_id attribute.
     /// </summary>
-    [TerraformPropertyName("connected_link_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ConnectedLinkId => new TerraformReference(this, "connected_link_id");
+    [TerraformProperty("connected_link_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ConnectedLinkId { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The device_id attribute.
     /// </summary>
-    [TerraformPropertyName("device_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeviceId => new TerraformReference(this, "device_id");
+    [TerraformProperty("device_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeviceId { get; }
 
     /// <summary>
     /// The link_id attribute.
     /// </summary>
-    [TerraformPropertyName("link_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LinkId => new TerraformReference(this, "link_id");
+    [TerraformProperty("link_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LinkId { get; }
 
 }

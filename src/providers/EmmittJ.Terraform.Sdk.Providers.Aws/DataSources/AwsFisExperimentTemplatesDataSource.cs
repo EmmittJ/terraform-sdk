@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_fis_experiment_templates.
 /// </summary>
-public class AwsFisExperimentTemplatesDataSource : TerraformDataSource
+public partial class AwsFisExperimentTemplatesDataSource : TerraformDataSource
 {
     public AwsFisExperimentTemplatesDataSource(string name) : base("aws_fis_experiment_templates", name)
     {
@@ -14,22 +14,22 @@ public class AwsFisExperimentTemplatesDataSource : TerraformDataSource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
-    [TerraformPropertyName("ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Ids => new TerraformReference(this, "ids");
+    [TerraformProperty("ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Ids { get; }
 
 }

@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock
+public partial class AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_virtual_machine_data_disk_attachment resource.
 /// </summary>
-public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
+public partial class AzurermVirtualMachineDataDiskAttachment : TerraformResource
 {
     public AzurermVirtualMachineDataDiskAttachment(string name) : base("azurerm_virtual_machine_data_disk_attachment", name)
     {
@@ -51,60 +51,60 @@ public class AzurermVirtualMachineDataDiskAttachment : TerraformResource
     /// The caching attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
-    [TerraformPropertyName("caching")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("caching")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Caching { get; set; }
 
     /// <summary>
     /// The create_option attribute.
     /// </summary>
-    [TerraformPropertyName("create_option")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create_option")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CreateOption { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The lun attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lun is required")]
-    [TerraformPropertyName("lun")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("lun")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Lun { get; set; }
 
     /// <summary>
     /// The managed_disk_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedDiskId is required")]
-    [TerraformPropertyName("managed_disk_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("managed_disk_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ManagedDiskId { get; set; }
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
-    [TerraformPropertyName("virtual_machine_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("virtual_machine_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VirtualMachineId { get; set; }
 
     /// <summary>
     /// The write_accelerator_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("write_accelerator_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("write_accelerator_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? WriteAcceleratorEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermVirtualMachineDataDiskAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

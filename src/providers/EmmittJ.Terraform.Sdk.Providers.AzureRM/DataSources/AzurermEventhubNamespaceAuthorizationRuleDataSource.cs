@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermEventhubNamespaceAuthorizationRuleDataSourceTimeoutsBlock
+public partial class AzurermEventhubNamespaceAuthorizationRuleDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermEventhubNamespaceAuthorizationRuleDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_eventhub_namespace_authorization_rule.
 /// </summary>
-public class AzurermEventhubNamespaceAuthorizationRuleDataSource : TerraformDataSource
+public partial class AzurermEventhubNamespaceAuthorizationRuleDataSource : TerraformDataSource
 {
     public AzurermEventhubNamespaceAuthorizationRuleDataSource(string name) : base("azurerm_eventhub_namespace_authorization_rule", name)
     {
@@ -29,102 +29,102 @@ public class AzurermEventhubNamespaceAuthorizationRuleDataSource : TerraformData
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
-    [TerraformPropertyName("namespace_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("namespace_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NamespaceName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermEventhubNamespaceAuthorizationRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The listen attribute.
     /// </summary>
-    [TerraformPropertyName("listen")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Listen => new TerraformReference(this, "listen");
+    [TerraformProperty("listen")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Listen { get; }
 
     /// <summary>
     /// The manage attribute.
     /// </summary>
-    [TerraformPropertyName("manage")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Manage => new TerraformReference(this, "manage");
+    [TerraformProperty("manage")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Manage { get; }
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
-    [TerraformPropertyName("primary_connection_string")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryConnectionString => new TerraformReference(this, "primary_connection_string");
+    [TerraformProperty("primary_connection_string")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryConnectionString { get; }
 
     /// <summary>
     /// The primary_connection_string_alias attribute.
     /// </summary>
-    [TerraformPropertyName("primary_connection_string_alias")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryConnectionStringAlias => new TerraformReference(this, "primary_connection_string_alias");
+    [TerraformProperty("primary_connection_string_alias")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryConnectionStringAlias { get; }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    [TerraformPropertyName("primary_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryKey => new TerraformReference(this, "primary_key");
+    [TerraformProperty("primary_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryKey { get; }
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_connection_string")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryConnectionString => new TerraformReference(this, "secondary_connection_string");
+    [TerraformProperty("secondary_connection_string")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryConnectionString { get; }
 
     /// <summary>
     /// The secondary_connection_string_alias attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_connection_string_alias")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryConnectionStringAlias => new TerraformReference(this, "secondary_connection_string_alias");
+    [TerraformProperty("secondary_connection_string_alias")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryConnectionStringAlias { get; }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryKey => new TerraformReference(this, "secondary_key");
+    [TerraformProperty("secondary_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryKey { get; }
 
     /// <summary>
     /// The send attribute.
     /// </summary>
-    [TerraformPropertyName("send")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Send => new TerraformReference(this, "send");
+    [TerraformProperty("send")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Send { get; }
 
 }

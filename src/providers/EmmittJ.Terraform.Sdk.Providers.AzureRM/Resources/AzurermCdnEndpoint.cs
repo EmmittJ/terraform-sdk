@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for delivery_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnEndpointDeliveryRuleBlock
+public partial class AzurermCdnEndpointDeliveryRuleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
-    [TerraformPropertyName("order")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("order")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Order { get; set; }
 
 }
@@ -30,30 +30,30 @@ public class AzurermCdnEndpointDeliveryRuleBlock
 /// Block type for geo_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnEndpointGeoFilterBlock
+public partial class AzurermCdnEndpointGeoFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformPropertyName("action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The country_codes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CountryCodes is required")]
-    [TerraformPropertyName("country_codes")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("country_codes")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? CountryCodes { get; set; }
 
     /// <summary>
     /// The relative_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativePath is required")]
-    [TerraformPropertyName("relative_path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("relative_path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RelativePath { get; set; }
 
 }
@@ -62,7 +62,7 @@ public class AzurermCdnEndpointGeoFilterBlock
 /// Block type for global_delivery_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnEndpointGlobalDeliveryRuleBlock
+public partial class AzurermCdnEndpointGlobalDeliveryRuleBlock : TerraformBlockBase
 {
 }
 
@@ -70,36 +70,36 @@ public class AzurermCdnEndpointGlobalDeliveryRuleBlock
 /// Block type for origin in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermCdnEndpointOriginBlock
+public partial class AzurermCdnEndpointOriginBlock : TerraformBlockBase
 {
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    [TerraformPropertyName("host_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("host_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HostName { get; set; }
 
     /// <summary>
     /// The http_port attribute.
     /// </summary>
-    [TerraformPropertyName("http_port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("http_port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? HttpPort { get; set; }
 
     /// <summary>
     /// The https_port attribute.
     /// </summary>
-    [TerraformPropertyName("https_port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("https_port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? HttpsPort { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -108,34 +108,34 @@ public class AzurermCdnEndpointOriginBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCdnEndpointTimeoutsBlock
+public partial class AzurermCdnEndpointTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -144,7 +144,7 @@ public class AzurermCdnEndpointTimeoutsBlock
 /// Manages a azurerm_cdn_endpoint resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermCdnEndpoint : TerraformResource
+public partial class AzurermCdnEndpoint : TerraformResource
 {
     public AzurermCdnEndpoint(string name) : base("azurerm_cdn_endpoint", name)
     {
@@ -153,124 +153,124 @@ public class AzurermCdnEndpoint : TerraformResource
     /// <summary>
     /// The content_types_to_compress attribute.
     /// </summary>
-    [TerraformPropertyName("content_types_to_compress")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("content_types_to_compress")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? ContentTypesToCompress { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The is_compression_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("is_compression_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("is_compression_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IsCompressionEnabled { get; set; }
 
     /// <summary>
     /// The is_http_allowed attribute.
     /// </summary>
-    [TerraformPropertyName("is_http_allowed")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("is_http_allowed")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IsHttpAllowed { get; set; }
 
     /// <summary>
     /// The is_https_allowed attribute.
     /// </summary>
-    [TerraformPropertyName("is_https_allowed")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("is_https_allowed")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IsHttpsAllowed { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The optimization_type attribute.
     /// </summary>
-    [TerraformPropertyName("optimization_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("optimization_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OptimizationType { get; set; }
 
     /// <summary>
     /// The origin_host_header attribute.
     /// </summary>
-    [TerraformPropertyName("origin_host_header")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("origin_host_header")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OriginHostHeader { get; set; }
 
     /// <summary>
     /// The origin_path attribute.
     /// </summary>
-    [TerraformPropertyName("origin_path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("origin_path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OriginPath { get; set; }
 
     /// <summary>
     /// The probe_path attribute.
     /// </summary>
-    [TerraformPropertyName("probe_path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("probe_path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ProbePath { get; set; }
 
     /// <summary>
     /// The profile_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProfileName is required")]
-    [TerraformPropertyName("profile_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("profile_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProfileName { get; set; }
 
     /// <summary>
     /// The querystring_caching_behaviour attribute.
     /// </summary>
-    [TerraformPropertyName("querystring_caching_behaviour")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("querystring_caching_behaviour")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? QuerystringCachingBehaviour { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for delivery_rule.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("delivery_rule")]
+    [TerraformProperty("delivery_rule")]
     public TerraformList<TerraformBlock<AzurermCdnEndpointDeliveryRuleBlock>>? DeliveryRule { get; set; }
 
     /// <summary>
     /// Block for geo_filter.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("geo_filter")]
+    [TerraformProperty("geo_filter")]
     public TerraformList<TerraformBlock<AzurermCdnEndpointGeoFilterBlock>>? GeoFilter { get; set; }
 
     /// <summary>
@@ -278,7 +278,7 @@ public class AzurermCdnEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GlobalDeliveryRule block(s) allowed")]
-    [TerraformPropertyName("global_delivery_rule")]
+    [TerraformProperty("global_delivery_rule")]
     public TerraformList<TerraformBlock<AzurermCdnEndpointGlobalDeliveryRuleBlock>>? GlobalDeliveryRule { get; set; }
 
     /// <summary>
@@ -287,21 +287,21 @@ public class AzurermCdnEndpoint : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Origin block(s) required")]
-    [TerraformPropertyName("origin")]
+    [TerraformProperty("origin")]
     public TerraformSet<TerraformBlock<AzurermCdnEndpointOriginBlock>>? Origin { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermCdnEndpointTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    [TerraformPropertyName("fqdn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fqdn => new TerraformReference(this, "fqdn");
+    [TerraformProperty("fqdn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fqdn { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_billing_views.
 /// </summary>
-public class AwsBillingViewsDataSource : TerraformDataSource
+public partial class AwsBillingViewsDataSource : TerraformDataSource
 {
     public AwsBillingViewsDataSource(string name) : base("aws_billing_views", name)
     {
@@ -14,15 +14,15 @@ public class AwsBillingViewsDataSource : TerraformDataSource
     /// <summary>
     /// The billing_view_types attribute.
     /// </summary>
-    [TerraformPropertyName("billing_view_types")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("billing_view_types")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? BillingViewTypes { get; set; }
 
     /// <summary>
     /// The billing_view attribute.
     /// </summary>
-    [TerraformPropertyName("billing_view")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> BillingView => new TerraformReference(this, "billing_view");
+    [TerraformProperty("billing_view")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> BillingView { get; }
 
 }

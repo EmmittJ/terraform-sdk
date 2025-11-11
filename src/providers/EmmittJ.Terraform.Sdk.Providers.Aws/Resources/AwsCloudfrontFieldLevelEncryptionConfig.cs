@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for content_type_profile_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBlock
+public partial class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The forward_when_content_type_is_unknown attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardWhenContentTypeIsUnknown is required")]
-    [TerraformPropertyName("forward_when_content_type_is_unknown")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("forward_when_content_type_is_unknown")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> ForwardWhenContentTypeIsUnknown { get; set; }
 
 }
@@ -22,14 +22,14 @@ public class AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBloc
 /// Block type for query_arg_profile_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock
+public partial class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The forward_when_query_arg_profile_is_unknown attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ForwardWhenQueryArgProfileIsUnknown is required")]
-    [TerraformPropertyName("forward_when_query_arg_profile_is_unknown")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("forward_when_query_arg_profile_is_unknown")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> ForwardWhenQueryArgProfileIsUnknown { get; set; }
 
 }
@@ -38,7 +38,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock
 /// Manages a aws_cloudfront_field_level_encryption_config resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
+public partial class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
 {
     public AwsCloudfrontFieldLevelEncryptionConfig(string name) : base("aws_cloudfront_field_level_encryption_config", name)
     {
@@ -47,16 +47,16 @@ public class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    [TerraformPropertyName("comment")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("comment")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for content_type_profile_config.
@@ -65,7 +65,7 @@ public class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentTypeProfileConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContentTypeProfileConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContentTypeProfileConfig block(s) allowed")]
-    [TerraformPropertyName("content_type_profile_config")]
+    [TerraformProperty("content_type_profile_config")]
     public TerraformList<TerraformBlock<AwsCloudfrontFieldLevelEncryptionConfigContentTypeProfileConfigBlock>>? ContentTypeProfileConfig { get; set; }
 
     /// <summary>
@@ -75,28 +75,28 @@ public class AwsCloudfrontFieldLevelEncryptionConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryArgProfileConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QueryArgProfileConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueryArgProfileConfig block(s) allowed")]
-    [TerraformPropertyName("query_arg_profile_config")]
+    [TerraformProperty("query_arg_profile_config")]
     public TerraformList<TerraformBlock<AwsCloudfrontFieldLevelEncryptionConfigQueryArgProfileConfigBlock>>? QueryArgProfileConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
-    [TerraformPropertyName("caller_reference")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CallerReference => new TerraformReference(this, "caller_reference");
+    [TerraformProperty("caller_reference")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CallerReference { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
 }

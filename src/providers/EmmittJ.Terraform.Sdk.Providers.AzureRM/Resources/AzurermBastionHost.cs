@@ -6,30 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermBastionHostIpConfigurationBlock
+public partial class AzurermBastionHostIpConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_ip_address_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicIpAddressId is required")]
-    [TerraformPropertyName("public_ip_address_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("public_ip_address_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PublicIpAddressId { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformPropertyName("subnet_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SubnetId { get; set; }
 
 }
@@ -38,34 +38,34 @@ public class AzurermBastionHostIpConfigurationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBastionHostTimeoutsBlock
+public partial class AzurermBastionHostTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -74,7 +74,7 @@ public class AzurermBastionHostTimeoutsBlock
 /// Manages a azurerm_bastion_host resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermBastionHost : TerraformResource
+public partial class AzurermBastionHost : TerraformResource
 {
     public AzurermBastionHost(string name) : base("azurerm_bastion_host", name)
     {
@@ -83,116 +83,116 @@ public class AzurermBastionHost : TerraformResource
     /// <summary>
     /// The copy_paste_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("copy_paste_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("copy_paste_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? CopyPasteEnabled { get; set; }
 
     /// <summary>
     /// The file_copy_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("file_copy_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("file_copy_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? FileCopyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_connect_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("ip_connect_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_connect_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IpConnectEnabled { get; set; }
 
     /// <summary>
     /// The kerberos_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("kerberos_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kerberos_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? KerberosEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The scale_units attribute.
     /// </summary>
-    [TerraformPropertyName("scale_units")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("scale_units")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ScaleUnits { get; set; }
 
     /// <summary>
     /// The session_recording_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("session_recording_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("session_recording_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SessionRecordingEnabled { get; set; }
 
     /// <summary>
     /// The shareable_link_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("shareable_link_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("shareable_link_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ShareableLinkEnabled { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    [TerraformPropertyName("sku")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sku")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Sku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tunneling_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("tunneling_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tunneling_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? TunnelingEnabled { get; set; }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    [TerraformPropertyName("virtual_network_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("virtual_network_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VirtualNetworkId { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    [TerraformPropertyName("zones")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("zones")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Zones { get; set; }
 
     /// <summary>
@@ -200,21 +200,21 @@ public class AzurermBastionHost : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpConfiguration block(s) allowed")]
-    [TerraformPropertyName("ip_configuration")]
+    [TerraformProperty("ip_configuration")]
     public TerraformList<TerraformBlock<AzurermBastionHostIpConfigurationBlock>>? IpConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermBastionHostTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    [TerraformPropertyName("dns_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DnsName => new TerraformReference(this, "dns_name");
+    [TerraformProperty("dns_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DnsName { get; }
 
 }

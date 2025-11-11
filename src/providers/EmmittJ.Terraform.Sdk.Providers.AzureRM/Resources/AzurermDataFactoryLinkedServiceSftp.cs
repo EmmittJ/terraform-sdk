@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for key_vault_password in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock
+public partial class AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock : TerraformBlockBase
 {
     /// <summary>
     /// The linked_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
-    [TerraformPropertyName("linked_service_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("linked_service_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The secret_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
-    [TerraformPropertyName("secret_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("secret_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SecretName { get; set; }
 
 }
@@ -30,22 +30,22 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock
 /// Block type for key_vault_private_key_content_base64 in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64Block
+public partial class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64Block : TerraformBlockBase
 {
     /// <summary>
     /// The linked_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
-    [TerraformPropertyName("linked_service_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("linked_service_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The secret_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
-    [TerraformPropertyName("secret_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("secret_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SecretName { get; set; }
 
 }
@@ -54,22 +54,22 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64B
 /// Block type for key_vault_private_key_passphrase in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBlock
+public partial class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBlock : TerraformBlockBase
 {
     /// <summary>
     /// The linked_service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LinkedServiceName is required")]
-    [TerraformPropertyName("linked_service_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("linked_service_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LinkedServiceName { get; set; }
 
     /// <summary>
     /// The secret_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretName is required")]
-    [TerraformPropertyName("secret_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("secret_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SecretName { get; set; }
 
 }
@@ -78,34 +78,34 @@ public class AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBloc
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryLinkedServiceSftpTimeoutsBlock
+public partial class AzurermDataFactoryLinkedServiceSftpTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -114,7 +114,7 @@ public class AzurermDataFactoryLinkedServiceSftpTimeoutsBlock
 /// Manages a azurerm_data_factory_linked_service_sftp resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDataFactoryLinkedServiceSftp : TerraformResource
+public partial class AzurermDataFactoryLinkedServiceSftp : TerraformResource
 {
     public AzurermDataFactoryLinkedServiceSftp(string name) : base("azurerm_data_factory_linked_service_sftp", name)
     {
@@ -123,140 +123,140 @@ public class AzurermDataFactoryLinkedServiceSftp : TerraformResource
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    [TerraformPropertyName("additional_properties")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("additional_properties")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    [TerraformPropertyName("annotations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("annotations")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationType is required")]
-    [TerraformPropertyName("authentication_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("authentication_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AuthenticationType { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    [TerraformPropertyName("data_factory_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data_factory_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The host attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
-    [TerraformPropertyName("host")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("host")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Host { get; set; }
 
     /// <summary>
     /// The host_key_fingerprint attribute.
     /// </summary>
-    [TerraformPropertyName("host_key_fingerprint")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("host_key_fingerprint")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HostKeyFingerprint { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The integration_runtime_name attribute.
     /// </summary>
-    [TerraformPropertyName("integration_runtime_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("integration_runtime_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IntegrationRuntimeName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformPropertyName("parameters")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parameters")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    [TerraformPropertyName("password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    [TerraformPropertyName("port")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("port")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// The private_key_content_base64 attribute.
     /// </summary>
-    [TerraformPropertyName("private_key_content_base64")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_key_content_base64")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrivateKeyContentBase64 { get; set; }
 
     /// <summary>
     /// The private_key_passphrase attribute.
     /// </summary>
-    [TerraformPropertyName("private_key_passphrase")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_key_passphrase")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrivateKeyPassphrase { get; set; }
 
     /// <summary>
     /// The private_key_path attribute.
     /// </summary>
-    [TerraformPropertyName("private_key_path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_key_path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrivateKeyPath { get; set; }
 
     /// <summary>
     /// The skip_host_key_validation attribute.
     /// </summary>
-    [TerraformPropertyName("skip_host_key_validation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("skip_host_key_validation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SkipHostKeyValidation { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    [TerraformPropertyName("username")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("username")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Username { get; set; }
 
     /// <summary>
     /// Block for key_vault_password.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("key_vault_password")]
+    [TerraformProperty("key_vault_password")]
     public TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceSftpKeyVaultPasswordBlock>>? KeyVaultPassword { get; set; }
 
     /// <summary>
@@ -264,7 +264,7 @@ public class AzurermDataFactoryLinkedServiceSftp : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPrivateKeyContentBase64 block(s) allowed")]
-    [TerraformPropertyName("key_vault_private_key_content_base64")]
+    [TerraformProperty("key_vault_private_key_content_base64")]
     public TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyContentBase64Block>>? KeyVaultPrivateKeyContentBase64 { get; set; }
 
     /// <summary>
@@ -272,14 +272,14 @@ public class AzurermDataFactoryLinkedServiceSftp : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KeyVaultPrivateKeyPassphrase block(s) allowed")]
-    [TerraformPropertyName("key_vault_private_key_passphrase")]
+    [TerraformProperty("key_vault_private_key_passphrase")]
     public TerraformList<TerraformBlock<AzurermDataFactoryLinkedServiceSftpKeyVaultPrivateKeyPassphraseBlock>>? KeyVaultPrivateKeyPassphrase { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermDataFactoryLinkedServiceSftpTimeoutsBlock>? Timeouts { get; set; }
 
 }

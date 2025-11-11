@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_iam_users.
 /// </summary>
-public class AwsIamUsersDataSource : TerraformDataSource
+public partial class AwsIamUsersDataSource : TerraformDataSource
 {
     public AwsIamUsersDataSource(string name) : base("aws_iam_users", name)
     {
@@ -14,36 +14,36 @@ public class AwsIamUsersDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name_regex attribute.
     /// </summary>
-    [TerraformPropertyName("name_regex")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name_regex")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NameRegex { get; set; }
 
     /// <summary>
     /// The path_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("path_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("path_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PathPrefix { get; set; }
 
     /// <summary>
     /// The arns attribute.
     /// </summary>
-    [TerraformPropertyName("arns")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> Arns => new TerraformReference(this, "arns");
+    [TerraformProperty("arns")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> Arns { get; }
 
     /// <summary>
     /// The names attribute.
     /// </summary>
-    [TerraformPropertyName("names")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> Names => new TerraformReference(this, "names");
+    [TerraformProperty("names")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> Names { get; }
 
 }

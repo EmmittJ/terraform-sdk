@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for run_after in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermLogicAppActionHttpRunAfterBlock
+public partial class AzurermLogicAppActionHttpRunAfterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The action_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionName is required")]
-    [TerraformPropertyName("action_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ActionName { get; set; }
 
     /// <summary>
     /// The action_result attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActionResult is required")]
-    [TerraformPropertyName("action_result")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action_result")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ActionResult { get; set; }
 
 }
@@ -30,34 +30,34 @@ public class AzurermLogicAppActionHttpRunAfterBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogicAppActionHttpTimeoutsBlock
+public partial class AzurermLogicAppActionHttpTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -65,7 +65,7 @@ public class AzurermLogicAppActionHttpTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_logic_app_action_http resource.
 /// </summary>
-public class AzurermLogicAppActionHttp : TerraformResource
+public partial class AzurermLogicAppActionHttp : TerraformResource
 {
     public AzurermLogicAppActionHttp(string name) : base("azurerm_logic_app_action_http", name)
     {
@@ -74,75 +74,75 @@ public class AzurermLogicAppActionHttp : TerraformResource
     /// <summary>
     /// The body attribute.
     /// </summary>
-    [TerraformPropertyName("body")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("body")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Body { get; set; }
 
     /// <summary>
     /// The headers attribute.
     /// </summary>
-    [TerraformPropertyName("headers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("headers")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Headers { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The logic_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogicAppId is required")]
-    [TerraformPropertyName("logic_app_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("logic_app_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LogicAppId { get; set; }
 
     /// <summary>
     /// The method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Method is required")]
-    [TerraformPropertyName("method")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("method")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Method { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The queries attribute.
     /// </summary>
-    [TerraformPropertyName("queries")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("queries")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Queries { get; set; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    [TerraformPropertyName("uri")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("uri")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Uri { get; set; }
 
     /// <summary>
     /// Block for run_after.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("run_after")]
+    [TerraformProperty("run_after")]
     public TerraformSet<TerraformBlock<AzurermLogicAppActionHttpRunAfterBlock>>? RunAfter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermLogicAppActionHttpTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,56 +6,56 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for authentication in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAppServiceConnectionAuthenticationBlock
+public partial class AzurermAppServiceConnectionAuthenticationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    [TerraformPropertyName("certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Certificate { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    [TerraformPropertyName("client_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("client_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
-    [TerraformPropertyName("principal_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("principal_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrincipalId { get; set; }
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
-    [TerraformPropertyName("secret")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("secret")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Secret { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    [TerraformPropertyName("subscription_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subscription_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SubscriptionId { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -64,14 +64,14 @@ public class AzurermAppServiceConnectionAuthenticationBlock
 /// Block type for secret_store in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAppServiceConnectionSecretStoreBlock
+public partial class AzurermAppServiceConnectionSecretStoreBlock : TerraformBlockBase
 {
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    [TerraformPropertyName("key_vault_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_vault_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyVaultId { get; set; }
 
 }
@@ -80,34 +80,34 @@ public class AzurermAppServiceConnectionSecretStoreBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAppServiceConnectionTimeoutsBlock
+public partial class AzurermAppServiceConnectionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -116,7 +116,7 @@ public class AzurermAppServiceConnectionTimeoutsBlock
 /// Manages a azurerm_app_service_connection resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermAppServiceConnection : TerraformResource
+public partial class AzurermAppServiceConnection : TerraformResource
 {
     public AzurermAppServiceConnection(string name) : base("azurerm_app_service_connection", name)
     {
@@ -126,45 +126,45 @@ public class AzurermAppServiceConnection : TerraformResource
     /// The app_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServiceId is required")]
-    [TerraformPropertyName("app_service_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("app_service_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AppServiceId { get; set; }
 
     /// <summary>
     /// The client_type attribute.
     /// </summary>
-    [TerraformPropertyName("client_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("client_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClientType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetResourceId is required")]
-    [TerraformPropertyName("target_resource_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_resource_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TargetResourceId { get; set; }
 
     /// <summary>
     /// The vnet_solution attribute.
     /// </summary>
-    [TerraformPropertyName("vnet_solution")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vnet_solution")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VnetSolution { get; set; }
 
     /// <summary>
@@ -174,7 +174,7 @@ public class AzurermAppServiceConnection : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Authentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Authentication block(s) allowed")]
-    [TerraformPropertyName("authentication")]
+    [TerraformProperty("authentication")]
     public TerraformList<TerraformBlock<AzurermAppServiceConnectionAuthenticationBlock>>? Authentication { get; set; }
 
     /// <summary>
@@ -182,14 +182,14 @@ public class AzurermAppServiceConnection : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecretStore block(s) allowed")]
-    [TerraformPropertyName("secret_store")]
+    [TerraformProperty("secret_store")]
     public TerraformList<TerraformBlock<AzurermAppServiceConnectionSecretStoreBlock>>? SecretStore { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermAppServiceConnectionTimeoutsBlock>? Timeouts { get; set; }
 
 }

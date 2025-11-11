@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_colab_runtime_template_iam_policy.
 /// </summary>
-public class GoogleColabRuntimeTemplateIamPolicyDataSource : TerraformDataSource
+public partial class GoogleColabRuntimeTemplateIamPolicyDataSource : TerraformDataSource
 {
     public GoogleColabRuntimeTemplateIamPolicyDataSource(string name) : base("google_colab_runtime_template_iam_policy", name)
     {
@@ -14,44 +14,44 @@ public class GoogleColabRuntimeTemplateIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Location { get; set; } = default!;
+    [TerraformProperty("location")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The runtime_template attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeTemplate is required")]
-    [TerraformPropertyName("runtime_template")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("runtime_template")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RuntimeTemplate { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    [TerraformPropertyName("policy_data")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PolicyData => new TerraformReference(this, "policy_data");
+    [TerraformProperty("policy_data")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PolicyData { get; }
 
 }

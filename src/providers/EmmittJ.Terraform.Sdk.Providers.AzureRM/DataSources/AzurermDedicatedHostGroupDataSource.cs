@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDedicatedHostGroupDataSourceTimeoutsBlock
+public partial class AzurermDedicatedHostGroupDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermDedicatedHostGroupDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_dedicated_host_group.
 /// </summary>
-public class AzurermDedicatedHostGroupDataSource : TerraformDataSource
+public partial class AzurermDedicatedHostGroupDataSource : TerraformDataSource
 {
     public AzurermDedicatedHostGroupDataSource(string name) : base("azurerm_dedicated_host_group", name)
     {
@@ -29,66 +29,66 @@ public class AzurermDedicatedHostGroupDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermDedicatedHostGroupDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The automatic_placement_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("automatic_placement_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AutomaticPlacementEnabled => new TerraformReference(this, "automatic_placement_enabled");
+    [TerraformProperty("automatic_placement_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AutomaticPlacementEnabled { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The platform_fault_domain_count attribute.
     /// </summary>
-    [TerraformPropertyName("platform_fault_domain_count")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> PlatformFaultDomainCount => new TerraformReference(this, "platform_fault_domain_count");
+    [TerraformProperty("platform_fault_domain_count")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> PlatformFaultDomainCount { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    [TerraformPropertyName("zones")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Zones => new TerraformReference(this, "zones");
+    [TerraformProperty("zones")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Zones { get; }
 
 }

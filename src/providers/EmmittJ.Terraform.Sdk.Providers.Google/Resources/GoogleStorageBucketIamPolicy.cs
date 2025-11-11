@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleStorageBucketIamPolicyTimeoutsBlock
+public partial class GoogleStorageBucketIamPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class GoogleStorageBucketIamPolicyTimeoutsBlock
 /// <summary>
 /// Manages a google_storage_bucket_iam_policy resource.
 /// </summary>
-public class GoogleStorageBucketIamPolicy : TerraformResource
+public partial class GoogleStorageBucketIamPolicy : TerraformResource
 {
     public GoogleStorageBucketIamPolicy(string name) : base("google_storage_bucket_iam_policy", name)
     {
@@ -30,37 +30,37 @@ public class GoogleStorageBucketIamPolicy : TerraformResource
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    [TerraformPropertyName("bucket")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
-    [TerraformPropertyName("policy_data")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_data")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PolicyData { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleStorageBucketIamPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
 }

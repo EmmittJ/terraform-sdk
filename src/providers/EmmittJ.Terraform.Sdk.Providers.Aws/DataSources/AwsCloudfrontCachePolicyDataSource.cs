@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_cloudfront_cache_policy.
 /// </summary>
-public class AwsCloudfrontCachePolicyDataSource : TerraformDataSource
+public partial class AwsCloudfrontCachePolicyDataSource : TerraformDataSource
 {
     public AwsCloudfrontCachePolicyDataSource(string name) : base("aws_cloudfront_cache_policy", name)
     {
@@ -14,64 +14,64 @@ public class AwsCloudfrontCachePolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    [TerraformPropertyName("comment")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Comment => new TerraformReference(this, "comment");
+    [TerraformProperty("comment")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Comment { get; }
 
     /// <summary>
     /// The default_ttl attribute.
     /// </summary>
-    [TerraformPropertyName("default_ttl")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> DefaultTtl => new TerraformReference(this, "default_ttl");
+    [TerraformProperty("default_ttl")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> DefaultTtl { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The max_ttl attribute.
     /// </summary>
-    [TerraformPropertyName("max_ttl")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaxTtl => new TerraformReference(this, "max_ttl");
+    [TerraformProperty("max_ttl")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaxTtl { get; }
 
     /// <summary>
     /// The min_ttl attribute.
     /// </summary>
-    [TerraformPropertyName("min_ttl")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MinTtl => new TerraformReference(this, "min_ttl");
+    [TerraformProperty("min_ttl")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MinTtl { get; }
 
     /// <summary>
     /// The parameters_in_cache_key_and_forwarded_to_origin attribute.
     /// </summary>
-    [TerraformPropertyName("parameters_in_cache_key_and_forwarded_to_origin")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ParametersInCacheKeyAndForwardedToOrigin => new TerraformReference(this, "parameters_in_cache_key_and_forwarded_to_origin");
+    [TerraformProperty("parameters_in_cache_key_and_forwarded_to_origin")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ParametersInCacheKeyAndForwardedToOrigin { get; }
 
 }

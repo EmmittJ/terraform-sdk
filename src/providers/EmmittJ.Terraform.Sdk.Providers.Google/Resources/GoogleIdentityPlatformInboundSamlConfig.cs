@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for idp_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIdentityPlatformInboundSamlConfigIdpConfigBlock
+public partial class GoogleIdentityPlatformInboundSamlConfigIdpConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Unique identifier for all SAML entities
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpEntityId is required")]
-    [TerraformPropertyName("idp_entity_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("idp_entity_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IdpEntityId { get; set; }
 
     /// <summary>
     /// Indicates if outbounding SAMLRequest should be signed.
     /// </summary>
-    [TerraformPropertyName("sign_request")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sign_request")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SignRequest { get; set; }
 
     /// <summary>
     /// URL to send Authentication request to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SsoUrl is required")]
-    [TerraformPropertyName("sso_url")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sso_url")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SsoUrl { get; set; }
 
 }
@@ -37,21 +37,21 @@ public class GoogleIdentityPlatformInboundSamlConfigIdpConfigBlock
 /// Block type for sp_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIdentityPlatformInboundSamlConfigSpConfigBlock
+public partial class GoogleIdentityPlatformInboundSamlConfigSpConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Callback URI where responses from IDP are handled. Must start with &#39;https://&#39;.
     /// </summary>
-    [TerraformPropertyName("callback_uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("callback_uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CallbackUri { get; set; }
 
 
     /// <summary>
     /// Unique identifier for all SAML entities.
     /// </summary>
-    [TerraformPropertyName("sp_entity_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sp_entity_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SpEntityId { get; set; }
 
 }
@@ -60,27 +60,27 @@ public class GoogleIdentityPlatformInboundSamlConfigSpConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIdentityPlatformInboundSamlConfigTimeoutsBlock
+public partial class GoogleIdentityPlatformInboundSamlConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -89,7 +89,7 @@ public class GoogleIdentityPlatformInboundSamlConfigTimeoutsBlock
 /// Manages a google_identity_platform_inbound_saml_config resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleIdentityPlatformInboundSamlConfig : TerraformResource
+public partial class GoogleIdentityPlatformInboundSamlConfig : TerraformResource
 {
     public GoogleIdentityPlatformInboundSamlConfig(string name) : base("google_identity_platform_inbound_saml_config", name)
     {
@@ -99,23 +99,23 @@ public class GoogleIdentityPlatformInboundSamlConfig : TerraformResource
     /// Human friendly display name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// If this config allows users to sign in with the provider.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the InboundSamlConfig resource. Must start with &#39;saml.&#39; and can only have alphanumeric characters,
@@ -123,16 +123,16 @@ public class GoogleIdentityPlatformInboundSamlConfig : TerraformResource
     /// alphanumeric character, and have at least 2 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for idp_config.
@@ -141,7 +141,7 @@ public class GoogleIdentityPlatformInboundSamlConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdpConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 IdpConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdpConfig block(s) allowed")]
-    [TerraformPropertyName("idp_config")]
+    [TerraformProperty("idp_config")]
     public TerraformList<TerraformBlock<GoogleIdentityPlatformInboundSamlConfigIdpConfigBlock>>? IdpConfig { get; set; }
 
     /// <summary>
@@ -151,14 +151,14 @@ public class GoogleIdentityPlatformInboundSamlConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SpConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SpConfig block(s) allowed")]
-    [TerraformPropertyName("sp_config")]
+    [TerraformProperty("sp_config")]
     public TerraformList<TerraformBlock<GoogleIdentityPlatformInboundSamlConfigSpConfigBlock>>? SpConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleIdentityPlatformInboundSamlConfigTimeoutsBlock>? Timeouts { get; set; }
 
 }

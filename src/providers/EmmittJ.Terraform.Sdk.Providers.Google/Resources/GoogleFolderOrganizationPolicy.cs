@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for boolean_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFolderOrganizationPolicyBooleanPolicyBlock
+public partial class GoogleFolderOrganizationPolicyBooleanPolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// If true, then the Policy is enforced. If false, then any configuration is acceptable.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforced is required")]
-    [TerraformPropertyName("enforced")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enforced")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enforced { get; set; }
 
 }
@@ -22,21 +22,21 @@ public class GoogleFolderOrganizationPolicyBooleanPolicyBlock
 /// Block type for list_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFolderOrganizationPolicyListPolicyBlock
+public partial class GoogleFolderOrganizationPolicyListPolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// If set to true, the values from the effective Policy of the parent resource are inherited, meaning the values set in this Policy are added to the values inherited up the hierarchy.
     /// </summary>
-    [TerraformPropertyName("inherit_from_parent")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("inherit_from_parent")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? InheritFromParent { get; set; }
 
     /// <summary>
     /// The Google Cloud Console will try to default to a configuration that matches the value specified in this field.
     /// </summary>
-    [TerraformPropertyName("suggested_value")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SuggestedValue { get; set; } = default!;
+    [TerraformProperty("suggested_value")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SuggestedValue { get; set; }
 
 }
 
@@ -44,14 +44,14 @@ public class GoogleFolderOrganizationPolicyListPolicyBlock
 /// Block type for restore_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFolderOrganizationPolicyRestorePolicyBlock
+public partial class GoogleFolderOrganizationPolicyRestorePolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// May only be set to true. If set, then the default Policy is restored.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Default is required")]
-    [TerraformPropertyName("default")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("default")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Default { get; set; }
 
 }
@@ -60,34 +60,34 @@ public class GoogleFolderOrganizationPolicyRestorePolicyBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFolderOrganizationPolicyTimeoutsBlock
+public partial class GoogleFolderOrganizationPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -96,7 +96,7 @@ public class GoogleFolderOrganizationPolicyTimeoutsBlock
 /// Manages a google_folder_organization_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleFolderOrganizationPolicy : TerraformResource
+public partial class GoogleFolderOrganizationPolicy : TerraformResource
 {
     public GoogleFolderOrganizationPolicy(string name) : base("google_folder_organization_policy", name)
     {
@@ -106,38 +106,38 @@ public class GoogleFolderOrganizationPolicy : TerraformResource
     /// The name of the Constraint the Policy is configuring, for example, serviceuser.services.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Constraint is required")]
-    [TerraformPropertyName("constraint")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("constraint")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Constraint { get; set; }
 
     /// <summary>
     /// The resource name of the folder to set the policy for. Its format is folders/{folder_id}.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
-    [TerraformPropertyName("folder")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("folder")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Version of the Policy. Default version is 0.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Version { get; set; } = default!;
+    [TerraformProperty("version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Version { get; set; }
 
     /// <summary>
     /// Block for boolean_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BooleanPolicy block(s) allowed")]
-    [TerraformPropertyName("boolean_policy")]
+    [TerraformProperty("boolean_policy")]
     public TerraformList<TerraformBlock<GoogleFolderOrganizationPolicyBooleanPolicyBlock>>? BooleanPolicy { get; set; }
 
     /// <summary>
@@ -145,7 +145,7 @@ public class GoogleFolderOrganizationPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ListPolicy block(s) allowed")]
-    [TerraformPropertyName("list_policy")]
+    [TerraformProperty("list_policy")]
     public TerraformList<TerraformBlock<GoogleFolderOrganizationPolicyListPolicyBlock>>? ListPolicy { get; set; }
 
     /// <summary>
@@ -153,28 +153,28 @@ public class GoogleFolderOrganizationPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RestorePolicy block(s) allowed")]
-    [TerraformPropertyName("restore_policy")]
+    [TerraformProperty("restore_policy")]
     public TerraformList<TerraformBlock<GoogleFolderOrganizationPolicyRestorePolicyBlock>>? RestorePolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleFolderOrganizationPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The etag of the organization policy. etag is used for optimistic concurrency control as a way to help prevent simultaneous updates of a policy from overwriting each other.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, accurate to nanoseconds, representing when the variable was last updated. Example: &amp;quot;2016-10-09T12:33:37.578138407Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

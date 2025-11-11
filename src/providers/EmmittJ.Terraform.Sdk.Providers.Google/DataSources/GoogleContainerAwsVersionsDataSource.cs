@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_container_aws_versions.
 /// </summary>
-public class GoogleContainerAwsVersionsDataSource : TerraformDataSource
+public partial class GoogleContainerAwsVersionsDataSource : TerraformDataSource
 {
     public GoogleContainerAwsVersionsDataSource(string name) : base("google_container_aws_versions", name)
     {
@@ -14,36 +14,36 @@ public class GoogleContainerAwsVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The supported_regions attribute.
     /// </summary>
-    [TerraformPropertyName("supported_regions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SupportedRegions => new TerraformReference(this, "supported_regions");
+    [TerraformProperty("supported_regions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SupportedRegions { get; }
 
     /// <summary>
     /// The valid_versions attribute.
     /// </summary>
-    [TerraformPropertyName("valid_versions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ValidVersions => new TerraformReference(this, "valid_versions");
+    [TerraformProperty("valid_versions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ValidVersions { get; }
 
 }

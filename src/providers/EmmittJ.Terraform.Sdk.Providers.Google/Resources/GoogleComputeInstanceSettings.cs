@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeInstanceSettingsMetadataBlock
+public partial class GoogleComputeInstanceSettingsMetadataBlock : TerraformBlockBase
 {
     /// <summary>
     /// A metadata key/value items map. The total size of all keys and values must be less than 512KB
     /// </summary>
-    [TerraformPropertyName("items")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("items")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Items { get; set; }
 
 }
@@ -21,27 +21,27 @@ public class GoogleComputeInstanceSettingsMetadataBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeInstanceSettingsTimeoutsBlock
+public partial class GoogleComputeInstanceSettingsTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -50,7 +50,7 @@ public class GoogleComputeInstanceSettingsTimeoutsBlock
 /// Manages a google_compute_instance_settings resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputeInstanceSettings : TerraformResource
+public partial class GoogleComputeInstanceSettings : TerraformResource
 {
     public GoogleComputeInstanceSettings(string name) : base("google_compute_instance_settings", name)
     {
@@ -59,23 +59,23 @@ public class GoogleComputeInstanceSettings : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A reference to the zone where the machine resides.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
-    [TerraformPropertyName("zone")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("zone")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Zone { get; set; }
 
     /// <summary>
@@ -83,22 +83,22 @@ public class GoogleComputeInstanceSettings : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
-    [TerraformPropertyName("metadata")]
+    [TerraformProperty("metadata")]
     public TerraformList<TerraformBlock<GoogleComputeInstanceSettingsMetadataBlock>>? Metadata { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeInstanceSettingsTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
-    [TerraformPropertyName("fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
+    [TerraformProperty("fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fingerprint { get; }
 
 }

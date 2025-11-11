@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for feature_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineApplicationFeatureSettingsBlock
+public partial class GoogleAppEngineApplicationFeatureSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The split_health_checks attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SplitHealthChecks is required")]
-    [TerraformPropertyName("split_health_checks")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("split_health_checks")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> SplitHealthChecks { get; set; }
 
 }
@@ -22,29 +22,29 @@ public class GoogleAppEngineApplicationFeatureSettingsBlock
 /// Block type for iap in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineApplicationIapBlock
+public partial class GoogleAppEngineApplicationIapBlock : TerraformBlockBase
 {
     /// <summary>
     /// Adapted for use with the app
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// OAuth2 client ID to use for the authentication flow.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauth2ClientId is required")]
-    [TerraformPropertyName("oauth2_client_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("oauth2_client_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Oauth2ClientId { get; set; }
 
     /// <summary>
     /// OAuth2 client secret to use for the authentication flow. The SHA-256 hash of the value is returned in the oauth2ClientSecretSha256 field.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Oauth2ClientSecret is required")]
-    [TerraformPropertyName("oauth2_client_secret")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("oauth2_client_secret")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Oauth2ClientSecret { get; set; }
 
 
@@ -54,20 +54,20 @@ public class GoogleAppEngineApplicationIapBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAppEngineApplicationTimeoutsBlock
+public partial class GoogleAppEngineApplicationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -76,7 +76,7 @@ public class GoogleAppEngineApplicationTimeoutsBlock
 /// Manages a google_app_engine_application resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleAppEngineApplication : TerraformResource
+public partial class GoogleAppEngineApplication : TerraformResource
 {
     public GoogleAppEngineApplication(string name) : base("google_app_engine_application", name)
     {
@@ -85,59 +85,59 @@ public class GoogleAppEngineApplication : TerraformResource
     /// <summary>
     /// The domain to authenticate users with when using App Engine&#39;s User API.
     /// </summary>
-    [TerraformPropertyName("auth_domain")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AuthDomain { get; set; } = default!;
+    [TerraformProperty("auth_domain")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AuthDomain { get; set; }
 
     /// <summary>
     /// The database_type attribute.
     /// </summary>
-    [TerraformPropertyName("database_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DatabaseType { get; set; } = default!;
+    [TerraformProperty("database_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DatabaseType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location to serve the app from.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationId is required")]
-    [TerraformPropertyName("location_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LocationId { get; set; }
 
     /// <summary>
     /// The project ID to create the application under.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The serving status of the app.
     /// </summary>
-    [TerraformPropertyName("serving_status")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ServingStatus { get; set; } = default!;
+    [TerraformProperty("serving_status")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ServingStatus { get; set; }
 
     /// <summary>
     /// The SSL policy that will be applied to the application. If set to Modern it will restrict traffic with TLS \u003c 1.2 and allow only Modern Ciphers suite
     /// </summary>
-    [TerraformPropertyName("ssl_policy")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SslPolicy { get; set; } = default!;
+    [TerraformProperty("ssl_policy")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SslPolicy { get; set; }
 
     /// <summary>
     /// Block for feature_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FeatureSettings block(s) allowed")]
-    [TerraformPropertyName("feature_settings")]
+    [TerraformProperty("feature_settings")]
     public TerraformList<TerraformBlock<GoogleAppEngineApplicationFeatureSettingsBlock>>? FeatureSettings { get; set; }
 
     /// <summary>
@@ -145,63 +145,63 @@ public class GoogleAppEngineApplication : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Iap block(s) allowed")]
-    [TerraformPropertyName("iap")]
+    [TerraformProperty("iap")]
     public TerraformList<TerraformBlock<GoogleAppEngineApplicationIapBlock>>? Iap { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleAppEngineApplicationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Identifier of the app.
     /// </summary>
-    [TerraformPropertyName("app_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AppId => new TerraformReference(this, "app_id");
+    [TerraformProperty("app_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AppId { get; }
 
     /// <summary>
     /// The GCS bucket code is being stored in for this app.
     /// </summary>
-    [TerraformPropertyName("code_bucket")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CodeBucket => new TerraformReference(this, "code_bucket");
+    [TerraformProperty("code_bucket")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CodeBucket { get; }
 
     /// <summary>
     /// The GCS bucket content is being stored in for this app.
     /// </summary>
-    [TerraformPropertyName("default_bucket")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultBucket => new TerraformReference(this, "default_bucket");
+    [TerraformProperty("default_bucket")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultBucket { get; }
 
     /// <summary>
     /// The default hostname for this app.
     /// </summary>
-    [TerraformPropertyName("default_hostname")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultHostname => new TerraformReference(this, "default_hostname");
+    [TerraformProperty("default_hostname")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultHostname { get; }
 
     /// <summary>
     /// The GCR domain used for storing managed Docker images for this app.
     /// </summary>
-    [TerraformPropertyName("gcr_domain")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> GcrDomain => new TerraformReference(this, "gcr_domain");
+    [TerraformProperty("gcr_domain")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> GcrDomain { get; }
 
     /// <summary>
     /// Unique name of the app.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// A list of dispatch rule blocks. Each block has a domain, path, and service field.
     /// </summary>
-    [TerraformPropertyName("url_dispatch_rule")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> UrlDispatchRule => new TerraformReference(this, "url_dispatch_rule");
+    [TerraformProperty("url_dispatch_rule")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> UrlDispatchRule { get; }
 
 }

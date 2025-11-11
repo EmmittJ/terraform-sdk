@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attestation_authority_note in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock
+public partial class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock : TerraformBlockBase
 {
 
     /// <summary>
@@ -19,8 +19,8 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock
     /// and that links to this Note.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NoteReference is required")]
-    [TerraformPropertyName("note_reference")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("note_reference")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NoteReference { get; set; }
 
 }
@@ -29,27 +29,27 @@ public class GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBinaryAuthorizationAttestorTimeoutsBlock
+public partial class GoogleBinaryAuthorizationAttestorTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -58,7 +58,7 @@ public class GoogleBinaryAuthorizationAttestorTimeoutsBlock
 /// Manages a google_binary_authorization_attestor resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleBinaryAuthorizationAttestor : TerraformResource
+public partial class GoogleBinaryAuthorizationAttestor : TerraformResource
 {
     public GoogleBinaryAuthorizationAttestor(string name) : base("google_binary_authorization_attestor", name)
     {
@@ -68,31 +68,31 @@ public class GoogleBinaryAuthorizationAttestor : TerraformResource
     /// A descriptive comment. This field may be updated. The field may be
     /// displayed in chooser dialogs.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for attestation_authority_note.
@@ -101,14 +101,14 @@ public class GoogleBinaryAuthorizationAttestor : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttestationAuthorityNote is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AttestationAuthorityNote block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AttestationAuthorityNote block(s) allowed")]
-    [TerraformPropertyName("attestation_authority_note")]
+    [TerraformProperty("attestation_authority_note")]
     public TerraformList<TerraformBlock<GoogleBinaryAuthorizationAttestorAttestationAuthorityNoteBlock>>? AttestationAuthorityNote { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleBinaryAuthorizationAttestorTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attributes in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeDeveloperAttributesBlock
+public partial class GoogleApigeeDeveloperAttributesBlock : TerraformBlockBase
 {
     /// <summary>
     /// Key of the attribute
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Value of the attribute
     /// </summary>
-    [TerraformPropertyName("value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Value { get; set; }
 
 }
@@ -28,27 +28,27 @@ public class GoogleApigeeDeveloperAttributesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeDeveloperTimeoutsBlock
+public partial class GoogleApigeeDeveloperTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -56,7 +56,7 @@ public class GoogleApigeeDeveloperTimeoutsBlock
 /// <summary>
 /// Manages a google_apigee_developer resource.
 /// </summary>
-public class GoogleApigeeDeveloper : TerraformResource
+public partial class GoogleApigeeDeveloper : TerraformResource
 {
     public GoogleApigeeDeveloper(string name) : base("google_apigee_developer", name)
     {
@@ -66,31 +66,31 @@ public class GoogleApigeeDeveloper : TerraformResource
     /// Email address of the developer. This value is used to uniquely identify the developer in Apigee hybrid. Note that the email address has to be in lowercase only..
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    [TerraformPropertyName("email")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("email")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Email { get; set; }
 
     /// <summary>
     /// First name of the developer.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirstName is required")]
-    [TerraformPropertyName("first_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("first_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FirstName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Last name of the developer.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LastName is required")]
-    [TerraformPropertyName("last_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("last_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LastName { get; set; }
 
     /// <summary>
@@ -98,58 +98,58 @@ public class GoogleApigeeDeveloper : TerraformResource
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    [TerraformPropertyName("org_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("org_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// User name of the developer. Not used by Apigee hybrid.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
-    [TerraformPropertyName("user_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserName { get; set; }
 
     /// <summary>
     /// Block for attributes.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("attributes")]
+    [TerraformProperty("attributes")]
     public TerraformList<TerraformBlock<GoogleApigeeDeveloperAttributesBlock>>? Attributes { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleApigeeDeveloperTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time at which the developer was created in milliseconds since epoch.
     /// </summary>
-    [TerraformPropertyName("created_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
+    [TerraformProperty("created_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// Time at which the developer was last modified in milliseconds since epoch.
     /// </summary>
-    [TerraformPropertyName("last_modified_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModifiedAt => new TerraformReference(this, "last_modified_at");
+    [TerraformProperty("last_modified_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModifiedAt { get; }
 
     /// <summary>
     /// Name of the Apigee organization in which the developer resides.
     /// </summary>
-    [TerraformPropertyName("organizatio_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OrganizatioName => new TerraformReference(this, "organizatio_name");
+    [TerraformProperty("organizatio_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OrganizatioName { get; }
 
     /// <summary>
     /// Status of the developer. Valid values are active and inactive.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSecurityGroupRuleTimeoutsBlock
+public partial class AwsSecurityGroupRuleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsSecurityGroupRuleTimeoutsBlock
 /// <summary>
 /// Manages a aws_security_group_rule resource.
 /// </summary>
-public class AwsSecurityGroupRule : TerraformResource
+public partial class AwsSecurityGroupRule : TerraformResource
 {
     public AwsSecurityGroupRule(string name) : base("aws_security_group_rule", name)
     {
@@ -29,111 +29,111 @@ public class AwsSecurityGroupRule : TerraformResource
     /// <summary>
     /// The cidr_blocks attribute.
     /// </summary>
-    [TerraformPropertyName("cidr_blocks")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cidr_blocks")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? CidrBlocks { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The from_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FromPort is required")]
-    [TerraformPropertyName("from_port")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("from_port")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> FromPort { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ipv6_cidr_blocks attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_cidr_blocks")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ipv6_cidr_blocks")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Ipv6CidrBlocks { get; set; }
 
     /// <summary>
     /// The prefix_list_ids attribute.
     /// </summary>
-    [TerraformPropertyName("prefix_list_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("prefix_list_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? PrefixListIds { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformPropertyName("protocol")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("protocol")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
-    [TerraformPropertyName("security_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("security_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SecurityGroupId { get; set; }
 
     /// <summary>
     /// The self attribute.
     /// </summary>
-    [TerraformPropertyName("self")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("self")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Self { get; set; }
 
     /// <summary>
     /// The source_security_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_security_group_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SourceSecurityGroupId { get; set; } = default!;
+    [TerraformProperty("source_security_group_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SourceSecurityGroupId { get; set; }
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ToPort is required")]
-    [TerraformPropertyName("to_port")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("to_port")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> ToPort { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsSecurityGroupRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The security_group_rule_id attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_rule_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecurityGroupRuleId => new TerraformReference(this, "security_group_rule_id");
+    [TerraformProperty("security_group_rule_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecurityGroupRuleId { get; }
 
 }

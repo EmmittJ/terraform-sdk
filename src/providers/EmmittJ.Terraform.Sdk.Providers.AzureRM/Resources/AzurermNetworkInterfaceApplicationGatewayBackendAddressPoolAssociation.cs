@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationTimeoutsBlock
+public partial class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociat
 /// <summary>
 /// Manages a azurerm_network_interface_application_gateway_backend_address_pool_association resource.
 /// </summary>
-public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation : TerraformResource
+public partial class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation : TerraformResource
 {
     public AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociation(string name) : base("azurerm_network_interface_application_gateway_backend_address_pool_association", name)
     {
@@ -44,38 +44,38 @@ public class AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociat
     /// The backend_address_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
-    [TerraformPropertyName("backend_address_pool_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("backend_address_pool_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BackendAddressPoolId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_configuration_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpConfigurationName is required")]
-    [TerraformPropertyName("ip_configuration_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("ip_configuration_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IpConfigurationName { get; set; }
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkInterfaceId is required")]
-    [TerraformPropertyName("network_interface_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network_interface_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NetworkInterfaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermNetworkInterfaceApplicationGatewayBackendAddressPoolAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

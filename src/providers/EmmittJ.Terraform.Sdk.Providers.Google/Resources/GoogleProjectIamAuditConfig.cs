@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for audit_log_config in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleProjectIamAuditConfigAuditLogConfigBlock
+public partial class GoogleProjectIamAuditConfigAuditLogConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Identities that do not cause logging for this type of permission. Each entry can have one of the following values:user:{emailid}: An email address that represents a specific Google account. For example, alice@gmail.com or joe@example.com. serviceAccount:{emailid}: An email address that represents a service account. For example, my-other-app@appspot.gserviceaccount.com. group:{emailid}: An email address that represents a Google group. For example, admins@example.com. domain:{domain}: A G Suite domain (primary, instead of alias) name that represents all the users of that domain. For example, google.com or example.com.
     /// </summary>
-    [TerraformPropertyName("exempted_members")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("exempted_members")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? ExemptedMembers { get; set; }
 
     /// <summary>
     /// Permission type for which logging is to be configured. Must be one of DATA_READ, DATA_WRITE, or ADMIN_READ.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogType is required")]
-    [TerraformPropertyName("log_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("log_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LogType { get; set; }
 
 }
@@ -29,7 +29,7 @@ public class GoogleProjectIamAuditConfigAuditLogConfigBlock
 /// Manages a google_project_iam_audit_config resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleProjectIamAuditConfig : TerraformResource
+public partial class GoogleProjectIamAuditConfig : TerraformResource
 {
     public GoogleProjectIamAuditConfig(string name) : base("google_project_iam_audit_config", name)
     {
@@ -38,24 +38,24 @@ public class GoogleProjectIamAuditConfig : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
-    [TerraformPropertyName("project")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("project")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Service which will be enabled for audit logging. The special value allServices covers all services.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
-    [TerraformPropertyName("service")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Service { get; set; }
 
     /// <summary>
@@ -64,14 +64,14 @@ public class GoogleProjectIamAuditConfig : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuditLogConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuditLogConfig block(s) required")]
-    [TerraformPropertyName("audit_log_config")]
+    [TerraformProperty("audit_log_config")]
     public TerraformSet<TerraformBlock<GoogleProjectIamAuditConfigAuditLogConfigBlock>>? AuditLogConfig { get; set; }
 
     /// <summary>
     /// The etag of iam policy
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
 }

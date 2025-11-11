@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_iam_signing_certificate resource.
 /// </summary>
-public class AwsIamSigningCertificate : TerraformResource
+public partial class AwsIamSigningCertificate : TerraformResource
 {
     public AwsIamSigningCertificate(string name) : base("aws_iam_signing_certificate", name)
     {
@@ -15,37 +15,37 @@ public class AwsIamSigningCertificate : TerraformResource
     /// The certificate_body attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBody is required")]
-    [TerraformPropertyName("certificate_body")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("certificate_body")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CertificateBody { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("status")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
-    [TerraformPropertyName("user_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserName { get; set; }
 
     /// <summary>
     /// The certificate_id attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CertificateId => new TerraformReference(this, "certificate_id");
+    [TerraformProperty("certificate_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CertificateId { get; }
 
 }

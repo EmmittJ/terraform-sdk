@@ -6,46 +6,46 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for content_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCognitiveAccountRaiPolicyContentFilterBlock
+public partial class AzurermCognitiveAccountRaiPolicyContentFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The block_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockEnabled is required")]
-    [TerraformPropertyName("block_enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("block_enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> BlockEnabled { get; set; }
 
     /// <summary>
     /// The filter_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilterEnabled is required")]
-    [TerraformPropertyName("filter_enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("filter_enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> FilterEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The severity_threshold attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SeverityThreshold is required")]
-    [TerraformPropertyName("severity_threshold")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("severity_threshold")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SeverityThreshold { get; set; }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
-    [TerraformPropertyName("source")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Source { get; set; }
 
 }
@@ -54,34 +54,34 @@ public class AzurermCognitiveAccountRaiPolicyContentFilterBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCognitiveAccountRaiPolicyTimeoutsBlock
+public partial class AzurermCognitiveAccountRaiPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -90,7 +90,7 @@ public class AzurermCognitiveAccountRaiPolicyTimeoutsBlock
 /// Manages a azurerm_cognitive_account_rai_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermCognitiveAccountRaiPolicy : TerraformResource
+public partial class AzurermCognitiveAccountRaiPolicy : TerraformResource
 {
     public AzurermCognitiveAccountRaiPolicy(string name) : base("azurerm_cognitive_account_rai_policy", name)
     {
@@ -100,45 +100,45 @@ public class AzurermCognitiveAccountRaiPolicy : TerraformResource
     /// The base_policy_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BasePolicyName is required")]
-    [TerraformPropertyName("base_policy_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("base_policy_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BasePolicyName { get; set; }
 
     /// <summary>
     /// The cognitive_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CognitiveAccountId is required")]
-    [TerraformPropertyName("cognitive_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cognitive_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CognitiveAccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    [TerraformPropertyName("mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -147,14 +147,14 @@ public class AzurermCognitiveAccountRaiPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentFilter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ContentFilter block(s) required")]
-    [TerraformPropertyName("content_filter")]
+    [TerraformProperty("content_filter")]
     public TerraformList<TerraformBlock<AzurermCognitiveAccountRaiPolicyContentFilterBlock>>? ContentFilter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermCognitiveAccountRaiPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_storage_bucket_objects.
 /// </summary>
-public class GoogleStorageBucketObjectsDataSource : TerraformDataSource
+public partial class GoogleStorageBucketObjectsDataSource : TerraformDataSource
 {
     public GoogleStorageBucketObjectsDataSource(string name) : base("google_storage_bucket_objects", name)
     {
@@ -15,36 +15,36 @@ public class GoogleStorageBucketObjectsDataSource : TerraformDataSource
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    [TerraformPropertyName("bucket")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The match_glob attribute.
     /// </summary>
-    [TerraformPropertyName("match_glob")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("match_glob")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MatchGlob { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    [TerraformPropertyName("prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Prefix { get; set; }
 
     /// <summary>
     /// The bucket_objects attribute.
     /// </summary>
-    [TerraformPropertyName("bucket_objects")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> BucketObjects => new TerraformReference(this, "bucket_objects");
+    [TerraformProperty("bucket_objects")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> BucketObjects { get; }
 
 }

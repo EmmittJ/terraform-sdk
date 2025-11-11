@@ -6,61 +6,61 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_devops_repo in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSynapseWorkspaceAzureDevopsRepoBlock
+public partial class AzurermSynapseWorkspaceAzureDevopsRepoBlock : TerraformBlockBase
 {
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    [TerraformPropertyName("account_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("account_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AccountName { get; set; }
 
     /// <summary>
     /// The branch_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
-    [TerraformPropertyName("branch_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("branch_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BranchName { get; set; }
 
     /// <summary>
     /// The last_commit_id attribute.
     /// </summary>
-    [TerraformPropertyName("last_commit_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("last_commit_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LastCommitId { get; set; }
 
     /// <summary>
     /// The project_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
-    [TerraformPropertyName("project_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("project_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProjectName { get; set; }
 
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
-    [TerraformPropertyName("repository_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("repository_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RepositoryName { get; set; }
 
     /// <summary>
     /// The root_folder attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
-    [TerraformPropertyName("root_folder")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("root_folder")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RootFolder { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> TenantId { get; set; } = default!;
+    [TerraformProperty("tenant_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> TenantId { get; set; }
 
 }
 
@@ -68,28 +68,28 @@ public class AzurermSynapseWorkspaceAzureDevopsRepoBlock
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSynapseWorkspaceCustomerManagedKeyBlock
+public partial class AzurermSynapseWorkspaceCustomerManagedKeyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The key_name attribute.
     /// </summary>
-    [TerraformPropertyName("key_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KeyName { get; set; }
 
     /// <summary>
     /// The key_versionless_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVersionlessId is required")]
-    [TerraformPropertyName("key_versionless_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_versionless_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyVersionlessId { get; set; }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
-    [TerraformPropertyName("user_assigned_identity_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user_assigned_identity_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? UserAssignedIdentityId { get; set; }
 
 }
@@ -98,52 +98,52 @@ public class AzurermSynapseWorkspaceCustomerManagedKeyBlock
 /// Block type for github_repo in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSynapseWorkspaceGithubRepoBlock
+public partial class AzurermSynapseWorkspaceGithubRepoBlock : TerraformBlockBase
 {
     /// <summary>
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    [TerraformPropertyName("account_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("account_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AccountName { get; set; }
 
     /// <summary>
     /// The branch_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchName is required")]
-    [TerraformPropertyName("branch_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("branch_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BranchName { get; set; }
 
     /// <summary>
     /// The git_url attribute.
     /// </summary>
-    [TerraformPropertyName("git_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("git_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? GitUrl { get; set; }
 
     /// <summary>
     /// The last_commit_id attribute.
     /// </summary>
-    [TerraformPropertyName("last_commit_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("last_commit_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LastCommitId { get; set; }
 
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
-    [TerraformPropertyName("repository_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("repository_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RepositoryName { get; set; }
 
     /// <summary>
     /// The root_folder attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFolder is required")]
-    [TerraformPropertyName("root_folder")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("root_folder")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RootFolder { get; set; }
 
 }
@@ -152,13 +152,13 @@ public class AzurermSynapseWorkspaceGithubRepoBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSynapseWorkspaceIdentityBlock
+public partial class AzurermSynapseWorkspaceIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformPropertyName("identity_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IdentityIds { get; set; }
 
 
@@ -167,8 +167,8 @@ public class AzurermSynapseWorkspaceIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -177,34 +177,34 @@ public class AzurermSynapseWorkspaceIdentityBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSynapseWorkspaceTimeoutsBlock
+public partial class AzurermSynapseWorkspaceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -213,7 +213,7 @@ public class AzurermSynapseWorkspaceTimeoutsBlock
 /// Manages a azurerm_synapse_workspace resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSynapseWorkspace : TerraformResource
+public partial class AzurermSynapseWorkspace : TerraformResource
 {
     public AzurermSynapseWorkspace(string name) : base("azurerm_synapse_workspace", name)
     {
@@ -222,124 +222,124 @@ public class AzurermSynapseWorkspace : TerraformResource
     /// <summary>
     /// The azuread_authentication_only attribute.
     /// </summary>
-    [TerraformPropertyName("azuread_authentication_only")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("azuread_authentication_only")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AzureadAuthenticationOnly { get; set; }
 
     /// <summary>
     /// The compute_subnet_id attribute.
     /// </summary>
-    [TerraformPropertyName("compute_subnet_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("compute_subnet_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ComputeSubnetId { get; set; }
 
     /// <summary>
     /// The data_exfiltration_protection_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("data_exfiltration_protection_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("data_exfiltration_protection_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DataExfiltrationProtectionEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The linking_allowed_for_aad_tenant_ids attribute.
     /// </summary>
-    [TerraformPropertyName("linking_allowed_for_aad_tenant_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("linking_allowed_for_aad_tenant_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? LinkingAllowedForAadTenantIds { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    [TerraformPropertyName("managed_resource_group_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ManagedResourceGroupName { get; set; } = default!;
+    [TerraformProperty("managed_resource_group_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ManagedResourceGroupName { get; set; }
 
     /// <summary>
     /// The managed_virtual_network_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("managed_virtual_network_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("managed_virtual_network_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ManagedVirtualNetworkEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("public_network_access_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("public_network_access_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The purview_id attribute.
     /// </summary>
-    [TerraformPropertyName("purview_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("purview_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PurviewId { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sql_administrator_login attribute.
     /// </summary>
-    [TerraformPropertyName("sql_administrator_login")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sql_administrator_login")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SqlAdministratorLogin { get; set; }
 
     /// <summary>
     /// The sql_administrator_login_password attribute.
     /// </summary>
-    [TerraformPropertyName("sql_administrator_login_password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sql_administrator_login_password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SqlAdministratorLoginPassword { get; set; }
 
     /// <summary>
     /// The sql_identity_control_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("sql_identity_control_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sql_identity_control_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SqlIdentityControlEnabled { get; set; }
 
     /// <summary>
     /// The storage_data_lake_gen2_filesystem_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageDataLakeGen2FilesystemId is required")]
-    [TerraformPropertyName("storage_data_lake_gen2_filesystem_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_data_lake_gen2_filesystem_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageDataLakeGen2FilesystemId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -347,7 +347,7 @@ public class AzurermSynapseWorkspace : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureDevopsRepo block(s) allowed")]
-    [TerraformPropertyName("azure_devops_repo")]
+    [TerraformProperty("azure_devops_repo")]
     public TerraformList<TerraformBlock<AzurermSynapseWorkspaceAzureDevopsRepoBlock>>? AzureDevopsRepo { get; set; }
 
     /// <summary>
@@ -355,7 +355,7 @@ public class AzurermSynapseWorkspace : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    [TerraformPropertyName("customer_managed_key")]
+    [TerraformProperty("customer_managed_key")]
     public TerraformList<TerraformBlock<AzurermSynapseWorkspaceCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
 
     /// <summary>
@@ -363,7 +363,7 @@ public class AzurermSynapseWorkspace : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GithubRepo block(s) allowed")]
-    [TerraformPropertyName("github_repo")]
+    [TerraformProperty("github_repo")]
     public TerraformList<TerraformBlock<AzurermSynapseWorkspaceGithubRepoBlock>>? GithubRepo { get; set; }
 
     /// <summary>
@@ -371,21 +371,21 @@ public class AzurermSynapseWorkspace : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermSynapseWorkspaceIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSynapseWorkspaceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The connectivity_endpoints attribute.
     /// </summary>
-    [TerraformPropertyName("connectivity_endpoints")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> ConnectivityEndpoints => new TerraformReference(this, "connectivity_endpoints");
+    [TerraformProperty("connectivity_endpoints")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> ConnectivityEndpoints { get; }
 
 }

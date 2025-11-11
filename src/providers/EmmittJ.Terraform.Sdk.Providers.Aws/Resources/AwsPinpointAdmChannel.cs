@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_pinpoint_adm_channel resource.
 /// </summary>
-public class AwsPinpointAdmChannel : TerraformResource
+public partial class AwsPinpointAdmChannel : TerraformResource
 {
     public AwsPinpointAdmChannel(string name) : base("aws_pinpoint_adm_channel", name)
     {
@@ -15,45 +15,45 @@ public class AwsPinpointAdmChannel : TerraformResource
     /// The application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    [TerraformPropertyName("application_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("application_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
-    [TerraformPropertyName("client_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("client_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
-    [TerraformPropertyName("client_secret")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("client_secret")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClientSecret { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
 }

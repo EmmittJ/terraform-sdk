@@ -6,44 +6,44 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for nat_ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPrivateLinkServiceNatIpConfigurationBlock
+public partial class AzurermPrivateLinkServiceNatIpConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The primary attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Primary is required")]
-    [TerraformPropertyName("primary")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("primary")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Primary { get; set; }
 
     /// <summary>
     /// The private_ip_address attribute.
     /// </summary>
-    [TerraformPropertyName("private_ip_address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_ip_address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrivateIpAddress { get; set; }
 
     /// <summary>
     /// The private_ip_address_version attribute.
     /// </summary>
-    [TerraformPropertyName("private_ip_address_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_ip_address_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrivateIpAddressVersion { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformPropertyName("subnet_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SubnetId { get; set; }
 
 }
@@ -52,34 +52,34 @@ public class AzurermPrivateLinkServiceNatIpConfigurationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPrivateLinkServiceTimeoutsBlock
+public partial class AzurermPrivateLinkServiceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -88,7 +88,7 @@ public class AzurermPrivateLinkServiceTimeoutsBlock
 /// Manages a azurerm_private_link_service resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermPrivateLinkService : TerraformResource
+public partial class AzurermPrivateLinkService : TerraformResource
 {
     public AzurermPrivateLinkService(string name) : base("azurerm_private_link_service", name)
     {
@@ -97,81 +97,81 @@ public class AzurermPrivateLinkService : TerraformResource
     /// <summary>
     /// The auto_approval_subscription_ids attribute.
     /// </summary>
-    [TerraformPropertyName("auto_approval_subscription_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auto_approval_subscription_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? AutoApprovalSubscriptionIds { get; set; }
 
     /// <summary>
     /// The destination_ip_address attribute.
     /// </summary>
-    [TerraformPropertyName("destination_ip_address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("destination_ip_address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DestinationIpAddress { get; set; }
 
     /// <summary>
     /// The enable_proxy_protocol attribute.
     /// </summary>
-    [TerraformPropertyName("enable_proxy_protocol")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_proxy_protocol")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableProxyProtocol { get; set; }
 
     /// <summary>
     /// The fqdns attribute.
     /// </summary>
-    [TerraformPropertyName("fqdns")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("fqdns")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Fqdns { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The load_balancer_frontend_ip_configuration_ids attribute.
     /// </summary>
-    [TerraformPropertyName("load_balancer_frontend_ip_configuration_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("load_balancer_frontend_ip_configuration_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? LoadBalancerFrontendIpConfigurationIds { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The visibility_subscription_ids attribute.
     /// </summary>
-    [TerraformPropertyName("visibility_subscription_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("visibility_subscription_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? VisibilitySubscriptionIds { get; set; }
 
     /// <summary>
@@ -181,21 +181,21 @@ public class AzurermPrivateLinkService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NatIpConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NatIpConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(8, ErrorMessage = "Maximum 8 NatIpConfiguration block(s) allowed")]
-    [TerraformPropertyName("nat_ip_configuration")]
+    [TerraformProperty("nat_ip_configuration")]
     public TerraformList<TerraformBlock<AzurermPrivateLinkServiceNatIpConfigurationBlock>>? NatIpConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermPrivateLinkServiceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    [TerraformPropertyName("alias")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Alias => new TerraformReference(this, "alias");
+    [TerraformProperty("alias")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Alias { get; }
 
 }

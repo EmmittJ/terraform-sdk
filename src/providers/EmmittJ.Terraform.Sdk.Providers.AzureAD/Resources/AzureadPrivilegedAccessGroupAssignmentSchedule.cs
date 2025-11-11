@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadPrivilegedAccessGroupAssignmentScheduleTimeoutsBlock
+public partial class AzureadPrivilegedAccessGroupAssignmentScheduleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzureadPrivilegedAccessGroupAssignmentScheduleTimeoutsBlock
 /// <summary>
 /// Manages a azuread_privileged_access_group_assignment_schedule resource.
 /// </summary>
-public class AzureadPrivilegedAccessGroupAssignmentSchedule : TerraformResource
+public partial class AzureadPrivilegedAccessGroupAssignmentSchedule : TerraformResource
 {
     public AzureadPrivilegedAccessGroupAssignmentSchedule(string name) : base("azuread_privileged_access_group_assignment_schedule", name)
     {
@@ -51,94 +51,94 @@ public class AzureadPrivilegedAccessGroupAssignmentSchedule : TerraformResource
     /// The ID of the assignment to the group
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentType is required")]
-    [TerraformPropertyName("assignment_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("assignment_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AssignmentType { get; set; }
 
     /// <summary>
     /// The duration of the assignment, formatted as an ISO8601 duration string (e.g. P3D for 3 days)
     /// </summary>
-    [TerraformPropertyName("duration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("duration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Duration { get; set; }
 
     /// <summary>
     /// The date that this assignment expires, formatted as an RFC3339 date string in UTC (e.g. 2018-01-01T01:02:03Z)
     /// </summary>
-    [TerraformPropertyName("expiration_date")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ExpirationDate { get; set; } = default!;
+    [TerraformProperty("expiration_date")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ExpirationDate { get; set; }
 
     /// <summary>
     /// The ID of the Group representing the scope of the assignment
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
-    [TerraformPropertyName("group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The justification for the assignment
     /// </summary>
-    [TerraformPropertyName("justification")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("justification")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Justification { get; set; }
 
     /// <summary>
     /// Is the assignment permanent
     /// </summary>
-    [TerraformPropertyName("permanent_assignment")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> PermanentAssignment { get; set; } = default!;
+    [TerraformProperty("permanent_assignment")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> PermanentAssignment { get; set; }
 
     /// <summary>
     /// The ID of the Principal assigned to the schedule
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    [TerraformPropertyName("principal_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("principal_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrincipalId { get; set; }
 
     /// <summary>
     /// The date that this assignment starts, formatted as an RFC3339 date string in UTC (e.g. 2018-01-01T01:02:03Z)
     /// </summary>
-    [TerraformPropertyName("start_date")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> StartDate { get; set; } = default!;
+    [TerraformProperty("start_date")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> StartDate { get; set; }
 
     /// <summary>
     /// The ticket number authorising the assignment
     /// </summary>
-    [TerraformPropertyName("ticket_number")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ticket_number")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TicketNumber { get; set; }
 
     /// <summary>
     /// The ticket system authorising the assignment
     /// </summary>
-    [TerraformPropertyName("ticket_system")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ticket_system")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TicketSystem { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadPrivilegedAccessGroupAssignmentScheduleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The status of the schedule
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDevCenterProjectPoolDataSourceTimeoutsBlock
+public partial class AzurermDevCenterProjectPoolDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermDevCenterProjectPoolDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_dev_center_project_pool.
 /// </summary>
-public class AzurermDevCenterProjectPoolDataSource : TerraformDataSource
+public partial class AzurermDevCenterProjectPoolDataSource : TerraformDataSource
 {
     public AzurermDevCenterProjectPoolDataSource(string name) : base("azurerm_dev_center_project_pool", name)
     {
@@ -30,79 +30,79 @@ public class AzurermDevCenterProjectPoolDataSource : TerraformDataSource
     /// The dev_center_project_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterProjectId is required")]
-    [TerraformPropertyName("dev_center_project_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("dev_center_project_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DevCenterProjectId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermDevCenterProjectPoolDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The dev_box_definition_name attribute.
     /// </summary>
-    [TerraformPropertyName("dev_box_definition_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DevBoxDefinitionName => new TerraformReference(this, "dev_box_definition_name");
+    [TerraformProperty("dev_box_definition_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DevBoxDefinitionName { get; }
 
     /// <summary>
     /// The dev_center_attached_network_name attribute.
     /// </summary>
-    [TerraformPropertyName("dev_center_attached_network_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DevCenterAttachedNetworkName => new TerraformReference(this, "dev_center_attached_network_name");
+    [TerraformProperty("dev_center_attached_network_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DevCenterAttachedNetworkName { get; }
 
     /// <summary>
     /// The local_administrator_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("local_administrator_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> LocalAdministratorEnabled => new TerraformReference(this, "local_administrator_enabled");
+    [TerraformProperty("local_administrator_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> LocalAdministratorEnabled { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The single_sign_on_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("single_sign_on_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> SingleSignOnEnabled => new TerraformReference(this, "single_sign_on_enabled");
+    [TerraformProperty("single_sign_on_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> SingleSignOnEnabled { get; }
 
     /// <summary>
     /// The stop_on_disconnect_grace_period_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("stop_on_disconnect_grace_period_minutes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> StopOnDisconnectGracePeriodMinutes => new TerraformReference(this, "stop_on_disconnect_grace_period_minutes");
+    [TerraformProperty("stop_on_disconnect_grace_period_minutes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> StopOnDisconnectGracePeriodMinutes { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
 }

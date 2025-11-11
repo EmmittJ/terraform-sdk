@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock
+public partial class AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_elastic_san_volume_snapshot.
 /// </summary>
-public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
+public partial class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
 {
     public AzurermElasticSanVolumeSnapshotDataSource(string name) : base("azurerm_elastic_san_volume_snapshot", name)
     {
@@ -29,52 +29,52 @@ public class AzurermElasticSanVolumeSnapshotDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The volume_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VolumeGroupId is required")]
-    [TerraformPropertyName("volume_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("volume_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VolumeGroupId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermElasticSanVolumeSnapshotDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The source_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceId => new TerraformReference(this, "source_id");
+    [TerraformProperty("source_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceId { get; }
 
     /// <summary>
     /// The source_volume_size_in_gib attribute.
     /// </summary>
-    [TerraformPropertyName("source_volume_size_in_gib")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> SourceVolumeSizeInGib => new TerraformReference(this, "source_volume_size_in_gib");
+    [TerraformProperty("source_volume_size_in_gib")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> SourceVolumeSizeInGib { get; }
 
     /// <summary>
     /// The volume_name attribute.
     /// </summary>
-    [TerraformPropertyName("volume_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VolumeName => new TerraformReference(this, "volume_name");
+    [TerraformProperty("volume_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VolumeName { get; }
 
 }

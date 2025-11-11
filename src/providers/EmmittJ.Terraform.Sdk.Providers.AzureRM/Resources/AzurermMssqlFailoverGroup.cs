@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for partner_server in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMssqlFailoverGroupPartnerServerBlock
+public partial class AzurermMssqlFailoverGroupPartnerServerBlock : TerraformBlockBase
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
 
@@ -24,21 +24,21 @@ public class AzurermMssqlFailoverGroupPartnerServerBlock
 /// Block type for read_write_endpoint_failover_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock
+public partial class AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The grace_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("grace_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("grace_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? GraceMinutes { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    [TerraformPropertyName("mode")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("mode")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Mode { get; set; }
 
 }
@@ -47,34 +47,34 @@ public class AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMssqlFailoverGroupTimeoutsBlock
+public partial class AzurermMssqlFailoverGroupTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -83,7 +83,7 @@ public class AzurermMssqlFailoverGroupTimeoutsBlock
 /// Manages a azurerm_mssql_failover_group resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMssqlFailoverGroup : TerraformResource
+public partial class AzurermMssqlFailoverGroup : TerraformResource
 {
     public AzurermMssqlFailoverGroup(string name) : base("azurerm_mssql_failover_group", name)
     {
@@ -92,45 +92,45 @@ public class AzurermMssqlFailoverGroup : TerraformResource
     /// <summary>
     /// The databases attribute.
     /// </summary>
-    [TerraformPropertyName("databases")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("databases")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Databases { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The readonly_endpoint_failover_policy_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("readonly_endpoint_failover_policy_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> ReadonlyEndpointFailoverPolicyEnabled { get; set; } = default!;
+    [TerraformProperty("readonly_endpoint_failover_policy_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> ReadonlyEndpointFailoverPolicyEnabled { get; set; }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    [TerraformPropertyName("server_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("server_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServerId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -139,7 +139,7 @@ public class AzurermMssqlFailoverGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerServer is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PartnerServer block(s) required")]
-    [TerraformPropertyName("partner_server")]
+    [TerraformProperty("partner_server")]
     public TerraformList<TerraformBlock<AzurermMssqlFailoverGroupPartnerServerBlock>>? PartnerServer { get; set; }
 
     /// <summary>
@@ -149,14 +149,14 @@ public class AzurermMssqlFailoverGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReadWriteEndpointFailoverPolicy is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReadWriteEndpointFailoverPolicy block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReadWriteEndpointFailoverPolicy block(s) allowed")]
-    [TerraformPropertyName("read_write_endpoint_failover_policy")]
+    [TerraformProperty("read_write_endpoint_failover_policy")]
     public TerraformList<TerraformBlock<AzurermMssqlFailoverGroupReadWriteEndpointFailoverPolicyBlock>>? ReadWriteEndpointFailoverPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMssqlFailoverGroupTimeoutsBlock>? Timeouts { get; set; }
 
 }

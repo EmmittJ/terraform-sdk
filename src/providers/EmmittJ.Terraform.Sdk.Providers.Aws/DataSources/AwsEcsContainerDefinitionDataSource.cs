@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_ecs_container_definition.
 /// </summary>
-public class AwsEcsContainerDefinitionDataSource : TerraformDataSource
+public partial class AwsEcsContainerDefinitionDataSource : TerraformDataSource
 {
     public AwsEcsContainerDefinitionDataSource(string name) : base("aws_ecs_container_definition", name)
     {
@@ -15,86 +15,86 @@ public class AwsEcsContainerDefinitionDataSource : TerraformDataSource
     /// The container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerName is required")]
-    [TerraformPropertyName("container_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("container_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ContainerName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The task_definition attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskDefinition is required")]
-    [TerraformPropertyName("task_definition")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("task_definition")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TaskDefinition { get; set; }
 
     /// <summary>
     /// The cpu attribute.
     /// </summary>
-    [TerraformPropertyName("cpu")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Cpu => new TerraformReference(this, "cpu");
+    [TerraformProperty("cpu")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Cpu { get; }
 
     /// <summary>
     /// The disable_networking attribute.
     /// </summary>
-    [TerraformPropertyName("disable_networking")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DisableNetworking => new TerraformReference(this, "disable_networking");
+    [TerraformProperty("disable_networking")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DisableNetworking { get; }
 
     /// <summary>
     /// The docker_labels attribute.
     /// </summary>
-    [TerraformPropertyName("docker_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> DockerLabels => new TerraformReference(this, "docker_labels");
+    [TerraformProperty("docker_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> DockerLabels { get; }
 
     /// <summary>
     /// The environment attribute.
     /// </summary>
-    [TerraformPropertyName("environment")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Environment => new TerraformReference(this, "environment");
+    [TerraformProperty("environment")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Environment { get; }
 
     /// <summary>
     /// The image attribute.
     /// </summary>
-    [TerraformPropertyName("image")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Image => new TerraformReference(this, "image");
+    [TerraformProperty("image")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Image { get; }
 
     /// <summary>
     /// The image_digest attribute.
     /// </summary>
-    [TerraformPropertyName("image_digest")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ImageDigest => new TerraformReference(this, "image_digest");
+    [TerraformProperty("image_digest")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ImageDigest { get; }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    [TerraformPropertyName("memory")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Memory => new TerraformReference(this, "memory");
+    [TerraformProperty("memory")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Memory { get; }
 
     /// <summary>
     /// The memory_reservation attribute.
     /// </summary>
-    [TerraformPropertyName("memory_reservation")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MemoryReservation => new TerraformReference(this, "memory_reservation");
+    [TerraformProperty("memory_reservation")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MemoryReservation { get; }
 
 }

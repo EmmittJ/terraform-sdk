@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_secret_manager_secret_version_access.
 /// </summary>
-public class GoogleSecretManagerSecretVersionAccessDataSource : TerraformDataSource
+public partial class GoogleSecretManagerSecretVersionAccessDataSource : TerraformDataSource
 {
     public GoogleSecretManagerSecretVersionAccessDataSource(string name) : base("google_secret_manager_secret_version_access", name)
     {
@@ -14,51 +14,51 @@ public class GoogleSecretManagerSecretVersionAccessDataSource : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The is_secret_data_base64 attribute.
     /// </summary>
-    [TerraformPropertyName("is_secret_data_base64")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("is_secret_data_base64")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IsSecretDataBase64 { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
-    [TerraformPropertyName("secret")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("secret")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Secret { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Version { get; set; } = default!;
+    [TerraformProperty("version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The secret_data attribute.
     /// </summary>
-    [TerraformPropertyName("secret_data")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecretData => new TerraformReference(this, "secret_data");
+    [TerraformProperty("secret_data")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecretData { get; }
 
 }

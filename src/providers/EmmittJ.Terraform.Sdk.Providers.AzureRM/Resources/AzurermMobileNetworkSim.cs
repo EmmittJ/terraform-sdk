@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for static_ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMobileNetworkSimStaticIpConfigurationBlock
+public partial class AzurermMobileNetworkSimStaticIpConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The attached_data_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AttachedDataNetworkId is required")]
-    [TerraformPropertyName("attached_data_network_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("attached_data_network_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AttachedDataNetworkId { get; set; }
 
     /// <summary>
     /// The slice_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SliceId is required")]
-    [TerraformPropertyName("slice_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("slice_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SliceId { get; set; }
 
     /// <summary>
     /// The static_ipv4_address attribute.
     /// </summary>
-    [TerraformPropertyName("static_ipv4_address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("static_ipv4_address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StaticIpv4Address { get; set; }
 
 }
@@ -37,34 +37,34 @@ public class AzurermMobileNetworkSimStaticIpConfigurationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMobileNetworkSimTimeoutsBlock
+public partial class AzurermMobileNetworkSimTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -72,7 +72,7 @@ public class AzurermMobileNetworkSimTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_mobile_network_sim resource.
 /// </summary>
-public class AzurermMobileNetworkSim : TerraformResource
+public partial class AzurermMobileNetworkSim : TerraformResource
 {
     public AzurermMobileNetworkSim(string name) : base("azurerm_mobile_network_sim", name)
     {
@@ -82,104 +82,104 @@ public class AzurermMobileNetworkSim : TerraformResource
     /// The authentication_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationKey is required")]
-    [TerraformPropertyName("authentication_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("authentication_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AuthenticationKey { get; set; }
 
     /// <summary>
     /// The device_type attribute.
     /// </summary>
-    [TerraformPropertyName("device_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("device_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeviceType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The integrated_circuit_card_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegratedCircuitCardIdentifier is required")]
-    [TerraformPropertyName("integrated_circuit_card_identifier")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("integrated_circuit_card_identifier")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IntegratedCircuitCardIdentifier { get; set; }
 
     /// <summary>
     /// The international_mobile_subscriber_identity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InternationalMobileSubscriberIdentity is required")]
-    [TerraformPropertyName("international_mobile_subscriber_identity")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("international_mobile_subscriber_identity")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InternationalMobileSubscriberIdentity { get; set; }
 
     /// <summary>
     /// The mobile_network_sim_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkSimGroupId is required")]
-    [TerraformPropertyName("mobile_network_sim_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("mobile_network_sim_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MobileNetworkSimGroupId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The operator_key_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorKeyCode is required")]
-    [TerraformPropertyName("operator_key_code")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("operator_key_code")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OperatorKeyCode { get; set; }
 
     /// <summary>
     /// The sim_policy_id attribute.
     /// </summary>
-    [TerraformPropertyName("sim_policy_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sim_policy_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SimPolicyId { get; set; }
 
     /// <summary>
     /// Block for static_ip_configuration.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("static_ip_configuration")]
+    [TerraformProperty("static_ip_configuration")]
     public TerraformList<TerraformBlock<AzurermMobileNetworkSimStaticIpConfigurationBlock>>? StaticIpConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMobileNetworkSimTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The sim_state attribute.
     /// </summary>
-    [TerraformPropertyName("sim_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SimState => new TerraformReference(this, "sim_state");
+    [TerraformProperty("sim_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SimState { get; }
 
     /// <summary>
     /// The vendor_key_fingerprint attribute.
     /// </summary>
-    [TerraformPropertyName("vendor_key_fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VendorKeyFingerprint => new TerraformReference(this, "vendor_key_fingerprint");
+    [TerraformProperty("vendor_key_fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VendorKeyFingerprint { get; }
 
     /// <summary>
     /// The vendor_name attribute.
     /// </summary>
-    [TerraformPropertyName("vendor_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VendorName => new TerraformReference(this, "vendor_name");
+    [TerraformProperty("vendor_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VendorName { get; }
 
 }

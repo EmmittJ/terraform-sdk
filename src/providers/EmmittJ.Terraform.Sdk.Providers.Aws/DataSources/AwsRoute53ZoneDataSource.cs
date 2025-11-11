@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_route53_zone.
 /// </summary>
-public class AwsRoute53ZoneDataSource : TerraformDataSource
+public partial class AwsRoute53ZoneDataSource : TerraformDataSource
 {
     public AwsRoute53ZoneDataSource(string name) : base("aws_route53_zone", name)
     {
@@ -14,99 +14,99 @@ public class AwsRoute53ZoneDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_zone attribute.
     /// </summary>
-    [TerraformPropertyName("private_zone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_zone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PrivateZone { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> VpcId { get; set; } = default!;
+    [TerraformProperty("vpc_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> VpcId { get; set; }
 
     /// <summary>
     /// The zone_id attribute.
     /// </summary>
-    [TerraformPropertyName("zone_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ZoneId { get; set; } = default!;
+    [TerraformProperty("zone_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ZoneId { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
-    [TerraformPropertyName("caller_reference")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CallerReference => new TerraformReference(this, "caller_reference");
+    [TerraformProperty("caller_reference")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CallerReference { get; }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    [TerraformPropertyName("comment")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Comment => new TerraformReference(this, "comment");
+    [TerraformProperty("comment")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Comment { get; }
 
     /// <summary>
     /// The linked_service_description attribute.
     /// </summary>
-    [TerraformPropertyName("linked_service_description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LinkedServiceDescription => new TerraformReference(this, "linked_service_description");
+    [TerraformProperty("linked_service_description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LinkedServiceDescription { get; }
 
     /// <summary>
     /// The linked_service_principal attribute.
     /// </summary>
-    [TerraformPropertyName("linked_service_principal")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LinkedServicePrincipal => new TerraformReference(this, "linked_service_principal");
+    [TerraformProperty("linked_service_principal")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LinkedServicePrincipal { get; }
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
-    [TerraformPropertyName("name_servers")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> NameServers => new TerraformReference(this, "name_servers");
+    [TerraformProperty("name_servers")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> NameServers { get; }
 
     /// <summary>
     /// The primary_name_server attribute.
     /// </summary>
-    [TerraformPropertyName("primary_name_server")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryNameServer => new TerraformReference(this, "primary_name_server");
+    [TerraformProperty("primary_name_server")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryNameServer { get; }
 
     /// <summary>
     /// The resource_record_set_count attribute.
     /// </summary>
-    [TerraformPropertyName("resource_record_set_count")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ResourceRecordSetCount => new TerraformReference(this, "resource_record_set_count");
+    [TerraformProperty("resource_record_set_count")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ResourceRecordSetCount { get; }
 
 }

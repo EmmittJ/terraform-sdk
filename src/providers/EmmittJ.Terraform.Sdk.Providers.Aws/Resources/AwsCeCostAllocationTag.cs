@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_ce_cost_allocation_tag resource.
 /// </summary>
-public class AwsCeCostAllocationTag : TerraformResource
+public partial class AwsCeCostAllocationTag : TerraformResource
 {
     public AwsCeCostAllocationTag(string name) : base("aws_ce_cost_allocation_tag", name)
     {
@@ -14,31 +14,31 @@ public class AwsCeCostAllocationTag : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Status is required")]
-    [TerraformPropertyName("status")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("status")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Status { get; set; }
 
     /// <summary>
     /// The tag_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagKey is required")]
-    [TerraformPropertyName("tag_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("tag_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TagKey { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
 }

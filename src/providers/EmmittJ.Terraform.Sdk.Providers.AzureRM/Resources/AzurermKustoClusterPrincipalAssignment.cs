@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKustoClusterPrincipalAssignmentTimeoutsBlock
+public partial class AzurermKustoClusterPrincipalAssignmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermKustoClusterPrincipalAssignmentTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_kusto_cluster_principal_assignment resource.
 /// </summary>
-public class AzurermKustoClusterPrincipalAssignment : TerraformResource
+public partial class AzurermKustoClusterPrincipalAssignment : TerraformResource
 {
     public AzurermKustoClusterPrincipalAssignment(string name) : base("azurerm_kusto_cluster_principal_assignment", name)
     {
@@ -44,84 +44,84 @@ public class AzurermKustoClusterPrincipalAssignment : TerraformResource
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    [TerraformPropertyName("cluster_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    [TerraformPropertyName("principal_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("principal_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrincipalId { get; set; }
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalType is required")]
-    [TerraformPropertyName("principal_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("principal_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrincipalType { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
-    [TerraformPropertyName("role")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
-    [TerraformPropertyName("tenant_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("tenant_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TenantId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermKustoClusterPrincipalAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The principal_name attribute.
     /// </summary>
-    [TerraformPropertyName("principal_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrincipalName => new TerraformReference(this, "principal_name");
+    [TerraformProperty("principal_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrincipalName { get; }
 
     /// <summary>
     /// The tenant_name attribute.
     /// </summary>
-    [TerraformPropertyName("tenant_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TenantName => new TerraformReference(this, "tenant_name");
+    [TerraformProperty("tenant_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TenantName { get; }
 
 }

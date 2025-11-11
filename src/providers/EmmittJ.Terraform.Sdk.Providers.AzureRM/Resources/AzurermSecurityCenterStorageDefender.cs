@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSecurityCenterStorageDefenderTimeoutsBlock
+public partial class AzurermSecurityCenterStorageDefenderTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermSecurityCenterStorageDefenderTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_security_center_storage_defender resource.
 /// </summary>
-public class AzurermSecurityCenterStorageDefender : TerraformResource
+public partial class AzurermSecurityCenterStorageDefender : TerraformResource
 {
     public AzurermSecurityCenterStorageDefender(string name) : base("azurerm_security_center_storage_defender", name)
     {
@@ -50,58 +50,58 @@ public class AzurermSecurityCenterStorageDefender : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The malware_scanning_on_upload_cap_gb_per_month attribute.
     /// </summary>
-    [TerraformPropertyName("malware_scanning_on_upload_cap_gb_per_month")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("malware_scanning_on_upload_cap_gb_per_month")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MalwareScanningOnUploadCapGbPerMonth { get; set; }
 
     /// <summary>
     /// The malware_scanning_on_upload_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("malware_scanning_on_upload_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("malware_scanning_on_upload_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? MalwareScanningOnUploadEnabled { get; set; }
 
     /// <summary>
     /// The override_subscription_settings_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("override_subscription_settings_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("override_subscription_settings_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? OverrideSubscriptionSettingsEnabled { get; set; }
 
     /// <summary>
     /// The scan_results_event_grid_topic_id attribute.
     /// </summary>
-    [TerraformPropertyName("scan_results_event_grid_topic_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("scan_results_event_grid_topic_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ScanResultsEventGridTopicId { get; set; }
 
     /// <summary>
     /// The sensitive_data_discovery_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("sensitive_data_discovery_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sensitive_data_discovery_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SensitiveDataDiscoveryEnabled { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformPropertyName("storage_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSecurityCenterStorageDefenderTimeoutsBlock>? Timeouts { get; set; }
 
 }

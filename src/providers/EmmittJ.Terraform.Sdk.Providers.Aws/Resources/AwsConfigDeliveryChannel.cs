@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for snapshot_delivery_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock
+public partial class AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The delivery_frequency attribute.
     /// </summary>
-    [TerraformPropertyName("delivery_frequency")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delivery_frequency")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeliveryFrequency { get; set; }
 
 }
@@ -21,7 +21,7 @@ public class AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock
 /// Manages a aws_config_delivery_channel resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsConfigDeliveryChannel : TerraformResource
+public partial class AwsConfigDeliveryChannel : TerraformResource
 {
     public AwsConfigDeliveryChannel(string name) : base("aws_config_delivery_channel", name)
     {
@@ -30,51 +30,51 @@ public class AwsConfigDeliveryChannel : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The s3_bucket_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3BucketName is required")]
-    [TerraformPropertyName("s3_bucket_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("s3_bucket_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> S3BucketName { get; set; }
 
     /// <summary>
     /// The s3_key_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("s3_key_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_key_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3KeyPrefix { get; set; }
 
     /// <summary>
     /// The s3_kms_key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("s3_kms_key_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_kms_key_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3KmsKeyArn { get; set; }
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
-    [TerraformPropertyName("sns_topic_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sns_topic_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SnsTopicArn { get; set; }
 
     /// <summary>
@@ -82,7 +82,7 @@ public class AwsConfigDeliveryChannel : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotDeliveryProperties block(s) allowed")]
-    [TerraformPropertyName("snapshot_delivery_properties")]
+    [TerraformProperty("snapshot_delivery_properties")]
     public TerraformList<TerraformBlock<AwsConfigDeliveryChannelSnapshotDeliveryPropertiesBlock>>? SnapshotDeliveryProperties { get; set; }
 
 }

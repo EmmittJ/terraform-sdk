@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for default_custom_error_response_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeUrlMapDefaultCustomErrorResponsePolicyBlock
+public partial class GoogleComputeUrlMapDefaultCustomErrorResponsePolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The full or partial URL to the BackendBucket resource that contains the custom error content. Examples are:
@@ -18,8 +18,8 @@ public class GoogleComputeUrlMapDefaultCustomErrorResponsePolicyBlock
     /// If errorService is not specified at lower levels like pathMatcher, pathRule and routeRule, an errorService specified at a higher level in the UrlMap will be used. If UrlMap.defaultCustomErrorResponsePolicy contains one or more errorResponseRules[], it must specify errorService.
     /// If load balancer cannot reach the backendBucket, a simple Not Found Error will be returned, with the original response code (or overrideResponseCode if configured).
     /// </summary>
-    [TerraformPropertyName("error_service")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("error_service")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ErrorService { get; set; }
 
 }
@@ -28,7 +28,7 @@ public class GoogleComputeUrlMapDefaultCustomErrorResponsePolicyBlock
 /// Block type for default_route_action in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeUrlMapDefaultRouteActionBlock
+public partial class GoogleComputeUrlMapDefaultRouteActionBlock : TerraformBlockBase
 {
 }
 
@@ -36,14 +36,14 @@ public class GoogleComputeUrlMapDefaultRouteActionBlock
 /// Block type for default_url_redirect in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeUrlMapDefaultUrlRedirectBlock
+public partial class GoogleComputeUrlMapDefaultUrlRedirectBlock : TerraformBlockBase
 {
     /// <summary>
     /// The host that will be used in the redirect response instead of the one that was
     /// supplied in the request. The value must be between 1 and 255 characters.
     /// </summary>
-    [TerraformPropertyName("host_redirect")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("host_redirect")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HostRedirect { get; set; }
 
     /// <summary>
@@ -52,8 +52,8 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock
     /// request. This must only be set for UrlMaps used in TargetHttpProxys. Setting this
     /// true for TargetHttpsProxy is not permitted. The default is set to false.
     /// </summary>
-    [TerraformPropertyName("https_redirect")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("https_redirect")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? HttpsRedirect { get; set; }
 
     /// <summary>
@@ -63,8 +63,8 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock
     /// original request will be used for the redirect. The value must be between 1 and 1024
     /// characters.
     /// </summary>
-    [TerraformPropertyName("path_redirect")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("path_redirect")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PathRedirect { get; set; }
 
     /// <summary>
@@ -74,8 +74,8 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock
     /// neither. If neither is supplied, the path of the original request will be used for
     /// the redirect. The value must be between 1 and 1024 characters.
     /// </summary>
-    [TerraformPropertyName("prefix_redirect")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("prefix_redirect")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrefixRedirect { get; set; }
 
     /// <summary>
@@ -93,8 +93,8 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock
     /// * PERMANENT_REDIRECT, which corresponds to 308. In this case,
     /// the request method will be retained. Possible values: [&amp;quot;FOUND&amp;quot;, &amp;quot;MOVED_PERMANENTLY_DEFAULT&amp;quot;, &amp;quot;PERMANENT_REDIRECT&amp;quot;, &amp;quot;SEE_OTHER&amp;quot;, &amp;quot;TEMPORARY_REDIRECT&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("redirect_response_code")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("redirect_response_code")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RedirectResponseCode { get; set; }
 
     /// <summary>
@@ -104,8 +104,8 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock
     ///  This field is required to ensure an empty block is not set. The normal default value is false.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StripQuery is required")]
-    [TerraformPropertyName("strip_query")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("strip_query")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> StripQuery { get; set; }
 
 }
@@ -114,22 +114,22 @@ public class GoogleComputeUrlMapDefaultUrlRedirectBlock
 /// Block type for header_action in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeUrlMapHeaderActionBlock
+public partial class GoogleComputeUrlMapHeaderActionBlock : TerraformBlockBase
 {
     /// <summary>
     /// A list of header names for headers that need to be removed from the request
     /// prior to forwarding the request to the backendService.
     /// </summary>
-    [TerraformPropertyName("request_headers_to_remove")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("request_headers_to_remove")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? RequestHeadersToRemove { get; set; }
 
     /// <summary>
     /// A list of header names for headers that need to be removed from the response
     /// prior to sending the response back to the client.
     /// </summary>
-    [TerraformPropertyName("response_headers_to_remove")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("response_headers_to_remove")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ResponseHeadersToRemove { get; set; }
 
 }
@@ -138,14 +138,14 @@ public class GoogleComputeUrlMapHeaderActionBlock
 /// Block type for host_rule in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleComputeUrlMapHostRuleBlock
+public partial class GoogleComputeUrlMapHostRuleBlock : TerraformBlockBase
 {
     /// <summary>
     /// An optional description of this resource. Provide this property when you create
     /// the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
@@ -154,8 +154,8 @@ public class GoogleComputeUrlMapHostRuleBlock
     /// and must be followed in the pattern by either - or ..
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Hosts is required")]
-    [TerraformPropertyName("hosts")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("hosts")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Hosts { get; set; }
 
     /// <summary>
@@ -163,8 +163,8 @@ public class GoogleComputeUrlMapHostRuleBlock
     /// hostRule matches the URL&#39;s host portion.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PathMatcher is required")]
-    [TerraformPropertyName("path_matcher")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("path_matcher")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PathMatcher { get; set; }
 
 }
@@ -173,29 +173,29 @@ public class GoogleComputeUrlMapHostRuleBlock
 /// Block type for path_matcher in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeUrlMapPathMatcherBlock
+public partial class GoogleComputeUrlMapPathMatcherBlock : TerraformBlockBase
 {
     /// <summary>
     /// The backend service or backend bucket to use when none of the given paths match.
     /// </summary>
-    [TerraformPropertyName("default_service")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_service")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DefaultService { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create
     /// the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name to which this PathMatcher is referred by the HostRule.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -204,13 +204,13 @@ public class GoogleComputeUrlMapPathMatcherBlock
 /// Block type for test in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeUrlMapTestBlock
+public partial class GoogleComputeUrlMapTestBlock : TerraformBlockBase
 {
     /// <summary>
     /// Description of this test case.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
@@ -222,8 +222,8 @@ public class GoogleComputeUrlMapTestBlock
     /// 
     /// expectedOutputUrl is optional when service is specified.
     /// </summary>
-    [TerraformPropertyName("expected_output_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expected_output_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExpectedOutputUrl { get; set; }
 
     /// <summary>
@@ -231,31 +231,31 @@ public class GoogleComputeUrlMapTestBlock
     /// 
     /// expectedRedirectResponseCode cannot be set when service is set.
     /// </summary>
-    [TerraformPropertyName("expected_redirect_response_code")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expected_redirect_response_code")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ExpectedRedirectResponseCode { get; set; }
 
     /// <summary>
     /// Host portion of the URL.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
-    [TerraformPropertyName("host")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("host")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Host { get; set; }
 
     /// <summary>
     /// Path portion of the URL.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    [TerraformPropertyName("path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// The backend service or backend bucket link that should be matched by this test.
     /// </summary>
-    [TerraformPropertyName("service")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Service { get; set; }
 
 }
@@ -264,27 +264,27 @@ public class GoogleComputeUrlMapTestBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeUrlMapTimeoutsBlock
+public partial class GoogleComputeUrlMapTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -293,7 +293,7 @@ public class GoogleComputeUrlMapTimeoutsBlock
 /// Manages a google_compute_url_map resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputeUrlMap : TerraformResource
+public partial class GoogleComputeUrlMap : TerraformResource
 {
     public GoogleComputeUrlMap(string name) : base("google_compute_url_map", name)
     {
@@ -302,24 +302,24 @@ public class GoogleComputeUrlMap : TerraformResource
     /// <summary>
     /// The backend service or backend bucket to use when none of the given rules match.
     /// </summary>
-    [TerraformPropertyName("default_service")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_service")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DefaultService { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create
     /// the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is created. The
@@ -330,23 +330,23 @@ public class GoogleComputeUrlMap : TerraformResource
     /// except the last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for default_custom_error_response_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultCustomErrorResponsePolicy block(s) allowed")]
-    [TerraformPropertyName("default_custom_error_response_policy")]
+    [TerraformProperty("default_custom_error_response_policy")]
     public TerraformList<TerraformBlock<GoogleComputeUrlMapDefaultCustomErrorResponsePolicyBlock>>? DefaultCustomErrorResponsePolicy { get; set; }
 
     /// <summary>
@@ -354,7 +354,7 @@ public class GoogleComputeUrlMap : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultRouteAction block(s) allowed")]
-    [TerraformPropertyName("default_route_action")]
+    [TerraformProperty("default_route_action")]
     public TerraformList<TerraformBlock<GoogleComputeUrlMapDefaultRouteActionBlock>>? DefaultRouteAction { get; set; }
 
     /// <summary>
@@ -362,7 +362,7 @@ public class GoogleComputeUrlMap : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultUrlRedirect block(s) allowed")]
-    [TerraformPropertyName("default_url_redirect")]
+    [TerraformProperty("default_url_redirect")]
     public TerraformList<TerraformBlock<GoogleComputeUrlMapDefaultUrlRedirectBlock>>? DefaultUrlRedirect { get; set; }
 
     /// <summary>
@@ -370,64 +370,64 @@ public class GoogleComputeUrlMap : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HeaderAction block(s) allowed")]
-    [TerraformPropertyName("header_action")]
+    [TerraformProperty("header_action")]
     public TerraformList<TerraformBlock<GoogleComputeUrlMapHeaderActionBlock>>? HeaderAction { get; set; }
 
     /// <summary>
     /// Block for host_rule.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("host_rule")]
+    [TerraformProperty("host_rule")]
     public TerraformSet<TerraformBlock<GoogleComputeUrlMapHostRuleBlock>>? HostRule { get; set; }
 
     /// <summary>
     /// Block for path_matcher.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("path_matcher")]
+    [TerraformProperty("path_matcher")]
     public TerraformList<TerraformBlock<GoogleComputeUrlMapPathMatcherBlock>>? PathMatcher { get; set; }
 
     /// <summary>
     /// Block for test.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("test")]
+    [TerraformProperty("test")]
     public TerraformList<TerraformBlock<GoogleComputeUrlMapTestBlock>>? Test { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeUrlMapTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this object. This
     /// field is used in optimistic locking.
     /// </summary>
-    [TerraformPropertyName("fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
+    [TerraformProperty("fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fingerprint { get; }
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
-    [TerraformPropertyName("map_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MapId => new TerraformReference(this, "map_id");
+    [TerraformProperty("map_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MapId { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
 }

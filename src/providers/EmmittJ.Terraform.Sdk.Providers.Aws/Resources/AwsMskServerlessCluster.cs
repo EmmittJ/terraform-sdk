@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for client_authentication in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskServerlessClusterClientAuthenticationBlock
+public partial class AwsMskServerlessClusterClientAuthenticationBlock : TerraformBlockBase
 {
 }
 
@@ -14,20 +14,20 @@ public class AwsMskServerlessClusterClientAuthenticationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMskServerlessClusterTimeoutsBlock
+public partial class AwsMskServerlessClusterTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -36,21 +36,21 @@ public class AwsMskServerlessClusterTimeoutsBlock
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskServerlessClusterVpcConfigBlock
+public partial class AwsMskServerlessClusterVpcConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_ids")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> SecurityGroupIds { get; set; } = default!;
+    [TerraformProperty("security_group_ids")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    [TerraformPropertyName("subnet_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_ids")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> SubnetIds { get; set; }
 
 }
@@ -59,7 +59,7 @@ public class AwsMskServerlessClusterVpcConfigBlock
 /// Manages a aws_msk_serverless_cluster resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsMskServerlessCluster : TerraformResource
+public partial class AwsMskServerlessCluster : TerraformResource
 {
     public AwsMskServerlessCluster(string name) : base("aws_msk_serverless_cluster", name)
     {
@@ -69,37 +69,37 @@ public class AwsMskServerlessCluster : TerraformResource
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    [TerraformPropertyName("cluster_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for client_authentication.
@@ -108,14 +108,14 @@ public class AwsMskServerlessCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientAuthentication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ClientAuthentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientAuthentication block(s) allowed")]
-    [TerraformPropertyName("client_authentication")]
+    [TerraformProperty("client_authentication")]
     public TerraformList<TerraformBlock<AwsMskServerlessClusterClientAuthenticationBlock>>? ClientAuthentication { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsMskServerlessClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -124,28 +124,28 @@ public class AwsMskServerlessCluster : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 VpcConfig block(s) required")]
-    [TerraformPropertyName("vpc_config")]
+    [TerraformProperty("vpc_config")]
     public TerraformList<TerraformBlock<AwsMskServerlessClusterVpcConfigBlock>>? VpcConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The bootstrap_brokers_sasl_iam attribute.
     /// </summary>
-    [TerraformPropertyName("bootstrap_brokers_sasl_iam")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BootstrapBrokersSaslIam => new TerraformReference(this, "bootstrap_brokers_sasl_iam");
+    [TerraformProperty("bootstrap_brokers_sasl_iam")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BootstrapBrokersSaslIam { get; }
 
     /// <summary>
     /// The cluster_uuid attribute.
     /// </summary>
-    [TerraformPropertyName("cluster_uuid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ClusterUuid => new TerraformReference(this, "cluster_uuid");
+    [TerraformProperty("cluster_uuid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ClusterUuid { get; }
 
 }

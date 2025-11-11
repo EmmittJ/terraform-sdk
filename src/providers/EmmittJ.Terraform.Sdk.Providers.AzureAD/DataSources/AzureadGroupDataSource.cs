@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadGroupDataSourceTimeoutsBlock
+public partial class AzureadGroupDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzureadGroupDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azuread_group.
 /// </summary>
-public class AzureadGroupDataSource : TerraformDataSource
+public partial class AzureadGroupDataSource : TerraformDataSource
 {
     public AzureadGroupDataSource(string name) : base("azuread_group", name)
     {
@@ -29,225 +29,225 @@ public class AzureadGroupDataSource : TerraformDataSource
     /// <summary>
     /// The display name for the group
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DisplayName { get; set; } = default!;
+    [TerraformProperty("display_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Specifies whether to include transitive members (a flat list of all nested members).
     /// </summary>
-    [TerraformPropertyName("include_transitive_members")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_transitive_members")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IncludeTransitiveMembers { get; set; }
 
     /// <summary>
     /// Whether the group is mail-enabled
     /// </summary>
-    [TerraformPropertyName("mail_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> MailEnabled { get; set; } = default!;
+    [TerraformProperty("mail_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> MailEnabled { get; set; }
 
     /// <summary>
     /// The mail alias for the group, unique in the organisation
     /// </summary>
-    [TerraformPropertyName("mail_nickname")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MailNickname { get; set; } = default!;
+    [TerraformProperty("mail_nickname")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MailNickname { get; set; }
 
     /// <summary>
     /// The object ID of the group
     /// </summary>
-    [TerraformPropertyName("object_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ObjectId { get; set; } = default!;
+    [TerraformProperty("object_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ObjectId { get; set; }
 
     /// <summary>
     /// Whether the group is a security group
     /// </summary>
-    [TerraformPropertyName("security_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> SecurityEnabled { get; set; } = default!;
+    [TerraformProperty("security_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> SecurityEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadGroupDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Indicates whether this group can be assigned to an Azure Active Directory role
     /// </summary>
-    [TerraformPropertyName("assignable_to_role")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AssignableToRole => new TerraformReference(this, "assignable_to_role");
+    [TerraformProperty("assignable_to_role")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AssignableToRole { get; }
 
     /// <summary>
     /// Indicates whether new members added to the group will be auto-subscribed to receive email notifications.
     /// </summary>
-    [TerraformPropertyName("auto_subscribe_new_members")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AutoSubscribeNewMembers => new TerraformReference(this, "auto_subscribe_new_members");
+    [TerraformProperty("auto_subscribe_new_members")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AutoSubscribeNewMembers { get; }
 
     /// <summary>
     /// The group behaviors for a Microsoft 365 group
     /// </summary>
-    [TerraformPropertyName("behaviors")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Behaviors => new TerraformReference(this, "behaviors");
+    [TerraformProperty("behaviors")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Behaviors { get; }
 
     /// <summary>
     /// The optional description of the group
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// An optional block to configure dynamic membership for the group. Cannot be used with `members`
     /// </summary>
-    [TerraformPropertyName("dynamic_membership")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> DynamicMembership => new TerraformReference(this, "dynamic_membership");
+    [TerraformProperty("dynamic_membership")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> DynamicMembership { get; }
 
     /// <summary>
     /// Indicates whether people external to the organization can send messages to the group.
     /// </summary>
-    [TerraformPropertyName("external_senders_allowed")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ExternalSendersAllowed => new TerraformReference(this, "external_senders_allowed");
+    [TerraformProperty("external_senders_allowed")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ExternalSendersAllowed { get; }
 
     /// <summary>
     /// Indicates whether the group is displayed in certain parts of the Outlook user interface: in the Address Book, in address lists for selecting message recipients, and in the Browse Groups dialog for searching groups.
     /// </summary>
-    [TerraformPropertyName("hide_from_address_lists")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> HideFromAddressLists => new TerraformReference(this, "hide_from_address_lists");
+    [TerraformProperty("hide_from_address_lists")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> HideFromAddressLists { get; }
 
     /// <summary>
     /// Indicates whether the group is displayed in Outlook clients, such as Outlook for Windows and Outlook on the web.
     /// </summary>
-    [TerraformPropertyName("hide_from_outlook_clients")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> HideFromOutlookClients => new TerraformReference(this, "hide_from_outlook_clients");
+    [TerraformProperty("hide_from_outlook_clients")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> HideFromOutlookClients { get; }
 
     /// <summary>
     /// The SMTP address for the group
     /// </summary>
-    [TerraformPropertyName("mail")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Mail => new TerraformReference(this, "mail");
+    [TerraformProperty("mail")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Mail { get; }
 
     /// <summary>
     /// The object IDs of the group members
     /// </summary>
-    [TerraformPropertyName("members")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Members => new TerraformReference(this, "members");
+    [TerraformProperty("members")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Members { get; }
 
     /// <summary>
     /// The on-premises FQDN, also called dnsDomainName, synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
-    [TerraformPropertyName("onpremises_domain_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OnpremisesDomainName => new TerraformReference(this, "onpremises_domain_name");
+    [TerraformProperty("onpremises_domain_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OnpremisesDomainName { get; }
 
     /// <summary>
     /// Indicates the target on-premise group type the group will be written back as
     /// </summary>
-    [TerraformPropertyName("onpremises_group_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OnpremisesGroupType => new TerraformReference(this, "onpremises_group_type");
+    [TerraformProperty("onpremises_group_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OnpremisesGroupType { get; }
 
     /// <summary>
     /// The on-premises NetBIOS name, synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
-    [TerraformPropertyName("onpremises_netbios_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OnpremisesNetbiosName => new TerraformReference(this, "onpremises_netbios_name");
+    [TerraformProperty("onpremises_netbios_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OnpremisesNetbiosName { get; }
 
     /// <summary>
     /// The on-premises SAM account name, synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
-    [TerraformPropertyName("onpremises_sam_account_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OnpremisesSamAccountName => new TerraformReference(this, "onpremises_sam_account_name");
+    [TerraformProperty("onpremises_sam_account_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OnpremisesSamAccountName { get; }
 
     /// <summary>
     /// The on-premises security identifier (SID), synchronized from the on-premises directory when Azure AD Connect is used
     /// </summary>
-    [TerraformPropertyName("onpremises_security_identifier")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OnpremisesSecurityIdentifier => new TerraformReference(this, "onpremises_security_identifier");
+    [TerraformProperty("onpremises_security_identifier")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OnpremisesSecurityIdentifier { get; }
 
     /// <summary>
     /// Whether this group is synchronized from an on-premises directory (true), no longer synchronized (false), or has never been synchronized (null)
     /// </summary>
-    [TerraformPropertyName("onpremises_sync_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> OnpremisesSyncEnabled => new TerraformReference(this, "onpremises_sync_enabled");
+    [TerraformProperty("onpremises_sync_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> OnpremisesSyncEnabled { get; }
 
     /// <summary>
     /// The object IDs of the group owners
     /// </summary>
-    [TerraformPropertyName("owners")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Owners => new TerraformReference(this, "owners");
+    [TerraformProperty("owners")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Owners { get; }
 
     /// <summary>
     /// The preferred language for a Microsoft 365 group, in ISO 639-1 notation
     /// </summary>
-    [TerraformPropertyName("preferred_language")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PreferredLanguage => new TerraformReference(this, "preferred_language");
+    [TerraformProperty("preferred_language")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PreferredLanguage { get; }
 
     /// <summary>
     /// The group provisioning options for a Microsoft 365 group
     /// </summary>
-    [TerraformPropertyName("provisioning_options")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ProvisioningOptions => new TerraformReference(this, "provisioning_options");
+    [TerraformProperty("provisioning_options")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ProvisioningOptions { get; }
 
     /// <summary>
     /// Email addresses for the group that direct to the same group mailbox
     /// </summary>
-    [TerraformPropertyName("proxy_addresses")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ProxyAddresses => new TerraformReference(this, "proxy_addresses");
+    [TerraformProperty("proxy_addresses")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ProxyAddresses { get; }
 
     /// <summary>
     /// The colour theme for a Microsoft 365 group
     /// </summary>
-    [TerraformPropertyName("theme")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Theme => new TerraformReference(this, "theme");
+    [TerraformProperty("theme")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Theme { get; }
 
     /// <summary>
     /// A list of group types configured for the group. The only supported type is `Unified`, which specifies a Microsoft 365 group
     /// </summary>
-    [TerraformPropertyName("types")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Types => new TerraformReference(this, "types");
+    [TerraformProperty("types")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Types { get; }
 
     /// <summary>
     /// Specifies the group join policy and group content visibility
     /// </summary>
-    [TerraformPropertyName("visibility")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Visibility => new TerraformReference(this, "visibility");
+    [TerraformProperty("visibility")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Visibility { get; }
 
     /// <summary>
     /// Whether this group is synced from Azure AD to the on-premises directory when Azure AD Connect is used
     /// </summary>
-    [TerraformPropertyName("writeback_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> WritebackEnabled => new TerraformReference(this, "writeback_enabled");
+    [TerraformProperty("writeback_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> WritebackEnabled { get; }
 
 }

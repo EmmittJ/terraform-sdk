@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2InstanceTypeDataSourceTimeoutsBlock
+public partial class AwsEc2InstanceTypeDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsEc2InstanceTypeDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a aws_ec2_instance_type.
 /// </summary>
-public class AwsEc2InstanceTypeDataSource : TerraformDataSource
+public partial class AwsEc2InstanceTypeDataSource : TerraformDataSource
 {
     public AwsEc2InstanceTypeDataSource(string name) : base("aws_ec2_instance_type", name)
     {
@@ -29,464 +29,464 @@ public class AwsEc2InstanceTypeDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    [TerraformPropertyName("instance_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsEc2InstanceTypeDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The auto_recovery_supported attribute.
     /// </summary>
-    [TerraformPropertyName("auto_recovery_supported")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AutoRecoverySupported => new TerraformReference(this, "auto_recovery_supported");
+    [TerraformProperty("auto_recovery_supported")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AutoRecoverySupported { get; }
 
     /// <summary>
     /// The bandwidth_weightings attribute.
     /// </summary>
-    [TerraformPropertyName("bandwidth_weightings")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> BandwidthWeightings => new TerraformReference(this, "bandwidth_weightings");
+    [TerraformProperty("bandwidth_weightings")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> BandwidthWeightings { get; }
 
     /// <summary>
     /// The bare_metal attribute.
     /// </summary>
-    [TerraformPropertyName("bare_metal")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> BareMetal => new TerraformReference(this, "bare_metal");
+    [TerraformProperty("bare_metal")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> BareMetal { get; }
 
     /// <summary>
     /// The boot_modes attribute.
     /// </summary>
-    [TerraformPropertyName("boot_modes")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> BootModes => new TerraformReference(this, "boot_modes");
+    [TerraformProperty("boot_modes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> BootModes { get; }
 
     /// <summary>
     /// The burstable_performance_supported attribute.
     /// </summary>
-    [TerraformPropertyName("burstable_performance_supported")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> BurstablePerformanceSupported => new TerraformReference(this, "burstable_performance_supported");
+    [TerraformProperty("burstable_performance_supported")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> BurstablePerformanceSupported { get; }
 
     /// <summary>
     /// The current_generation attribute.
     /// </summary>
-    [TerraformPropertyName("current_generation")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> CurrentGeneration => new TerraformReference(this, "current_generation");
+    [TerraformProperty("current_generation")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> CurrentGeneration { get; }
 
     /// <summary>
     /// The dedicated_hosts_supported attribute.
     /// </summary>
-    [TerraformPropertyName("dedicated_hosts_supported")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DedicatedHostsSupported => new TerraformReference(this, "dedicated_hosts_supported");
+    [TerraformProperty("dedicated_hosts_supported")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DedicatedHostsSupported { get; }
 
     /// <summary>
     /// The default_cores attribute.
     /// </summary>
-    [TerraformPropertyName("default_cores")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> DefaultCores => new TerraformReference(this, "default_cores");
+    [TerraformProperty("default_cores")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> DefaultCores { get; }
 
     /// <summary>
     /// The default_network_card_index attribute.
     /// </summary>
-    [TerraformPropertyName("default_network_card_index")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> DefaultNetworkCardIndex => new TerraformReference(this, "default_network_card_index");
+    [TerraformProperty("default_network_card_index")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> DefaultNetworkCardIndex { get; }
 
     /// <summary>
     /// The default_threads_per_core attribute.
     /// </summary>
-    [TerraformPropertyName("default_threads_per_core")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> DefaultThreadsPerCore => new TerraformReference(this, "default_threads_per_core");
+    [TerraformProperty("default_threads_per_core")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> DefaultThreadsPerCore { get; }
 
     /// <summary>
     /// The default_vcpus attribute.
     /// </summary>
-    [TerraformPropertyName("default_vcpus")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> DefaultVcpus => new TerraformReference(this, "default_vcpus");
+    [TerraformProperty("default_vcpus")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> DefaultVcpus { get; }
 
     /// <summary>
     /// The ebs_encryption_support attribute.
     /// </summary>
-    [TerraformPropertyName("ebs_encryption_support")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EbsEncryptionSupport => new TerraformReference(this, "ebs_encryption_support");
+    [TerraformProperty("ebs_encryption_support")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EbsEncryptionSupport { get; }
 
     /// <summary>
     /// The ebs_nvme_support attribute.
     /// </summary>
-    [TerraformPropertyName("ebs_nvme_support")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EbsNvmeSupport => new TerraformReference(this, "ebs_nvme_support");
+    [TerraformProperty("ebs_nvme_support")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EbsNvmeSupport { get; }
 
     /// <summary>
     /// The ebs_optimized_support attribute.
     /// </summary>
-    [TerraformPropertyName("ebs_optimized_support")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EbsOptimizedSupport => new TerraformReference(this, "ebs_optimized_support");
+    [TerraformProperty("ebs_optimized_support")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EbsOptimizedSupport { get; }
 
     /// <summary>
     /// The ebs_performance_baseline_bandwidth attribute.
     /// </summary>
-    [TerraformPropertyName("ebs_performance_baseline_bandwidth")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> EbsPerformanceBaselineBandwidth => new TerraformReference(this, "ebs_performance_baseline_bandwidth");
+    [TerraformProperty("ebs_performance_baseline_bandwidth")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> EbsPerformanceBaselineBandwidth { get; }
 
     /// <summary>
     /// The ebs_performance_baseline_iops attribute.
     /// </summary>
-    [TerraformPropertyName("ebs_performance_baseline_iops")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> EbsPerformanceBaselineIops => new TerraformReference(this, "ebs_performance_baseline_iops");
+    [TerraformProperty("ebs_performance_baseline_iops")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> EbsPerformanceBaselineIops { get; }
 
     /// <summary>
     /// The ebs_performance_baseline_throughput attribute.
     /// </summary>
-    [TerraformPropertyName("ebs_performance_baseline_throughput")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> EbsPerformanceBaselineThroughput => new TerraformReference(this, "ebs_performance_baseline_throughput");
+    [TerraformProperty("ebs_performance_baseline_throughput")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> EbsPerformanceBaselineThroughput { get; }
 
     /// <summary>
     /// The ebs_performance_maximum_bandwidth attribute.
     /// </summary>
-    [TerraformPropertyName("ebs_performance_maximum_bandwidth")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> EbsPerformanceMaximumBandwidth => new TerraformReference(this, "ebs_performance_maximum_bandwidth");
+    [TerraformProperty("ebs_performance_maximum_bandwidth")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> EbsPerformanceMaximumBandwidth { get; }
 
     /// <summary>
     /// The ebs_performance_maximum_iops attribute.
     /// </summary>
-    [TerraformPropertyName("ebs_performance_maximum_iops")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> EbsPerformanceMaximumIops => new TerraformReference(this, "ebs_performance_maximum_iops");
+    [TerraformProperty("ebs_performance_maximum_iops")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> EbsPerformanceMaximumIops { get; }
 
     /// <summary>
     /// The ebs_performance_maximum_throughput attribute.
     /// </summary>
-    [TerraformPropertyName("ebs_performance_maximum_throughput")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> EbsPerformanceMaximumThroughput => new TerraformReference(this, "ebs_performance_maximum_throughput");
+    [TerraformProperty("ebs_performance_maximum_throughput")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> EbsPerformanceMaximumThroughput { get; }
 
     /// <summary>
     /// The efa_maximum_interfaces attribute.
     /// </summary>
-    [TerraformPropertyName("efa_maximum_interfaces")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> EfaMaximumInterfaces => new TerraformReference(this, "efa_maximum_interfaces");
+    [TerraformProperty("efa_maximum_interfaces")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> EfaMaximumInterfaces { get; }
 
     /// <summary>
     /// The efa_supported attribute.
     /// </summary>
-    [TerraformPropertyName("efa_supported")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EfaSupported => new TerraformReference(this, "efa_supported");
+    [TerraformProperty("efa_supported")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EfaSupported { get; }
 
     /// <summary>
     /// The ena_srd_supported attribute.
     /// </summary>
-    [TerraformPropertyName("ena_srd_supported")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EnaSrdSupported => new TerraformReference(this, "ena_srd_supported");
+    [TerraformProperty("ena_srd_supported")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EnaSrdSupported { get; }
 
     /// <summary>
     /// The ena_support attribute.
     /// </summary>
-    [TerraformPropertyName("ena_support")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EnaSupport => new TerraformReference(this, "ena_support");
+    [TerraformProperty("ena_support")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EnaSupport { get; }
 
     /// <summary>
     /// The encryption_in_transit_supported attribute.
     /// </summary>
-    [TerraformPropertyName("encryption_in_transit_supported")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EncryptionInTransitSupported => new TerraformReference(this, "encryption_in_transit_supported");
+    [TerraformProperty("encryption_in_transit_supported")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EncryptionInTransitSupported { get; }
 
     /// <summary>
     /// The fpgas attribute.
     /// </summary>
-    [TerraformPropertyName("fpgas")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Fpgas => new TerraformReference(this, "fpgas");
+    [TerraformProperty("fpgas")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Fpgas { get; }
 
     /// <summary>
     /// The free_tier_eligible attribute.
     /// </summary>
-    [TerraformPropertyName("free_tier_eligible")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> FreeTierEligible => new TerraformReference(this, "free_tier_eligible");
+    [TerraformProperty("free_tier_eligible")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> FreeTierEligible { get; }
 
     /// <summary>
     /// The gpus attribute.
     /// </summary>
-    [TerraformPropertyName("gpus")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Gpus => new TerraformReference(this, "gpus");
+    [TerraformProperty("gpus")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Gpus { get; }
 
     /// <summary>
     /// The hibernation_supported attribute.
     /// </summary>
-    [TerraformPropertyName("hibernation_supported")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> HibernationSupported => new TerraformReference(this, "hibernation_supported");
+    [TerraformProperty("hibernation_supported")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> HibernationSupported { get; }
 
     /// <summary>
     /// The hypervisor attribute.
     /// </summary>
-    [TerraformPropertyName("hypervisor")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Hypervisor => new TerraformReference(this, "hypervisor");
+    [TerraformProperty("hypervisor")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Hypervisor { get; }
 
     /// <summary>
     /// The inference_accelerators attribute.
     /// </summary>
-    [TerraformPropertyName("inference_accelerators")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> InferenceAccelerators => new TerraformReference(this, "inference_accelerators");
+    [TerraformProperty("inference_accelerators")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> InferenceAccelerators { get; }
 
     /// <summary>
     /// The instance_disks attribute.
     /// </summary>
-    [TerraformPropertyName("instance_disks")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> InstanceDisks => new TerraformReference(this, "instance_disks");
+    [TerraformProperty("instance_disks")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> InstanceDisks { get; }
 
     /// <summary>
     /// The instance_storage_supported attribute.
     /// </summary>
-    [TerraformPropertyName("instance_storage_supported")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> InstanceStorageSupported => new TerraformReference(this, "instance_storage_supported");
+    [TerraformProperty("instance_storage_supported")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> InstanceStorageSupported { get; }
 
     /// <summary>
     /// The ipv6_supported attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_supported")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Ipv6Supported => new TerraformReference(this, "ipv6_supported");
+    [TerraformProperty("ipv6_supported")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Ipv6Supported { get; }
 
     /// <summary>
     /// The maximum_ipv4_addresses_per_interface attribute.
     /// </summary>
-    [TerraformPropertyName("maximum_ipv4_addresses_per_interface")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaximumIpv4AddressesPerInterface => new TerraformReference(this, "maximum_ipv4_addresses_per_interface");
+    [TerraformProperty("maximum_ipv4_addresses_per_interface")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaximumIpv4AddressesPerInterface { get; }
 
     /// <summary>
     /// The maximum_ipv6_addresses_per_interface attribute.
     /// </summary>
-    [TerraformPropertyName("maximum_ipv6_addresses_per_interface")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaximumIpv6AddressesPerInterface => new TerraformReference(this, "maximum_ipv6_addresses_per_interface");
+    [TerraformProperty("maximum_ipv6_addresses_per_interface")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaximumIpv6AddressesPerInterface { get; }
 
     /// <summary>
     /// The maximum_network_cards attribute.
     /// </summary>
-    [TerraformPropertyName("maximum_network_cards")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaximumNetworkCards => new TerraformReference(this, "maximum_network_cards");
+    [TerraformProperty("maximum_network_cards")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaximumNetworkCards { get; }
 
     /// <summary>
     /// The maximum_network_interfaces attribute.
     /// </summary>
-    [TerraformPropertyName("maximum_network_interfaces")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaximumNetworkInterfaces => new TerraformReference(this, "maximum_network_interfaces");
+    [TerraformProperty("maximum_network_interfaces")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaximumNetworkInterfaces { get; }
 
     /// <summary>
     /// The media_accelerators attribute.
     /// </summary>
-    [TerraformPropertyName("media_accelerators")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> MediaAccelerators => new TerraformReference(this, "media_accelerators");
+    [TerraformProperty("media_accelerators")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> MediaAccelerators { get; }
 
     /// <summary>
     /// The memory_size attribute.
     /// </summary>
-    [TerraformPropertyName("memory_size")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MemorySize => new TerraformReference(this, "memory_size");
+    [TerraformProperty("memory_size")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MemorySize { get; }
 
     /// <summary>
     /// The network_cards attribute.
     /// </summary>
-    [TerraformPropertyName("network_cards")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> NetworkCards => new TerraformReference(this, "network_cards");
+    [TerraformProperty("network_cards")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> NetworkCards { get; }
 
     /// <summary>
     /// The network_performance attribute.
     /// </summary>
-    [TerraformPropertyName("network_performance")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> NetworkPerformance => new TerraformReference(this, "network_performance");
+    [TerraformProperty("network_performance")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> NetworkPerformance { get; }
 
     /// <summary>
     /// The neuron_devices attribute.
     /// </summary>
-    [TerraformPropertyName("neuron_devices")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> NeuronDevices => new TerraformReference(this, "neuron_devices");
+    [TerraformProperty("neuron_devices")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> NeuronDevices { get; }
 
     /// <summary>
     /// The nitro_enclaves_support attribute.
     /// </summary>
-    [TerraformPropertyName("nitro_enclaves_support")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> NitroEnclavesSupport => new TerraformReference(this, "nitro_enclaves_support");
+    [TerraformProperty("nitro_enclaves_support")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> NitroEnclavesSupport { get; }
 
     /// <summary>
     /// The nitro_tpm_support attribute.
     /// </summary>
-    [TerraformPropertyName("nitro_tpm_support")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> NitroTpmSupport => new TerraformReference(this, "nitro_tpm_support");
+    [TerraformProperty("nitro_tpm_support")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> NitroTpmSupport { get; }
 
     /// <summary>
     /// The nitro_tpm_supported_versions attribute.
     /// </summary>
-    [TerraformPropertyName("nitro_tpm_supported_versions")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> NitroTpmSupportedVersions => new TerraformReference(this, "nitro_tpm_supported_versions");
+    [TerraformProperty("nitro_tpm_supported_versions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> NitroTpmSupportedVersions { get; }
 
     /// <summary>
     /// The phc_support attribute.
     /// </summary>
-    [TerraformPropertyName("phc_support")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PhcSupport => new TerraformReference(this, "phc_support");
+    [TerraformProperty("phc_support")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PhcSupport { get; }
 
     /// <summary>
     /// The supported_architectures attribute.
     /// </summary>
-    [TerraformPropertyName("supported_architectures")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SupportedArchitectures => new TerraformReference(this, "supported_architectures");
+    [TerraformProperty("supported_architectures")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SupportedArchitectures { get; }
 
     /// <summary>
     /// The supported_cpu_features attribute.
     /// </summary>
-    [TerraformPropertyName("supported_cpu_features")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> SupportedCpuFeatures => new TerraformReference(this, "supported_cpu_features");
+    [TerraformProperty("supported_cpu_features")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> SupportedCpuFeatures { get; }
 
     /// <summary>
     /// The supported_placement_strategies attribute.
     /// </summary>
-    [TerraformPropertyName("supported_placement_strategies")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SupportedPlacementStrategies => new TerraformReference(this, "supported_placement_strategies");
+    [TerraformProperty("supported_placement_strategies")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SupportedPlacementStrategies { get; }
 
     /// <summary>
     /// The supported_root_device_types attribute.
     /// </summary>
-    [TerraformPropertyName("supported_root_device_types")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SupportedRootDeviceTypes => new TerraformReference(this, "supported_root_device_types");
+    [TerraformProperty("supported_root_device_types")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SupportedRootDeviceTypes { get; }
 
     /// <summary>
     /// The supported_usages_classes attribute.
     /// </summary>
-    [TerraformPropertyName("supported_usages_classes")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SupportedUsagesClasses => new TerraformReference(this, "supported_usages_classes");
+    [TerraformProperty("supported_usages_classes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SupportedUsagesClasses { get; }
 
     /// <summary>
     /// The supported_virtualization_types attribute.
     /// </summary>
-    [TerraformPropertyName("supported_virtualization_types")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SupportedVirtualizationTypes => new TerraformReference(this, "supported_virtualization_types");
+    [TerraformProperty("supported_virtualization_types")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SupportedVirtualizationTypes { get; }
 
     /// <summary>
     /// The sustained_clock_speed attribute.
     /// </summary>
-    [TerraformPropertyName("sustained_clock_speed")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> SustainedClockSpeed => new TerraformReference(this, "sustained_clock_speed");
+    [TerraformProperty("sustained_clock_speed")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> SustainedClockSpeed { get; }
 
     /// <summary>
     /// The total_fpga_memory attribute.
     /// </summary>
-    [TerraformPropertyName("total_fpga_memory")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> TotalFpgaMemory => new TerraformReference(this, "total_fpga_memory");
+    [TerraformProperty("total_fpga_memory")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> TotalFpgaMemory { get; }
 
     /// <summary>
     /// The total_gpu_memory attribute.
     /// </summary>
-    [TerraformPropertyName("total_gpu_memory")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> TotalGpuMemory => new TerraformReference(this, "total_gpu_memory");
+    [TerraformProperty("total_gpu_memory")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> TotalGpuMemory { get; }
 
     /// <summary>
     /// The total_inference_memory attribute.
     /// </summary>
-    [TerraformPropertyName("total_inference_memory")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> TotalInferenceMemory => new TerraformReference(this, "total_inference_memory");
+    [TerraformProperty("total_inference_memory")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> TotalInferenceMemory { get; }
 
     /// <summary>
     /// The total_instance_storage attribute.
     /// </summary>
-    [TerraformPropertyName("total_instance_storage")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> TotalInstanceStorage => new TerraformReference(this, "total_instance_storage");
+    [TerraformProperty("total_instance_storage")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> TotalInstanceStorage { get; }
 
     /// <summary>
     /// The total_media_memory attribute.
     /// </summary>
-    [TerraformPropertyName("total_media_memory")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> TotalMediaMemory => new TerraformReference(this, "total_media_memory");
+    [TerraformProperty("total_media_memory")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> TotalMediaMemory { get; }
 
     /// <summary>
     /// The total_neuron_device_memory attribute.
     /// </summary>
-    [TerraformPropertyName("total_neuron_device_memory")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> TotalNeuronDeviceMemory => new TerraformReference(this, "total_neuron_device_memory");
+    [TerraformProperty("total_neuron_device_memory")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> TotalNeuronDeviceMemory { get; }
 
     /// <summary>
     /// The valid_cores attribute.
     /// </summary>
-    [TerraformPropertyName("valid_cores")]
-    // Output-only attribute - read-only reference
-    public TerraformList<double> ValidCores => new TerraformReference(this, "valid_cores");
+    [TerraformProperty("valid_cores")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<double> ValidCores { get; }
 
     /// <summary>
     /// The valid_threads_per_core attribute.
     /// </summary>
-    [TerraformPropertyName("valid_threads_per_core")]
-    // Output-only attribute - read-only reference
-    public TerraformList<double> ValidThreadsPerCore => new TerraformReference(this, "valid_threads_per_core");
+    [TerraformProperty("valid_threads_per_core")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<double> ValidThreadsPerCore { get; }
 
 }

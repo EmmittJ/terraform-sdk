@@ -6,36 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for action in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSecurityCenterAutomationActionBlock
+public partial class AzurermSecurityCenterAutomationActionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    [TerraformPropertyName("connection_string")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("connection_string")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConnectionString { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
-    [TerraformPropertyName("resource_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// The trigger_url attribute.
     /// </summary>
-    [TerraformPropertyName("trigger_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("trigger_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TriggerUrl { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Type { get; set; } = default!;
+    [TerraformProperty("type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Type { get; set; }
 
 }
 
@@ -43,14 +43,14 @@ public class AzurermSecurityCenterAutomationActionBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSecurityCenterAutomationSourceBlock
+public partial class AzurermSecurityCenterAutomationSourceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The event_source attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventSource is required")]
-    [TerraformPropertyName("event_source")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("event_source")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EventSource { get; set; }
 
 }
@@ -59,34 +59,34 @@ public class AzurermSecurityCenterAutomationSourceBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSecurityCenterAutomationTimeoutsBlock
+public partial class AzurermSecurityCenterAutomationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -95,7 +95,7 @@ public class AzurermSecurityCenterAutomationTimeoutsBlock
 /// Manages a azurerm_security_center_automation resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSecurityCenterAutomation : TerraformResource
+public partial class AzurermSecurityCenterAutomation : TerraformResource
 {
     public AzurermSecurityCenterAutomation(string name) : base("azurerm_security_center_automation", name)
     {
@@ -104,61 +104,61 @@ public class AzurermSecurityCenterAutomation : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    [TerraformPropertyName("scopes")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("scopes")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Scopes { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -167,7 +167,7 @@ public class AzurermSecurityCenterAutomation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Action block(s) required")]
-    [TerraformPropertyName("action")]
+    [TerraformProperty("action")]
     public TerraformList<TerraformBlock<AzurermSecurityCenterAutomationActionBlock>>? Action { get; set; }
 
     /// <summary>
@@ -176,14 +176,14 @@ public class AzurermSecurityCenterAutomation : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
-    [TerraformPropertyName("source")]
+    [TerraformProperty("source")]
     public TerraformList<TerraformBlock<AzurermSecurityCenterAutomationSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSecurityCenterAutomationTimeoutsBlock>? Timeouts { get; set; }
 
 }

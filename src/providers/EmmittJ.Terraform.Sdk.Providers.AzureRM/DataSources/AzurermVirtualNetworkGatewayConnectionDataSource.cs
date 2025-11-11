@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualNetworkGatewayConnectionDataSourceTimeoutsBlock
+public partial class AzurermVirtualNetworkGatewayConnectionDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermVirtualNetworkGatewayConnectionDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_virtual_network_gateway_connection.
 /// </summary>
-public class AzurermVirtualNetworkGatewayConnectionDataSource : TerraformDataSource
+public partial class AzurermVirtualNetworkGatewayConnectionDataSource : TerraformDataSource
 {
     public AzurermVirtualNetworkGatewayConnectionDataSource(string name) : base("azurerm_virtual_network_gateway_connection", name)
     {
@@ -29,185 +29,185 @@ public class AzurermVirtualNetworkGatewayConnectionDataSource : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermVirtualNetworkGatewayConnectionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The authorization_key attribute.
     /// </summary>
-    [TerraformPropertyName("authorization_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AuthorizationKey => new TerraformReference(this, "authorization_key");
+    [TerraformProperty("authorization_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AuthorizationKey { get; }
 
     /// <summary>
     /// The connection_protocol attribute.
     /// </summary>
-    [TerraformPropertyName("connection_protocol")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ConnectionProtocol => new TerraformReference(this, "connection_protocol");
+    [TerraformProperty("connection_protocol")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ConnectionProtocol { get; }
 
     /// <summary>
     /// The dpd_timeout_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("dpd_timeout_seconds")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> DpdTimeoutSeconds => new TerraformReference(this, "dpd_timeout_seconds");
+    [TerraformProperty("dpd_timeout_seconds")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> DpdTimeoutSeconds { get; }
 
     /// <summary>
     /// The egress_bytes_transferred attribute.
     /// </summary>
-    [TerraformPropertyName("egress_bytes_transferred")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> EgressBytesTransferred => new TerraformReference(this, "egress_bytes_transferred");
+    [TerraformProperty("egress_bytes_transferred")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> EgressBytesTransferred { get; }
 
     /// <summary>
     /// The enable_bgp attribute.
     /// </summary>
-    [TerraformPropertyName("enable_bgp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EnableBgp => new TerraformReference(this, "enable_bgp");
+    [TerraformProperty("enable_bgp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EnableBgp { get; }
 
     /// <summary>
     /// The express_route_circuit_id attribute.
     /// </summary>
-    [TerraformPropertyName("express_route_circuit_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExpressRouteCircuitId => new TerraformReference(this, "express_route_circuit_id");
+    [TerraformProperty("express_route_circuit_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExpressRouteCircuitId { get; }
 
     /// <summary>
     /// The express_route_gateway_bypass attribute.
     /// </summary>
-    [TerraformPropertyName("express_route_gateway_bypass")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ExpressRouteGatewayBypass => new TerraformReference(this, "express_route_gateway_bypass");
+    [TerraformProperty("express_route_gateway_bypass")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ExpressRouteGatewayBypass { get; }
 
     /// <summary>
     /// The ingress_bytes_transferred attribute.
     /// </summary>
-    [TerraformPropertyName("ingress_bytes_transferred")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> IngressBytesTransferred => new TerraformReference(this, "ingress_bytes_transferred");
+    [TerraformProperty("ingress_bytes_transferred")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> IngressBytesTransferred { get; }
 
     /// <summary>
     /// The ipsec_policy attribute.
     /// </summary>
-    [TerraformPropertyName("ipsec_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> IpsecPolicy => new TerraformReference(this, "ipsec_policy");
+    [TerraformProperty("ipsec_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> IpsecPolicy { get; }
 
     /// <summary>
     /// The local_azure_ip_address_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("local_azure_ip_address_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> LocalAzureIpAddressEnabled => new TerraformReference(this, "local_azure_ip_address_enabled");
+    [TerraformProperty("local_azure_ip_address_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> LocalAzureIpAddressEnabled { get; }
 
     /// <summary>
     /// The local_network_gateway_id attribute.
     /// </summary>
-    [TerraformPropertyName("local_network_gateway_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LocalNetworkGatewayId => new TerraformReference(this, "local_network_gateway_id");
+    [TerraformProperty("local_network_gateway_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LocalNetworkGatewayId { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The peer_virtual_network_gateway_id attribute.
     /// </summary>
-    [TerraformPropertyName("peer_virtual_network_gateway_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PeerVirtualNetworkGatewayId => new TerraformReference(this, "peer_virtual_network_gateway_id");
+    [TerraformProperty("peer_virtual_network_gateway_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PeerVirtualNetworkGatewayId { get; }
 
     /// <summary>
     /// The private_link_fast_path_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("private_link_fast_path_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> PrivateLinkFastPathEnabled => new TerraformReference(this, "private_link_fast_path_enabled");
+    [TerraformProperty("private_link_fast_path_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> PrivateLinkFastPathEnabled { get; }
 
     /// <summary>
     /// The resource_guid attribute.
     /// </summary>
-    [TerraformPropertyName("resource_guid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceGuid => new TerraformReference(this, "resource_guid");
+    [TerraformProperty("resource_guid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceGuid { get; }
 
     /// <summary>
     /// The routing_weight attribute.
     /// </summary>
-    [TerraformPropertyName("routing_weight")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> RoutingWeight => new TerraformReference(this, "routing_weight");
+    [TerraformProperty("routing_weight")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> RoutingWeight { get; }
 
     /// <summary>
     /// The shared_key attribute.
     /// </summary>
-    [TerraformPropertyName("shared_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SharedKey => new TerraformReference(this, "shared_key");
+    [TerraformProperty("shared_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SharedKey { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The traffic_selector_policy attribute.
     /// </summary>
-    [TerraformPropertyName("traffic_selector_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> TrafficSelectorPolicy => new TerraformReference(this, "traffic_selector_policy");
+    [TerraformProperty("traffic_selector_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> TrafficSelectorPolicy { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
     /// <summary>
     /// The use_policy_based_traffic_selectors attribute.
     /// </summary>
-    [TerraformPropertyName("use_policy_based_traffic_selectors")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> UsePolicyBasedTrafficSelectors => new TerraformReference(this, "use_policy_based_traffic_selectors");
+    [TerraformProperty("use_policy_based_traffic_selectors")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> UsePolicyBasedTrafficSelectors { get; }
 
     /// <summary>
     /// The virtual_network_gateway_id attribute.
     /// </summary>
-    [TerraformPropertyName("virtual_network_gateway_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VirtualNetworkGatewayId => new TerraformReference(this, "virtual_network_gateway_id");
+    [TerraformProperty("virtual_network_gateway_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VirtualNetworkGatewayId { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_workspaces_directory.
 /// </summary>
-public class AwsWorkspacesDirectoryDataSource : TerraformDataSource
+public partial class AwsWorkspacesDirectoryDataSource : TerraformDataSource
 {
     public AwsWorkspacesDirectoryDataSource(string name) : base("aws_workspaces_directory", name)
     {
@@ -15,169 +15,169 @@ public class AwsWorkspacesDirectoryDataSource : TerraformDataSource
     /// The directory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
-    [TerraformPropertyName("directory_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("directory_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DirectoryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The active_directory_config attribute.
     /// </summary>
-    [TerraformPropertyName("active_directory_config")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> ActiveDirectoryConfig => new TerraformReference(this, "active_directory_config");
+    [TerraformProperty("active_directory_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> ActiveDirectoryConfig { get; }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    [TerraformPropertyName("alias")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Alias => new TerraformReference(this, "alias");
+    [TerraformProperty("alias")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Alias { get; }
 
     /// <summary>
     /// The certificate_based_auth_properties attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_based_auth_properties")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CertificateBasedAuthProperties => new TerraformReference(this, "certificate_based_auth_properties");
+    [TerraformProperty("certificate_based_auth_properties")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CertificateBasedAuthProperties { get; }
 
     /// <summary>
     /// The customer_user_name attribute.
     /// </summary>
-    [TerraformPropertyName("customer_user_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CustomerUserName => new TerraformReference(this, "customer_user_name");
+    [TerraformProperty("customer_user_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CustomerUserName { get; }
 
     /// <summary>
     /// The directory_name attribute.
     /// </summary>
-    [TerraformPropertyName("directory_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DirectoryName => new TerraformReference(this, "directory_name");
+    [TerraformProperty("directory_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DirectoryName { get; }
 
     /// <summary>
     /// The directory_type attribute.
     /// </summary>
-    [TerraformPropertyName("directory_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DirectoryType => new TerraformReference(this, "directory_type");
+    [TerraformProperty("directory_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DirectoryType { get; }
 
     /// <summary>
     /// The dns_ip_addresses attribute.
     /// </summary>
-    [TerraformPropertyName("dns_ip_addresses")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> DnsIpAddresses => new TerraformReference(this, "dns_ip_addresses");
+    [TerraformProperty("dns_ip_addresses")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> DnsIpAddresses { get; }
 
     /// <summary>
     /// The iam_role_id attribute.
     /// </summary>
-    [TerraformPropertyName("iam_role_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IamRoleId => new TerraformReference(this, "iam_role_id");
+    [TerraformProperty("iam_role_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IamRoleId { get; }
 
     /// <summary>
     /// The ip_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("ip_group_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> IpGroupIds => new TerraformReference(this, "ip_group_ids");
+    [TerraformProperty("ip_group_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> IpGroupIds { get; }
 
     /// <summary>
     /// The registration_code attribute.
     /// </summary>
-    [TerraformPropertyName("registration_code")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RegistrationCode => new TerraformReference(this, "registration_code");
+    [TerraformProperty("registration_code")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RegistrationCode { get; }
 
     /// <summary>
     /// The saml_properties attribute.
     /// </summary>
-    [TerraformPropertyName("saml_properties")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SamlProperties => new TerraformReference(this, "saml_properties");
+    [TerraformProperty("saml_properties")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SamlProperties { get; }
 
     /// <summary>
     /// The self_service_permissions attribute.
     /// </summary>
-    [TerraformPropertyName("self_service_permissions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SelfServicePermissions => new TerraformReference(this, "self_service_permissions");
+    [TerraformProperty("self_service_permissions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SelfServicePermissions { get; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> SubnetIds => new TerraformReference(this, "subnet_ids");
+    [TerraformProperty("subnet_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> SubnetIds { get; }
 
     /// <summary>
     /// The user_identity_type attribute.
     /// </summary>
-    [TerraformPropertyName("user_identity_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UserIdentityType => new TerraformReference(this, "user_identity_type");
+    [TerraformProperty("user_identity_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UserIdentityType { get; }
 
     /// <summary>
     /// The workspace_access_properties attribute.
     /// </summary>
-    [TerraformPropertyName("workspace_access_properties")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> WorkspaceAccessProperties => new TerraformReference(this, "workspace_access_properties");
+    [TerraformProperty("workspace_access_properties")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> WorkspaceAccessProperties { get; }
 
     /// <summary>
     /// The workspace_creation_properties attribute.
     /// </summary>
-    [TerraformPropertyName("workspace_creation_properties")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> WorkspaceCreationProperties => new TerraformReference(this, "workspace_creation_properties");
+    [TerraformProperty("workspace_creation_properties")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> WorkspaceCreationProperties { get; }
 
     /// <summary>
     /// The workspace_directory_description attribute.
     /// </summary>
-    [TerraformPropertyName("workspace_directory_description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WorkspaceDirectoryDescription => new TerraformReference(this, "workspace_directory_description");
+    [TerraformProperty("workspace_directory_description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WorkspaceDirectoryDescription { get; }
 
     /// <summary>
     /// The workspace_directory_name attribute.
     /// </summary>
-    [TerraformPropertyName("workspace_directory_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WorkspaceDirectoryName => new TerraformReference(this, "workspace_directory_name");
+    [TerraformProperty("workspace_directory_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WorkspaceDirectoryName { get; }
 
     /// <summary>
     /// The workspace_security_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("workspace_security_group_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WorkspaceSecurityGroupId => new TerraformReference(this, "workspace_security_group_id");
+    [TerraformProperty("workspace_security_group_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WorkspaceSecurityGroupId { get; }
 
     /// <summary>
     /// The workspace_type attribute.
     /// </summary>
-    [TerraformPropertyName("workspace_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WorkspaceType => new TerraformReference(this, "workspace_type");
+    [TerraformProperty("workspace_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WorkspaceType { get; }
 
 }

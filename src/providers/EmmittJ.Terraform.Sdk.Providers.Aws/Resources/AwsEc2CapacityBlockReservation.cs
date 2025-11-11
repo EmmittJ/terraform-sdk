@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2CapacityBlockReservationTimeoutsBlock
+public partial class AwsEc2CapacityBlockReservationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsEc2CapacityBlockReservationTimeoutsBlock
 /// <summary>
 /// Manages a aws_ec2_capacity_block_reservation resource.
 /// </summary>
-public class AwsEc2CapacityBlockReservation : TerraformResource
+public partial class AwsEc2CapacityBlockReservation : TerraformResource
 {
     public AwsEc2CapacityBlockReservation(string name) : base("aws_ec2_capacity_block_reservation", name)
     {
@@ -30,142 +30,142 @@ public class AwsEc2CapacityBlockReservation : TerraformResource
     /// The capacity_block_offering_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityBlockOfferingId is required")]
-    [TerraformPropertyName("capacity_block_offering_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("capacity_block_offering_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CapacityBlockOfferingId { get; set; }
 
     /// <summary>
     /// The instance_platform attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstancePlatform is required")]
-    [TerraformPropertyName("instance_platform")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_platform")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstancePlatform { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsEc2CapacityBlockReservationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    [TerraformPropertyName("availability_zone")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AvailabilityZone => new TerraformReference(this, "availability_zone");
+    [TerraformProperty("availability_zone")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AvailabilityZone { get; }
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
-    [TerraformPropertyName("created_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedDate => new TerraformReference(this, "created_date");
+    [TerraformProperty("created_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The ebs_optimized attribute.
     /// </summary>
-    [TerraformPropertyName("ebs_optimized")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EbsOptimized => new TerraformReference(this, "ebs_optimized");
+    [TerraformProperty("ebs_optimized")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EbsOptimized { get; }
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    [TerraformPropertyName("end_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EndDate => new TerraformReference(this, "end_date");
+    [TerraformProperty("end_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EndDate { get; }
 
     /// <summary>
     /// The end_date_type attribute.
     /// </summary>
-    [TerraformPropertyName("end_date_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EndDateType => new TerraformReference(this, "end_date_type");
+    [TerraformProperty("end_date_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EndDateType { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    [TerraformPropertyName("instance_count")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> InstanceCount => new TerraformReference(this, "instance_count");
+    [TerraformProperty("instance_count")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> InstanceCount { get; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    [TerraformPropertyName("instance_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> InstanceType => new TerraformReference(this, "instance_type");
+    [TerraformProperty("instance_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> InstanceType { get; }
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    [TerraformPropertyName("outpost_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OutpostArn => new TerraformReference(this, "outpost_arn");
+    [TerraformProperty("outpost_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OutpostArn { get; }
 
     /// <summary>
     /// The placement_group_arn attribute.
     /// </summary>
-    [TerraformPropertyName("placement_group_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PlacementGroupArn => new TerraformReference(this, "placement_group_arn");
+    [TerraformProperty("placement_group_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PlacementGroupArn { get; }
 
     /// <summary>
     /// The reservation_type attribute.
     /// </summary>
-    [TerraformPropertyName("reservation_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ReservationType => new TerraformReference(this, "reservation_type");
+    [TerraformProperty("reservation_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ReservationType { get; }
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
-    [TerraformPropertyName("start_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StartDate => new TerraformReference(this, "start_date");
+    [TerraformProperty("start_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StartDate { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
-    [TerraformPropertyName("tenancy")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Tenancy => new TerraformReference(this, "tenancy");
+    [TerraformProperty("tenancy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Tenancy { get; }
 
 }

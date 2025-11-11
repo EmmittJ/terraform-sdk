@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAlloydbUserTimeoutsBlock
+public partial class GoogleAlloydbUserTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleAlloydbUserTimeoutsBlock
 /// <summary>
 /// Manages a google_alloydb_user resource.
 /// </summary>
-public class GoogleAlloydbUser : TerraformResource
+public partial class GoogleAlloydbUser : TerraformResource
 {
     public GoogleAlloydbUser(string name) : base("google_alloydb_user", name)
     {
@@ -45,59 +45,59 @@ public class GoogleAlloydbUser : TerraformResource
     /// &#39;projects/{project}/locations/{location}/clusters/{cluster_id}&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
-    [TerraformPropertyName("cluster")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Cluster { get; set; }
 
     /// <summary>
     /// List of database roles this database user has.
     /// </summary>
-    [TerraformPropertyName("database_roles")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("database_roles")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? DatabaseRoles { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Password for this database user.
     /// </summary>
-    [TerraformPropertyName("password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// The database role name of the user.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserId is required")]
-    [TerraformPropertyName("user_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserId { get; set; }
 
     /// <summary>
     /// The type of this user. Possible values: [&amp;quot;ALLOYDB_BUILT_IN&amp;quot;, &amp;quot;ALLOYDB_IAM_USER&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserType is required")]
-    [TerraformPropertyName("user_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleAlloydbUserTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Name of the resource in the form of projects/{project}/locations/{location}/clusters/{cluster}/users/{user}.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

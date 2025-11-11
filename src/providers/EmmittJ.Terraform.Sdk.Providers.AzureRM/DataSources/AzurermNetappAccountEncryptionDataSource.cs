@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetappAccountEncryptionDataSourceTimeoutsBlock
+public partial class AzurermNetappAccountEncryptionDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermNetappAccountEncryptionDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_netapp_account_encryption.
 /// </summary>
-public class AzurermNetappAccountEncryptionDataSource : TerraformDataSource
+public partial class AzurermNetappAccountEncryptionDataSource : TerraformDataSource
 {
     public AzurermNetappAccountEncryptionDataSource(string name) : base("azurerm_netapp_account_encryption", name)
     {
@@ -29,58 +29,58 @@ public class AzurermNetappAccountEncryptionDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the NetApp Account where encryption will be set.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetappAccountId is required")]
-    [TerraformPropertyName("netapp_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("netapp_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NetappAccountId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermNetappAccountEncryptionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The cross_tenant_key_vault_resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("cross_tenant_key_vault_resource_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CrossTenantKeyVaultResourceId => new TerraformReference(this, "cross_tenant_key_vault_resource_id");
+    [TerraformProperty("cross_tenant_key_vault_resource_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CrossTenantKeyVaultResourceId { get; }
 
     /// <summary>
     /// The encryption_key attribute.
     /// </summary>
-    [TerraformPropertyName("encryption_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EncryptionKey => new TerraformReference(this, "encryption_key");
+    [TerraformProperty("encryption_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EncryptionKey { get; }
 
     /// <summary>
     /// The federated_client_id attribute.
     /// </summary>
-    [TerraformPropertyName("federated_client_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FederatedClientId => new TerraformReference(this, "federated_client_id");
+    [TerraformProperty("federated_client_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FederatedClientId { get; }
 
     /// <summary>
     /// The system_assigned_identity_principal_id attribute.
     /// </summary>
-    [TerraformPropertyName("system_assigned_identity_principal_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SystemAssignedIdentityPrincipalId => new TerraformReference(this, "system_assigned_identity_principal_id");
+    [TerraformProperty("system_assigned_identity_principal_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SystemAssignedIdentityPrincipalId { get; }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
-    [TerraformPropertyName("user_assigned_identity_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UserAssignedIdentityId => new TerraformReference(this, "user_assigned_identity_id");
+    [TerraformProperty("user_assigned_identity_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UserAssignedIdentityId { get; }
 
 }

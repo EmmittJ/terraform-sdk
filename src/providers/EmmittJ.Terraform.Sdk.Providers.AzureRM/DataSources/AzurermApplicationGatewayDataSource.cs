@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApplicationGatewayDataSourceTimeoutsBlock
+public partial class AzurermApplicationGatewayDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermApplicationGatewayDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_application_gateway.
 /// </summary>
-public class AzurermApplicationGatewayDataSource : TerraformDataSource
+public partial class AzurermApplicationGatewayDataSource : TerraformDataSource
 {
     public AzurermApplicationGatewayDataSource(string name) : base("azurerm_application_gateway", name)
     {
@@ -29,255 +29,255 @@ public class AzurermApplicationGatewayDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermApplicationGatewayDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The authentication_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("authentication_certificate")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> AuthenticationCertificate => new TerraformReference(this, "authentication_certificate");
+    [TerraformProperty("authentication_certificate")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> AuthenticationCertificate { get; }
 
     /// <summary>
     /// The autoscale_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("autoscale_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> AutoscaleConfiguration => new TerraformReference(this, "autoscale_configuration");
+    [TerraformProperty("autoscale_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> AutoscaleConfiguration { get; }
 
     /// <summary>
     /// The backend_address_pool attribute.
     /// </summary>
-    [TerraformPropertyName("backend_address_pool")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> BackendAddressPool => new TerraformReference(this, "backend_address_pool");
+    [TerraformProperty("backend_address_pool")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> BackendAddressPool { get; }
 
     /// <summary>
     /// The backend_http_settings attribute.
     /// </summary>
-    [TerraformPropertyName("backend_http_settings")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> BackendHttpSettings => new TerraformReference(this, "backend_http_settings");
+    [TerraformProperty("backend_http_settings")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> BackendHttpSettings { get; }
 
     /// <summary>
     /// The custom_error_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("custom_error_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CustomErrorConfiguration => new TerraformReference(this, "custom_error_configuration");
+    [TerraformProperty("custom_error_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CustomErrorConfiguration { get; }
 
     /// <summary>
     /// The fips_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("fips_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> FipsEnabled => new TerraformReference(this, "fips_enabled");
+    [TerraformProperty("fips_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> FipsEnabled { get; }
 
     /// <summary>
     /// The firewall_policy_id attribute.
     /// </summary>
-    [TerraformPropertyName("firewall_policy_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FirewallPolicyId => new TerraformReference(this, "firewall_policy_id");
+    [TerraformProperty("firewall_policy_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FirewallPolicyId { get; }
 
     /// <summary>
     /// The force_firewall_policy_association attribute.
     /// </summary>
-    [TerraformPropertyName("force_firewall_policy_association")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ForceFirewallPolicyAssociation => new TerraformReference(this, "force_firewall_policy_association");
+    [TerraformProperty("force_firewall_policy_association")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ForceFirewallPolicyAssociation { get; }
 
     /// <summary>
     /// The frontend_ip_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("frontend_ip_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> FrontendIpConfiguration => new TerraformReference(this, "frontend_ip_configuration");
+    [TerraformProperty("frontend_ip_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> FrontendIpConfiguration { get; }
 
     /// <summary>
     /// The frontend_port attribute.
     /// </summary>
-    [TerraformPropertyName("frontend_port")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> FrontendPort => new TerraformReference(this, "frontend_port");
+    [TerraformProperty("frontend_port")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> FrontendPort { get; }
 
     /// <summary>
     /// The gateway_ip_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("gateway_ip_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> GatewayIpConfiguration => new TerraformReference(this, "gateway_ip_configuration");
+    [TerraformProperty("gateway_ip_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> GatewayIpConfiguration { get; }
 
     /// <summary>
     /// The global attribute.
     /// </summary>
-    [TerraformPropertyName("global")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Global => new TerraformReference(this, "global");
+    [TerraformProperty("global")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Global { get; }
 
     /// <summary>
     /// The http2_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("http2_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Http2Enabled => new TerraformReference(this, "http2_enabled");
+    [TerraformProperty("http2_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Http2Enabled { get; }
 
     /// <summary>
     /// The http_listener attribute.
     /// </summary>
-    [TerraformPropertyName("http_listener")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> HttpListener => new TerraformReference(this, "http_listener");
+    [TerraformProperty("http_listener")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> HttpListener { get; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    [TerraformPropertyName("identity")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Identity => new TerraformReference(this, "identity");
+    [TerraformProperty("identity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The private_endpoint_connection attribute.
     /// </summary>
-    [TerraformPropertyName("private_endpoint_connection")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PrivateEndpointConnection => new TerraformReference(this, "private_endpoint_connection");
+    [TerraformProperty("private_endpoint_connection")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PrivateEndpointConnection { get; }
 
     /// <summary>
     /// The private_link_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("private_link_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PrivateLinkConfiguration => new TerraformReference(this, "private_link_configuration");
+    [TerraformProperty("private_link_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PrivateLinkConfiguration { get; }
 
     /// <summary>
     /// The probe attribute.
     /// </summary>
-    [TerraformPropertyName("probe")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Probe => new TerraformReference(this, "probe");
+    [TerraformProperty("probe")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Probe { get; }
 
     /// <summary>
     /// The redirect_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("redirect_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> RedirectConfiguration => new TerraformReference(this, "redirect_configuration");
+    [TerraformProperty("redirect_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> RedirectConfiguration { get; }
 
     /// <summary>
     /// The request_routing_rule attribute.
     /// </summary>
-    [TerraformPropertyName("request_routing_rule")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> RequestRoutingRule => new TerraformReference(this, "request_routing_rule");
+    [TerraformProperty("request_routing_rule")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> RequestRoutingRule { get; }
 
     /// <summary>
     /// The rewrite_rule_set attribute.
     /// </summary>
-    [TerraformPropertyName("rewrite_rule_set")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> RewriteRuleSet => new TerraformReference(this, "rewrite_rule_set");
+    [TerraformProperty("rewrite_rule_set")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> RewriteRuleSet { get; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    [TerraformPropertyName("sku")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Sku => new TerraformReference(this, "sku");
+    [TerraformProperty("sku")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Sku { get; }
 
     /// <summary>
     /// The ssl_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_certificate")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SslCertificate => new TerraformReference(this, "ssl_certificate");
+    [TerraformProperty("ssl_certificate")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SslCertificate { get; }
 
     /// <summary>
     /// The ssl_policy attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SslPolicy => new TerraformReference(this, "ssl_policy");
+    [TerraformProperty("ssl_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SslPolicy { get; }
 
     /// <summary>
     /// The ssl_profile attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_profile")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SslProfile => new TerraformReference(this, "ssl_profile");
+    [TerraformProperty("ssl_profile")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SslProfile { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The trusted_client_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("trusted_client_certificate")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> TrustedClientCertificate => new TerraformReference(this, "trusted_client_certificate");
+    [TerraformProperty("trusted_client_certificate")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> TrustedClientCertificate { get; }
 
     /// <summary>
     /// The trusted_root_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("trusted_root_certificate")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> TrustedRootCertificate => new TerraformReference(this, "trusted_root_certificate");
+    [TerraformProperty("trusted_root_certificate")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> TrustedRootCertificate { get; }
 
     /// <summary>
     /// The url_path_map attribute.
     /// </summary>
-    [TerraformPropertyName("url_path_map")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> UrlPathMap => new TerraformReference(this, "url_path_map");
+    [TerraformProperty("url_path_map")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> UrlPathMap { get; }
 
     /// <summary>
     /// The waf_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("waf_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> WafConfiguration => new TerraformReference(this, "waf_configuration");
+    [TerraformProperty("waf_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> WafConfiguration { get; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    [TerraformPropertyName("zones")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Zones => new TerraformReference(this, "zones");
+    [TerraformProperty("zones")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Zones { get; }
 
 }

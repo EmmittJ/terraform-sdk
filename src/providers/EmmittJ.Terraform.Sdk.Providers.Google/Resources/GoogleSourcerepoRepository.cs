@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for pubsub_configs in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleSourcerepoRepositoryPubsubConfigsBlock
+public partial class GoogleSourcerepoRepositoryPubsubConfigsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The format of the Cloud Pub/Sub messages.
@@ -14,8 +14,8 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock
     /// - JSON: The message payload is a JSON string of SourceRepoEvent. Possible values: [&amp;quot;PROTOBUF&amp;quot;, &amp;quot;JSON&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MessageFormat is required")]
-    [TerraformPropertyName("message_format")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("message_format")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MessageFormat { get; set; }
 
     /// <summary>
@@ -24,16 +24,16 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock
     /// the caller needs to have iam.serviceAccounts.actAs permission on this service account.
     /// If unspecified, it defaults to the compute engine default service account.
     /// </summary>
-    [TerraformPropertyName("service_account_email")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ServiceAccountEmail { get; set; } = default!;
+    [TerraformProperty("service_account_email")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ServiceAccountEmail { get; set; }
 
     /// <summary>
     /// The topic attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
-    [TerraformPropertyName("topic")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("topic")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Topic { get; set; }
 
 }
@@ -42,27 +42,27 @@ public class GoogleSourcerepoRepositoryPubsubConfigsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSourcerepoRepositoryTimeoutsBlock
+public partial class GoogleSourcerepoRepositoryTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -70,7 +70,7 @@ public class GoogleSourcerepoRepositoryTimeoutsBlock
 /// <summary>
 /// Manages a google_sourcerepo_repository resource.
 /// </summary>
-public class GoogleSourcerepoRepository : TerraformResource
+public partial class GoogleSourcerepoRepository : TerraformResource
 {
     public GoogleSourcerepoRepository(string name) : base("google_sourcerepo_repository", name)
     {
@@ -79,59 +79,59 @@ public class GoogleSourcerepoRepository : TerraformResource
     /// <summary>
     /// If set to true, skip repository creation if a repository with the same name already exists.
     /// </summary>
-    [TerraformPropertyName("create_ignore_already_exists")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create_ignore_already_exists")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? CreateIgnoreAlreadyExists { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource name of the repository, of the form &#39;{{repo}}&#39;.
     /// The repo name may contain slashes. eg, &#39;name/with/slash&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for pubsub_configs.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("pubsub_configs")]
+    [TerraformProperty("pubsub_configs")]
     public TerraformSet<TerraformBlock<GoogleSourcerepoRepositoryPubsubConfigsBlock>>? PubsubConfigs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleSourcerepoRepositoryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The disk usage of the repo, in bytes.
     /// </summary>
-    [TerraformPropertyName("size")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Size => new TerraformReference(this, "size");
+    [TerraformProperty("size")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Size { get; }
 
     /// <summary>
     /// URL to clone the repository from Google Cloud Source Repositories.
     /// </summary>
-    [TerraformPropertyName("url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Url => new TerraformReference(this, "url");
+    [TerraformProperty("url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Url { get; }
 
 }

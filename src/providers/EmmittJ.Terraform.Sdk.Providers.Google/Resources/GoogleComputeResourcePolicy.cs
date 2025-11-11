@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for disk_consistency_group_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock
+public partial class GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// Enable disk consistency on the resource policy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
 }
@@ -22,14 +22,14 @@ public class GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock
 /// Block type for group_placement_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock
+public partial class GoogleComputeResourcePolicyGroupPlacementPolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The number of availability domains instances will be spread across. If two instances are in different
     /// availability domain, they will not be put in the same low latency network
     /// </summary>
-    [TerraformPropertyName("availability_domain_count")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("availability_domain_count")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? AvailabilityDomainCount { get; set; }
 
     /// <summary>
@@ -38,15 +38,15 @@ public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock
     /// with a COLLOCATED policy, then exactly &#39;vm_count&#39; instances must be created at the same time with the resource policy
     /// attached. Possible values: [&amp;quot;COLLOCATED&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("collocation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("collocation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Collocation { get; set; }
 
     /// <summary>
     /// Specifies the shape of the GPU slice, in slice based GPU families eg. A4X.
     /// </summary>
-    [TerraformPropertyName("gpu_topology")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("gpu_topology")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? GpuTopology { get; set; }
 
     /// <summary>
@@ -54,8 +54,8 @@ public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock
     /// unless you use a compact policy and you want your policy to work only if it contains this
     /// exact number of VMs.
     /// </summary>
-    [TerraformPropertyName("vm_count")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vm_count")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? VmCount { get; set; }
 
 }
@@ -64,20 +64,20 @@ public class GoogleComputeResourcePolicyGroupPlacementPolicyBlock
 /// Block type for instance_schedule_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock
+public partial class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The expiration time of the schedule. The timestamp is an RFC3339 string.
     /// </summary>
-    [TerraformPropertyName("expiration_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expiration_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExpirationTime { get; set; }
 
     /// <summary>
     /// The start time of the schedule. The timestamp is an RFC3339 string.
     /// </summary>
-    [TerraformPropertyName("start_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("start_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StartTime { get; set; }
 
     /// <summary>
@@ -85,8 +85,8 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock
     /// from the tz database: http://en.wikipedia.org/wiki/Tz_database.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZone is required")]
-    [TerraformPropertyName("time_zone")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("time_zone")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TimeZone { get; set; }
 
 }
@@ -95,7 +95,7 @@ public class GoogleComputeResourcePolicyInstanceSchedulePolicyBlock
 /// Block type for snapshot_schedule_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlock
+public partial class GoogleComputeResourcePolicySnapshotSchedulePolicyBlock : TerraformBlockBase
 {
 }
 
@@ -103,27 +103,27 @@ public class GoogleComputeResourcePolicySnapshotSchedulePolicyBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeResourcePolicyTimeoutsBlock
+public partial class GoogleComputeResourcePolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -132,30 +132,30 @@ public class GoogleComputeResourcePolicyTimeoutsBlock
 /// Block type for workload_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeResourcePolicyWorkloadPolicyBlock
+public partial class GoogleComputeResourcePolicyWorkloadPolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The accelerator topology. This field can be set only when the workload policy type is HIGH_THROUGHPUT
     /// and cannot be set if max topology distance is set.
     /// </summary>
-    [TerraformPropertyName("accelerator_topology")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("accelerator_topology")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AcceleratorTopology { get; set; }
 
     /// <summary>
     /// The maximum topology distance. This field can be set only when the workload policy type is HIGH_THROUGHPUT
     /// and cannot be set if accelerator topology is set. Possible values: [&amp;quot;BLOCK&amp;quot;, &amp;quot;CLUSTER&amp;quot;, &amp;quot;SUBBLOCK&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("max_topology_distance")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_topology_distance")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MaxTopologyDistance { get; set; }
 
     /// <summary>
     /// The type of workload policy. Possible values: [&amp;quot;HIGH_AVAILABILITY&amp;quot;, &amp;quot;HIGH_THROUGHPUT&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -164,7 +164,7 @@ public class GoogleComputeResourcePolicyWorkloadPolicyBlock
 /// Manages a google_compute_resource_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputeResourcePolicy : TerraformResource
+public partial class GoogleComputeResourcePolicy : TerraformResource
 {
     public GoogleComputeResourcePolicy(string name) : base("google_compute_resource_policy", name)
     {
@@ -173,16 +173,16 @@ public class GoogleComputeResourcePolicy : TerraformResource
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the resource, provided by the client when initially creating
@@ -194,30 +194,30 @@ public class GoogleComputeResourcePolicy : TerraformResource
     /// which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Region where resource policy resides.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for disk_consistency_group_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskConsistencyGroupPolicy block(s) allowed")]
-    [TerraformPropertyName("disk_consistency_group_policy")]
+    [TerraformProperty("disk_consistency_group_policy")]
     public TerraformList<TerraformBlock<GoogleComputeResourcePolicyDiskConsistencyGroupPolicyBlock>>? DiskConsistencyGroupPolicy { get; set; }
 
     /// <summary>
@@ -225,7 +225,7 @@ public class GoogleComputeResourcePolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GroupPlacementPolicy block(s) allowed")]
-    [TerraformPropertyName("group_placement_policy")]
+    [TerraformProperty("group_placement_policy")]
     public TerraformList<TerraformBlock<GoogleComputeResourcePolicyGroupPlacementPolicyBlock>>? GroupPlacementPolicy { get; set; }
 
     /// <summary>
@@ -233,7 +233,7 @@ public class GoogleComputeResourcePolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceSchedulePolicy block(s) allowed")]
-    [TerraformPropertyName("instance_schedule_policy")]
+    [TerraformProperty("instance_schedule_policy")]
     public TerraformList<TerraformBlock<GoogleComputeResourcePolicyInstanceSchedulePolicyBlock>>? InstanceSchedulePolicy { get; set; }
 
     /// <summary>
@@ -241,14 +241,14 @@ public class GoogleComputeResourcePolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnapshotSchedulePolicy block(s) allowed")]
-    [TerraformPropertyName("snapshot_schedule_policy")]
+    [TerraformProperty("snapshot_schedule_policy")]
     public TerraformList<TerraformBlock<GoogleComputeResourcePolicySnapshotSchedulePolicyBlock>>? SnapshotSchedulePolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeResourcePolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -256,14 +256,14 @@ public class GoogleComputeResourcePolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkloadPolicy block(s) allowed")]
-    [TerraformPropertyName("workload_policy")]
+    [TerraformProperty("workload_policy")]
     public TerraformList<TerraformBlock<GoogleComputeResourcePolicyWorkloadPolicyBlock>>? WorkloadPolicy { get; set; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
 }

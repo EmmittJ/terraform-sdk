@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermChaosStudioExperimentIdentityBlock
+public partial class AzurermChaosStudioExperimentIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformPropertyName("identity_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IdentityIds { get; set; }
 
 
@@ -21,8 +21,8 @@ public class AzurermChaosStudioExperimentIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -31,22 +31,22 @@ public class AzurermChaosStudioExperimentIdentityBlock
 /// Block type for selectors in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermChaosStudioExperimentSelectorsBlock
+public partial class AzurermChaosStudioExperimentSelectorsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The chaos_studio_target_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChaosStudioTargetIds is required")]
-    [TerraformPropertyName("chaos_studio_target_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("chaos_studio_target_ids")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? ChaosStudioTargetIds { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -55,14 +55,14 @@ public class AzurermChaosStudioExperimentSelectorsBlock
 /// Block type for steps in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermChaosStudioExperimentStepsBlock
+public partial class AzurermChaosStudioExperimentStepsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -71,34 +71,34 @@ public class AzurermChaosStudioExperimentStepsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermChaosStudioExperimentTimeoutsBlock
+public partial class AzurermChaosStudioExperimentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -107,7 +107,7 @@ public class AzurermChaosStudioExperimentTimeoutsBlock
 /// Manages a azurerm_chaos_studio_experiment resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermChaosStudioExperiment : TerraformResource
+public partial class AzurermChaosStudioExperiment : TerraformResource
 {
     public AzurermChaosStudioExperiment(string name) : base("azurerm_chaos_studio_experiment", name)
     {
@@ -116,32 +116,32 @@ public class AzurermChaosStudioExperiment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
@@ -149,7 +149,7 @@ public class AzurermChaosStudioExperiment : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermChaosStudioExperimentIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
@@ -158,7 +158,7 @@ public class AzurermChaosStudioExperiment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Selectors is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Selectors block(s) required")]
-    [TerraformPropertyName("selectors")]
+    [TerraformProperty("selectors")]
     public TerraformList<TerraformBlock<AzurermChaosStudioExperimentSelectorsBlock>>? Selectors { get; set; }
 
     /// <summary>
@@ -167,14 +167,14 @@ public class AzurermChaosStudioExperiment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Steps is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Steps block(s) required")]
-    [TerraformPropertyName("steps")]
+    [TerraformProperty("steps")]
     public TerraformList<TerraformBlock<AzurermChaosStudioExperimentStepsBlock>>? Steps { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermChaosStudioExperimentTimeoutsBlock>? Timeouts { get; set; }
 
 }

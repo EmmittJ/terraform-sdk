@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_cloudfront_distribution.
 /// </summary>
-public class AwsCloudfrontDistributionDataSource : TerraformDataSource
+public partial class AwsCloudfrontDistributionDataSource : TerraformDataSource
 {
     public AwsCloudfrontDistributionDataSource(string name) : base("aws_cloudfront_distribution", name)
     {
@@ -15,92 +15,92 @@ public class AwsCloudfrontDistributionDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The aliases attribute.
     /// </summary>
-    [TerraformPropertyName("aliases")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> Aliases => new TerraformReference(this, "aliases");
+    [TerraformProperty("aliases")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> Aliases { get; }
 
     /// <summary>
     /// The anycast_ip_list_id attribute.
     /// </summary>
-    [TerraformPropertyName("anycast_ip_list_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AnycastIpListId => new TerraformReference(this, "anycast_ip_list_id");
+    [TerraformProperty("anycast_ip_list_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AnycastIpListId { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
-    [TerraformPropertyName("domain_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DomainName => new TerraformReference(this, "domain_name");
+    [TerraformProperty("domain_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DomainName { get; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Enabled => new TerraformReference(this, "enabled");
+    [TerraformProperty("enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Enabled { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    [TerraformPropertyName("hosted_zone_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> HostedZoneId => new TerraformReference(this, "hosted_zone_id");
+    [TerraformProperty("hosted_zone_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> HostedZoneId { get; }
 
     /// <summary>
     /// The in_progress_validation_batches attribute.
     /// </summary>
-    [TerraformPropertyName("in_progress_validation_batches")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> InProgressValidationBatches => new TerraformReference(this, "in_progress_validation_batches");
+    [TerraformProperty("in_progress_validation_batches")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> InProgressValidationBatches { get; }
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModifiedTime => new TerraformReference(this, "last_modified_time");
+    [TerraformProperty("last_modified_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModifiedTime { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The web_acl_id attribute.
     /// </summary>
-    [TerraformPropertyName("web_acl_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WebAclId => new TerraformReference(this, "web_acl_id");
+    [TerraformProperty("web_acl_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WebAclId { get; }
 
 }

@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApihubHostProjectRegistrationTimeoutsBlock
+public partial class GoogleApihubHostProjectRegistrationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class GoogleApihubHostProjectRegistrationTimeoutsBlock
 /// <summary>
 /// Manages a google_apihub_host_project_registration resource.
 /// </summary>
-public class GoogleApihubHostProjectRegistration : TerraformResource
+public partial class GoogleApihubHostProjectRegistration : TerraformResource
 {
     public GoogleApihubHostProjectRegistration(string name) : base("google_apihub_host_project_registration", name)
     {
@@ -39,8 +39,8 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     /// As output, this field will contain project number.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GcpProject is required")]
-    [TerraformPropertyName("gcp_project")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("gcp_project")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GcpProject { get; set; }
 
     /// <summary>
@@ -50,53 +50,53 @@ public class GoogleApihubHostProjectRegistration : TerraformResource
     /// host_project_registration.gcp_project field.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostProjectRegistrationId is required")]
-    [TerraformPropertyName("host_project_registration_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("host_project_registration_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HostProjectRegistrationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Part of &#39;parent&#39;. See documentation of &#39;projectsId&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleApihubHostProjectRegistrationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time at which the host project registration was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Identifier. The name of the host project registration.
     /// Format:
     /// &amp;quot;projects/{project}/locations/{location}/hostProjectRegistrations/{host_project_registration}&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

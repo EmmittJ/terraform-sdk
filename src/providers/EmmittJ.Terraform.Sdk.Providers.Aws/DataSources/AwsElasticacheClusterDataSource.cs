@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_elasticache_cluster.
 /// </summary>
-public class AwsElasticacheClusterDataSource : TerraformDataSource
+public partial class AwsElasticacheClusterDataSource : TerraformDataSource
 {
     public AwsElasticacheClusterDataSource(string name) : base("aws_elasticache_cluster", name)
     {
@@ -15,183 +15,183 @@ public class AwsElasticacheClusterDataSource : TerraformDataSource
     /// The cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    [TerraformPropertyName("cluster_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    [TerraformPropertyName("availability_zone")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AvailabilityZone => new TerraformReference(this, "availability_zone");
+    [TerraformProperty("availability_zone")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AvailabilityZone { get; }
 
     /// <summary>
     /// The cache_nodes attribute.
     /// </summary>
-    [TerraformPropertyName("cache_nodes")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CacheNodes => new TerraformReference(this, "cache_nodes");
+    [TerraformProperty("cache_nodes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CacheNodes { get; }
 
     /// <summary>
     /// The cluster_address attribute.
     /// </summary>
-    [TerraformPropertyName("cluster_address")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ClusterAddress => new TerraformReference(this, "cluster_address");
+    [TerraformProperty("cluster_address")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ClusterAddress { get; }
 
     /// <summary>
     /// The configuration_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("configuration_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ConfigurationEndpoint => new TerraformReference(this, "configuration_endpoint");
+    [TerraformProperty("configuration_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ConfigurationEndpoint { get; }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    [TerraformPropertyName("engine")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Engine => new TerraformReference(this, "engine");
+    [TerraformProperty("engine")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Engine { get; }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    [TerraformPropertyName("engine_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EngineVersion => new TerraformReference(this, "engine_version");
+    [TerraformProperty("engine_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EngineVersion { get; }
 
     /// <summary>
     /// The ip_discovery attribute.
     /// </summary>
-    [TerraformPropertyName("ip_discovery")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IpDiscovery => new TerraformReference(this, "ip_discovery");
+    [TerraformProperty("ip_discovery")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IpDiscovery { get; }
 
     /// <summary>
     /// The log_delivery_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("log_delivery_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> LogDeliveryConfiguration => new TerraformReference(this, "log_delivery_configuration");
+    [TerraformProperty("log_delivery_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> LogDeliveryConfiguration { get; }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    [TerraformPropertyName("maintenance_window")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> MaintenanceWindow => new TerraformReference(this, "maintenance_window");
+    [TerraformProperty("maintenance_window")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> MaintenanceWindow { get; }
 
     /// <summary>
     /// The network_type attribute.
     /// </summary>
-    [TerraformPropertyName("network_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> NetworkType => new TerraformReference(this, "network_type");
+    [TerraformProperty("network_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> NetworkType { get; }
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
-    [TerraformPropertyName("node_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> NodeType => new TerraformReference(this, "node_type");
+    [TerraformProperty("node_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> NodeType { get; }
 
     /// <summary>
     /// The notification_topic_arn attribute.
     /// </summary>
-    [TerraformPropertyName("notification_topic_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> NotificationTopicArn => new TerraformReference(this, "notification_topic_arn");
+    [TerraformProperty("notification_topic_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> NotificationTopicArn { get; }
 
     /// <summary>
     /// The num_cache_nodes attribute.
     /// </summary>
-    [TerraformPropertyName("num_cache_nodes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> NumCacheNodes => new TerraformReference(this, "num_cache_nodes");
+    [TerraformProperty("num_cache_nodes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> NumCacheNodes { get; }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    [TerraformPropertyName("parameter_group_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ParameterGroupName => new TerraformReference(this, "parameter_group_name");
+    [TerraformProperty("parameter_group_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ParameterGroupName { get; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    [TerraformPropertyName("port")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Port => new TerraformReference(this, "port");
+    [TerraformProperty("port")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Port { get; }
 
     /// <summary>
     /// The preferred_outpost_arn attribute.
     /// </summary>
-    [TerraformPropertyName("preferred_outpost_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PreferredOutpostArn => new TerraformReference(this, "preferred_outpost_arn");
+    [TerraformProperty("preferred_outpost_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PreferredOutpostArn { get; }
 
     /// <summary>
     /// The replication_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("replication_group_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ReplicationGroupId => new TerraformReference(this, "replication_group_id");
+    [TerraformProperty("replication_group_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ReplicationGroupId { get; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> SecurityGroupIds => new TerraformReference(this, "security_group_ids");
+    [TerraformProperty("security_group_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> SecurityGroupIds { get; }
 
     /// <summary>
     /// The snapshot_retention_limit attribute.
     /// </summary>
-    [TerraformPropertyName("snapshot_retention_limit")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> SnapshotRetentionLimit => new TerraformReference(this, "snapshot_retention_limit");
+    [TerraformProperty("snapshot_retention_limit")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> SnapshotRetentionLimit { get; }
 
     /// <summary>
     /// The snapshot_window attribute.
     /// </summary>
-    [TerraformPropertyName("snapshot_window")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SnapshotWindow => new TerraformReference(this, "snapshot_window");
+    [TerraformProperty("snapshot_window")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SnapshotWindow { get; }
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_group_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SubnetGroupName => new TerraformReference(this, "subnet_group_name");
+    [TerraformProperty("subnet_group_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SubnetGroupName { get; }
 
 }

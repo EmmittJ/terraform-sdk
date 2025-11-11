@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_auditmanager_framework_share resource.
 /// </summary>
-public class AwsAuditmanagerFrameworkShare : TerraformResource
+public partial class AwsAuditmanagerFrameworkShare : TerraformResource
 {
     public AwsAuditmanagerFrameworkShare(string name) : base("aws_auditmanager_framework_share", name)
     {
@@ -14,53 +14,53 @@ public class AwsAuditmanagerFrameworkShare : TerraformResource
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    [TerraformPropertyName("comment")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("comment")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The destination_account attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationAccount is required")]
-    [TerraformPropertyName("destination_account")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("destination_account")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DestinationAccount { get; set; }
 
     /// <summary>
     /// The destination_region attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationRegion is required")]
-    [TerraformPropertyName("destination_region")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("destination_region")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DestinationRegion { get; set; }
 
     /// <summary>
     /// The framework_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FrameworkId is required")]
-    [TerraformPropertyName("framework_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("framework_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FrameworkId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

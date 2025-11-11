@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for permissions_boundary in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock
+public partial class AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock : TerraformBlockBase
 {
     /// <summary>
     /// The managed_policy_arn attribute.
     /// </summary>
-    [TerraformPropertyName("managed_policy_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("managed_policy_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ManagedPolicyArn { get; set; }
 
 }
@@ -21,20 +21,20 @@ public class AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock
+public partial class AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock
 /// Manages a aws_ssoadmin_permissions_boundary_attachment resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
+public partial class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
 {
     public AwsSsoadminPermissionsBoundaryAttachment(string name) : base("aws_ssoadmin_permissions_boundary_attachment", name)
     {
@@ -52,32 +52,32 @@ public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceArn is required")]
-    [TerraformPropertyName("instance_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstanceArn { get; set; }
 
     /// <summary>
     /// The permission_set_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionSetArn is required")]
-    [TerraformPropertyName("permission_set_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("permission_set_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PermissionSetArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for permissions_boundary.
@@ -86,14 +86,14 @@ public class AwsSsoadminPermissionsBoundaryAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PermissionsBoundary is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 PermissionsBoundary block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PermissionsBoundary block(s) allowed")]
-    [TerraformPropertyName("permissions_boundary")]
+    [TerraformProperty("permissions_boundary")]
     public TerraformList<TerraformBlock<AwsSsoadminPermissionsBoundaryAttachmentPermissionsBoundaryBlock>>? PermissionsBoundary { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsSsoadminPermissionsBoundaryAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

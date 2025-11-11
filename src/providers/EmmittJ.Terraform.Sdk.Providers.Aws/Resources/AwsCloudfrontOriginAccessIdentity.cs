@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_cloudfront_origin_access_identity resource.
 /// </summary>
-public class AwsCloudfrontOriginAccessIdentity : TerraformResource
+public partial class AwsCloudfrontOriginAccessIdentity : TerraformResource
 {
     public AwsCloudfrontOriginAccessIdentity(string name) : base("aws_cloudfront_origin_access_identity", name)
     {
@@ -14,57 +14,57 @@ public class AwsCloudfrontOriginAccessIdentity : TerraformResource
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    [TerraformPropertyName("comment")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("comment")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The caller_reference attribute.
     /// </summary>
-    [TerraformPropertyName("caller_reference")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CallerReference => new TerraformReference(this, "caller_reference");
+    [TerraformProperty("caller_reference")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CallerReference { get; }
 
     /// <summary>
     /// The cloudfront_access_identity_path attribute.
     /// </summary>
-    [TerraformPropertyName("cloudfront_access_identity_path")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CloudfrontAccessIdentityPath => new TerraformReference(this, "cloudfront_access_identity_path");
+    [TerraformProperty("cloudfront_access_identity_path")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CloudfrontAccessIdentityPath { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The iam_arn attribute.
     /// </summary>
-    [TerraformPropertyName("iam_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IamArn => new TerraformReference(this, "iam_arn");
+    [TerraformProperty("iam_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IamArn { get; }
 
     /// <summary>
     /// The s3_canonical_user_id attribute.
     /// </summary>
-    [TerraformPropertyName("s3_canonical_user_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> S3CanonicalUserId => new TerraformReference(this, "s3_canonical_user_id");
+    [TerraformProperty("s3_canonical_user_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> S3CanonicalUserId { get; }
 
 }

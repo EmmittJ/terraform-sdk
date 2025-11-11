@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for instance_metadata_service_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlock
+public partial class AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The minimum_instance_metadata_service_version attribute.
     /// </summary>
-    [TerraformPropertyName("minimum_instance_metadata_service_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MinimumInstanceMetadataServiceVersion { get; set; } = default!;
+    [TerraformProperty("minimum_instance_metadata_service_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MinimumInstanceMetadataServiceVersion { get; set; }
 
 }
 
@@ -21,7 +21,7 @@ public class AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlo
 /// Manages a aws_sagemaker_notebook_instance resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsSagemakerNotebookInstance : TerraformResource
+public partial class AwsSagemakerNotebookInstance : TerraformResource
 {
     public AwsSagemakerNotebookInstance(string name) : base("aws_sagemaker_notebook_instance", name)
     {
@@ -30,123 +30,123 @@ public class AwsSagemakerNotebookInstance : TerraformResource
     /// <summary>
     /// The additional_code_repositories attribute.
     /// </summary>
-    [TerraformPropertyName("additional_code_repositories")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("additional_code_repositories")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? AdditionalCodeRepositories { get; set; }
 
     /// <summary>
     /// The default_code_repository attribute.
     /// </summary>
-    [TerraformPropertyName("default_code_repository")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_code_repository")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DefaultCodeRepository { get; set; }
 
     /// <summary>
     /// The direct_internet_access attribute.
     /// </summary>
-    [TerraformPropertyName("direct_internet_access")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("direct_internet_access")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DirectInternetAccess { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    [TerraformPropertyName("instance_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The lifecycle_config_name attribute.
     /// </summary>
-    [TerraformPropertyName("lifecycle_config_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("lifecycle_config_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LifecycleConfigName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The platform_identifier attribute.
     /// </summary>
-    [TerraformPropertyName("platform_identifier")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PlatformIdentifier { get; set; } = default!;
+    [TerraformProperty("platform_identifier")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PlatformIdentifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The root_access attribute.
     /// </summary>
-    [TerraformPropertyName("root_access")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("root_access")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RootAccess { get; set; }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    [TerraformPropertyName("security_groups")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> SecurityGroups { get; set; } = default!;
+    [TerraformProperty("security_groups")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> SecurityGroups { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subnet_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    [TerraformPropertyName("volume_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("volume_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? VolumeSize { get; set; }
 
     /// <summary>
@@ -154,28 +154,28 @@ public class AwsSagemakerNotebookInstance : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceMetadataServiceConfiguration block(s) allowed")]
-    [TerraformPropertyName("instance_metadata_service_configuration")]
+    [TerraformProperty("instance_metadata_service_configuration")]
     public TerraformList<TerraformBlock<AwsSagemakerNotebookInstanceInstanceMetadataServiceConfigurationBlock>>? InstanceMetadataServiceConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    [TerraformPropertyName("network_interface_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> NetworkInterfaceId => new TerraformReference(this, "network_interface_id");
+    [TerraformProperty("network_interface_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> NetworkInterfaceId { get; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    [TerraformPropertyName("url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Url => new TerraformReference(this, "url");
+    [TerraformProperty("url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Url { get; }
 
 }

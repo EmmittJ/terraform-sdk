@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for configmanagement in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeHubFeatureMembershipConfigmanagementBlock
+public partial class GoogleGkeHubFeatureMembershipConfigmanagementBlock : TerraformBlockBase
 {
     /// <summary>
     /// Set this field to MANAGEMENT_AUTOMATIC to enable Config Sync auto-upgrades, and set this field to MANAGEMENT_MANUAL or MANAGEMENT_UNSPECIFIED to disable Config Sync auto-upgrades.
     /// </summary>
-    [TerraformPropertyName("management")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Management { get; set; } = default!;
+    [TerraformProperty("management")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Management { get; set; }
 
     /// <summary>
     /// Optional. Version of ACM to install. Defaults to the latest version.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Version { get; set; } = default!;
+    [TerraformProperty("version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Version { get; set; }
 
 }
 
@@ -28,21 +28,21 @@ public class GoogleGkeHubFeatureMembershipConfigmanagementBlock
 /// Block type for mesh in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeHubFeatureMembershipMeshBlock
+public partial class GoogleGkeHubFeatureMembershipMeshBlock : TerraformBlockBase
 {
     /// <summary>
     /// **DEPRECATED** Whether to automatically manage Service Mesh control planes. Possible values: CONTROL_PLANE_MANAGEMENT_UNSPECIFIED, AUTOMATIC, MANUAL
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("control_plane")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("control_plane")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ControlPlane { get; set; }
 
     /// <summary>
     /// Whether to automatically manage Service Mesh. Possible values: MANAGEMENT_UNSPECIFIED, MANAGEMENT_AUTOMATIC, MANAGEMENT_MANUAL
     /// </summary>
-    [TerraformPropertyName("management")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("management")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Management { get; set; }
 
 }
@@ -51,14 +51,14 @@ public class GoogleGkeHubFeatureMembershipMeshBlock
 /// Block type for policycontroller in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeHubFeatureMembershipPolicycontrollerBlock
+public partial class GoogleGkeHubFeatureMembershipPolicycontrollerBlock : TerraformBlockBase
 {
     /// <summary>
     /// Optional. Version of Policy Controller to install. Defaults to the latest version.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Version { get; set; } = default!;
+    [TerraformProperty("version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Version { get; set; }
 
 }
 
@@ -66,27 +66,27 @@ public class GoogleGkeHubFeatureMembershipPolicycontrollerBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleGkeHubFeatureMembershipTimeoutsBlock
+public partial class GoogleGkeHubFeatureMembershipTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -95,7 +95,7 @@ public class GoogleGkeHubFeatureMembershipTimeoutsBlock
 /// Manages a google_gke_hub_feature_membership resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleGkeHubFeatureMembership : TerraformResource
+public partial class GoogleGkeHubFeatureMembership : TerraformResource
 {
     public GoogleGkeHubFeatureMembership(string name) : base("google_gke_hub_feature_membership", name)
     {
@@ -105,53 +105,53 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     /// The name of the feature
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Feature is required")]
-    [TerraformPropertyName("feature")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("feature")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Feature { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the feature
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of the membership
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Membership is required")]
-    [TerraformPropertyName("membership")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("membership")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Membership { get; set; }
 
     /// <summary>
     /// The location of the membership
     /// </summary>
-    [TerraformPropertyName("membership_location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("membership_location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MembershipLocation { get; set; }
 
     /// <summary>
     /// The project of the feature
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for configmanagement.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configmanagement block(s) allowed")]
-    [TerraformPropertyName("configmanagement")]
+    [TerraformProperty("configmanagement")]
     public TerraformList<TerraformBlock<GoogleGkeHubFeatureMembershipConfigmanagementBlock>>? Configmanagement { get; set; }
 
     /// <summary>
@@ -159,7 +159,7 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Mesh block(s) allowed")]
-    [TerraformPropertyName("mesh")]
+    [TerraformProperty("mesh")]
     public TerraformList<TerraformBlock<GoogleGkeHubFeatureMembershipMeshBlock>>? Mesh { get; set; }
 
     /// <summary>
@@ -167,14 +167,14 @@ public class GoogleGkeHubFeatureMembership : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Policycontroller block(s) allowed")]
-    [TerraformPropertyName("policycontroller")]
+    [TerraformProperty("policycontroller")]
     public TerraformList<TerraformBlock<GoogleGkeHubFeatureMembershipPolicycontrollerBlock>>? Policycontroller { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleGkeHubFeatureMembershipTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSccV2OrganizationSourceTimeoutsBlock
+public partial class GoogleSccV2OrganizationSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleSccV2OrganizationSourceTimeoutsBlock
 /// <summary>
 /// Manages a google_scc_v2_organization_source resource.
 /// </summary>
-public class GoogleSccV2OrganizationSource : TerraformResource
+public partial class GoogleSccV2OrganizationSource : TerraformResource
 {
     public GoogleSccV2OrganizationSource(string name) : base("google_scc_v2_organization_source", name)
     {
@@ -43,8 +43,8 @@ public class GoogleSccV2OrganizationSource : TerraformResource
     /// <summary>
     /// The description of the source (max of 1024 characters).
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
@@ -55,39 +55,39 @@ public class GoogleSccV2OrganizationSource : TerraformResource
     /// and underscores, and can be no longer than 32 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The organization whose Cloud Security Command Center the Source
     /// lives in.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
-    [TerraformPropertyName("organization")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("organization")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Organization { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleSccV2OrganizationSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The resource name of this source, in the format
     /// &#39;organizations/{{organization}}/sources/{{source}}&#39;.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

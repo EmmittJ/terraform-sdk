@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_prometheus_workspace.
 /// </summary>
-public class AwsPrometheusWorkspaceDataSource : TerraformDataSource
+public partial class AwsPrometheusWorkspaceDataSource : TerraformDataSource
 {
     public AwsPrometheusWorkspaceDataSource(string name) : base("aws_prometheus_workspace", name)
     {
@@ -14,72 +14,72 @@ public class AwsPrometheusWorkspaceDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformPropertyName("workspace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("workspace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    [TerraformPropertyName("alias")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Alias => new TerraformReference(this, "alias");
+    [TerraformProperty("alias")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Alias { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
-    [TerraformPropertyName("created_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedDate => new TerraformReference(this, "created_date");
+    [TerraformProperty("created_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KmsKeyArn => new TerraformReference(this, "kms_key_arn");
+    [TerraformProperty("kms_key_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KmsKeyArn { get; }
 
     /// <summary>
     /// The prometheus_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("prometheus_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrometheusEndpoint => new TerraformReference(this, "prometheus_endpoint");
+    [TerraformProperty("prometheus_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrometheusEndpoint { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

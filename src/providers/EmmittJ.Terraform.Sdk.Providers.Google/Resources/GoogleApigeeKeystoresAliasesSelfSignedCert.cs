@@ -6,55 +6,55 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for subject in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock
+public partial class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock : TerraformBlockBase
 {
     /// <summary>
     /// Common name of the organization. Maximum length is 64 characters.
     /// </summary>
-    [TerraformPropertyName("common_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("common_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CommonName { get; set; }
 
     /// <summary>
     /// Two-letter country code. Example, IN for India, US for United States of America.
     /// </summary>
-    [TerraformPropertyName("country_code")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("country_code")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CountryCode { get; set; }
 
     /// <summary>
     /// Email address. Max 255 characters.
     /// </summary>
-    [TerraformPropertyName("email")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("email")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Email { get; set; }
 
     /// <summary>
     /// City or town name. Maximum length is 128 characters.
     /// </summary>
-    [TerraformPropertyName("locality")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("locality")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Locality { get; set; }
 
     /// <summary>
     /// Organization name. Maximum length is 64 characters.
     /// </summary>
-    [TerraformPropertyName("org")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("org")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Org { get; set; }
 
     /// <summary>
     /// Organization team name. Maximum length is 64 characters.
     /// </summary>
-    [TerraformPropertyName("org_unit")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("org_unit")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OrgUnit { get; set; }
 
     /// <summary>
     /// State or district name. Maximum length is 128 characters.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("state")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? State { get; set; }
 
 }
@@ -63,13 +63,13 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock
 /// Block type for subject_alternative_dns_names in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsNamesBlock
+public partial class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsNamesBlock : TerraformBlockBase
 {
     /// <summary>
     /// Subject Alternative Name
     /// </summary>
-    [TerraformPropertyName("subject_alternative_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subject_alternative_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SubjectAlternativeName { get; set; }
 
 }
@@ -78,20 +78,20 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsName
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock
+public partial class GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -100,7 +100,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock
 /// Manages a google_apigee_keystores_aliases_self_signed_cert resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
+public partial class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
 {
     public GoogleApigeeKeystoresAliasesSelfSignedCert(string name) : base("google_apigee_keystores_aliases_self_signed_cert", name)
     {
@@ -112,61 +112,61 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     /// this parameter or the JSON body.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Alias is required")]
-    [TerraformPropertyName("alias")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("alias")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Alias { get; set; }
 
     /// <summary>
     /// Validity duration of certificate, in days. Accepts positive non-zero value. Defaults to 365.
     /// </summary>
-    [TerraformPropertyName("cert_validity_in_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cert_validity_in_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? CertValidityInDays { get; set; }
 
     /// <summary>
     /// The Apigee environment name
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
-    [TerraformPropertyName("environment")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("environment")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Environment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Key size. Default and maximum value is 2048 bits.
     /// </summary>
-    [TerraformPropertyName("key_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KeySize { get; set; }
 
     /// <summary>
     /// The Apigee keystore name associated in an Apigee environment
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keystore is required")]
-    [TerraformPropertyName("keystore")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("keystore")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Keystore { get; set; }
 
     /// <summary>
     /// The Apigee Organization name associated with the Apigee environment
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    [TerraformPropertyName("org_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("org_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Signature algorithm to generate private key. Valid values are SHA512withRSA, SHA384withRSA, and SHA256withRSA
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigAlg is required")]
-    [TerraformPropertyName("sig_alg")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sig_alg")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SigAlg { get; set; }
 
     /// <summary>
@@ -176,7 +176,7 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Subject block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subject block(s) allowed")]
-    [TerraformPropertyName("subject")]
+    [TerraformProperty("subject")]
     public TerraformList<TerraformBlock<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectBlock>>? Subject { get; set; }
 
     /// <summary>
@@ -184,28 +184,28 @@ public class GoogleApigeeKeystoresAliasesSelfSignedCert : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SubjectAlternativeDnsNames block(s) allowed")]
-    [TerraformPropertyName("subject_alternative_dns_names")]
+    [TerraformProperty("subject_alternative_dns_names")]
     public TerraformList<TerraformBlock<GoogleApigeeKeystoresAliasesSelfSignedCertSubjectAlternativeDnsNamesBlock>>? SubjectAlternativeDnsNames { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleApigeeKeystoresAliasesSelfSignedCertTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Chain of certificates under this alias.
     /// </summary>
-    [TerraformPropertyName("certs_info")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CertsInfo => new TerraformReference(this, "certs_info");
+    [TerraformProperty("certs_info")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CertsInfo { get; }
 
     /// <summary>
     /// Optional.Type of Alias
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
 }

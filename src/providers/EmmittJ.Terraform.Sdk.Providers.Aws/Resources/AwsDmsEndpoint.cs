@@ -6,43 +6,43 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for elasticsearch_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDmsEndpointElasticsearchSettingsBlock
+public partial class AwsDmsEndpointElasticsearchSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The endpoint_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointUri is required")]
-    [TerraformPropertyName("endpoint_uri")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("endpoint_uri")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EndpointUri { get; set; }
 
     /// <summary>
     /// The error_retry_duration attribute.
     /// </summary>
-    [TerraformPropertyName("error_retry_duration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("error_retry_duration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ErrorRetryDuration { get; set; }
 
     /// <summary>
     /// The full_load_error_percentage attribute.
     /// </summary>
-    [TerraformPropertyName("full_load_error_percentage")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("full_load_error_percentage")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? FullLoadErrorPercentage { get; set; }
 
     /// <summary>
     /// The service_access_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccessRoleArn is required")]
-    [TerraformPropertyName("service_access_role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_access_role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceAccessRoleArn { get; set; }
 
     /// <summary>
     /// The use_new_mapping_type attribute.
     /// </summary>
-    [TerraformPropertyName("use_new_mapping_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("use_new_mapping_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? UseNewMappingType { get; set; }
 
 }
@@ -51,140 +51,140 @@ public class AwsDmsEndpointElasticsearchSettingsBlock
 /// Block type for kafka_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDmsEndpointKafkaSettingsBlock
+public partial class AwsDmsEndpointKafkaSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The broker attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Broker is required")]
-    [TerraformPropertyName("broker")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("broker")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Broker { get; set; }
 
     /// <summary>
     /// The include_control_details attribute.
     /// </summary>
-    [TerraformPropertyName("include_control_details")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_control_details")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IncludeControlDetails { get; set; }
 
     /// <summary>
     /// The include_null_and_empty attribute.
     /// </summary>
-    [TerraformPropertyName("include_null_and_empty")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_null_and_empty")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IncludeNullAndEmpty { get; set; }
 
     /// <summary>
     /// The include_partition_value attribute.
     /// </summary>
-    [TerraformPropertyName("include_partition_value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_partition_value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IncludePartitionValue { get; set; }
 
     /// <summary>
     /// The include_table_alter_operations attribute.
     /// </summary>
-    [TerraformPropertyName("include_table_alter_operations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_table_alter_operations")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IncludeTableAlterOperations { get; set; }
 
     /// <summary>
     /// The include_transaction_details attribute.
     /// </summary>
-    [TerraformPropertyName("include_transaction_details")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_transaction_details")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IncludeTransactionDetails { get; set; }
 
     /// <summary>
     /// The message_format attribute.
     /// </summary>
-    [TerraformPropertyName("message_format")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("message_format")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MessageFormat { get; set; }
 
     /// <summary>
     /// The message_max_bytes attribute.
     /// </summary>
-    [TerraformPropertyName("message_max_bytes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("message_max_bytes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MessageMaxBytes { get; set; }
 
     /// <summary>
     /// The no_hex_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("no_hex_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("no_hex_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? NoHexPrefix { get; set; }
 
     /// <summary>
     /// The partition_include_schema_table attribute.
     /// </summary>
-    [TerraformPropertyName("partition_include_schema_table")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("partition_include_schema_table")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PartitionIncludeSchemaTable { get; set; }
 
     /// <summary>
     /// The sasl_mechanism attribute.
     /// </summary>
-    [TerraformPropertyName("sasl_mechanism")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sasl_mechanism")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SaslMechanism { get; set; }
 
     /// <summary>
     /// The sasl_password attribute.
     /// </summary>
-    [TerraformPropertyName("sasl_password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sasl_password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SaslPassword { get; set; }
 
     /// <summary>
     /// The sasl_username attribute.
     /// </summary>
-    [TerraformPropertyName("sasl_username")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sasl_username")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SaslUsername { get; set; }
 
     /// <summary>
     /// The security_protocol attribute.
     /// </summary>
-    [TerraformPropertyName("security_protocol")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_protocol")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SecurityProtocol { get; set; }
 
     /// <summary>
     /// The ssl_ca_certificate_arn attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_ca_certificate_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_ca_certificate_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SslCaCertificateArn { get; set; }
 
     /// <summary>
     /// The ssl_client_certificate_arn attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_client_certificate_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_client_certificate_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SslClientCertificateArn { get; set; }
 
     /// <summary>
     /// The ssl_client_key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_client_key_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_client_key_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SslClientKeyArn { get; set; }
 
     /// <summary>
     /// The ssl_client_key_password attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_client_key_password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_client_key_password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SslClientKeyPassword { get; set; }
 
     /// <summary>
     /// The topic attribute.
     /// </summary>
-    [TerraformPropertyName("topic")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("topic")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Topic { get; set; }
 
 }
@@ -193,76 +193,76 @@ public class AwsDmsEndpointKafkaSettingsBlock
 /// Block type for kinesis_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDmsEndpointKinesisSettingsBlock
+public partial class AwsDmsEndpointKinesisSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The include_control_details attribute.
     /// </summary>
-    [TerraformPropertyName("include_control_details")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_control_details")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IncludeControlDetails { get; set; }
 
     /// <summary>
     /// The include_null_and_empty attribute.
     /// </summary>
-    [TerraformPropertyName("include_null_and_empty")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_null_and_empty")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IncludeNullAndEmpty { get; set; }
 
     /// <summary>
     /// The include_partition_value attribute.
     /// </summary>
-    [TerraformPropertyName("include_partition_value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_partition_value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IncludePartitionValue { get; set; }
 
     /// <summary>
     /// The include_table_alter_operations attribute.
     /// </summary>
-    [TerraformPropertyName("include_table_alter_operations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_table_alter_operations")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IncludeTableAlterOperations { get; set; }
 
     /// <summary>
     /// The include_transaction_details attribute.
     /// </summary>
-    [TerraformPropertyName("include_transaction_details")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_transaction_details")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IncludeTransactionDetails { get; set; }
 
     /// <summary>
     /// The message_format attribute.
     /// </summary>
-    [TerraformPropertyName("message_format")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("message_format")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MessageFormat { get; set; }
 
     /// <summary>
     /// The partition_include_schema_table attribute.
     /// </summary>
-    [TerraformPropertyName("partition_include_schema_table")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("partition_include_schema_table")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PartitionIncludeSchemaTable { get; set; }
 
     /// <summary>
     /// The service_access_role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("service_access_role_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_access_role_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServiceAccessRoleArn { get; set; }
 
     /// <summary>
     /// The stream_arn attribute.
     /// </summary>
-    [TerraformPropertyName("stream_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("stream_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StreamArn { get; set; }
 
     /// <summary>
     /// The use_large_integer_value attribute.
     /// </summary>
-    [TerraformPropertyName("use_large_integer_value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("use_large_integer_value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? UseLargeIntegerValue { get; set; }
 
 }
@@ -271,48 +271,48 @@ public class AwsDmsEndpointKinesisSettingsBlock
 /// Block type for mongodb_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDmsEndpointMongodbSettingsBlock
+public partial class AwsDmsEndpointMongodbSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The auth_mechanism attribute.
     /// </summary>
-    [TerraformPropertyName("auth_mechanism")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auth_mechanism")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthMechanism { get; set; }
 
     /// <summary>
     /// The auth_source attribute.
     /// </summary>
-    [TerraformPropertyName("auth_source")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auth_source")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthSource { get; set; }
 
     /// <summary>
     /// The auth_type attribute.
     /// </summary>
-    [TerraformPropertyName("auth_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auth_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthType { get; set; }
 
     /// <summary>
     /// The docs_to_investigate attribute.
     /// </summary>
-    [TerraformPropertyName("docs_to_investigate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("docs_to_investigate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DocsToInvestigate { get; set; }
 
     /// <summary>
     /// The extract_doc_id attribute.
     /// </summary>
-    [TerraformPropertyName("extract_doc_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("extract_doc_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExtractDocId { get; set; }
 
     /// <summary>
     /// The nesting_level attribute.
     /// </summary>
-    [TerraformPropertyName("nesting_level")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("nesting_level")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NestingLevel { get; set; }
 
 }
@@ -321,77 +321,77 @@ public class AwsDmsEndpointMongodbSettingsBlock
 /// Block type for mysql_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDmsEndpointMysqlSettingsBlock
+public partial class AwsDmsEndpointMysqlSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The after_connect_script attribute.
     /// </summary>
-    [TerraformPropertyName("after_connect_script")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AfterConnectScript { get; set; } = default!;
+    [TerraformProperty("after_connect_script")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AfterConnectScript { get; set; }
 
     /// <summary>
     /// The authentication_method attribute.
     /// </summary>
-    [TerraformPropertyName("authentication_method")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AuthenticationMethod { get; set; } = default!;
+    [TerraformProperty("authentication_method")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AuthenticationMethod { get; set; }
 
     /// <summary>
     /// The clean_source_metadata_on_mismatch attribute.
     /// </summary>
-    [TerraformPropertyName("clean_source_metadata_on_mismatch")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> CleanSourceMetadataOnMismatch { get; set; } = default!;
+    [TerraformProperty("clean_source_metadata_on_mismatch")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> CleanSourceMetadataOnMismatch { get; set; }
 
     /// <summary>
     /// The events_poll_interval attribute.
     /// </summary>
-    [TerraformPropertyName("events_poll_interval")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> EventsPollInterval { get; set; } = default!;
+    [TerraformProperty("events_poll_interval")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> EventsPollInterval { get; set; }
 
     /// <summary>
     /// The execute_timeout attribute.
     /// </summary>
-    [TerraformPropertyName("execute_timeout")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> ExecuteTimeout { get; set; } = default!;
+    [TerraformProperty("execute_timeout")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> ExecuteTimeout { get; set; }
 
     /// <summary>
     /// The max_file_size attribute.
     /// </summary>
-    [TerraformPropertyName("max_file_size")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxFileSize { get; set; } = default!;
+    [TerraformProperty("max_file_size")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxFileSize { get; set; }
 
     /// <summary>
     /// The parallel_load_threads attribute.
     /// </summary>
-    [TerraformPropertyName("parallel_load_threads")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> ParallelLoadThreads { get; set; } = default!;
+    [TerraformProperty("parallel_load_threads")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> ParallelLoadThreads { get; set; }
 
     /// <summary>
     /// The server_timezone attribute.
     /// </summary>
-    [TerraformPropertyName("server_timezone")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ServerTimezone { get; set; } = default!;
+    [TerraformProperty("server_timezone")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ServerTimezone { get; set; }
 
     /// <summary>
     /// The service_access_role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("service_access_role_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ServiceAccessRoleArn { get; set; } = default!;
+    [TerraformProperty("service_access_role_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ServiceAccessRoleArn { get; set; }
 
     /// <summary>
     /// The target_db_type attribute.
     /// </summary>
-    [TerraformPropertyName("target_db_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> TargetDbType { get; set; } = default!;
+    [TerraformProperty("target_db_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> TargetDbType { get; set; }
 
 }
 
@@ -399,14 +399,14 @@ public class AwsDmsEndpointMysqlSettingsBlock
 /// Block type for oracle_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDmsEndpointOracleSettingsBlock
+public partial class AwsDmsEndpointOracleSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The authentication_method attribute.
     /// </summary>
-    [TerraformPropertyName("authentication_method")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AuthenticationMethod { get; set; } = default!;
+    [TerraformProperty("authentication_method")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AuthenticationMethod { get; set; }
 
 }
 
@@ -414,132 +414,132 @@ public class AwsDmsEndpointOracleSettingsBlock
 /// Block type for postgres_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDmsEndpointPostgresSettingsBlock
+public partial class AwsDmsEndpointPostgresSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The after_connect_script attribute.
     /// </summary>
-    [TerraformPropertyName("after_connect_script")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("after_connect_script")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AfterConnectScript { get; set; }
 
     /// <summary>
     /// The authentication_method attribute.
     /// </summary>
-    [TerraformPropertyName("authentication_method")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AuthenticationMethod { get; set; } = default!;
+    [TerraformProperty("authentication_method")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AuthenticationMethod { get; set; }
 
     /// <summary>
     /// The babelfish_database_name attribute.
     /// </summary>
-    [TerraformPropertyName("babelfish_database_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("babelfish_database_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BabelfishDatabaseName { get; set; }
 
     /// <summary>
     /// The capture_ddls attribute.
     /// </summary>
-    [TerraformPropertyName("capture_ddls")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("capture_ddls")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? CaptureDdls { get; set; }
 
     /// <summary>
     /// The database_mode attribute.
     /// </summary>
-    [TerraformPropertyName("database_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("database_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DatabaseMode { get; set; }
 
     /// <summary>
     /// The ddl_artifacts_schema attribute.
     /// </summary>
-    [TerraformPropertyName("ddl_artifacts_schema")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ddl_artifacts_schema")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DdlArtifactsSchema { get; set; }
 
     /// <summary>
     /// The execute_timeout attribute.
     /// </summary>
-    [TerraformPropertyName("execute_timeout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("execute_timeout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ExecuteTimeout { get; set; }
 
     /// <summary>
     /// The fail_tasks_on_lob_truncation attribute.
     /// </summary>
-    [TerraformPropertyName("fail_tasks_on_lob_truncation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("fail_tasks_on_lob_truncation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? FailTasksOnLobTruncation { get; set; }
 
     /// <summary>
     /// The heartbeat_enable attribute.
     /// </summary>
-    [TerraformPropertyName("heartbeat_enable")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("heartbeat_enable")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? HeartbeatEnable { get; set; }
 
     /// <summary>
     /// The heartbeat_frequency attribute.
     /// </summary>
-    [TerraformPropertyName("heartbeat_frequency")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("heartbeat_frequency")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? HeartbeatFrequency { get; set; }
 
     /// <summary>
     /// The heartbeat_schema attribute.
     /// </summary>
-    [TerraformPropertyName("heartbeat_schema")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("heartbeat_schema")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HeartbeatSchema { get; set; }
 
     /// <summary>
     /// The map_boolean_as_boolean attribute.
     /// </summary>
-    [TerraformPropertyName("map_boolean_as_boolean")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("map_boolean_as_boolean")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? MapBooleanAsBoolean { get; set; }
 
     /// <summary>
     /// The map_jsonb_as_clob attribute.
     /// </summary>
-    [TerraformPropertyName("map_jsonb_as_clob")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("map_jsonb_as_clob")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? MapJsonbAsClob { get; set; }
 
     /// <summary>
     /// The map_long_varchar_as attribute.
     /// </summary>
-    [TerraformPropertyName("map_long_varchar_as")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("map_long_varchar_as")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MapLongVarcharAs { get; set; }
 
     /// <summary>
     /// The max_file_size attribute.
     /// </summary>
-    [TerraformPropertyName("max_file_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_file_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxFileSize { get; set; }
 
     /// <summary>
     /// The plugin_name attribute.
     /// </summary>
-    [TerraformPropertyName("plugin_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("plugin_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PluginName { get; set; }
 
     /// <summary>
     /// The service_access_role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("service_access_role_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_access_role_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServiceAccessRoleArn { get; set; }
 
     /// <summary>
     /// The slot_name attribute.
     /// </summary>
-    [TerraformPropertyName("slot_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("slot_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SlotName { get; set; }
 
 }
@@ -548,58 +548,58 @@ public class AwsDmsEndpointPostgresSettingsBlock
 /// Block type for redis_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDmsEndpointRedisSettingsBlock
+public partial class AwsDmsEndpointRedisSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The auth_password attribute.
     /// </summary>
-    [TerraformPropertyName("auth_password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auth_password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthPassword { get; set; }
 
     /// <summary>
     /// The auth_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
-    [TerraformPropertyName("auth_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("auth_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AuthType { get; set; }
 
     /// <summary>
     /// The auth_user_name attribute.
     /// </summary>
-    [TerraformPropertyName("auth_user_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auth_user_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthUserName { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    [TerraformPropertyName("port")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("port")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// The server_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerName is required")]
-    [TerraformPropertyName("server_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("server_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServerName { get; set; }
 
     /// <summary>
     /// The ssl_ca_certificate_arn attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_ca_certificate_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_ca_certificate_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SslCaCertificateArn { get; set; }
 
     /// <summary>
     /// The ssl_security_protocol attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_security_protocol")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_security_protocol")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SslSecurityProtocol { get; set; }
 
 }
@@ -608,41 +608,41 @@ public class AwsDmsEndpointRedisSettingsBlock
 /// Block type for redshift_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDmsEndpointRedshiftSettingsBlock
+public partial class AwsDmsEndpointRedshiftSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The bucket_folder attribute.
     /// </summary>
-    [TerraformPropertyName("bucket_folder")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bucket_folder")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BucketFolder { get; set; }
 
     /// <summary>
     /// The bucket_name attribute.
     /// </summary>
-    [TerraformPropertyName("bucket_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bucket_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BucketName { get; set; }
 
     /// <summary>
     /// The encryption_mode attribute.
     /// </summary>
-    [TerraformPropertyName("encryption_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("encryption_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EncryptionMode { get; set; }
 
     /// <summary>
     /// The server_side_encryption_kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("server_side_encryption_kms_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("server_side_encryption_kms_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServerSideEncryptionKmsKeyId { get; set; }
 
     /// <summary>
     /// The service_access_role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("service_access_role_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_access_role_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServiceAccessRoleArn { get; set; }
 
 }
@@ -651,20 +651,20 @@ public class AwsDmsEndpointRedshiftSettingsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDmsEndpointTimeoutsBlock
+public partial class AwsDmsEndpointTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -673,7 +673,7 @@ public class AwsDmsEndpointTimeoutsBlock
 /// Manages a aws_dms_endpoint resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsDmsEndpoint : TerraformResource
+public partial class AwsDmsEndpoint : TerraformResource
 {
     public AwsDmsEndpoint(string name) : base("aws_dms_endpoint", name)
     {
@@ -682,144 +682,144 @@ public class AwsDmsEndpoint : TerraformResource
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CertificateArn { get; set; } = default!;
+    [TerraformProperty("certificate_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CertificateArn { get; set; }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
-    [TerraformPropertyName("database_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("database_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DatabaseName { get; set; }
 
     /// <summary>
     /// The endpoint_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointId is required")]
-    [TerraformPropertyName("endpoint_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("endpoint_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EndpointId { get; set; }
 
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
-    [TerraformPropertyName("endpoint_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("endpoint_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EndpointType { get; set; }
 
     /// <summary>
     /// The engine_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineName is required")]
-    [TerraformPropertyName("engine_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("engine_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EngineName { get; set; }
 
     /// <summary>
     /// The extra_connection_attributes attribute.
     /// </summary>
-    [TerraformPropertyName("extra_connection_attributes")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ExtraConnectionAttributes { get; set; } = default!;
+    [TerraformProperty("extra_connection_attributes")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ExtraConnectionAttributes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KmsKeyArn { get; set; } = default!;
+    [TerraformProperty("kms_key_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KmsKeyArn { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    [TerraformPropertyName("password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// The pause_replication_tasks attribute.
     /// </summary>
-    [TerraformPropertyName("pause_replication_tasks")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("pause_replication_tasks")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PauseReplicationTasks { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    [TerraformPropertyName("port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The secrets_manager_access_role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("secrets_manager_access_role_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("secrets_manager_access_role_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SecretsManagerAccessRoleArn { get; set; }
 
     /// <summary>
     /// The secrets_manager_arn attribute.
     /// </summary>
-    [TerraformPropertyName("secrets_manager_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("secrets_manager_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SecretsManagerArn { get; set; }
 
     /// <summary>
     /// The server_name attribute.
     /// </summary>
-    [TerraformPropertyName("server_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("server_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServerName { get; set; }
 
     /// <summary>
     /// The service_access_role attribute.
     /// </summary>
-    [TerraformPropertyName("service_access_role")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_access_role")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServiceAccessRole { get; set; }
 
     /// <summary>
     /// The ssl_mode attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_mode")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SslMode { get; set; } = default!;
+    [TerraformProperty("ssl_mode")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SslMode { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    [TerraformPropertyName("username")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("username")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Username { get; set; }
 
     /// <summary>
@@ -827,7 +827,7 @@ public class AwsDmsEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ElasticsearchSettings block(s) allowed")]
-    [TerraformPropertyName("elasticsearch_settings")]
+    [TerraformProperty("elasticsearch_settings")]
     public TerraformList<TerraformBlock<AwsDmsEndpointElasticsearchSettingsBlock>>? ElasticsearchSettings { get; set; }
 
     /// <summary>
@@ -835,7 +835,7 @@ public class AwsDmsEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KafkaSettings block(s) allowed")]
-    [TerraformPropertyName("kafka_settings")]
+    [TerraformProperty("kafka_settings")]
     public TerraformList<TerraformBlock<AwsDmsEndpointKafkaSettingsBlock>>? KafkaSettings { get; set; }
 
     /// <summary>
@@ -843,7 +843,7 @@ public class AwsDmsEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisSettings block(s) allowed")]
-    [TerraformPropertyName("kinesis_settings")]
+    [TerraformProperty("kinesis_settings")]
     public TerraformList<TerraformBlock<AwsDmsEndpointKinesisSettingsBlock>>? KinesisSettings { get; set; }
 
     /// <summary>
@@ -851,7 +851,7 @@ public class AwsDmsEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MongodbSettings block(s) allowed")]
-    [TerraformPropertyName("mongodb_settings")]
+    [TerraformProperty("mongodb_settings")]
     public TerraformList<TerraformBlock<AwsDmsEndpointMongodbSettingsBlock>>? MongodbSettings { get; set; }
 
     /// <summary>
@@ -859,7 +859,7 @@ public class AwsDmsEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MysqlSettings block(s) allowed")]
-    [TerraformPropertyName("mysql_settings")]
+    [TerraformProperty("mysql_settings")]
     public TerraformList<TerraformBlock<AwsDmsEndpointMysqlSettingsBlock>>? MysqlSettings { get; set; }
 
     /// <summary>
@@ -867,7 +867,7 @@ public class AwsDmsEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OracleSettings block(s) allowed")]
-    [TerraformPropertyName("oracle_settings")]
+    [TerraformProperty("oracle_settings")]
     public TerraformList<TerraformBlock<AwsDmsEndpointOracleSettingsBlock>>? OracleSettings { get; set; }
 
     /// <summary>
@@ -875,7 +875,7 @@ public class AwsDmsEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PostgresSettings block(s) allowed")]
-    [TerraformPropertyName("postgres_settings")]
+    [TerraformProperty("postgres_settings")]
     public TerraformList<TerraformBlock<AwsDmsEndpointPostgresSettingsBlock>>? PostgresSettings { get; set; }
 
     /// <summary>
@@ -883,7 +883,7 @@ public class AwsDmsEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedisSettings block(s) allowed")]
-    [TerraformPropertyName("redis_settings")]
+    [TerraformProperty("redis_settings")]
     public TerraformList<TerraformBlock<AwsDmsEndpointRedisSettingsBlock>>? RedisSettings { get; set; }
 
     /// <summary>
@@ -891,21 +891,21 @@ public class AwsDmsEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedshiftSettings block(s) allowed")]
-    [TerraformPropertyName("redshift_settings")]
+    [TerraformProperty("redshift_settings")]
     public TerraformList<TerraformBlock<AwsDmsEndpointRedshiftSettingsBlock>>? RedshiftSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsDmsEndpointTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The endpoint_arn attribute.
     /// </summary>
-    [TerraformPropertyName("endpoint_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EndpointArn => new TerraformReference(this, "endpoint_arn");
+    [TerraformProperty("endpoint_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EndpointArn { get; }
 
 }

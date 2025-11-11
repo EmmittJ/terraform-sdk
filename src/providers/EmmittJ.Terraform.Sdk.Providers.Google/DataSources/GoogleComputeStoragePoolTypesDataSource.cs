@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_storage_pool_types.
 /// </summary>
-public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
+public partial class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
 {
     public GoogleComputeStoragePoolTypesDataSource(string name) : base("google_compute_storage_pool_types", name)
     {
@@ -14,129 +14,129 @@ public class GoogleComputeStoragePoolTypesDataSource : TerraformDataSource
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Name of the storage pool type.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePoolType is required")]
-    [TerraformPropertyName("storage_pool_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_pool_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StoragePoolType { get; set; }
 
     /// <summary>
     /// The name of the zone.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
-    [TerraformPropertyName("zone")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("zone")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The deprecation status associated with this storage pool type.
     /// </summary>
-    [TerraformPropertyName("deprecated")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Deprecated => new TerraformReference(this, "deprecated");
+    [TerraformProperty("deprecated")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Deprecated { get; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Id { get; }
 
     /// <summary>
     /// Type of the resource. Always compute#storagePoolType for storage pool types.
     /// </summary>
-    [TerraformPropertyName("kind")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Kind => new TerraformReference(this, "kind");
+    [TerraformProperty("kind")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Kind { get; }
 
     /// <summary>
     /// Maximum storage pool size in GB.
     /// </summary>
-    [TerraformPropertyName("max_pool_provisioned_capacity_gb")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaxPoolProvisionedCapacityGb => new TerraformReference(this, "max_pool_provisioned_capacity_gb");
+    [TerraformProperty("max_pool_provisioned_capacity_gb")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaxPoolProvisionedCapacityGb { get; }
 
     /// <summary>
     /// Maximum provisioned IOPS.
     /// </summary>
-    [TerraformPropertyName("max_pool_provisioned_iops")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaxPoolProvisionedIops => new TerraformReference(this, "max_pool_provisioned_iops");
+    [TerraformProperty("max_pool_provisioned_iops")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaxPoolProvisionedIops { get; }
 
     /// <summary>
     /// Maximum provisioned throughput.
     /// </summary>
-    [TerraformPropertyName("max_pool_provisioned_throughput")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaxPoolProvisionedThroughput => new TerraformReference(this, "max_pool_provisioned_throughput");
+    [TerraformProperty("max_pool_provisioned_throughput")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaxPoolProvisionedThroughput { get; }
 
     /// <summary>
     /// Minimum storage pool size in GB.
     /// </summary>
-    [TerraformPropertyName("min_pool_provisioned_capacity_gb")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MinPoolProvisionedCapacityGb => new TerraformReference(this, "min_pool_provisioned_capacity_gb");
+    [TerraformProperty("min_pool_provisioned_capacity_gb")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MinPoolProvisionedCapacityGb { get; }
 
     /// <summary>
     /// Minimum provisioned IOPS.
     /// </summary>
-    [TerraformPropertyName("min_pool_provisioned_iops")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MinPoolProvisionedIops => new TerraformReference(this, "min_pool_provisioned_iops");
+    [TerraformProperty("min_pool_provisioned_iops")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MinPoolProvisionedIops { get; }
 
     /// <summary>
     /// Minimum provisioned throughput.
     /// </summary>
-    [TerraformPropertyName("min_pool_provisioned_throughput")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MinPoolProvisionedThroughput => new TerraformReference(this, "min_pool_provisioned_throughput");
+    [TerraformProperty("min_pool_provisioned_throughput")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MinPoolProvisionedThroughput { get; }
 
     /// <summary>
     /// Name of the resource.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Server-defined URL for this resource with the resource id.
     /// </summary>
-    [TerraformPropertyName("self_link_with_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLinkWithId => new TerraformReference(this, "self_link_with_id");
+    [TerraformProperty("self_link_with_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLinkWithId { get; }
 
     /// <summary>
     /// The list of disk types supported in this storage pool type.
     /// </summary>
-    [TerraformPropertyName("supported_disk_types")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SupportedDiskTypes => new TerraformReference(this, "supported_disk_types");
+    [TerraformProperty("supported_disk_types")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SupportedDiskTypes { get; }
 
 }

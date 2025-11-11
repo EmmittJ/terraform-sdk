@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for s3_destination in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMacie2ClassificationExportConfigurationS3DestinationBlock
+public partial class AwsMacie2ClassificationExportConfigurationS3DestinationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The bucket_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
-    [TerraformPropertyName("bucket_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BucketName { get; set; }
 
     /// <summary>
     /// The key_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("key_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KeyPrefix { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyArn is required")]
-    [TerraformPropertyName("kms_key_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kms_key_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KmsKeyArn { get; set; }
 
 }
@@ -37,7 +37,7 @@ public class AwsMacie2ClassificationExportConfigurationS3DestinationBlock
 /// Manages a aws_macie2_classification_export_configuration resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsMacie2ClassificationExportConfiguration : TerraformResource
+public partial class AwsMacie2ClassificationExportConfiguration : TerraformResource
 {
     public AwsMacie2ClassificationExportConfiguration(string name) : base("aws_macie2_classification_export_configuration", name)
     {
@@ -46,16 +46,16 @@ public class AwsMacie2ClassificationExportConfiguration : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for s3_destination.
@@ -64,7 +64,7 @@ public class AwsMacie2ClassificationExportConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3Destination is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3Destination block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3Destination block(s) allowed")]
-    [TerraformPropertyName("s3_destination")]
+    [TerraformProperty("s3_destination")]
     public TerraformList<TerraformBlock<AwsMacie2ClassificationExportConfigurationS3DestinationBlock>>? S3Destination { get; set; }
 
 }

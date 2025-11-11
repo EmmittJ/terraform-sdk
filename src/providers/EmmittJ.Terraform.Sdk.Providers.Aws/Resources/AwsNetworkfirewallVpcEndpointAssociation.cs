@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for subnet_mapping in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock
+public partial class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock : TerraformBlockBase
 {
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    [TerraformPropertyName("ip_address_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> IpAddressType { get; set; } = default!;
+    [TerraformProperty("ip_address_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> IpAddressType { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformPropertyName("subnet_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SubnetId { get; set; }
 
 }
@@ -29,20 +29,20 @@ public class AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock
+public partial class AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -50,7 +50,7 @@ public class AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock
 /// <summary>
 /// Manages a aws_networkfirewall_vpc_endpoint_association resource.
 /// </summary>
-public class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
+public partial class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
 {
     public AwsNetworkfirewallVpcEndpointAssociation(string name) : base("aws_networkfirewall_vpc_endpoint_association", name)
     {
@@ -59,80 +59,80 @@ public class AwsNetworkfirewallVpcEndpointAssociation : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The firewall_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallArn is required")]
-    [TerraformPropertyName("firewall_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("firewall_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FirewallArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    [TerraformPropertyName("vpc_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vpc_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VpcId { get; set; }
 
     /// <summary>
     /// Block for subnet_mapping.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("subnet_mapping")]
+    [TerraformProperty("subnet_mapping")]
     public TerraformList<TerraformBlock<AwsNetworkfirewallVpcEndpointAssociationSubnetMappingBlock>>? SubnetMapping { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsNetworkfirewallVpcEndpointAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The vpc_endpoint_association_arn attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_endpoint_association_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VpcEndpointAssociationArn => new TerraformReference(this, "vpc_endpoint_association_arn");
+    [TerraformProperty("vpc_endpoint_association_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VpcEndpointAssociationArn { get; }
 
     /// <summary>
     /// The vpc_endpoint_association_id attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_endpoint_association_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VpcEndpointAssociationId => new TerraformReference(this, "vpc_endpoint_association_id");
+    [TerraformProperty("vpc_endpoint_association_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VpcEndpointAssociationId { get; }
 
     /// <summary>
     /// The vpc_endpoint_association_status attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_endpoint_association_status")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> VpcEndpointAssociationStatus => new TerraformReference(this, "vpc_endpoint_association_status");
+    [TerraformProperty("vpc_endpoint_association_status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> VpcEndpointAssociationStatus { get; }
 
 }

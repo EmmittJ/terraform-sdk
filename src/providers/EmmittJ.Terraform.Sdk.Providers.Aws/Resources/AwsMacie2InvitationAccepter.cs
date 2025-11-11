@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMacie2InvitationAccepterTimeoutsBlock
+public partial class AwsMacie2InvitationAccepterTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsMacie2InvitationAccepterTimeoutsBlock
 /// <summary>
 /// Manages a aws_macie2_invitation_accepter resource.
 /// </summary>
-public class AwsMacie2InvitationAccepter : TerraformResource
+public partial class AwsMacie2InvitationAccepter : TerraformResource
 {
     public AwsMacie2InvitationAccepter(string name) : base("aws_macie2_invitation_accepter", name)
     {
@@ -30,36 +30,36 @@ public class AwsMacie2InvitationAccepter : TerraformResource
     /// The administrator_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdministratorAccountId is required")]
-    [TerraformPropertyName("administrator_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("administrator_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AdministratorAccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsMacie2InvitationAccepterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The invitation_id attribute.
     /// </summary>
-    [TerraformPropertyName("invitation_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> InvitationId => new TerraformReference(this, "invitation_id");
+    [TerraformProperty("invitation_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> InvitationId { get; }
 
 }

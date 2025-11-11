@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_partition.
 /// </summary>
-public class AwsPartitionDataSource : TerraformDataSource
+public partial class AwsPartitionDataSource : TerraformDataSource
 {
     public AwsPartitionDataSource(string name) : base("aws_partition", name)
     {
@@ -14,29 +14,29 @@ public class AwsPartitionDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The dns_suffix attribute.
     /// </summary>
-    [TerraformPropertyName("dns_suffix")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DnsSuffix => new TerraformReference(this, "dns_suffix");
+    [TerraformProperty("dns_suffix")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DnsSuffix { get; }
 
     /// <summary>
     /// The partition attribute.
     /// </summary>
-    [TerraformPropertyName("partition")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Partition => new TerraformReference(this, "partition");
+    [TerraformProperty("partition")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Partition { get; }
 
     /// <summary>
     /// The reverse_dns_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("reverse_dns_prefix")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ReverseDnsPrefix => new TerraformReference(this, "reverse_dns_prefix");
+    [TerraformProperty("reverse_dns_prefix")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ReverseDnsPrefix { get; }
 
 }

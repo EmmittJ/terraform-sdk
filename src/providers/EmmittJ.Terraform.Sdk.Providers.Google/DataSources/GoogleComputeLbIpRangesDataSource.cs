@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_lb_ip_ranges.
 /// </summary>
-public class GoogleComputeLbIpRangesDataSource : TerraformDataSource
+public partial class GoogleComputeLbIpRangesDataSource : TerraformDataSource
 {
     public GoogleComputeLbIpRangesDataSource(string name) : base("google_compute_lb_ip_ranges", name)
     {
@@ -14,22 +14,22 @@ public class GoogleComputeLbIpRangesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The http_ssl_tcp_internal attribute.
     /// </summary>
-    [TerraformPropertyName("http_ssl_tcp_internal")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> HttpSslTcpInternal => new TerraformReference(this, "http_ssl_tcp_internal");
+    [TerraformProperty("http_ssl_tcp_internal")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> HttpSslTcpInternal { get; }
 
     /// <summary>
     /// The network attribute.
     /// </summary>
-    [TerraformPropertyName("network")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Network => new TerraformReference(this, "network");
+    [TerraformProperty("network")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Network { get; }
 
 }

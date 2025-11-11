@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock
+public partial class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzureadApplicationFederatedIdentityCredentialTimeoutsBlock
 /// <summary>
 /// Manages a azuread_application_federated_identity_credential resource.
 /// </summary>
-public class AzureadApplicationFederatedIdentityCredential : TerraformResource
+public partial class AzureadApplicationFederatedIdentityCredential : TerraformResource
 {
     public AzureadApplicationFederatedIdentityCredential(string name) : base("azuread_application_federated_identity_credential", name)
     {
@@ -51,68 +51,68 @@ public class AzureadApplicationFederatedIdentityCredential : TerraformResource
     /// The resource ID of the application for which this federated identity credential should be created
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    [TerraformPropertyName("application_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("application_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// List of audiences that can appear in the external token. This specifies what should be accepted in the `aud` claim of incoming tokens.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Audiences is required")]
-    [TerraformPropertyName("audiences")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("audiences")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Audiences { get; set; }
 
     /// <summary>
     /// A description for the federated identity credential
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A unique display name for the federated identity credential
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The URL of the external identity provider, which must match the issuer claim of the external token being exchanged. The combination of the values of issuer and subject must be unique on the app.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
-    [TerraformPropertyName("issuer")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("issuer")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Issuer { get; set; }
 
     /// <summary>
     /// The identifier of the external software workload within the external identity provider. The combination of issuer and subject must be unique on the app.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subject is required")]
-    [TerraformPropertyName("subject")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subject")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Subject { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadApplicationFederatedIdentityCredentialTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A UUID used to uniquely identify this federated identity credential
     /// </summary>
-    [TerraformPropertyName("credential_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CredentialId => new TerraformReference(this, "credential_id");
+    [TerraformProperty("credential_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CredentialId { get; }
 
 }

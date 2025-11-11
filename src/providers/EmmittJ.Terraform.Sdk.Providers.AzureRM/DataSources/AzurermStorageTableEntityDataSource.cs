@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageTableEntityDataSourceTimeoutsBlock
+public partial class AzurermStorageTableEntityDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermStorageTableEntityDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_storage_table_entity.
 /// </summary>
-public class AzurermStorageTableEntityDataSource : TerraformDataSource
+public partial class AzurermStorageTableEntityDataSource : TerraformDataSource
 {
     public AzurermStorageTableEntityDataSource(string name) : base("azurerm_storage_table_entity", name)
     {
@@ -29,46 +29,46 @@ public class AzurermStorageTableEntityDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartitionKey is required")]
-    [TerraformPropertyName("partition_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("partition_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PartitionKey { get; set; }
 
     /// <summary>
     /// The row_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RowKey is required")]
-    [TerraformPropertyName("row_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("row_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RowKey { get; set; }
 
     /// <summary>
     /// The storage_table_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageTableId is required")]
-    [TerraformPropertyName("storage_table_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_table_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageTableId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermStorageTableEntityDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The entity attribute.
     /// </summary>
-    [TerraformPropertyName("entity")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Entity => new TerraformReference(this, "entity");
+    [TerraformProperty("entity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Entity { get; }
 
 }

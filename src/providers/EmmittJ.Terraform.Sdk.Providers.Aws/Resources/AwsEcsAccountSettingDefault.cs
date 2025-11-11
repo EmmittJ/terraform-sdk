@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_ecs_account_setting_default resource.
 /// </summary>
-public class AwsEcsAccountSettingDefault : TerraformResource
+public partial class AwsEcsAccountSettingDefault : TerraformResource
 {
     public AwsEcsAccountSettingDefault(string name) : base("aws_ecs_account_setting_default", name)
     {
@@ -14,38 +14,38 @@ public class AwsEcsAccountSettingDefault : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
     /// <summary>
     /// The principal_arn attribute.
     /// </summary>
-    [TerraformPropertyName("principal_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrincipalArn => new TerraformReference(this, "principal_arn");
+    [TerraformProperty("principal_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrincipalArn { get; }
 
 }

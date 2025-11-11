@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_router.
 /// </summary>
-public class GoogleComputeRouterDataSource : TerraformDataSource
+public partial class GoogleComputeRouterDataSource : TerraformDataSource
 {
     public GoogleComputeRouterDataSource(string name) : base("google_compute_router", name)
     {
@@ -14,9 +14,9 @@ public class GoogleComputeRouterDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long, and
@@ -27,80 +27,80 @@ public class GoogleComputeRouterDataSource : TerraformDataSource
     /// except the last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// A reference to the network to which this router belongs.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
-    [TerraformPropertyName("network")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Region where the router resides.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// BGP information specific to this router.
     /// </summary>
-    [TerraformPropertyName("bgp")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Bgp => new TerraformReference(this, "bgp");
+    [TerraformProperty("bgp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Bgp { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// Indicates if a router is dedicated for use with encrypted VLAN
     /// attachments (interconnectAttachments).
     /// </summary>
-    [TerraformPropertyName("encrypted_interconnect_router")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EncryptedInterconnectRouter => new TerraformReference(this, "encrypted_interconnect_router");
+    [TerraformProperty("encrypted_interconnect_router")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EncryptedInterconnectRouter { get; }
 
     /// <summary>
     /// Keys used for MD5 authentication.
     /// </summary>
-    [TerraformPropertyName("md5_authentication_keys")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Md5AuthenticationKeys => new TerraformReference(this, "md5_authentication_keys");
+    [TerraformProperty("md5_authentication_keys")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Md5AuthenticationKeys { get; }
 
     /// <summary>
     /// Additional params passed with the request, but not persisted as part of resource payload
     /// </summary>
-    [TerraformPropertyName("params")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Params => new TerraformReference(this, "params");
+    [TerraformProperty("params")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Params { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
 }

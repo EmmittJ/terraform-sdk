@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirebaseAppCheckServiceConfigTimeoutsBlock
+public partial class GoogleFirebaseAppCheckServiceConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleFirebaseAppCheckServiceConfigTimeoutsBlock
 /// <summary>
 /// Manages a google_firebase_app_check_service_config resource.
 /// </summary>
-public class GoogleFirebaseAppCheckServiceConfig : TerraformResource
+public partial class GoogleFirebaseAppCheckServiceConfig : TerraformResource
 {
     public GoogleFirebaseAppCheckServiceConfig(string name) : base("google_firebase_app_check_service_config", name)
     {
@@ -72,23 +72,23 @@ public class GoogleFirebaseAppCheckServiceConfig : TerraformResource
     /// If your app has not launched yet, you should enable enforcement immediately, since there are no outdated
     /// clients in use. Possible values: [&amp;quot;UNENFORCED&amp;quot;, &amp;quot;ENFORCED&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("enforcement_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enforcement_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EnforcementMode { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The identifier of the service to configure enforcement. Currently, the following service IDs are supported:
@@ -98,22 +98,22 @@ public class GoogleFirebaseAppCheckServiceConfig : TerraformResource
     ///   identitytoolkit.googleapis.com (Authentication)
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceId is required")]
-    [TerraformPropertyName("service_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleFirebaseAppCheckServiceConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fully-qualified resource name of the service enforcement configuration.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

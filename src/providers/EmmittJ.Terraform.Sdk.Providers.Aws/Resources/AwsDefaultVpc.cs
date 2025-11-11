@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_default_vpc resource.
 /// </summary>
-public class AwsDefaultVpc : TerraformResource
+public partial class AwsDefaultVpc : TerraformResource
 {
     public AwsDefaultVpc(string name) : base("aws_default_vpc", name)
     {
@@ -14,169 +14,169 @@ public class AwsDefaultVpc : TerraformResource
     /// <summary>
     /// The assign_generated_ipv6_cidr_block attribute.
     /// </summary>
-    [TerraformPropertyName("assign_generated_ipv6_cidr_block")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("assign_generated_ipv6_cidr_block")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AssignGeneratedIpv6CidrBlock { get; set; }
 
     /// <summary>
     /// The enable_dns_hostnames attribute.
     /// </summary>
-    [TerraformPropertyName("enable_dns_hostnames")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_dns_hostnames")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableDnsHostnames { get; set; }
 
     /// <summary>
     /// The enable_dns_support attribute.
     /// </summary>
-    [TerraformPropertyName("enable_dns_support")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_dns_support")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableDnsSupport { get; set; }
 
     /// <summary>
     /// The enable_network_address_usage_metrics attribute.
     /// </summary>
-    [TerraformPropertyName("enable_network_address_usage_metrics")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> EnableNetworkAddressUsageMetrics { get; set; } = default!;
+    [TerraformProperty("enable_network_address_usage_metrics")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> EnableNetworkAddressUsageMetrics { get; set; }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    [TerraformPropertyName("force_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("force_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ipv6_cidr_block attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_cidr_block")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Ipv6CidrBlock { get; set; } = default!;
+    [TerraformProperty("ipv6_cidr_block")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Ipv6CidrBlock { get; set; }
 
     /// <summary>
     /// The ipv6_cidr_block_network_border_group attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_cidr_block_network_border_group")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Ipv6CidrBlockNetworkBorderGroup { get; set; } = default!;
+    [TerraformProperty("ipv6_cidr_block_network_border_group")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Ipv6CidrBlockNetworkBorderGroup { get; set; }
 
     /// <summary>
     /// The ipv6_ipam_pool_id attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_ipam_pool_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ipv6_ipam_pool_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Ipv6IpamPoolId { get; set; }
 
     /// <summary>
     /// The ipv6_netmask_length attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_netmask_length")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ipv6_netmask_length")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Ipv6NetmaskLength { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    [TerraformPropertyName("cidr_block")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CidrBlock => new TerraformReference(this, "cidr_block");
+    [TerraformProperty("cidr_block")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CidrBlock { get; }
 
     /// <summary>
     /// The default_network_acl_id attribute.
     /// </summary>
-    [TerraformPropertyName("default_network_acl_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultNetworkAclId => new TerraformReference(this, "default_network_acl_id");
+    [TerraformProperty("default_network_acl_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultNetworkAclId { get; }
 
     /// <summary>
     /// The default_route_table_id attribute.
     /// </summary>
-    [TerraformPropertyName("default_route_table_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultRouteTableId => new TerraformReference(this, "default_route_table_id");
+    [TerraformProperty("default_route_table_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultRouteTableId { get; }
 
     /// <summary>
     /// The default_security_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("default_security_group_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultSecurityGroupId => new TerraformReference(this, "default_security_group_id");
+    [TerraformProperty("default_security_group_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultSecurityGroupId { get; }
 
     /// <summary>
     /// The dhcp_options_id attribute.
     /// </summary>
-    [TerraformPropertyName("dhcp_options_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DhcpOptionsId => new TerraformReference(this, "dhcp_options_id");
+    [TerraformProperty("dhcp_options_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DhcpOptionsId { get; }
 
     /// <summary>
     /// The existing_default_vpc attribute.
     /// </summary>
-    [TerraformPropertyName("existing_default_vpc")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ExistingDefaultVpc => new TerraformReference(this, "existing_default_vpc");
+    [TerraformProperty("existing_default_vpc")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ExistingDefaultVpc { get; }
 
     /// <summary>
     /// The instance_tenancy attribute.
     /// </summary>
-    [TerraformPropertyName("instance_tenancy")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> InstanceTenancy => new TerraformReference(this, "instance_tenancy");
+    [TerraformProperty("instance_tenancy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> InstanceTenancy { get; }
 
     /// <summary>
     /// The ipv6_association_id attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_association_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Ipv6AssociationId => new TerraformReference(this, "ipv6_association_id");
+    [TerraformProperty("ipv6_association_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Ipv6AssociationId { get; }
 
     /// <summary>
     /// The main_route_table_id attribute.
     /// </summary>
-    [TerraformPropertyName("main_route_table_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> MainRouteTableId => new TerraformReference(this, "main_route_table_id");
+    [TerraformProperty("main_route_table_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> MainRouteTableId { get; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerId => new TerraformReference(this, "owner_id");
+    [TerraformProperty("owner_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerId { get; }
 
 }

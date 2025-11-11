@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadServicePrincipalPasswordTimeoutsBlock
+public partial class AzureadServicePrincipalPasswordTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzureadServicePrincipalPasswordTimeoutsBlock
 /// <summary>
 /// Manages a azuread_service_principal_password resource.
 /// </summary>
-public class AzureadServicePrincipalPassword : TerraformResource
+public partial class AzureadServicePrincipalPassword : TerraformResource
 {
     public AzureadServicePrincipalPassword(string name) : base("azuread_service_principal_password", name)
     {
@@ -43,73 +43,73 @@ public class AzureadServicePrincipalPassword : TerraformResource
     /// <summary>
     /// A display name for the password
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DisplayName { get; set; } = default!;
+    [TerraformProperty("display_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The end date until which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`)
     /// </summary>
-    [TerraformPropertyName("end_date")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EndDate { get; set; } = default!;
+    [TerraformProperty("end_date")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EndDate { get; set; }
 
     /// <summary>
     /// A relative duration for which the password is valid until, for example `240h` (10 days) or `2400h30m`. Changing this field forces a new resource to be created
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("end_date_relative")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("end_date_relative")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EndDateRelative { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Arbitrary map of values that, when changed, will trigger rotation of the password
     /// </summary>
-    [TerraformPropertyName("rotate_when_changed")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("rotate_when_changed")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? RotateWhenChanged { get; set; }
 
     /// <summary>
     /// The ID of the service principal for which this password should be created
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipalId is required")]
-    [TerraformPropertyName("service_principal_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_principal_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServicePrincipalId { get; set; }
 
     /// <summary>
     /// The start date from which the password is valid, formatted as an RFC3339 date string (e.g. `2018-01-01T01:02:03Z`). If this isn&#39;t specified, the current date is used
     /// </summary>
-    [TerraformPropertyName("start_date")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> StartDate { get; set; } = default!;
+    [TerraformProperty("start_date")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> StartDate { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadServicePrincipalPasswordTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A UUID used to uniquely identify this password credential
     /// </summary>
-    [TerraformPropertyName("key_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KeyId => new TerraformReference(this, "key_id");
+    [TerraformProperty("key_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KeyId { get; }
 
     /// <summary>
     /// The password for this service principal, which is generated by Azure Active Directory
     /// </summary>
-    [TerraformPropertyName("value")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Value => new TerraformReference(this, "value");
+    [TerraformProperty("value")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Value { get; }
 
 }

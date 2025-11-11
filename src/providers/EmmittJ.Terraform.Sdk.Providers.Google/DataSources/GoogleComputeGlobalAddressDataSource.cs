@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_global_address.
 /// </summary>
-public class GoogleComputeGlobalAddressDataSource : TerraformDataSource
+public partial class GoogleComputeGlobalAddressDataSource : TerraformDataSource
 {
     public GoogleComputeGlobalAddressDataSource(string name) : base("google_compute_global_address", name)
     {
@@ -14,93 +14,93 @@ public class GoogleComputeGlobalAddressDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The address attribute.
     /// </summary>
-    [TerraformPropertyName("address")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Address => new TerraformReference(this, "address");
+    [TerraformProperty("address")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Address { get; }
 
     /// <summary>
     /// The address_type attribute.
     /// </summary>
-    [TerraformPropertyName("address_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AddressType => new TerraformReference(this, "address_type");
+    [TerraformProperty("address_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AddressType { get; }
 
     /// <summary>
     /// The network attribute.
     /// </summary>
-    [TerraformPropertyName("network")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Network => new TerraformReference(this, "network");
+    [TerraformProperty("network")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Network { get; }
 
     /// <summary>
     /// The network_tier attribute.
     /// </summary>
-    [TerraformPropertyName("network_tier")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> NetworkTier => new TerraformReference(this, "network_tier");
+    [TerraformProperty("network_tier")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> NetworkTier { get; }
 
     /// <summary>
     /// The prefix_length attribute.
     /// </summary>
-    [TerraformPropertyName("prefix_length")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> PrefixLength => new TerraformReference(this, "prefix_length");
+    [TerraformProperty("prefix_length")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> PrefixLength { get; }
 
     /// <summary>
     /// The purpose attribute.
     /// </summary>
-    [TerraformPropertyName("purpose")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Purpose => new TerraformReference(this, "purpose");
+    [TerraformProperty("purpose")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Purpose { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The subnetwork attribute.
     /// </summary>
-    [TerraformPropertyName("subnetwork")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Subnetwork => new TerraformReference(this, "subnetwork");
+    [TerraformProperty("subnetwork")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Subnetwork { get; }
 
     /// <summary>
     /// The users attribute.
     /// </summary>
-    [TerraformPropertyName("users")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Users => new TerraformReference(this, "users");
+    [TerraformProperty("users")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Users { get; }
 
 }

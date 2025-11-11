@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_transfer_connector.
 /// </summary>
-public class AwsTransferConnectorDataSource : TerraformDataSource
+public partial class AwsTransferConnectorDataSource : TerraformDataSource
 {
     public AwsTransferConnectorDataSource(string name) : base("aws_transfer_connector", name)
     {
@@ -15,78 +15,78 @@ public class AwsTransferConnectorDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The access_role attribute.
     /// </summary>
-    [TerraformPropertyName("access_role")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AccessRole => new TerraformReference(this, "access_role");
+    [TerraformProperty("access_role")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AccessRole { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The as2_config attribute.
     /// </summary>
-    [TerraformPropertyName("as2_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> As2Config => new TerraformReference(this, "as2_config");
+    [TerraformProperty("as2_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> As2Config { get; }
 
     /// <summary>
     /// The logging_role attribute.
     /// </summary>
-    [TerraformPropertyName("logging_role")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LoggingRole => new TerraformReference(this, "logging_role");
+    [TerraformProperty("logging_role")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LoggingRole { get; }
 
     /// <summary>
     /// The security_policy_name attribute.
     /// </summary>
-    [TerraformPropertyName("security_policy_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecurityPolicyName => new TerraformReference(this, "security_policy_name");
+    [TerraformProperty("security_policy_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecurityPolicyName { get; }
 
     /// <summary>
     /// The service_managed_egress_ip_addresses attribute.
     /// </summary>
-    [TerraformPropertyName("service_managed_egress_ip_addresses")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ServiceManagedEgressIpAddresses => new TerraformReference(this, "service_managed_egress_ip_addresses");
+    [TerraformProperty("service_managed_egress_ip_addresses")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ServiceManagedEgressIpAddresses { get; }
 
     /// <summary>
     /// The sftp_config attribute.
     /// </summary>
-    [TerraformPropertyName("sftp_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SftpConfig => new TerraformReference(this, "sftp_config");
+    [TerraformProperty("sftp_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SftpConfig { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    [TerraformPropertyName("url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Url => new TerraformReference(this, "url");
+    [TerraformProperty("url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Url { get; }
 
 }

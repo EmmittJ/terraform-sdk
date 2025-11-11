@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_codestarconnections_connection.
 /// </summary>
-public class AwsCodestarconnectionsConnectionDataSource : TerraformDataSource
+public partial class AwsCodestarconnectionsConnectionDataSource : TerraformDataSource
 {
     public AwsCodestarconnectionsConnectionDataSource(string name) : base("aws_codestarconnections_connection", name)
     {
@@ -14,57 +14,57 @@ public class AwsCodestarconnectionsConnectionDataSource : TerraformDataSource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Arn { get; set; } = default!;
+    [TerraformProperty("arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The connection_status attribute.
     /// </summary>
-    [TerraformPropertyName("connection_status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ConnectionStatus => new TerraformReference(this, "connection_status");
+    [TerraformProperty("connection_status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ConnectionStatus { get; }
 
     /// <summary>
     /// The host_arn attribute.
     /// </summary>
-    [TerraformPropertyName("host_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> HostArn => new TerraformReference(this, "host_arn");
+    [TerraformProperty("host_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> HostArn { get; }
 
     /// <summary>
     /// The provider_type attribute.
     /// </summary>
-    [TerraformPropertyName("provider_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ProviderType => new TerraformReference(this, "provider_type");
+    [TerraformProperty("provider_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ProviderType { get; }
 
 }

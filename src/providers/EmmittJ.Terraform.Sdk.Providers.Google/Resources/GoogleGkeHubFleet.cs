@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for default_cluster_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeHubFleetDefaultClusterConfigBlock
+public partial class GoogleGkeHubFleetDefaultClusterConfigBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class GoogleGkeHubFleetDefaultClusterConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleGkeHubFleetTimeoutsBlock
+public partial class GoogleGkeHubFleetTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class GoogleGkeHubFleetTimeoutsBlock
 /// Manages a google_gke_hub_fleet resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleGkeHubFleet : TerraformResource
+public partial class GoogleGkeHubFleet : TerraformResource
 {
     public GoogleGkeHubFleet(string name) : base("google_gke_hub_fleet", name)
     {
@@ -53,74 +53,74 @@ public class GoogleGkeHubFleet : TerraformResource
     /// A user-assigned display name of the Fleet. When present, it must be between 4 to 30 characters.
     /// Allowed characters are: lowercase and uppercase letters, numbers, hyphen, single-quote, double-quote, space, and exclamation point.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for default_cluster_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultClusterConfig block(s) allowed")]
-    [TerraformPropertyName("default_cluster_config")]
+    [TerraformProperty("default_cluster_config")]
     public TerraformList<TerraformBlock<GoogleGkeHubFleetDefaultClusterConfigBlock>>? DefaultClusterConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleGkeHubFleetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time the fleet was created, in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The time the fleet was deleted, in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("delete_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeleteTime => new TerraformReference(this, "delete_time");
+    [TerraformProperty("delete_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// The state of the fleet resource.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> State { get; }
 
     /// <summary>
     /// Google-generated UUID for this resource. This is unique across all
     /// Fleet resources. If a Fleet resource is deleted and another
     /// resource with the same name is created, it gets a different uid.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The time the fleet was last updated, in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

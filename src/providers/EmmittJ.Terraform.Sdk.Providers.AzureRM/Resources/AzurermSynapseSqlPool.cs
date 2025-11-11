@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for restore in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSynapseSqlPoolRestoreBlock
+public partial class AzurermSynapseSqlPoolRestoreBlock : TerraformBlockBase
 {
     /// <summary>
     /// The point_in_time attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PointInTime is required")]
-    [TerraformPropertyName("point_in_time")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("point_in_time")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PointInTime { get; set; }
 
     /// <summary>
     /// The source_database_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDatabaseId is required")]
-    [TerraformPropertyName("source_database_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source_database_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SourceDatabaseId { get; set; }
 
 }
@@ -30,34 +30,34 @@ public class AzurermSynapseSqlPoolRestoreBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSynapseSqlPoolTimeoutsBlock
+public partial class AzurermSynapseSqlPoolTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -66,7 +66,7 @@ public class AzurermSynapseSqlPoolTimeoutsBlock
 /// Manages a azurerm_synapse_sql_pool resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSynapseSqlPool : TerraformResource
+public partial class AzurermSynapseSqlPool : TerraformResource
 {
     public AzurermSynapseSqlPool(string name) : base("azurerm_synapse_sql_pool", name)
     {
@@ -75,82 +75,82 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    [TerraformPropertyName("collation")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Collation { get; set; } = default!;
+    [TerraformProperty("collation")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Collation { get; set; }
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
-    [TerraformPropertyName("create_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CreateMode { get; set; }
 
     /// <summary>
     /// The data_encrypted attribute.
     /// </summary>
-    [TerraformPropertyName("data_encrypted")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("data_encrypted")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DataEncrypted { get; set; }
 
     /// <summary>
     /// The geo_backup_policy_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("geo_backup_policy_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("geo_backup_policy_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? GeoBackupPolicyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recovery_database_id attribute.
     /// </summary>
-    [TerraformPropertyName("recovery_database_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("recovery_database_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RecoveryDatabaseId { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    [TerraformPropertyName("sku_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sku_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
-    [TerraformPropertyName("storage_account_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_account_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageAccountType { get; set; }
 
     /// <summary>
     /// The synapse_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
-    [TerraformPropertyName("synapse_workspace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("synapse_workspace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SynapseWorkspaceId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -158,14 +158,14 @@ public class AzurermSynapseSqlPool : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Restore block(s) allowed")]
-    [TerraformPropertyName("restore")]
+    [TerraformProperty("restore")]
     public TerraformList<TerraformBlock<AzurermSynapseSqlPoolRestoreBlock>>? Restore { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSynapseSqlPoolTimeoutsBlock>? Timeouts { get; set; }
 
 }

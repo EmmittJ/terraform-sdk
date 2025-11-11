@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for secret in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnFrontdoorSecretSecretBlock
+public partial class AzurermCdnFrontdoorSecretSecretBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class AzurermCdnFrontdoorSecretSecretBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCdnFrontdoorSecretTimeoutsBlock
+public partial class AzurermCdnFrontdoorSecretTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class AzurermCdnFrontdoorSecretTimeoutsBlock
 /// Manages a azurerm_cdn_frontdoor_secret resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermCdnFrontdoorSecret : TerraformResource
+public partial class AzurermCdnFrontdoorSecret : TerraformResource
 {
     public AzurermCdnFrontdoorSecret(string name) : base("azurerm_cdn_frontdoor_secret", name)
     {
@@ -53,23 +53,23 @@ public class AzurermCdnFrontdoorSecret : TerraformResource
     /// The cdn_frontdoor_profile_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorProfileId is required")]
-    [TerraformPropertyName("cdn_frontdoor_profile_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cdn_frontdoor_profile_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CdnFrontdoorProfileId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
@@ -79,21 +79,21 @@ public class AzurermCdnFrontdoorSecret : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Secret block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Secret block(s) allowed")]
-    [TerraformPropertyName("secret")]
+    [TerraformProperty("secret")]
     public TerraformList<TerraformBlock<AzurermCdnFrontdoorSecretSecretBlock>>? Secret { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermCdnFrontdoorSecretTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The cdn_frontdoor_profile_name attribute.
     /// </summary>
-    [TerraformPropertyName("cdn_frontdoor_profile_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CdnFrontdoorProfileName => new TerraformReference(this, "cdn_frontdoor_profile_name");
+    [TerraformProperty("cdn_frontdoor_profile_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CdnFrontdoorProfileName { get; }
 
 }

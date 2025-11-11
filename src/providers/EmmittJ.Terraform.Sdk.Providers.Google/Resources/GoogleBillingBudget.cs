@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for all_updates_rule in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBillingBudgetAllUpdatesRuleBlock
+public partial class GoogleBillingBudgetAllUpdatesRuleBlock : TerraformBlockBase
 {
     /// <summary>
     /// Boolean. When set to true, disables default notifications sent
@@ -14,8 +14,8 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock
     /// those with Billing Account Administrators and Billing
     /// Account Users IAM roles for the target account.
     /// </summary>
-    [TerraformPropertyName("disable_default_iam_recipients")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disable_default_iam_recipients")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DisableDefaultIamRecipients { get; set; }
 
     /// <summary>
@@ -25,8 +25,8 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock
     /// 
     /// Currently, project level recipients are the users with Owner role on a cloud project.
     /// </summary>
-    [TerraformPropertyName("enable_project_level_recipients")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_project_level_recipients")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableProjectLevelRecipients { get; set; }
 
     /// <summary>
@@ -35,8 +35,8 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock
     /// projects/{project_id}/notificationChannels/{channel_id}.
     /// A maximum of 5 channels are allowed.
     /// </summary>
-    [TerraformPropertyName("monitoring_notification_channels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("monitoring_notification_channels")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? MonitoringNotificationChannels { get; set; }
 
     /// <summary>
@@ -45,8 +45,8 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock
     /// projects/{project_id}/topics/{topic_id}. Updates are sent
     /// at regular intervals to the topic.
     /// </summary>
-    [TerraformPropertyName("pubsub_topic")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("pubsub_topic")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PubsubTopic { get; set; }
 
     /// <summary>
@@ -54,8 +54,8 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock
     /// accepted. It represents the JSON schema as defined in
     /// https://cloud.google.com/billing/docs/how-to/budgets#notification_format.
     /// </summary>
-    [TerraformPropertyName("schema_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("schema_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SchemaVersion { get; set; }
 
 }
@@ -64,7 +64,7 @@ public class GoogleBillingBudgetAllUpdatesRuleBlock
 /// Block type for amount in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBillingBudgetAmountBlock
+public partial class GoogleBillingBudgetAmountBlock : TerraformBlockBase
 {
     /// <summary>
     /// Configures a budget amount that is automatically set to 100% of
@@ -72,8 +72,8 @@ public class GoogleBillingBudgetAmountBlock
     /// Boolean. Set value to true to use. Do not set to false, instead
     /// use the &#39;specified_amount&#39; block.
     /// </summary>
-    [TerraformPropertyName("last_period_amount")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("last_period_amount")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LastPeriodAmount { get; set; }
 
 }
@@ -82,7 +82,7 @@ public class GoogleBillingBudgetAmountBlock
 /// Block type for budget_filter in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBillingBudgetBudgetFilterBlock
+public partial class GoogleBillingBudgetBudgetFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// A CalendarPeriod represents the abstract concept of a recurring time period that has a
@@ -91,8 +91,8 @@ public class GoogleBillingBudgetBudgetFilterBlock
     /// 
     /// Exactly one of &#39;calendar_period&#39;, &#39;custom_period&#39; must be provided. Possible values: [&amp;quot;MONTH&amp;quot;, &amp;quot;QUARTER&amp;quot;, &amp;quot;YEAR&amp;quot;, &amp;quot;CALENDAR_PERIOD_UNSPECIFIED&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("calendar_period")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("calendar_period")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CalendarPeriod { get; set; }
 
     /// <summary>
@@ -100,25 +100,25 @@ public class GoogleBillingBudgetBudgetFilterBlock
     /// this is a list of credit types to be subtracted from gross cost to determine the spend for threshold calculations. See a list of acceptable credit type values.
     /// If creditTypesTreatment is not INCLUDE_SPECIFIED_CREDITS, this field must be empty.
     /// </summary>
-    [TerraformPropertyName("credit_types")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("credit_types")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? CreditTypes { get; set; }
 
     /// <summary>
     /// Specifies how credits should be treated when determining spend
     /// for threshold calculations. Default value: &amp;quot;INCLUDE_ALL_CREDITS&amp;quot; Possible values: [&amp;quot;INCLUDE_ALL_CREDITS&amp;quot;, &amp;quot;EXCLUDE_ALL_CREDITS&amp;quot;, &amp;quot;INCLUDE_SPECIFIED_CREDITS&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("credit_types_treatment")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("credit_types_treatment")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CreditTypesTreatment { get; set; }
 
     /// <summary>
     /// A single label and value pair specifying that usage from only
     /// this set of labeled resources should be included in the budget.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Labels { get; set; } = default!;
+    [TerraformProperty("labels")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Labels { get; set; }
 
     /// <summary>
     /// A set of projects of the form projects/{project_number},
@@ -127,8 +127,8 @@ public class GoogleBillingBudgetBudgetFilterBlock
     /// all usage for the billing account, regardless of which project
     /// the usage occurred on.
     /// </summary>
-    [TerraformPropertyName("projects")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("projects")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Projects { get; set; }
 
     /// <summary>
@@ -137,8 +137,8 @@ public class GoogleBillingBudgetBudgetFilterBlock
     /// If omitted, the budget includes all usage that the billing account pays for. If the folder or organization
     /// contains projects that are paid for by a different Cloud Billing account, the budget doesn&#39;t apply to those projects.
     /// </summary>
-    [TerraformPropertyName("resource_ancestors")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("resource_ancestors")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? ResourceAncestors { get; set; }
 
     /// <summary>
@@ -149,9 +149,9 @@ public class GoogleBillingBudgetBudgetFilterBlock
     /// through the Catalog API:
     /// https://cloud.google.com/billing/v1/how-tos/catalog-api.
     /// </summary>
-    [TerraformPropertyName("services")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> Services { get; set; } = default!;
+    [TerraformProperty("services")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> Services { get; set; }
 
     /// <summary>
     /// A set of subaccounts of the form billingAccounts/{account_id},
@@ -161,8 +161,8 @@ public class GoogleBillingBudgetBudgetFilterBlock
     /// If the field is omitted, the report will include usage from the parent
     /// account and all subaccounts, if they exist.
     /// </summary>
-    [TerraformPropertyName("subaccounts")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subaccounts")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Subaccounts { get; set; }
 
 }
@@ -171,14 +171,14 @@ public class GoogleBillingBudgetBudgetFilterBlock
 /// Block type for threshold_rules in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBillingBudgetThresholdRulesBlock
+public partial class GoogleBillingBudgetThresholdRulesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The type of basis used to determine if spend has passed
     /// the threshold. Default value: &amp;quot;CURRENT_SPEND&amp;quot; Possible values: [&amp;quot;CURRENT_SPEND&amp;quot;, &amp;quot;FORECASTED_SPEND&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("spend_basis")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("spend_basis")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SpendBasis { get; set; }
 
     /// <summary>
@@ -186,8 +186,8 @@ public class GoogleBillingBudgetThresholdRulesBlock
     /// 1.0-based percentage, so 0.5 = 50%. Must be &amp;gt;= 0.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThresholdPercent is required")]
-    [TerraformPropertyName("threshold_percent")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("threshold_percent")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> ThresholdPercent { get; set; }
 
 }
@@ -196,27 +196,27 @@ public class GoogleBillingBudgetThresholdRulesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBillingBudgetTimeoutsBlock
+public partial class GoogleBillingBudgetTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -225,7 +225,7 @@ public class GoogleBillingBudgetTimeoutsBlock
 /// Manages a google_billing_budget resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleBillingBudget : TerraformResource
+public partial class GoogleBillingBudget : TerraformResource
 {
     public GoogleBillingBudget(string name) : base("google_billing_budget", name)
     {
@@ -235,30 +235,30 @@ public class GoogleBillingBudget : TerraformResource
     /// ID of the billing account to set a budget on.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccount is required")]
-    [TerraformPropertyName("billing_account")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("billing_account")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BillingAccount { get; set; }
 
     /// <summary>
     /// User data for display name in UI. Must be &amp;lt;= 60 chars.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ownership scope of the budget. The ownership scope and users&#39;
     /// IAM permissions determine who has full access to the budget&#39;s data. Possible values: [&amp;quot;OWNERSHIP_SCOPE_UNSPECIFIED&amp;quot;, &amp;quot;ALL_USERS&amp;quot;, &amp;quot;BILLING_ACCOUNT&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("ownership_scope")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ownership_scope")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OwnershipScope { get; set; }
 
     /// <summary>
@@ -266,7 +266,7 @@ public class GoogleBillingBudget : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllUpdatesRule block(s) allowed")]
-    [TerraformPropertyName("all_updates_rule")]
+    [TerraformProperty("all_updates_rule")]
     public TerraformList<TerraformBlock<GoogleBillingBudgetAllUpdatesRuleBlock>>? AllUpdatesRule { get; set; }
 
     /// <summary>
@@ -276,7 +276,7 @@ public class GoogleBillingBudget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Amount is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Amount block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Amount block(s) allowed")]
-    [TerraformPropertyName("amount")]
+    [TerraformProperty("amount")]
     public TerraformList<TerraformBlock<GoogleBillingBudgetAmountBlock>>? Amount { get; set; }
 
     /// <summary>
@@ -284,21 +284,21 @@ public class GoogleBillingBudget : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BudgetFilter block(s) allowed")]
-    [TerraformPropertyName("budget_filter")]
+    [TerraformProperty("budget_filter")]
     public TerraformList<TerraformBlock<GoogleBillingBudgetBudgetFilterBlock>>? BudgetFilter { get; set; }
 
     /// <summary>
     /// Block for threshold_rules.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("threshold_rules")]
+    [TerraformProperty("threshold_rules")]
     public TerraformList<TerraformBlock<GoogleBillingBudgetThresholdRulesBlock>>? ThresholdRules { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleBillingBudgetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -306,8 +306,8 @@ public class GoogleBillingBudget : TerraformResource
     /// implies the scope of a budget. Values are of the form
     /// billingAccounts/{billingAccountId}/budgets/{budgetId}.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

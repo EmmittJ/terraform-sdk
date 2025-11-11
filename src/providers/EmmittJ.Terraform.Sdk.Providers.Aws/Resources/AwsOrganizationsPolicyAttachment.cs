@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_organizations_policy_attachment resource.
 /// </summary>
-public class AwsOrganizationsPolicyAttachment : TerraformResource
+public partial class AwsOrganizationsPolicyAttachment : TerraformResource
 {
     public AwsOrganizationsPolicyAttachment(string name) : base("aws_organizations_policy_attachment", name)
     {
@@ -14,31 +14,31 @@ public class AwsOrganizationsPolicyAttachment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
-    [TerraformPropertyName("policy_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PolicyId { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    [TerraformPropertyName("skip_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("skip_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
-    [TerraformPropertyName("target_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TargetId { get; set; }
 
 }

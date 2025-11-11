@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for event_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncApiEventConfigBlock
+public partial class AwsAppsyncApiEventConfigBlock : TerraformBlockBase
 {
 }
 
 /// <summary>
 /// Manages a aws_appsync_api resource.
 /// </summary>
-public class AwsAppsyncApi : TerraformResource
+public partial class AwsAppsyncApi : TerraformResource
 {
     public AwsAppsyncApi(string name) : base("aws_appsync_api", name)
     {
@@ -23,78 +23,78 @@ public class AwsAppsyncApi : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The owner_contact attribute.
     /// </summary>
-    [TerraformPropertyName("owner_contact")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("owner_contact")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OwnerContact { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for event_config.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("event_config")]
+    [TerraformProperty("event_config")]
     public TerraformList<TerraformBlock<AwsAppsyncApiEventConfigBlock>>? EventConfig { get; set; }
 
     /// <summary>
     /// The api_arn attribute.
     /// </summary>
-    [TerraformPropertyName("api_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ApiArn => new TerraformReference(this, "api_arn");
+    [TerraformProperty("api_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ApiArn { get; }
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    [TerraformPropertyName("api_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ApiId => new TerraformReference(this, "api_id");
+    [TerraformProperty("api_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ApiId { get; }
 
     /// <summary>
     /// The dns attribute.
     /// </summary>
-    [TerraformPropertyName("dns")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Dns => new TerraformReference(this, "dns");
+    [TerraformProperty("dns")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Dns { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The waf_web_acl_arn attribute.
     /// </summary>
-    [TerraformPropertyName("waf_web_acl_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WafWebAclArn => new TerraformReference(this, "waf_web_acl_arn");
+    [TerraformProperty("waf_web_acl_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WafWebAclArn { get; }
 
     /// <summary>
     /// The xray_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("xray_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> XrayEnabled => new TerraformReference(this, "xray_enabled");
+    [TerraformProperty("xray_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> XrayEnabled { get; }
 
 }

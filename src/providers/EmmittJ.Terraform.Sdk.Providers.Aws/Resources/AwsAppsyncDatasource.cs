@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dynamodb_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncDatasourceDynamodbConfigBlock
+public partial class AwsAppsyncDatasourceDynamodbConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The region attribute.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
-    [TerraformPropertyName("table_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("table_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TableName { get; set; }
 
     /// <summary>
     /// The use_caller_credentials attribute.
     /// </summary>
-    [TerraformPropertyName("use_caller_credentials")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("use_caller_credentials")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? UseCallerCredentials { get; set; }
 
     /// <summary>
     /// The versioned attribute.
     /// </summary>
-    [TerraformPropertyName("versioned")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("versioned")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Versioned { get; set; }
 
 }
@@ -43,22 +43,22 @@ public class AwsAppsyncDatasourceDynamodbConfigBlock
 /// Block type for elasticsearch_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncDatasourceElasticsearchConfigBlock
+public partial class AwsAppsyncDatasourceElasticsearchConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
-    [TerraformPropertyName("endpoint")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("endpoint")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Endpoint { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
 }
 
@@ -66,14 +66,14 @@ public class AwsAppsyncDatasourceElasticsearchConfigBlock
 /// Block type for event_bridge_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncDatasourceEventBridgeConfigBlock
+public partial class AwsAppsyncDatasourceEventBridgeConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The event_bus_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventBusArn is required")]
-    [TerraformPropertyName("event_bus_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("event_bus_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EventBusArn { get; set; }
 
 }
@@ -82,14 +82,14 @@ public class AwsAppsyncDatasourceEventBridgeConfigBlock
 /// Block type for http_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncDatasourceHttpConfigBlock
+public partial class AwsAppsyncDatasourceHttpConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
-    [TerraformPropertyName("endpoint")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("endpoint")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Endpoint { get; set; }
 
 }
@@ -98,14 +98,14 @@ public class AwsAppsyncDatasourceHttpConfigBlock
 /// Block type for lambda_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncDatasourceLambdaConfigBlock
+public partial class AwsAppsyncDatasourceLambdaConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The function_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
-    [TerraformPropertyName("function_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("function_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FunctionArn { get; set; }
 
 }
@@ -114,22 +114,22 @@ public class AwsAppsyncDatasourceLambdaConfigBlock
 /// Block type for opensearchservice_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncDatasourceOpensearchserviceConfigBlock
+public partial class AwsAppsyncDatasourceOpensearchserviceConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
-    [TerraformPropertyName("endpoint")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("endpoint")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Endpoint { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
 }
 
@@ -137,13 +137,13 @@ public class AwsAppsyncDatasourceOpensearchserviceConfigBlock
 /// Block type for relational_database_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppsyncDatasourceRelationalDatabaseConfigBlock
+public partial class AwsAppsyncDatasourceRelationalDatabaseConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The source_type attribute.
     /// </summary>
-    [TerraformPropertyName("source_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceType { get; set; }
 
 }
@@ -152,7 +152,7 @@ public class AwsAppsyncDatasourceRelationalDatabaseConfigBlock
 /// Manages a aws_appsync_datasource resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsAppsyncDatasource : TerraformResource
+public partial class AwsAppsyncDatasource : TerraformResource
 {
     public AwsAppsyncDatasource(string name) : base("aws_appsync_datasource", name)
     {
@@ -162,52 +162,52 @@ public class AwsAppsyncDatasource : TerraformResource
     /// The api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
-    [TerraformPropertyName("api_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("api_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApiId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The service_role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("service_role_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_role_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServiceRoleArn { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
@@ -215,7 +215,7 @@ public class AwsAppsyncDatasource : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DynamodbConfig block(s) allowed")]
-    [TerraformPropertyName("dynamodb_config")]
+    [TerraformProperty("dynamodb_config")]
     public TerraformList<TerraformBlock<AwsAppsyncDatasourceDynamodbConfigBlock>>? DynamodbConfig { get; set; }
 
     /// <summary>
@@ -223,7 +223,7 @@ public class AwsAppsyncDatasource : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ElasticsearchConfig block(s) allowed")]
-    [TerraformPropertyName("elasticsearch_config")]
+    [TerraformProperty("elasticsearch_config")]
     public TerraformList<TerraformBlock<AwsAppsyncDatasourceElasticsearchConfigBlock>>? ElasticsearchConfig { get; set; }
 
     /// <summary>
@@ -231,7 +231,7 @@ public class AwsAppsyncDatasource : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventBridgeConfig block(s) allowed")]
-    [TerraformPropertyName("event_bridge_config")]
+    [TerraformProperty("event_bridge_config")]
     public TerraformList<TerraformBlock<AwsAppsyncDatasourceEventBridgeConfigBlock>>? EventBridgeConfig { get; set; }
 
     /// <summary>
@@ -239,7 +239,7 @@ public class AwsAppsyncDatasource : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpConfig block(s) allowed")]
-    [TerraformPropertyName("http_config")]
+    [TerraformProperty("http_config")]
     public TerraformList<TerraformBlock<AwsAppsyncDatasourceHttpConfigBlock>>? HttpConfig { get; set; }
 
     /// <summary>
@@ -247,7 +247,7 @@ public class AwsAppsyncDatasource : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LambdaConfig block(s) allowed")]
-    [TerraformPropertyName("lambda_config")]
+    [TerraformProperty("lambda_config")]
     public TerraformList<TerraformBlock<AwsAppsyncDatasourceLambdaConfigBlock>>? LambdaConfig { get; set; }
 
     /// <summary>
@@ -255,7 +255,7 @@ public class AwsAppsyncDatasource : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpensearchserviceConfig block(s) allowed")]
-    [TerraformPropertyName("opensearchservice_config")]
+    [TerraformProperty("opensearchservice_config")]
     public TerraformList<TerraformBlock<AwsAppsyncDatasourceOpensearchserviceConfigBlock>>? OpensearchserviceConfig { get; set; }
 
     /// <summary>
@@ -263,14 +263,14 @@ public class AwsAppsyncDatasource : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RelationalDatabaseConfig block(s) allowed")]
-    [TerraformPropertyName("relational_database_config")]
+    [TerraformProperty("relational_database_config")]
     public TerraformList<TerraformBlock<AwsAppsyncDatasourceRelationalDatabaseConfigBlock>>? RelationalDatabaseConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

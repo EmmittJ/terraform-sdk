@@ -6,48 +6,48 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for statement in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIamPolicyDocumentDataSourceStatementBlock
+public partial class AwsIamPolicyDocumentDataSourceStatementBlock : TerraformBlockBase
 {
     /// <summary>
     /// The actions attribute.
     /// </summary>
-    [TerraformPropertyName("actions")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("actions")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Actions { get; set; }
 
     /// <summary>
     /// The effect attribute.
     /// </summary>
-    [TerraformPropertyName("effect")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("effect")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Effect { get; set; }
 
     /// <summary>
     /// The not_actions attribute.
     /// </summary>
-    [TerraformPropertyName("not_actions")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("not_actions")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? NotActions { get; set; }
 
     /// <summary>
     /// The not_resources attribute.
     /// </summary>
-    [TerraformPropertyName("not_resources")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("not_resources")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? NotResources { get; set; }
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
-    [TerraformPropertyName("resources")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("resources")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Resources { get; set; }
 
     /// <summary>
     /// The sid attribute.
     /// </summary>
-    [TerraformPropertyName("sid")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sid")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Sid { get; set; }
 
 }
@@ -55,7 +55,7 @@ public class AwsIamPolicyDocumentDataSourceStatementBlock
 /// <summary>
 /// Retrieves information about a aws_iam_policy_document.
 /// </summary>
-public class AwsIamPolicyDocumentDataSource : TerraformDataSource
+public partial class AwsIamPolicyDocumentDataSource : TerraformDataSource
 {
     public AwsIamPolicyDocumentDataSource(string name) : base("aws_iam_policy_document", name)
     {
@@ -64,73 +64,73 @@ public class AwsIamPolicyDocumentDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The override_json attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("override_json")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("override_json")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OverrideJson { get; set; }
 
     /// <summary>
     /// The override_policy_documents attribute.
     /// </summary>
-    [TerraformPropertyName("override_policy_documents")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("override_policy_documents")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? OverridePolicyDocuments { get; set; }
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
-    [TerraformPropertyName("policy_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("policy_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PolicyId { get; set; }
 
     /// <summary>
     /// The source_json attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("source_json")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_json")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceJson { get; set; }
 
     /// <summary>
     /// The source_policy_documents attribute.
     /// </summary>
-    [TerraformPropertyName("source_policy_documents")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_policy_documents")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? SourcePolicyDocuments { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Version { get; set; }
 
     /// <summary>
     /// Block for statement.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("statement")]
+    [TerraformProperty("statement")]
     public TerraformList<TerraformBlock<AwsIamPolicyDocumentDataSourceStatementBlock>>? Statement { get; set; }
 
     /// <summary>
     /// The json attribute.
     /// </summary>
-    [TerraformPropertyName("json")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Json => new TerraformReference(this, "json");
+    [TerraformProperty("json")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Json { get; }
 
     /// <summary>
     /// The minified_json attribute.
     /// </summary>
-    [TerraformPropertyName("minified_json")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> MinifiedJson => new TerraformReference(this, "minified_json");
+    [TerraformProperty("minified_json")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> MinifiedJson { get; }
 
 }

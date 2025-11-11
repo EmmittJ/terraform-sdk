@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAdvisorRecommendationsDataSourceTimeoutsBlock
+public partial class AzurermAdvisorRecommendationsDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermAdvisorRecommendationsDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_advisor_recommendations.
 /// </summary>
-public class AzurermAdvisorRecommendationsDataSource : TerraformDataSource
+public partial class AzurermAdvisorRecommendationsDataSource : TerraformDataSource
 {
     public AzurermAdvisorRecommendationsDataSource(string name) : base("azurerm_advisor_recommendations", name)
     {
@@ -29,36 +29,36 @@ public class AzurermAdvisorRecommendationsDataSource : TerraformDataSource
     /// <summary>
     /// The filter_by_category attribute.
     /// </summary>
-    [TerraformPropertyName("filter_by_category")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filter_by_category")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? FilterByCategory { get; set; }
 
     /// <summary>
     /// The filter_by_resource_groups attribute.
     /// </summary>
-    [TerraformPropertyName("filter_by_resource_groups")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filter_by_resource_groups")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? FilterByResourceGroups { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermAdvisorRecommendationsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The recommendations attribute.
     /// </summary>
-    [TerraformPropertyName("recommendations")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Recommendations => new TerraformReference(this, "recommendations");
+    [TerraformProperty("recommendations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Recommendations { get; }
 
 }

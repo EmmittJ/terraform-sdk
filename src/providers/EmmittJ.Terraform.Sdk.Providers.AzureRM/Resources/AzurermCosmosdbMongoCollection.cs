@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for autoscale_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock
+public partial class AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The max_throughput attribute.
     /// </summary>
-    [TerraformPropertyName("max_throughput")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxThroughput { get; set; } = default!;
+    [TerraformProperty("max_throughput")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxThroughput { get; set; }
 
 }
 
@@ -21,21 +21,21 @@ public class AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock
 /// Block type for index in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermCosmosdbMongoCollectionIndexBlock
+public partial class AzurermCosmosdbMongoCollectionIndexBlock : TerraformBlockBase
 {
     /// <summary>
     /// The keys attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Keys is required")]
-    [TerraformPropertyName("keys")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("keys")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Keys { get; set; }
 
     /// <summary>
     /// The unique attribute.
     /// </summary>
-    [TerraformPropertyName("unique")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("unique")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Unique { get; set; }
 
 }
@@ -44,34 +44,34 @@ public class AzurermCosmosdbMongoCollectionIndexBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCosmosdbMongoCollectionTimeoutsBlock
+public partial class AzurermCosmosdbMongoCollectionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -80,7 +80,7 @@ public class AzurermCosmosdbMongoCollectionTimeoutsBlock
 /// Manages a azurerm_cosmosdb_mongo_collection resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermCosmosdbMongoCollection : TerraformResource
+public partial class AzurermCosmosdbMongoCollection : TerraformResource
 {
     public AzurermCosmosdbMongoCollection(string name) : base("azurerm_cosmosdb_mongo_collection", name)
     {
@@ -90,96 +90,96 @@ public class AzurermCosmosdbMongoCollection : TerraformResource
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    [TerraformPropertyName("account_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("account_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AccountName { get; set; }
 
     /// <summary>
     /// The analytical_storage_ttl attribute.
     /// </summary>
-    [TerraformPropertyName("analytical_storage_ttl")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("analytical_storage_ttl")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? AnalyticalStorageTtl { get; set; }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    [TerraformPropertyName("database_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("database_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The default_ttl_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("default_ttl_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_ttl_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? DefaultTtlSeconds { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The shard_key attribute.
     /// </summary>
-    [TerraformPropertyName("shard_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("shard_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ShardKey { get; set; }
 
     /// <summary>
     /// The throughput attribute.
     /// </summary>
-    [TerraformPropertyName("throughput")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Throughput { get; set; } = default!;
+    [TerraformProperty("throughput")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Throughput { get; set; }
 
     /// <summary>
     /// Block for autoscale_settings.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscaleSettings block(s) allowed")]
-    [TerraformPropertyName("autoscale_settings")]
+    [TerraformProperty("autoscale_settings")]
     public TerraformList<TerraformBlock<AzurermCosmosdbMongoCollectionAutoscaleSettingsBlock>>? AutoscaleSettings { get; set; }
 
     /// <summary>
     /// Block for index.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("index")]
+    [TerraformProperty("index")]
     public TerraformSet<TerraformBlock<AzurermCosmosdbMongoCollectionIndexBlock>>? Index { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermCosmosdbMongoCollectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The system_indexes attribute.
     /// </summary>
-    [TerraformPropertyName("system_indexes")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SystemIndexes => new TerraformReference(this, "system_indexes");
+    [TerraformProperty("system_indexes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SystemIndexes { get; }
 
 }

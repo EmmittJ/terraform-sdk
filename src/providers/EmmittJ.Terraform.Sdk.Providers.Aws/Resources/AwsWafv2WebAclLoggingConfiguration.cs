@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for logging_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock
+public partial class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The default_behavior attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultBehavior is required")]
-    [TerraformPropertyName("default_behavior")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("default_behavior")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DefaultBehavior { get; set; }
 
 }
@@ -22,7 +22,7 @@ public class AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock
 /// Block type for redacted_fields in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock
+public partial class AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock : TerraformBlockBase
 {
 }
 
@@ -30,7 +30,7 @@ public class AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock
 /// Manages a aws_wafv2_web_acl_logging_configuration resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
+public partial class AwsWafv2WebAclLoggingConfiguration : TerraformResource
 {
     public AwsWafv2WebAclLoggingConfiguration(string name) : base("aws_wafv2_web_acl_logging_configuration", name)
     {
@@ -39,31 +39,31 @@ public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// AWS Kinesis Firehose Delivery Stream ARNs
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogDestinationConfigs is required")]
-    [TerraformPropertyName("log_destination_configs")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("log_destination_configs")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> LogDestinationConfigs { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// AWS WebACL ARN
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceArn is required")]
-    [TerraformPropertyName("resource_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceArn { get; set; }
 
     /// <summary>
@@ -71,7 +71,7 @@ public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingFilter block(s) allowed")]
-    [TerraformPropertyName("logging_filter")]
+    [TerraformProperty("logging_filter")]
     public TerraformList<TerraformBlock<AwsWafv2WebAclLoggingConfigurationLoggingFilterBlock>>? LoggingFilter { get; set; }
 
     /// <summary>
@@ -79,7 +79,7 @@ public class AwsWafv2WebAclLoggingConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 RedactedFields block(s) allowed")]
-    [TerraformPropertyName("redacted_fields")]
+    [TerraformProperty("redacted_fields")]
     public TerraformList<TerraformBlock<AwsWafv2WebAclLoggingConfigurationRedactedFieldsBlock>>? RedactedFields { get; set; }
 
 }

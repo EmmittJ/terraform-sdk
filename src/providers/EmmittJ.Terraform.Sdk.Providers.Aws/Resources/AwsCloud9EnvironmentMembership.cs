@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_cloud9_environment_membership resource.
 /// </summary>
-public class AwsCloud9EnvironmentMembership : TerraformResource
+public partial class AwsCloud9EnvironmentMembership : TerraformResource
 {
     public AwsCloud9EnvironmentMembership(string name) : base("aws_cloud9_environment_membership", name)
     {
@@ -15,45 +15,45 @@ public class AwsCloud9EnvironmentMembership : TerraformResource
     /// The environment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentId is required")]
-    [TerraformPropertyName("environment_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("environment_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EnvironmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
-    [TerraformPropertyName("permissions")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("permissions")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Permissions { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The user_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserArn is required")]
-    [TerraformPropertyName("user_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserArn { get; set; }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    [TerraformPropertyName("user_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UserId => new TerraformReference(this, "user_id");
+    [TerraformProperty("user_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UserId { get; }
 
 }

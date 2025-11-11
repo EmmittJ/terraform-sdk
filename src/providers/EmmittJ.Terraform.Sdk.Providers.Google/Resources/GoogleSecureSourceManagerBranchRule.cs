@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSecureSourceManagerBranchRuleTimeoutsBlock
+public partial class GoogleSecureSourceManagerBranchRuleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleSecureSourceManagerBranchRuleTimeoutsBlock
 /// <summary>
 /// Manages a google_secure_source_manager_branch_rule resource.
 /// </summary>
-public class GoogleSecureSourceManagerBranchRule : TerraformResource
+public partial class GoogleSecureSourceManagerBranchRule : TerraformResource
 {
     public GoogleSecureSourceManagerBranchRule(string name) : base("google_secure_source_manager_branch_rule", name)
     {
@@ -43,131 +43,131 @@ public class GoogleSecureSourceManagerBranchRule : TerraformResource
     /// <summary>
     /// Determines if allow stale reviews or approvals before merging to the branch.
     /// </summary>
-    [TerraformPropertyName("allow_stale_reviews")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allow_stale_reviews")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AllowStaleReviews { get; set; }
 
     /// <summary>
     /// The ID for the BranchRule.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BranchRuleId is required")]
-    [TerraformPropertyName("branch_rule_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("branch_rule_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BranchRuleId { get; set; }
 
     /// <summary>
     /// Determines if the branch rule is disabled or not.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The BranchRule matches branches based on the specified regular expression. Use .* to match all branches.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IncludePattern is required")]
-    [TerraformPropertyName("include_pattern")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("include_pattern")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IncludePattern { get; set; }
 
     /// <summary>
     /// The location for the Repository.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The minimum number of approvals required for the branch rule to be matched.
     /// </summary>
-    [TerraformPropertyName("minimum_approvals_count")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("minimum_approvals_count")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MinimumApprovalsCount { get; set; }
 
     /// <summary>
     /// The minimum number of reviews required for the branch rule to be matched.
     /// </summary>
-    [TerraformPropertyName("minimum_reviews_count")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("minimum_reviews_count")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MinimumReviewsCount { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The ID for the Repository.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryId is required")]
-    [TerraformPropertyName("repository_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("repository_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RepositoryId { get; set; }
 
     /// <summary>
     /// Determines if require comments resolved before merging to the branch.
     /// </summary>
-    [TerraformPropertyName("require_comments_resolved")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("require_comments_resolved")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? RequireCommentsResolved { get; set; }
 
     /// <summary>
     /// Determines if require linear history before merging to the branch.
     /// </summary>
-    [TerraformPropertyName("require_linear_history")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("require_linear_history")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? RequireLinearHistory { get; set; }
 
     /// <summary>
     /// Determines if the branch rule requires a pull request or not.
     /// </summary>
-    [TerraformPropertyName("require_pull_request")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("require_pull_request")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? RequirePullRequest { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleSecureSourceManagerBranchRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the BranchRule was created in UTC.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The resource name for the BranchRule.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Unique identifier of the BranchRule.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Time the BranchRule was updated in UTC.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

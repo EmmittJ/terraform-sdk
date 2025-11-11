@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for auth_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIntegrationConnectorsConnectionAuthConfigBlock
+public partial class GoogleIntegrationConnectorsConnectionAuthConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The type of authentication configured.
     /// </summary>
-    [TerraformPropertyName("auth_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auth_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthKey { get; set; }
 
     /// <summary>
     /// authType of the Connection Possible values: [&amp;quot;AUTH_TYPE_UNSPECIFIED&amp;quot;, &amp;quot;USER_PASSWORD&amp;quot;, &amp;quot;OAUTH2_JWT_BEARER&amp;quot;, &amp;quot;OAUTH2_CLIENT_CREDENTIALS&amp;quot;, &amp;quot;SSH_PUBLIC_KEY&amp;quot;, &amp;quot;OAUTH2_AUTH_CODE_FLOW&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
-    [TerraformPropertyName("auth_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("auth_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AuthType { get; set; }
 
 }
@@ -29,35 +29,35 @@ public class GoogleIntegrationConnectorsConnectionAuthConfigBlock
 /// Block type for config_variable in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIntegrationConnectorsConnectionConfigVariableBlock
+public partial class GoogleIntegrationConnectorsConnectionConfigVariableBlock : TerraformBlockBase
 {
     /// <summary>
     /// Boolean Value of configVariable
     /// </summary>
-    [TerraformPropertyName("boolean_value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("boolean_value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? BooleanValue { get; set; }
 
     /// <summary>
     /// Integer Value of configVariable
     /// </summary>
-    [TerraformPropertyName("integer_value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("integer_value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? IntegerValue { get; set; }
 
     /// <summary>
     /// Key for the configVariable
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformPropertyName("key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// String Value of configVariabley
     /// </summary>
-    [TerraformPropertyName("string_value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("string_value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StringValue { get; set; }
 
 }
@@ -66,14 +66,14 @@ public class GoogleIntegrationConnectorsConnectionConfigVariableBlock
 /// Block type for destination_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIntegrationConnectorsConnectionDestinationConfigBlock
+public partial class GoogleIntegrationConnectorsConnectionDestinationConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The key is the destination identifier that is supported by the Connector.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformPropertyName("key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Key { get; set; }
 
 }
@@ -82,13 +82,13 @@ public class GoogleIntegrationConnectorsConnectionDestinationConfigBlock
 /// Block type for eventing_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIntegrationConnectorsConnectionEventingConfigBlock
+public partial class GoogleIntegrationConnectorsConnectionEventingConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Enrichment Enabled.
     /// </summary>
-    [TerraformPropertyName("enrichment_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enrichment_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnrichmentEnabled { get; set; }
 
 }
@@ -97,21 +97,21 @@ public class GoogleIntegrationConnectorsConnectionEventingConfigBlock
 /// Block type for lock_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIntegrationConnectorsConnectionLockConfigBlock
+public partial class GoogleIntegrationConnectorsConnectionLockConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Indicates whether or not the connection is locked.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locked is required")]
-    [TerraformPropertyName("locked")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("locked")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Locked { get; set; }
 
     /// <summary>
     /// Describes why a connection is locked.
     /// </summary>
-    [TerraformPropertyName("reason")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("reason")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Reason { get; set; }
 
 }
@@ -120,22 +120,22 @@ public class GoogleIntegrationConnectorsConnectionLockConfigBlock
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIntegrationConnectorsConnectionLogConfigBlock
+public partial class GoogleIntegrationConnectorsConnectionLogConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Enabled represents whether logging is enabled or not for a connection.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// Log configuration level. Possible values: [&amp;quot;LOG_LEVEL_UNSPECIFIED&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;INFO&amp;quot;, &amp;quot;DEBUG&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("level")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Level { get; set; } = default!;
+    [TerraformProperty("level")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Level { get; set; }
 
 }
 
@@ -143,21 +143,21 @@ public class GoogleIntegrationConnectorsConnectionLogConfigBlock
 /// Block type for node_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIntegrationConnectorsConnectionNodeConfigBlock
+public partial class GoogleIntegrationConnectorsConnectionNodeConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Minimum number of nodes in the runtime nodes.
     /// </summary>
-    [TerraformPropertyName("max_node_count")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxNodeCount { get; set; } = default!;
+    [TerraformProperty("max_node_count")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxNodeCount { get; set; }
 
     /// <summary>
     /// Minimum number of nodes in the runtime nodes.
     /// </summary>
-    [TerraformPropertyName("min_node_count")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MinNodeCount { get; set; } = default!;
+    [TerraformProperty("min_node_count")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MinNodeCount { get; set; }
 
 }
 
@@ -165,42 +165,42 @@ public class GoogleIntegrationConnectorsConnectionNodeConfigBlock
 /// Block type for ssl_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIntegrationConnectorsConnectionSslConfigBlock
+public partial class GoogleIntegrationConnectorsConnectionSslConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Type of Client Cert (PEM/JKS/.. etc.) Possible values: [&amp;quot;PEM&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("client_cert_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("client_cert_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClientCertType { get; set; }
 
     /// <summary>
     /// Type of Server Cert (PEM/JKS/.. etc.) Possible values: [&amp;quot;PEM&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("server_cert_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("server_cert_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServerCertType { get; set; }
 
     /// <summary>
     /// Enum for Trust Model Possible values: [&amp;quot;PUBLIC&amp;quot;, &amp;quot;PRIVATE&amp;quot;, &amp;quot;INSECURE&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("trust_model")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("trust_model")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TrustModel { get; set; }
 
     /// <summary>
     /// Enum for controlling the SSL Type (TLS/MTLS) Possible values: [&amp;quot;TLS&amp;quot;, &amp;quot;MTLS&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Bool for enabling SSL
     /// </summary>
-    [TerraformPropertyName("use_ssl")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("use_ssl")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? UseSsl { get; set; }
 
 }
@@ -209,27 +209,27 @@ public class GoogleIntegrationConnectorsConnectionSslConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIntegrationConnectorsConnectionTimeoutsBlock
+public partial class GoogleIntegrationConnectorsConnectionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -238,7 +238,7 @@ public class GoogleIntegrationConnectorsConnectionTimeoutsBlock
 /// Manages a google_integration_connectors_connection resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleIntegrationConnectorsConnection : TerraformResource
+public partial class GoogleIntegrationConnectorsConnection : TerraformResource
 {
     public GoogleIntegrationConnectorsConnection(string name) : base("google_integration_connectors_connection", name)
     {
@@ -248,30 +248,30 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// connectorVersion of the Connector.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorVersion is required")]
-    [TerraformPropertyName("connector_version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connector_version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConnectorVersion { get; set; }
 
     /// <summary>
     /// An arbitrary description for the Connection.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Eventing enablement type. Will be nil if eventing is not enabled. Possible values: [&amp;quot;EVENTING_AND_CONNECTION&amp;quot;, &amp;quot;ONLY_EVENTING&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("eventing_enablement_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("eventing_enablement_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EventingEnablementType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource labels to represent user provided metadata.
@@ -280,45 +280,45 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Location in which Connection needs to be created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Name of Connection needs to be created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Service account needed for runtime plane to access Google Cloud resources.
     /// </summary>
-    [TerraformPropertyName("service_account")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ServiceAccount { get; set; } = default!;
+    [TerraformProperty("service_account")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ServiceAccount { get; set; }
 
     /// <summary>
     /// Suspended indicates if a user has suspended a connection or not.
     /// </summary>
-    [TerraformPropertyName("suspended")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("suspended")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Suspended { get; set; }
 
     /// <summary>
@@ -326,21 +326,21 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthConfig block(s) allowed")]
-    [TerraformPropertyName("auth_config")]
+    [TerraformProperty("auth_config")]
     public TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionAuthConfigBlock>>? AuthConfig { get; set; }
 
     /// <summary>
     /// Block for config_variable.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("config_variable")]
+    [TerraformProperty("config_variable")]
     public TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionConfigVariableBlock>>? ConfigVariable { get; set; }
 
     /// <summary>
     /// Block for destination_config.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("destination_config")]
+    [TerraformProperty("destination_config")]
     public TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionDestinationConfigBlock>>? DestinationConfig { get; set; }
 
     /// <summary>
@@ -348,7 +348,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventingConfig block(s) allowed")]
-    [TerraformPropertyName("eventing_config")]
+    [TerraformProperty("eventing_config")]
     public TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionEventingConfigBlock>>? EventingConfig { get; set; }
 
     /// <summary>
@@ -356,7 +356,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LockConfig block(s) allowed")]
-    [TerraformPropertyName("lock_config")]
+    [TerraformProperty("lock_config")]
     public TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionLockConfigBlock>>? LockConfig { get; set; }
 
     /// <summary>
@@ -364,7 +364,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
-    [TerraformPropertyName("log_config")]
+    [TerraformProperty("log_config")]
     public TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionLogConfigBlock>>? LogConfig { get; set; }
 
     /// <summary>
@@ -372,7 +372,7 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
-    [TerraformPropertyName("node_config")]
+    [TerraformProperty("node_config")]
     public TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionNodeConfigBlock>>? NodeConfig { get; set; }
 
     /// <summary>
@@ -380,93 +380,93 @@ public class GoogleIntegrationConnectorsConnection : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SslConfig block(s) allowed")]
-    [TerraformPropertyName("ssl_config")]
+    [TerraformProperty("ssl_config")]
     public TerraformList<TerraformBlock<GoogleIntegrationConnectorsConnectionSslConfigBlock>>? SslConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleIntegrationConnectorsConnectionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Connection revision. This field is only updated when the connection is created or updated by User.
     /// </summary>
-    [TerraformPropertyName("connection_revision")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ConnectionRevision => new TerraformReference(this, "connection_revision");
+    [TerraformProperty("connection_revision")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ConnectionRevision { get; }
 
     /// <summary>
     /// This configuration provides infra configs like rate limit threshold which need to be configurable for every connector version.
     /// </summary>
-    [TerraformPropertyName("connector_version_infra_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ConnectorVersionInfraConfig => new TerraformReference(this, "connector_version_infra_config");
+    [TerraformProperty("connector_version_infra_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ConnectorVersionInfraConfig { get; }
 
     /// <summary>
     /// Flag to mark the version indicating the launch stage.
     /// </summary>
-    [TerraformPropertyName("connector_version_launch_stage")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ConnectorVersionLaunchStage => new TerraformReference(this, "connector_version_launch_stage");
+    [TerraformProperty("connector_version_launch_stage")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ConnectorVersionLaunchStage { get; }
 
     /// <summary>
     /// Time the Namespace was created in UTC.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Eventing Runtime Data.
     /// </summary>
-    [TerraformPropertyName("eventing_runtime_data")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> EventingRuntimeData => new TerraformReference(this, "eventing_runtime_data");
+    [TerraformProperty("eventing_runtime_data")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> EventingRuntimeData { get; }
 
     /// <summary>
     /// The name of the Service Directory service name. Used for Private Harpoon to resolve the ILB address.
     /// e.g. &amp;quot;projects/cloud-connectors-e2e-testing/locations/us-central1/namespaces/istio-system/services/istio-ingressgateway-connectors&amp;quot;
     /// </summary>
-    [TerraformPropertyName("service_directory")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServiceDirectory => new TerraformReference(this, "service_directory");
+    [TerraformProperty("service_directory")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServiceDirectory { get; }
 
     /// <summary>
     /// Status of the Integration Connector.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Status { get; }
 
     /// <summary>
     /// This subscription type enum states the subscription type of the project.
     /// </summary>
-    [TerraformPropertyName("subscription_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SubscriptionType => new TerraformReference(this, "subscription_type");
+    [TerraformProperty("subscription_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SubscriptionType { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Time the Namespace was updated in UTC.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

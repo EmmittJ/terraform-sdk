@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsVpcIpamsDataSourceFilterBlock
+public partial class AwsVpcIpamsDataSourceFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    [TerraformPropertyName("values")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("values")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Values { get; set; }
 
 }
@@ -29,7 +29,7 @@ public class AwsVpcIpamsDataSourceFilterBlock
 /// <summary>
 /// Retrieves information about a aws_vpc_ipams.
 /// </summary>
-public class AwsVpcIpamsDataSource : TerraformDataSource
+public partial class AwsVpcIpamsDataSource : TerraformDataSource
 {
     public AwsVpcIpamsDataSource(string name) : base("aws_vpc_ipams", name)
     {
@@ -38,29 +38,29 @@ public class AwsVpcIpamsDataSource : TerraformDataSource
     /// <summary>
     /// The ipam_ids attribute.
     /// </summary>
-    [TerraformPropertyName("ipam_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ipam_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? IpamIds { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformSet<TerraformBlock<AwsVpcIpamsDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The ipams attribute.
     /// </summary>
-    [TerraformPropertyName("ipams")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Ipams => new TerraformReference(this, "ipams");
+    [TerraformProperty("ipams")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Ipams { get; }
 
 }

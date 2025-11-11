@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for exclude_map in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFmsPolicyExcludeMapBlock
+public partial class AwsFmsPolicyExcludeMapBlock : TerraformBlockBase
 {
     /// <summary>
     /// The account attribute.
     /// </summary>
-    [TerraformPropertyName("account")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("account")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Account { get; set; }
 
     /// <summary>
     /// The orgunit attribute.
     /// </summary>
-    [TerraformPropertyName("orgunit")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("orgunit")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Orgunit { get; set; }
 
 }
@@ -28,20 +28,20 @@ public class AwsFmsPolicyExcludeMapBlock
 /// Block type for include_map in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFmsPolicyIncludeMapBlock
+public partial class AwsFmsPolicyIncludeMapBlock : TerraformBlockBase
 {
     /// <summary>
     /// The account attribute.
     /// </summary>
-    [TerraformPropertyName("account")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("account")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Account { get; set; }
 
     /// <summary>
     /// The orgunit attribute.
     /// </summary>
-    [TerraformPropertyName("orgunit")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("orgunit")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Orgunit { get; set; }
 
 }
@@ -50,21 +50,21 @@ public class AwsFmsPolicyIncludeMapBlock
 /// Block type for security_service_policy_data in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFmsPolicySecurityServicePolicyDataBlock
+public partial class AwsFmsPolicySecurityServicePolicyDataBlock : TerraformBlockBase
 {
     /// <summary>
     /// The managed_service_data attribute.
     /// </summary>
-    [TerraformPropertyName("managed_service_data")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("managed_service_data")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ManagedServiceData { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -73,7 +73,7 @@ public class AwsFmsPolicySecurityServicePolicyDataBlock
 /// Manages a aws_fms_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsFmsPolicy : TerraformResource
+public partial class AwsFmsPolicy : TerraformResource
 {
     public AwsFmsPolicy(string name) : base("aws_fms_policy", name)
     {
@@ -82,116 +82,116 @@ public class AwsFmsPolicy : TerraformResource
     /// <summary>
     /// The delete_all_policy_resources attribute.
     /// </summary>
-    [TerraformPropertyName("delete_all_policy_resources")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete_all_policy_resources")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DeleteAllPolicyResources { get; set; }
 
     /// <summary>
     /// The delete_unused_fm_managed_resources attribute.
     /// </summary>
-    [TerraformPropertyName("delete_unused_fm_managed_resources")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete_unused_fm_managed_resources")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DeleteUnusedFmManagedResources { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The exclude_resource_tags attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExcludeResourceTags is required")]
-    [TerraformPropertyName("exclude_resource_tags")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("exclude_resource_tags")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> ExcludeResourceTags { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The remediation_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("remediation_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("remediation_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? RemediationEnabled { get; set; }
 
     /// <summary>
     /// The resource_set_ids attribute.
     /// </summary>
-    [TerraformPropertyName("resource_set_ids")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> ResourceSetIds { get; set; } = default!;
+    [TerraformProperty("resource_set_ids")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> ResourceSetIds { get; set; }
 
     /// <summary>
     /// The resource_tag_logical_operator attribute.
     /// </summary>
-    [TerraformPropertyName("resource_tag_logical_operator")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ResourceTagLogicalOperator { get; set; } = default!;
+    [TerraformProperty("resource_tag_logical_operator")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ResourceTagLogicalOperator { get; set; }
 
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    [TerraformPropertyName("resource_tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("resource_tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? ResourceTags { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    [TerraformPropertyName("resource_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ResourceType { get; set; } = default!;
+    [TerraformProperty("resource_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ResourceType { get; set; }
 
     /// <summary>
     /// The resource_type_list attribute.
     /// </summary>
-    [TerraformPropertyName("resource_type_list")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> ResourceTypeList { get; set; } = default!;
+    [TerraformProperty("resource_type_list")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> ResourceTypeList { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for exclude_map.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExcludeMap block(s) allowed")]
-    [TerraformPropertyName("exclude_map")]
+    [TerraformProperty("exclude_map")]
     public TerraformList<TerraformBlock<AwsFmsPolicyExcludeMapBlock>>? ExcludeMap { get; set; }
 
     /// <summary>
@@ -199,7 +199,7 @@ public class AwsFmsPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IncludeMap block(s) allowed")]
-    [TerraformPropertyName("include_map")]
+    [TerraformProperty("include_map")]
     public TerraformList<TerraformBlock<AwsFmsPolicyIncludeMapBlock>>? IncludeMap { get; set; }
 
     /// <summary>
@@ -209,21 +209,21 @@ public class AwsFmsPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityServicePolicyData is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecurityServicePolicyData block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityServicePolicyData block(s) allowed")]
-    [TerraformPropertyName("security_service_policy_data")]
+    [TerraformProperty("security_service_policy_data")]
     public TerraformList<TerraformBlock<AwsFmsPolicySecurityServicePolicyDataBlock>>? SecurityServicePolicyData { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The policy_update_token attribute.
     /// </summary>
-    [TerraformPropertyName("policy_update_token")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PolicyUpdateToken => new TerraformReference(this, "policy_update_token");
+    [TerraformProperty("policy_update_token")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PolicyUpdateToken { get; }
 
 }

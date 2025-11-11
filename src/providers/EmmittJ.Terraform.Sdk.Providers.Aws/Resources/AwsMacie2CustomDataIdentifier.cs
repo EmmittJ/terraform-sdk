@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMacie2CustomDataIdentifierTimeoutsBlock
+public partial class AwsMacie2CustomDataIdentifierTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsMacie2CustomDataIdentifierTimeoutsBlock
 /// <summary>
 /// Manages a aws_macie2_custom_data_identifier resource.
 /// </summary>
-public class AwsMacie2CustomDataIdentifier : TerraformResource
+public partial class AwsMacie2CustomDataIdentifier : TerraformResource
 {
     public AwsMacie2CustomDataIdentifier(string name) : base("aws_macie2_custom_data_identifier", name)
     {
@@ -29,99 +29,99 @@ public class AwsMacie2CustomDataIdentifier : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ignore_words attribute.
     /// </summary>
-    [TerraformPropertyName("ignore_words")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ignore_words")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IgnoreWords { get; set; }
 
     /// <summary>
     /// The keywords attribute.
     /// </summary>
-    [TerraformPropertyName("keywords")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("keywords")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Keywords { get; set; }
 
     /// <summary>
     /// The maximum_match_distance attribute.
     /// </summary>
-    [TerraformPropertyName("maximum_match_distance")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaximumMatchDistance { get; set; } = default!;
+    [TerraformProperty("maximum_match_distance")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaximumMatchDistance { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NamePrefix { get; set; } = default!;
+    [TerraformProperty("name_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The regex attribute.
     /// </summary>
-    [TerraformPropertyName("regex")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("regex")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Regex { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsMacie2CustomDataIdentifierTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    [TerraformPropertyName("created_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
+    [TerraformProperty("created_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedAt { get; }
 
 }

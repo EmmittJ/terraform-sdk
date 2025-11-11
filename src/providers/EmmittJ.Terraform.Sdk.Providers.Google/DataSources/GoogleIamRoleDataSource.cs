@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_iam_role.
 /// </summary>
-public class GoogleIamRoleDataSource : TerraformDataSource
+public partial class GoogleIamRoleDataSource : TerraformDataSource
 {
     public GoogleIamRoleDataSource(string name) : base("google_iam_role", name)
     {
@@ -14,37 +14,37 @@ public class GoogleIamRoleDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The included_permissions attribute.
     /// </summary>
-    [TerraformPropertyName("included_permissions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> IncludedPermissions => new TerraformReference(this, "included_permissions");
+    [TerraformProperty("included_permissions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> IncludedPermissions { get; }
 
     /// <summary>
     /// The stage attribute.
     /// </summary>
-    [TerraformPropertyName("stage")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Stage => new TerraformReference(this, "stage");
+    [TerraformProperty("stage")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Stage { get; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
-    [TerraformPropertyName("title")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Title => new TerraformReference(this, "title");
+    [TerraformProperty("title")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Title { get; }
 
 }

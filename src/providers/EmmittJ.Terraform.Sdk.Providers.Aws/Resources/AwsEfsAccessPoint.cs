@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for posix_user in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEfsAccessPointPosixUserBlock
+public partial class AwsEfsAccessPointPosixUserBlock : TerraformBlockBase
 {
     /// <summary>
     /// The gid attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Gid is required")]
-    [TerraformPropertyName("gid")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("gid")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Gid { get; set; }
 
     /// <summary>
     /// The secondary_gids attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_gids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("secondary_gids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<double>? SecondaryGids { get; set; }
 
     /// <summary>
     /// The uid attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uid is required")]
-    [TerraformPropertyName("uid")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("uid")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Uid { get; set; }
 
 }
@@ -37,14 +37,14 @@ public class AwsEfsAccessPointPosixUserBlock
 /// Block type for root_directory in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEfsAccessPointRootDirectoryBlock
+public partial class AwsEfsAccessPointRootDirectoryBlock : TerraformBlockBase
 {
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformPropertyName("path")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Path { get; set; } = default!;
+    [TerraformProperty("path")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Path { get; set; }
 
 }
 
@@ -52,7 +52,7 @@ public class AwsEfsAccessPointRootDirectoryBlock
 /// Manages a aws_efs_access_point resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsEfsAccessPoint : TerraformResource
+public partial class AwsEfsAccessPoint : TerraformResource
 {
     public AwsEfsAccessPoint(string name) : base("aws_efs_access_point", name)
     {
@@ -62,44 +62,44 @@ public class AwsEfsAccessPoint : TerraformResource
     /// The file_system_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
-    [TerraformPropertyName("file_system_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("file_system_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FileSystemId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for posix_user.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PosixUser block(s) allowed")]
-    [TerraformPropertyName("posix_user")]
+    [TerraformProperty("posix_user")]
     public TerraformList<TerraformBlock<AwsEfsAccessPointPosixUserBlock>>? PosixUser { get; set; }
 
     /// <summary>
@@ -107,28 +107,28 @@ public class AwsEfsAccessPoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RootDirectory block(s) allowed")]
-    [TerraformPropertyName("root_directory")]
+    [TerraformProperty("root_directory")]
     public TerraformList<TerraformBlock<AwsEfsAccessPointRootDirectoryBlock>>? RootDirectory { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The file_system_arn attribute.
     /// </summary>
-    [TerraformPropertyName("file_system_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FileSystemArn => new TerraformReference(this, "file_system_arn");
+    [TerraformProperty("file_system_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FileSystemArn { get; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerId => new TerraformReference(this, "owner_id");
+    [TerraformProperty("owner_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerId { get; }
 
 }

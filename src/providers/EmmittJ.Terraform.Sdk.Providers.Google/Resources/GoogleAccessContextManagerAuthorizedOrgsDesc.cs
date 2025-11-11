@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock
+public partial class GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock
 /// <summary>
 /// Manages a google_access_context_manager_authorized_orgs_desc resource.
 /// </summary>
-public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
+public partial class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
 {
     public GoogleAccessContextManagerAuthorizedOrgsDesc(string name) : base("google_access_context_manager_authorized_orgs_desc", name)
     {
@@ -45,8 +45,8 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// evaluation, such as a device. Valid values are &amp;quot;ASSET_TYPE_DEVICE&amp;quot; and
     /// &amp;quot;ASSET_TYPE_CREDENTIAL_STRENGTH&amp;quot;. Possible values: [&amp;quot;ASSET_TYPE_DEVICE&amp;quot;, &amp;quot;ASSET_TYPE_CREDENTIAL_STRENGTH&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("asset_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("asset_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AssetType { get; set; }
 
     /// <summary>
@@ -68,23 +68,23 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// &amp;quot;AUTHORIZATION_DIRECTION_FROM&amp;quot; as the authorization direction in their
     /// &amp;quot;AuthorizedOrgsDesc&amp;quot; resource. Possible values: [&amp;quot;AUTHORIZATION_DIRECTION_TO&amp;quot;, &amp;quot;AUTHORIZATION_DIRECTION_FROM&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("authorization_direction")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("authorization_direction")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthorizationDirection { get; set; }
 
     /// <summary>
     /// A granular control type for authorization levels. Valid value is &amp;quot;AUTHORIZATION_TYPE_TRUST&amp;quot;. Possible values: [&amp;quot;AUTHORIZATION_TYPE_TRUST&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("authorization_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("authorization_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthorizationType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource name for the &#39;AuthorizedOrgsDesc&#39;. Format:
@@ -94,8 +94,8 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// After you create an &#39;AuthorizedOrgsDesc&#39;, you cannot change its &#39;name&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
@@ -103,37 +103,37 @@ public class GoogleAccessContextManagerAuthorizedOrgsDesc : TerraformResource
     /// Format: &#39;organizations/&amp;lt;org_number&amp;gt;&#39;
     /// Example: &#39;organizations/123456&#39;
     /// </summary>
-    [TerraformPropertyName("orgs")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("orgs")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Orgs { get; set; }
 
     /// <summary>
     /// Required. Resource name for the access policy which owns this &#39;AuthorizedOrgsDesc&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    [TerraformPropertyName("parent")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parent")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleAccessContextManagerAuthorizedOrgsDescTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the AuthorizedOrgsDesc was created in UTC.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Time the AuthorizedOrgsDesc was updated in UTC.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

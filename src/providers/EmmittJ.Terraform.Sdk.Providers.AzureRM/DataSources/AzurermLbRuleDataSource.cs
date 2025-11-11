@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLbRuleDataSourceTimeoutsBlock
+public partial class AzurermLbRuleDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermLbRuleDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_lb_rule.
 /// </summary>
-public class AzurermLbRuleDataSource : TerraformDataSource
+public partial class AzurermLbRuleDataSource : TerraformDataSource
 {
     public AzurermLbRuleDataSource(string name) : base("azurerm_lb_rule", name)
     {
@@ -29,122 +29,122 @@ public class AzurermLbRuleDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The loadbalancer_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
-    [TerraformPropertyName("loadbalancer_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("loadbalancer_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LoadbalancerId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermLbRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The backend_address_pool_id attribute.
     /// </summary>
-    [TerraformPropertyName("backend_address_pool_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BackendAddressPoolId => new TerraformReference(this, "backend_address_pool_id");
+    [TerraformProperty("backend_address_pool_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BackendAddressPoolId { get; }
 
     /// <summary>
     /// The backend_port attribute.
     /// </summary>
-    [TerraformPropertyName("backend_port")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> BackendPort => new TerraformReference(this, "backend_port");
+    [TerraformProperty("backend_port")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> BackendPort { get; }
 
     /// <summary>
     /// The disable_outbound_snat attribute.
     /// </summary>
-    [TerraformPropertyName("disable_outbound_snat")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DisableOutboundSnat => new TerraformReference(this, "disable_outbound_snat");
+    [TerraformProperty("disable_outbound_snat")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DisableOutboundSnat { get; }
 
     /// <summary>
     /// The enable_floating_ip attribute.
     /// </summary>
-    [TerraformPropertyName("enable_floating_ip")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EnableFloatingIp => new TerraformReference(this, "enable_floating_ip");
+    [TerraformProperty("enable_floating_ip")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EnableFloatingIp { get; }
 
     /// <summary>
     /// The enable_tcp_reset attribute.
     /// </summary>
-    [TerraformPropertyName("enable_tcp_reset")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EnableTcpReset => new TerraformReference(this, "enable_tcp_reset");
+    [TerraformProperty("enable_tcp_reset")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EnableTcpReset { get; }
 
     /// <summary>
     /// The floating_ip_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("floating_ip_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> FloatingIpEnabled => new TerraformReference(this, "floating_ip_enabled");
+    [TerraformProperty("floating_ip_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> FloatingIpEnabled { get; }
 
     /// <summary>
     /// The frontend_ip_configuration_name attribute.
     /// </summary>
-    [TerraformPropertyName("frontend_ip_configuration_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FrontendIpConfigurationName => new TerraformReference(this, "frontend_ip_configuration_name");
+    [TerraformProperty("frontend_ip_configuration_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FrontendIpConfigurationName { get; }
 
     /// <summary>
     /// The frontend_port attribute.
     /// </summary>
-    [TerraformPropertyName("frontend_port")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> FrontendPort => new TerraformReference(this, "frontend_port");
+    [TerraformProperty("frontend_port")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> FrontendPort { get; }
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("idle_timeout_in_minutes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> IdleTimeoutInMinutes => new TerraformReference(this, "idle_timeout_in_minutes");
+    [TerraformProperty("idle_timeout_in_minutes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> IdleTimeoutInMinutes { get; }
 
     /// <summary>
     /// The load_distribution attribute.
     /// </summary>
-    [TerraformPropertyName("load_distribution")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LoadDistribution => new TerraformReference(this, "load_distribution");
+    [TerraformProperty("load_distribution")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LoadDistribution { get; }
 
     /// <summary>
     /// The probe_id attribute.
     /// </summary>
-    [TerraformPropertyName("probe_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ProbeId => new TerraformReference(this, "probe_id");
+    [TerraformProperty("probe_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ProbeId { get; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    [TerraformPropertyName("protocol")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Protocol => new TerraformReference(this, "protocol");
+    [TerraformProperty("protocol")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Protocol { get; }
 
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("tcp_reset_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> TcpResetEnabled => new TerraformReference(this, "tcp_reset_enabled");
+    [TerraformProperty("tcp_reset_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> TcpResetEnabled { get; }
 
 }

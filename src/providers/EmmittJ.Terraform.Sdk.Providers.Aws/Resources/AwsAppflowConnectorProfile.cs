@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for connector_profile_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppflowConnectorProfileConnectorProfileConfigBlock
+public partial class AwsAppflowConnectorProfileConnectorProfileConfigBlock : TerraformBlockBase
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsAppflowConnectorProfileConnectorProfileConfigBlock
 /// Manages a aws_appflow_connector_profile resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsAppflowConnectorProfile : TerraformResource
+public partial class AwsAppflowConnectorProfile : TerraformResource
 {
     public AwsAppflowConnectorProfile(string name) : base("aws_appflow_connector_profile", name)
     {
@@ -24,53 +24,53 @@ public class AwsAppflowConnectorProfile : TerraformResource
     /// The connection_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionMode is required")]
-    [TerraformPropertyName("connection_mode")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connection_mode")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConnectionMode { get; set; }
 
     /// <summary>
     /// The connector_label attribute.
     /// </summary>
-    [TerraformPropertyName("connector_label")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("connector_label")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConnectorLabel { get; set; }
 
     /// <summary>
     /// The connector_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
-    [TerraformPropertyName("connector_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connector_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConnectorType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_arn attribute.
     /// </summary>
-    [TerraformPropertyName("kms_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KmsArn { get; set; } = default!;
+    [TerraformProperty("kms_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KmsArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for connector_profile_config.
@@ -79,21 +79,21 @@ public class AwsAppflowConnectorProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorProfileConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectorProfileConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectorProfileConfig block(s) allowed")]
-    [TerraformPropertyName("connector_profile_config")]
+    [TerraformProperty("connector_profile_config")]
     public TerraformList<TerraformBlock<AwsAppflowConnectorProfileConnectorProfileConfigBlock>>? ConnectorProfileConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The credentials_arn attribute.
     /// </summary>
-    [TerraformPropertyName("credentials_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CredentialsArn => new TerraformReference(this, "credentials_arn");
+    [TerraformProperty("credentials_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CredentialsArn { get; }
 
 }

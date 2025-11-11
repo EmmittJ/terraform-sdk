@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for task_restart_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock
+public partial class GoogleManagedKafkaConnectorTaskRestartPolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The maximum amount of time to wait before retrying a failed task. This sets an upper bound for the backoff delay.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("maximum_backoff")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("maximum_backoff")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MaximumBackoff { get; set; }
 
     /// <summary>
     /// The minimum amount of time to wait before retrying a failed task. This sets a lower bound for the backoff delay.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("minimum_backoff")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("minimum_backoff")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MinimumBackoff { get; set; }
 
 }
@@ -30,27 +30,27 @@ public class GoogleManagedKafkaConnectorTaskRestartPolicyBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleManagedKafkaConnectorTimeoutsBlock
+public partial class GoogleManagedKafkaConnectorTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -59,7 +59,7 @@ public class GoogleManagedKafkaConnectorTimeoutsBlock
 /// Manages a google_managed_kafka_connector resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleManagedKafkaConnector : TerraformResource
+public partial class GoogleManagedKafkaConnector : TerraformResource
 {
     public GoogleManagedKafkaConnector(string name) : base("google_managed_kafka_connector", name)
     {
@@ -68,75 +68,75 @@ public class GoogleManagedKafkaConnector : TerraformResource
     /// <summary>
     /// Connector config as keys/values. The keys of the map are connector property names, for example: &#39;connector.class&#39;, &#39;tasks.max&#39;, &#39;key.converter&#39;.
     /// </summary>
-    [TerraformPropertyName("configs")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("configs")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Configs { get; set; }
 
     /// <summary>
     /// The connect cluster name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectCluster is required")]
-    [TerraformPropertyName("connect_cluster")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connect_cluster")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConnectCluster { get; set; }
 
     /// <summary>
     /// The ID to use for the connector, which will become the final component of the connector&#39;s name. This value is structured like: &#39;my-connector-id&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorId is required")]
-    [TerraformPropertyName("connector_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connector_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConnectorId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// ID of the location of the Kafka Connect resource. See https://cloud.google.com/managed-kafka/docs/locations for a list of supported locations.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for task_restart_policy.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TaskRestartPolicy block(s) allowed")]
-    [TerraformPropertyName("task_restart_policy")]
+    [TerraformProperty("task_restart_policy")]
     public TerraformList<TerraformBlock<GoogleManagedKafkaConnectorTaskRestartPolicyBlock>>? TaskRestartPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleManagedKafkaConnectorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The name of the connector. The &#39;connector&#39; segment is used when connecting directly to the connect cluster. Structured like: &#39;projects/PROJECT_ID/locations/LOCATION/connectClusters/CONNECT_CLUSTER/connectors/CONNECTOR_ID&#39;.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The current state of the connect. Possible values: &#39;STATE_UNSPECIFIED&#39;, &#39;UNASSIGNED&#39;, &#39;RUNNING&#39;, &#39;PAUSED&#39;, &#39;FAILED&#39;, &#39;RESTARTING&#39;, and &#39;STOPPED&#39;.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
 }

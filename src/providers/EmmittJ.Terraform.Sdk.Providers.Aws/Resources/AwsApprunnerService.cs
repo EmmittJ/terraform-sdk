@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApprunnerServiceEncryptionConfigurationBlock
+public partial class AwsApprunnerServiceEncryptionConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
-    [TerraformPropertyName("kms_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kms_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KmsKey { get; set; }
 
 }
@@ -22,48 +22,48 @@ public class AwsApprunnerServiceEncryptionConfigurationBlock
 /// Block type for health_check_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApprunnerServiceHealthCheckConfigurationBlock
+public partial class AwsApprunnerServiceHealthCheckConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The healthy_threshold attribute.
     /// </summary>
-    [TerraformPropertyName("healthy_threshold")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("healthy_threshold")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? HealthyThreshold { get; set; }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    [TerraformPropertyName("interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Interval { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformPropertyName("path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    [TerraformPropertyName("protocol")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("protocol")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Protocol { get; set; }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    [TerraformPropertyName("timeout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("timeout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Timeout { get; set; }
 
     /// <summary>
     /// The unhealthy_threshold attribute.
     /// </summary>
-    [TerraformPropertyName("unhealthy_threshold")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("unhealthy_threshold")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? UnhealthyThreshold { get; set; }
 
 }
@@ -72,27 +72,27 @@ public class AwsApprunnerServiceHealthCheckConfigurationBlock
 /// Block type for instance_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApprunnerServiceInstanceConfigurationBlock
+public partial class AwsApprunnerServiceInstanceConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cpu attribute.
     /// </summary>
-    [TerraformPropertyName("cpu")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cpu")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Cpu { get; set; }
 
     /// <summary>
     /// The instance_role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("instance_role_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("instance_role_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? InstanceRoleArn { get; set; }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    [TerraformPropertyName("memory")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("memory")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Memory { get; set; }
 
 }
@@ -101,13 +101,13 @@ public class AwsApprunnerServiceInstanceConfigurationBlock
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApprunnerServiceNetworkConfigurationBlock
+public partial class AwsApprunnerServiceNetworkConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    [TerraformPropertyName("ip_address_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_address_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IpAddressType { get; set; }
 
 }
@@ -116,21 +116,21 @@ public class AwsApprunnerServiceNetworkConfigurationBlock
 /// Block type for observability_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApprunnerServiceObservabilityConfigurationBlock
+public partial class AwsApprunnerServiceObservabilityConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The observability_configuration_arn attribute.
     /// </summary>
-    [TerraformPropertyName("observability_configuration_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("observability_configuration_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ObservabilityConfigurationArn { get; set; }
 
     /// <summary>
     /// The observability_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ObservabilityEnabled is required")]
-    [TerraformPropertyName("observability_enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("observability_enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> ObservabilityEnabled { get; set; }
 
 }
@@ -139,13 +139,13 @@ public class AwsApprunnerServiceObservabilityConfigurationBlock
 /// Block type for source_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApprunnerServiceSourceConfigurationBlock
+public partial class AwsApprunnerServiceSourceConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The auto_deployments_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("auto_deployments_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auto_deployments_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AutoDeploymentsEnabled { get; set; }
 
 }
@@ -154,7 +154,7 @@ public class AwsApprunnerServiceSourceConfigurationBlock
 /// Manages a aws_apprunner_service resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsApprunnerService : TerraformResource
+public partial class AwsApprunnerService : TerraformResource
 {
     public AwsApprunnerService(string name) : base("aws_apprunner_service", name)
     {
@@ -163,52 +163,52 @@ public class AwsApprunnerService : TerraformResource
     /// <summary>
     /// The auto_scaling_configuration_arn attribute.
     /// </summary>
-    [TerraformPropertyName("auto_scaling_configuration_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AutoScalingConfigurationArn { get; set; } = default!;
+    [TerraformProperty("auto_scaling_configuration_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AutoScalingConfigurationArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
-    [TerraformPropertyName("service_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for encryption_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
-    [TerraformPropertyName("encryption_configuration")]
+    [TerraformProperty("encryption_configuration")]
     public TerraformList<TerraformBlock<AwsApprunnerServiceEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
 
     /// <summary>
@@ -216,7 +216,7 @@ public class AwsApprunnerService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheckConfiguration block(s) allowed")]
-    [TerraformPropertyName("health_check_configuration")]
+    [TerraformProperty("health_check_configuration")]
     public TerraformList<TerraformBlock<AwsApprunnerServiceHealthCheckConfigurationBlock>>? HealthCheckConfiguration { get; set; }
 
     /// <summary>
@@ -224,7 +224,7 @@ public class AwsApprunnerService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceConfiguration block(s) allowed")]
-    [TerraformPropertyName("instance_configuration")]
+    [TerraformProperty("instance_configuration")]
     public TerraformList<TerraformBlock<AwsApprunnerServiceInstanceConfigurationBlock>>? InstanceConfiguration { get; set; }
 
     /// <summary>
@@ -232,7 +232,7 @@ public class AwsApprunnerService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfiguration block(s) allowed")]
-    [TerraformPropertyName("network_configuration")]
+    [TerraformProperty("network_configuration")]
     public TerraformList<TerraformBlock<AwsApprunnerServiceNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
 
     /// <summary>
@@ -240,7 +240,7 @@ public class AwsApprunnerService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ObservabilityConfiguration block(s) allowed")]
-    [TerraformPropertyName("observability_configuration")]
+    [TerraformProperty("observability_configuration")]
     public TerraformList<TerraformBlock<AwsApprunnerServiceObservabilityConfigurationBlock>>? ObservabilityConfiguration { get; set; }
 
     /// <summary>
@@ -250,35 +250,35 @@ public class AwsApprunnerService : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SourceConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceConfiguration block(s) allowed")]
-    [TerraformPropertyName("source_configuration")]
+    [TerraformProperty("source_configuration")]
     public TerraformList<TerraformBlock<AwsApprunnerServiceSourceConfigurationBlock>>? SourceConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The service_id attribute.
     /// </summary>
-    [TerraformPropertyName("service_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServiceId => new TerraformReference(this, "service_id");
+    [TerraformProperty("service_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServiceId { get; }
 
     /// <summary>
     /// The service_url attribute.
     /// </summary>
-    [TerraformPropertyName("service_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServiceUrl => new TerraformReference(this, "service_url");
+    [TerraformProperty("service_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServiceUrl { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

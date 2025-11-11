@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for actions in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnFrontdoorRuleActionsBlock
+public partial class AzurermCdnFrontdoorRuleActionsBlock : TerraformBlockBase
 {
 }
 
@@ -14,7 +14,7 @@ public class AzurermCdnFrontdoorRuleActionsBlock
 /// Block type for conditions in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCdnFrontdoorRuleConditionsBlock
+public partial class AzurermCdnFrontdoorRuleConditionsBlock : TerraformBlockBase
 {
 }
 
@@ -22,34 +22,34 @@ public class AzurermCdnFrontdoorRuleConditionsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCdnFrontdoorRuleTimeoutsBlock
+public partial class AzurermCdnFrontdoorRuleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -58,7 +58,7 @@ public class AzurermCdnFrontdoorRuleTimeoutsBlock
 /// Manages a azurerm_cdn_frontdoor_rule resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermCdnFrontdoorRule : TerraformResource
+public partial class AzurermCdnFrontdoorRule : TerraformResource
 {
     public AzurermCdnFrontdoorRule(string name) : base("azurerm_cdn_frontdoor_rule", name)
     {
@@ -67,39 +67,39 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     /// <summary>
     /// The behavior_on_match attribute.
     /// </summary>
-    [TerraformPropertyName("behavior_on_match")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("behavior_on_match")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BehaviorOnMatch { get; set; }
 
     /// <summary>
     /// The cdn_frontdoor_rule_set_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CdnFrontdoorRuleSetId is required")]
-    [TerraformPropertyName("cdn_frontdoor_rule_set_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cdn_frontdoor_rule_set_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CdnFrontdoorRuleSetId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Order is required")]
-    [TerraformPropertyName("order")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("order")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Order { get; set; }
 
     /// <summary>
@@ -109,7 +109,7 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Actions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Actions block(s) allowed")]
-    [TerraformPropertyName("actions")]
+    [TerraformProperty("actions")]
     public TerraformList<TerraformBlock<AzurermCdnFrontdoorRuleActionsBlock>>? Actions { get; set; }
 
     /// <summary>
@@ -117,21 +117,21 @@ public class AzurermCdnFrontdoorRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Conditions block(s) allowed")]
-    [TerraformPropertyName("conditions")]
+    [TerraformProperty("conditions")]
     public TerraformList<TerraformBlock<AzurermCdnFrontdoorRuleConditionsBlock>>? Conditions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermCdnFrontdoorRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The cdn_frontdoor_rule_set_name attribute.
     /// </summary>
-    [TerraformPropertyName("cdn_frontdoor_rule_set_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CdnFrontdoorRuleSetName => new TerraformReference(this, "cdn_frontdoor_rule_set_name");
+    [TerraformProperty("cdn_frontdoor_rule_set_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CdnFrontdoorRuleSetName { get; }
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for delegation in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSubnetDelegationBlock
+public partial class AzurermSubnetDelegationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -22,23 +22,23 @@ public class AzurermSubnetDelegationBlock
 /// Block type for ip_address_pool in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSubnetIpAddressPoolBlock
+public partial class AzurermSubnetIpAddressPoolBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The number_of_ip_addresses attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfIpAddresses is required")]
-    [TerraformPropertyName("number_of_ip_addresses")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("number_of_ip_addresses")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NumberOfIpAddresses { get; set; }
 
 }
@@ -47,34 +47,34 @@ public class AzurermSubnetIpAddressPoolBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSubnetTimeoutsBlock
+public partial class AzurermSubnetTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -83,7 +83,7 @@ public class AzurermSubnetTimeoutsBlock
 /// Manages a azurerm_subnet resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSubnet : TerraformResource
+public partial class AzurermSubnet : TerraformResource
 {
     public AzurermSubnet(string name) : base("azurerm_subnet", name)
     {
@@ -92,88 +92,88 @@ public class AzurermSubnet : TerraformResource
     /// <summary>
     /// The address_prefixes attribute.
     /// </summary>
-    [TerraformPropertyName("address_prefixes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("address_prefixes")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? AddressPrefixes { get; set; }
 
     /// <summary>
     /// The default_outbound_access_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("default_outbound_access_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_outbound_access_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DefaultOutboundAccessEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_endpoint_network_policies attribute.
     /// </summary>
-    [TerraformPropertyName("private_endpoint_network_policies")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_endpoint_network_policies")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrivateEndpointNetworkPolicies { get; set; }
 
     /// <summary>
     /// The private_link_service_network_policies_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("private_link_service_network_policies_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_link_service_network_policies_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PrivateLinkServiceNetworkPoliciesEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The service_endpoint_policy_ids attribute.
     /// </summary>
-    [TerraformPropertyName("service_endpoint_policy_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_endpoint_policy_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? ServiceEndpointPolicyIds { get; set; }
 
     /// <summary>
     /// The service_endpoints attribute.
     /// </summary>
-    [TerraformPropertyName("service_endpoints")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_endpoints")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? ServiceEndpoints { get; set; }
 
     /// <summary>
     /// The sharing_scope attribute.
     /// </summary>
-    [TerraformPropertyName("sharing_scope")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sharing_scope")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SharingScope { get; set; }
 
     /// <summary>
     /// The virtual_network_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkName is required")]
-    [TerraformPropertyName("virtual_network_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("virtual_network_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VirtualNetworkName { get; set; }
 
     /// <summary>
     /// Block for delegation.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("delegation")]
+    [TerraformProperty("delegation")]
     public TerraformList<TerraformBlock<AzurermSubnetDelegationBlock>>? Delegation { get; set; }
 
     /// <summary>
@@ -181,14 +181,14 @@ public class AzurermSubnet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IpAddressPool block(s) allowed")]
-    [TerraformPropertyName("ip_address_pool")]
+    [TerraformProperty("ip_address_pool")]
     public TerraformList<TerraformBlock<AzurermSubnetIpAddressPoolBlock>>? IpAddressPool { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSubnetTimeoutsBlock>? Timeouts { get; set; }
 
 }

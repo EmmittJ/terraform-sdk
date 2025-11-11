@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_glue_connection.
 /// </summary>
-public class AwsGlueConnectionDataSource : TerraformDataSource
+public partial class AwsGlueConnectionDataSource : TerraformDataSource
 {
     public AwsGlueConnectionDataSource(string name) : base("aws_glue_connection", name)
     {
@@ -15,85 +15,85 @@ public class AwsGlueConnectionDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The athena_properties attribute.
     /// </summary>
-    [TerraformPropertyName("athena_properties")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> AthenaProperties => new TerraformReference(this, "athena_properties");
+    [TerraformProperty("athena_properties")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> AthenaProperties { get; }
 
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    [TerraformPropertyName("catalog_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CatalogId => new TerraformReference(this, "catalog_id");
+    [TerraformProperty("catalog_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CatalogId { get; }
 
     /// <summary>
     /// The connection_properties attribute.
     /// </summary>
-    [TerraformPropertyName("connection_properties")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> ConnectionProperties => new TerraformReference(this, "connection_properties");
+    [TerraformProperty("connection_properties")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> ConnectionProperties { get; }
 
     /// <summary>
     /// The connection_type attribute.
     /// </summary>
-    [TerraformPropertyName("connection_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ConnectionType => new TerraformReference(this, "connection_type");
+    [TerraformProperty("connection_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ConnectionType { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The match_criteria attribute.
     /// </summary>
-    [TerraformPropertyName("match_criteria")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> MatchCriteria => new TerraformReference(this, "match_criteria");
+    [TerraformProperty("match_criteria")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> MatchCriteria { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The physical_connection_requirements attribute.
     /// </summary>
-    [TerraformPropertyName("physical_connection_requirements")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PhysicalConnectionRequirements => new TerraformReference(this, "physical_connection_requirements");
+    [TerraformProperty("physical_connection_requirements")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PhysicalConnectionRequirements { get; }
 
 }

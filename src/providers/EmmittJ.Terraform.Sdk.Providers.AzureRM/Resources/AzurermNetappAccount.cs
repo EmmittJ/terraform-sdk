@@ -6,109 +6,109 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for active_directory in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetappAccountActiveDirectoryBlock
+public partial class AzurermNetappAccountActiveDirectoryBlock : TerraformBlockBase
 {
     /// <summary>
     /// If enabled, AES encryption will be enabled for SMB communication.
     /// </summary>
-    [TerraformPropertyName("aes_encryption_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("aes_encryption_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AesEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsServers is required")]
-    [TerraformPropertyName("dns_servers")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("dns_servers")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? DnsServers { get; set; }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
-    [TerraformPropertyName("domain")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("domain")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Domain { get; set; }
 
     /// <summary>
     /// Name of the active directory machine. This optional parameter is used only while creating kerberos volume.
     /// </summary>
-    [TerraformPropertyName("kerberos_ad_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kerberos_ad_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KerberosAdName { get; set; }
 
     /// <summary>
     /// IP address of the KDC server (usually same the DC). This optional parameter is used only while creating kerberos volume.
     /// </summary>
-    [TerraformPropertyName("kerberos_kdc_ip")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kerberos_kdc_ip")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KerberosKdcIp { get; set; }
 
     /// <summary>
     /// Specifies whether or not the LDAP traffic needs to be secured via TLS.
     /// </summary>
-    [TerraformPropertyName("ldap_over_tls_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ldap_over_tls_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LdapOverTlsEnabled { get; set; }
 
     /// <summary>
     /// Specifies whether or not the LDAP traffic needs to be signed.
     /// </summary>
-    [TerraformPropertyName("ldap_signing_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ldap_signing_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LdapSigningEnabled { get; set; }
 
     /// <summary>
     /// If enabled, NFS client local users can also (in addition to LDAP users) access the NFS volumes.
     /// </summary>
-    [TerraformPropertyName("local_nfs_users_with_ldap_allowed")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("local_nfs_users_with_ldap_allowed")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LocalNfsUsersWithLdapAllowed { get; set; }
 
     /// <summary>
     /// The Organizational Unit (OU) within the Windows Active Directory where machines will be created. If blank, defaults to &#39;CN=Computers&#39;
     /// </summary>
-    [TerraformPropertyName("organizational_unit")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("organizational_unit")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OrganizationalUnit { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    [TerraformPropertyName("password")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("password")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Password { get; set; }
 
     /// <summary>
     /// When LDAP over SSL/TLS is enabled, the LDAP client is required to have base64 encoded Active Directory Certificate Service&#39;s self-signed root CA certificate, this optional parameter is used only for dual protocol with LDAP user-mapping volumes.
     /// </summary>
-    [TerraformPropertyName("server_root_ca_certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("server_root_ca_certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServerRootCaCertificate { get; set; }
 
     /// <summary>
     /// The Active Directory site the service will limit Domain Controller discovery to. If blank, defaults to &#39;Default-First-Site-Name&#39;
     /// </summary>
-    [TerraformPropertyName("site_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("site_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SiteName { get; set; }
 
     /// <summary>
     /// The smb_server_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SmbServerName is required")]
-    [TerraformPropertyName("smb_server_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("smb_server_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SmbServerName { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    [TerraformPropertyName("username")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("username")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Username { get; set; }
 
 }
@@ -117,13 +117,13 @@ public class AzurermNetappAccountActiveDirectoryBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetappAccountIdentityBlock
+public partial class AzurermNetappAccountIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformPropertyName("identity_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IdentityIds { get; set; }
 
 
@@ -132,8 +132,8 @@ public class AzurermNetappAccountIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -142,34 +142,34 @@ public class AzurermNetappAccountIdentityBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetappAccountTimeoutsBlock
+public partial class AzurermNetappAccountTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -178,7 +178,7 @@ public class AzurermNetappAccountTimeoutsBlock
 /// Manages a azurerm_netapp_account resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermNetappAccount : TerraformResource
+public partial class AzurermNetappAccount : TerraformResource
 {
     public AzurermNetappAccount(string name) : base("azurerm_netapp_account", name)
     {
@@ -187,39 +187,39 @@ public class AzurermNetappAccount : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -227,7 +227,7 @@ public class AzurermNetappAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ActiveDirectory block(s) allowed")]
-    [TerraformPropertyName("active_directory")]
+    [TerraformProperty("active_directory")]
     public TerraformList<TerraformBlock<AzurermNetappAccountActiveDirectoryBlock>>? ActiveDirectory { get; set; }
 
     /// <summary>
@@ -235,14 +235,14 @@ public class AzurermNetappAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermNetappAccountIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermNetappAccountTimeoutsBlock>? Timeouts { get; set; }
 
 }

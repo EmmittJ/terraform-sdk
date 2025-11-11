@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDevCenterCatalogDataSourceTimeoutsBlock
+public partial class AzurermDevCenterCatalogDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermDevCenterCatalogDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_dev_center_catalog.
 /// </summary>
-public class AzurermDevCenterCatalogDataSource : TerraformDataSource
+public partial class AzurermDevCenterCatalogDataSource : TerraformDataSource
 {
     public AzurermDevCenterCatalogDataSource(string name) : base("azurerm_dev_center_catalog", name)
     {
@@ -30,44 +30,44 @@ public class AzurermDevCenterCatalogDataSource : TerraformDataSource
     /// The dev_center_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
-    [TerraformPropertyName("dev_center_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("dev_center_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DevCenterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermDevCenterCatalogDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The catalog_adogit attribute.
     /// </summary>
-    [TerraformPropertyName("catalog_adogit")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CatalogAdogit => new TerraformReference(this, "catalog_adogit");
+    [TerraformProperty("catalog_adogit")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CatalogAdogit { get; }
 
     /// <summary>
     /// The catalog_github attribute.
     /// </summary>
-    [TerraformPropertyName("catalog_github")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CatalogGithub => new TerraformReference(this, "catalog_github");
+    [TerraformProperty("catalog_github")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CatalogGithub { get; }
 
 }

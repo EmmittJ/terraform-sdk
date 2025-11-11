@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for log_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesWasmPluginLogConfigBlock
+public partial class GoogleNetworkServicesWasmPluginLogConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Optional. Specifies whether to enable logging for activity by this plugin.
     /// </summary>
-    [TerraformPropertyName("enable")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enable { get; set; }
 
     /// <summary>
@@ -20,9 +20,9 @@ public class GoogleNetworkServicesWasmPluginLogConfigBlock
     /// This field is can be set only if logging is enabled for the plugin.
     /// If the field is not provided when logging is enabled, it is set to INFO by default. Possible values: [&amp;quot;LOG_LEVEL_UNSPECIFIED&amp;quot;, &amp;quot;TRACE&amp;quot;, &amp;quot;DEBUG&amp;quot;, &amp;quot;INFO&amp;quot;, &amp;quot;WARN&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;CRITICAL&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("min_log_level")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MinLogLevel { get; set; } = default!;
+    [TerraformProperty("min_log_level")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MinLogLevel { get; set; }
 
     /// <summary>
     /// Non-empty default. Configures the sampling rate of activity logs, where 1.0 means all logged activity is reported and 0.0 means no activity is reported.
@@ -30,9 +30,9 @@ public class GoogleNetworkServicesWasmPluginLogConfigBlock
     /// The default value when logging is enabled is 1.0. The value of the field must be between 0 and 1 (inclusive).
     /// This field can be specified only if logging is enabled for this plugin.
     /// </summary>
-    [TerraformPropertyName("sample_rate")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> SampleRate { get; set; } = default!;
+    [TerraformProperty("sample_rate")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> SampleRate { get; set; }
 
 }
 
@@ -40,27 +40,27 @@ public class GoogleNetworkServicesWasmPluginLogConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkServicesWasmPluginTimeoutsBlock
+public partial class GoogleNetworkServicesWasmPluginTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -69,14 +69,14 @@ public class GoogleNetworkServicesWasmPluginTimeoutsBlock
 /// Block type for versions in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleNetworkServicesWasmPluginVersionsBlock
+public partial class GoogleNetworkServicesWasmPluginVersionsBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// Optional. A human-readable description of the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
 
@@ -84,15 +84,15 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock
     /// Optional. URI of the container image containing the plugin, stored in the Artifact Registry. When a new WasmPluginVersion resource is created, the digest of the container image is saved in the imageDigest field.
     /// When downloading an image, the digest value is used instead of an image tag.
     /// </summary>
-    [TerraformPropertyName("image_uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("image_uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ImageUri { get; set; }
 
     /// <summary>
     /// Optional. Set of labels associated with the WasmPlugin resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -100,8 +100,8 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock
     /// When a new WasmPluginVersion resource is created, the digest of the contents is saved in the pluginConfigDigest field.
     /// Conflics with pluginConfigUri.
     /// </summary>
-    [TerraformPropertyName("plugin_config_data")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("plugin_config_data")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PluginConfigData { get; set; }
 
 
@@ -111,8 +111,8 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock
     /// When a new WasmPluginVersion resource is created, the digest of the container image is saved in the pluginConfigDigest field.
     /// Conflics with pluginConfigData.
     /// </summary>
-    [TerraformPropertyName("plugin_config_uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("plugin_config_uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PluginConfigUri { get; set; }
 
 
@@ -120,8 +120,8 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock
     /// The version_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VersionName is required")]
-    [TerraformPropertyName("version_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("version_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VersionName { get; set; }
 
 }
@@ -130,7 +130,7 @@ public class GoogleNetworkServicesWasmPluginVersionsBlock
 /// Manages a google_network_services_wasm_plugin resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleNetworkServicesWasmPlugin : TerraformResource
+public partial class GoogleNetworkServicesWasmPlugin : TerraformResource
 {
     public GoogleNetworkServicesWasmPlugin(string name) : base("google_network_services_wasm_plugin", name)
     {
@@ -139,16 +139,16 @@ public class GoogleNetworkServicesWasmPlugin : TerraformResource
     /// <summary>
     /// Optional. A human-readable description of the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Optional. Set of labels associated with the WasmPlugin resource.
@@ -156,53 +156,53 @@ public class GoogleNetworkServicesWasmPlugin : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the traffic extension
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The ID of the WasmPluginVersion resource that is the currently serving one. The version referred to must be a child of this WasmPlugin resource and should be listed in the &amp;quot;versions&amp;quot; field.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MainVersionId is required")]
-    [TerraformPropertyName("main_version_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("main_version_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MainVersionId { get; set; }
 
     /// <summary>
     /// Identifier. Name of the WasmPlugin resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for log_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogConfig block(s) allowed")]
-    [TerraformPropertyName("log_config")]
+    [TerraformProperty("log_config")]
     public TerraformList<TerraformBlock<GoogleNetworkServicesWasmPluginLogConfigBlock>>? LogConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleNetworkServicesWasmPluginTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -211,43 +211,43 @@ public class GoogleNetworkServicesWasmPlugin : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Versions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Versions block(s) required")]
-    [TerraformPropertyName("versions")]
+    [TerraformProperty("versions")]
     public TerraformSet<TerraformBlock<GoogleNetworkServicesWasmPluginVersionsBlock>>? Versions { get; set; }
 
     /// <summary>
     /// Output only. The timestamp when the resource was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. The timestamp when the resource was updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// Output only. List of all extensions that use this WasmPlugin resource.
     /// </summary>
-    [TerraformPropertyName("used_by")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> UsedBy => new TerraformReference(this, "used_by");
+    [TerraformProperty("used_by")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> UsedBy { get; }
 
 }

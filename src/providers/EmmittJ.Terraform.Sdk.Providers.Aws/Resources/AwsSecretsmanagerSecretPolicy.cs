@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_secretsmanager_secret_policy resource.
 /// </summary>
-public class AwsSecretsmanagerSecretPolicy : TerraformResource
+public partial class AwsSecretsmanagerSecretPolicy : TerraformResource
 {
     public AwsSecretsmanagerSecretPolicy(string name) : base("aws_secretsmanager_secret_policy", name)
     {
@@ -14,38 +14,38 @@ public class AwsSecretsmanagerSecretPolicy : TerraformResource
     /// <summary>
     /// The block_public_policy attribute.
     /// </summary>
-    [TerraformPropertyName("block_public_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("block_public_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? BlockPublicPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
-    [TerraformPropertyName("policy")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Policy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The secret_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretArn is required")]
-    [TerraformPropertyName("secret_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("secret_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SecretArn { get; set; }
 
 }

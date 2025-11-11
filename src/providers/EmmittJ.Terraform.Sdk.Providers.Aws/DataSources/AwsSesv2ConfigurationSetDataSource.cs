@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_sesv2_configuration_set.
 /// </summary>
-public class AwsSesv2ConfigurationSetDataSource : TerraformDataSource
+public partial class AwsSesv2ConfigurationSetDataSource : TerraformDataSource
 {
     public AwsSesv2ConfigurationSetDataSource(string name) : base("aws_sesv2_configuration_set", name)
     {
@@ -15,78 +15,78 @@ public class AwsSesv2ConfigurationSetDataSource : TerraformDataSource
     /// The configuration_set_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
-    [TerraformPropertyName("configuration_set_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("configuration_set_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConfigurationSetName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The delivery_options attribute.
     /// </summary>
-    [TerraformPropertyName("delivery_options")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> DeliveryOptions => new TerraformReference(this, "delivery_options");
+    [TerraformProperty("delivery_options")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> DeliveryOptions { get; }
 
     /// <summary>
     /// The reputation_options attribute.
     /// </summary>
-    [TerraformPropertyName("reputation_options")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ReputationOptions => new TerraformReference(this, "reputation_options");
+    [TerraformProperty("reputation_options")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ReputationOptions { get; }
 
     /// <summary>
     /// The sending_options attribute.
     /// </summary>
-    [TerraformPropertyName("sending_options")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SendingOptions => new TerraformReference(this, "sending_options");
+    [TerraformProperty("sending_options")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SendingOptions { get; }
 
     /// <summary>
     /// The suppression_options attribute.
     /// </summary>
-    [TerraformPropertyName("suppression_options")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SuppressionOptions => new TerraformReference(this, "suppression_options");
+    [TerraformProperty("suppression_options")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SuppressionOptions { get; }
 
     /// <summary>
     /// The tracking_options attribute.
     /// </summary>
-    [TerraformPropertyName("tracking_options")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> TrackingOptions => new TerraformReference(this, "tracking_options");
+    [TerraformProperty("tracking_options")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> TrackingOptions { get; }
 
     /// <summary>
     /// The vdm_options attribute.
     /// </summary>
-    [TerraformPropertyName("vdm_options")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> VdmOptions => new TerraformReference(this, "vdm_options");
+    [TerraformProperty("vdm_options")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> VdmOptions { get; }
 
 }

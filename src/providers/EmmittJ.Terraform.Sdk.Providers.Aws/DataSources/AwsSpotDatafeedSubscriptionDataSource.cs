@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_spot_datafeed_subscription.
 /// </summary>
-public class AwsSpotDatafeedSubscriptionDataSource : TerraformDataSource
+public partial class AwsSpotDatafeedSubscriptionDataSource : TerraformDataSource
 {
     public AwsSpotDatafeedSubscriptionDataSource(string name) : base("aws_spot_datafeed_subscription", name)
     {
@@ -14,22 +14,22 @@ public class AwsSpotDatafeedSubscriptionDataSource : TerraformDataSource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    [TerraformPropertyName("bucket")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Bucket => new TerraformReference(this, "bucket");
+    [TerraformProperty("bucket")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Bucket { get; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    [TerraformPropertyName("prefix")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Prefix => new TerraformReference(this, "prefix");
+    [TerraformProperty("prefix")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Prefix { get; }
 
 }

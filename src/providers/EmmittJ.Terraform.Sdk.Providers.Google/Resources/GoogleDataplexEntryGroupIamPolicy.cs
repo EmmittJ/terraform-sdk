@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Manages a google_dataplex_entry_group_iam_policy resource.
 /// </summary>
-public class GoogleDataplexEntryGroupIamPolicy : TerraformResource
+public partial class GoogleDataplexEntryGroupIamPolicy : TerraformResource
 {
     public GoogleDataplexEntryGroupIamPolicy(string name) : base("google_dataplex_entry_group_iam_policy", name)
     {
@@ -15,44 +15,44 @@ public class GoogleDataplexEntryGroupIamPolicy : TerraformResource
     /// The entry_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroupId is required")]
-    [TerraformPropertyName("entry_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("entry_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EntryGroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Location { get; set; } = default!;
+    [TerraformProperty("location")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyData is required")]
-    [TerraformPropertyName("policy_data")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_data")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PolicyData { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
 }

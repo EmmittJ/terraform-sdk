@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBotChannelMsTeamsTimeoutsBlock
+public partial class AzurermBotChannelMsTeamsTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermBotChannelMsTeamsTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_bot_channel_ms_teams resource.
 /// </summary>
-public class AzurermBotChannelMsTeams : TerraformResource
+public partial class AzurermBotChannelMsTeams : TerraformResource
 {
     public AzurermBotChannelMsTeams(string name) : base("azurerm_bot_channel_ms_teams", name)
     {
@@ -51,67 +51,67 @@ public class AzurermBotChannelMsTeams : TerraformResource
     /// The bot_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
-    [TerraformPropertyName("bot_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bot_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BotName { get; set; }
 
     /// <summary>
     /// The calling_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("calling_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> CallingEnabled { get; set; } = default!;
+    [TerraformProperty("calling_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> CallingEnabled { get; set; }
 
     /// <summary>
     /// The calling_web_hook attribute.
     /// </summary>
-    [TerraformPropertyName("calling_web_hook")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CallingWebHook { get; set; } = default!;
+    [TerraformProperty("calling_web_hook")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CallingWebHook { get; set; }
 
     /// <summary>
     /// The deployment_environment attribute.
     /// </summary>
-    [TerraformPropertyName("deployment_environment")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deployment_environment")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeploymentEnvironment { get; set; }
 
     /// <summary>
     /// The enable_calling attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("enable_calling")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> EnableCalling { get; set; } = default!;
+    [TerraformProperty("enable_calling")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> EnableCalling { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermBotChannelMsTeamsTimeoutsBlock>? Timeouts { get; set; }
 
 }

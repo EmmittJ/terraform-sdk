@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_apigatewayv2_api.
 /// </summary>
-public class AwsApigatewayv2ApiDataSource : TerraformDataSource
+public partial class AwsApigatewayv2ApiDataSource : TerraformDataSource
 {
     public AwsApigatewayv2ApiDataSource(string name) : base("aws_apigatewayv2_api", name)
     {
@@ -15,113 +15,113 @@ public class AwsApigatewayv2ApiDataSource : TerraformDataSource
     /// The api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
-    [TerraformPropertyName("api_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("api_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApiId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The api_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("api_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ApiEndpoint => new TerraformReference(this, "api_endpoint");
+    [TerraformProperty("api_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ApiEndpoint { get; }
 
     /// <summary>
     /// The api_key_selection_expression attribute.
     /// </summary>
-    [TerraformPropertyName("api_key_selection_expression")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ApiKeySelectionExpression => new TerraformReference(this, "api_key_selection_expression");
+    [TerraformProperty("api_key_selection_expression")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ApiKeySelectionExpression { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The cors_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("cors_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CorsConfiguration => new TerraformReference(this, "cors_configuration");
+    [TerraformProperty("cors_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CorsConfiguration { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The disable_execute_api_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("disable_execute_api_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DisableExecuteApiEndpoint => new TerraformReference(this, "disable_execute_api_endpoint");
+    [TerraformProperty("disable_execute_api_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DisableExecuteApiEndpoint { get; }
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
-    [TerraformPropertyName("execution_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExecutionArn => new TerraformReference(this, "execution_arn");
+    [TerraformProperty("execution_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExecutionArn { get; }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    [TerraformPropertyName("ip_address_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IpAddressType => new TerraformReference(this, "ip_address_type");
+    [TerraformProperty("ip_address_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IpAddressType { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The protocol_type attribute.
     /// </summary>
-    [TerraformPropertyName("protocol_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ProtocolType => new TerraformReference(this, "protocol_type");
+    [TerraformProperty("protocol_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ProtocolType { get; }
 
     /// <summary>
     /// The route_selection_expression attribute.
     /// </summary>
-    [TerraformPropertyName("route_selection_expression")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RouteSelectionExpression => new TerraformReference(this, "route_selection_expression");
+    [TerraformProperty("route_selection_expression")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RouteSelectionExpression { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Version => new TerraformReference(this, "version");
+    [TerraformProperty("version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Version { get; }
 
 }

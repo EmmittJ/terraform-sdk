@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for exclude_filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCloudwatchMetricStreamExcludeFilterBlock
+public partial class AwsCloudwatchMetricStreamExcludeFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The metric_names attribute.
     /// </summary>
-    [TerraformPropertyName("metric_names")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("metric_names")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? MetricNames { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
-    [TerraformPropertyName("namespace")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("namespace")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Namespace { get; set; }
 
 }
@@ -29,21 +29,21 @@ public class AwsCloudwatchMetricStreamExcludeFilterBlock
 /// Block type for include_filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCloudwatchMetricStreamIncludeFilterBlock
+public partial class AwsCloudwatchMetricStreamIncludeFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The metric_names attribute.
     /// </summary>
-    [TerraformPropertyName("metric_names")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("metric_names")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? MetricNames { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
-    [TerraformPropertyName("namespace")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("namespace")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Namespace { get; set; }
 
 }
@@ -52,14 +52,14 @@ public class AwsCloudwatchMetricStreamIncludeFilterBlock
 /// Block type for statistics_configuration in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCloudwatchMetricStreamStatisticsConfigurationBlock
+public partial class AwsCloudwatchMetricStreamStatisticsConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The additional_statistics attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdditionalStatistics is required")]
-    [TerraformPropertyName("additional_statistics")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("additional_statistics")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> AdditionalStatistics { get; set; }
 
 }
@@ -68,27 +68,27 @@ public class AwsCloudwatchMetricStreamStatisticsConfigurationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsCloudwatchMetricStreamTimeoutsBlock
+public partial class AwsCloudwatchMetricStreamTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -96,7 +96,7 @@ public class AwsCloudwatchMetricStreamTimeoutsBlock
 /// <summary>
 /// Manages a aws_cloudwatch_metric_stream resource.
 /// </summary>
-public class AwsCloudwatchMetricStream : TerraformResource
+public partial class AwsCloudwatchMetricStream : TerraformResource
 {
     public AwsCloudwatchMetricStream(string name) : base("aws_cloudwatch_metric_stream", name)
     {
@@ -106,129 +106,129 @@ public class AwsCloudwatchMetricStream : TerraformResource
     /// The firehose_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirehoseArn is required")]
-    [TerraformPropertyName("firehose_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("firehose_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FirehoseArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The include_linked_accounts_metrics attribute.
     /// </summary>
-    [TerraformPropertyName("include_linked_accounts_metrics")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_linked_accounts_metrics")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IncludeLinkedAccountsMetrics { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NamePrefix { get; set; } = default!;
+    [TerraformProperty("name_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The output_format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutputFormat is required")]
-    [TerraformPropertyName("output_format")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("output_format")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OutputFormat { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for exclude_filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("exclude_filter")]
+    [TerraformProperty("exclude_filter")]
     public TerraformSet<TerraformBlock<AwsCloudwatchMetricStreamExcludeFilterBlock>>? ExcludeFilter { get; set; }
 
     /// <summary>
     /// Block for include_filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("include_filter")]
+    [TerraformProperty("include_filter")]
     public TerraformSet<TerraformBlock<AwsCloudwatchMetricStreamIncludeFilterBlock>>? IncludeFilter { get; set; }
 
     /// <summary>
     /// Block for statistics_configuration.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("statistics_configuration")]
+    [TerraformProperty("statistics_configuration")]
     public TerraformSet<TerraformBlock<AwsCloudwatchMetricStreamStatisticsConfigurationBlock>>? StatisticsConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsCloudwatchMetricStreamTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
-    [TerraformPropertyName("creation_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationDate => new TerraformReference(this, "creation_date");
+    [TerraformProperty("creation_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationDate { get; }
 
     /// <summary>
     /// The last_update_date attribute.
     /// </summary>
-    [TerraformPropertyName("last_update_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastUpdateDate => new TerraformReference(this, "last_update_date");
+    [TerraformProperty("last_update_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastUpdateDate { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
 }

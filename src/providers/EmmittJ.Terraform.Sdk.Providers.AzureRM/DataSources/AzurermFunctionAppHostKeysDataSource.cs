@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermFunctionAppHostKeysDataSourceTimeoutsBlock
+public partial class AzurermFunctionAppHostKeysDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermFunctionAppHostKeysDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_function_app_host_keys.
 /// </summary>
-public class AzurermFunctionAppHostKeysDataSource : TerraformDataSource
+public partial class AzurermFunctionAppHostKeysDataSource : TerraformDataSource
 {
     public AzurermFunctionAppHostKeysDataSource(string name) : base("azurerm_function_app_host_keys", name)
     {
@@ -29,87 +29,87 @@ public class AzurermFunctionAppHostKeysDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermFunctionAppHostKeysDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The blobs_extension_key attribute.
     /// </summary>
-    [TerraformPropertyName("blobs_extension_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BlobsExtensionKey => new TerraformReference(this, "blobs_extension_key");
+    [TerraformProperty("blobs_extension_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BlobsExtensionKey { get; }
 
     /// <summary>
     /// The default_function_key attribute.
     /// </summary>
-    [TerraformPropertyName("default_function_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultFunctionKey => new TerraformReference(this, "default_function_key");
+    [TerraformProperty("default_function_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultFunctionKey { get; }
 
     /// <summary>
     /// The durabletask_extension_key attribute.
     /// </summary>
-    [TerraformPropertyName("durabletask_extension_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DurabletaskExtensionKey => new TerraformReference(this, "durabletask_extension_key");
+    [TerraformProperty("durabletask_extension_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DurabletaskExtensionKey { get; }
 
     /// <summary>
     /// The event_grid_extension_config_key attribute.
     /// </summary>
-    [TerraformPropertyName("event_grid_extension_config_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EventGridExtensionConfigKey => new TerraformReference(this, "event_grid_extension_config_key");
+    [TerraformProperty("event_grid_extension_config_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EventGridExtensionConfigKey { get; }
 
     /// <summary>
     /// The event_grid_extension_key attribute.
     /// </summary>
-    [TerraformPropertyName("event_grid_extension_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EventGridExtensionKey => new TerraformReference(this, "event_grid_extension_key");
+    [TerraformProperty("event_grid_extension_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EventGridExtensionKey { get; }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    [TerraformPropertyName("primary_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryKey => new TerraformReference(this, "primary_key");
+    [TerraformProperty("primary_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryKey { get; }
 
     /// <summary>
     /// The signalr_extension_key attribute.
     /// </summary>
-    [TerraformPropertyName("signalr_extension_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SignalrExtensionKey => new TerraformReference(this, "signalr_extension_key");
+    [TerraformProperty("signalr_extension_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SignalrExtensionKey { get; }
 
     /// <summary>
     /// The webpubsub_extension_key attribute.
     /// </summary>
-    [TerraformPropertyName("webpubsub_extension_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WebpubsubExtensionKey => new TerraformReference(this, "webpubsub_extension_key");
+    [TerraformProperty("webpubsub_extension_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WebpubsubExtensionKey { get; }
 
 }

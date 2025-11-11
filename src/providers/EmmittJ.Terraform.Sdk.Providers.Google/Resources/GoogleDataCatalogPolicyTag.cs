@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataCatalogPolicyTagTimeoutsBlock
+public partial class GoogleDataCatalogPolicyTagTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleDataCatalogPolicyTagTimeoutsBlock
 /// <summary>
 /// Manages a google_data_catalog_policy_tag resource.
 /// </summary>
-public class GoogleDataCatalogPolicyTag : TerraformResource
+public partial class GoogleDataCatalogPolicyTag : TerraformResource
 {
     public GoogleDataCatalogPolicyTag(string name) : base("google_data_catalog_policy_tag", name)
     {
@@ -46,8 +46,8 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     /// encoded in UTF-8. If not set, defaults to an empty description.
     /// If not set, defaults to an empty description.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
@@ -56,54 +56,54 @@ public class GoogleDataCatalogPolicyTag : TerraformResource
     /// not start or end with spaces; and be at most 200 bytes long when encoded in UTF-8.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource name of this policy tag&#39;s parent policy tag.
     /// If empty, it means this policy tag is a top level policy tag.
     /// If not set, defaults to an empty string.
     /// </summary>
-    [TerraformPropertyName("parent_policy_tag")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parent_policy_tag")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ParentPolicyTag { get; set; }
 
     /// <summary>
     /// Taxonomy the policy tag is associated with
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Taxonomy is required")]
-    [TerraformPropertyName("taxonomy")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("taxonomy")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Taxonomy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDataCatalogPolicyTagTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Resource names of child policy tags of this policy tag.
     /// </summary>
-    [TerraformPropertyName("child_policy_tags")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ChildPolicyTags => new TerraformReference(this, "child_policy_tags");
+    [TerraformProperty("child_policy_tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ChildPolicyTags { get; }
 
     /// <summary>
     /// Resource name of this policy tag, whose format is:
     /// &amp;quot;projects/{project}/locations/{region}/taxonomies/{taxonomy}/policyTags/{policytag}&amp;quot;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

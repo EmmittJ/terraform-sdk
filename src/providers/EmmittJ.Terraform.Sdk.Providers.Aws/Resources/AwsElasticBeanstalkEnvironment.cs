@@ -6,37 +6,37 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for setting in .
 /// Nesting mode: set
 /// </summary>
-public class AwsElasticBeanstalkEnvironmentSettingBlock
+public partial class AwsElasticBeanstalkEnvironmentSettingBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
-    [TerraformPropertyName("namespace")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("namespace")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Namespace { get; set; }
 
     /// <summary>
     /// The resource attribute.
     /// </summary>
-    [TerraformPropertyName("resource")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("resource")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Resource { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -44,7 +44,7 @@ public class AwsElasticBeanstalkEnvironmentSettingBlock
 /// <summary>
 /// Manages a aws_elastic_beanstalk_environment resource.
 /// </summary>
-public class AwsElasticBeanstalkEnvironment : TerraformResource
+public partial class AwsElasticBeanstalkEnvironment : TerraformResource
 {
     public AwsElasticBeanstalkEnvironment(string name) : base("aws_elastic_beanstalk_environment", name)
     {
@@ -54,184 +54,184 @@ public class AwsElasticBeanstalkEnvironment : TerraformResource
     /// The application attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Application is required")]
-    [TerraformPropertyName("application")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("application")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Application { get; set; }
 
     /// <summary>
     /// The cname_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("cname_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CnamePrefix { get; set; } = default!;
+    [TerraformProperty("cname_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CnamePrefix { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The platform_arn attribute.
     /// </summary>
-    [TerraformPropertyName("platform_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PlatformArn { get; set; } = default!;
+    [TerraformProperty("platform_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PlatformArn { get; set; }
 
     /// <summary>
     /// The poll_interval attribute.
     /// </summary>
-    [TerraformPropertyName("poll_interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("poll_interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PollInterval { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The solution_stack_name attribute.
     /// </summary>
-    [TerraformPropertyName("solution_stack_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SolutionStackName { get; set; } = default!;
+    [TerraformProperty("solution_stack_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SolutionStackName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The template_name attribute.
     /// </summary>
-    [TerraformPropertyName("template_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("template_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TemplateName { get; set; }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    [TerraformPropertyName("tier")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tier")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Tier { get; set; }
 
     /// <summary>
     /// The version_label attribute.
     /// </summary>
-    [TerraformPropertyName("version_label")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> VersionLabel { get; set; } = default!;
+    [TerraformProperty("version_label")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> VersionLabel { get; set; }
 
     /// <summary>
     /// The wait_for_ready_timeout attribute.
     /// </summary>
-    [TerraformPropertyName("wait_for_ready_timeout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("wait_for_ready_timeout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? WaitForReadyTimeout { get; set; }
 
     /// <summary>
     /// Block for setting.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("setting")]
+    [TerraformProperty("setting")]
     public TerraformSet<TerraformBlock<AwsElasticBeanstalkEnvironmentSettingBlock>>? Setting { get; set; }
 
     /// <summary>
     /// The all_settings attribute.
     /// </summary>
-    [TerraformPropertyName("all_settings")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> AllSettings => new TerraformReference(this, "all_settings");
+    [TerraformProperty("all_settings")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> AllSettings { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The autoscaling_groups attribute.
     /// </summary>
-    [TerraformPropertyName("autoscaling_groups")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AutoscalingGroups => new TerraformReference(this, "autoscaling_groups");
+    [TerraformProperty("autoscaling_groups")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AutoscalingGroups { get; }
 
     /// <summary>
     /// The cname attribute.
     /// </summary>
-    [TerraformPropertyName("cname")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Cname => new TerraformReference(this, "cname");
+    [TerraformProperty("cname")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Cname { get; }
 
     /// <summary>
     /// The endpoint_url attribute.
     /// </summary>
-    [TerraformPropertyName("endpoint_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EndpointUrl => new TerraformReference(this, "endpoint_url");
+    [TerraformProperty("endpoint_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EndpointUrl { get; }
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
-    [TerraformPropertyName("instances")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Instances => new TerraformReference(this, "instances");
+    [TerraformProperty("instances")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Instances { get; }
 
     /// <summary>
     /// The launch_configurations attribute.
     /// </summary>
-    [TerraformPropertyName("launch_configurations")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> LaunchConfigurations => new TerraformReference(this, "launch_configurations");
+    [TerraformProperty("launch_configurations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> LaunchConfigurations { get; }
 
     /// <summary>
     /// The load_balancers attribute.
     /// </summary>
-    [TerraformPropertyName("load_balancers")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> LoadBalancers => new TerraformReference(this, "load_balancers");
+    [TerraformProperty("load_balancers")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> LoadBalancers { get; }
 
     /// <summary>
     /// The queues attribute.
     /// </summary>
-    [TerraformPropertyName("queues")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Queues => new TerraformReference(this, "queues");
+    [TerraformProperty("queues")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Queues { get; }
 
     /// <summary>
     /// The triggers attribute.
     /// </summary>
-    [TerraformPropertyName("triggers")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Triggers => new TerraformReference(this, "triggers");
+    [TerraformProperty("triggers")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Triggers { get; }
 
 }

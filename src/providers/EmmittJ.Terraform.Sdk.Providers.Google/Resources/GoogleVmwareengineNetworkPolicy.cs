@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for external_ip in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVmwareengineNetworkPolicyExternalIpBlock
+public partial class GoogleVmwareengineNetworkPolicyExternalIpBlock : TerraformBlockBase
 {
     /// <summary>
     /// True if the service is enabled; false otherwise.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
 
@@ -22,13 +22,13 @@ public class GoogleVmwareengineNetworkPolicyExternalIpBlock
 /// Block type for internet_access in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVmwareengineNetworkPolicyInternetAccessBlock
+public partial class GoogleVmwareengineNetworkPolicyInternetAccessBlock : TerraformBlockBase
 {
     /// <summary>
     /// True if the service is enabled; false otherwise.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
 
@@ -38,27 +38,27 @@ public class GoogleVmwareengineNetworkPolicyInternetAccessBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVmwareengineNetworkPolicyTimeoutsBlock
+public partial class GoogleVmwareengineNetworkPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -67,7 +67,7 @@ public class GoogleVmwareengineNetworkPolicyTimeoutsBlock
 /// Manages a google_vmwareengine_network_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleVmwareengineNetworkPolicy : TerraformResource
+public partial class GoogleVmwareengineNetworkPolicy : TerraformResource
 {
     public GoogleVmwareengineNetworkPolicy(string name) : base("google_vmwareengine_network_policy", name)
     {
@@ -76,8 +76,8 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// <summary>
     /// User-provided description for this network policy.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
@@ -86,16 +86,16 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// prefixes either in the consumer VPC network or in use by the private clouds attached to that VPC network.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EdgeServicesCidr is required")]
-    [TerraformPropertyName("edge_services_cidr")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("edge_services_cidr")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EdgeServicesCidr { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name of the location (region) to create the new network policy in.
@@ -103,24 +103,24 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// For example: projects/my-project/locations/us-central1
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The ID of the Network Policy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The relative resource name of the VMware Engine network. Specify the name in the following form:
@@ -128,8 +128,8 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// can either be a project number or a project ID.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareEngineNetwork is required")]
-    [TerraformPropertyName("vmware_engine_network")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vmware_engine_network")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VmwareEngineNetwork { get; set; }
 
     /// <summary>
@@ -137,7 +137,7 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExternalIp block(s) allowed")]
-    [TerraformPropertyName("external_ip")]
+    [TerraformProperty("external_ip")]
     public TerraformList<TerraformBlock<GoogleVmwareengineNetworkPolicyExternalIpBlock>>? ExternalIp { get; set; }
 
     /// <summary>
@@ -145,14 +145,14 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InternetAccess block(s) allowed")]
-    [TerraformPropertyName("internet_access")]
+    [TerraformProperty("internet_access")]
     public TerraformList<TerraformBlock<GoogleVmwareengineNetworkPolicyInternetAccessBlock>>? InternetAccess { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleVmwareengineNetworkPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -160,32 +160,32 @@ public class GoogleVmwareengineNetworkPolicy : TerraformResource
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Last updated time of this resource.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// The canonical name of the VMware Engine network in the form:
     /// projects/{project_number}/locations/{location}/vmwareEngineNetworks/{vmwareEngineNetworkId}
     /// </summary>
-    [TerraformPropertyName("vmware_engine_network_canonical")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VmwareEngineNetworkCanonical => new TerraformReference(this, "vmware_engine_network_canonical");
+    [TerraformProperty("vmware_engine_network_canonical")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VmwareEngineNetworkCanonical { get; }
 
 }

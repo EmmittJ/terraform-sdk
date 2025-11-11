@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeEndpointAttachmentTimeoutsBlock
+public partial class GoogleApigeeEndpointAttachmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class GoogleApigeeEndpointAttachmentTimeoutsBlock
 /// <summary>
 /// Manages a google_apigee_endpoint_attachment resource.
 /// </summary>
-public class GoogleApigeeEndpointAttachment : TerraformResource
+public partial class GoogleApigeeEndpointAttachment : TerraformResource
 {
     public GoogleApigeeEndpointAttachment(string name) : base("google_apigee_endpoint_attachment", name)
     {
@@ -37,23 +37,23 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     /// ID of the endpoint attachment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointAttachmentId is required")]
-    [TerraformPropertyName("endpoint_attachment_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("endpoint_attachment_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EndpointAttachmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Location of the endpoint attachment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
@@ -61,45 +61,45 @@ public class GoogleApigeeEndpointAttachment : TerraformResource
     /// in the format &#39;organizations/{{org_name}}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    [TerraformPropertyName("org_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("org_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Format: projects/*/regions/*/serviceAttachments/*
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAttachment is required")]
-    [TerraformPropertyName("service_attachment")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_attachment")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceAttachment { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleApigeeEndpointAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// State of the endpoint attachment connection to the service attachment.
     /// </summary>
-    [TerraformPropertyName("connection_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ConnectionState => new TerraformReference(this, "connection_state");
+    [TerraformProperty("connection_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ConnectionState { get; }
 
     /// <summary>
     /// Host that can be used in either HTTP Target Endpoint directly, or as the host in Target Server.
     /// </summary>
-    [TerraformPropertyName("host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Host => new TerraformReference(this, "host");
+    [TerraformProperty("host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Host { get; }
 
     /// <summary>
     /// Name of the Endpoint Attachment in the following format:
     /// organizations/{organization}/endpointAttachments/{endpointAttachment}.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

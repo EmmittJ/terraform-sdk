@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_sql_backup_run.
 /// </summary>
-public class GoogleSqlBackupRunDataSource : TerraformDataSource
+public partial class GoogleSqlBackupRunDataSource : TerraformDataSource
 {
     public GoogleSqlBackupRunDataSource(string name) : base("google_sql_backup_run", name)
     {
@@ -14,58 +14,58 @@ public class GoogleSqlBackupRunDataSource : TerraformDataSource
     /// <summary>
     /// The identifier for this backup run. Unique only for a specific Cloud SQL instance. If left empty and multiple backups exist for the instance, most_recent must be set to true.
     /// </summary>
-    [TerraformPropertyName("backup_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> BackupId { get; set; } = default!;
+    [TerraformProperty("backup_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> BackupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the database instance.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    [TerraformPropertyName("instance")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// Toggles use of the most recent backup run if multiple backups exist for a Cloud SQL instance.
     /// </summary>
-    [TerraformPropertyName("most_recent")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("most_recent")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? MostRecent { get; set; }
 
     /// <summary>
     /// Project ID of the project that contains the instance.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Location of the backups.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The time the backup operation actually started in UTC timezone in RFC 3339 format, for example 2012-11-15T16:19:00.094Z.
     /// </summary>
-    [TerraformPropertyName("start_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StartTime => new TerraformReference(this, "start_time");
+    [TerraformProperty("start_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StartTime { get; }
 
     /// <summary>
     /// The status of this run.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

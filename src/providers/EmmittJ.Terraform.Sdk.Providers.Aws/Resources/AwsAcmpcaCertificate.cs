@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for validity in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAcmpcaCertificateValidityBlock
+public partial class AwsAcmpcaCertificateValidityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -30,7 +30,7 @@ public class AwsAcmpcaCertificateValidityBlock
 /// Manages a aws_acmpca_certificate resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsAcmpcaCertificate : TerraformResource
+public partial class AwsAcmpcaCertificate : TerraformResource
 {
     public AwsAcmpcaCertificate(string name) : base("aws_acmpca_certificate", name)
     {
@@ -39,53 +39,53 @@ public class AwsAcmpcaCertificate : TerraformResource
     /// <summary>
     /// The api_passthrough attribute.
     /// </summary>
-    [TerraformPropertyName("api_passthrough")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("api_passthrough")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ApiPassthrough { get; set; }
 
     /// <summary>
     /// The certificate_authority_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityArn is required")]
-    [TerraformPropertyName("certificate_authority_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("certificate_authority_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CertificateAuthorityArn { get; set; }
 
     /// <summary>
     /// The certificate_signing_request attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateSigningRequest is required")]
-    [TerraformPropertyName("certificate_signing_request")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("certificate_signing_request")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CertificateSigningRequest { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The signing_algorithm attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningAlgorithm is required")]
-    [TerraformPropertyName("signing_algorithm")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("signing_algorithm")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SigningAlgorithm { get; set; }
 
     /// <summary>
     /// The template_arn attribute.
     /// </summary>
-    [TerraformPropertyName("template_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("template_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TemplateArn { get; set; }
 
     /// <summary>
@@ -95,28 +95,28 @@ public class AwsAcmpcaCertificate : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Validity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Validity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Validity block(s) allowed")]
-    [TerraformPropertyName("validity")]
+    [TerraformProperty("validity")]
     public TerraformList<TerraformBlock<AwsAcmpcaCertificateValidityBlock>>? Validity { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    [TerraformPropertyName("certificate")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Certificate => new TerraformReference(this, "certificate");
+    [TerraformProperty("certificate")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Certificate { get; }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_chain")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CertificateChain => new TerraformReference(this, "certificate_chain");
+    [TerraformProperty("certificate_chain")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CertificateChain { get; }
 
 }

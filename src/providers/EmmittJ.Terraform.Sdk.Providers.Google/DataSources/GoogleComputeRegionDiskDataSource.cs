@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_region_disk.
 /// </summary>
-public class GoogleComputeRegionDiskDataSource : TerraformDataSource
+public partial class GoogleComputeRegionDiskDataSource : TerraformDataSource
 {
     public GoogleComputeRegionDiskDataSource(string name) : base("google_compute_region_disk", name)
     {
@@ -14,9 +14,9 @@ public class GoogleComputeRegionDiskDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -28,22 +28,22 @@ public class GoogleComputeRegionDiskDataSource : TerraformDataSource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// A reference to the region where the disk resides.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
@@ -54,47 +54,47 @@ public class GoogleComputeRegionDiskDataSource : TerraformDataSource
     ///   * READ_ONLY_SINGLE: The AccessMode means the disk can be attached to multiple instances in RO mode.
     /// The AccessMode is only valid for Hyperdisk disk types.
     /// </summary>
-    [TerraformPropertyName("access_mode")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AccessMode => new TerraformReference(this, "access_mode");
+    [TerraformProperty("access_mode")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AccessMode { get; }
 
     /// <summary>
     /// A nested object resource.
     /// </summary>
-    [TerraformPropertyName("async_primary_disk")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> AsyncPrimaryDisk => new TerraformReference(this, "async_primary_disk");
+    [TerraformProperty("async_primary_disk")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> AsyncPrimaryDisk { get; }
 
     /// <summary>
     /// If set to true, a snapshot of the disk will be created before it is destroyed.
     /// If your disk is encrypted with customer managed encryption keys these will be reused for the snapshot creation.
     /// The name of the snapshot by default will be &#39;{{disk-name}}-YYYYMMDD-HHmm&#39;
     /// </summary>
-    [TerraformPropertyName("create_snapshot_before_destroy")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> CreateSnapshotBeforeDestroy => new TerraformReference(this, "create_snapshot_before_destroy");
+    [TerraformProperty("create_snapshot_before_destroy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> CreateSnapshotBeforeDestroy { get; }
 
     /// <summary>
     /// This will set a custom name prefix for the snapshot that&#39;s created when the disk is deleted.
     /// </summary>
-    [TerraformPropertyName("create_snapshot_before_destroy_prefix")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateSnapshotBeforeDestroyPrefix => new TerraformReference(this, "create_snapshot_before_destroy_prefix");
+    [TerraformProperty("create_snapshot_before_destroy_prefix")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateSnapshotBeforeDestroyPrefix { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// Encrypts the disk using a customer-supplied encryption key.
@@ -110,39 +110,39 @@ public class GoogleComputeRegionDiskDataSource : TerraformDataSource
     /// the disk will be encrypted using an automatically generated key and
     /// you do not need to provide a key to use the disk later.
     /// </summary>
-    [TerraformPropertyName("disk_encryption_key")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> DiskEncryptionKey => new TerraformReference(this, "disk_encryption_key");
+    [TerraformProperty("disk_encryption_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> DiskEncryptionKey { get; }
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
-    [TerraformPropertyName("disk_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DiskId => new TerraformReference(this, "disk_id");
+    [TerraformProperty("disk_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DiskId { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// A list of features to enable on the guest operating system.
     /// Applicable only for bootable disks.
     /// </summary>
-    [TerraformPropertyName("guest_os_features")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> GuestOsFeatures => new TerraformReference(this, "guest_os_features");
+    [TerraformProperty("guest_os_features")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> GuestOsFeatures { get; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
-    [TerraformPropertyName("label_fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
+    [TerraformProperty("label_fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// Labels to apply to this disk.  A list of key-&amp;gt;value pairs.
@@ -151,30 +151,30 @@ public class GoogleComputeRegionDiskDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
+    [TerraformProperty("labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// Last attach timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("last_attach_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastAttachTimestamp => new TerraformReference(this, "last_attach_timestamp");
+    [TerraformProperty("last_attach_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastAttachTimestamp { get; }
 
     /// <summary>
     /// Last detach timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("last_detach_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastDetachTimestamp => new TerraformReference(this, "last_detach_timestamp");
+    [TerraformProperty("last_detach_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastDetachTimestamp { get; }
 
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
-    [TerraformPropertyName("licenses")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Licenses => new TerraformReference(this, "licenses");
+    [TerraformProperty("licenses")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Licenses { get; }
 
     /// <summary>
     /// Physical block size of the persistent disk, in bytes. If not present
@@ -183,40 +183,40 @@ public class GoogleComputeRegionDiskDataSource : TerraformDataSource
     /// If an unsupported value is requested, the error message will list
     /// the supported values for the caller&#39;s project.
     /// </summary>
-    [TerraformPropertyName("physical_block_size_bytes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> PhysicalBlockSizeBytes => new TerraformReference(this, "physical_block_size_bytes");
+    [TerraformProperty("physical_block_size_bytes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> PhysicalBlockSizeBytes { get; }
 
     /// <summary>
     /// Indicates how many IOPS to provision for the disk. This sets the number of I/O operations per second
     /// that the disk can handle. Values must be between 10,000 and 120,000.
     /// For more details, see the Extreme persistent disk [documentation](https://cloud.google.com/compute/docs/disks/extreme-persistent-disk).
     /// </summary>
-    [TerraformPropertyName("provisioned_iops")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ProvisionedIops => new TerraformReference(this, "provisioned_iops");
+    [TerraformProperty("provisioned_iops")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ProvisionedIops { get; }
 
     /// <summary>
     /// Indicates how much throughput to provision for the disk. This sets the number of throughput
     /// mb per second that the disk can handle. Values must be greater than or equal to 1.
     /// </summary>
-    [TerraformPropertyName("provisioned_throughput")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ProvisionedThroughput => new TerraformReference(this, "provisioned_throughput");
+    [TerraformProperty("provisioned_throughput")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ProvisionedThroughput { get; }
 
     /// <summary>
     /// URLs of the zones where the disk should be replicated to.
     /// </summary>
-    [TerraformPropertyName("replica_zones")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ReplicaZones => new TerraformReference(this, "replica_zones");
+    [TerraformProperty("replica_zones")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ReplicaZones { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Size of the persistent disk, specified in GB. You can specify this
@@ -228,9 +228,9 @@ public class GoogleComputeRegionDiskDataSource : TerraformDataSource
     /// the value of sizeGb must not be less than the size of the sourceImage
     /// or the size of the snapshot.
     /// </summary>
-    [TerraformPropertyName("size")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Size => new TerraformReference(this, "size");
+    [TerraformProperty("size")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Size { get; }
 
     /// <summary>
     /// The source snapshot used to create this disk. You can provide this as
@@ -242,9 +242,9 @@ public class GoogleComputeRegionDiskDataSource : TerraformDataSource
     /// * &#39;global/snapshots/snapshot&#39;
     /// * &#39;snapshot&#39;
     /// </summary>
-    [TerraformPropertyName("snapshot")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Snapshot => new TerraformReference(this, "snapshot");
+    [TerraformProperty("snapshot")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Snapshot { get; }
 
     /// <summary>
     /// The source disk used to create this disk. You can provide this as a partial or full URL to the resource.
@@ -257,27 +257,27 @@ public class GoogleComputeRegionDiskDataSource : TerraformDataSource
     /// * zones/{zone}/disks/{disk}
     /// * regions/{region}/disks/{disk}
     /// </summary>
-    [TerraformPropertyName("source_disk")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceDisk => new TerraformReference(this, "source_disk");
+    [TerraformProperty("source_disk")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceDisk { get; }
 
     /// <summary>
     /// The ID value of the disk used to create this image. This value may
     /// be used to determine whether the image was taken from the current
     /// or a previous instance of a given disk name.
     /// </summary>
-    [TerraformPropertyName("source_disk_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceDiskId => new TerraformReference(this, "source_disk_id");
+    [TerraformProperty("source_disk_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceDiskId { get; }
 
     /// <summary>
     /// The customer-supplied encryption key of the source snapshot. Required
     /// if the source snapshot is protected by a customer-supplied encryption
     /// key.
     /// </summary>
-    [TerraformPropertyName("source_snapshot_encryption_key")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SourceSnapshotEncryptionKey => new TerraformReference(this, "source_snapshot_encryption_key");
+    [TerraformProperty("source_snapshot_encryption_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SourceSnapshotEncryptionKey { get; }
 
     /// <summary>
     /// The unique ID of the snapshot used to create this disk. This value
@@ -287,32 +287,32 @@ public class GoogleComputeRegionDiskDataSource : TerraformDataSource
     /// snapshot ID would identify the exact version of the snapshot that was
     /// used.
     /// </summary>
-    [TerraformPropertyName("source_snapshot_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceSnapshotId => new TerraformReference(this, "source_snapshot_id");
+    [TerraformProperty("source_snapshot_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceSnapshotId { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// URL of the disk type resource describing which disk type to use to
     /// create the disk. Provide this when creating the disk.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
     /// <summary>
     /// Links to the users of the disk (attached instances) in form:
     /// project/zones/zone/instances/instance
     /// </summary>
-    [TerraformPropertyName("users")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Users => new TerraformReference(this, "users");
+    [TerraformProperty("users")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Users { get; }
 
 }

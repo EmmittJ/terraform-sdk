@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for artifact_store in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCodepipelineArtifactStoreBlock
+public partial class AwsCodepipelineArtifactStoreBlock : TerraformBlockBase
 {
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -37,14 +37,14 @@ public class AwsCodepipelineArtifactStoreBlock
 /// Block type for stage in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodepipelineStageBlock
+public partial class AwsCodepipelineStageBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -53,14 +53,14 @@ public class AwsCodepipelineStageBlock
 /// Block type for trigger in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodepipelineTriggerBlock
+public partial class AwsCodepipelineTriggerBlock : TerraformBlockBase
 {
     /// <summary>
     /// The provider_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProviderType is required")]
-    [TerraformPropertyName("provider_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("provider_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProviderType { get; set; }
 
 }
@@ -69,28 +69,28 @@ public class AwsCodepipelineTriggerBlock
 /// Block type for variable in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodepipelineVariableBlock
+public partial class AwsCodepipelineVariableBlock : TerraformBlockBase
 {
     /// <summary>
     /// The default_value attribute.
     /// </summary>
-    [TerraformPropertyName("default_value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DefaultValue { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -99,7 +99,7 @@ public class AwsCodepipelineVariableBlock
 /// Manages a aws_codepipeline resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsCodepipeline : TerraformResource
+public partial class AwsCodepipeline : TerraformResource
 {
     public AwsCodepipeline(string name) : base("aws_codepipeline", name)
     {
@@ -108,60 +108,60 @@ public class AwsCodepipeline : TerraformResource
     /// <summary>
     /// The execution_mode attribute.
     /// </summary>
-    [TerraformPropertyName("execution_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("execution_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExecutionMode { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The pipeline_type attribute.
     /// </summary>
-    [TerraformPropertyName("pipeline_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("pipeline_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PipelineType { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for artifact_store.
@@ -169,7 +169,7 @@ public class AwsCodepipeline : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactStore is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ArtifactStore block(s) required")]
-    [TerraformPropertyName("artifact_store")]
+    [TerraformProperty("artifact_store")]
     public TerraformSet<TerraformBlock<AwsCodepipelineArtifactStoreBlock>>? ArtifactStore { get; set; }
 
     /// <summary>
@@ -177,7 +177,7 @@ public class AwsCodepipeline : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 Stage block(s) required")]
-    [TerraformPropertyName("stage")]
+    [TerraformProperty("stage")]
     public TerraformList<TerraformBlock<AwsCodepipelineStageBlock>>? Stage { get; set; }
 
     /// <summary>
@@ -185,28 +185,28 @@ public class AwsCodepipeline : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 Trigger block(s) allowed")]
-    [TerraformPropertyName("trigger")]
+    [TerraformProperty("trigger")]
     public TerraformList<TerraformBlock<AwsCodepipelineTriggerBlock>>? Trigger { get; set; }
 
     /// <summary>
     /// Block for variable.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("variable")]
+    [TerraformProperty("variable")]
     public TerraformList<TerraformBlock<AwsCodepipelineVariableBlock>>? Variable { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The trigger_all attribute.
     /// </summary>
-    [TerraformPropertyName("trigger_all")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> TriggerAll => new TerraformReference(this, "trigger_all");
+    [TerraformProperty("trigger_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> TriggerAll { get; }
 
 }

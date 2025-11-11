@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_licensemanager_grant resource.
 /// </summary>
-public class AwsLicensemanagerGrant : TerraformResource
+public partial class AwsLicensemanagerGrant : TerraformResource
 {
     public AwsLicensemanagerGrant(string name) : base("aws_licensemanager_grant", name)
     {
@@ -15,81 +15,81 @@ public class AwsLicensemanagerGrant : TerraformResource
     /// Allowed operations for the grant. This is a subset of the allowed operations on the license.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedOperations is required")]
-    [TerraformPropertyName("allowed_operations")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("allowed_operations")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> AllowedOperations { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// License ARN.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseArn is required")]
-    [TerraformPropertyName("license_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("license_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LicenseArn { get; set; }
 
     /// <summary>
     /// Name of the grant.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The grantee principal ARN. The target account for the grant in the form of the ARN for an account principal of the root user.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
-    [TerraformPropertyName("principal")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("principal")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Principal { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Amazon Resource Name (ARN) of the grant.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// Home Region of the grant.
     /// </summary>
-    [TerraformPropertyName("home_region")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> HomeRegion => new TerraformReference(this, "home_region");
+    [TerraformProperty("home_region")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> HomeRegion { get; }
 
     /// <summary>
     /// Parent ARN.
     /// </summary>
-    [TerraformPropertyName("parent_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ParentArn => new TerraformReference(this, "parent_arn");
+    [TerraformProperty("parent_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ParentArn { get; }
 
     /// <summary>
     /// Grant status.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
     /// <summary>
     /// Grant version.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Version => new TerraformReference(this, "version");
+    [TerraformProperty("version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Version { get; }
 
 }

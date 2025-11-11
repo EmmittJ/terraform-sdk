@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSiteRecoveryProtectionContainerDataSourceTimeoutsBlock
+public partial class AzurermSiteRecoveryProtectionContainerDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermSiteRecoveryProtectionContainerDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_site_recovery_protection_container.
 /// </summary>
-public class AzurermSiteRecoveryProtectionContainerDataSource : TerraformDataSource
+public partial class AzurermSiteRecoveryProtectionContainerDataSource : TerraformDataSource
 {
     public AzurermSiteRecoveryProtectionContainerDataSource(string name) : base("azurerm_site_recovery_protection_container", name)
     {
@@ -29,47 +29,47 @@ public class AzurermSiteRecoveryProtectionContainerDataSource : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recovery_fabric_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryFabricName is required")]
-    [TerraformPropertyName("recovery_fabric_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("recovery_fabric_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RecoveryFabricName { get; set; }
 
     /// <summary>
     /// The recovery_vault_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
-    [TerraformPropertyName("recovery_vault_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("recovery_vault_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RecoveryVaultName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSiteRecoveryProtectionContainerDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleMonitoringGroupTimeoutsBlock
+public partial class GoogleMonitoringGroupTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleMonitoringGroupTimeoutsBlock
 /// <summary>
 /// Manages a google_monitoring_group resource.
 /// </summary>
-public class GoogleMonitoringGroup : TerraformResource
+public partial class GoogleMonitoringGroup : TerraformResource
 {
     public GoogleMonitoringGroup(string name) : base("google_monitoring_group", name)
     {
@@ -45,8 +45,8 @@ public class GoogleMonitoringGroup : TerraformResource
     /// purposes.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
@@ -54,24 +54,24 @@ public class GoogleMonitoringGroup : TerraformResource
     /// belong to this group.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
-    [TerraformPropertyName("filter")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("filter")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// If true, the members of this group are considered to be a
     /// cluster. The system can perform additional analysis on
     /// groups that are clusters.
     /// </summary>
-    [TerraformPropertyName("is_cluster")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("is_cluster")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IsCluster { get; set; }
 
     /// <summary>
@@ -79,30 +79,30 @@ public class GoogleMonitoringGroup : TerraformResource
     /// &amp;quot;projects/{project_id_or_number}/groups/{group_id}&amp;quot;. For
     /// groups with no parent, parentName is the empty string, &amp;quot;&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("parent_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parent_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ParentName { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleMonitoringGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A unique identifier for this group. The format is
     /// &amp;quot;projects/{project_id_or_number}/groups/{group_id}&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

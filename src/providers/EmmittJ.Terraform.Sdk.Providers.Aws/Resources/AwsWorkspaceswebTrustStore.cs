@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for certificate in .
 /// Nesting mode: set
 /// </summary>
-public class AwsWorkspaceswebTrustStoreCertificateBlock
+public partial class AwsWorkspaceswebTrustStoreCertificateBlock : TerraformBlockBase
 {
     /// <summary>
     /// The body attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Body is required")]
-    [TerraformPropertyName("body")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("body")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Body { get; set; }
 
 
@@ -26,7 +26,7 @@ public class AwsWorkspaceswebTrustStoreCertificateBlock
 /// <summary>
 /// Manages a aws_workspacesweb_trust_store resource.
 /// </summary>
-public class AwsWorkspaceswebTrustStore : TerraformResource
+public partial class AwsWorkspaceswebTrustStore : TerraformResource
 {
     public AwsWorkspaceswebTrustStore(string name) : base("aws_workspacesweb_trust_store", name)
     {
@@ -35,43 +35,43 @@ public class AwsWorkspaceswebTrustStore : TerraformResource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for certificate.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("certificate")]
+    [TerraformProperty("certificate")]
     public TerraformSet<TerraformBlock<AwsWorkspaceswebTrustStoreCertificateBlock>>? Certificate { get; set; }
 
     /// <summary>
     /// The associated_portal_arns attribute.
     /// </summary>
-    [TerraformPropertyName("associated_portal_arns")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AssociatedPortalArns => new TerraformReference(this, "associated_portal_arns");
+    [TerraformProperty("associated_portal_arns")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AssociatedPortalArns { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The trust_store_arn attribute.
     /// </summary>
-    [TerraformPropertyName("trust_store_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TrustStoreArn => new TerraformReference(this, "trust_store_arn");
+    [TerraformProperty("trust_store_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TrustStoreArn { get; }
 
 }

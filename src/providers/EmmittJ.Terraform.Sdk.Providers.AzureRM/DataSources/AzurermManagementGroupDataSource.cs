@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermManagementGroupDataSourceTimeoutsBlock
+public partial class AzurermManagementGroupDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermManagementGroupDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_management_group.
 /// </summary>
-public class AzurermManagementGroupDataSource : TerraformDataSource
+public partial class AzurermManagementGroupDataSource : TerraformDataSource
 {
     public AzurermManagementGroupDataSource(string name) : base("azurerm_management_group", name)
     {
@@ -29,71 +29,71 @@ public class AzurermManagementGroupDataSource : TerraformDataSource
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DisplayName { get; set; } = default!;
+    [TerraformProperty("display_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermManagementGroupDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The all_management_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("all_management_group_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AllManagementGroupIds => new TerraformReference(this, "all_management_group_ids");
+    [TerraformProperty("all_management_group_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AllManagementGroupIds { get; }
 
     /// <summary>
     /// The all_subscription_ids attribute.
     /// </summary>
-    [TerraformPropertyName("all_subscription_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AllSubscriptionIds => new TerraformReference(this, "all_subscription_ids");
+    [TerraformProperty("all_subscription_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AllSubscriptionIds { get; }
 
     /// <summary>
     /// The management_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("management_group_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ManagementGroupIds => new TerraformReference(this, "management_group_ids");
+    [TerraformProperty("management_group_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ManagementGroupIds { get; }
 
     /// <summary>
     /// The parent_management_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("parent_management_group_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ParentManagementGroupId => new TerraformReference(this, "parent_management_group_id");
+    [TerraformProperty("parent_management_group_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ParentManagementGroupId { get; }
 
     /// <summary>
     /// The subscription_ids attribute.
     /// </summary>
-    [TerraformPropertyName("subscription_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SubscriptionIds => new TerraformReference(this, "subscription_ids");
+    [TerraformProperty("subscription_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SubscriptionIds { get; }
 
     /// <summary>
     /// The tenant_scoped_id attribute.
     /// </summary>
-    [TerraformPropertyName("tenant_scoped_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TenantScopedId => new TerraformReference(this, "tenant_scoped_id");
+    [TerraformProperty("tenant_scoped_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TenantScopedId { get; }
 
 }

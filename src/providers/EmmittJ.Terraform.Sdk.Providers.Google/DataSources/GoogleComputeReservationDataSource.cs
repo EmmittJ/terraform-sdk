@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_reservation.
 /// </summary>
-public class GoogleComputeReservationDataSource : TerraformDataSource
+public partial class GoogleComputeReservationDataSource : TerraformDataSource
 {
     public GoogleComputeReservationDataSource(string name) : base("google_compute_reservation", name)
     {
@@ -14,9 +14,9 @@ public class GoogleComputeReservationDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -28,104 +28,104 @@ public class GoogleComputeReservationDataSource : TerraformDataSource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The zone where the reservation is made.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
-    [TerraformPropertyName("zone")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("zone")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Full or partial URL to a parent commitment. This field displays for
     /// reservations that are tied to a commitment.
     /// </summary>
-    [TerraformPropertyName("commitment")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Commitment => new TerraformReference(this, "commitment");
+    [TerraformProperty("commitment")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Commitment { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Duration after which the reservation will be auto-deleted by Compute Engine. Cannot be used with delete_at_time.
     /// </summary>
-    [TerraformPropertyName("delete_after_duration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> DeleteAfterDuration => new TerraformReference(this, "delete_after_duration");
+    [TerraformProperty("delete_after_duration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> DeleteAfterDuration { get; }
 
     /// <summary>
     /// Absolute time in future when the reservation will be auto-deleted by Compute Engine. Timestamp is represented in RFC3339 text format.
     /// Cannot be used with delete_after_duration.
     /// </summary>
-    [TerraformPropertyName("delete_at_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeleteAtTime => new TerraformReference(this, "delete_at_time");
+    [TerraformProperty("delete_at_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeleteAtTime { get; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// Sharing policy for reservations with Google Cloud managed services.
     /// </summary>
-    [TerraformPropertyName("reservation_sharing_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ReservationSharingPolicy => new TerraformReference(this, "reservation_sharing_policy");
+    [TerraformProperty("reservation_sharing_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ReservationSharingPolicy { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The share setting for reservations.
     /// </summary>
-    [TerraformPropertyName("share_settings")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ShareSettings => new TerraformReference(this, "share_settings");
+    [TerraformProperty("share_settings")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ShareSettings { get; }
 
     /// <summary>
     /// Reservation for instances with specific machine shapes.
     /// </summary>
-    [TerraformPropertyName("specific_reservation")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SpecificReservation => new TerraformReference(this, "specific_reservation");
+    [TerraformProperty("specific_reservation")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SpecificReservation { get; }
 
     /// <summary>
     /// When set to true, only VMs that target this reservation by name can
     /// consume this reservation. Otherwise, it can be consumed by VMs with
     /// affinity for any reservation. Defaults to false.
     /// </summary>
-    [TerraformPropertyName("specific_reservation_required")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> SpecificReservationRequired => new TerraformReference(this, "specific_reservation_required");
+    [TerraformProperty("specific_reservation_required")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> SpecificReservationRequired { get; }
 
     /// <summary>
     /// The status of the reservation.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

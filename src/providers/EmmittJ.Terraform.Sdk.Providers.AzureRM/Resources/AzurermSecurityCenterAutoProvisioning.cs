@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSecurityCenterAutoProvisioningTimeoutsBlock
+public partial class AzurermSecurityCenterAutoProvisioningTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -42,7 +42,7 @@ public class AzurermSecurityCenterAutoProvisioningTimeoutsBlock
 /// Manages a azurerm_security_center_auto_provisioning resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
-public class AzurermSecurityCenterAutoProvisioning : TerraformResource
+public partial class AzurermSecurityCenterAutoProvisioning : TerraformResource
 {
     public AzurermSecurityCenterAutoProvisioning(string name) : base("azurerm_security_center_auto_provisioning", name)
     {
@@ -52,22 +52,22 @@ public class AzurermSecurityCenterAutoProvisioning : TerraformResource
     /// The auto_provision attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoProvision is required")]
-    [TerraformPropertyName("auto_provision")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("auto_provision")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AutoProvision { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSecurityCenterAutoProvisioningTimeoutsBlock>? Timeouts { get; set; }
 
 }

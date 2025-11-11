@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for endpoint_matcher in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock
+public partial class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkServicesEndpointPolicyTimeoutsBlock
+public partial class GoogleNetworkServicesEndpointPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -43,14 +43,14 @@ public class GoogleNetworkServicesEndpointPolicyTimeoutsBlock
 /// Block type for traffic_port_selector in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock
+public partial class GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock : TerraformBlockBase
 {
     /// <summary>
     /// List of ports. Can be port numbers or port range (example, [80-90] specifies all ports from 80 to 90, including 80 and 90) or named ports or * to specify all ports. If the list is empty, all ports are selected.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ports is required")]
-    [TerraformPropertyName("ports")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("ports")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Ports { get; set; }
 
 }
@@ -59,7 +59,7 @@ public class GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock
 /// Manages a google_network_services_endpoint_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleNetworkServicesEndpointPolicy : TerraformResource
+public partial class GoogleNetworkServicesEndpointPolicy : TerraformResource
 {
     public GoogleNetworkServicesEndpointPolicy(string name) : base("google_network_services_endpoint_policy", name)
     {
@@ -68,30 +68,30 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     /// <summary>
     /// This field specifies the URL of AuthorizationPolicy resource that applies authorization policies to the inbound traffic at the matched endpoints.
     /// </summary>
-    [TerraformPropertyName("authorization_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("authorization_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthorizationPolicy { get; set; }
 
     /// <summary>
     /// A URL referring to a ClientTlsPolicy resource. ClientTlsPolicy can be set to specify the authentication for traffic from the proxy to the actual endpoints.
     /// </summary>
-    [TerraformPropertyName("client_tls_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("client_tls_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClientTlsPolicy { get; set; }
 
     /// <summary>
     /// A free-text description of the resource. Max length 1024 characters.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of label tags associated with the TcpRoute resource.
@@ -99,38 +99,38 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Name of the EndpointPolicy resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A URL referring to ServerTlsPolicy resource. ServerTlsPolicy is used to determine the authentication policy to be applied to terminate the inbound traffic at the identified backends.
     /// </summary>
-    [TerraformPropertyName("server_tls_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("server_tls_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServerTlsPolicy { get; set; }
 
     /// <summary>
     /// The type of endpoint policy. This is primarily used to validate the configuration. Possible values: [&amp;quot;SIDECAR_PROXY&amp;quot;, &amp;quot;GRPC_SERVER&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
@@ -140,14 +140,14 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointMatcher is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EndpointMatcher block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointMatcher block(s) allowed")]
-    [TerraformPropertyName("endpoint_matcher")]
+    [TerraformProperty("endpoint_matcher")]
     public TerraformList<TerraformBlock<GoogleNetworkServicesEndpointPolicyEndpointMatcherBlock>>? EndpointMatcher { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleNetworkServicesEndpointPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -155,36 +155,36 @@ public class GoogleNetworkServicesEndpointPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficPortSelector block(s) allowed")]
-    [TerraformPropertyName("traffic_port_selector")]
+    [TerraformProperty("traffic_port_selector")]
     public TerraformList<TerraformBlock<GoogleNetworkServicesEndpointPolicyTrafficPortSelectorBlock>>? TrafficPortSelector { get; set; }
 
     /// <summary>
     /// Time the TcpRoute was created in UTC.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Time the TcpRoute was updated in UTC.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

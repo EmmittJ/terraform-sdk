@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for bgp_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkmanagerConnectPeerBgpOptionsBlock
+public partial class AwsNetworkmanagerConnectPeerBgpOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The peer_asn attribute.
     /// </summary>
-    [TerraformPropertyName("peer_asn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("peer_asn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? PeerAsn { get; set; }
 
 }
@@ -21,20 +21,20 @@ public class AwsNetworkmanagerConnectPeerBgpOptionsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsNetworkmanagerConnectPeerTimeoutsBlock
+public partial class AwsNetworkmanagerConnectPeerTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class AwsNetworkmanagerConnectPeerTimeoutsBlock
 /// Manages a aws_networkmanager_connect_peer resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsNetworkmanagerConnectPeer : TerraformResource
+public partial class AwsNetworkmanagerConnectPeer : TerraformResource
 {
     public AwsNetworkmanagerConnectPeer(string name) : base("aws_networkmanager_connect_peer", name)
     {
@@ -53,122 +53,122 @@ public class AwsNetworkmanagerConnectPeer : TerraformResource
     /// The connect_attachment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectAttachmentId is required")]
-    [TerraformPropertyName("connect_attachment_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connect_attachment_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConnectAttachmentId { get; set; }
 
     /// <summary>
     /// The core_network_address attribute.
     /// </summary>
-    [TerraformPropertyName("core_network_address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("core_network_address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CoreNetworkAddress { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The inside_cidr_blocks attribute.
     /// </summary>
-    [TerraformPropertyName("inside_cidr_blocks")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("inside_cidr_blocks")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? InsideCidrBlocks { get; set; }
 
     /// <summary>
     /// The peer_address attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerAddress is required")]
-    [TerraformPropertyName("peer_address")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("peer_address")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PeerAddress { get; set; }
 
     /// <summary>
     /// The subnet_arn attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subnet_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SubnetArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for bgp_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BgpOptions block(s) allowed")]
-    [TerraformPropertyName("bgp_options")]
+    [TerraformProperty("bgp_options")]
     public TerraformList<TerraformBlock<AwsNetworkmanagerConnectPeerBgpOptionsBlock>>? BgpOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsNetworkmanagerConnectPeerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The configuration attribute.
     /// </summary>
-    [TerraformPropertyName("configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Configuration => new TerraformReference(this, "configuration");
+    [TerraformProperty("configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Configuration { get; }
 
     /// <summary>
     /// The connect_peer_id attribute.
     /// </summary>
-    [TerraformPropertyName("connect_peer_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ConnectPeerId => new TerraformReference(this, "connect_peer_id");
+    [TerraformProperty("connect_peer_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ConnectPeerId { get; }
 
     /// <summary>
     /// The core_network_id attribute.
     /// </summary>
-    [TerraformPropertyName("core_network_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CoreNetworkId => new TerraformReference(this, "core_network_id");
+    [TerraformProperty("core_network_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CoreNetworkId { get; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    [TerraformPropertyName("created_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
+    [TerraformProperty("created_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The edge_location attribute.
     /// </summary>
-    [TerraformPropertyName("edge_location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EdgeLocation => new TerraformReference(this, "edge_location");
+    [TerraformProperty("edge_location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EdgeLocation { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
 }

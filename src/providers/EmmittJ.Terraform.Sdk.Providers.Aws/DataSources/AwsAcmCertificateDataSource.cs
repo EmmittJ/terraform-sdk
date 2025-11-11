@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_acm_certificate.
 /// </summary>
-public class AwsAcmCertificateDataSource : TerraformDataSource
+public partial class AwsAcmCertificateDataSource : TerraformDataSource
 {
     public AwsAcmCertificateDataSource(string name) : base("aws_acm_certificate", name)
     {
@@ -14,85 +14,85 @@ public class AwsAcmCertificateDataSource : TerraformDataSource
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    [TerraformPropertyName("domain")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Domain { get; set; } = default!;
+    [TerraformProperty("domain")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Domain { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_types attribute.
     /// </summary>
-    [TerraformPropertyName("key_types")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key_types")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? KeyTypes { get; set; }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    [TerraformPropertyName("most_recent")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("most_recent")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? MostRecent { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The statuses attribute.
     /// </summary>
-    [TerraformPropertyName("statuses")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("statuses")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Statuses { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The types attribute.
     /// </summary>
-    [TerraformPropertyName("types")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("types")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Types { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    [TerraformPropertyName("certificate")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Certificate => new TerraformReference(this, "certificate");
+    [TerraformProperty("certificate")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Certificate { get; }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_chain")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CertificateChain => new TerraformReference(this, "certificate_chain");
+    [TerraformProperty("certificate_chain")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CertificateChain { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

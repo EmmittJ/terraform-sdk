@@ -6,38 +6,38 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attachment in .
 /// Nesting mode: set
 /// </summary>
-public class AwsNetworkInterfaceAttachmentBlock
+public partial class AwsNetworkInterfaceAttachmentBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The device_index attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceIndex is required")]
-    [TerraformPropertyName("device_index")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("device_index")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> DeviceIndex { get; set; }
 
     /// <summary>
     /// The instance attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    [TerraformPropertyName("instance")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The network_card_index attribute.
     /// </summary>
-    [TerraformPropertyName("network_card_index")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> NetworkCardIndex { get; set; } = default!;
+    [TerraformProperty("network_card_index")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> NetworkCardIndex { get; set; }
 
 }
 
 /// <summary>
 /// Manages a aws_network_interface resource.
 /// </summary>
-public class AwsNetworkInterface : TerraformResource
+public partial class AwsNetworkInterface : TerraformResource
 {
     public AwsNetworkInterface(string name) : base("aws_network_interface", name)
     {
@@ -46,205 +46,205 @@ public class AwsNetworkInterface : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enable_primary_ipv6 attribute.
     /// </summary>
-    [TerraformPropertyName("enable_primary_ipv6")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> EnablePrimaryIpv6 { get; set; } = default!;
+    [TerraformProperty("enable_primary_ipv6")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> EnablePrimaryIpv6 { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The interface_type attribute.
     /// </summary>
-    [TerraformPropertyName("interface_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> InterfaceType { get; set; } = default!;
+    [TerraformProperty("interface_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> InterfaceType { get; set; }
 
     /// <summary>
     /// The ipv4_prefix_count attribute.
     /// </summary>
-    [TerraformPropertyName("ipv4_prefix_count")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Ipv4PrefixCount { get; set; } = default!;
+    [TerraformProperty("ipv4_prefix_count")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Ipv4PrefixCount { get; set; }
 
     /// <summary>
     /// The ipv4_prefixes attribute.
     /// </summary>
-    [TerraformPropertyName("ipv4_prefixes")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> Ipv4Prefixes { get; set; } = default!;
+    [TerraformProperty("ipv4_prefixes")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> Ipv4Prefixes { get; set; }
 
     /// <summary>
     /// The ipv6_address_count attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_address_count")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Ipv6AddressCount { get; set; } = default!;
+    [TerraformProperty("ipv6_address_count")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Ipv6AddressCount { get; set; }
 
     /// <summary>
     /// The ipv6_address_list attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_address_list")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> Ipv6AddressList { get; set; } = default!;
+    [TerraformProperty("ipv6_address_list")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> Ipv6AddressList { get; set; }
 
     /// <summary>
     /// The ipv6_address_list_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_address_list_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ipv6_address_list_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Ipv6AddressListEnabled { get; set; }
 
     /// <summary>
     /// The ipv6_addresses attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_addresses")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> Ipv6Addresses { get; set; } = default!;
+    [TerraformProperty("ipv6_addresses")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> Ipv6Addresses { get; set; }
 
     /// <summary>
     /// The ipv6_prefix_count attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_prefix_count")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Ipv6PrefixCount { get; set; } = default!;
+    [TerraformProperty("ipv6_prefix_count")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Ipv6PrefixCount { get; set; }
 
     /// <summary>
     /// The ipv6_prefixes attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_prefixes")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> Ipv6Prefixes { get; set; } = default!;
+    [TerraformProperty("ipv6_prefixes")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> Ipv6Prefixes { get; set; }
 
     /// <summary>
     /// The private_ip attribute.
     /// </summary>
-    [TerraformPropertyName("private_ip")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PrivateIp { get; set; } = default!;
+    [TerraformProperty("private_ip")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PrivateIp { get; set; }
 
     /// <summary>
     /// The private_ip_list attribute.
     /// </summary>
-    [TerraformPropertyName("private_ip_list")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> PrivateIpList { get; set; } = default!;
+    [TerraformProperty("private_ip_list")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> PrivateIpList { get; set; }
 
     /// <summary>
     /// The private_ip_list_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("private_ip_list_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_ip_list_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PrivateIpListEnabled { get; set; }
 
     /// <summary>
     /// The private_ips attribute.
     /// </summary>
-    [TerraformPropertyName("private_ips")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> PrivateIps { get; set; } = default!;
+    [TerraformProperty("private_ips")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> PrivateIps { get; set; }
 
     /// <summary>
     /// The private_ips_count attribute.
     /// </summary>
-    [TerraformPropertyName("private_ips_count")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> PrivateIpsCount { get; set; } = default!;
+    [TerraformProperty("private_ips_count")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> PrivateIpsCount { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    [TerraformPropertyName("security_groups")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> SecurityGroups { get; set; } = default!;
+    [TerraformProperty("security_groups")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> SecurityGroups { get; set; }
 
     /// <summary>
     /// The source_dest_check attribute.
     /// </summary>
-    [TerraformPropertyName("source_dest_check")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_dest_check")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SourceDestCheck { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformPropertyName("subnet_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for attachment.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("attachment")]
+    [TerraformProperty("attachment")]
     public TerraformSet<TerraformBlock<AwsNetworkInterfaceAttachmentBlock>>? Attachment { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The mac_address attribute.
     /// </summary>
-    [TerraformPropertyName("mac_address")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> MacAddress => new TerraformReference(this, "mac_address");
+    [TerraformProperty("mac_address")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> MacAddress { get; }
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    [TerraformPropertyName("outpost_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OutpostArn => new TerraformReference(this, "outpost_arn");
+    [TerraformProperty("outpost_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OutpostArn { get; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerId => new TerraformReference(this, "owner_id");
+    [TerraformProperty("owner_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerId { get; }
 
     /// <summary>
     /// The private_dns_name attribute.
     /// </summary>
-    [TerraformPropertyName("private_dns_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrivateDnsName => new TerraformReference(this, "private_dns_name");
+    [TerraformProperty("private_dns_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrivateDnsName { get; }
 
 }

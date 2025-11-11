@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_codeartifact_domain_permissions_policy resource.
 /// </summary>
-public class AwsCodeartifactDomainPermissionsPolicy : TerraformResource
+public partial class AwsCodeartifactDomainPermissionsPolicy : TerraformResource
 {
     public AwsCodeartifactDomainPermissionsPolicy(string name) : base("aws_codeartifact_domain_permissions_policy", name)
     {
@@ -15,50 +15,50 @@ public class AwsCodeartifactDomainPermissionsPolicy : TerraformResource
     /// The domain attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
-    [TerraformPropertyName("domain")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("domain")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Domain { get; set; }
 
     /// <summary>
     /// The domain_owner attribute.
     /// </summary>
-    [TerraformPropertyName("domain_owner")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DomainOwner { get; set; } = default!;
+    [TerraformProperty("domain_owner")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DomainOwner { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_document attribute.
     /// </summary>
-    [TerraformPropertyName("policy_document")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PolicyDocument { get; set; } = default!;
+    [TerraformProperty("policy_document")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PolicyDocument { get; set; }
 
     /// <summary>
     /// The policy_revision attribute.
     /// </summary>
-    [TerraformPropertyName("policy_revision")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PolicyRevision { get; set; } = default!;
+    [TerraformProperty("policy_revision")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PolicyRevision { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    [TerraformPropertyName("resource_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceArn => new TerraformReference(this, "resource_arn");
+    [TerraformProperty("resource_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceArn { get; }
 
 }

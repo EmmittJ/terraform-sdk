@@ -6,42 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for request in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApplicationInsightsStandardWebTestRequestBlock
+public partial class AzurermApplicationInsightsStandardWebTestRequestBlock : TerraformBlockBase
 {
     /// <summary>
     /// The body attribute.
     /// </summary>
-    [TerraformPropertyName("body")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("body")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Body { get; set; }
 
     /// <summary>
     /// The follow_redirects_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("follow_redirects_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("follow_redirects_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? FollowRedirectsEnabled { get; set; }
 
     /// <summary>
     /// The http_verb attribute.
     /// </summary>
-    [TerraformPropertyName("http_verb")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("http_verb")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HttpVerb { get; set; }
 
     /// <summary>
     /// The parse_dependent_requests_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("parse_dependent_requests_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parse_dependent_requests_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ParseDependentRequestsEnabled { get; set; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
-    [TerraformPropertyName("url")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("url")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Url { get; set; }
 
 }
@@ -50,34 +50,34 @@ public class AzurermApplicationInsightsStandardWebTestRequestBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApplicationInsightsStandardWebTestTimeoutsBlock
+public partial class AzurermApplicationInsightsStandardWebTestTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -86,27 +86,27 @@ public class AzurermApplicationInsightsStandardWebTestTimeoutsBlock
 /// Block type for validation_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApplicationInsightsStandardWebTestValidationRulesBlock
+public partial class AzurermApplicationInsightsStandardWebTestValidationRulesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The expected_status_code attribute.
     /// </summary>
-    [TerraformPropertyName("expected_status_code")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expected_status_code")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ExpectedStatusCode { get; set; }
 
     /// <summary>
     /// The ssl_cert_remaining_lifetime attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_cert_remaining_lifetime")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_cert_remaining_lifetime")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? SslCertRemainingLifetime { get; set; }
 
     /// <summary>
     /// The ssl_check_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_check_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_check_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SslCheckEnabled { get; set; }
 
 }
@@ -115,7 +115,7 @@ public class AzurermApplicationInsightsStandardWebTestValidationRulesBlock
 /// Manages a azurerm_application_insights_standard_web_test resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermApplicationInsightsStandardWebTest : TerraformResource
+public partial class AzurermApplicationInsightsStandardWebTest : TerraformResource
 {
     public AzurermApplicationInsightsStandardWebTest(string name) : base("azurerm_application_insights_standard_web_test", name)
     {
@@ -125,89 +125,89 @@ public class AzurermApplicationInsightsStandardWebTest : TerraformResource
     /// The application_insights_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationInsightsId is required")]
-    [TerraformPropertyName("application_insights_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("application_insights_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApplicationInsightsId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    [TerraformPropertyName("frequency")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("frequency")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Frequency { get; set; }
 
     /// <summary>
     /// The geo_locations attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GeoLocations is required")]
-    [TerraformPropertyName("geo_locations")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("geo_locations")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? GeoLocations { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The retry_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("retry_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retry_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? RetryEnabled { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    [TerraformPropertyName("timeout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("timeout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Timeout { get; set; }
 
     /// <summary>
@@ -217,14 +217,14 @@ public class AzurermApplicationInsightsStandardWebTest : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Request is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Request block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Request block(s) allowed")]
-    [TerraformPropertyName("request")]
+    [TerraformProperty("request")]
     public TerraformList<TerraformBlock<AzurermApplicationInsightsStandardWebTestRequestBlock>>? Request { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermApplicationInsightsStandardWebTestTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -232,14 +232,14 @@ public class AzurermApplicationInsightsStandardWebTest : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ValidationRules block(s) allowed")]
-    [TerraformPropertyName("validation_rules")]
+    [TerraformProperty("validation_rules")]
     public TerraformList<TerraformBlock<AzurermApplicationInsightsStandardWebTestValidationRulesBlock>>? ValidationRules { get; set; }
 
     /// <summary>
     /// The synthetic_monitor_id attribute.
     /// </summary>
-    [TerraformPropertyName("synthetic_monitor_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SyntheticMonitorId => new TerraformReference(this, "synthetic_monitor_id");
+    [TerraformProperty("synthetic_monitor_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SyntheticMonitorId { get; }
 
 }

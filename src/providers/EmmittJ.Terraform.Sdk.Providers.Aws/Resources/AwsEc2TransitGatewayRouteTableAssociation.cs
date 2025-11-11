@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_ec2_transit_gateway_route_table_association resource.
 /// </summary>
-public class AwsEc2TransitGatewayRouteTableAssociation : TerraformResource
+public partial class AwsEc2TransitGatewayRouteTableAssociation : TerraformResource
 {
     public AwsEc2TransitGatewayRouteTableAssociation(string name) : base("aws_ec2_transit_gateway_route_table_association", name)
     {
@@ -14,52 +14,52 @@ public class AwsEc2TransitGatewayRouteTableAssociation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The replace_existing_association attribute.
     /// </summary>
-    [TerraformPropertyName("replace_existing_association")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("replace_existing_association")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ReplaceExistingAssociation { get; set; }
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayAttachmentId is required")]
-    [TerraformPropertyName("transit_gateway_attachment_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("transit_gateway_attachment_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TransitGatewayAttachmentId { get; set; }
 
     /// <summary>
     /// The transit_gateway_route_table_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TransitGatewayRouteTableId is required")]
-    [TerraformPropertyName("transit_gateway_route_table_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("transit_gateway_route_table_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TransitGatewayRouteTableId { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("resource_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceId => new TerraformReference(this, "resource_id");
+    [TerraformProperty("resource_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceId { get; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    [TerraformPropertyName("resource_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceType => new TerraformReference(this, "resource_type");
+    [TerraformProperty("resource_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceType { get; }
 
 }

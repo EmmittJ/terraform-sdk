@@ -6,58 +6,58 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFrontdoorFirewallPolicyCustomRuleBlock
+public partial class AzurermFrontdoorFirewallPolicyCustomRuleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformPropertyName("action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    [TerraformPropertyName("priority")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("priority")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Priority { get; set; }
 
     /// <summary>
     /// The rate_limit_duration_in_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("rate_limit_duration_in_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("rate_limit_duration_in_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RateLimitDurationInMinutes { get; set; }
 
     /// <summary>
     /// The rate_limit_threshold attribute.
     /// </summary>
-    [TerraformPropertyName("rate_limit_threshold")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("rate_limit_threshold")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RateLimitThreshold { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -66,22 +66,22 @@ public class AzurermFrontdoorFirewallPolicyCustomRuleBlock
 /// Block type for managed_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFrontdoorFirewallPolicyManagedRuleBlock
+public partial class AzurermFrontdoorFirewallPolicyManagedRuleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformPropertyName("version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Version { get; set; }
 
 }
@@ -90,34 +90,34 @@ public class AzurermFrontdoorFirewallPolicyManagedRuleBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermFrontdoorFirewallPolicyTimeoutsBlock
+public partial class AzurermFrontdoorFirewallPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -126,7 +126,7 @@ public class AzurermFrontdoorFirewallPolicyTimeoutsBlock
 /// Manages a azurerm_frontdoor_firewall_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermFrontdoorFirewallPolicy : TerraformResource
+public partial class AzurermFrontdoorFirewallPolicy : TerraformResource
 {
     public AzurermFrontdoorFirewallPolicy(string name) : base("azurerm_frontdoor_firewall_policy", name)
     {
@@ -135,66 +135,66 @@ public class AzurermFrontdoorFirewallPolicy : TerraformResource
     /// <summary>
     /// The custom_block_response_body attribute.
     /// </summary>
-    [TerraformPropertyName("custom_block_response_body")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("custom_block_response_body")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CustomBlockResponseBody { get; set; }
 
     /// <summary>
     /// The custom_block_response_status_code attribute.
     /// </summary>
-    [TerraformPropertyName("custom_block_response_status_code")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("custom_block_response_status_code")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? CustomBlockResponseStatusCode { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    [TerraformPropertyName("mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The redirect_url attribute.
     /// </summary>
-    [TerraformPropertyName("redirect_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("redirect_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RedirectUrl { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -202,7 +202,7 @@ public class AzurermFrontdoorFirewallPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 CustomRule block(s) allowed")]
-    [TerraformPropertyName("custom_rule")]
+    [TerraformProperty("custom_rule")]
     public TerraformList<TerraformBlock<AzurermFrontdoorFirewallPolicyCustomRuleBlock>>? CustomRule { get; set; }
 
     /// <summary>
@@ -210,28 +210,28 @@ public class AzurermFrontdoorFirewallPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 ManagedRule block(s) allowed")]
-    [TerraformPropertyName("managed_rule")]
+    [TerraformProperty("managed_rule")]
     public TerraformList<TerraformBlock<AzurermFrontdoorFirewallPolicyManagedRuleBlock>>? ManagedRule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermFrontdoorFirewallPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The frontend_endpoint_ids attribute.
     /// </summary>
-    [TerraformPropertyName("frontend_endpoint_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> FrontendEndpointIds => new TerraformReference(this, "frontend_endpoint_ids");
+    [TerraformProperty("frontend_endpoint_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> FrontendEndpointIds { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_eks_pod_identity_association resource.
 /// </summary>
-public class AwsEksPodIdentityAssociation : TerraformResource
+public partial class AwsEksPodIdentityAssociation : TerraformResource
 {
     public AwsEksPodIdentityAssociation(string name) : base("aws_eks_pod_identity_association", name)
     {
@@ -15,95 +15,95 @@ public class AwsEksPodIdentityAssociation : TerraformResource
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    [TerraformPropertyName("cluster_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The disable_session_tags attribute.
     /// </summary>
-    [TerraformPropertyName("disable_session_tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> DisableSessionTags { get; set; } = default!;
+    [TerraformProperty("disable_session_tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> DisableSessionTags { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
-    [TerraformPropertyName("namespace")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("namespace")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Namespace { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The service_account attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccount is required")]
-    [TerraformPropertyName("service_account")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_account")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceAccount { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The target_role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("target_role_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("target_role_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TargetRoleArn { get; set; }
 
     /// <summary>
     /// The association_arn attribute.
     /// </summary>
-    [TerraformPropertyName("association_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AssociationArn => new TerraformReference(this, "association_arn");
+    [TerraformProperty("association_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AssociationArn { get; }
 
     /// <summary>
     /// The association_id attribute.
     /// </summary>
-    [TerraformPropertyName("association_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AssociationId => new TerraformReference(this, "association_id");
+    [TerraformProperty("association_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AssociationId { get; }
 
     /// <summary>
     /// The external_id attribute.
     /// </summary>
-    [TerraformPropertyName("external_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExternalId => new TerraformReference(this, "external_id");
+    [TerraformProperty("external_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExternalId { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
 }

@@ -6,38 +6,38 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cloudwatch_alarm in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleCloudwatchAlarmBlock
+public partial class AwsIotTopicRuleCloudwatchAlarmBlock : TerraformBlockBase
 {
     /// <summary>
     /// The alarm_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AlarmName is required")]
-    [TerraformPropertyName("alarm_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("alarm_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AlarmName { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The state_reason attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateReason is required")]
-    [TerraformPropertyName("state_reason")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("state_reason")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StateReason { get; set; }
 
     /// <summary>
     /// The state_value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateValue is required")]
-    [TerraformPropertyName("state_value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("state_value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StateValue { get; set; }
 
 }
@@ -46,29 +46,29 @@ public class AwsIotTopicRuleCloudwatchAlarmBlock
 /// Block type for cloudwatch_logs in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleCloudwatchLogsBlock
+public partial class AwsIotTopicRuleCloudwatchLogsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The batch_mode attribute.
     /// </summary>
-    [TerraformPropertyName("batch_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("batch_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? BatchMode { get; set; }
 
     /// <summary>
     /// The log_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogGroupName is required")]
-    [TerraformPropertyName("log_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("log_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LogGroupName { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
 }
@@ -77,53 +77,53 @@ public class AwsIotTopicRuleCloudwatchLogsBlock
 /// Block type for cloudwatch_metric in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleCloudwatchMetricBlock
+public partial class AwsIotTopicRuleCloudwatchMetricBlock : TerraformBlockBase
 {
     /// <summary>
     /// The metric_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricName is required")]
-    [TerraformPropertyName("metric_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("metric_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MetricName { get; set; }
 
     /// <summary>
     /// The metric_namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricNamespace is required")]
-    [TerraformPropertyName("metric_namespace")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("metric_namespace")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MetricNamespace { get; set; }
 
     /// <summary>
     /// The metric_timestamp attribute.
     /// </summary>
-    [TerraformPropertyName("metric_timestamp")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("metric_timestamp")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MetricTimestamp { get; set; }
 
     /// <summary>
     /// The metric_unit attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricUnit is required")]
-    [TerraformPropertyName("metric_unit")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("metric_unit")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MetricUnit { get; set; }
 
     /// <summary>
     /// The metric_value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricValue is required")]
-    [TerraformPropertyName("metric_value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("metric_value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MetricValue { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
 }
@@ -132,80 +132,80 @@ public class AwsIotTopicRuleCloudwatchMetricBlock
 /// Block type for dynamodb in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleDynamodbBlock
+public partial class AwsIotTopicRuleDynamodbBlock : TerraformBlockBase
 {
     /// <summary>
     /// The hash_key_field attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKeyField is required")]
-    [TerraformPropertyName("hash_key_field")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("hash_key_field")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HashKeyField { get; set; }
 
     /// <summary>
     /// The hash_key_type attribute.
     /// </summary>
-    [TerraformPropertyName("hash_key_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("hash_key_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HashKeyType { get; set; }
 
     /// <summary>
     /// The hash_key_value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HashKeyValue is required")]
-    [TerraformPropertyName("hash_key_value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("hash_key_value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HashKeyValue { get; set; }
 
     /// <summary>
     /// The operation attribute.
     /// </summary>
-    [TerraformPropertyName("operation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("operation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Operation { get; set; }
 
     /// <summary>
     /// The payload_field attribute.
     /// </summary>
-    [TerraformPropertyName("payload_field")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("payload_field")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PayloadField { get; set; }
 
     /// <summary>
     /// The range_key_field attribute.
     /// </summary>
-    [TerraformPropertyName("range_key_field")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("range_key_field")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RangeKeyField { get; set; }
 
     /// <summary>
     /// The range_key_type attribute.
     /// </summary>
-    [TerraformPropertyName("range_key_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("range_key_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RangeKeyType { get; set; }
 
     /// <summary>
     /// The range_key_value attribute.
     /// </summary>
-    [TerraformPropertyName("range_key_value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("range_key_value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RangeKeyValue { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
-    [TerraformPropertyName("table_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("table_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TableName { get; set; }
 
 }
@@ -214,14 +214,14 @@ public class AwsIotTopicRuleDynamodbBlock
 /// Block type for dynamodbv2 in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleDynamodbv2Block
+public partial class AwsIotTopicRuleDynamodbv2Block : TerraformBlockBase
 {
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
 }
@@ -230,46 +230,46 @@ public class AwsIotTopicRuleDynamodbv2Block
 /// Block type for elasticsearch in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleElasticsearchBlock
+public partial class AwsIotTopicRuleElasticsearchBlock : TerraformBlockBase
 {
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
-    [TerraformPropertyName("endpoint")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("endpoint")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Endpoint { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The index attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Index is required")]
-    [TerraformPropertyName("index")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("index")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Index { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -278,7 +278,7 @@ public class AwsIotTopicRuleElasticsearchBlock
 /// Block type for error_action in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIotTopicRuleErrorActionBlock
+public partial class AwsIotTopicRuleErrorActionBlock : TerraformBlockBase
 {
 }
 
@@ -286,36 +286,36 @@ public class AwsIotTopicRuleErrorActionBlock
 /// Block type for firehose in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleFirehoseBlock
+public partial class AwsIotTopicRuleFirehoseBlock : TerraformBlockBase
 {
     /// <summary>
     /// The batch_mode attribute.
     /// </summary>
-    [TerraformPropertyName("batch_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("batch_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? BatchMode { get; set; }
 
     /// <summary>
     /// The delivery_stream_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryStreamName is required")]
-    [TerraformPropertyName("delivery_stream_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("delivery_stream_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DeliveryStreamName { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The separator attribute.
     /// </summary>
-    [TerraformPropertyName("separator")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("separator")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Separator { get; set; }
 
 }
@@ -324,21 +324,21 @@ public class AwsIotTopicRuleFirehoseBlock
 /// Block type for http in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleHttpBlock
+public partial class AwsIotTopicRuleHttpBlock : TerraformBlockBase
 {
     /// <summary>
     /// The confirmation_url attribute.
     /// </summary>
-    [TerraformPropertyName("confirmation_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("confirmation_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConfirmationUrl { get; set; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
-    [TerraformPropertyName("url")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("url")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Url { get; set; }
 
 }
@@ -347,29 +347,29 @@ public class AwsIotTopicRuleHttpBlock
 /// Block type for iot_analytics in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleIotAnalyticsBlock
+public partial class AwsIotTopicRuleIotAnalyticsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The batch_mode attribute.
     /// </summary>
-    [TerraformPropertyName("batch_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("batch_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? BatchMode { get; set; }
 
     /// <summary>
     /// The channel_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelName is required")]
-    [TerraformPropertyName("channel_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("channel_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ChannelName { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
 }
@@ -378,36 +378,36 @@ public class AwsIotTopicRuleIotAnalyticsBlock
 /// Block type for iot_events in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleIotEventsBlock
+public partial class AwsIotTopicRuleIotEventsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The batch_mode attribute.
     /// </summary>
-    [TerraformPropertyName("batch_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("batch_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? BatchMode { get; set; }
 
     /// <summary>
     /// The input_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputName is required")]
-    [TerraformPropertyName("input_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("input_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InputName { get; set; }
 
     /// <summary>
     /// The message_id attribute.
     /// </summary>
-    [TerraformPropertyName("message_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("message_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MessageId { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
 }
@@ -416,44 +416,44 @@ public class AwsIotTopicRuleIotEventsBlock
 /// Block type for kafka in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleKafkaBlock
+public partial class AwsIotTopicRuleKafkaBlock : TerraformBlockBase
 {
     /// <summary>
     /// The client_properties attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientProperties is required")]
-    [TerraformPropertyName("client_properties")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("client_properties")]
+    // Required argument - source generator will implement get/set
     public required TerraformMap<string> ClientProperties { get; set; }
 
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationArn is required")]
-    [TerraformPropertyName("destination_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("destination_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DestinationArn { get; set; }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    [TerraformPropertyName("key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Key { get; set; }
 
     /// <summary>
     /// The partition attribute.
     /// </summary>
-    [TerraformPropertyName("partition")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("partition")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Partition { get; set; }
 
     /// <summary>
     /// The topic attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
-    [TerraformPropertyName("topic")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("topic")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Topic { get; set; }
 
 }
@@ -462,29 +462,29 @@ public class AwsIotTopicRuleKafkaBlock
 /// Block type for kinesis in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleKinesisBlock
+public partial class AwsIotTopicRuleKinesisBlock : TerraformBlockBase
 {
     /// <summary>
     /// The partition_key attribute.
     /// </summary>
-    [TerraformPropertyName("partition_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("partition_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PartitionKey { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The stream_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
-    [TerraformPropertyName("stream_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("stream_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StreamName { get; set; }
 
 }
@@ -493,14 +493,14 @@ public class AwsIotTopicRuleKinesisBlock
 /// Block type for lambda in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleLambdaBlock
+public partial class AwsIotTopicRuleLambdaBlock : TerraformBlockBase
 {
     /// <summary>
     /// The function_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionArn is required")]
-    [TerraformPropertyName("function_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("function_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FunctionArn { get; set; }
 
 }
@@ -509,29 +509,29 @@ public class AwsIotTopicRuleLambdaBlock
 /// Block type for republish in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleRepublishBlock
+public partial class AwsIotTopicRuleRepublishBlock : TerraformBlockBase
 {
     /// <summary>
     /// The qos attribute.
     /// </summary>
-    [TerraformPropertyName("qos")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("qos")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Qos { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The topic attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
-    [TerraformPropertyName("topic")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("topic")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Topic { get; set; }
 
 }
@@ -540,37 +540,37 @@ public class AwsIotTopicRuleRepublishBlock
 /// Block type for s3 in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleS3Block
+public partial class AwsIotTopicRuleS3Block : TerraformBlockBase
 {
     /// <summary>
     /// The bucket_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
-    [TerraformPropertyName("bucket_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BucketName { get; set; }
 
     /// <summary>
     /// The canned_acl attribute.
     /// </summary>
-    [TerraformPropertyName("canned_acl")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("canned_acl")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CannedAcl { get; set; }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformPropertyName("key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
 }
@@ -579,29 +579,29 @@ public class AwsIotTopicRuleS3Block
 /// Block type for sns in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleSnsBlock
+public partial class AwsIotTopicRuleSnsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The message_format attribute.
     /// </summary>
-    [TerraformPropertyName("message_format")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("message_format")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MessageFormat { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The target_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetArn is required")]
-    [TerraformPropertyName("target_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TargetArn { get; set; }
 
 }
@@ -610,30 +610,30 @@ public class AwsIotTopicRuleSnsBlock
 /// Block type for sqs in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleSqsBlock
+public partial class AwsIotTopicRuleSqsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The queue_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueueUrl is required")]
-    [TerraformPropertyName("queue_url")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("queue_url")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> QueueUrl { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The use_base64 attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UseBase64 is required")]
-    [TerraformPropertyName("use_base64")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("use_base64")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> UseBase64 { get; set; }
 
 }
@@ -642,29 +642,29 @@ public class AwsIotTopicRuleSqsBlock
 /// Block type for step_functions in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleStepFunctionsBlock
+public partial class AwsIotTopicRuleStepFunctionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The execution_name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("execution_name_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("execution_name_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExecutionNamePrefix { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The state_machine_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StateMachineName is required")]
-    [TerraformPropertyName("state_machine_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("state_machine_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StateMachineName { get; set; }
 
 }
@@ -673,30 +673,30 @@ public class AwsIotTopicRuleStepFunctionsBlock
 /// Block type for timestream in .
 /// Nesting mode: set
 /// </summary>
-public class AwsIotTopicRuleTimestreamBlock
+public partial class AwsIotTopicRuleTimestreamBlock : TerraformBlockBase
 {
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    [TerraformPropertyName("database_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("database_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
-    [TerraformPropertyName("table_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("table_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TableName { get; set; }
 
 }
@@ -705,7 +705,7 @@ public class AwsIotTopicRuleTimestreamBlock
 /// Manages a aws_iot_topic_rule resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsIotTopicRule : TerraformResource
+public partial class AwsIotTopicRule : TerraformResource
 {
     public AwsIotTopicRule(string name) : base("aws_iot_topic_rule", name)
     {
@@ -714,110 +714,110 @@ public class AwsIotTopicRule : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The sql attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sql is required")]
-    [TerraformPropertyName("sql")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sql")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Sql { get; set; }
 
     /// <summary>
     /// The sql_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlVersion is required")]
-    [TerraformPropertyName("sql_version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sql_version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SqlVersion { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for cloudwatch_alarm.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("cloudwatch_alarm")]
+    [TerraformProperty("cloudwatch_alarm")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleCloudwatchAlarmBlock>>? CloudwatchAlarm { get; set; }
 
     /// <summary>
     /// Block for cloudwatch_logs.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("cloudwatch_logs")]
+    [TerraformProperty("cloudwatch_logs")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleCloudwatchLogsBlock>>? CloudwatchLogs { get; set; }
 
     /// <summary>
     /// Block for cloudwatch_metric.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("cloudwatch_metric")]
+    [TerraformProperty("cloudwatch_metric")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleCloudwatchMetricBlock>>? CloudwatchMetric { get; set; }
 
     /// <summary>
     /// Block for dynamodb.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("dynamodb")]
+    [TerraformProperty("dynamodb")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleDynamodbBlock>>? Dynamodb { get; set; }
 
     /// <summary>
     /// Block for dynamodbv2.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("dynamodbv2")]
+    [TerraformProperty("dynamodbv2")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleDynamodbv2Block>>? Dynamodbv2 { get; set; }
 
     /// <summary>
     /// Block for elasticsearch.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("elasticsearch")]
+    [TerraformProperty("elasticsearch")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleElasticsearchBlock>>? Elasticsearch { get; set; }
 
     /// <summary>
@@ -825,105 +825,105 @@ public class AwsIotTopicRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ErrorAction block(s) allowed")]
-    [TerraformPropertyName("error_action")]
+    [TerraformProperty("error_action")]
     public TerraformList<TerraformBlock<AwsIotTopicRuleErrorActionBlock>>? ErrorAction { get; set; }
 
     /// <summary>
     /// Block for firehose.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("firehose")]
+    [TerraformProperty("firehose")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleFirehoseBlock>>? Firehose { get; set; }
 
     /// <summary>
     /// Block for http.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("http")]
+    [TerraformProperty("http")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleHttpBlock>>? Http { get; set; }
 
     /// <summary>
     /// Block for iot_analytics.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("iot_analytics")]
+    [TerraformProperty("iot_analytics")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleIotAnalyticsBlock>>? IotAnalytics { get; set; }
 
     /// <summary>
     /// Block for iot_events.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("iot_events")]
+    [TerraformProperty("iot_events")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleIotEventsBlock>>? IotEvents { get; set; }
 
     /// <summary>
     /// Block for kafka.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("kafka")]
+    [TerraformProperty("kafka")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleKafkaBlock>>? Kafka { get; set; }
 
     /// <summary>
     /// Block for kinesis.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("kinesis")]
+    [TerraformProperty("kinesis")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleKinesisBlock>>? Kinesis { get; set; }
 
     /// <summary>
     /// Block for lambda.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("lambda")]
+    [TerraformProperty("lambda")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleLambdaBlock>>? Lambda { get; set; }
 
     /// <summary>
     /// Block for republish.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("republish")]
+    [TerraformProperty("republish")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleRepublishBlock>>? Republish { get; set; }
 
     /// <summary>
     /// Block for s3.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("s3")]
+    [TerraformProperty("s3")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleS3Block>>? S3 { get; set; }
 
     /// <summary>
     /// Block for sns.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("sns")]
+    [TerraformProperty("sns")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleSnsBlock>>? Sns { get; set; }
 
     /// <summary>
     /// Block for sqs.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("sqs")]
+    [TerraformProperty("sqs")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleSqsBlock>>? Sqs { get; set; }
 
     /// <summary>
     /// Block for step_functions.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("step_functions")]
+    [TerraformProperty("step_functions")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleStepFunctionsBlock>>? StepFunctions { get; set; }
 
     /// <summary>
     /// Block for timestream.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("timestream")]
+    [TerraformProperty("timestream")]
     public TerraformSet<TerraformBlock<AwsIotTopicRuleTimestreamBlock>>? Timestream { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationIdentifierUriTimeoutsBlock
+public partial class AzureadApplicationIdentifierUriTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzureadApplicationIdentifierUriTimeoutsBlock
 /// <summary>
 /// Manages a azuread_application_identifier_uri resource.
 /// </summary>
-public class AzureadApplicationIdentifierUri : TerraformResource
+public partial class AzureadApplicationIdentifierUri : TerraformResource
 {
     public AzureadApplicationIdentifierUri(string name) : base("azuread_application_identifier_uri", name)
     {
@@ -44,30 +44,30 @@ public class AzureadApplicationIdentifierUri : TerraformResource
     /// The resource ID of the application to which the identifier URI should be added
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    [TerraformPropertyName("application_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("application_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The user-defined URI or URI-like string that uniquely identifies an application within its Azure AD tenant, or within a verified custom domain if the application is multi-tenant
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentifierUri is required")]
-    [TerraformPropertyName("identifier_uri")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("identifier_uri")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IdentifierUri { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadApplicationIdentifierUriTimeoutsBlock>? Timeouts { get; set; }
 
 }

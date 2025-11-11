@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_region_ssl_policy.
 /// </summary>
-public class GoogleComputeRegionSslPolicyDataSource : TerraformDataSource
+public partial class GoogleComputeRegionSslPolicyDataSource : TerraformDataSource
 {
     public GoogleComputeRegionSslPolicyDataSource(string name) : base("google_compute_region_ssl_policy", name)
     {
@@ -14,9 +14,9 @@ public class GoogleComputeRegionSslPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -28,30 +28,30 @@ public class GoogleComputeRegionSslPolicyDataSource : TerraformDataSource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The region where the regional SSL policy resides.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// A list of features enabled when the selected profile is CUSTOM. The
@@ -63,39 +63,39 @@ public class GoogleComputeRegionSslPolicyDataSource : TerraformDataSource
     /// *must* be present when using the &#39;CUSTOM&#39; profile. This argument
     /// *must not* be present when using any other profile.
     /// </summary>
-    [TerraformPropertyName("custom_features")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> CustomFeatures => new TerraformReference(this, "custom_features");
+    [TerraformProperty("custom_features")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> CustomFeatures { get; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The list of features enabled in the SSL policy.
     /// </summary>
-    [TerraformPropertyName("enabled_features")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> EnabledFeatures => new TerraformReference(this, "enabled_features");
+    [TerraformProperty("enabled_features")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> EnabledFeatures { get; }
 
     /// <summary>
     /// Fingerprint of this resource. A hash of the contents stored in this
     /// object. This field is used in optimistic locking.
     /// </summary>
-    [TerraformPropertyName("fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
+    [TerraformProperty("fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fingerprint { get; }
 
     /// <summary>
     /// The minimum version of SSL protocol that can be used by the clients
     /// to establish a connection with the load balancer. Default value: &amp;quot;TLS_1_0&amp;quot; Possible values: [&amp;quot;TLS_1_0&amp;quot;, &amp;quot;TLS_1_1&amp;quot;, &amp;quot;TLS_1_2&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("min_tls_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> MinTlsVersion => new TerraformReference(this, "min_tls_version");
+    [TerraformProperty("min_tls_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> MinTlsVersion { get; }
 
     /// <summary>
     /// Profile specifies the set of SSL features that can be used by the
@@ -107,15 +107,15 @@ public class GoogleComputeRegionSslPolicyDataSource : TerraformDataSource
     /// for information on what cipher suites each profile provides. If
     /// &#39;CUSTOM&#39; is used, the &#39;custom_features&#39; attribute **must be set**. Default value: &amp;quot;COMPATIBLE&amp;quot; Possible values: [&amp;quot;COMPATIBLE&amp;quot;, &amp;quot;MODERN&amp;quot;, &amp;quot;RESTRICTED&amp;quot;, &amp;quot;CUSTOM&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("profile")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Profile => new TerraformReference(this, "profile");
+    [TerraformProperty("profile")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Profile { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
 }

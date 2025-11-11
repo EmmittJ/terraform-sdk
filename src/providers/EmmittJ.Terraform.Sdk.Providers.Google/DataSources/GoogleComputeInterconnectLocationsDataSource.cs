@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_interconnect_locations.
 /// </summary>
-public class GoogleComputeInterconnectLocationsDataSource : TerraformDataSource
+public partial class GoogleComputeInterconnectLocationsDataSource : TerraformDataSource
 {
     public GoogleComputeInterconnectLocationsDataSource(string name) : base("google_compute_interconnect_locations", name)
     {
@@ -14,22 +14,22 @@ public class GoogleComputeInterconnectLocationsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The locations attribute.
     /// </summary>
-    [TerraformPropertyName("locations")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Locations => new TerraformReference(this, "locations");
+    [TerraformProperty("locations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Locations { get; }
 
 }

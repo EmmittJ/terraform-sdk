@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNginxConfigurationDataSourceTimeoutsBlock
+public partial class AzurermNginxConfigurationDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermNginxConfigurationDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_nginx_configuration.
 /// </summary>
-public class AzurermNginxConfigurationDataSource : TerraformDataSource
+public partial class AzurermNginxConfigurationDataSource : TerraformDataSource
 {
     public AzurermNginxConfigurationDataSource(string name) : base("azurerm_nginx_configuration", name)
     {
@@ -29,51 +29,51 @@ public class AzurermNginxConfigurationDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The nginx_deployment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
-    [TerraformPropertyName("nginx_deployment_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("nginx_deployment_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NginxDeploymentId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermNginxConfigurationDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The config_file attribute.
     /// </summary>
-    [TerraformPropertyName("config_file")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> ConfigFile => new TerraformReference(this, "config_file");
+    [TerraformProperty("config_file")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> ConfigFile { get; }
 
     /// <summary>
     /// The package_data attribute.
     /// </summary>
-    [TerraformPropertyName("package_data")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PackageData => new TerraformReference(this, "package_data");
+    [TerraformProperty("package_data")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PackageData { get; }
 
     /// <summary>
     /// The protected_file attribute.
     /// </summary>
-    [TerraformPropertyName("protected_file")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> ProtectedFile => new TerraformReference(this, "protected_file");
+    [TerraformProperty("protected_file")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> ProtectedFile { get; }
 
     /// <summary>
     /// The root_file attribute.
     /// </summary>
-    [TerraformPropertyName("root_file")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RootFile => new TerraformReference(this, "root_file");
+    [TerraformProperty("root_file")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RootFile { get; }
 
 }

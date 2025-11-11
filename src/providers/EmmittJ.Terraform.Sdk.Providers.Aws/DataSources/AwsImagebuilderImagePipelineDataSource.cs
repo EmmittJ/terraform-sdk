@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_imagebuilder_image_pipeline.
 /// </summary>
-public class AwsImagebuilderImagePipelineDataSource : TerraformDataSource
+public partial class AwsImagebuilderImagePipelineDataSource : TerraformDataSource
 {
     public AwsImagebuilderImagePipelineDataSource(string name) : base("aws_imagebuilder_image_pipeline", name)
     {
@@ -15,141 +15,141 @@ public class AwsImagebuilderImagePipelineDataSource : TerraformDataSource
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    [TerraformPropertyName("arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The container_recipe_arn attribute.
     /// </summary>
-    [TerraformPropertyName("container_recipe_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ContainerRecipeArn => new TerraformReference(this, "container_recipe_arn");
+    [TerraformProperty("container_recipe_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ContainerRecipeArn { get; }
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
-    [TerraformPropertyName("date_created")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DateCreated => new TerraformReference(this, "date_created");
+    [TerraformProperty("date_created")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DateCreated { get; }
 
     /// <summary>
     /// The date_last_run attribute.
     /// </summary>
-    [TerraformPropertyName("date_last_run")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DateLastRun => new TerraformReference(this, "date_last_run");
+    [TerraformProperty("date_last_run")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DateLastRun { get; }
 
     /// <summary>
     /// The date_next_run attribute.
     /// </summary>
-    [TerraformPropertyName("date_next_run")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DateNextRun => new TerraformReference(this, "date_next_run");
+    [TerraformProperty("date_next_run")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DateNextRun { get; }
 
     /// <summary>
     /// The date_updated attribute.
     /// </summary>
-    [TerraformPropertyName("date_updated")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DateUpdated => new TerraformReference(this, "date_updated");
+    [TerraformProperty("date_updated")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DateUpdated { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The distribution_configuration_arn attribute.
     /// </summary>
-    [TerraformPropertyName("distribution_configuration_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DistributionConfigurationArn => new TerraformReference(this, "distribution_configuration_arn");
+    [TerraformProperty("distribution_configuration_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DistributionConfigurationArn { get; }
 
     /// <summary>
     /// The enhanced_image_metadata_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enhanced_image_metadata_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EnhancedImageMetadataEnabled => new TerraformReference(this, "enhanced_image_metadata_enabled");
+    [TerraformProperty("enhanced_image_metadata_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EnhancedImageMetadataEnabled { get; }
 
     /// <summary>
     /// The image_recipe_arn attribute.
     /// </summary>
-    [TerraformPropertyName("image_recipe_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ImageRecipeArn => new TerraformReference(this, "image_recipe_arn");
+    [TerraformProperty("image_recipe_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ImageRecipeArn { get; }
 
     /// <summary>
     /// The image_scanning_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("image_scanning_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ImageScanningConfiguration => new TerraformReference(this, "image_scanning_configuration");
+    [TerraformProperty("image_scanning_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ImageScanningConfiguration { get; }
 
     /// <summary>
     /// The image_tests_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("image_tests_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ImageTestsConfiguration => new TerraformReference(this, "image_tests_configuration");
+    [TerraformProperty("image_tests_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ImageTestsConfiguration { get; }
 
     /// <summary>
     /// The infrastructure_configuration_arn attribute.
     /// </summary>
-    [TerraformPropertyName("infrastructure_configuration_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> InfrastructureConfigurationArn => new TerraformReference(this, "infrastructure_configuration_arn");
+    [TerraformProperty("infrastructure_configuration_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> InfrastructureConfigurationArn { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
-    [TerraformPropertyName("platform")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Platform => new TerraformReference(this, "platform");
+    [TerraformProperty("platform")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Platform { get; }
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
-    [TerraformPropertyName("schedule")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Schedule => new TerraformReference(this, "schedule");
+    [TerraformProperty("schedule")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Schedule { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

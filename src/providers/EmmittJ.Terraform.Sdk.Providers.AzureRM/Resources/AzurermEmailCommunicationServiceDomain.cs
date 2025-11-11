@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermEmailCommunicationServiceDomainTimeoutsBlock
+public partial class AzurermEmailCommunicationServiceDomainTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermEmailCommunicationServiceDomainTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_email_communication_service_domain resource.
 /// </summary>
-public class AzurermEmailCommunicationServiceDomain : TerraformResource
+public partial class AzurermEmailCommunicationServiceDomain : TerraformResource
 {
     public AzurermEmailCommunicationServiceDomain(string name) : base("azurerm_email_communication_service_domain", name)
     {
@@ -51,73 +51,73 @@ public class AzurermEmailCommunicationServiceDomain : TerraformResource
     /// The domain_management attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainManagement is required")]
-    [TerraformPropertyName("domain_management")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("domain_management")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DomainManagement { get; set; }
 
     /// <summary>
     /// The email_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EmailServiceId is required")]
-    [TerraformPropertyName("email_service_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("email_service_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EmailServiceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The user_engagement_tracking_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("user_engagement_tracking_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user_engagement_tracking_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? UserEngagementTrackingEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermEmailCommunicationServiceDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The from_sender_domain attribute.
     /// </summary>
-    [TerraformPropertyName("from_sender_domain")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FromSenderDomain => new TerraformReference(this, "from_sender_domain");
+    [TerraformProperty("from_sender_domain")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FromSenderDomain { get; }
 
     /// <summary>
     /// The mail_from_sender_domain attribute.
     /// </summary>
-    [TerraformPropertyName("mail_from_sender_domain")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> MailFromSenderDomain => new TerraformReference(this, "mail_from_sender_domain");
+    [TerraformProperty("mail_from_sender_domain")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> MailFromSenderDomain { get; }
 
     /// <summary>
     /// The verification_records attribute.
     /// </summary>
-    [TerraformPropertyName("verification_records")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> VerificationRecords => new TerraformReference(this, "verification_records");
+    [TerraformProperty("verification_records")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> VerificationRecords { get; }
 
 }

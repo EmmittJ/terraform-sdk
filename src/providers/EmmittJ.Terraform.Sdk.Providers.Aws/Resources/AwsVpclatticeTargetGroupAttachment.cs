@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVpclatticeTargetGroupAttachmentTargetBlock
+public partial class AwsVpclatticeTargetGroupAttachmentTargetBlock : TerraformBlockBase
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    [TerraformPropertyName("port")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Port { get; set; } = default!;
+    [TerraformProperty("port")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Port { get; set; }
 
 }
 
@@ -29,20 +29,20 @@ public class AwsVpclatticeTargetGroupAttachmentTargetBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsVpclatticeTargetGroupAttachmentTimeoutsBlock
+public partial class AwsVpclatticeTargetGroupAttachmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -51,7 +51,7 @@ public class AwsVpclatticeTargetGroupAttachmentTimeoutsBlock
 /// Manages a aws_vpclattice_target_group_attachment resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsVpclatticeTargetGroupAttachment : TerraformResource
+public partial class AwsVpclatticeTargetGroupAttachment : TerraformResource
 {
     public AwsVpclatticeTargetGroupAttachment(string name) : base("aws_vpclattice_target_group_attachment", name)
     {
@@ -60,23 +60,23 @@ public class AwsVpclatticeTargetGroupAttachment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The target_group_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetGroupIdentifier is required")]
-    [TerraformPropertyName("target_group_identifier")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_group_identifier")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TargetGroupIdentifier { get; set; }
 
     /// <summary>
@@ -86,14 +86,14 @@ public class AwsVpclatticeTargetGroupAttachment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
-    [TerraformPropertyName("target")]
+    [TerraformProperty("target")]
     public TerraformList<TerraformBlock<AwsVpclatticeTargetGroupAttachmentTargetBlock>>? Target { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsVpclatticeTargetGroupAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

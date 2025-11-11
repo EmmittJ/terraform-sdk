@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for artifact_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSyntheticsCanaryArtifactConfigBlock
+public partial class AwsSyntheticsCanaryArtifactConfigBlock : TerraformBlockBase
 {
 }
 
@@ -14,42 +14,42 @@ public class AwsSyntheticsCanaryArtifactConfigBlock
 /// Block type for run_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSyntheticsCanaryRunConfigBlock
+public partial class AwsSyntheticsCanaryRunConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The active_tracing attribute.
     /// </summary>
-    [TerraformPropertyName("active_tracing")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("active_tracing")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ActiveTracing { get; set; }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    [TerraformPropertyName("environment_variables")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("environment_variables")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? EnvironmentVariables { get; set; }
 
     /// <summary>
     /// The ephemeral_storage attribute.
     /// </summary>
-    [TerraformPropertyName("ephemeral_storage")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> EphemeralStorage { get; set; } = default!;
+    [TerraformProperty("ephemeral_storage")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> EphemeralStorage { get; set; }
 
     /// <summary>
     /// The memory_in_mb attribute.
     /// </summary>
-    [TerraformPropertyName("memory_in_mb")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MemoryInMb { get; set; } = default!;
+    [TerraformProperty("memory_in_mb")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MemoryInMb { get; set; }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("timeout_in_seconds")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> TimeoutInSeconds { get; set; } = default!;
+    [TerraformProperty("timeout_in_seconds")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> TimeoutInSeconds { get; set; }
 
 }
 
@@ -57,21 +57,21 @@ public class AwsSyntheticsCanaryRunConfigBlock
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSyntheticsCanaryScheduleBlock
+public partial class AwsSyntheticsCanaryScheduleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The duration_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("duration_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("duration_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? DurationInSeconds { get; set; }
 
     /// <summary>
     /// The expression attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
-    [TerraformPropertyName("expression")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("expression")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Expression { get; set; }
 
 }
@@ -80,27 +80,27 @@ public class AwsSyntheticsCanaryScheduleBlock
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSyntheticsCanaryVpcConfigBlock
+public partial class AwsSyntheticsCanaryVpcConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The ipv6_allowed_for_dual_stack attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_allowed_for_dual_stack")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ipv6_allowed_for_dual_stack")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Ipv6AllowedForDualStack { get; set; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_group_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subnet_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SubnetIds { get; set; }
 
 
@@ -110,7 +110,7 @@ public class AwsSyntheticsCanaryVpcConfigBlock
 /// Manages a aws_synthetics_canary resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsSyntheticsCanary : TerraformResource
+public partial class AwsSyntheticsCanary : TerraformResource
 {
     public AwsSyntheticsCanary(string name) : base("aws_synthetics_canary", name)
     {
@@ -120,124 +120,124 @@ public class AwsSyntheticsCanary : TerraformResource
     /// The artifact_s3_location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ArtifactS3Location is required")]
-    [TerraformPropertyName("artifact_s3_location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("artifact_s3_location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ArtifactS3Location { get; set; }
 
     /// <summary>
     /// The delete_lambda attribute.
     /// </summary>
-    [TerraformPropertyName("delete_lambda")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete_lambda")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DeleteLambda { get; set; }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRoleArn is required")]
-    [TerraformPropertyName("execution_role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("execution_role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The failure_retention_period attribute.
     /// </summary>
-    [TerraformPropertyName("failure_retention_period")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("failure_retention_period")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? FailureRetentionPeriod { get; set; }
 
     /// <summary>
     /// The handler attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Handler is required")]
-    [TerraformPropertyName("handler")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("handler")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Handler { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The runtime_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuntimeVersion is required")]
-    [TerraformPropertyName("runtime_version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("runtime_version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RuntimeVersion { get; set; }
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    [TerraformPropertyName("s3_bucket")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_bucket")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3Bucket { get; set; }
 
     /// <summary>
     /// The s3_key attribute.
     /// </summary>
-    [TerraformPropertyName("s3_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3Key { get; set; }
 
     /// <summary>
     /// The s3_version attribute.
     /// </summary>
-    [TerraformPropertyName("s3_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3Version { get; set; }
 
     /// <summary>
     /// The start_canary attribute.
     /// </summary>
-    [TerraformPropertyName("start_canary")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("start_canary")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? StartCanary { get; set; }
 
     /// <summary>
     /// The success_retention_period attribute.
     /// </summary>
-    [TerraformPropertyName("success_retention_period")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("success_retention_period")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? SuccessRetentionPeriod { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The zip_file attribute.
     /// </summary>
-    [TerraformPropertyName("zip_file")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("zip_file")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ZipFile { get; set; }
 
     /// <summary>
@@ -245,7 +245,7 @@ public class AwsSyntheticsCanary : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ArtifactConfig block(s) allowed")]
-    [TerraformPropertyName("artifact_config")]
+    [TerraformProperty("artifact_config")]
     public TerraformList<TerraformBlock<AwsSyntheticsCanaryArtifactConfigBlock>>? ArtifactConfig { get; set; }
 
     /// <summary>
@@ -253,7 +253,7 @@ public class AwsSyntheticsCanary : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RunConfig block(s) allowed")]
-    [TerraformPropertyName("run_config")]
+    [TerraformProperty("run_config")]
     public TerraformList<TerraformBlock<AwsSyntheticsCanaryRunConfigBlock>>? RunConfig { get; set; }
 
     /// <summary>
@@ -263,7 +263,7 @@ public class AwsSyntheticsCanary : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    [TerraformPropertyName("schedule")]
+    [TerraformProperty("schedule")]
     public TerraformList<TerraformBlock<AwsSyntheticsCanaryScheduleBlock>>? Schedule { get; set; }
 
     /// <summary>
@@ -271,42 +271,42 @@ public class AwsSyntheticsCanary : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcConfig block(s) allowed")]
-    [TerraformPropertyName("vpc_config")]
+    [TerraformProperty("vpc_config")]
     public TerraformList<TerraformBlock<AwsSyntheticsCanaryVpcConfigBlock>>? VpcConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The engine_arn attribute.
     /// </summary>
-    [TerraformPropertyName("engine_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EngineArn => new TerraformReference(this, "engine_arn");
+    [TerraformProperty("engine_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EngineArn { get; }
 
     /// <summary>
     /// The source_location_arn attribute.
     /// </summary>
-    [TerraformPropertyName("source_location_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceLocationArn => new TerraformReference(this, "source_location_arn");
+    [TerraformProperty("source_location_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceLocationArn { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The timeline attribute.
     /// </summary>
-    [TerraformPropertyName("timeline")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Timeline => new TerraformReference(this, "timeline");
+    [TerraformProperty("timeline")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Timeline { get; }
 
 }

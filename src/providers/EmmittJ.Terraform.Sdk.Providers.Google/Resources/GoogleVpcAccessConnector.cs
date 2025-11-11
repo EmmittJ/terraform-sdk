@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for subnet in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVpcAccessConnectorSubnetBlock
+public partial class GoogleVpcAccessConnectorSubnetBlock : TerraformBlockBase
 {
     /// <summary>
     /// Subnet name (relative, not fully qualified). E.g. if the full subnet selfLink is
     /// https://compute.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetName} the correct input for this field would be {subnetName}&amp;quot;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Project in which the subnet exists. If not set, this project is assumed to be the project for which the connector create request was issued.
     /// </summary>
-    [TerraformPropertyName("project_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ProjectId { get; set; } = default!;
+    [TerraformProperty("project_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ProjectId { get; set; }
 
 }
 
@@ -29,27 +29,27 @@ public class GoogleVpcAccessConnectorSubnetBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVpcAccessConnectorTimeoutsBlock
+public partial class GoogleVpcAccessConnectorTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -58,7 +58,7 @@ public class GoogleVpcAccessConnectorTimeoutsBlock
 /// Manages a google_vpc_access_connector resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleVpcAccessConnector : TerraformResource
+public partial class GoogleVpcAccessConnector : TerraformResource
 {
     public GoogleVpcAccessConnector(string name) : base("google_vpc_access_connector", name)
     {
@@ -67,121 +67,121 @@ public class GoogleVpcAccessConnector : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The range of internal addresses that follows RFC 4632 notation. Example: &#39;10.132.0.0/28&#39;.
     /// </summary>
-    [TerraformPropertyName("ip_cidr_range")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_cidr_range")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IpCidrRange { get; set; }
 
     /// <summary>
     /// Machine type of VM Instance underlying connector. Default is e2-micro
     /// </summary>
-    [TerraformPropertyName("machine_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("machine_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MachineType { get; set; }
 
     /// <summary>
     /// Maximum value of instances in autoscaling group underlying the connector. Value must be between 3 and 10, inclusive. Must be
     /// higher than the value specified by min_instances. Required alongside &#39;min_instances&#39; if not using &#39;min_throughput&#39;/&#39;max_throughput&#39;.
     /// </summary>
-    [TerraformPropertyName("max_instances")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxInstances { get; set; } = default!;
+    [TerraformProperty("max_instances")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxInstances { get; set; }
 
     /// <summary>
     /// Maximum throughput of the connector in Mbps, must be greater than &#39;min_throughput&#39;. Default is 300. Refers to the expected throughput
     /// when using an e2-micro machine type. Value must be a multiple of 100 from 300 through 1000. Must be higher than the value specified by
     /// min_throughput. Only one of &#39;max_throughput&#39; and &#39;max_instances&#39; can be specified. The use of max_throughput is discouraged in favor of max_instances.
     /// </summary>
-    [TerraformPropertyName("max_throughput")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxThroughput { get; set; } = default!;
+    [TerraformProperty("max_throughput")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxThroughput { get; set; }
 
     /// <summary>
     /// Minimum value of instances in autoscaling group underlying the connector. Value must be between 2 and 9, inclusive. Must be
     /// lower than the value specified by max_instances. Required alongside &#39;max_instances&#39; if not using &#39;min_throughput&#39;/&#39;max_throughput&#39;.
     /// </summary>
-    [TerraformPropertyName("min_instances")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MinInstances { get; set; } = default!;
+    [TerraformProperty("min_instances")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MinInstances { get; set; }
 
     /// <summary>
     /// Minimum throughput of the connector in Mbps. Default and min is 200. Refers to the expected throughput when using an e2-micro machine type.
     /// Value must be a multiple of 100 from 200 through 900. Must be lower than the value specified by max_throughput.
     /// Only one of &#39;min_throughput&#39; and &#39;min_instances&#39; can be specified. The use of min_throughput is discouraged in favor of min_instances.
     /// </summary>
-    [TerraformPropertyName("min_throughput")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MinThroughput { get; set; } = default!;
+    [TerraformProperty("min_throughput")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MinThroughput { get; set; }
 
     /// <summary>
     /// The name of the resource (Max 25 characters).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Name or self_link of the VPC network. Required if &#39;ip_cidr_range&#39; is set.
     /// </summary>
-    [TerraformPropertyName("network")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Network { get; set; } = default!;
+    [TerraformProperty("network")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Region where the VPC Access connector resides. If it is not provided, the provider region is used.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for subnet.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Subnet block(s) allowed")]
-    [TerraformPropertyName("subnet")]
+    [TerraformProperty("subnet")]
     public TerraformList<TerraformBlock<GoogleVpcAccessConnectorSubnetBlock>>? Subnet { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleVpcAccessConnectorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// List of projects using the connector.
     /// </summary>
-    [TerraformPropertyName("connected_projects")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ConnectedProjects => new TerraformReference(this, "connected_projects");
+    [TerraformProperty("connected_projects")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ConnectedProjects { get; }
 
     /// <summary>
     /// The fully qualified name of this VPC connector
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// State of the VPC access connector.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
 }

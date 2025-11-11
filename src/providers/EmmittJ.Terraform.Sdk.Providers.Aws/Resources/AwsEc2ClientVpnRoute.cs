@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2ClientVpnRouteTimeoutsBlock
+public partial class AwsEc2ClientVpnRouteTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class AwsEc2ClientVpnRouteTimeoutsBlock
 /// <summary>
 /// Manages a aws_ec2_client_vpn_route resource.
 /// </summary>
-public class AwsEc2ClientVpnRoute : TerraformResource
+public partial class AwsEc2ClientVpnRoute : TerraformResource
 {
     public AwsEc2ClientVpnRoute(string name) : base("aws_ec2_client_vpn_route", name)
     {
@@ -37,66 +37,66 @@ public class AwsEc2ClientVpnRoute : TerraformResource
     /// The client_vpn_endpoint_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientVpnEndpointId is required")]
-    [TerraformPropertyName("client_vpn_endpoint_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("client_vpn_endpoint_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClientVpnEndpointId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationCidrBlock is required")]
-    [TerraformPropertyName("destination_cidr_block")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("destination_cidr_block")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DestinationCidrBlock { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The target_vpc_subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVpcSubnetId is required")]
-    [TerraformPropertyName("target_vpc_subnet_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_vpc_subnet_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TargetVpcSubnetId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsEc2ClientVpnRouteTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The origin attribute.
     /// </summary>
-    [TerraformPropertyName("origin")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Origin => new TerraformReference(this, "origin");
+    [TerraformProperty("origin")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Origin { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
 }

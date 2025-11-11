@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermResourceGroupPolicyAssignmentIdentityBlock
+public partial class AzurermResourceGroupPolicyAssignmentIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformPropertyName("identity_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IdentityIds { get; set; }
 
 
@@ -21,8 +21,8 @@ public class AzurermResourceGroupPolicyAssignmentIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -31,21 +31,21 @@ public class AzurermResourceGroupPolicyAssignmentIdentityBlock
 /// Block type for non_compliance_message in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermResourceGroupPolicyAssignmentNonComplianceMessageBlock
+public partial class AzurermResourceGroupPolicyAssignmentNonComplianceMessageBlock : TerraformBlockBase
 {
     /// <summary>
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    [TerraformPropertyName("content")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("content")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Content { get; set; }
 
     /// <summary>
     /// The policy_definition_reference_id attribute.
     /// </summary>
-    [TerraformPropertyName("policy_definition_reference_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("policy_definition_reference_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PolicyDefinitionReferenceId { get; set; }
 
 }
@@ -54,14 +54,14 @@ public class AzurermResourceGroupPolicyAssignmentNonComplianceMessageBlock
 /// Block type for overrides in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermResourceGroupPolicyAssignmentOverridesBlock
+public partial class AzurermResourceGroupPolicyAssignmentOverridesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -70,13 +70,13 @@ public class AzurermResourceGroupPolicyAssignmentOverridesBlock
 /// Block type for resource_selectors in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermResourceGroupPolicyAssignmentResourceSelectorsBlock
+public partial class AzurermResourceGroupPolicyAssignmentResourceSelectorsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
 }
@@ -85,34 +85,34 @@ public class AzurermResourceGroupPolicyAssignmentResourceSelectorsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermResourceGroupPolicyAssignmentTimeoutsBlock
+public partial class AzurermResourceGroupPolicyAssignmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -121,7 +121,7 @@ public class AzurermResourceGroupPolicyAssignmentTimeoutsBlock
 /// Manages a azurerm_resource_group_policy_assignment resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermResourceGroupPolicyAssignment : TerraformResource
+public partial class AzurermResourceGroupPolicyAssignment : TerraformResource
 {
     public AzurermResourceGroupPolicyAssignment(string name) : base("azurerm_resource_group_policy_assignment", name)
     {
@@ -130,81 +130,81 @@ public class AzurermResourceGroupPolicyAssignment : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The enforce attribute.
     /// </summary>
-    [TerraformPropertyName("enforce")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enforce")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enforce { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    [TerraformPropertyName("metadata")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Metadata { get; set; } = default!;
+    [TerraformProperty("metadata")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The not_scopes attribute.
     /// </summary>
-    [TerraformPropertyName("not_scopes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("not_scopes")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? NotScopes { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformPropertyName("parameters")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parameters")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Parameters { get; set; }
 
     /// <summary>
     /// The policy_definition_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDefinitionId is required")]
-    [TerraformPropertyName("policy_definition_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_definition_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PolicyDefinitionId { get; set; }
 
     /// <summary>
     /// The resource_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupId is required")]
-    [TerraformPropertyName("resource_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupId { get; set; }
 
     /// <summary>
@@ -212,35 +212,35 @@ public class AzurermResourceGroupPolicyAssignment : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermResourceGroupPolicyAssignmentIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for non_compliance_message.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("non_compliance_message")]
+    [TerraformProperty("non_compliance_message")]
     public TerraformList<TerraformBlock<AzurermResourceGroupPolicyAssignmentNonComplianceMessageBlock>>? NonComplianceMessage { get; set; }
 
     /// <summary>
     /// Block for overrides.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("overrides")]
+    [TerraformProperty("overrides")]
     public TerraformList<TerraformBlock<AzurermResourceGroupPolicyAssignmentOverridesBlock>>? Overrides { get; set; }
 
     /// <summary>
     /// Block for resource_selectors.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("resource_selectors")]
+    [TerraformProperty("resource_selectors")]
     public TerraformList<TerraformBlock<AzurermResourceGroupPolicyAssignmentResourceSelectorsBlock>>? ResourceSelectors { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermResourceGroupPolicyAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

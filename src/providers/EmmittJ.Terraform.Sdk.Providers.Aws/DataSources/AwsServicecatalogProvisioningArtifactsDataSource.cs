@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlock
+public partial class AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a aws_servicecatalog_provisioning_artifacts.
 /// </summary>
-public class AwsServicecatalogProvisioningArtifactsDataSource : TerraformDataSource
+public partial class AwsServicecatalogProvisioningArtifactsDataSource : TerraformDataSource
 {
     public AwsServicecatalogProvisioningArtifactsDataSource(string name) : base("aws_servicecatalog_provisioning_artifacts", name)
     {
@@ -29,44 +29,44 @@ public class AwsServicecatalogProvisioningArtifactsDataSource : TerraformDataSou
     /// <summary>
     /// The accept_language attribute.
     /// </summary>
-    [TerraformPropertyName("accept_language")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("accept_language")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AcceptLanguage { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
-    [TerraformPropertyName("product_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("product_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProductId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsServicecatalogProvisioningArtifactsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The provisioning_artifact_details attribute.
     /// </summary>
-    [TerraformPropertyName("provisioning_artifact_details")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ProvisioningArtifactDetails => new TerraformReference(this, "provisioning_artifact_details");
+    [TerraformProperty("provisioning_artifact_details")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ProvisioningArtifactDetails { get; }
 
 }

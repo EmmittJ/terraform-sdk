@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDxTransitVirtualInterfaceTimeoutsBlock
+public partial class AwsDxTransitVirtualInterfaceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsDxTransitVirtualInterfaceTimeoutsBlock
 /// <summary>
 /// Manages a aws_dx_transit_virtual_interface resource.
 /// </summary>
-public class AwsDxTransitVirtualInterface : TerraformResource
+public partial class AwsDxTransitVirtualInterface : TerraformResource
 {
     public AwsDxTransitVirtualInterface(string name) : base("aws_dx_transit_virtual_interface", name)
     {
@@ -44,146 +44,146 @@ public class AwsDxTransitVirtualInterface : TerraformResource
     /// The address_family attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressFamily is required")]
-    [TerraformPropertyName("address_family")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("address_family")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AddressFamily { get; set; }
 
     /// <summary>
     /// The amazon_address attribute.
     /// </summary>
-    [TerraformPropertyName("amazon_address")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AmazonAddress { get; set; } = default!;
+    [TerraformProperty("amazon_address")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AmazonAddress { get; set; }
 
     /// <summary>
     /// The bgp_asn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BgpAsn is required")]
-    [TerraformPropertyName("bgp_asn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bgp_asn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> BgpAsn { get; set; }
 
     /// <summary>
     /// The bgp_auth_key attribute.
     /// </summary>
-    [TerraformPropertyName("bgp_auth_key")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> BgpAuthKey { get; set; } = default!;
+    [TerraformProperty("bgp_auth_key")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> BgpAuthKey { get; set; }
 
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionId is required")]
-    [TerraformPropertyName("connection_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connection_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConnectionId { get; set; }
 
     /// <summary>
     /// The customer_address attribute.
     /// </summary>
-    [TerraformPropertyName("customer_address")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CustomerAddress { get; set; } = default!;
+    [TerraformProperty("customer_address")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CustomerAddress { get; set; }
 
     /// <summary>
     /// The dx_gateway_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DxGatewayId is required")]
-    [TerraformPropertyName("dx_gateway_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("dx_gateway_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DxGatewayId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The mtu attribute.
     /// </summary>
-    [TerraformPropertyName("mtu")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("mtu")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Mtu { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The sitelink_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("sitelink_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sitelink_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SitelinkEnabled { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The vlan attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Vlan is required")]
-    [TerraformPropertyName("vlan")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vlan")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Vlan { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsDxTransitVirtualInterfaceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The amazon_side_asn attribute.
     /// </summary>
-    [TerraformPropertyName("amazon_side_asn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AmazonSideAsn => new TerraformReference(this, "amazon_side_asn");
+    [TerraformProperty("amazon_side_asn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AmazonSideAsn { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The aws_device attribute.
     /// </summary>
-    [TerraformPropertyName("aws_device")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AwsDevice => new TerraformReference(this, "aws_device");
+    [TerraformProperty("aws_device")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AwsDevice { get; }
 
     /// <summary>
     /// The jumbo_frame_capable attribute.
     /// </summary>
-    [TerraformPropertyName("jumbo_frame_capable")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> JumboFrameCapable => new TerraformReference(this, "jumbo_frame_capable");
+    [TerraformProperty("jumbo_frame_capable")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> JumboFrameCapable { get; }
 
 }

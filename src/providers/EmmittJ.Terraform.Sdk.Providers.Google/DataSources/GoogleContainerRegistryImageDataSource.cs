@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Retrieves information about a google_container_registry_image.
 /// </summary>
 [Obsolete("This data source is deprecated.")]
-public class GoogleContainerRegistryImageDataSource : TerraformDataSource
+public partial class GoogleContainerRegistryImageDataSource : TerraformDataSource
 {
     public GoogleContainerRegistryImageDataSource(string name) : base("google_container_registry_image", name)
     {
@@ -15,51 +15,51 @@ public class GoogleContainerRegistryImageDataSource : TerraformDataSource
     /// <summary>
     /// The digest attribute.
     /// </summary>
-    [TerraformPropertyName("digest")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("digest")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Digest { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The tag attribute.
     /// </summary>
-    [TerraformPropertyName("tag")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tag")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Tag { get; set; }
 
     /// <summary>
     /// The image_url attribute.
     /// </summary>
-    [TerraformPropertyName("image_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ImageUrl => new TerraformReference(this, "image_url");
+    [TerraformProperty("image_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ImageUrl { get; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bgp in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRouterBgpBlock
+public partial class GoogleComputeRouterBgpBlock : TerraformBlockBase
 {
     /// <summary>
     /// User-specified flag to indicate which mode to use for advertisement. Default value: &amp;quot;DEFAULT&amp;quot; Possible values: [&amp;quot;DEFAULT&amp;quot;, &amp;quot;CUSTOM&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("advertise_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("advertise_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AdvertiseMode { get; set; }
 
     /// <summary>
@@ -24,8 +24,8 @@ public class GoogleComputeRouterBgpBlock
     /// 
     /// This enum field has the one valid value: ALL_SUBNETS
     /// </summary>
-    [TerraformPropertyName("advertised_groups")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("advertised_groups")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? AdvertisedGroups { get; set; }
 
     /// <summary>
@@ -35,8 +35,8 @@ public class GoogleComputeRouterBgpBlock
     /// will have the same local ASN.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Asn is required")]
-    [TerraformPropertyName("asn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("asn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Asn { get; set; }
 
     /// <summary>
@@ -46,9 +46,9 @@ public class GoogleComputeRouterBgpBlock
     /// not overlap with any IPv4 BGP session ranges. Other vendors commonly
     /// call this router ID.
     /// </summary>
-    [TerraformPropertyName("identifier_range")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> IdentifierRange { get; set; } = default!;
+    [TerraformProperty("identifier_range")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> IdentifierRange { get; set; }
 
     /// <summary>
     /// The interval in seconds between BGP keepalive messages that are sent
@@ -62,8 +62,8 @@ public class GoogleComputeRouterBgpBlock
     /// between the two peers. If set, this value must be between 20 and 60.
     /// The default is 20.
     /// </summary>
-    [TerraformPropertyName("keepalive_interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("keepalive_interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? KeepaliveInterval { get; set; }
 
 }
@@ -72,14 +72,14 @@ public class GoogleComputeRouterBgpBlock
 /// Block type for md5_authentication_keys in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRouterMd5AuthenticationKeysBlock
+public partial class GoogleComputeRouterMd5AuthenticationKeysBlock : TerraformBlockBase
 {
     /// <summary>
     /// Value of the key used for MD5 authentication.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformPropertyName("key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Key { get; set; }
 
     /// <summary>
@@ -87,8 +87,8 @@ public class GoogleComputeRouterMd5AuthenticationKeysBlock
     /// Must be referenced by exactly one bgpPeer. Must comply with RFC1035.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -97,15 +97,15 @@ public class GoogleComputeRouterMd5AuthenticationKeysBlock
 /// Block type for params in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRouterParamsBlock
+public partial class GoogleComputeRouterParamsBlock : TerraformBlockBase
 {
     /// <summary>
     /// Resource manager tags to be bound to the router. Tag keys and values have the
     /// same definition as resource manager tags. Keys must be in the format tagKeys/{tag_key_id},
     /// and values are in the format tagValues/456.
     /// </summary>
-    [TerraformPropertyName("resource_manager_tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("resource_manager_tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? ResourceManagerTags { get; set; }
 
 }
@@ -114,27 +114,27 @@ public class GoogleComputeRouterParamsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRouterTimeoutsBlock
+public partial class GoogleComputeRouterTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -143,7 +143,7 @@ public class GoogleComputeRouterTimeoutsBlock
 /// Manages a google_compute_router resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputeRouter : TerraformResource
+public partial class GoogleComputeRouter : TerraformResource
 {
     public GoogleComputeRouter(string name) : base("google_compute_router", name)
     {
@@ -152,24 +152,24 @@ public class GoogleComputeRouter : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Indicates if a router is dedicated for use with encrypted VLAN
     /// attachments (interconnectAttachments).
     /// </summary>
-    [TerraformPropertyName("encrypted_interconnect_router")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("encrypted_interconnect_router")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EncryptedInterconnectRouter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. The name must be 1-63 characters long, and
@@ -180,37 +180,37 @@ public class GoogleComputeRouter : TerraformResource
     /// except the last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// A reference to the network to which this router belongs.
     /// </summary>
-    [TerraformPropertyName("network")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("network")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Region where the router resides.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for bgp.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Bgp block(s) allowed")]
-    [TerraformPropertyName("bgp")]
+    [TerraformProperty("bgp")]
     public TerraformList<TerraformBlock<GoogleComputeRouterBgpBlock>>? Bgp { get; set; }
 
     /// <summary>
@@ -218,7 +218,7 @@ public class GoogleComputeRouter : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Md5AuthenticationKeys block(s) allowed")]
-    [TerraformPropertyName("md5_authentication_keys")]
+    [TerraformProperty("md5_authentication_keys")]
     public TerraformList<TerraformBlock<GoogleComputeRouterMd5AuthenticationKeysBlock>>? Md5AuthenticationKeys { get; set; }
 
     /// <summary>
@@ -226,28 +226,28 @@ public class GoogleComputeRouter : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Params block(s) allowed")]
-    [TerraformPropertyName("params")]
+    [TerraformProperty("params")]
     public TerraformList<TerraformBlock<GoogleComputeRouterParamsBlock>>? Params { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeRouterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
 }

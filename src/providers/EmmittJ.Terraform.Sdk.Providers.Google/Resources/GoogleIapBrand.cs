@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIapBrandTimeoutsBlock
+public partial class GoogleIapBrandTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -28,7 +28,7 @@ public class GoogleIapBrandTimeoutsBlock
 /// Manages a google_iap_brand resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
-public class GoogleIapBrand : TerraformResource
+public partial class GoogleIapBrand : TerraformResource
 {
     public GoogleIapBrand(string name) : base("google_iap_brand", name)
     {
@@ -38,23 +38,23 @@ public class GoogleIapBrand : TerraformResource
     /// Application name displayed on OAuth consent screen.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationTitle is required")]
-    [TerraformPropertyName("application_title")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("application_title")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApplicationTitle { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Support email displayed on the OAuth consent screen. Can be either a
@@ -64,15 +64,15 @@ public class GoogleIapBrand : TerraformResource
     /// is an owner of the specified group in Cloud Identity.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SupportEmail is required")]
-    [TerraformPropertyName("support_email")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("support_email")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SupportEmail { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleIapBrandTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -81,15 +81,15 @@ public class GoogleIapBrand : TerraformResource
     /// NOTE: The brand identification corresponds to the project number as only one
     /// brand can be created per project.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Whether the brand is only intended for usage inside the GSuite organization only.
     /// </summary>
-    [TerraformPropertyName("org_internal_only")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> OrgInternalOnly => new TerraformReference(this, "org_internal_only");
+    [TerraformProperty("org_internal_only")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> OrgInternalOnly { get; }
 
 }

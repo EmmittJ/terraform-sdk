@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for alarm_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodedeployDeploymentGroupAlarmConfigurationBlock
+public partial class AwsCodedeployDeploymentGroupAlarmConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The alarms attribute.
     /// </summary>
-    [TerraformPropertyName("alarms")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("alarms")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Alarms { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The ignore_poll_alarm_failure attribute.
     /// </summary>
-    [TerraformPropertyName("ignore_poll_alarm_failure")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ignore_poll_alarm_failure")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IgnorePollAlarmFailure { get; set; }
 
 }
@@ -35,20 +35,20 @@ public class AwsCodedeployDeploymentGroupAlarmConfigurationBlock
 /// Block type for auto_rollback_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock
+public partial class AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The events attribute.
     /// </summary>
-    [TerraformPropertyName("events")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("events")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Events { get; set; }
 
 }
@@ -57,7 +57,7 @@ public class AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock
 /// Block type for blue_green_deployment_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlock
+public partial class AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlock : TerraformBlockBase
 {
 }
 
@@ -65,20 +65,20 @@ public class AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlock
 /// Block type for deployment_style in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodedeployDeploymentGroupDeploymentStyleBlock
+public partial class AwsCodedeployDeploymentGroupDeploymentStyleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The deployment_option attribute.
     /// </summary>
-    [TerraformPropertyName("deployment_option")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deployment_option")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeploymentOption { get; set; }
 
     /// <summary>
     /// The deployment_type attribute.
     /// </summary>
-    [TerraformPropertyName("deployment_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deployment_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeploymentType { get; set; }
 
 }
@@ -87,27 +87,27 @@ public class AwsCodedeployDeploymentGroupDeploymentStyleBlock
 /// Block type for ec2_tag_filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCodedeployDeploymentGroupEc2TagFilterBlock
+public partial class AwsCodedeployDeploymentGroupEc2TagFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The key attribute.
     /// </summary>
-    [TerraformPropertyName("key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Key { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    [TerraformPropertyName("value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Value { get; set; }
 
 }
@@ -116,7 +116,7 @@ public class AwsCodedeployDeploymentGroupEc2TagFilterBlock
 /// Block type for ec2_tag_set in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCodedeployDeploymentGroupEc2TagSetBlock
+public partial class AwsCodedeployDeploymentGroupEc2TagSetBlock : TerraformBlockBase
 {
 }
 
@@ -124,22 +124,22 @@ public class AwsCodedeployDeploymentGroupEc2TagSetBlock
 /// Block type for ecs_service in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodedeployDeploymentGroupEcsServiceBlock
+public partial class AwsCodedeployDeploymentGroupEcsServiceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    [TerraformPropertyName("cluster_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
-    [TerraformPropertyName("service_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceName { get; set; }
 
 }
@@ -148,7 +148,7 @@ public class AwsCodedeployDeploymentGroupEcsServiceBlock
 /// Block type for load_balancer_info in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodedeployDeploymentGroupLoadBalancerInfoBlock
+public partial class AwsCodedeployDeploymentGroupLoadBalancerInfoBlock : TerraformBlockBase
 {
 }
 
@@ -156,27 +156,27 @@ public class AwsCodedeployDeploymentGroupLoadBalancerInfoBlock
 /// Block type for on_premises_instance_tag_filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock
+public partial class AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The key attribute.
     /// </summary>
-    [TerraformPropertyName("key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Key { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    [TerraformPropertyName("value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Value { get; set; }
 
 }
@@ -185,30 +185,30 @@ public class AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock
 /// Block type for trigger_configuration in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock
+public partial class AwsCodedeployDeploymentGroupTriggerConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The trigger_events attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerEvents is required")]
-    [TerraformPropertyName("trigger_events")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("trigger_events")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> TriggerEvents { get; set; }
 
     /// <summary>
     /// The trigger_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerName is required")]
-    [TerraformPropertyName("trigger_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("trigger_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TriggerName { get; set; }
 
     /// <summary>
     /// The trigger_target_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerTargetArn is required")]
-    [TerraformPropertyName("trigger_target_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("trigger_target_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TriggerTargetArn { get; set; }
 
 }
@@ -217,7 +217,7 @@ public class AwsCodedeployDeploymentGroupTriggerConfigurationBlock
 /// Manages a aws_codedeploy_deployment_group resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsCodedeployDeploymentGroup : TerraformResource
+public partial class AwsCodedeployDeploymentGroup : TerraformResource
 {
     public AwsCodedeployDeploymentGroup(string name) : base("aws_codedeploy_deployment_group", name)
     {
@@ -227,80 +227,80 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     /// The app_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppName is required")]
-    [TerraformPropertyName("app_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("app_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AppName { get; set; }
 
     /// <summary>
     /// The autoscaling_groups attribute.
     /// </summary>
-    [TerraformPropertyName("autoscaling_groups")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("autoscaling_groups")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? AutoscalingGroups { get; set; }
 
     /// <summary>
     /// The deployment_config_name attribute.
     /// </summary>
-    [TerraformPropertyName("deployment_config_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deployment_config_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeploymentConfigName { get; set; }
 
     /// <summary>
     /// The deployment_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentGroupName is required")]
-    [TerraformPropertyName("deployment_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("deployment_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DeploymentGroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The outdated_instances_strategy attribute.
     /// </summary>
-    [TerraformPropertyName("outdated_instances_strategy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("outdated_instances_strategy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OutdatedInstancesStrategy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The service_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceRoleArn is required")]
-    [TerraformPropertyName("service_role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceRoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The termination_hook_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("termination_hook_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("termination_hook_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? TerminationHookEnabled { get; set; }
 
     /// <summary>
@@ -308,7 +308,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlarmConfiguration block(s) allowed")]
-    [TerraformPropertyName("alarm_configuration")]
+    [TerraformProperty("alarm_configuration")]
     public TerraformList<TerraformBlock<AwsCodedeployDeploymentGroupAlarmConfigurationBlock>>? AlarmConfiguration { get; set; }
 
     /// <summary>
@@ -316,7 +316,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoRollbackConfiguration block(s) allowed")]
-    [TerraformPropertyName("auto_rollback_configuration")]
+    [TerraformProperty("auto_rollback_configuration")]
     public TerraformList<TerraformBlock<AwsCodedeployDeploymentGroupAutoRollbackConfigurationBlock>>? AutoRollbackConfiguration { get; set; }
 
     /// <summary>
@@ -324,7 +324,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlueGreenDeploymentConfig block(s) allowed")]
-    [TerraformPropertyName("blue_green_deployment_config")]
+    [TerraformProperty("blue_green_deployment_config")]
     public TerraformList<TerraformBlock<AwsCodedeployDeploymentGroupBlueGreenDeploymentConfigBlock>>? BlueGreenDeploymentConfig { get; set; }
 
     /// <summary>
@@ -332,21 +332,21 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentStyle block(s) allowed")]
-    [TerraformPropertyName("deployment_style")]
+    [TerraformProperty("deployment_style")]
     public TerraformList<TerraformBlock<AwsCodedeployDeploymentGroupDeploymentStyleBlock>>? DeploymentStyle { get; set; }
 
     /// <summary>
     /// Block for ec2_tag_filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("ec2_tag_filter")]
+    [TerraformProperty("ec2_tag_filter")]
     public TerraformSet<TerraformBlock<AwsCodedeployDeploymentGroupEc2TagFilterBlock>>? Ec2TagFilter { get; set; }
 
     /// <summary>
     /// Block for ec2_tag_set.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("ec2_tag_set")]
+    [TerraformProperty("ec2_tag_set")]
     public TerraformSet<TerraformBlock<AwsCodedeployDeploymentGroupEc2TagSetBlock>>? Ec2TagSet { get; set; }
 
     /// <summary>
@@ -354,7 +354,7 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EcsService block(s) allowed")]
-    [TerraformPropertyName("ecs_service")]
+    [TerraformProperty("ecs_service")]
     public TerraformList<TerraformBlock<AwsCodedeployDeploymentGroupEcsServiceBlock>>? EcsService { get; set; }
 
     /// <summary>
@@ -362,42 +362,42 @@ public class AwsCodedeployDeploymentGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancerInfo block(s) allowed")]
-    [TerraformPropertyName("load_balancer_info")]
+    [TerraformProperty("load_balancer_info")]
     public TerraformList<TerraformBlock<AwsCodedeployDeploymentGroupLoadBalancerInfoBlock>>? LoadBalancerInfo { get; set; }
 
     /// <summary>
     /// Block for on_premises_instance_tag_filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("on_premises_instance_tag_filter")]
+    [TerraformProperty("on_premises_instance_tag_filter")]
     public TerraformSet<TerraformBlock<AwsCodedeployDeploymentGroupOnPremisesInstanceTagFilterBlock>>? OnPremisesInstanceTagFilter { get; set; }
 
     /// <summary>
     /// Block for trigger_configuration.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("trigger_configuration")]
+    [TerraformProperty("trigger_configuration")]
     public TerraformSet<TerraformBlock<AwsCodedeployDeploymentGroupTriggerConfigurationBlock>>? TriggerConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The compute_platform attribute.
     /// </summary>
-    [TerraformPropertyName("compute_platform")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ComputePlatform => new TerraformReference(this, "compute_platform");
+    [TerraformProperty("compute_platform")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ComputePlatform { get; }
 
     /// <summary>
     /// The deployment_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("deployment_group_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeploymentGroupId => new TerraformReference(this, "deployment_group_id");
+    [TerraformProperty("deployment_group_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeploymentGroupId { get; }
 
 }

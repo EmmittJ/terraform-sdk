@@ -6,42 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for option in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDbOptionGroupOptionBlock
+public partial class AwsDbOptionGroupOptionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The db_security_group_memberships attribute.
     /// </summary>
-    [TerraformPropertyName("db_security_group_memberships")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("db_security_group_memberships")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? DbSecurityGroupMemberships { get; set; }
 
     /// <summary>
     /// The option_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OptionName is required")]
-    [TerraformPropertyName("option_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("option_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OptionName { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    [TerraformPropertyName("port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Version { get; set; }
 
     /// <summary>
     /// The vpc_security_group_memberships attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_security_group_memberships")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vpc_security_group_memberships")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? VpcSecurityGroupMemberships { get; set; }
 
 }
@@ -50,13 +50,13 @@ public class AwsDbOptionGroupOptionBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDbOptionGroupTimeoutsBlock
+public partial class AwsDbOptionGroupTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -64,7 +64,7 @@ public class AwsDbOptionGroupTimeoutsBlock
 /// <summary>
 /// Manages a aws_db_option_group resource.
 /// </summary>
-public class AwsDbOptionGroup : TerraformResource
+public partial class AwsDbOptionGroup : TerraformResource
 {
     public AwsDbOptionGroup(string name) : base("aws_db_option_group", name)
     {
@@ -74,93 +74,93 @@ public class AwsDbOptionGroup : TerraformResource
     /// The engine_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineName is required")]
-    [TerraformPropertyName("engine_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("engine_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EngineName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The major_engine_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MajorEngineVersion is required")]
-    [TerraformPropertyName("major_engine_version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("major_engine_version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MajorEngineVersion { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NamePrefix { get; set; } = default!;
+    [TerraformProperty("name_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The option_group_description attribute.
     /// </summary>
-    [TerraformPropertyName("option_group_description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("option_group_description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OptionGroupDescription { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    [TerraformPropertyName("skip_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("skip_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for option.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("option")]
+    [TerraformProperty("option")]
     public TerraformSet<TerraformBlock<AwsDbOptionGroupOptionBlock>>? Option { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsDbOptionGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

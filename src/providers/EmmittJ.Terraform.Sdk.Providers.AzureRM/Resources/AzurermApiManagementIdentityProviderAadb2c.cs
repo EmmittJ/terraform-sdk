@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock
+public partial class AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_api_management_identity_provider_aadb2c resource.
 /// </summary>
-public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
+public partial class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
 {
     public AzurermApiManagementIdentityProviderAadb2c(string name) : base("azurerm_api_management_identity_provider_aadb2c", name)
     {
@@ -51,107 +51,107 @@ public class AzurermApiManagementIdentityProviderAadb2c : TerraformResource
     /// The allowed_tenant attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedTenant is required")]
-    [TerraformPropertyName("allowed_tenant")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("allowed_tenant")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AllowedTenant { get; set; }
 
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
-    [TerraformPropertyName("api_management_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("api_management_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApiManagementName { get; set; }
 
     /// <summary>
     /// The authority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authority is required")]
-    [TerraformPropertyName("authority")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("authority")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Authority { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
-    [TerraformPropertyName("client_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("client_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The client_library attribute.
     /// </summary>
-    [TerraformPropertyName("client_library")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("client_library")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClientLibrary { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
-    [TerraformPropertyName("client_secret")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("client_secret")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClientSecret { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The password_reset_policy attribute.
     /// </summary>
-    [TerraformPropertyName("password_reset_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("password_reset_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PasswordResetPolicy { get; set; }
 
     /// <summary>
     /// The profile_editing_policy attribute.
     /// </summary>
-    [TerraformPropertyName("profile_editing_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("profile_editing_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ProfileEditingPolicy { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The signin_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninPolicy is required")]
-    [TerraformPropertyName("signin_policy")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("signin_policy")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SigninPolicy { get; set; }
 
     /// <summary>
     /// The signin_tenant attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigninTenant is required")]
-    [TerraformPropertyName("signin_tenant")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("signin_tenant")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SigninTenant { get; set; }
 
     /// <summary>
     /// The signup_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SignupPolicy is required")]
-    [TerraformPropertyName("signup_policy")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("signup_policy")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SignupPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermApiManagementIdentityProviderAadb2cTimeoutsBlock>? Timeouts { get; set; }
 
 }

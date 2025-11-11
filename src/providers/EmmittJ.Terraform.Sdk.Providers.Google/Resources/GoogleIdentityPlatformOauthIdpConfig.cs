@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for response_type in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock
+public partial class GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock : TerraformBlockBase
 {
     /// <summary>
     /// If true, authorization code is returned from IdP&#39;s authorization endpoint.
     /// </summary>
-    [TerraformPropertyName("code")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("code")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Code { get; set; }
 
     /// <summary>
     /// If true, ID token is returned from IdP&#39;s authorization endpoint.
     /// </summary>
-    [TerraformPropertyName("id_token")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("id_token")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IdToken { get; set; }
 
 }
@@ -28,27 +28,27 @@ public class GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock
+public partial class GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -57,7 +57,7 @@ public class GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock
 /// Manages a google_identity_platform_oauth_idp_config resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
+public partial class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
 {
     public GoogleIdentityPlatformOauthIdpConfig(string name) : base("google_identity_platform_oauth_idp_config", name)
     {
@@ -67,74 +67,74 @@ public class GoogleIdentityPlatformOauthIdpConfig : TerraformResource
     /// The client id of an OAuth client.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
-    [TerraformPropertyName("client_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("client_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The client secret of the OAuth client, to enable OIDC code flow.
     /// </summary>
-    [TerraformPropertyName("client_secret")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("client_secret")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClientSecret { get; set; }
 
     /// <summary>
     /// Human friendly display name.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// If this config allows users to sign in with the provider.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// For OIDC Idps, the issuer identifier.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Issuer is required")]
-    [TerraformPropertyName("issuer")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("issuer")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Issuer { get; set; }
 
     /// <summary>
     /// The name of the OauthIdpConfig. Must start with &#39;oidc.&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for response_type.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ResponseType block(s) allowed")]
-    [TerraformPropertyName("response_type")]
+    [TerraformProperty("response_type")]
     public TerraformList<TerraformBlock<GoogleIdentityPlatformOauthIdpConfigResponseTypeBlock>>? ResponseType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleIdentityPlatformOauthIdpConfigTimeoutsBlock>? Timeouts { get; set; }
 
 }

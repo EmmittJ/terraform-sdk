@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for kafka_cluster in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskReplicatorKafkaClusterBlock
+public partial class AwsMskReplicatorKafkaClusterBlock : TerraformBlockBase
 {
 }
 
@@ -14,23 +14,23 @@ public class AwsMskReplicatorKafkaClusterBlock
 /// Block type for replication_info_list in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskReplicatorReplicationInfoListBlock
+public partial class AwsMskReplicatorReplicationInfoListBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The source_kafka_cluster_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceKafkaClusterArn is required")]
-    [TerraformPropertyName("source_kafka_cluster_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source_kafka_cluster_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SourceKafkaClusterArn { get; set; }
 
     /// <summary>
     /// The target_compression_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetCompressionType is required")]
-    [TerraformPropertyName("target_compression_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_compression_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TargetCompressionType { get; set; }
 
 
@@ -38,8 +38,8 @@ public class AwsMskReplicatorReplicationInfoListBlock
     /// The target_kafka_cluster_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetKafkaClusterArn is required")]
-    [TerraformPropertyName("target_kafka_cluster_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_kafka_cluster_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TargetKafkaClusterArn { get; set; }
 
 }
@@ -48,27 +48,27 @@ public class AwsMskReplicatorReplicationInfoListBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMskReplicatorTimeoutsBlock
+public partial class AwsMskReplicatorTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -77,7 +77,7 @@ public class AwsMskReplicatorTimeoutsBlock
 /// Manages a aws_msk_replicator resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsMskReplicator : TerraformResource
+public partial class AwsMskReplicator : TerraformResource
 {
     public AwsMskReplicator(string name) : base("aws_msk_replicator", name)
     {
@@ -86,53 +86,53 @@ public class AwsMskReplicator : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The replicator_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicatorName is required")]
-    [TerraformPropertyName("replicator_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("replicator_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ReplicatorName { get; set; }
 
     /// <summary>
     /// The service_execution_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRoleArn is required")]
-    [TerraformPropertyName("service_execution_role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_execution_role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for kafka_cluster.
@@ -140,7 +140,7 @@ public class AwsMskReplicator : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 KafkaCluster block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 KafkaCluster block(s) allowed")]
-    [TerraformPropertyName("kafka_cluster")]
+    [TerraformProperty("kafka_cluster")]
     public TerraformList<TerraformBlock<AwsMskReplicatorKafkaClusterBlock>>? KafkaCluster { get; set; }
 
     /// <summary>
@@ -150,28 +150,28 @@ public class AwsMskReplicator : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReplicationInfoList is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ReplicationInfoList block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationInfoList block(s) allowed")]
-    [TerraformPropertyName("replication_info_list")]
+    [TerraformProperty("replication_info_list")]
     public TerraformList<TerraformBlock<AwsMskReplicatorReplicationInfoListBlock>>? ReplicationInfoList { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsMskReplicatorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The current_version attribute.
     /// </summary>
-    [TerraformPropertyName("current_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CurrentVersion => new TerraformReference(this, "current_version");
+    [TerraformProperty("current_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CurrentVersion { get; }
 
 }

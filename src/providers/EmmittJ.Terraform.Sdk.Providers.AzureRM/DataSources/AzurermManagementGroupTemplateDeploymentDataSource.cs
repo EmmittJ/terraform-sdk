@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermManagementGroupTemplateDeploymentDataSourceTimeoutsBlock
+public partial class AzurermManagementGroupTemplateDeploymentDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermManagementGroupTemplateDeploymentDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_management_group_template_deployment.
 /// </summary>
-public class AzurermManagementGroupTemplateDeploymentDataSource : TerraformDataSource
+public partial class AzurermManagementGroupTemplateDeploymentDataSource : TerraformDataSource
 {
     public AzurermManagementGroupTemplateDeploymentDataSource(string name) : base("azurerm_management_group_template_deployment", name)
     {
@@ -29,38 +29,38 @@ public class AzurermManagementGroupTemplateDeploymentDataSource : TerraformDataS
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The management_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagementGroupId is required")]
-    [TerraformPropertyName("management_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("management_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ManagementGroupId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermManagementGroupTemplateDeploymentDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The output_content attribute.
     /// </summary>
-    [TerraformPropertyName("output_content")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OutputContent => new TerraformReference(this, "output_content");
+    [TerraformProperty("output_content")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OutputContent { get; }
 
 }

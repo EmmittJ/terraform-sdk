@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSccManagementOrganizationEventThreatDetectionCustomModuleTimeoutsBlock
+public partial class GoogleSccManagementOrganizationEventThreatDetectionCustomModuleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleSccManagementOrganizationEventThreatDetectionCustomModuleTime
 /// <summary>
 /// Manages a google_scc_management_organization_event_threat_detection_custom_module resource.
 /// </summary>
-public class GoogleSccManagementOrganizationEventThreatDetectionCustomModule : TerraformResource
+public partial class GoogleSccManagementOrganizationEventThreatDetectionCustomModule : TerraformResource
 {
     public GoogleSccManagementOrganizationEventThreatDetectionCustomModule(string name) : base("google_scc_management_organization_event_threat_detection_custom_module", name)
     {
@@ -44,74 +44,74 @@ public class GoogleSccManagementOrganizationEventThreatDetectionCustomModule : T
     /// Config for the module. For the resident module, its config value is defined at this level.
     /// For the inherited module, its config value is inherited from the ancestor module.
     /// </summary>
-    [TerraformPropertyName("config")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("config")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Config { get; set; }
 
     /// <summary>
     /// The human readable name to be displayed for the module.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The state of enablement for the module at the given level of the hierarchy. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;DISABLED&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("enablement_state")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enablement_state")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EnablementState { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Location ID of the parent organization. Only global is supported at the moment.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Numerical ID of the parent organization.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Organization is required")]
-    [TerraformPropertyName("organization")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("organization")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Organization { get; set; }
 
     /// <summary>
     /// Immutable. Type for the module. e.g. CONFIGURABLE_BAD_IP.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleSccManagementOrganizationEventThreatDetectionCustomModuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The editor that last updated the custom module
     /// </summary>
-    [TerraformPropertyName("last_editor")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastEditor => new TerraformReference(this, "last_editor");
+    [TerraformProperty("last_editor")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastEditor { get; }
 
     /// <summary>
     /// The resource name of the Event Threat Detection custom module.
     /// Its format is &amp;quot;organizations/{organization}/locations/{location}/eventThreatDetectionCustomModules/{eventThreatDetectionCustomModule}&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The time at which the custom module was last updated.
@@ -119,8 +119,8 @@ public class GoogleSccManagementOrganizationEventThreatDetectionCustomModule : T
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

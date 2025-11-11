@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_kms_crypto_keys.
 /// </summary>
-public class GoogleKmsCryptoKeysDataSource : TerraformDataSource
+public partial class GoogleKmsCryptoKeysDataSource : TerraformDataSource
 {
     public GoogleKmsCryptoKeysDataSource(string name) : base("google_kms_crypto_keys", name)
     {
@@ -22,30 +22,30 @@ public class GoogleKmsCryptoKeysDataSource : TerraformDataSource
     /// 					[See the documentation about using filters](https://cloud.google.com/kms/docs/sorting-and-filtering)
     /// 				
     /// </summary>
-    [TerraformPropertyName("filter")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filter")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key ring that the keys belongs to. Format: &#39;projects/{{project}}/locations/{{location}}/keyRings/{{keyRing}}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyRing is required")]
-    [TerraformPropertyName("key_ring")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_ring")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyRing { get; set; }
 
     /// <summary>
     /// A list of all the retrieved keys from the provided key ring
     /// </summary>
-    [TerraformPropertyName("keys")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Keys => new TerraformReference(this, "keys");
+    [TerraformProperty("keys")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Keys { get; }
 
 }

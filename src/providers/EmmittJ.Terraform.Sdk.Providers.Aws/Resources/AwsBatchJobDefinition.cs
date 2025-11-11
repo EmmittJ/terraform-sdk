@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for eks_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBatchJobDefinitionEksPropertiesBlock
+public partial class AwsBatchJobDefinitionEksPropertiesBlock : TerraformBlockBase
 {
 }
 
@@ -14,13 +14,13 @@ public class AwsBatchJobDefinitionEksPropertiesBlock
 /// Block type for retry_strategy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBatchJobDefinitionRetryStrategyBlock
+public partial class AwsBatchJobDefinitionRetryStrategyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The attempts attribute.
     /// </summary>
-    [TerraformPropertyName("attempts")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("attempts")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Attempts { get; set; }
 
 }
@@ -29,13 +29,13 @@ public class AwsBatchJobDefinitionRetryStrategyBlock
 /// Block type for timeout in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBatchJobDefinitionTimeoutBlock
+public partial class AwsBatchJobDefinitionTimeoutBlock : TerraformBlockBase
 {
     /// <summary>
     /// The attempt_duration_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("attempt_duration_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("attempt_duration_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? AttemptDurationSeconds { get; set; }
 
 }
@@ -44,7 +44,7 @@ public class AwsBatchJobDefinitionTimeoutBlock
 /// Manages a aws_batch_job_definition resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsBatchJobDefinition : TerraformResource
+public partial class AwsBatchJobDefinition : TerraformResource
 {
     public AwsBatchJobDefinition(string name) : base("aws_batch_job_definition", name)
     {
@@ -53,101 +53,101 @@ public class AwsBatchJobDefinition : TerraformResource
     /// <summary>
     /// The container_properties attribute.
     /// </summary>
-    [TerraformPropertyName("container_properties")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("container_properties")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ContainerProperties { get; set; }
 
     /// <summary>
     /// The deregister_on_new_revision attribute.
     /// </summary>
-    [TerraformPropertyName("deregister_on_new_revision")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deregister_on_new_revision")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DeregisterOnNewRevision { get; set; }
 
     /// <summary>
     /// The ecs_properties attribute.
     /// </summary>
-    [TerraformPropertyName("ecs_properties")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ecs_properties")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EcsProperties { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The node_properties attribute.
     /// </summary>
-    [TerraformPropertyName("node_properties")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("node_properties")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NodeProperties { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformPropertyName("parameters")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parameters")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The platform_capabilities attribute.
     /// </summary>
-    [TerraformPropertyName("platform_capabilities")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("platform_capabilities")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? PlatformCapabilities { get; set; }
 
     /// <summary>
     /// The propagate_tags attribute.
     /// </summary>
-    [TerraformPropertyName("propagate_tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("propagate_tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PropagateTags { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The scheduling_priority attribute.
     /// </summary>
-    [TerraformPropertyName("scheduling_priority")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("scheduling_priority")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? SchedulingPriority { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
@@ -155,7 +155,7 @@ public class AwsBatchJobDefinition : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EksProperties block(s) allowed")]
-    [TerraformPropertyName("eks_properties")]
+    [TerraformProperty("eks_properties")]
     public TerraformList<TerraformBlock<AwsBatchJobDefinitionEksPropertiesBlock>>? EksProperties { get; set; }
 
     /// <summary>
@@ -163,7 +163,7 @@ public class AwsBatchJobDefinition : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryStrategy block(s) allowed")]
-    [TerraformPropertyName("retry_strategy")]
+    [TerraformProperty("retry_strategy")]
     public TerraformList<TerraformBlock<AwsBatchJobDefinitionRetryStrategyBlock>>? RetryStrategy { get; set; }
 
     /// <summary>
@@ -171,28 +171,28 @@ public class AwsBatchJobDefinition : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Timeout block(s) allowed")]
-    [TerraformPropertyName("timeout")]
+    [TerraformProperty("timeout")]
     public TerraformList<TerraformBlock<AwsBatchJobDefinitionTimeoutBlock>>? Timeout { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The arn_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("arn_prefix")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ArnPrefix => new TerraformReference(this, "arn_prefix");
+    [TerraformProperty("arn_prefix")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ArnPrefix { get; }
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
-    [TerraformPropertyName("revision")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Revision => new TerraformReference(this, "revision");
+    [TerraformProperty("revision")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Revision { get; }
 
 }

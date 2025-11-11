@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeInstantSnapshotTimeoutsBlock
+public partial class GoogleComputeInstantSnapshotTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleComputeInstantSnapshotTimeoutsBlock
 /// <summary>
 /// Manages a google_compute_instant_snapshot resource.
 /// </summary>
-public class GoogleComputeInstantSnapshot : TerraformResource
+public partial class GoogleComputeInstantSnapshot : TerraformResource
 {
     public GoogleComputeInstantSnapshot(string name) : base("google_compute_instant_snapshot", name)
     {
@@ -43,16 +43,16 @@ public class GoogleComputeInstantSnapshot : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels to apply to this InstantSnapshot.
@@ -60,8 +60,8 @@ public class GoogleComputeInstantSnapshot : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -74,88 +74,88 @@ public class GoogleComputeInstantSnapshot : TerraformResource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A reference to the disk used to create this instant snapshot.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceDisk is required")]
-    [TerraformPropertyName("source_disk")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source_disk")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SourceDisk { get; set; }
 
     /// <summary>
     /// A reference to the zone where the disk is located.
     /// </summary>
-    [TerraformPropertyName("zone")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Zone { get; set; } = default!;
+    [TerraformProperty("zone")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeInstantSnapshotTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Size of the snapshot, specified in GB.
     /// </summary>
-    [TerraformPropertyName("disk_size_gb")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> DiskSizeGb => new TerraformReference(this, "disk_size_gb");
+    [TerraformProperty("disk_size_gb")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> DiskSizeGb { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource. Used
     /// internally during updates.
     /// </summary>
-    [TerraformPropertyName("label_fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
+    [TerraformProperty("label_fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The ID value of the disk used to create this InstantSnapshot.
     /// </summary>
-    [TerraformPropertyName("source_disk_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceDiskId => new TerraformReference(this, "source_disk_id");
+    [TerraformProperty("source_disk_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceDiskId { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

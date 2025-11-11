@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_account_primary_contact.
 /// </summary>
-public class AwsAccountPrimaryContactDataSource : TerraformDataSource
+public partial class AwsAccountPrimaryContactDataSource : TerraformDataSource
 {
     public AwsAccountPrimaryContactDataSource(string name) : base("aws_account_primary_contact", name)
     {
@@ -14,92 +14,92 @@ public class AwsAccountPrimaryContactDataSource : TerraformDataSource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    [TerraformPropertyName("account_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AccountId { get; set; } = default!;
+    [TerraformProperty("account_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The address_line_1 attribute.
     /// </summary>
-    [TerraformPropertyName("address_line_1")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AddressLine1 => new TerraformReference(this, "address_line_1");
+    [TerraformProperty("address_line_1")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AddressLine1 { get; }
 
     /// <summary>
     /// The address_line_2 attribute.
     /// </summary>
-    [TerraformPropertyName("address_line_2")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AddressLine2 => new TerraformReference(this, "address_line_2");
+    [TerraformProperty("address_line_2")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AddressLine2 { get; }
 
     /// <summary>
     /// The address_line_3 attribute.
     /// </summary>
-    [TerraformPropertyName("address_line_3")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AddressLine3 => new TerraformReference(this, "address_line_3");
+    [TerraformProperty("address_line_3")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AddressLine3 { get; }
 
     /// <summary>
     /// The city attribute.
     /// </summary>
-    [TerraformPropertyName("city")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> City => new TerraformReference(this, "city");
+    [TerraformProperty("city")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> City { get; }
 
     /// <summary>
     /// The company_name attribute.
     /// </summary>
-    [TerraformPropertyName("company_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CompanyName => new TerraformReference(this, "company_name");
+    [TerraformProperty("company_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CompanyName { get; }
 
     /// <summary>
     /// The country_code attribute.
     /// </summary>
-    [TerraformPropertyName("country_code")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CountryCode => new TerraformReference(this, "country_code");
+    [TerraformProperty("country_code")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CountryCode { get; }
 
     /// <summary>
     /// The district_or_county attribute.
     /// </summary>
-    [TerraformPropertyName("district_or_county")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DistrictOrCounty => new TerraformReference(this, "district_or_county");
+    [TerraformProperty("district_or_county")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DistrictOrCounty { get; }
 
     /// <summary>
     /// The full_name attribute.
     /// </summary>
-    [TerraformPropertyName("full_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FullName => new TerraformReference(this, "full_name");
+    [TerraformProperty("full_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FullName { get; }
 
     /// <summary>
     /// The phone_number attribute.
     /// </summary>
-    [TerraformPropertyName("phone_number")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PhoneNumber => new TerraformReference(this, "phone_number");
+    [TerraformProperty("phone_number")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PhoneNumber { get; }
 
     /// <summary>
     /// The postal_code attribute.
     /// </summary>
-    [TerraformPropertyName("postal_code")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PostalCode => new TerraformReference(this, "postal_code");
+    [TerraformProperty("postal_code")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PostalCode { get; }
 
     /// <summary>
     /// The state_or_region attribute.
     /// </summary>
-    [TerraformPropertyName("state_or_region")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StateOrRegion => new TerraformReference(this, "state_or_region");
+    [TerraformProperty("state_or_region")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StateOrRegion { get; }
 
     /// <summary>
     /// The website_url attribute.
     /// </summary>
-    [TerraformPropertyName("website_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WebsiteUrl => new TerraformReference(this, "website_url");
+    [TerraformProperty("website_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WebsiteUrl { get; }
 
 }

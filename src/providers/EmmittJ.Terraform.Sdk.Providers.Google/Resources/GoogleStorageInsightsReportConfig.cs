@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for csv_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageInsightsReportConfigCsvOptionsBlock
+public partial class GoogleStorageInsightsReportConfigCsvOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The delimiter used to separate the fields in the inventory report CSV file.
     /// </summary>
-    [TerraformPropertyName("delimiter")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delimiter")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delimiter { get; set; }
 
     /// <summary>
     /// The boolean that indicates whether or not headers are included in the inventory report CSV file.
     /// </summary>
-    [TerraformPropertyName("header_required")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("header_required")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? HeaderRequired { get; set; }
 
     /// <summary>
     /// The character used to separate the records in the inventory report CSV file.
     /// </summary>
-    [TerraformPropertyName("record_separator")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("record_separator")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RecordSeparator { get; set; }
 
 }
@@ -35,14 +35,14 @@ public class GoogleStorageInsightsReportConfigCsvOptionsBlock
 /// Block type for frequency_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageInsightsReportConfigFrequencyOptionsBlock
+public partial class GoogleStorageInsightsReportConfigFrequencyOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The frequency in which inventory reports are generated. Values are DAILY or WEEKLY. Possible values: [&amp;quot;DAILY&amp;quot;, &amp;quot;WEEKLY&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
-    [TerraformPropertyName("frequency")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("frequency")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Frequency { get; set; }
 
 }
@@ -51,14 +51,14 @@ public class GoogleStorageInsightsReportConfigFrequencyOptionsBlock
 /// Block type for object_metadata_report_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock
+public partial class GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The metadata fields included in an inventory report.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetadataFields is required")]
-    [TerraformPropertyName("metadata_fields")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("metadata_fields")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? MetadataFields { get; set; }
 
 }
@@ -67,7 +67,7 @@ public class GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock
 /// Block type for parquet_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageInsightsReportConfigParquetOptionsBlock
+public partial class GoogleStorageInsightsReportConfigParquetOptionsBlock : TerraformBlockBase
 {
 }
 
@@ -75,27 +75,27 @@ public class GoogleStorageInsightsReportConfigParquetOptionsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleStorageInsightsReportConfigTimeoutsBlock
+public partial class GoogleStorageInsightsReportConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -104,7 +104,7 @@ public class GoogleStorageInsightsReportConfigTimeoutsBlock
 /// Manages a google_storage_insights_report_config resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleStorageInsightsReportConfig : TerraformResource
+public partial class GoogleStorageInsightsReportConfig : TerraformResource
 {
     public GoogleStorageInsightsReportConfig(string name) : base("google_storage_insights_report_config", name)
     {
@@ -113,46 +113,46 @@ public class GoogleStorageInsightsReportConfig : TerraformResource
     /// <summary>
     /// The editable display name of the inventory report configuration. Has a limit of 256 characters. Can be empty.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// If set, all the inventory report details associated with this report configuration are deleted.
     /// </summary>
-    [TerraformPropertyName("force_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("force_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the ReportConfig. The source and destination buckets specified in the ReportConfig
     /// must be in the same location.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for csv_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CsvOptions block(s) allowed")]
-    [TerraformPropertyName("csv_options")]
+    [TerraformProperty("csv_options")]
     public TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigCsvOptionsBlock>>? CsvOptions { get; set; }
 
     /// <summary>
@@ -160,7 +160,7 @@ public class GoogleStorageInsightsReportConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrequencyOptions block(s) allowed")]
-    [TerraformPropertyName("frequency_options")]
+    [TerraformProperty("frequency_options")]
     public TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigFrequencyOptionsBlock>>? FrequencyOptions { get; set; }
 
     /// <summary>
@@ -168,7 +168,7 @@ public class GoogleStorageInsightsReportConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ObjectMetadataReportOptions block(s) allowed")]
-    [TerraformPropertyName("object_metadata_report_options")]
+    [TerraformProperty("object_metadata_report_options")]
     public TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigObjectMetadataReportOptionsBlock>>? ObjectMetadataReportOptions { get; set; }
 
     /// <summary>
@@ -176,21 +176,21 @@ public class GoogleStorageInsightsReportConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ParquetOptions block(s) allowed")]
-    [TerraformPropertyName("parquet_options")]
+    [TerraformProperty("parquet_options")]
     public TerraformList<TerraformBlock<GoogleStorageInsightsReportConfigParquetOptionsBlock>>? ParquetOptions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleStorageInsightsReportConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The UUID of the inventory report configuration.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

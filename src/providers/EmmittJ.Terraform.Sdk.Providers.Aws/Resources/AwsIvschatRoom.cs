@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for message_review_handler in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIvschatRoomMessageReviewHandlerBlock
+public partial class AwsIvschatRoomMessageReviewHandlerBlock : TerraformBlockBase
 {
     /// <summary>
     /// The fallback_result attribute.
     /// </summary>
-    [TerraformPropertyName("fallback_result")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> FallbackResult { get; set; } = default!;
+    [TerraformProperty("fallback_result")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> FallbackResult { get; set; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    [TerraformPropertyName("uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Uri { get; set; }
 
 }
@@ -28,27 +28,27 @@ public class AwsIvschatRoomMessageReviewHandlerBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsIvschatRoomTimeoutsBlock
+public partial class AwsIvschatRoomTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -57,7 +57,7 @@ public class AwsIvschatRoomTimeoutsBlock
 /// Manages a aws_ivschat_room resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsIvschatRoom : TerraformResource
+public partial class AwsIvschatRoom : TerraformResource
 {
     public AwsIvschatRoom(string name) : base("aws_ivschat_room", name)
     {
@@ -66,79 +66,79 @@ public class AwsIvschatRoom : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The logging_configuration_identifiers attribute.
     /// </summary>
-    [TerraformPropertyName("logging_configuration_identifiers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("logging_configuration_identifiers")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? LoggingConfigurationIdentifiers { get; set; }
 
     /// <summary>
     /// The maximum_message_length attribute.
     /// </summary>
-    [TerraformPropertyName("maximum_message_length")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaximumMessageLength { get; set; } = default!;
+    [TerraformProperty("maximum_message_length")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaximumMessageLength { get; set; }
 
     /// <summary>
     /// The maximum_message_rate_per_second attribute.
     /// </summary>
-    [TerraformPropertyName("maximum_message_rate_per_second")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaximumMessageRatePerSecond { get; set; } = default!;
+    [TerraformProperty("maximum_message_rate_per_second")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaximumMessageRatePerSecond { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for message_review_handler.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MessageReviewHandler block(s) allowed")]
-    [TerraformPropertyName("message_review_handler")]
+    [TerraformProperty("message_review_handler")]
     public TerraformList<TerraformBlock<AwsIvschatRoomMessageReviewHandlerBlock>>? MessageReviewHandler { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsIvschatRoomTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

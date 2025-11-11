@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for assign_to_user in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningComputeInstanceAssignToUserBlock
+public partial class AzurermMachineLearningComputeInstanceAssignToUserBlock : TerraformBlockBase
 {
     /// <summary>
     /// The object_id attribute.
     /// </summary>
-    [TerraformPropertyName("object_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("object_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ObjectId { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tenant_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TenantId { get; set; }
 
 }
@@ -28,13 +28,13 @@ public class AzurermMachineLearningComputeInstanceAssignToUserBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningComputeInstanceIdentityBlock
+public partial class AzurermMachineLearningComputeInstanceIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformPropertyName("identity_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IdentityIds { get; set; }
 
 
@@ -43,8 +43,8 @@ public class AzurermMachineLearningComputeInstanceIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -53,15 +53,15 @@ public class AzurermMachineLearningComputeInstanceIdentityBlock
 /// Block type for ssh in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningComputeInstanceSshBlock
+public partial class AzurermMachineLearningComputeInstanceSshBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PublicKey is required")]
-    [TerraformPropertyName("public_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("public_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PublicKey { get; set; }
 
 
@@ -71,27 +71,27 @@ public class AzurermMachineLearningComputeInstanceSshBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMachineLearningComputeInstanceTimeoutsBlock
+public partial class AzurermMachineLearningComputeInstanceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -100,7 +100,7 @@ public class AzurermMachineLearningComputeInstanceTimeoutsBlock
 /// Manages a azurerm_machine_learning_compute_instance resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMachineLearningComputeInstance : TerraformResource
+public partial class AzurermMachineLearningComputeInstance : TerraformResource
 {
     public AzurermMachineLearningComputeInstance(string name) : base("azurerm_machine_learning_compute_instance", name)
     {
@@ -109,74 +109,74 @@ public class AzurermMachineLearningComputeInstance : TerraformResource
     /// <summary>
     /// The authorization_type attribute.
     /// </summary>
-    [TerraformPropertyName("authorization_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("authorization_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthorizationType { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The local_auth_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("local_auth_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("local_auth_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LocalAuthEnabled { get; set; }
 
     /// <summary>
     /// The machine_learning_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
-    [TerraformPropertyName("machine_learning_workspace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("machine_learning_workspace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MachineLearningWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The node_public_ip_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("node_public_ip_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("node_public_ip_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? NodePublicIpEnabled { get; set; }
 
     /// <summary>
     /// The subnet_resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_resource_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subnet_resource_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SubnetResourceId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The virtual_machine_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineSize is required")]
-    [TerraformPropertyName("virtual_machine_size")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("virtual_machine_size")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VirtualMachineSize { get; set; }
 
     /// <summary>
@@ -184,7 +184,7 @@ public class AzurermMachineLearningComputeInstance : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AssignToUser block(s) allowed")]
-    [TerraformPropertyName("assign_to_user")]
+    [TerraformProperty("assign_to_user")]
     public TerraformList<TerraformBlock<AzurermMachineLearningComputeInstanceAssignToUserBlock>>? AssignToUser { get; set; }
 
     /// <summary>
@@ -192,7 +192,7 @@ public class AzurermMachineLearningComputeInstance : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermMachineLearningComputeInstanceIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
@@ -200,14 +200,14 @@ public class AzurermMachineLearningComputeInstance : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ssh block(s) allowed")]
-    [TerraformPropertyName("ssh")]
+    [TerraformProperty("ssh")]
     public TerraformList<TerraformBlock<AzurermMachineLearningComputeInstanceSshBlock>>? Ssh { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMachineLearningComputeInstanceTimeoutsBlock>? Timeouts { get; set; }
 
 }

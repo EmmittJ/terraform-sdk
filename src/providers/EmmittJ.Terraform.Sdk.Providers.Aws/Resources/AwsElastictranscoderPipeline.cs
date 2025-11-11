@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for content_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElastictranscoderPipelineContentConfigBlock
+public partial class AwsElastictranscoderPipelineContentConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    [TerraformPropertyName("bucket")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Bucket { get; set; } = default!;
+    [TerraformProperty("bucket")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The storage_class attribute.
     /// </summary>
-    [TerraformPropertyName("storage_class")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("storage_class")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StorageClass { get; set; }
 
 }
@@ -28,27 +28,27 @@ public class AwsElastictranscoderPipelineContentConfigBlock
 /// Block type for content_config_permissions in .
 /// Nesting mode: set
 /// </summary>
-public class AwsElastictranscoderPipelineContentConfigPermissionsBlock
+public partial class AwsElastictranscoderPipelineContentConfigPermissionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The access attribute.
     /// </summary>
-    [TerraformPropertyName("access")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("access")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Access { get; set; }
 
     /// <summary>
     /// The grantee attribute.
     /// </summary>
-    [TerraformPropertyName("grantee")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("grantee")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Grantee { get; set; }
 
     /// <summary>
     /// The grantee_type attribute.
     /// </summary>
-    [TerraformPropertyName("grantee_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("grantee_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? GranteeType { get; set; }
 
 }
@@ -57,34 +57,34 @@ public class AwsElastictranscoderPipelineContentConfigPermissionsBlock
 /// Block type for notifications in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElastictranscoderPipelineNotificationsBlock
+public partial class AwsElastictranscoderPipelineNotificationsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The completed attribute.
     /// </summary>
-    [TerraformPropertyName("completed")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("completed")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Completed { get; set; }
 
     /// <summary>
     /// The error attribute.
     /// </summary>
-    [TerraformPropertyName("error")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("error")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Error { get; set; }
 
     /// <summary>
     /// The progressing attribute.
     /// </summary>
-    [TerraformPropertyName("progressing")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("progressing")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Progressing { get; set; }
 
     /// <summary>
     /// The warning attribute.
     /// </summary>
-    [TerraformPropertyName("warning")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("warning")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Warning { get; set; }
 
 }
@@ -93,20 +93,20 @@ public class AwsElastictranscoderPipelineNotificationsBlock
 /// Block type for thumbnail_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsElastictranscoderPipelineThumbnailConfigBlock
+public partial class AwsElastictranscoderPipelineThumbnailConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    [TerraformPropertyName("bucket")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Bucket { get; set; } = default!;
+    [TerraformProperty("bucket")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The storage_class attribute.
     /// </summary>
-    [TerraformPropertyName("storage_class")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("storage_class")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StorageClass { get; set; }
 
 }
@@ -115,27 +115,27 @@ public class AwsElastictranscoderPipelineThumbnailConfigBlock
 /// Block type for thumbnail_config_permissions in .
 /// Nesting mode: set
 /// </summary>
-public class AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock
+public partial class AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The access attribute.
     /// </summary>
-    [TerraformPropertyName("access")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("access")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Access { get; set; }
 
     /// <summary>
     /// The grantee attribute.
     /// </summary>
-    [TerraformPropertyName("grantee")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("grantee")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Grantee { get; set; }
 
     /// <summary>
     /// The grantee_type attribute.
     /// </summary>
-    [TerraformPropertyName("grantee_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("grantee_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? GranteeType { get; set; }
 
 }
@@ -145,7 +145,7 @@ public class AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock
 /// </summary>
 [Obsolete("This resource is deprecated.")]
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsElastictranscoderPipeline : TerraformResource
+public partial class AwsElastictranscoderPipeline : TerraformResource
 {
     public AwsElastictranscoderPipeline(string name) : base("aws_elastictranscoder_pipeline", name)
     {
@@ -154,52 +154,52 @@ public class AwsElastictranscoderPipeline : TerraformResource
     /// <summary>
     /// The aws_kms_key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("aws_kms_key_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("aws_kms_key_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AwsKmsKeyArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The input_bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InputBucket is required")]
-    [TerraformPropertyName("input_bucket")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("input_bucket")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InputBucket { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The output_bucket attribute.
     /// </summary>
-    [TerraformPropertyName("output_bucket")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> OutputBucket { get; set; } = default!;
+    [TerraformProperty("output_bucket")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> OutputBucket { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
-    [TerraformPropertyName("role")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Role { get; set; }
 
     /// <summary>
@@ -207,14 +207,14 @@ public class AwsElastictranscoderPipeline : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ContentConfig block(s) allowed")]
-    [TerraformPropertyName("content_config")]
+    [TerraformProperty("content_config")]
     public TerraformList<TerraformBlock<AwsElastictranscoderPipelineContentConfigBlock>>? ContentConfig { get; set; }
 
     /// <summary>
     /// Block for content_config_permissions.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("content_config_permissions")]
+    [TerraformProperty("content_config_permissions")]
     public TerraformSet<TerraformBlock<AwsElastictranscoderPipelineContentConfigPermissionsBlock>>? ContentConfigPermissions { get; set; }
 
     /// <summary>
@@ -222,7 +222,7 @@ public class AwsElastictranscoderPipeline : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Notifications block(s) allowed")]
-    [TerraformPropertyName("notifications")]
+    [TerraformProperty("notifications")]
     public TerraformList<TerraformBlock<AwsElastictranscoderPipelineNotificationsBlock>>? Notifications { get; set; }
 
     /// <summary>
@@ -230,21 +230,21 @@ public class AwsElastictranscoderPipeline : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThumbnailConfig block(s) allowed")]
-    [TerraformPropertyName("thumbnail_config")]
+    [TerraformProperty("thumbnail_config")]
     public TerraformList<TerraformBlock<AwsElastictranscoderPipelineThumbnailConfigBlock>>? ThumbnailConfig { get; set; }
 
     /// <summary>
     /// Block for thumbnail_config_permissions.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("thumbnail_config_permissions")]
+    [TerraformProperty("thumbnail_config_permissions")]
     public TerraformSet<TerraformBlock<AwsElastictranscoderPipelineThumbnailConfigPermissionsBlock>>? ThumbnailConfigPermissions { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

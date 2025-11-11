@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCdnFrontdoorFirewallPolicyDataSourceTimeoutsBlock
+public partial class AzurermCdnFrontdoorFirewallPolicyDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermCdnFrontdoorFirewallPolicyDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_cdn_frontdoor_firewall_policy.
 /// </summary>
-public class AzurermCdnFrontdoorFirewallPolicyDataSource : TerraformDataSource
+public partial class AzurermCdnFrontdoorFirewallPolicyDataSource : TerraformDataSource
 {
     public AzurermCdnFrontdoorFirewallPolicyDataSource(string name) : base("azurerm_cdn_frontdoor_firewall_policy", name)
     {
@@ -29,80 +29,80 @@ public class AzurermCdnFrontdoorFirewallPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermCdnFrontdoorFirewallPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The captcha_cookie_expiration_in_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("captcha_cookie_expiration_in_minutes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> CaptchaCookieExpirationInMinutes => new TerraformReference(this, "captcha_cookie_expiration_in_minutes");
+    [TerraformProperty("captcha_cookie_expiration_in_minutes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> CaptchaCookieExpirationInMinutes { get; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Enabled => new TerraformReference(this, "enabled");
+    [TerraformProperty("enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Enabled { get; }
 
     /// <summary>
     /// The frontend_endpoint_ids attribute.
     /// </summary>
-    [TerraformPropertyName("frontend_endpoint_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> FrontendEndpointIds => new TerraformReference(this, "frontend_endpoint_ids");
+    [TerraformProperty("frontend_endpoint_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> FrontendEndpointIds { get; }
 
     /// <summary>
     /// The js_challenge_cookie_expiration_in_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("js_challenge_cookie_expiration_in_minutes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> JsChallengeCookieExpirationInMinutes => new TerraformReference(this, "js_challenge_cookie_expiration_in_minutes");
+    [TerraformProperty("js_challenge_cookie_expiration_in_minutes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> JsChallengeCookieExpirationInMinutes { get; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    [TerraformPropertyName("mode")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Mode => new TerraformReference(this, "mode");
+    [TerraformProperty("mode")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Mode { get; }
 
     /// <summary>
     /// The redirect_url attribute.
     /// </summary>
-    [TerraformPropertyName("redirect_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RedirectUrl => new TerraformReference(this, "redirect_url");
+    [TerraformProperty("redirect_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RedirectUrl { get; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    [TerraformPropertyName("sku_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SkuName => new TerraformReference(this, "sku_name");
+    [TerraformProperty("sku_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SkuName { get; }
 
 }

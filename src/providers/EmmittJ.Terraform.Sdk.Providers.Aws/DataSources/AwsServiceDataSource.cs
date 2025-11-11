@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_service.
 /// </summary>
-public class AwsServiceDataSource : TerraformDataSource
+public partial class AwsServiceDataSource : TerraformDataSource
 {
     public AwsServiceDataSource(string name) : base("aws_service", name)
     {
@@ -14,57 +14,57 @@ public class AwsServiceDataSource : TerraformDataSource
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    [TerraformPropertyName("dns_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DnsName { get; set; } = default!;
+    [TerraformProperty("dns_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DnsName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The reverse_dns_name attribute.
     /// </summary>
-    [TerraformPropertyName("reverse_dns_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ReverseDnsName { get; set; } = default!;
+    [TerraformProperty("reverse_dns_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ReverseDnsName { get; set; }
 
     /// <summary>
     /// The reverse_dns_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("reverse_dns_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ReverseDnsPrefix { get; set; } = default!;
+    [TerraformProperty("reverse_dns_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ReverseDnsPrefix { get; set; }
 
     /// <summary>
     /// The service_id attribute.
     /// </summary>
-    [TerraformPropertyName("service_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ServiceId { get; set; } = default!;
+    [TerraformProperty("service_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ServiceId { get; set; }
 
     /// <summary>
     /// The partition attribute.
     /// </summary>
-    [TerraformPropertyName("partition")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Partition => new TerraformReference(this, "partition");
+    [TerraformProperty("partition")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Partition { get; }
 
     /// <summary>
     /// The supported attribute.
     /// </summary>
-    [TerraformPropertyName("supported")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Supported => new TerraformReference(this, "supported");
+    [TerraformProperty("supported")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Supported { get; }
 
 }

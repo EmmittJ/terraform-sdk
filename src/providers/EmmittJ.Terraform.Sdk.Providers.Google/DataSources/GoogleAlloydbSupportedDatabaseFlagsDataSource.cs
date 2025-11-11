@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_alloydb_supported_database_flags.
 /// </summary>
-public class GoogleAlloydbSupportedDatabaseFlagsDataSource : TerraformDataSource
+public partial class GoogleAlloydbSupportedDatabaseFlagsDataSource : TerraformDataSource
 {
     public GoogleAlloydbSupportedDatabaseFlagsDataSource(string name) : base("google_alloydb_supported_database_flags", name)
     {
@@ -14,30 +14,30 @@ public class GoogleAlloydbSupportedDatabaseFlagsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The canonical id for the location. For example: &amp;quot;us-east1&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Project ID of the project.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The supported_database_flags attribute.
     /// </summary>
-    [TerraformPropertyName("supported_database_flags")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SupportedDatabaseFlags => new TerraformReference(this, "supported_database_flags");
+    [TerraformProperty("supported_database_flags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SupportedDatabaseFlags { get; }
 
 }

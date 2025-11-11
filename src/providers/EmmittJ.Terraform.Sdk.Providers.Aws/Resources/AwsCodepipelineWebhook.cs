@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for authentication_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodepipelineWebhookAuthenticationConfigurationBlock
+public partial class AwsCodepipelineWebhookAuthenticationConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The allowed_ip_range attribute.
     /// </summary>
-    [TerraformPropertyName("allowed_ip_range")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allowed_ip_range")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AllowedIpRange { get; set; }
 
     /// <summary>
     /// The secret_token attribute.
     /// </summary>
-    [TerraformPropertyName("secret_token")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("secret_token")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SecretToken { get; set; }
 
 }
@@ -28,22 +28,22 @@ public class AwsCodepipelineWebhookAuthenticationConfigurationBlock
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCodepipelineWebhookFilterBlock
+public partial class AwsCodepipelineWebhookFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The json_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JsonPath is required")]
-    [TerraformPropertyName("json_path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("json_path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> JsonPath { get; set; }
 
     /// <summary>
     /// The match_equals attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MatchEquals is required")]
-    [TerraformPropertyName("match_equals")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("match_equals")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MatchEquals { get; set; }
 
 }
@@ -52,7 +52,7 @@ public class AwsCodepipelineWebhookFilterBlock
 /// Manages a aws_codepipeline_webhook resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsCodepipelineWebhook : TerraformResource
+public partial class AwsCodepipelineWebhook : TerraformResource
 {
     public AwsCodepipelineWebhook(string name) : base("aws_codepipeline_webhook", name)
     {
@@ -62,60 +62,60 @@ public class AwsCodepipelineWebhook : TerraformResource
     /// The authentication attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Authentication is required")]
-    [TerraformPropertyName("authentication")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("authentication")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Authentication { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The target_action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetAction is required")]
-    [TerraformPropertyName("target_action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TargetAction { get; set; }
 
     /// <summary>
     /// The target_pipeline attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetPipeline is required")]
-    [TerraformPropertyName("target_pipeline")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_pipeline")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TargetPipeline { get; set; }
 
     /// <summary>
@@ -123,7 +123,7 @@ public class AwsCodepipelineWebhook : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AuthenticationConfiguration block(s) allowed")]
-    [TerraformPropertyName("authentication_configuration")]
+    [TerraformProperty("authentication_configuration")]
     public TerraformList<TerraformBlock<AwsCodepipelineWebhookAuthenticationConfigurationBlock>>? AuthenticationConfiguration { get; set; }
 
     /// <summary>
@@ -133,21 +133,21 @@ public class AwsCodepipelineWebhook : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Filter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(5, ErrorMessage = "Maximum 5 Filter block(s) allowed")]
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformSet<TerraformBlock<AwsCodepipelineWebhookFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    [TerraformPropertyName("url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Url => new TerraformReference(this, "url");
+    [TerraformProperty("url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Url { get; }
 
 }

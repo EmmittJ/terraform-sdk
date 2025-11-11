@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_licensemanager_received_license.
 /// </summary>
-public class AwsLicensemanagerReceivedLicenseDataSource : TerraformDataSource
+public partial class AwsLicensemanagerReceivedLicenseDataSource : TerraformDataSource
 {
     public AwsLicensemanagerReceivedLicenseDataSource(string name) : base("aws_licensemanager_received_license", name)
     {
@@ -14,121 +14,121 @@ public class AwsLicensemanagerReceivedLicenseDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The license_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseArn is required")]
-    [TerraformPropertyName("license_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("license_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LicenseArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The beneficiary attribute.
     /// </summary>
-    [TerraformPropertyName("beneficiary")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Beneficiary => new TerraformReference(this, "beneficiary");
+    [TerraformProperty("beneficiary")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Beneficiary { get; }
 
     /// <summary>
     /// The consumption_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("consumption_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ConsumptionConfiguration => new TerraformReference(this, "consumption_configuration");
+    [TerraformProperty("consumption_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ConsumptionConfiguration { get; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The entitlements attribute.
     /// </summary>
-    [TerraformPropertyName("entitlements")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Entitlements => new TerraformReference(this, "entitlements");
+    [TerraformProperty("entitlements")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Entitlements { get; }
 
     /// <summary>
     /// The home_region attribute.
     /// </summary>
-    [TerraformPropertyName("home_region")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> HomeRegion => new TerraformReference(this, "home_region");
+    [TerraformProperty("home_region")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> HomeRegion { get; }
 
     /// <summary>
     /// The issuer attribute.
     /// </summary>
-    [TerraformPropertyName("issuer")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Issuer => new TerraformReference(this, "issuer");
+    [TerraformProperty("issuer")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Issuer { get; }
 
     /// <summary>
     /// The license_metadata attribute.
     /// </summary>
-    [TerraformPropertyName("license_metadata")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> LicenseMetadata => new TerraformReference(this, "license_metadata");
+    [TerraformProperty("license_metadata")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> LicenseMetadata { get; }
 
     /// <summary>
     /// The license_name attribute.
     /// </summary>
-    [TerraformPropertyName("license_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LicenseName => new TerraformReference(this, "license_name");
+    [TerraformProperty("license_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LicenseName { get; }
 
     /// <summary>
     /// The product_name attribute.
     /// </summary>
-    [TerraformPropertyName("product_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ProductName => new TerraformReference(this, "product_name");
+    [TerraformProperty("product_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ProductName { get; }
 
     /// <summary>
     /// The product_sku attribute.
     /// </summary>
-    [TerraformPropertyName("product_sku")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ProductSku => new TerraformReference(this, "product_sku");
+    [TerraformProperty("product_sku")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ProductSku { get; }
 
     /// <summary>
     /// The received_metadata attribute.
     /// </summary>
-    [TerraformPropertyName("received_metadata")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ReceivedMetadata => new TerraformReference(this, "received_metadata");
+    [TerraformProperty("received_metadata")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ReceivedMetadata { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The validity attribute.
     /// </summary>
-    [TerraformPropertyName("validity")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Validity => new TerraformReference(this, "validity");
+    [TerraformProperty("validity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Validity { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Version => new TerraformReference(this, "version");
+    [TerraformProperty("version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Version { get; }
 
 }

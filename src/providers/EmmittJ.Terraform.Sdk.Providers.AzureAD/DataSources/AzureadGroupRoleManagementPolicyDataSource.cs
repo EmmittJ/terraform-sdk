@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadGroupRoleManagementPolicyDataSourceTimeoutsBlock
+public partial class AzureadGroupRoleManagementPolicyDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzureadGroupRoleManagementPolicyDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azuread_group_role_management_policy.
 /// </summary>
-public class AzureadGroupRoleManagementPolicyDataSource : TerraformDataSource
+public partial class AzureadGroupRoleManagementPolicyDataSource : TerraformDataSource
 {
     public AzureadGroupRoleManagementPolicyDataSource(string name) : base("azuread_group_role_management_policy", name)
     {
@@ -30,44 +30,44 @@ public class AzureadGroupRoleManagementPolicyDataSource : TerraformDataSource
     /// ID of the group to which this policy is assigned
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupId is required")]
-    [TerraformPropertyName("group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GroupId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the role of this policy to the group
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleId is required")]
-    [TerraformPropertyName("role_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadGroupRoleManagementPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Description of the policy
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The display name of the policy
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
 }

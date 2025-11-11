@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningInferenceClusterIdentityBlock
+public partial class AzurermMachineLearningInferenceClusterIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformPropertyName("identity_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IdentityIds { get; set; }
 
 
@@ -21,8 +21,8 @@ public class AzurermMachineLearningInferenceClusterIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -31,41 +31,41 @@ public class AzurermMachineLearningInferenceClusterIdentityBlock
 /// Block type for ssl in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMachineLearningInferenceClusterSslBlock
+public partial class AzurermMachineLearningInferenceClusterSslBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cert attribute.
     /// </summary>
-    [TerraformPropertyName("cert")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cert")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Cert { get; set; }
 
     /// <summary>
     /// The cname attribute.
     /// </summary>
-    [TerraformPropertyName("cname")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cname")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Cname { get; set; }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    [TerraformPropertyName("key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Key { get; set; }
 
     /// <summary>
     /// The leaf_domain_label attribute.
     /// </summary>
-    [TerraformPropertyName("leaf_domain_label")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("leaf_domain_label")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LeafDomainLabel { get; set; }
 
     /// <summary>
     /// The overwrite_existing_domain attribute.
     /// </summary>
-    [TerraformPropertyName("overwrite_existing_domain")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("overwrite_existing_domain")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? OverwriteExistingDomain { get; set; }
 
 }
@@ -74,27 +74,27 @@ public class AzurermMachineLearningInferenceClusterSslBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMachineLearningInferenceClusterTimeoutsBlock
+public partial class AzurermMachineLearningInferenceClusterTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -103,7 +103,7 @@ public class AzurermMachineLearningInferenceClusterTimeoutsBlock
 /// Manages a azurerm_machine_learning_inference_cluster resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMachineLearningInferenceCluster : TerraformResource
+public partial class AzurermMachineLearningInferenceCluster : TerraformResource
 {
     public AzurermMachineLearningInferenceCluster(string name) : base("azurerm_machine_learning_inference_cluster", name)
     {
@@ -112,61 +112,61 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     /// <summary>
     /// The cluster_purpose attribute.
     /// </summary>
-    [TerraformPropertyName("cluster_purpose")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cluster_purpose")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClusterPurpose { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kubernetes_cluster_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesClusterId is required")]
-    [TerraformPropertyName("kubernetes_cluster_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kubernetes_cluster_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KubernetesClusterId { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The machine_learning_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MachineLearningWorkspaceId is required")]
-    [TerraformPropertyName("machine_learning_workspace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("machine_learning_workspace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MachineLearningWorkspaceId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -174,7 +174,7 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermMachineLearningInferenceClusterIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
@@ -182,14 +182,14 @@ public class AzurermMachineLearningInferenceCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Ssl block(s) allowed")]
-    [TerraformPropertyName("ssl")]
+    [TerraformProperty("ssl")]
     public TerraformList<TerraformBlock<AzurermMachineLearningInferenceClusterSslBlock>>? Ssl { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMachineLearningInferenceClusterTimeoutsBlock>? Timeouts { get; set; }
 
 }

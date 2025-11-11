@@ -6,15 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for access_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNotebooksRuntimeAccessConfigBlock
+public partial class GoogleNotebooksRuntimeAccessConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The type of access mode this instance. For valid values, see
     /// &#39;https://cloud.google.com/vertex-ai/docs/workbench/reference/
     /// rest/v1/projects.locations.runtimes#RuntimeAccessType&#39;.
     /// </summary>
-    [TerraformPropertyName("access_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("access_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AccessType { get; set; }
 
 
@@ -22,8 +22,8 @@ public class GoogleNotebooksRuntimeAccessConfigBlock
     /// The owner of this runtime after creation. Format: &#39;alias@example.com&#39;.
     /// Currently supports one owner only.
     /// </summary>
-    [TerraformPropertyName("runtime_owner")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("runtime_owner")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RuntimeOwner { get; set; }
 
 }
@@ -32,52 +32,52 @@ public class GoogleNotebooksRuntimeAccessConfigBlock
 /// Block type for software_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNotebooksRuntimeSoftwareConfigBlock
+public partial class GoogleNotebooksRuntimeSoftwareConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Specify a custom Cloud Storage path where the GPU driver is stored.
     /// If not specified, we&#39;ll automatically choose from official GPU drivers.
     /// </summary>
-    [TerraformPropertyName("custom_gpu_driver_path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("custom_gpu_driver_path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CustomGpuDriverPath { get; set; }
 
     /// <summary>
     /// Verifies core internal services are running. Default: True.
     /// </summary>
-    [TerraformPropertyName("enable_health_monitoring")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_health_monitoring")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableHealthMonitoring { get; set; }
 
     /// <summary>
     /// Runtime will automatically shutdown after idle_shutdown_time.
     /// Default: True
     /// </summary>
-    [TerraformPropertyName("idle_shutdown")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("idle_shutdown")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IdleShutdown { get; set; }
 
     /// <summary>
     /// Time in minutes to wait before shuting down runtime.
     /// Default: 180 minutes
     /// </summary>
-    [TerraformPropertyName("idle_shutdown_timeout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("idle_shutdown_timeout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? IdleShutdownTimeout { get; set; }
 
     /// <summary>
     /// Install Nvidia Driver automatically.
     /// </summary>
-    [TerraformPropertyName("install_gpu_driver")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("install_gpu_driver")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? InstallGpuDriver { get; set; }
 
     /// <summary>
     /// Cron expression in UTC timezone for schedule instance auto upgrade.
     /// Please follow the [cron format](https://en.wikipedia.org/wiki/Cron).
     /// </summary>
-    [TerraformPropertyName("notebook_upgrade_schedule")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("notebook_upgrade_schedule")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NotebookUpgradeSchedule { get; set; }
 
     /// <summary>
@@ -85,15 +85,15 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock
     /// fully boots up. The path must be a URL or
     /// Cloud Storage path (gs://path-to-file/file-name).
     /// </summary>
-    [TerraformPropertyName("post_startup_script")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("post_startup_script")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PostStartupScript { get; set; }
 
     /// <summary>
     /// Behavior for the post startup script. Possible values: [&amp;quot;POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED&amp;quot;, &amp;quot;RUN_EVERY_START&amp;quot;, &amp;quot;DOWNLOAD_AND_RUN_EVERY_START&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("post_startup_script_behavior")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("post_startup_script_behavior")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PostStartupScriptBehavior { get; set; }
 
 
@@ -103,27 +103,27 @@ public class GoogleNotebooksRuntimeSoftwareConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNotebooksRuntimeTimeoutsBlock
+public partial class GoogleNotebooksRuntimeTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -132,7 +132,7 @@ public class GoogleNotebooksRuntimeTimeoutsBlock
 /// Block type for virtual_machine in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleNotebooksRuntimeVirtualMachineBlock
+public partial class GoogleNotebooksRuntimeVirtualMachineBlock : TerraformBlockBase
 {
 
 
@@ -143,7 +143,7 @@ public class GoogleNotebooksRuntimeVirtualMachineBlock
 /// </summary>
 [Obsolete("This resource is deprecated.")]
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleNotebooksRuntime : TerraformResource
+public partial class GoogleNotebooksRuntime : TerraformResource
 {
     public GoogleNotebooksRuntime(string name) : base("google_notebooks_runtime", name)
     {
@@ -152,9 +152,9 @@ public class GoogleNotebooksRuntime : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The labels to associate with this runtime. Label **keys** must
@@ -168,39 +168,39 @@ public class GoogleNotebooksRuntime : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// A reference to the zone where the machine resides.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name specified for the Notebook runtime.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for access_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessConfig block(s) allowed")]
-    [TerraformPropertyName("access_config")]
+    [TerraformProperty("access_config")]
     public TerraformList<TerraformBlock<GoogleNotebooksRuntimeAccessConfigBlock>>? AccessConfig { get; set; }
 
     /// <summary>
@@ -208,14 +208,14 @@ public class GoogleNotebooksRuntime : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SoftwareConfig block(s) allowed")]
-    [TerraformPropertyName("software_config")]
+    [TerraformProperty("software_config")]
     public TerraformList<TerraformBlock<GoogleNotebooksRuntimeSoftwareConfigBlock>>? SoftwareConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleNotebooksRuntimeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -223,46 +223,46 @@ public class GoogleNotebooksRuntime : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VirtualMachine block(s) allowed")]
-    [TerraformPropertyName("virtual_machine")]
+    [TerraformProperty("virtual_machine")]
     public TerraformList<TerraformBlock<GoogleNotebooksRuntimeVirtualMachineBlock>>? VirtualMachine { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The health state of this runtime. For a list of possible output
     /// values, see &#39;https://cloud.google.com/vertex-ai/docs/workbench/
     /// reference/rest/v1/projects.locations.runtimes#healthstate&#39;.
     /// </summary>
-    [TerraformPropertyName("health_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> HealthState => new TerraformReference(this, "health_state");
+    [TerraformProperty("health_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> HealthState { get; }
 
     /// <summary>
     /// Contains Runtime daemon metrics such as Service status and JupyterLab
     /// status
     /// </summary>
-    [TerraformPropertyName("metrics")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Metrics => new TerraformReference(this, "metrics");
+    [TerraformProperty("metrics")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Metrics { get; }
 
     /// <summary>
     /// The state of this runtime.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

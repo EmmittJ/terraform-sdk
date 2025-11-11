@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock
+public partial class AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azuread_application_published_app_ids.
 /// </summary>
-public class AzureadApplicationPublishedAppIdsDataSource : TerraformDataSource
+public partial class AzureadApplicationPublishedAppIdsDataSource : TerraformDataSource
 {
     public AzureadApplicationPublishedAppIdsDataSource(string name) : base("azuread_application_published_app_ids", name)
     {
@@ -29,22 +29,22 @@ public class AzureadApplicationPublishedAppIdsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadApplicationPublishedAppIdsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A mapping of application names and application IDs
     /// </summary>
-    [TerraformPropertyName("result")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Result => new TerraformReference(this, "result");
+    [TerraformProperty("result")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Result { get; }
 
 }

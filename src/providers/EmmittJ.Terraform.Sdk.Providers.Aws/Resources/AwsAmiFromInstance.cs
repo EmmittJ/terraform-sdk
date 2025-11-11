@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ebs_block_device in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAmiFromInstanceEbsBlockDeviceBlock
+public partial class AwsAmiFromInstanceEbsBlockDeviceBlock : TerraformBlockBase
 {
 
 
@@ -23,7 +23,7 @@ public class AwsAmiFromInstanceEbsBlockDeviceBlock
 /// Block type for ephemeral_block_device in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAmiFromInstanceEphemeralBlockDeviceBlock
+public partial class AwsAmiFromInstanceEphemeralBlockDeviceBlock : TerraformBlockBase
 {
 
 
@@ -33,27 +33,27 @@ public class AwsAmiFromInstanceEphemeralBlockDeviceBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsAmiFromInstanceTimeoutsBlock
+public partial class AwsAmiFromInstanceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -61,7 +61,7 @@ public class AwsAmiFromInstanceTimeoutsBlock
 /// <summary>
 /// Manages a aws_ami_from_instance resource.
 /// </summary>
-public class AwsAmiFromInstance : TerraformResource
+public partial class AwsAmiFromInstance : TerraformResource
 {
     public AwsAmiFromInstance(string name) : base("aws_ami_from_instance", name)
     {
@@ -70,255 +70,255 @@ public class AwsAmiFromInstance : TerraformResource
     /// <summary>
     /// The deprecation_time attribute.
     /// </summary>
-    [TerraformPropertyName("deprecation_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deprecation_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeprecationTime { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The snapshot_without_reboot attribute.
     /// </summary>
-    [TerraformPropertyName("snapshot_without_reboot")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("snapshot_without_reboot")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SnapshotWithoutReboot { get; set; }
 
     /// <summary>
     /// The source_instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceInstanceId is required")]
-    [TerraformPropertyName("source_instance_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source_instance_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SourceInstanceId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for ebs_block_device.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("ebs_block_device")]
+    [TerraformProperty("ebs_block_device")]
     public TerraformSet<TerraformBlock<AwsAmiFromInstanceEbsBlockDeviceBlock>>? EbsBlockDevice { get; set; }
 
     /// <summary>
     /// Block for ephemeral_block_device.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("ephemeral_block_device")]
+    [TerraformProperty("ephemeral_block_device")]
     public TerraformSet<TerraformBlock<AwsAmiFromInstanceEphemeralBlockDeviceBlock>>? EphemeralBlockDevice { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsAmiFromInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The architecture attribute.
     /// </summary>
-    [TerraformPropertyName("architecture")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Architecture => new TerraformReference(this, "architecture");
+    [TerraformProperty("architecture")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Architecture { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The boot_mode attribute.
     /// </summary>
-    [TerraformPropertyName("boot_mode")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BootMode => new TerraformReference(this, "boot_mode");
+    [TerraformProperty("boot_mode")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BootMode { get; }
 
     /// <summary>
     /// The ena_support attribute.
     /// </summary>
-    [TerraformPropertyName("ena_support")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EnaSupport => new TerraformReference(this, "ena_support");
+    [TerraformProperty("ena_support")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EnaSupport { get; }
 
     /// <summary>
     /// The hypervisor attribute.
     /// </summary>
-    [TerraformPropertyName("hypervisor")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Hypervisor => new TerraformReference(this, "hypervisor");
+    [TerraformProperty("hypervisor")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Hypervisor { get; }
 
     /// <summary>
     /// The image_location attribute.
     /// </summary>
-    [TerraformPropertyName("image_location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ImageLocation => new TerraformReference(this, "image_location");
+    [TerraformProperty("image_location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ImageLocation { get; }
 
     /// <summary>
     /// The image_owner_alias attribute.
     /// </summary>
-    [TerraformPropertyName("image_owner_alias")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ImageOwnerAlias => new TerraformReference(this, "image_owner_alias");
+    [TerraformProperty("image_owner_alias")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ImageOwnerAlias { get; }
 
     /// <summary>
     /// The image_type attribute.
     /// </summary>
-    [TerraformPropertyName("image_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ImageType => new TerraformReference(this, "image_type");
+    [TerraformProperty("image_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ImageType { get; }
 
     /// <summary>
     /// The imds_support attribute.
     /// </summary>
-    [TerraformPropertyName("imds_support")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ImdsSupport => new TerraformReference(this, "imds_support");
+    [TerraformProperty("imds_support")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ImdsSupport { get; }
 
     /// <summary>
     /// The kernel_id attribute.
     /// </summary>
-    [TerraformPropertyName("kernel_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KernelId => new TerraformReference(this, "kernel_id");
+    [TerraformProperty("kernel_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KernelId { get; }
 
     /// <summary>
     /// The last_launched_time attribute.
     /// </summary>
-    [TerraformPropertyName("last_launched_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastLaunchedTime => new TerraformReference(this, "last_launched_time");
+    [TerraformProperty("last_launched_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastLaunchedTime { get; }
 
     /// <summary>
     /// The manage_ebs_snapshots attribute.
     /// </summary>
-    [TerraformPropertyName("manage_ebs_snapshots")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ManageEbsSnapshots => new TerraformReference(this, "manage_ebs_snapshots");
+    [TerraformProperty("manage_ebs_snapshots")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ManageEbsSnapshots { get; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerId => new TerraformReference(this, "owner_id");
+    [TerraformProperty("owner_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerId { get; }
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
-    [TerraformPropertyName("platform")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Platform => new TerraformReference(this, "platform");
+    [TerraformProperty("platform")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Platform { get; }
 
     /// <summary>
     /// The platform_details attribute.
     /// </summary>
-    [TerraformPropertyName("platform_details")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PlatformDetails => new TerraformReference(this, "platform_details");
+    [TerraformProperty("platform_details")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PlatformDetails { get; }
 
     /// <summary>
     /// The public attribute.
     /// </summary>
-    [TerraformPropertyName("public")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Public => new TerraformReference(this, "public");
+    [TerraformProperty("public")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Public { get; }
 
     /// <summary>
     /// The ramdisk_id attribute.
     /// </summary>
-    [TerraformPropertyName("ramdisk_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RamdiskId => new TerraformReference(this, "ramdisk_id");
+    [TerraformProperty("ramdisk_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RamdiskId { get; }
 
     /// <summary>
     /// The root_device_name attribute.
     /// </summary>
-    [TerraformPropertyName("root_device_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RootDeviceName => new TerraformReference(this, "root_device_name");
+    [TerraformProperty("root_device_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RootDeviceName { get; }
 
     /// <summary>
     /// The root_snapshot_id attribute.
     /// </summary>
-    [TerraformPropertyName("root_snapshot_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RootSnapshotId => new TerraformReference(this, "root_snapshot_id");
+    [TerraformProperty("root_snapshot_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RootSnapshotId { get; }
 
     /// <summary>
     /// The sriov_net_support attribute.
     /// </summary>
-    [TerraformPropertyName("sriov_net_support")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SriovNetSupport => new TerraformReference(this, "sriov_net_support");
+    [TerraformProperty("sriov_net_support")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SriovNetSupport { get; }
 
     /// <summary>
     /// The tpm_support attribute.
     /// </summary>
-    [TerraformPropertyName("tpm_support")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TpmSupport => new TerraformReference(this, "tpm_support");
+    [TerraformProperty("tpm_support")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TpmSupport { get; }
 
     /// <summary>
     /// The uefi_data attribute.
     /// </summary>
-    [TerraformPropertyName("uefi_data")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UefiData => new TerraformReference(this, "uefi_data");
+    [TerraformProperty("uefi_data")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UefiData { get; }
 
     /// <summary>
     /// The usage_operation attribute.
     /// </summary>
-    [TerraformPropertyName("usage_operation")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UsageOperation => new TerraformReference(this, "usage_operation");
+    [TerraformProperty("usage_operation")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UsageOperation { get; }
 
     /// <summary>
     /// The virtualization_type attribute.
     /// </summary>
-    [TerraformPropertyName("virtualization_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VirtualizationType => new TerraformReference(this, "virtualization_type");
+    [TerraformProperty("virtualization_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VirtualizationType { get; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsWorkspaceswebPortalTimeoutsBlock
+public partial class AwsWorkspaceswebPortalTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsWorkspaceswebPortalTimeoutsBlock
 /// <summary>
 /// Manages a aws_workspacesweb_portal resource.
 /// </summary>
-public class AwsWorkspaceswebPortal : TerraformResource
+public partial class AwsWorkspaceswebPortal : TerraformResource
 {
     public AwsWorkspaceswebPortal(string name) : base("aws_workspacesweb_portal", name)
     {
@@ -43,176 +43,176 @@ public class AwsWorkspaceswebPortal : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    [TerraformPropertyName("additional_encryption_context")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("additional_encryption_context")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? AdditionalEncryptionContext { get; set; }
 
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    [TerraformPropertyName("authentication_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AuthenticationType { get; set; } = default!;
+    [TerraformProperty("authentication_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AuthenticationType { get; set; }
 
     /// <summary>
     /// The browser_settings_arn attribute.
     /// </summary>
-    [TerraformPropertyName("browser_settings_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> BrowserSettingsArn { get; set; } = default!;
+    [TerraformProperty("browser_settings_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> BrowserSettingsArn { get; set; }
 
     /// <summary>
     /// The customer_managed_key attribute.
     /// </summary>
-    [TerraformPropertyName("customer_managed_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("customer_managed_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CustomerManagedKey { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DisplayName { get; set; } = default!;
+    [TerraformProperty("display_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    [TerraformPropertyName("instance_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> InstanceType { get; set; } = default!;
+    [TerraformProperty("instance_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// The max_concurrent_sessions attribute.
     /// </summary>
-    [TerraformPropertyName("max_concurrent_sessions")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxConcurrentSessions { get; set; } = default!;
+    [TerraformProperty("max_concurrent_sessions")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxConcurrentSessions { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsWorkspaceswebPortalTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The browser_type attribute.
     /// </summary>
-    [TerraformPropertyName("browser_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BrowserType => new TerraformReference(this, "browser_type");
+    [TerraformProperty("browser_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BrowserType { get; }
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
-    [TerraformPropertyName("creation_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationDate => new TerraformReference(this, "creation_date");
+    [TerraformProperty("creation_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationDate { get; }
 
     /// <summary>
     /// The data_protection_settings_arn attribute.
     /// </summary>
-    [TerraformPropertyName("data_protection_settings_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DataProtectionSettingsArn => new TerraformReference(this, "data_protection_settings_arn");
+    [TerraformProperty("data_protection_settings_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DataProtectionSettingsArn { get; }
 
     /// <summary>
     /// The ip_access_settings_arn attribute.
     /// </summary>
-    [TerraformPropertyName("ip_access_settings_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IpAccessSettingsArn => new TerraformReference(this, "ip_access_settings_arn");
+    [TerraformProperty("ip_access_settings_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IpAccessSettingsArn { get; }
 
     /// <summary>
     /// The network_settings_arn attribute.
     /// </summary>
-    [TerraformPropertyName("network_settings_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> NetworkSettingsArn => new TerraformReference(this, "network_settings_arn");
+    [TerraformProperty("network_settings_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> NetworkSettingsArn { get; }
 
     /// <summary>
     /// The portal_arn attribute.
     /// </summary>
-    [TerraformPropertyName("portal_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PortalArn => new TerraformReference(this, "portal_arn");
+    [TerraformProperty("portal_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PortalArn { get; }
 
     /// <summary>
     /// The portal_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("portal_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PortalEndpoint => new TerraformReference(this, "portal_endpoint");
+    [TerraformProperty("portal_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PortalEndpoint { get; }
 
     /// <summary>
     /// The portal_status attribute.
     /// </summary>
-    [TerraformPropertyName("portal_status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PortalStatus => new TerraformReference(this, "portal_status");
+    [TerraformProperty("portal_status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PortalStatus { get; }
 
     /// <summary>
     /// The renderer_type attribute.
     /// </summary>
-    [TerraformPropertyName("renderer_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RendererType => new TerraformReference(this, "renderer_type");
+    [TerraformProperty("renderer_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RendererType { get; }
 
     /// <summary>
     /// The session_logger_arn attribute.
     /// </summary>
-    [TerraformPropertyName("session_logger_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SessionLoggerArn => new TerraformReference(this, "session_logger_arn");
+    [TerraformProperty("session_logger_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SessionLoggerArn { get; }
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
-    [TerraformPropertyName("status_reason")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StatusReason => new TerraformReference(this, "status_reason");
+    [TerraformProperty("status_reason")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StatusReason { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The trust_store_arn attribute.
     /// </summary>
-    [TerraformPropertyName("trust_store_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TrustStoreArn => new TerraformReference(this, "trust_store_arn");
+    [TerraformProperty("trust_store_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TrustStoreArn { get; }
 
     /// <summary>
     /// The user_access_logging_settings_arn attribute.
     /// </summary>
-    [TerraformPropertyName("user_access_logging_settings_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UserAccessLoggingSettingsArn => new TerraformReference(this, "user_access_logging_settings_arn");
+    [TerraformProperty("user_access_logging_settings_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UserAccessLoggingSettingsArn { get; }
 
     /// <summary>
     /// The user_settings_arn attribute.
     /// </summary>
-    [TerraformPropertyName("user_settings_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UserSettingsArn => new TerraformReference(this, "user_settings_arn");
+    [TerraformProperty("user_settings_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UserSettingsArn { get; }
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for gcs_fileset_spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataCatalogEntryGcsFilesetSpecBlock
+public partial class GoogleDataCatalogEntryGcsFilesetSpecBlock : TerraformBlockBase
 {
     /// <summary>
     /// Patterns to identify a set of files in Google Cloud Storage.
@@ -23,8 +23,8 @@ public class GoogleDataCatalogEntryGcsFilesetSpecBlock
     /// * gs://another_bucket/a.txt: matches gs://another_bucket/a.txt
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FilePatterns is required")]
-    [TerraformPropertyName("file_patterns")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("file_patterns")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? FilePatterns { get; set; }
 
 
@@ -34,27 +34,27 @@ public class GoogleDataCatalogEntryGcsFilesetSpecBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataCatalogEntryTimeoutsBlock
+public partial class GoogleDataCatalogEntryTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -64,7 +64,7 @@ public class GoogleDataCatalogEntryTimeoutsBlock
 /// </summary>
 [Obsolete("This resource is deprecated.")]
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleDataCatalogEntry : TerraformResource
+public partial class GoogleDataCatalogEntry : TerraformResource
 {
     public GoogleDataCatalogEntry(string name) : base("google_data_catalog_entry", name)
     {
@@ -73,40 +73,40 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// <summary>
     /// Entry description, which can consist of several sentences or paragraphs that describe entry contents.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Display information such as title and description. A short name to identify the entry,
     /// for example, &amp;quot;Analytics Data - Jan 2011&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The name of the entry group this entry is in.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroup is required")]
-    [TerraformPropertyName("entry_group")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("entry_group")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EntryGroup { get; set; }
 
     /// <summary>
     /// The id of the entry to create.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryId is required")]
-    [TerraformPropertyName("entry_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("entry_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EntryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource this metadata entry refers to.
@@ -116,9 +116,9 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// Output only when Entry is of type in the EntryType enum. For entries with userSpecifiedType,
     /// this field is optional and defaults to an empty string.
     /// </summary>
-    [TerraformPropertyName("linked_resource")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LinkedResource { get; set; } = default!;
+    [TerraformProperty("linked_resource")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LinkedResource { get; set; }
 
     /// <summary>
     /// Schema of the entry (e.g. BigQuery, GoogleSQL, Avro schema), as a json string. An entry might not have any schema
@@ -126,16 +126,16 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// https://cloud.google.com/data-catalog/docs/reference/rest/v1/projects.locations.entryGroups.entries#schema
     /// for what fields this schema can contain.
     /// </summary>
-    [TerraformPropertyName("schema")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("schema")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Schema { get; set; }
 
     /// <summary>
     /// The type of the entry. Only used for Entries with types in the EntryType enum.
     /// Currently, only FILESET enum value is allowed. All other entries created through Data Catalog must use userSpecifiedType. Possible values: [&amp;quot;FILESET&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
@@ -143,8 +143,8 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// userSpecifiedSystem strings must begin with a letter or underscore and can only contain letters, numbers,
     /// and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
     /// </summary>
-    [TerraformPropertyName("user_specified_system")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user_specified_system")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? UserSpecifiedSystem { get; set; }
 
     /// <summary>
@@ -154,8 +154,8 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// userSpecifiedType strings must begin with a letter or underscore and can only contain letters,
     /// numbers, and underscores; are case insensitive; must be at least 1 character and at most 64 characters long.
     /// </summary>
-    [TerraformPropertyName("user_specified_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user_specified_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? UserSpecifiedType { get; set; }
 
     /// <summary>
@@ -163,45 +163,45 @@ public class GoogleDataCatalogEntry : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GcsFilesetSpec block(s) allowed")]
-    [TerraformPropertyName("gcs_fileset_spec")]
+    [TerraformProperty("gcs_fileset_spec")]
     public TerraformList<TerraformBlock<GoogleDataCatalogEntryGcsFilesetSpecBlock>>? GcsFilesetSpec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDataCatalogEntryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Specification for a group of BigQuery tables with name pattern [prefix]YYYYMMDD.
     /// Context: https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding.
     /// </summary>
-    [TerraformPropertyName("bigquery_date_sharded_spec")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> BigqueryDateShardedSpec => new TerraformReference(this, "bigquery_date_sharded_spec");
+    [TerraformProperty("bigquery_date_sharded_spec")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> BigqueryDateShardedSpec { get; }
 
     /// <summary>
     /// Specification that applies to a BigQuery table. This is only valid on entries of type TABLE.
     /// </summary>
-    [TerraformPropertyName("bigquery_table_spec")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> BigqueryTableSpec => new TerraformReference(this, "bigquery_table_spec");
+    [TerraformProperty("bigquery_table_spec")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> BigqueryTableSpec { get; }
 
     /// <summary>
     /// This field indicates the entry&#39;s source system that Data Catalog integrates with, such as BigQuery or Pub/Sub.
     /// </summary>
-    [TerraformPropertyName("integrated_system")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IntegratedSystem => new TerraformReference(this, "integrated_system");
+    [TerraformProperty("integrated_system")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IntegratedSystem { get; }
 
     /// <summary>
     /// The Data Catalog resource name of the entry in URL format.
     /// Example: projects/{project_id}/locations/{location}/entryGroups/{entryGroupId}/entries/{entryId}.
     /// Note that this Entry and its child resources may not actually be stored in the location in this name.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

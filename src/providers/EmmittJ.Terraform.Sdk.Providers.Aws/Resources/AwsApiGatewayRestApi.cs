@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for endpoint_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApiGatewayRestApiEndpointConfigurationBlock
+public partial class AwsApiGatewayRestApiEndpointConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    [TerraformPropertyName("ip_address_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> IpAddressType { get; set; } = default!;
+    [TerraformProperty("ip_address_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> IpAddressType { get; set; }
 
     /// <summary>
     /// The types attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Types is required")]
-    [TerraformPropertyName("types")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("types")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Types { get; set; }
 
     /// <summary>
     /// The vpc_endpoint_ids attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_endpoint_ids")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> VpcEndpointIds { get; set; } = default!;
+    [TerraformProperty("vpc_endpoint_ids")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> VpcEndpointIds { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public class AwsApiGatewayRestApiEndpointConfigurationBlock
 /// Manages a aws_api_gateway_rest_api resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsApiGatewayRestApi : TerraformResource
+public partial class AwsApiGatewayRestApi : TerraformResource
 {
     public AwsApiGatewayRestApi(string name) : base("aws_api_gateway_rest_api", name)
     {
@@ -45,143 +45,143 @@ public class AwsApiGatewayRestApi : TerraformResource
     /// <summary>
     /// The api_key_source attribute.
     /// </summary>
-    [TerraformPropertyName("api_key_source")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ApiKeySource { get; set; } = default!;
+    [TerraformProperty("api_key_source")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ApiKeySource { get; set; }
 
     /// <summary>
     /// The binary_media_types attribute.
     /// </summary>
-    [TerraformPropertyName("binary_media_types")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> BinaryMediaTypes { get; set; } = default!;
+    [TerraformProperty("binary_media_types")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> BinaryMediaTypes { get; set; }
 
     /// <summary>
     /// The body attribute.
     /// </summary>
-    [TerraformPropertyName("body")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("body")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Body { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Description { get; set; } = default!;
+    [TerraformProperty("description")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The disable_execute_api_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("disable_execute_api_endpoint")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> DisableExecuteApiEndpoint { get; set; } = default!;
+    [TerraformProperty("disable_execute_api_endpoint")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> DisableExecuteApiEndpoint { get; set; }
 
     /// <summary>
     /// The fail_on_warnings attribute.
     /// </summary>
-    [TerraformPropertyName("fail_on_warnings")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("fail_on_warnings")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? FailOnWarnings { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The minimum_compression_size attribute.
     /// </summary>
-    [TerraformPropertyName("minimum_compression_size")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MinimumCompressionSize { get; set; } = default!;
+    [TerraformProperty("minimum_compression_size")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MinimumCompressionSize { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformPropertyName("parameters")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parameters")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    [TerraformPropertyName("policy")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Policy { get; set; } = default!;
+    [TerraformProperty("policy")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Policy { get; set; }
 
     /// <summary>
     /// The put_rest_api_mode attribute.
     /// </summary>
-    [TerraformPropertyName("put_rest_api_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("put_rest_api_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PutRestApiMode { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for endpoint_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EndpointConfiguration block(s) allowed")]
-    [TerraformPropertyName("endpoint_configuration")]
+    [TerraformProperty("endpoint_configuration")]
     public TerraformList<TerraformBlock<AwsApiGatewayRestApiEndpointConfigurationBlock>>? EndpointConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
-    [TerraformPropertyName("created_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedDate => new TerraformReference(this, "created_date");
+    [TerraformProperty("created_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The execution_arn attribute.
     /// </summary>
-    [TerraformPropertyName("execution_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExecutionArn => new TerraformReference(this, "execution_arn");
+    [TerraformProperty("execution_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExecutionArn { get; }
 
     /// <summary>
     /// The root_resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("root_resource_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RootResourceId => new TerraformReference(this, "root_resource_id");
+    [TerraformProperty("root_resource_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RootResourceId { get; }
 
 }

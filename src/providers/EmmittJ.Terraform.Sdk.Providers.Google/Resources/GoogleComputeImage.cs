@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for guest_os_features in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleComputeImageGuestOsFeaturesBlock
+public partial class GoogleComputeImageGuestOsFeaturesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The type of supported feature. Read [Enabling guest operating system features](https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#guest-os-features) to see a list of available options. Possible values: [&amp;quot;MULTI_IP_SUBNET&amp;quot;, &amp;quot;SECURE_BOOT&amp;quot;, &amp;quot;SEV_CAPABLE&amp;quot;, &amp;quot;UEFI_COMPATIBLE&amp;quot;, &amp;quot;VIRTIO_SCSI_MULTIQUEUE&amp;quot;, &amp;quot;WINDOWS&amp;quot;, &amp;quot;GVNIC&amp;quot;, &amp;quot;IDPF&amp;quot;, &amp;quot;SEV_LIVE_MIGRATABLE&amp;quot;, &amp;quot;SEV_SNP_CAPABLE&amp;quot;, &amp;quot;SUSPEND_RESUME_COMPATIBLE&amp;quot;, &amp;quot;TDX_CAPABLE&amp;quot;, &amp;quot;SEV_LIVE_MIGRATABLE_V2&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -22,14 +22,14 @@ public class GoogleComputeImageGuestOsFeaturesBlock
 /// Block type for image_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeImageImageEncryptionKeyBlock
+public partial class GoogleComputeImageImageEncryptionKeyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The self link of the encryption key that is stored in Google Cloud
     /// KMS.
     /// </summary>
-    [TerraformPropertyName("kms_key_self_link")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_self_link")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeySelfLink { get; set; }
 
     /// <summary>
@@ -37,24 +37,24 @@ public class GoogleComputeImageImageEncryptionKeyBlock
     /// given KMS key. If absent, the Compute Engine default service
     /// account is used.
     /// </summary>
-    [TerraformPropertyName("kms_key_service_account")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_service_account")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyServiceAccount { get; set; }
 
     /// <summary>
     /// Specifies a 256-bit customer-supplied encryption key, encoded in
     /// RFC 4648 base64 to either encrypt or decrypt this resource.
     /// </summary>
-    [TerraformPropertyName("raw_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("raw_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RawKey { get; set; }
 
     /// <summary>
     /// Specifies a 256-bit customer-supplied encryption key, encoded in
     /// RFC 4648 base64 to either encrypt or decrypt this resource.
     /// </summary>
-    [TerraformPropertyName("rsa_encrypted_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("rsa_encrypted_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RsaEncryptedKey { get; set; }
 
 }
@@ -63,7 +63,7 @@ public class GoogleComputeImageImageEncryptionKeyBlock
 /// Block type for raw_disk in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeImageRawDiskBlock
+public partial class GoogleComputeImageRawDiskBlock : TerraformBlockBase
 {
     /// <summary>
     /// The format used to encode and transmit the block device, which
@@ -71,16 +71,16 @@ public class GoogleComputeImageRawDiskBlock
     /// and not a runtime format. Provided by the client when the disk
     /// image is created. Default value: &amp;quot;TAR&amp;quot; Possible values: [&amp;quot;TAR&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("container_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("container_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ContainerType { get; set; }
 
     /// <summary>
     /// An optional SHA1 checksum of the disk image before unpackaging.
     /// This is provided by the client when the disk image is created.
     /// </summary>
-    [TerraformPropertyName("sha1")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sha1")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Sha1 { get; set; }
 
     /// <summary>
@@ -89,8 +89,8 @@ public class GoogleComputeImageRawDiskBlock
     /// but not both.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
-    [TerraformPropertyName("source")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Source { get; set; }
 
 }
@@ -99,7 +99,7 @@ public class GoogleComputeImageRawDiskBlock
 /// Block type for shielded_instance_initial_state in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeImageShieldedInstanceInitialStateBlock
+public partial class GoogleComputeImageShieldedInstanceInitialStateBlock : TerraformBlockBase
 {
 }
 
@@ -107,7 +107,7 @@ public class GoogleComputeImageShieldedInstanceInitialStateBlock
 /// Block type for source_disk_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeImageSourceDiskEncryptionKeyBlock
+public partial class GoogleComputeImageSourceDiskEncryptionKeyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The self link of the encryption key used to decrypt this resource. Also called KmsKeyName
@@ -116,8 +116,8 @@ public class GoogleComputeImageSourceDiskEncryptionKeyBlock
     /// &#39;roles/cloudkms.cryptoKeyEncrypterDecrypter&#39; to use this feature.
     /// See https://cloud.google.com/compute/docs/disks/customer-managed-encryption#encrypt_a_new_persistent_disk_with_your_own_keys
     /// </summary>
-    [TerraformPropertyName("kms_key_self_link")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_self_link")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeySelfLink { get; set; }
 
     /// <summary>
@@ -125,16 +125,16 @@ public class GoogleComputeImageSourceDiskEncryptionKeyBlock
     /// given KMS key. If absent, the Compute Engine default service
     /// account is used.
     /// </summary>
-    [TerraformPropertyName("kms_key_service_account")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_service_account")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyServiceAccount { get; set; }
 
     /// <summary>
     /// Specifies a 256-bit customer-supplied encryption key, encoded in
     /// RFC 4648 base64 to either encrypt or decrypt this resource.
     /// </summary>
-    [TerraformPropertyName("raw_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("raw_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RawKey { get; set; }
 
     /// <summary>
@@ -142,8 +142,8 @@ public class GoogleComputeImageSourceDiskEncryptionKeyBlock
     /// customer-supplied encryption key to either encrypt or decrypt
     /// this resource. You can provide either the rawKey or the rsaEncryptedKey.
     /// </summary>
-    [TerraformPropertyName("rsa_encrypted_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("rsa_encrypted_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RsaEncryptedKey { get; set; }
 
 }
@@ -152,7 +152,7 @@ public class GoogleComputeImageSourceDiskEncryptionKeyBlock
 /// Block type for source_image_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeImageSourceImageEncryptionKeyBlock
+public partial class GoogleComputeImageSourceImageEncryptionKeyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The self link of the encryption key used to decrypt this resource. Also called KmsKeyName
@@ -161,8 +161,8 @@ public class GoogleComputeImageSourceImageEncryptionKeyBlock
     /// &#39;roles/cloudkms.cryptoKeyEncrypterDecrypter&#39; to use this feature.
     /// See https://cloud.google.com/compute/docs/disks/customer-managed-encryption#encrypt_a_new_persistent_disk_with_your_own_keys
     /// </summary>
-    [TerraformPropertyName("kms_key_self_link")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_self_link")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeySelfLink { get; set; }
 
     /// <summary>
@@ -170,16 +170,16 @@ public class GoogleComputeImageSourceImageEncryptionKeyBlock
     /// given KMS key. If absent, the Compute Engine default service
     /// account is used.
     /// </summary>
-    [TerraformPropertyName("kms_key_service_account")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_service_account")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyServiceAccount { get; set; }
 
     /// <summary>
     /// Specifies a 256-bit customer-supplied encryption key, encoded in
     /// RFC 4648 base64 to either encrypt or decrypt this resource.
     /// </summary>
-    [TerraformPropertyName("raw_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("raw_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RawKey { get; set; }
 
     /// <summary>
@@ -187,8 +187,8 @@ public class GoogleComputeImageSourceImageEncryptionKeyBlock
     /// customer-supplied encryption key to either encrypt or decrypt
     /// this resource. You can provide either the rawKey or the rsaEncryptedKey.
     /// </summary>
-    [TerraformPropertyName("rsa_encrypted_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("rsa_encrypted_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RsaEncryptedKey { get; set; }
 
 }
@@ -197,7 +197,7 @@ public class GoogleComputeImageSourceImageEncryptionKeyBlock
 /// Block type for source_snapshot_encryption_key in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock
+public partial class GoogleComputeImageSourceSnapshotEncryptionKeyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The self link of the encryption key used to decrypt this resource. Also called KmsKeyName
@@ -206,8 +206,8 @@ public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock
     /// &#39;roles/cloudkms.cryptoKeyEncrypterDecrypter&#39; to use this feature.
     /// See https://cloud.google.com/compute/docs/disks/customer-managed-encryption#encrypt_a_new_persistent_disk_with_your_own_keys
     /// </summary>
-    [TerraformPropertyName("kms_key_self_link")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_self_link")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeySelfLink { get; set; }
 
     /// <summary>
@@ -215,16 +215,16 @@ public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock
     /// given KMS key. If absent, the Compute Engine default service
     /// account is used.
     /// </summary>
-    [TerraformPropertyName("kms_key_service_account")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_service_account")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyServiceAccount { get; set; }
 
     /// <summary>
     /// Specifies a 256-bit customer-supplied encryption key, encoded in
     /// RFC 4648 base64 to either encrypt or decrypt this resource.
     /// </summary>
-    [TerraformPropertyName("raw_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("raw_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RawKey { get; set; }
 
     /// <summary>
@@ -232,8 +232,8 @@ public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock
     /// customer-supplied encryption key to either encrypt or decrypt
     /// this resource. You can provide either the rawKey or the rsaEncryptedKey.
     /// </summary>
-    [TerraformPropertyName("rsa_encrypted_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("rsa_encrypted_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RsaEncryptedKey { get; set; }
 
 }
@@ -242,27 +242,27 @@ public class GoogleComputeImageSourceSnapshotEncryptionKeyBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeImageTimeoutsBlock
+public partial class GoogleComputeImageTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -271,7 +271,7 @@ public class GoogleComputeImageTimeoutsBlock
 /// Manages a google_compute_image resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputeImage : TerraformResource
+public partial class GoogleComputeImage : TerraformResource
 {
     public GoogleComputeImage(string name) : base("google_compute_image", name)
     {
@@ -281,16 +281,16 @@ public class GoogleComputeImage : TerraformResource
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Size of the image when restored onto a persistent disk (in GB).
     /// </summary>
-    [TerraformPropertyName("disk_size_gb")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> DiskSizeGb { get; set; } = default!;
+    [TerraformProperty("disk_size_gb")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> DiskSizeGb { get; set; }
 
     /// <summary>
     /// The name of the image family to which this image belongs. You can
@@ -299,16 +299,16 @@ public class GoogleComputeImage : TerraformResource
     /// not deprecated. The name of the image family must comply with
     /// RFC1035.
     /// </summary>
-    [TerraformPropertyName("family")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("family")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Family { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels to apply to this Image.
@@ -316,16 +316,16 @@ public class GoogleComputeImage : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Any applicable license URI.
     /// </summary>
-    [TerraformPropertyName("licenses")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> Licenses { get; set; } = default!;
+    [TerraformProperty("licenses")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> Licenses { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is
@@ -337,24 +337,24 @@ public class GoogleComputeImage : TerraformResource
     /// last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The source disk to create this image based on.
     /// You must provide either this property or the
     /// rawDisk.source property but not both to create an image.
     /// </summary>
-    [TerraformPropertyName("source_disk")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_disk")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceDisk { get; set; }
 
     /// <summary>
@@ -366,8 +366,8 @@ public class GoogleComputeImage : TerraformResource
     /// * The rawDisk.source URL
     /// * The sourceDisk URL
     /// </summary>
-    [TerraformPropertyName("source_image")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_image")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceImage { get; set; }
 
     /// <summary>
@@ -381,8 +381,8 @@ public class GoogleComputeImage : TerraformResource
     /// * The rawDisk.source URL
     /// * The sourceDisk URL
     /// </summary>
-    [TerraformPropertyName("source_snapshot")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_snapshot")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceSnapshot { get; set; }
 
     /// <summary>
@@ -390,15 +390,15 @@ public class GoogleComputeImage : TerraformResource
     /// (regional or multi-regional).
     /// Reference link: https://cloud.google.com/compute/docs/reference/rest/v1/images
     /// </summary>
-    [TerraformPropertyName("storage_locations")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> StorageLocations { get; set; } = default!;
+    [TerraformProperty("storage_locations")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> StorageLocations { get; set; }
 
     /// <summary>
     /// Block for guest_os_features.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("guest_os_features")]
+    [TerraformProperty("guest_os_features")]
     public TerraformSet<TerraformBlock<GoogleComputeImageGuestOsFeaturesBlock>>? GuestOsFeatures { get; set; }
 
     /// <summary>
@@ -406,7 +406,7 @@ public class GoogleComputeImage : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageEncryptionKey block(s) allowed")]
-    [TerraformPropertyName("image_encryption_key")]
+    [TerraformProperty("image_encryption_key")]
     public TerraformList<TerraformBlock<GoogleComputeImageImageEncryptionKeyBlock>>? ImageEncryptionKey { get; set; }
 
     /// <summary>
@@ -414,7 +414,7 @@ public class GoogleComputeImage : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RawDisk block(s) allowed")]
-    [TerraformPropertyName("raw_disk")]
+    [TerraformProperty("raw_disk")]
     public TerraformList<TerraformBlock<GoogleComputeImageRawDiskBlock>>? RawDisk { get; set; }
 
     /// <summary>
@@ -422,7 +422,7 @@ public class GoogleComputeImage : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShieldedInstanceInitialState block(s) allowed")]
-    [TerraformPropertyName("shielded_instance_initial_state")]
+    [TerraformProperty("shielded_instance_initial_state")]
     public TerraformList<TerraformBlock<GoogleComputeImageShieldedInstanceInitialStateBlock>>? ShieldedInstanceInitialState { get; set; }
 
     /// <summary>
@@ -430,7 +430,7 @@ public class GoogleComputeImage : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceDiskEncryptionKey block(s) allowed")]
-    [TerraformPropertyName("source_disk_encryption_key")]
+    [TerraformProperty("source_disk_encryption_key")]
     public TerraformList<TerraformBlock<GoogleComputeImageSourceDiskEncryptionKeyBlock>>? SourceDiskEncryptionKey { get; set; }
 
     /// <summary>
@@ -438,7 +438,7 @@ public class GoogleComputeImage : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageEncryptionKey block(s) allowed")]
-    [TerraformPropertyName("source_image_encryption_key")]
+    [TerraformProperty("source_image_encryption_key")]
     public TerraformList<TerraformBlock<GoogleComputeImageSourceImageEncryptionKeyBlock>>? SourceImageEncryptionKey { get; set; }
 
     /// <summary>
@@ -446,59 +446,59 @@ public class GoogleComputeImage : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceSnapshotEncryptionKey block(s) allowed")]
-    [TerraformPropertyName("source_snapshot_encryption_key")]
+    [TerraformProperty("source_snapshot_encryption_key")]
     public TerraformList<TerraformBlock<GoogleComputeImageSourceSnapshotEncryptionKeyBlock>>? SourceSnapshotEncryptionKey { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeImageTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Size of the image tar.gz archive stored in Google Cloud Storage (in
     /// bytes).
     /// </summary>
-    [TerraformPropertyName("archive_size_bytes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ArchiveSizeBytes => new TerraformReference(this, "archive_size_bytes");
+    [TerraformProperty("archive_size_bytes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ArchiveSizeBytes { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource. Used
     /// internally during updates.
     /// </summary>
-    [TerraformPropertyName("label_fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
+    [TerraformProperty("label_fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

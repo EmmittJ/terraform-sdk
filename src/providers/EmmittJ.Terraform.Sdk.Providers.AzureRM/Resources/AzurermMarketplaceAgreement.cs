@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMarketplaceAgreementTimeoutsBlock
+public partial class AzurermMarketplaceAgreementTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermMarketplaceAgreementTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_marketplace_agreement resource.
 /// </summary>
-public class AzurermMarketplaceAgreement : TerraformResource
+public partial class AzurermMarketplaceAgreement : TerraformResource
 {
     public AzurermMarketplaceAgreement(string name) : base("azurerm_marketplace_agreement", name)
     {
@@ -43,53 +43,53 @@ public class AzurermMarketplaceAgreement : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The offer attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
-    [TerraformPropertyName("offer")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("offer")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Offer { get; set; }
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plan is required")]
-    [TerraformPropertyName("plan")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("plan")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Plan { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    [TerraformPropertyName("publisher")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("publisher")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Publisher { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMarketplaceAgreementTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The license_text_link attribute.
     /// </summary>
-    [TerraformPropertyName("license_text_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LicenseTextLink => new TerraformReference(this, "license_text_link");
+    [TerraformProperty("license_text_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LicenseTextLink { get; }
 
     /// <summary>
     /// The privacy_policy_link attribute.
     /// </summary>
-    [TerraformPropertyName("privacy_policy_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrivacyPolicyLink => new TerraformReference(this, "privacy_policy_link");
+    [TerraformProperty("privacy_policy_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrivacyPolicyLink { get; }
 
 }

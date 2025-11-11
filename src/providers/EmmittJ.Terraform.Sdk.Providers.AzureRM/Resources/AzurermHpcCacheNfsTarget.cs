@@ -6,36 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for namespace_junction in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock
+public partial class AzurermHpcCacheNfsTargetNamespaceJunctionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The access_policy_name attribute.
     /// </summary>
-    [TerraformPropertyName("access_policy_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("access_policy_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AccessPolicyName { get; set; }
 
     /// <summary>
     /// The namespace_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespacePath is required")]
-    [TerraformPropertyName("namespace_path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("namespace_path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NamespacePath { get; set; }
 
     /// <summary>
     /// The nfs_export attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NfsExport is required")]
-    [TerraformPropertyName("nfs_export")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("nfs_export")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NfsExport { get; set; }
 
     /// <summary>
     /// The target_path attribute.
     /// </summary>
-    [TerraformPropertyName("target_path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("target_path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TargetPath { get; set; }
 
 }
@@ -44,34 +44,34 @@ public class AzurermHpcCacheNfsTargetNamespaceJunctionBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermHpcCacheNfsTargetTimeoutsBlock
+public partial class AzurermHpcCacheNfsTargetTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -81,7 +81,7 @@ public class AzurermHpcCacheNfsTargetTimeoutsBlock
 /// </summary>
 [Obsolete("This resource is deprecated.")]
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermHpcCacheNfsTarget : TerraformResource
+public partial class AzurermHpcCacheNfsTarget : TerraformResource
 {
     public AzurermHpcCacheNfsTarget(string name) : base("azurerm_hpc_cache_nfs_target", name)
     {
@@ -91,61 +91,61 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
     /// The cache_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CacheName is required")]
-    [TerraformPropertyName("cache_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cache_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CacheName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The target_host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetHostName is required")]
-    [TerraformPropertyName("target_host_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_host_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TargetHostName { get; set; }
 
     /// <summary>
     /// The usage_model attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UsageModel is required")]
-    [TerraformPropertyName("usage_model")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("usage_model")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UsageModel { get; set; }
 
     /// <summary>
     /// The verification_timer_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("verification_timer_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("verification_timer_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? VerificationTimerInSeconds { get; set; }
 
     /// <summary>
     /// The write_back_timer_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("write_back_timer_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("write_back_timer_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? WriteBackTimerInSeconds { get; set; }
 
     /// <summary>
@@ -155,14 +155,14 @@ public class AzurermHpcCacheNfsTarget : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceJunction is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NamespaceJunction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10, ErrorMessage = "Maximum 10 NamespaceJunction block(s) allowed")]
-    [TerraformPropertyName("namespace_junction")]
+    [TerraformProperty("namespace_junction")]
     public TerraformSet<TerraformBlock<AzurermHpcCacheNfsTargetNamespaceJunctionBlock>>? NamespaceJunction { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermHpcCacheNfsTargetTimeoutsBlock>? Timeouts { get; set; }
 
 }

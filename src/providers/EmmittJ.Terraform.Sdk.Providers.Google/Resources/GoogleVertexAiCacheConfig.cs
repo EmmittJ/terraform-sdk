@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVertexAiCacheConfigTimeoutsBlock
+public partial class GoogleVertexAiCacheConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleVertexAiCacheConfigTimeoutsBlock
 /// <summary>
 /// Manages a google_vertex_ai_cache_config resource.
 /// </summary>
-public class GoogleVertexAiCacheConfig : TerraformResource
+public partial class GoogleVertexAiCacheConfig : TerraformResource
 {
     public GoogleVertexAiCacheConfig(string name) : base("google_vertex_ai_cache_config", name)
     {
@@ -44,36 +44,36 @@ public class GoogleVertexAiCacheConfig : TerraformResource
     /// If set to true, disables GenAI caching. Otherwise caching is enabled.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisableCache is required")]
-    [TerraformPropertyName("disable_cache")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("disable_cache")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> DisableCache { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleVertexAiCacheConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Identifier. name of the cache config. Format: - &#39;projects/{project}/cacheConfig&#39;.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

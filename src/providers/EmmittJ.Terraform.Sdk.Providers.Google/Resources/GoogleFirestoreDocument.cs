@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirestoreDocumentTimeoutsBlock
+public partial class GoogleFirestoreDocumentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleFirestoreDocumentTimeoutsBlock
 /// <summary>
 /// Manages a google_firestore_document resource.
 /// </summary>
-public class GoogleFirestoreDocument : TerraformResource
+public partial class GoogleFirestoreDocument : TerraformResource
 {
     public GoogleFirestoreDocument(string name) : base("google_firestore_document", name)
     {
@@ -44,81 +44,81 @@ public class GoogleFirestoreDocument : TerraformResource
     /// The collection ID, relative to database. For example: chatrooms or chatrooms/my-document/private-messages.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
-    [TerraformPropertyName("collection")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("collection")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Collection { get; set; }
 
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
-    [TerraformPropertyName("database")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("database")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Database { get; set; }
 
     /// <summary>
     /// The client-assigned document ID to use for this document during creation.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentId is required")]
-    [TerraformPropertyName("document_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("document_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DocumentId { get; set; }
 
     /// <summary>
     /// The document&#39;s [fields](https://cloud.google.com/firestore/docs/reference/rest/v1/projects.databases.documents) formated as a json string.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fields is required")]
-    [TerraformPropertyName("fields")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("fields")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Fields { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleFirestoreDocumentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 format.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// A server defined name for this document. Format:
     /// &#39;projects/{{project_id}}/databases/{{database_id}}/documents/{{path}}/{{document_id}}&#39;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// A relative path to the collection this document exists within
     /// </summary>
-    [TerraformPropertyName("path")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Path => new TerraformReference(this, "path");
+    [TerraformProperty("path")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Path { get; }
 
     /// <summary>
     /// Last update timestamp in RFC3339 format.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

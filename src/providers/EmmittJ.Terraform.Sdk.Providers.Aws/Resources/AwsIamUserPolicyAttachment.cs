@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_iam_user_policy_attachment resource.
 /// </summary>
-public class AwsIamUserPolicyAttachment : TerraformResource
+public partial class AwsIamUserPolicyAttachment : TerraformResource
 {
     public AwsIamUserPolicyAttachment(string name) : base("aws_iam_user_policy_attachment", name)
     {
@@ -14,24 +14,24 @@ public class AwsIamUserPolicyAttachment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArn is required")]
-    [TerraformPropertyName("policy_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PolicyArn { get; set; }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
-    [TerraformPropertyName("user")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> User { get; set; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermOracleGiVersionsDataSourceTimeoutsBlock
+public partial class AzurermOracleGiVersionsDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermOracleGiVersionsDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_oracle_gi_versions.
 /// </summary>
-public class AzurermOracleGiVersionsDataSource : TerraformDataSource
+public partial class AzurermOracleGiVersionsDataSource : TerraformDataSource
 {
     public AzurermOracleGiVersionsDataSource(string name) : base("azurerm_oracle_gi_versions", name)
     {
@@ -29,44 +29,44 @@ public class AzurermOracleGiVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Filter the versions by system shape. Possible values are &#39;ExaDbXS&#39;, &#39;Exadata.X9M&#39;, and &#39;Exadata.X11M&#39;.
     /// </summary>
-    [TerraformPropertyName("shape")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("shape")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Shape { get; set; }
 
     /// <summary>
     /// Filter the versions by zone
     /// </summary>
-    [TerraformPropertyName("zone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("zone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermOracleGiVersionsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The versions attribute.
     /// </summary>
-    [TerraformPropertyName("versions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Versions => new TerraformReference(this, "versions");
+    [TerraformProperty("versions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Versions { get; }
 
 }

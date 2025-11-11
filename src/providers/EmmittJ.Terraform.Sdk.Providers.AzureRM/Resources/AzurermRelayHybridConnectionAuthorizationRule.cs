@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermRelayHybridConnectionAuthorizationRuleTimeoutsBlock
+public partial class AzurermRelayHybridConnectionAuthorizationRuleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermRelayHybridConnectionAuthorizationRuleTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_relay_hybrid_connection_authorization_rule resource.
 /// </summary>
-public class AzurermRelayHybridConnectionAuthorizationRule : TerraformResource
+public partial class AzurermRelayHybridConnectionAuthorizationRule : TerraformResource
 {
     public AzurermRelayHybridConnectionAuthorizationRule(string name) : base("azurerm_relay_hybrid_connection_authorization_rule", name)
     {
@@ -51,95 +51,95 @@ public class AzurermRelayHybridConnectionAuthorizationRule : TerraformResource
     /// The hybrid_connection_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HybridConnectionName is required")]
-    [TerraformPropertyName("hybrid_connection_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("hybrid_connection_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HybridConnectionName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The listen attribute.
     /// </summary>
-    [TerraformPropertyName("listen")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("listen")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Listen { get; set; }
 
     /// <summary>
     /// The manage attribute.
     /// </summary>
-    [TerraformPropertyName("manage")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("manage")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Manage { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NamespaceName is required")]
-    [TerraformPropertyName("namespace_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("namespace_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NamespaceName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The send attribute.
     /// </summary>
-    [TerraformPropertyName("send")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("send")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Send { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermRelayHybridConnectionAuthorizationRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
-    [TerraformPropertyName("primary_connection_string")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryConnectionString => new TerraformReference(this, "primary_connection_string");
+    [TerraformProperty("primary_connection_string")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryConnectionString { get; }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    [TerraformPropertyName("primary_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryKey => new TerraformReference(this, "primary_key");
+    [TerraformProperty("primary_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryKey { get; }
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_connection_string")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryConnectionString => new TerraformReference(this, "secondary_connection_string");
+    [TerraformProperty("secondary_connection_string")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryConnectionString { get; }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryKey => new TerraformReference(this, "secondary_key");
+    [TerraformProperty("secondary_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryKey { get; }
 
 }

@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for alert_strategy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMonitoringAlertPolicyAlertStrategyBlock
+public partial class GoogleMonitoringAlertPolicyAlertStrategyBlock : TerraformBlockBase
 {
     /// <summary>
     /// If an alert policy that was active has no data for this long, any open incidents will close.
     /// </summary>
-    [TerraformPropertyName("auto_close")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auto_close")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AutoClose { get; set; }
 
     /// <summary>
     /// Control when notifications will be sent out. Possible values: [&amp;quot;NOTIFICATION_PROMPT_UNSPECIFIED&amp;quot;, &amp;quot;OPENED&amp;quot;, &amp;quot;CLOSED&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("notification_prompts")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("notification_prompts")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? NotificationPrompts { get; set; }
 
 }
@@ -28,7 +28,7 @@ public class GoogleMonitoringAlertPolicyAlertStrategyBlock
 /// Block type for conditions in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMonitoringAlertPolicyConditionsBlock
+public partial class GoogleMonitoringAlertPolicyConditionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// A short name or phrase used to identify the
@@ -38,8 +38,8 @@ public class GoogleMonitoringAlertPolicyConditionsBlock
     /// policy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
 
@@ -49,7 +49,7 @@ public class GoogleMonitoringAlertPolicyConditionsBlock
 /// Block type for documentation in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMonitoringAlertPolicyDocumentationBlock
+public partial class GoogleMonitoringAlertPolicyDocumentationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The text of the documentation, interpreted according to mimeType.
@@ -57,16 +57,16 @@ public class GoogleMonitoringAlertPolicyDocumentationBlock
     /// exceed more than 10,240 bytes when encoded in UTF-8 format,
     /// whichever is smaller.
     /// </summary>
-    [TerraformPropertyName("content")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("content")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Content { get; set; }
 
     /// <summary>
     /// The format of the content field. Presently, only the value
     /// &amp;quot;text/markdown&amp;quot; is supported.
     /// </summary>
-    [TerraformPropertyName("mime_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("mime_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MimeType { get; set; }
 
     /// <summary>
@@ -75,8 +75,8 @@ public class GoogleMonitoringAlertPolicyDocumentationBlock
     /// of the subject line after variable expansion will be truncated to 255 bytes
     /// or shorter at the latest UTF-8 character boundary.
     /// </summary>
-    [TerraformPropertyName("subject")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subject")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Subject { get; set; }
 
 }
@@ -85,27 +85,27 @@ public class GoogleMonitoringAlertPolicyDocumentationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleMonitoringAlertPolicyTimeoutsBlock
+public partial class GoogleMonitoringAlertPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -114,7 +114,7 @@ public class GoogleMonitoringAlertPolicyTimeoutsBlock
 /// Manages a google_monitoring_alert_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleMonitoringAlertPolicy : TerraformResource
+public partial class GoogleMonitoringAlertPolicy : TerraformResource
 {
     public GoogleMonitoringAlertPolicy(string name) : base("google_monitoring_alert_policy", name)
     {
@@ -125,8 +125,8 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// determine if an incident should be opened. Possible values: [&amp;quot;AND&amp;quot;, &amp;quot;OR&amp;quot;, &amp;quot;AND_WITH_MATCHING_RESOURCE&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Combiner is required")]
-    [TerraformPropertyName("combiner")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("combiner")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Combiner { get; set; }
 
     /// <summary>
@@ -136,23 +136,23 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// name is limited to 512 Unicode characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Whether or not the policy is enabled. The default is true.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Identifies the notification channels to which notifications should be
@@ -163,24 +163,24 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// entries in this field is
     /// &#39;projects/[PROJECT_ID]/notificationChannels/[CHANNEL_ID]&#39;
     /// </summary>
-    [TerraformPropertyName("notification_channels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("notification_channels")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? NotificationChannels { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The severity of an alert policy indicates how important incidents generated
     /// by that policy are. The severity level will be displayed on the Incident
     /// detail page and in notifications. Possible values: [&amp;quot;CRITICAL&amp;quot;, &amp;quot;ERROR&amp;quot;, &amp;quot;WARNING&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("severity")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("severity")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Severity { get; set; }
 
     /// <summary>
@@ -190,8 +190,8 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// can contain only lowercase letters, numerals, underscores, and dashes. Keys
     /// must begin with a letter.
     /// </summary>
-    [TerraformPropertyName("user_labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user_labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? UserLabels { get; set; }
 
     /// <summary>
@@ -199,7 +199,7 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlertStrategy block(s) allowed")]
-    [TerraformPropertyName("alert_strategy")]
+    [TerraformProperty("alert_strategy")]
     public TerraformList<TerraformBlock<GoogleMonitoringAlertPolicyAlertStrategyBlock>>? AlertStrategy { get; set; }
 
     /// <summary>
@@ -208,7 +208,7 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Conditions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Conditions block(s) required")]
-    [TerraformPropertyName("conditions")]
+    [TerraformProperty("conditions")]
     public TerraformList<TerraformBlock<GoogleMonitoringAlertPolicyConditionsBlock>>? Conditions { get; set; }
 
     /// <summary>
@@ -216,14 +216,14 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Documentation block(s) allowed")]
-    [TerraformPropertyName("documentation")]
+    [TerraformProperty("documentation")]
     public TerraformList<TerraformBlock<GoogleMonitoringAlertPolicyDocumentationBlock>>? Documentation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleMonitoringAlertPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -231,16 +231,16 @@ public class GoogleMonitoringAlertPolicy : TerraformResource
     /// If provided in a call to create or update, this field will
     /// be ignored.
     /// </summary>
-    [TerraformPropertyName("creation_record")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CreationRecord => new TerraformReference(this, "creation_record");
+    [TerraformProperty("creation_record")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CreationRecord { get; }
 
     /// <summary>
     /// The unique resource name for this policy.
     /// Its syntax is: projects/[PROJECT_ID]/alertPolicies/[ALERT_POLICY_ID]
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

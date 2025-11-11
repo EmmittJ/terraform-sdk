@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleResourceManagerLienTimeoutsBlock
+public partial class GoogleResourceManagerLienTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class GoogleResourceManagerLienTimeoutsBlock
 /// <summary>
 /// Manages a google_resource_manager_lien resource.
 /// </summary>
-public class GoogleResourceManagerLien : TerraformResource
+public partial class GoogleResourceManagerLien : TerraformResource
 {
     public GoogleResourceManagerLien(string name) : base("google_resource_manager_lien", name)
     {
@@ -36,9 +36,9 @@ public class GoogleResourceManagerLien : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A stable, user-visible/meaningful string identifying the origin
@@ -46,8 +46,8 @@ public class GoogleResourceManagerLien : TerraformResource
     /// 200 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Origin is required")]
-    [TerraformPropertyName("origin")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("origin")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Origin { get; set; }
 
     /// <summary>
@@ -57,8 +57,8 @@ public class GoogleResourceManagerLien : TerraformResource
     /// prefix (e.g. &amp;quot;projects/my-project-name&amp;quot;).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    [TerraformPropertyName("parent")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parent")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
@@ -66,8 +66,8 @@ public class GoogleResourceManagerLien : TerraformResource
     /// on a resource. Maximum length of 200 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reason is required")]
-    [TerraformPropertyName("reason")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("reason")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Reason { get; set; }
 
     /// <summary>
@@ -78,29 +78,29 @@ public class GoogleResourceManagerLien : TerraformResource
     /// e.g. [&#39;resourcemanager.projects.delete&#39;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Restrictions is required")]
-    [TerraformPropertyName("restrictions")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("restrictions")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Restrictions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleResourceManagerLienTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time of creation
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// A system-generated unique identifier for this Lien.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

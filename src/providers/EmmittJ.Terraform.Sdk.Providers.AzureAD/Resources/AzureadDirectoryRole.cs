@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadDirectoryRoleTimeoutsBlock
+public partial class AzureadDirectoryRoleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzureadDirectoryRoleTimeoutsBlock
 /// <summary>
 /// Manages a azuread_directory_role resource.
 /// </summary>
-public class AzureadDirectoryRole : TerraformResource
+public partial class AzureadDirectoryRole : TerraformResource
 {
     public AzureadDirectoryRole(string name) : base("azuread_directory_role", name)
     {
@@ -43,43 +43,43 @@ public class AzureadDirectoryRole : TerraformResource
     /// <summary>
     /// The display name of the directory role
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DisplayName { get; set; } = default!;
+    [TerraformProperty("display_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object ID of the template associated with the directory role
     /// </summary>
-    [TerraformPropertyName("template_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> TemplateId { get; set; } = default!;
+    [TerraformProperty("template_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> TemplateId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadDirectoryRoleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description of the directory role
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The object ID of the directory role
     /// </summary>
-    [TerraformPropertyName("object_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ObjectId => new TerraformReference(this, "object_id");
+    [TerraformProperty("object_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ObjectId { get; }
 
 }

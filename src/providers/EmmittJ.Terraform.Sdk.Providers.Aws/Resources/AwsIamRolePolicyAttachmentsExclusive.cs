@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_iam_role_policy_attachments_exclusive resource.
 /// </summary>
-public class AwsIamRolePolicyAttachmentsExclusive : TerraformResource
+public partial class AwsIamRolePolicyAttachmentsExclusive : TerraformResource
 {
     public AwsIamRolePolicyAttachmentsExclusive(string name) : base("aws_iam_role_policy_attachments_exclusive", name)
     {
@@ -15,16 +15,16 @@ public class AwsIamRolePolicyAttachmentsExclusive : TerraformResource
     /// The policy_arns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArns is required")]
-    [TerraformPropertyName("policy_arns")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_arns")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> PolicyArns { get; set; }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
-    [TerraformPropertyName("role_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleName { get; set; }
 
 }

@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for guest_identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock
+public partial class AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Qualifier is required")]
-    [TerraformPropertyName("qualifier")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("qualifier")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Qualifier { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -30,22 +30,22 @@ public class AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock
 /// Block type for host_identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock
+public partial class AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Qualifier is required")]
-    [TerraformPropertyName("qualifier")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("qualifier")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Qualifier { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -54,34 +54,34 @@ public class AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock
+public partial class AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -90,7 +90,7 @@ public class AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock
 /// Manages a azurerm_logic_app_integration_account_agreement resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermLogicAppIntegrationAccountAgreement : TerraformResource
+public partial class AzurermLogicAppIntegrationAccountAgreement : TerraformResource
 {
     public AzurermLogicAppIntegrationAccountAgreement(string name) : base("azurerm_logic_app_integration_account_agreement", name)
     {
@@ -100,70 +100,70 @@ public class AzurermLogicAppIntegrationAccountAgreement : TerraformResource
     /// The agreement_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgreementType is required")]
-    [TerraformPropertyName("agreement_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("agreement_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AgreementType { get; set; }
 
     /// <summary>
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    [TerraformPropertyName("content")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("content")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Content { get; set; }
 
     /// <summary>
     /// The guest_partner_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuestPartnerName is required")]
-    [TerraformPropertyName("guest_partner_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("guest_partner_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GuestPartnerName { get; set; }
 
     /// <summary>
     /// The host_partner_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostPartnerName is required")]
-    [TerraformPropertyName("host_partner_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("host_partner_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HostPartnerName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The integration_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationAccountName is required")]
-    [TerraformPropertyName("integration_account_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("integration_account_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IntegrationAccountName { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    [TerraformPropertyName("metadata")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("metadata")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
@@ -173,7 +173,7 @@ public class AzurermLogicAppIntegrationAccountAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GuestIdentity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 GuestIdentity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GuestIdentity block(s) allowed")]
-    [TerraformPropertyName("guest_identity")]
+    [TerraformProperty("guest_identity")]
     public TerraformList<TerraformBlock<AzurermLogicAppIntegrationAccountAgreementGuestIdentityBlock>>? GuestIdentity { get; set; }
 
     /// <summary>
@@ -183,14 +183,14 @@ public class AzurermLogicAppIntegrationAccountAgreement : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostIdentity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HostIdentity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HostIdentity block(s) allowed")]
-    [TerraformPropertyName("host_identity")]
+    [TerraformProperty("host_identity")]
     public TerraformList<TerraformBlock<AzurermLogicAppIntegrationAccountAgreementHostIdentityBlock>>? HostIdentity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermLogicAppIntegrationAccountAgreementTimeoutsBlock>? Timeouts { get; set; }
 
 }

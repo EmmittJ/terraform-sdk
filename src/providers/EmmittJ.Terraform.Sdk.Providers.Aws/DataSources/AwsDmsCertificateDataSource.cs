@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_dms_certificate.
 /// </summary>
-public class AwsDmsCertificateDataSource : TerraformDataSource
+public partial class AwsDmsCertificateDataSource : TerraformDataSource
 {
     public AwsDmsCertificateDataSource(string name) : base("aws_dms_certificate", name)
     {
@@ -15,92 +15,92 @@ public class AwsDmsCertificateDataSource : TerraformDataSource
     /// The certificate_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
-    [TerraformPropertyName("certificate_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("certificate_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CertificateId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CertificateArn => new TerraformReference(this, "certificate_arn");
+    [TerraformProperty("certificate_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CertificateArn { get; }
 
     /// <summary>
     /// The certificate_creation_date attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_creation_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CertificateCreationDate => new TerraformReference(this, "certificate_creation_date");
+    [TerraformProperty("certificate_creation_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CertificateCreationDate { get; }
 
     /// <summary>
     /// The certificate_owner attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_owner")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CertificateOwner => new TerraformReference(this, "certificate_owner");
+    [TerraformProperty("certificate_owner")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CertificateOwner { get; }
 
     /// <summary>
     /// The certificate_pem attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_pem")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CertificatePem => new TerraformReference(this, "certificate_pem");
+    [TerraformProperty("certificate_pem")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CertificatePem { get; }
 
     /// <summary>
     /// The certificate_wallet attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_wallet")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CertificateWallet => new TerraformReference(this, "certificate_wallet");
+    [TerraformProperty("certificate_wallet")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CertificateWallet { get; }
 
     /// <summary>
     /// The key_length attribute.
     /// </summary>
-    [TerraformPropertyName("key_length")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> KeyLength => new TerraformReference(this, "key_length");
+    [TerraformProperty("key_length")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> KeyLength { get; }
 
     /// <summary>
     /// The signing_algorithm attribute.
     /// </summary>
-    [TerraformPropertyName("signing_algorithm")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SigningAlgorithm => new TerraformReference(this, "signing_algorithm");
+    [TerraformProperty("signing_algorithm")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SigningAlgorithm { get; }
 
     /// <summary>
     /// The valid_from_date attribute.
     /// </summary>
-    [TerraformPropertyName("valid_from_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ValidFromDate => new TerraformReference(this, "valid_from_date");
+    [TerraformProperty("valid_from_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ValidFromDate { get; }
 
     /// <summary>
     /// The valid_to_date attribute.
     /// </summary>
-    [TerraformPropertyName("valid_to_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ValidToDate => new TerraformReference(this, "valid_to_date");
+    [TerraformProperty("valid_to_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ValidToDate { get; }
 
 }

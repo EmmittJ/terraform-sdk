@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for advanced_options_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock
+public partial class GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// JSON body parsing. Supported values include: &amp;quot;DISABLED&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;STANDARD_WITH_GRAPHQL&amp;quot;. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;STANDARD_WITH_GRAPHQL&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("json_parsing")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("json_parsing")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? JsonParsing { get; set; }
 
     /// <summary>
     /// Logging level. Supported values include: &amp;quot;NORMAL&amp;quot;, &amp;quot;VERBOSE&amp;quot;. Possible values: [&amp;quot;NORMAL&amp;quot;, &amp;quot;VERBOSE&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("log_level")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("log_level")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LogLevel { get; set; }
 
     /// <summary>
     /// An optional list of case-insensitive request header names to use for resolving the callers client IP address.
     /// </summary>
-    [TerraformPropertyName("user_ip_request_headers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user_ip_request_headers")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? UserIpRequestHeaders { get; set; }
 
 }
@@ -35,7 +35,7 @@ public class GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock
 /// Block type for ddos_protection_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock
+public partial class GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Google Cloud Armor offers the following options to help protect systems against DDoS attacks:
@@ -44,8 +44,8 @@ public class GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock
     /// - ADVANCED_PREVIEW: flag to enable the security policy in preview mode. Possible values: [&amp;quot;ADVANCED&amp;quot;, &amp;quot;ADVANCED_PREVIEW&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DdosProtection is required")]
-    [TerraformPropertyName("ddos_protection")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("ddos_protection")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DdosProtection { get; set; }
 
 }
@@ -54,7 +54,7 @@ public class GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock
 /// Block type for rules in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionSecurityPolicyRulesBlock
+public partial class GoogleComputeRegionSecurityPolicyRulesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The Action to perform when the rule is matched. The following are the valid actions:
@@ -70,22 +70,22 @@ public class GoogleComputeRegionSecurityPolicyRulesBlock
     /// * throttle: limit client traffic to the configured threshold. Configure parameters for this action in rateLimitOptions. Requires rateLimitOptions to be set for this.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformPropertyName("action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// If set to true, the specified action is not enforced.
     /// </summary>
-    [TerraformPropertyName("preview")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("preview")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Preview { get; set; }
 
     /// <summary>
@@ -94,8 +94,8 @@ public class GoogleComputeRegionSecurityPolicyRulesBlock
     /// Rules are evaluated from highest to lowest priority where 0 is the highest priority and 2147483647 is the lowest priority.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformPropertyName("priority")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("priority")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Priority { get; set; }
 
 }
@@ -104,27 +104,27 @@ public class GoogleComputeRegionSecurityPolicyRulesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRegionSecurityPolicyTimeoutsBlock
+public partial class GoogleComputeRegionSecurityPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -133,7 +133,7 @@ public class GoogleComputeRegionSecurityPolicyTimeoutsBlock
 /// Block type for user_defined_fields in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock
+public partial class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The base relative to which &#39;offset&#39; is measured. Possible values are:
@@ -143,8 +143,8 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock
     /// - UDP: Points to the beginning of the UDP header, skipping over any IPv4 options or IPv6 extension headers. Not present for non-first fragments. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;, &amp;quot;TCP&amp;quot;, &amp;quot;UDP&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Base is required")]
-    [TerraformPropertyName("base")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("base")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Base { get; set; }
 
     /// <summary>
@@ -152,29 +152,29 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock
     /// Encoded as a hexadecimal number (starting with &amp;quot;0x&amp;quot;).
     /// The last byte of the field (in network byte order) corresponds to the least significant byte of the mask.
     /// </summary>
-    [TerraformPropertyName("mask")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("mask")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Mask { get; set; }
 
     /// <summary>
     /// The name of this field. Must be unique within the policy.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Offset of the first byte of the field (in network byte order) relative to &#39;base&#39;.
     /// </summary>
-    [TerraformPropertyName("offset")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("offset")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Offset { get; set; }
 
     /// <summary>
     /// Size of the field in bytes. Valid values: 1-4.
     /// </summary>
-    [TerraformPropertyName("size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Size { get; set; }
 
 }
@@ -183,7 +183,7 @@ public class GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock
 /// Manages a google_compute_region_security_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputeRegionSecurityPolicy : TerraformResource
+public partial class GoogleComputeRegionSecurityPolicy : TerraformResource
 {
     public GoogleComputeRegionSecurityPolicy(string name) : base("google_compute_region_security_policy", name)
     {
@@ -192,40 +192,40 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035.
     /// Specifically, the name must be 1-63 characters long and match the regular expression [a-z]([-a-z0-9]*[a-z0-9])? which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The Region in which the created Region Security Policy should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The type indicates the intended use of the security policy.
@@ -234,8 +234,8 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
     /// - CLOUD_ARMOR_NETWORK: Cloud Armor network policies can be configured to filter packets targeting network load balancing resources such as backend services, target pools, target instances, and instances with external IPs. They filter requests before the request is served from the application.
     /// This field can be set only at resource creation time. Possible values: [&amp;quot;CLOUD_ARMOR&amp;quot;, &amp;quot;CLOUD_ARMOR_EDGE&amp;quot;, &amp;quot;CLOUD_ARMOR_NETWORK&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
@@ -243,7 +243,7 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedOptionsConfig block(s) allowed")]
-    [TerraformPropertyName("advanced_options_config")]
+    [TerraformProperty("advanced_options_config")]
     public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyAdvancedOptionsConfigBlock>>? AdvancedOptionsConfig { get; set; }
 
     /// <summary>
@@ -251,57 +251,57 @@ public class GoogleComputeRegionSecurityPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DdosProtectionConfig block(s) allowed")]
-    [TerraformPropertyName("ddos_protection_config")]
+    [TerraformProperty("ddos_protection_config")]
     public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyDdosProtectionConfigBlock>>? DdosProtectionConfig { get; set; }
 
     /// <summary>
     /// Block for rules.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("rules")]
+    [TerraformProperty("rules")]
     public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyRulesBlock>>? Rules { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeRegionSecurityPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for user_defined_fields.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("user_defined_fields")]
+    [TerraformProperty("user_defined_fields")]
     public TerraformList<TerraformBlock<GoogleComputeRegionSecurityPolicyUserDefinedFieldsBlock>>? UserDefinedFields { get; set; }
 
     /// <summary>
     /// Fingerprint of this resource. This field is used internally during
     /// updates of this resource.
     /// </summary>
-    [TerraformPropertyName("fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
+    [TerraformProperty("fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fingerprint { get; }
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
-    [TerraformPropertyName("policy_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PolicyId => new TerraformReference(this, "policy_id");
+    [TerraformProperty("policy_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PolicyId { get; }
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Server-defined URL for this resource with the resource id.
     /// </summary>
-    [TerraformPropertyName("self_link_with_policy_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLinkWithPolicyId => new TerraformReference(this, "self_link_with_policy_id");
+    [TerraformProperty("self_link_with_policy_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLinkWithPolicyId { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_bigquery_datasets.
 /// </summary>
-public class GoogleBigqueryDatasetsDataSource : TerraformDataSource
+public partial class GoogleBigqueryDatasetsDataSource : TerraformDataSource
 {
     public GoogleBigqueryDatasetsDataSource(string name) : base("google_bigquery_datasets", name)
     {
@@ -14,22 +14,22 @@ public class GoogleBigqueryDatasetsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID of the project in which the datasets are located. If it is not provided, the provider project is used.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The datasets attribute.
     /// </summary>
-    [TerraformPropertyName("datasets")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Datasets => new TerraformReference(this, "datasets");
+    [TerraformProperty("datasets")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Datasets { get; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleActiveDirectoryDomainTimeoutsBlock
+public partial class GoogleActiveDirectoryDomainTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleActiveDirectoryDomainTimeoutsBlock
 /// <summary>
 /// Manages a google_active_directory_domain resource.
 /// </summary>
-public class GoogleActiveDirectoryDomain : TerraformResource
+public partial class GoogleActiveDirectoryDomain : TerraformResource
 {
     public GoogleActiveDirectoryDomain(string name) : base("google_active_directory_domain", name)
     {
@@ -44,16 +44,16 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// The name of delegated administrator account used to perform Active Directory operations.
     /// If not specified, setupadmin will be used.
     /// </summary>
-    [TerraformPropertyName("admin")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("admin")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Admin { get; set; }
 
     /// <summary>
     /// The full names of the Google Compute Engine networks the domain instance is connected to. The domain is only available on networks listed in authorizedNetworks.
     /// If CIDR subnets overlap between networks, domain creation will fail.
     /// </summary>
-    [TerraformPropertyName("authorized_networks")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("authorized_networks")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? AuthorizedNetworks { get; set; }
 
     /// <summary>
@@ -64,8 +64,8 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the domain will fail.
     /// When the field is set to false, deleting the domain is allowed.
     /// </summary>
-    [TerraformPropertyName("deletion_protection")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deletion_protection")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
@@ -73,16 +73,16 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// of https://cloud.google.com/managed-microsoft-ad/reference/rest/v1/projects.locations.global.domains.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    [TerraformPropertyName("domain_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("domain_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource labels that can contain user-provided metadata
@@ -90,8 +90,8 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -99,61 +99,61 @@ public class GoogleActiveDirectoryDomain : TerraformResource
     /// e.g. us-west1 or us-east4 Service supports up to 4 locations at once. Each location will use a /26 block.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Locations is required")]
-    [TerraformPropertyName("locations")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("locations")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Locations { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The CIDR range of internal addresses that are reserved for this domain. Reserved networks must be /24 or larger.
     /// Ranges must be unique and non-overlapping with existing subnets in authorizedNetworks
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedIpRange is required")]
-    [TerraformPropertyName("reserved_ip_range")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("reserved_ip_range")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ReservedIpRange { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleActiveDirectoryDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The fully-qualified domain name of the exposed domain used by clients to connect to the service.
     /// Similar to what would be chosen for an Active Directory set up on an internal network.
     /// </summary>
-    [TerraformPropertyName("fqdn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fqdn => new TerraformReference(this, "fqdn");
+    [TerraformProperty("fqdn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fqdn { get; }
 
     /// <summary>
     /// The unique name of the domain using the format: &#39;projects/{project}/locations/global/domains/{domainName}&#39;.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

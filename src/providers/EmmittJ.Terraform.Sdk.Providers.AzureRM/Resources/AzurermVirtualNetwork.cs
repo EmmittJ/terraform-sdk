@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for ddos_protection_plan in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVirtualNetworkDdosProtectionPlanBlock
+public partial class AzurermVirtualNetworkDdosProtectionPlanBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enable attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enable is required")]
-    [TerraformPropertyName("enable")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enable")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enable { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
 }
@@ -30,14 +30,14 @@ public class AzurermVirtualNetworkDdosProtectionPlanBlock
 /// Block type for encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVirtualNetworkEncryptionBlock
+public partial class AzurermVirtualNetworkEncryptionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enforcement attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enforcement is required")]
-    [TerraformPropertyName("enforcement")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enforcement")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Enforcement { get; set; }
 
 }
@@ -46,23 +46,23 @@ public class AzurermVirtualNetworkEncryptionBlock
 /// Block type for ip_address_pool in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVirtualNetworkIpAddressPoolBlock
+public partial class AzurermVirtualNetworkIpAddressPoolBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The number_of_ip_addresses attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NumberOfIpAddresses is required")]
-    [TerraformPropertyName("number_of_ip_addresses")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("number_of_ip_addresses")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NumberOfIpAddresses { get; set; }
 
 }
@@ -71,34 +71,34 @@ public class AzurermVirtualNetworkIpAddressPoolBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualNetworkTimeoutsBlock
+public partial class AzurermVirtualNetworkTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -107,7 +107,7 @@ public class AzurermVirtualNetworkTimeoutsBlock
 /// Manages a azurerm_virtual_network resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermVirtualNetwork : TerraformResource
+public partial class AzurermVirtualNetwork : TerraformResource
 {
     public AzurermVirtualNetwork(string name) : base("azurerm_virtual_network", name)
     {
@@ -116,88 +116,88 @@ public class AzurermVirtualNetwork : TerraformResource
     /// <summary>
     /// The address_space attribute.
     /// </summary>
-    [TerraformPropertyName("address_space")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("address_space")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? AddressSpace { get; set; }
 
     /// <summary>
     /// The bgp_community attribute.
     /// </summary>
-    [TerraformPropertyName("bgp_community")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bgp_community")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BgpCommunity { get; set; }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    [TerraformPropertyName("dns_servers")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> DnsServers { get; set; } = default!;
+    [TerraformProperty("dns_servers")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> DnsServers { get; set; }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    [TerraformPropertyName("edge_zone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("edge_zone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EdgeZone { get; set; }
 
     /// <summary>
     /// The flow_timeout_in_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("flow_timeout_in_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("flow_timeout_in_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? FlowTimeoutInMinutes { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The private_endpoint_vnet_policies attribute.
     /// </summary>
-    [TerraformPropertyName("private_endpoint_vnet_policies")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_endpoint_vnet_policies")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrivateEndpointVnetPolicies { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The subnet attribute.
     /// </summary>
-    [TerraformPropertyName("subnet")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<object> Subnet { get; set; } = default!;
+    [TerraformProperty("subnet")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<object> Subnet { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -205,7 +205,7 @@ public class AzurermVirtualNetwork : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DdosProtectionPlan block(s) allowed")]
-    [TerraformPropertyName("ddos_protection_plan")]
+    [TerraformProperty("ddos_protection_plan")]
     public TerraformList<TerraformBlock<AzurermVirtualNetworkDdosProtectionPlanBlock>>? DdosProtectionPlan { get; set; }
 
     /// <summary>
@@ -213,7 +213,7 @@ public class AzurermVirtualNetwork : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Encryption block(s) allowed")]
-    [TerraformPropertyName("encryption")]
+    [TerraformProperty("encryption")]
     public TerraformList<TerraformBlock<AzurermVirtualNetworkEncryptionBlock>>? Encryption { get; set; }
 
     /// <summary>
@@ -221,21 +221,21 @@ public class AzurermVirtualNetwork : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 IpAddressPool block(s) allowed")]
-    [TerraformPropertyName("ip_address_pool")]
+    [TerraformProperty("ip_address_pool")]
     public TerraformList<TerraformBlock<AzurermVirtualNetworkIpAddressPoolBlock>>? IpAddressPool { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermVirtualNetworkTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
-    [TerraformPropertyName("guid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Guid => new TerraformReference(this, "guid");
+    [TerraformProperty("guid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Guid { get; }
 
 }

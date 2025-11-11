@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_s3_account_public_access_block.
 /// </summary>
-public class AwsS3AccountPublicAccessBlockDataSource : TerraformDataSource
+public partial class AwsS3AccountPublicAccessBlockDataSource : TerraformDataSource
 {
     public AwsS3AccountPublicAccessBlockDataSource(string name) : base("aws_s3_account_public_access_block", name)
     {
@@ -14,43 +14,43 @@ public class AwsS3AccountPublicAccessBlockDataSource : TerraformDataSource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    [TerraformPropertyName("account_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("account_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The block_public_acls attribute.
     /// </summary>
-    [TerraformPropertyName("block_public_acls")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> BlockPublicAcls => new TerraformReference(this, "block_public_acls");
+    [TerraformProperty("block_public_acls")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> BlockPublicAcls { get; }
 
     /// <summary>
     /// The block_public_policy attribute.
     /// </summary>
-    [TerraformPropertyName("block_public_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> BlockPublicPolicy => new TerraformReference(this, "block_public_policy");
+    [TerraformProperty("block_public_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> BlockPublicPolicy { get; }
 
     /// <summary>
     /// The ignore_public_acls attribute.
     /// </summary>
-    [TerraformPropertyName("ignore_public_acls")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> IgnorePublicAcls => new TerraformReference(this, "ignore_public_acls");
+    [TerraformProperty("ignore_public_acls")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> IgnorePublicAcls { get; }
 
     /// <summary>
     /// The restrict_public_buckets attribute.
     /// </summary>
-    [TerraformPropertyName("restrict_public_buckets")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> RestrictPublicBuckets => new TerraformReference(this, "restrict_public_buckets");
+    [TerraformProperty("restrict_public_buckets")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> RestrictPublicBuckets { get; }
 
 }

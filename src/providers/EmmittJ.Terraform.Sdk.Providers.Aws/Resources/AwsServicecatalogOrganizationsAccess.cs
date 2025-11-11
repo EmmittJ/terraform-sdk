@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsServicecatalogOrganizationsAccessTimeoutsBlock
+public partial class AwsServicecatalogOrganizationsAccessTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsServicecatalogOrganizationsAccessTimeoutsBlock
 /// <summary>
 /// Manages a aws_servicecatalog_organizations_access resource.
 /// </summary>
-public class AwsServicecatalogOrganizationsAccess : TerraformResource
+public partial class AwsServicecatalogOrganizationsAccess : TerraformResource
 {
     public AwsServicecatalogOrganizationsAccess(string name) : base("aws_servicecatalog_organizations_access", name)
     {
@@ -30,22 +30,22 @@ public class AwsServicecatalogOrganizationsAccess : TerraformResource
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsServicecatalogOrganizationsAccessTimeoutsBlock>? Timeouts { get; set; }
 
 }

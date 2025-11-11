@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_folders.
 /// </summary>
-public class GoogleFoldersDataSource : TerraformDataSource
+public partial class GoogleFoldersDataSource : TerraformDataSource
 {
     public GoogleFoldersDataSource(string name) : base("google_folders", name)
     {
@@ -14,23 +14,23 @@ public class GoogleFoldersDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentId is required")]
-    [TerraformPropertyName("parent_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parent_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ParentId { get; set; }
 
     /// <summary>
     /// The folders attribute.
     /// </summary>
-    [TerraformPropertyName("folders")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Folders => new TerraformReference(this, "folders");
+    [TerraformProperty("folders")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Folders { get; }
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for desired_user_created_endpoints in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCreatedEndpointsBlock
+public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCreatedEndpointsBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCrea
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeoutsBlock
+public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -42,7 +42,7 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeoutsBlock
 /// <summary>
 /// Manages a google_memorystore_instance_desired_user_created_endpoints resource.
 /// </summary>
-public class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints : TerraformResource
+public partial class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints : TerraformResource
 {
     public GoogleMemorystoreInstanceDesiredUserCreatedEndpoints(string name) : base("google_memorystore_instance_desired_user_created_endpoints", name)
     {
@@ -51,45 +51,45 @@ public class GoogleMemorystoreInstanceDesiredUserCreatedEndpoints : TerraformRes
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Memorystore instance these endpoints should be added to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The name of the region of the Memorystore instance these endpoints should be added to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
-    [TerraformPropertyName("region")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("region")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for desired_user_created_endpoints.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("desired_user_created_endpoints")]
+    [TerraformProperty("desired_user_created_endpoints")]
     public TerraformList<TerraformBlock<GoogleMemorystoreInstanceDesiredUserCreatedEndpointsDesiredUserCreatedEndpointsBlock>>? DesiredUserCreatedEndpoints { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleMemorystoreInstanceDesiredUserCreatedEndpointsTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDevTestVirtualNetworkDataSourceTimeoutsBlock
+public partial class AzurermDevTestVirtualNetworkDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermDevTestVirtualNetworkDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_dev_test_virtual_network.
 /// </summary>
-public class AzurermDevTestVirtualNetworkDataSource : TerraformDataSource
+public partial class AzurermDevTestVirtualNetworkDataSource : TerraformDataSource
 {
     public AzurermDevTestVirtualNetworkDataSource(string name) : base("azurerm_dev_test_virtual_network", name)
     {
@@ -29,60 +29,60 @@ public class AzurermDevTestVirtualNetworkDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The lab_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
-    [TerraformPropertyName("lab_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("lab_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LabName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermDevTestVirtualNetworkDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The allowed_subnets attribute.
     /// </summary>
-    [TerraformPropertyName("allowed_subnets")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> AllowedSubnets => new TerraformReference(this, "allowed_subnets");
+    [TerraformProperty("allowed_subnets")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> AllowedSubnets { get; }
 
     /// <summary>
     /// The subnet_overrides attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_overrides")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SubnetOverrides => new TerraformReference(this, "subnet_overrides");
+    [TerraformProperty("subnet_overrides")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SubnetOverrides { get; }
 
     /// <summary>
     /// The unique_identifier attribute.
     /// </summary>
-    [TerraformPropertyName("unique_identifier")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UniqueIdentifier => new TerraformReference(this, "unique_identifier");
+    [TerraformProperty("unique_identifier")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UniqueIdentifier { get; }
 
 }

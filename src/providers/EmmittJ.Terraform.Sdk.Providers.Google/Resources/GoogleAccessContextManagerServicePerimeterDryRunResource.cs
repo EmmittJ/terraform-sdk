@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAccessContextManagerServicePerimeterDryRunResourceTimeoutsBlock
+public partial class GoogleAccessContextManagerServicePerimeterDryRunResourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class GoogleAccessContextManagerServicePerimeterDryRunResourceTimeoutsBlo
 /// <summary>
 /// Manages a google_access_context_manager_service_perimeter_dry_run_resource resource.
 /// </summary>
-public class GoogleAccessContextManagerServicePerimeterDryRunResource : TerraformResource
+public partial class GoogleAccessContextManagerServicePerimeterDryRunResource : TerraformResource
 {
     public GoogleAccessContextManagerServicePerimeterDryRunResource(string name) : base("google_access_context_manager_service_perimeter_dry_run_resource", name)
     {
@@ -36,16 +36,16 @@ public class GoogleAccessContextManagerServicePerimeterDryRunResource : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Service Perimeter to add this resource to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PerimeterName is required")]
-    [TerraformPropertyName("perimeter_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("perimeter_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PerimeterName { get; set; }
 
     /// <summary>
@@ -54,29 +54,29 @@ public class GoogleAccessContextManagerServicePerimeterDryRunResource : Terrafor
     /// Format: projects/{project_number}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resource is required")]
-    [TerraformPropertyName("resource")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Resource { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleAccessContextManagerServicePerimeterDryRunResourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The name of the Access Policy this resource belongs to.
     /// </summary>
-    [TerraformPropertyName("access_policy_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AccessPolicyId => new TerraformReference(this, "access_policy_id");
+    [TerraformProperty("access_policy_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AccessPolicyId { get; }
 
     /// <summary>
     /// The perimeter etag is internally used to prevent overwriting the list of perimeter resources on PATCH calls. It is retrieved from the same GET perimeter API call that&#39;s used to get the current list of resources. The resource to add or remove is merged into that list and then this etag is sent with the PATCH call along with the updated resource list.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
 }

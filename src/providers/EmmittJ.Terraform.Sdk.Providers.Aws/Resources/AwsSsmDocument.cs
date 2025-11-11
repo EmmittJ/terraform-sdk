@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attachments_source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSsmDocumentAttachmentsSourceBlock
+public partial class AwsSsmDocumentAttachmentsSourceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformPropertyName("key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    [TerraformPropertyName("values")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("values")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Values { get; set; }
 
 }
@@ -37,7 +37,7 @@ public class AwsSsmDocumentAttachmentsSourceBlock
 /// Manages a aws_ssm_document resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsSsmDocument : TerraformResource
+public partial class AwsSsmDocument : TerraformResource
 {
     public AwsSsmDocument(string name) : base("aws_ssm_document", name)
     {
@@ -47,80 +47,80 @@ public class AwsSsmDocument : TerraformResource
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    [TerraformPropertyName("content")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("content")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Content { get; set; }
 
     /// <summary>
     /// The document_format attribute.
     /// </summary>
-    [TerraformPropertyName("document_format")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("document_format")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DocumentFormat { get; set; }
 
     /// <summary>
     /// The document_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DocumentType is required")]
-    [TerraformPropertyName("document_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("document_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DocumentType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    [TerraformPropertyName("permissions")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("permissions")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Permissions { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    [TerraformPropertyName("target_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("target_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TargetType { get; set; }
 
     /// <summary>
     /// The version_name attribute.
     /// </summary>
-    [TerraformPropertyName("version_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VersionName { get; set; }
 
     /// <summary>
@@ -128,98 +128,98 @@ public class AwsSsmDocument : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 AttachmentsSource block(s) allowed")]
-    [TerraformPropertyName("attachments_source")]
+    [TerraformProperty("attachments_source")]
     public TerraformList<TerraformBlock<AwsSsmDocumentAttachmentsSourceBlock>>? AttachmentsSource { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
-    [TerraformPropertyName("created_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedDate => new TerraformReference(this, "created_date");
+    [TerraformProperty("created_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The default_version attribute.
     /// </summary>
-    [TerraformPropertyName("default_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultVersion => new TerraformReference(this, "default_version");
+    [TerraformProperty("default_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultVersion { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The document_version attribute.
     /// </summary>
-    [TerraformPropertyName("document_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DocumentVersion => new TerraformReference(this, "document_version");
+    [TerraformProperty("document_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DocumentVersion { get; }
 
     /// <summary>
     /// The hash attribute.
     /// </summary>
-    [TerraformPropertyName("hash")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Hash => new TerraformReference(this, "hash");
+    [TerraformProperty("hash")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Hash { get; }
 
     /// <summary>
     /// The hash_type attribute.
     /// </summary>
-    [TerraformPropertyName("hash_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> HashType => new TerraformReference(this, "hash_type");
+    [TerraformProperty("hash_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> HashType { get; }
 
     /// <summary>
     /// The latest_version attribute.
     /// </summary>
-    [TerraformPropertyName("latest_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LatestVersion => new TerraformReference(this, "latest_version");
+    [TerraformProperty("latest_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LatestVersion { get; }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    [TerraformPropertyName("owner")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Owner => new TerraformReference(this, "owner");
+    [TerraformProperty("owner")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Owner { get; }
 
     /// <summary>
     /// The parameter attribute.
     /// </summary>
-    [TerraformPropertyName("parameter")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Parameter => new TerraformReference(this, "parameter");
+    [TerraformProperty("parameter")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Parameter { get; }
 
     /// <summary>
     /// The platform_types attribute.
     /// </summary>
-    [TerraformPropertyName("platform_types")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> PlatformTypes => new TerraformReference(this, "platform_types");
+    [TerraformProperty("platform_types")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> PlatformTypes { get; }
 
     /// <summary>
     /// The schema_version attribute.
     /// </summary>
-    [TerraformPropertyName("schema_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SchemaVersion => new TerraformReference(this, "schema_version");
+    [TerraformProperty("schema_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SchemaVersion { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

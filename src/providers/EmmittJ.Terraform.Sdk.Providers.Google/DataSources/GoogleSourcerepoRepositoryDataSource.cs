@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_sourcerepo_repository.
 /// </summary>
-public class GoogleSourcerepoRepositoryDataSource : TerraformDataSource
+public partial class GoogleSourcerepoRepositoryDataSource : TerraformDataSource
 {
     public GoogleSourcerepoRepositoryDataSource(string name) : base("google_sourcerepo_repository", name)
     {
@@ -14,53 +14,53 @@ public class GoogleSourcerepoRepositoryDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource name of the repository, of the form &#39;{{repo}}&#39;.
     /// The repo name may contain slashes. eg, &#39;name/with/slash&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// If set to true, skip repository creation if a repository with the same name already exists.
     /// </summary>
-    [TerraformPropertyName("create_ignore_already_exists")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> CreateIgnoreAlreadyExists => new TerraformReference(this, "create_ignore_already_exists");
+    [TerraformProperty("create_ignore_already_exists")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> CreateIgnoreAlreadyExists { get; }
 
     /// <summary>
     /// How this repository publishes a change in the repository through Cloud Pub/Sub.
     /// Keyed by the topic names.
     /// </summary>
-    [TerraformPropertyName("pubsub_configs")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> PubsubConfigs => new TerraformReference(this, "pubsub_configs");
+    [TerraformProperty("pubsub_configs")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> PubsubConfigs { get; }
 
     /// <summary>
     /// The disk usage of the repo, in bytes.
     /// </summary>
-    [TerraformPropertyName("size")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Size => new TerraformReference(this, "size");
+    [TerraformProperty("size")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Size { get; }
 
     /// <summary>
     /// URL to clone the repository from Google Cloud Source Repositories.
     /// </summary>
-    [TerraformPropertyName("url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Url => new TerraformReference(this, "url");
+    [TerraformProperty("url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Url { get; }
 
 }

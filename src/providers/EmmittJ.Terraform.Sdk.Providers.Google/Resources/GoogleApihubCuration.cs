@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for endpoint in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleApihubCurationEndpointBlock
+public partial class GoogleApihubCurationEndpointBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class GoogleApihubCurationEndpointBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApihubCurationTimeoutsBlock
+public partial class GoogleApihubCurationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class GoogleApihubCurationTimeoutsBlock
 /// Manages a google_apihub_curation resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleApihubCuration : TerraformResource
+public partial class GoogleApihubCuration : TerraformResource
 {
     public GoogleApihubCuration(string name) : base("google_apihub_curation", name)
     {
@@ -62,46 +62,46 @@ public class GoogleApihubCuration : TerraformResource
     /// are /a-z[0-9]-_/.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CurationId is required")]
-    [TerraformPropertyName("curation_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("curation_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CurationId { get; set; }
 
     /// <summary>
     /// The description of the curation.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display name of the curation.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for endpoint.
@@ -110,22 +110,22 @@ public class GoogleApihubCuration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Endpoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Endpoint block(s) allowed")]
-    [TerraformPropertyName("endpoint")]
+    [TerraformProperty("endpoint")]
     public TerraformList<TerraformBlock<GoogleApihubCurationEndpointBlock>>? Endpoint { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleApihubCurationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time at which the curation was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The error code of the last execution of the curation. The error code is
@@ -135,17 +135,17 @@ public class GoogleApihubCuration : TerraformResource
     /// INTERNAL_ERROR
     /// UNAUTHORIZED
     /// </summary>
-    [TerraformPropertyName("last_execution_error_code")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastExecutionErrorCode => new TerraformReference(this, "last_execution_error_code");
+    [TerraformProperty("last_execution_error_code")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastExecutionErrorCode { get; }
 
     /// <summary>
     /// Error message describing the failure, if any, during the last execution of
     /// the curation.
     /// </summary>
-    [TerraformPropertyName("last_execution_error_message")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastExecutionErrorMessage => new TerraformReference(this, "last_execution_error_message");
+    [TerraformProperty("last_execution_error_message")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastExecutionErrorMessage { get; }
 
     /// <summary>
     /// The last execution state of the curation.
@@ -154,9 +154,9 @@ public class GoogleApihubCuration : TerraformResource
     /// SUCCEEDED
     /// FAILED
     /// </summary>
-    [TerraformPropertyName("last_execution_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastExecutionState => new TerraformReference(this, "last_execution_state");
+    [TerraformProperty("last_execution_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastExecutionState { get; }
 
     /// <summary>
     /// Identifier. The name of the curation.
@@ -164,24 +164,24 @@ public class GoogleApihubCuration : TerraformResource
     /// Format:
     /// &#39;projects/{project}/locations/{location}/curations/{curation}&#39;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The plugin instances and associated actions that are using the curation.
     /// Note: A particular curation could be used by multiple plugin instances or
     /// multiple actions in a plugin instance.
     /// </summary>
-    [TerraformPropertyName("plugin_instance_actions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PluginInstanceActions => new TerraformReference(this, "plugin_instance_actions");
+    [TerraformProperty("plugin_instance_actions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PluginInstanceActions { get; }
 
     /// <summary>
     /// The time at which the curation was last updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

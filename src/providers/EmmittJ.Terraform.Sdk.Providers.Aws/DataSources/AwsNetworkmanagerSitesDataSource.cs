@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_networkmanager_sites.
 /// </summary>
-public class AwsNetworkmanagerSitesDataSource : TerraformDataSource
+public partial class AwsNetworkmanagerSitesDataSource : TerraformDataSource
 {
     public AwsNetworkmanagerSitesDataSource(string name) : base("aws_networkmanager_sites", name)
     {
@@ -15,29 +15,29 @@ public class AwsNetworkmanagerSitesDataSource : TerraformDataSource
     /// The global_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
-    [TerraformPropertyName("global_network_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("global_network_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GlobalNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
-    [TerraformPropertyName("ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Ids => new TerraformReference(this, "ids");
+    [TerraformProperty("ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Ids { get; }
 
 }

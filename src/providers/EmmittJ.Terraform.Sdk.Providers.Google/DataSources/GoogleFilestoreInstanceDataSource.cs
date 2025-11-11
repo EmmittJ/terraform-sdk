@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_filestore_instance.
 /// </summary>
-public class GoogleFilestoreInstanceDataSource : TerraformDataSource
+public partial class GoogleFilestoreInstanceDataSource : TerraformDataSource
 {
     public GoogleFilestoreInstanceDataSource(string name) : base("google_filestore_instance", name)
     {
@@ -14,104 +14,104 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The resource name of the instance.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Indicates whether the instance is protected against deletion.
     /// </summary>
-    [TerraformPropertyName("deletion_protection_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DeletionProtectionEnabled => new TerraformReference(this, "deletion_protection_enabled");
+    [TerraformProperty("deletion_protection_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DeletionProtectionEnabled { get; }
 
     /// <summary>
     /// The reason for enabling deletion protection.
     /// </summary>
-    [TerraformPropertyName("deletion_protection_reason")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeletionProtectionReason => new TerraformReference(this, "deletion_protection_reason");
+    [TerraformProperty("deletion_protection_reason")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeletionProtectionReason { get; }
 
     /// <summary>
     /// A description of the instance.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Output only fields for replication configuration.
     /// </summary>
-    [TerraformPropertyName("effective_replication")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> EffectiveReplication => new TerraformReference(this, "effective_replication");
+    [TerraformProperty("effective_replication")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> EffectiveReplication { get; }
 
     /// <summary>
     /// Server-specified ETag for the instance resource to prevent
     /// simultaneous updates from overwriting each other.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// File system shares on the instance. For this version, only a
     /// single file share is supported.
     /// </summary>
-    [TerraformPropertyName("file_shares")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> FileShares => new TerraformReference(this, "file_shares");
+    [TerraformProperty("file_shares")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> FileShares { get; }
 
     /// <summary>
     /// Replication configuration, once set, this cannot be updated.
     /// Additionally this should be specified on the replica instance only, indicating the active as the peer_instance
     /// </summary>
-    [TerraformPropertyName("initial_replication")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> InitialReplication => new TerraformReference(this, "initial_replication");
+    [TerraformProperty("initial_replication")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> InitialReplication { get; }
 
     /// <summary>
     /// KMS key name used for data encryption.
     /// </summary>
-    [TerraformPropertyName("kms_key_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KmsKeyName => new TerraformReference(this, "kms_key_name");
+    [TerraformProperty("kms_key_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KmsKeyName { get; }
 
     /// <summary>
     /// Resource labels to represent user-provided metadata.
@@ -120,25 +120,25 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
+    [TerraformProperty("labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// VPC networks to which the instance is connected. For this version,
     /// only a single network is supported.
     /// </summary>
-    [TerraformPropertyName("networks")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Networks => new TerraformReference(this, "networks");
+    [TerraformProperty("networks")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Networks { get; }
 
     /// <summary>
     /// Performance configuration for the instance. If not provided,
     /// the default performance settings will be used.
     /// </summary>
-    [TerraformPropertyName("performance_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PerformanceConfig => new TerraformReference(this, "performance_config");
+    [TerraformProperty("performance_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PerformanceConfig { get; }
 
     /// <summary>
     /// Either NFSv3, for using NFS version 3 as file sharing protocol,
@@ -146,9 +146,9 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// NFSv4.1 can be used with HIGH_SCALE_SSD, ZONAL, REGIONAL and ENTERPRISE.
     /// The default is NFSv3. Default value: &amp;quot;NFS_V3&amp;quot; Possible values: [&amp;quot;NFS_V3&amp;quot;, &amp;quot;NFS_V4_1&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("protocol")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Protocol => new TerraformReference(this, "protocol");
+    [TerraformProperty("protocol")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Protocol { get; }
 
     /// <summary>
     /// A map of resource manager tags. Resource manager tag keys
@@ -161,31 +161,31 @@ public class GoogleFilestoreInstanceDataSource : TerraformDataSource
     /// will trigger recreation. To apply tags to an existing
     /// resource, see the &#39;google_tags_tag_value&#39; resource.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The service tier of the instance.
     /// Possible values include: STANDARD, PREMIUM, BASIC_HDD, BASIC_SSD, HIGH_SCALE_SSD, ZONAL, REGIONAL and ENTERPRISE
     /// </summary>
-    [TerraformPropertyName("tier")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Tier => new TerraformReference(this, "tier");
+    [TerraformProperty("tier")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Tier { get; }
 
     /// <summary>
     /// The name of the Filestore zone of the instance.
     /// </summary>
-    [TerraformPropertyName("zone")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Zone => new TerraformReference(this, "zone");
+    [TerraformProperty("zone")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Zone { get; }
 
 }

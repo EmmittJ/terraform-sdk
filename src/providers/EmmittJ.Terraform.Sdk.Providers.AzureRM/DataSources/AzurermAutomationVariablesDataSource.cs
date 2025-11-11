@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAutomationVariablesDataSourceTimeoutsBlock
+public partial class AzurermAutomationVariablesDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermAutomationVariablesDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_automation_variables.
 /// </summary>
-public class AzurermAutomationVariablesDataSource : TerraformDataSource
+public partial class AzurermAutomationVariablesDataSource : TerraformDataSource
 {
     public AzurermAutomationVariablesDataSource(string name) : base("azurerm_automation_variables", name)
     {
@@ -30,71 +30,71 @@ public class AzurermAutomationVariablesDataSource : TerraformDataSource
     /// The automation_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
-    [TerraformPropertyName("automation_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("automation_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AutomationAccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermAutomationVariablesDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The bool attribute.
     /// </summary>
-    [TerraformPropertyName("bool")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Bool => new TerraformReference(this, "bool");
+    [TerraformProperty("bool")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Bool { get; }
 
     /// <summary>
     /// The datetime attribute.
     /// </summary>
-    [TerraformPropertyName("datetime")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Datetime => new TerraformReference(this, "datetime");
+    [TerraformProperty("datetime")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Datetime { get; }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    [TerraformPropertyName("encrypted")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Encrypted => new TerraformReference(this, "encrypted");
+    [TerraformProperty("encrypted")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Encrypted { get; }
 
     /// <summary>
     /// The int attribute.
     /// </summary>
-    [TerraformPropertyName("int")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Int => new TerraformReference(this, "int");
+    [TerraformProperty("int")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Int { get; }
 
     /// <summary>
     /// The null attribute.
     /// </summary>
-    [TerraformPropertyName("null")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Null => new TerraformReference(this, "null");
+    [TerraformProperty("null")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Null { get; }
 
     /// <summary>
     /// The object attribute.
     /// </summary>
-    [TerraformPropertyName("object")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Object => new TerraformReference(this, "object");
+    [TerraformProperty("object")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Object { get; }
 
     /// <summary>
     /// The string attribute.
     /// </summary>
-    [TerraformPropertyName("string")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> String => new TerraformReference(this, "string");
+    [TerraformProperty("string")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> String { get; }
 
 }

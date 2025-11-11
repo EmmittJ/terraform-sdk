@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for certificate in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKeyVaultCertificateCertificateBlock
+public partial class AzurermKeyVaultCertificateCertificateBlock : TerraformBlockBase
 {
     /// <summary>
     /// The contents attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Contents is required")]
-    [TerraformPropertyName("contents")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("contents")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Contents { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    [TerraformPropertyName("password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Password { get; set; }
 
 }
@@ -29,7 +29,7 @@ public class AzurermKeyVaultCertificateCertificateBlock
 /// Block type for certificate_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKeyVaultCertificateCertificatePolicyBlock
+public partial class AzurermKeyVaultCertificateCertificatePolicyBlock : TerraformBlockBase
 {
 }
 
@@ -37,34 +37,34 @@ public class AzurermKeyVaultCertificateCertificatePolicyBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKeyVaultCertificateTimeoutsBlock
+public partial class AzurermKeyVaultCertificateTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -73,7 +73,7 @@ public class AzurermKeyVaultCertificateTimeoutsBlock
 /// Manages a azurerm_key_vault_certificate resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermKeyVaultCertificate : TerraformResource
+public partial class AzurermKeyVaultCertificate : TerraformResource
 {
     public AzurermKeyVaultCertificate(string name) : base("azurerm_key_vault_certificate", name)
     {
@@ -82,31 +82,31 @@ public class AzurermKeyVaultCertificate : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    [TerraformPropertyName("key_vault_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_vault_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -114,7 +114,7 @@ public class AzurermKeyVaultCertificate : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Certificate block(s) allowed")]
-    [TerraformPropertyName("certificate")]
+    [TerraformProperty("certificate")]
     public TerraformList<TerraformBlock<AzurermKeyVaultCertificateCertificateBlock>>? Certificate { get; set; }
 
     /// <summary>
@@ -122,84 +122,84 @@ public class AzurermKeyVaultCertificate : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificatePolicy block(s) allowed")]
-    [TerraformPropertyName("certificate_policy")]
+    [TerraformProperty("certificate_policy")]
     public TerraformList<TerraformBlock<AzurermKeyVaultCertificateCertificatePolicyBlock>>? CertificatePolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermKeyVaultCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The certificate_attribute attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_attribute")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CertificateAttribute => new TerraformReference(this, "certificate_attribute");
+    [TerraformProperty("certificate_attribute")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CertificateAttribute { get; }
 
     /// <summary>
     /// The certificate_data attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_data")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CertificateData => new TerraformReference(this, "certificate_data");
+    [TerraformProperty("certificate_data")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CertificateData { get; }
 
     /// <summary>
     /// The certificate_data_base64 attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_data_base64")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CertificateDataBase64 => new TerraformReference(this, "certificate_data_base64");
+    [TerraformProperty("certificate_data_base64")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CertificateDataBase64 { get; }
 
     /// <summary>
     /// The resource_manager_id attribute.
     /// </summary>
-    [TerraformPropertyName("resource_manager_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceManagerId => new TerraformReference(this, "resource_manager_id");
+    [TerraformProperty("resource_manager_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceManagerId { get; }
 
     /// <summary>
     /// The resource_manager_versionless_id attribute.
     /// </summary>
-    [TerraformPropertyName("resource_manager_versionless_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceManagerVersionlessId => new TerraformReference(this, "resource_manager_versionless_id");
+    [TerraformProperty("resource_manager_versionless_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceManagerVersionlessId { get; }
 
     /// <summary>
     /// The secret_id attribute.
     /// </summary>
-    [TerraformPropertyName("secret_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecretId => new TerraformReference(this, "secret_id");
+    [TerraformProperty("secret_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecretId { get; }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    [TerraformPropertyName("thumbprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Thumbprint => new TerraformReference(this, "thumbprint");
+    [TerraformProperty("thumbprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Thumbprint { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Version => new TerraformReference(this, "version");
+    [TerraformProperty("version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Version { get; }
 
     /// <summary>
     /// The versionless_id attribute.
     /// </summary>
-    [TerraformPropertyName("versionless_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VersionlessId => new TerraformReference(this, "versionless_id");
+    [TerraformProperty("versionless_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VersionlessId { get; }
 
     /// <summary>
     /// The versionless_secret_id attribute.
     /// </summary>
-    [TerraformPropertyName("versionless_secret_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VersionlessSecretId => new TerraformReference(this, "versionless_secret_id");
+    [TerraformProperty("versionless_secret_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VersionlessSecretId { get; }
 
 }

@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for multi_region_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDsqlClusterMultiRegionPropertiesBlock
+public partial class AwsDsqlClusterMultiRegionPropertiesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The clusters attribute.
     /// </summary>
-    [TerraformPropertyName("clusters")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> Clusters { get; set; } = default!;
+    [TerraformProperty("clusters")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> Clusters { get; set; }
 
     /// <summary>
     /// The witness_region attribute.
     /// </summary>
-    [TerraformPropertyName("witness_region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("witness_region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? WitnessRegion { get; set; }
 
 }
@@ -28,27 +28,27 @@ public class AwsDsqlClusterMultiRegionPropertiesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDsqlClusterTimeoutsBlock
+public partial class AwsDsqlClusterTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -56,7 +56,7 @@ public class AwsDsqlClusterTimeoutsBlock
 /// <summary>
 /// Manages a aws_dsql_cluster resource.
 /// </summary>
-public class AwsDsqlCluster : TerraformResource
+public partial class AwsDsqlCluster : TerraformResource
 {
     public AwsDsqlCluster(string name) : base("aws_dsql_cluster", name)
     {
@@ -65,85 +65,85 @@ public class AwsDsqlCluster : TerraformResource
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("deletion_protection_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> DeletionProtectionEnabled { get; set; } = default!;
+    [TerraformProperty("deletion_protection_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> DeletionProtectionEnabled { get; set; }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    [TerraformPropertyName("force_destroy")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> ForceDestroy { get; set; } = default!;
+    [TerraformProperty("force_destroy")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> ForceDestroy { get; set; }
 
     /// <summary>
     /// The kms_encryption_key attribute.
     /// </summary>
-    [TerraformPropertyName("kms_encryption_key")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KmsEncryptionKey { get; set; } = default!;
+    [TerraformProperty("kms_encryption_key")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KmsEncryptionKey { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for multi_region_properties.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("multi_region_properties")]
+    [TerraformProperty("multi_region_properties")]
     public TerraformList<TerraformBlock<AwsDsqlClusterMultiRegionPropertiesBlock>>? MultiRegionProperties { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsDsqlClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The encryption_details attribute.
     /// </summary>
-    [TerraformPropertyName("encryption_details")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> EncryptionDetails => new TerraformReference(this, "encryption_details");
+    [TerraformProperty("encryption_details")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> EncryptionDetails { get; }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
-    [TerraformPropertyName("identifier")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Identifier => new TerraformReference(this, "identifier");
+    [TerraformProperty("identifier")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Identifier { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The vpc_endpoint_service_name attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_endpoint_service_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VpcEndpointServiceName => new TerraformReference(this, "vpc_endpoint_service_name");
+    [TerraformProperty("vpc_endpoint_service_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VpcEndpointServiceName { get; }
 
 }

@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock
+public partial class AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -28,22 +28,22 @@ public class AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock
 /// Block type for traffic_source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock
+public partial class AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
-    [TerraformPropertyName("identifier")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("identifier")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Identifier { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -52,7 +52,7 @@ public class AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock
 /// Manages a aws_autoscaling_traffic_source_attachment resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsAutoscalingTrafficSourceAttachment : TerraformResource
+public partial class AwsAutoscalingTrafficSourceAttachment : TerraformResource
 {
     public AwsAutoscalingTrafficSourceAttachment(string name) : base("aws_autoscaling_traffic_source_attachment", name)
     {
@@ -62,29 +62,29 @@ public class AwsAutoscalingTrafficSourceAttachment : TerraformResource
     /// The autoscaling_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoscalingGroupName is required")]
-    [TerraformPropertyName("autoscaling_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("autoscaling_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AutoscalingGroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsAutoscalingTrafficSourceAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -92,7 +92,7 @@ public class AwsAutoscalingTrafficSourceAttachment : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficSource block(s) allowed")]
-    [TerraformPropertyName("traffic_source")]
+    [TerraformProperty("traffic_source")]
     public TerraformList<TerraformBlock<AwsAutoscalingTrafficSourceAttachmentTrafficSourceBlock>>? TrafficSource { get; set; }
 
 }

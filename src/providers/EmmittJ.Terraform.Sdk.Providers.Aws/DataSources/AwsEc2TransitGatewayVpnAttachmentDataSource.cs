@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEc2TransitGatewayVpnAttachmentDataSourceFilterBlock
+public partial class AwsEc2TransitGatewayVpnAttachmentDataSourceFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    [TerraformPropertyName("values")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("values")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Values { get; set; }
 
 }
@@ -30,13 +30,13 @@ public class AwsEc2TransitGatewayVpnAttachmentDataSourceFilterBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2TransitGatewayVpnAttachmentDataSourceTimeoutsBlock
+public partial class AwsEc2TransitGatewayVpnAttachmentDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -44,7 +44,7 @@ public class AwsEc2TransitGatewayVpnAttachmentDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a aws_ec2_transit_gateway_vpn_attachment.
 /// </summary>
-public class AwsEc2TransitGatewayVpnAttachmentDataSource : TerraformDataSource
+public partial class AwsEc2TransitGatewayVpnAttachmentDataSource : TerraformDataSource
 {
     public AwsEc2TransitGatewayVpnAttachmentDataSource(string name) : base("aws_ec2_transit_gateway_vpn_attachment", name)
     {
@@ -53,50 +53,50 @@ public class AwsEc2TransitGatewayVpnAttachmentDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    [TerraformPropertyName("transit_gateway_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("transit_gateway_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TransitGatewayId { get; set; }
 
     /// <summary>
     /// The vpn_connection_id attribute.
     /// </summary>
-    [TerraformPropertyName("vpn_connection_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vpn_connection_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VpnConnectionId { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformSet<TerraformBlock<AwsEc2TransitGatewayVpnAttachmentDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsEc2TransitGatewayVpnAttachmentDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
 }

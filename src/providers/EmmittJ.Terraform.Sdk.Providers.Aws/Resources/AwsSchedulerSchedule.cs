@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for flexible_time_window in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSchedulerScheduleFlexibleTimeWindowBlock
+public partial class AwsSchedulerScheduleFlexibleTimeWindowBlock : TerraformBlockBase
 {
     /// <summary>
     /// The maximum_window_in_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("maximum_window_in_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("maximum_window_in_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaximumWindowInMinutes { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    [TerraformPropertyName("mode")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("mode")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Mode { get; set; }
 
 }
@@ -29,29 +29,29 @@ public class AwsSchedulerScheduleFlexibleTimeWindowBlock
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSchedulerScheduleTargetBlock
+public partial class AwsSchedulerScheduleTargetBlock : TerraformBlockBase
 {
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    [TerraformPropertyName("arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The input attribute.
     /// </summary>
-    [TerraformPropertyName("input")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("input")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Input { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
 }
@@ -60,7 +60,7 @@ public class AwsSchedulerScheduleTargetBlock
 /// Manages a aws_scheduler_schedule resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsSchedulerSchedule : TerraformResource
+public partial class AwsSchedulerSchedule : TerraformResource
 {
     public AwsSchedulerSchedule(string name) : base("aws_scheduler_schedule", name)
     {
@@ -69,93 +69,93 @@ public class AwsSchedulerSchedule : TerraformResource
     /// <summary>
     /// The action_after_completion attribute.
     /// </summary>
-    [TerraformPropertyName("action_after_completion")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ActionAfterCompletion { get; set; } = default!;
+    [TerraformProperty("action_after_completion")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ActionAfterCompletion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The end_date attribute.
     /// </summary>
-    [TerraformPropertyName("end_date")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("end_date")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EndDate { get; set; }
 
     /// <summary>
     /// The group_name attribute.
     /// </summary>
-    [TerraformPropertyName("group_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> GroupName { get; set; } = default!;
+    [TerraformProperty("group_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> GroupName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NamePrefix { get; set; } = default!;
+    [TerraformProperty("name_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The schedule_expression attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScheduleExpression is required")]
-    [TerraformPropertyName("schedule_expression")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("schedule_expression")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ScheduleExpression { get; set; }
 
     /// <summary>
     /// The schedule_expression_timezone attribute.
     /// </summary>
-    [TerraformPropertyName("schedule_expression_timezone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("schedule_expression_timezone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ScheduleExpressionTimezone { get; set; }
 
     /// <summary>
     /// The start_date attribute.
     /// </summary>
-    [TerraformPropertyName("start_date")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("start_date")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StartDate { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("state")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? State { get; set; }
 
     /// <summary>
@@ -165,7 +165,7 @@ public class AwsSchedulerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlexibleTimeWindow is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FlexibleTimeWindow block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FlexibleTimeWindow block(s) allowed")]
-    [TerraformPropertyName("flexible_time_window")]
+    [TerraformProperty("flexible_time_window")]
     public TerraformList<TerraformBlock<AwsSchedulerScheduleFlexibleTimeWindowBlock>>? FlexibleTimeWindow { get; set; }
 
     /// <summary>
@@ -175,14 +175,14 @@ public class AwsSchedulerSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
-    [TerraformPropertyName("target")]
+    [TerraformProperty("target")]
     public TerraformList<TerraformBlock<AwsSchedulerScheduleTargetBlock>>? Target { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

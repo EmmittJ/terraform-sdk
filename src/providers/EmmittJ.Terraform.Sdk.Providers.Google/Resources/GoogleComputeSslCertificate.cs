@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeSslCertificateTimeoutsBlock
+public partial class GoogleComputeSslCertificateTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class GoogleComputeSslCertificateTimeoutsBlock
 /// <summary>
 /// Manages a google_compute_ssl_certificate resource.
 /// </summary>
-public class GoogleComputeSslCertificate : TerraformResource
+public partial class GoogleComputeSslCertificate : TerraformResource
 {
     public GoogleComputeSslCertificate(string name) : base("google_compute_ssl_certificate", name)
     {
@@ -39,23 +39,23 @@ public class GoogleComputeSslCertificate : TerraformResource
     /// The chain must include at least one intermediate cert.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Certificate is required")]
-    [TerraformPropertyName("certificate")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("certificate")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Certificate { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -68,65 +68,65 @@ public class GoogleComputeSslCertificate : TerraformResource
     /// 
     /// These are in the same namespace as the managed SSL certificates.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Creates a unique name beginning with the specified prefix. Conflicts with name.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NamePrefix { get; set; } = default!;
+    [TerraformProperty("name_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The write-only private key in PEM format.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
-    [TerraformPropertyName("private_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("private_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrivateKey { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeSslCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
-    [TerraformPropertyName("certificate_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> CertificateId => new TerraformReference(this, "certificate_id");
+    [TerraformProperty("certificate_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> CertificateId { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Expire time of the certificate in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("expire_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExpireTime => new TerraformReference(this, "expire_time");
+    [TerraformProperty("expire_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
 }

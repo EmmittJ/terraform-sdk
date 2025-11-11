@@ -6,42 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock
+public partial class AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The embedding_data_delivery_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("embedding_data_delivery_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> EmbeddingDataDeliveryEnabled { get; set; } = default!;
+    [TerraformProperty("embedding_data_delivery_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> EmbeddingDataDeliveryEnabled { get; set; }
 
     /// <summary>
     /// The image_data_delivery_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("image_data_delivery_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> ImageDataDeliveryEnabled { get; set; } = default!;
+    [TerraformProperty("image_data_delivery_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> ImageDataDeliveryEnabled { get; set; }
 
     /// <summary>
     /// The text_data_delivery_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("text_data_delivery_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> TextDataDeliveryEnabled { get; set; } = default!;
+    [TerraformProperty("text_data_delivery_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> TextDataDeliveryEnabled { get; set; }
 
     /// <summary>
     /// The video_data_delivery_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("video_data_delivery_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> VideoDataDeliveryEnabled { get; set; } = default!;
+    [TerraformProperty("video_data_delivery_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> VideoDataDeliveryEnabled { get; set; }
 
 }
 
 /// <summary>
 /// Manages a aws_bedrock_model_invocation_logging_configuration resource.
 /// </summary>
-public class AwsBedrockModelInvocationLoggingConfiguration : TerraformResource
+public partial class AwsBedrockModelInvocationLoggingConfiguration : TerraformResource
 {
     public AwsBedrockModelInvocationLoggingConfiguration(string name) : base("aws_bedrock_model_invocation_logging_configuration", name)
     {
@@ -50,22 +50,22 @@ public class AwsBedrockModelInvocationLoggingConfiguration : TerraformResource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for logging_config.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("logging_config")]
+    [TerraformProperty("logging_config")]
     public TerraformList<TerraformBlock<AwsBedrockModelInvocationLoggingConfigurationLoggingConfigBlock>>? LoggingConfig { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
 }

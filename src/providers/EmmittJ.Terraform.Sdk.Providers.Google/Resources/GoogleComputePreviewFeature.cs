@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rollout_operation in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputePreviewFeatureRolloutOperationBlock
+public partial class GoogleComputePreviewFeatureRolloutOperationBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class GoogleComputePreviewFeatureRolloutOperationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputePreviewFeatureTimeoutsBlock
+public partial class GoogleComputePreviewFeatureTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class GoogleComputePreviewFeatureTimeoutsBlock
 /// Manages a google_compute_preview_feature resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputePreviewFeature : TerraformResource
+public partial class GoogleComputePreviewFeature : TerraformResource
 {
     public GoogleComputePreviewFeature(string name) : base("google_compute_preview_feature", name)
     {
@@ -53,45 +53,45 @@ public class GoogleComputePreviewFeature : TerraformResource
     /// The activation status of the preview feature. Possible values: [&amp;quot;ENABLED&amp;quot;, &amp;quot;ACTIVATION_STATE_UNSPECIFIED&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ActivationStatus is required")]
-    [TerraformPropertyName("activation_status")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("activation_status")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ActivationStatus { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the preview feature.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for rollout_operation.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RolloutOperation block(s) allowed")]
-    [TerraformPropertyName("rollout_operation")]
+    [TerraformProperty("rollout_operation")]
     public TerraformList<TerraformBlock<GoogleComputePreviewFeatureRolloutOperationBlock>>? RolloutOperation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputePreviewFeatureTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3tablesTableMetadataBlock
+public partial class AwsS3tablesTableMetadataBlock : TerraformBlockBase
 {
 }
 
 /// <summary>
 /// Manages a aws_s3tables_table resource.
 /// </summary>
-public class AwsS3tablesTable : TerraformResource
+public partial class AwsS3tablesTable : TerraformResource
 {
     public AwsS3tablesTable(string name) : base("aws_s3tables_table", name)
     {
@@ -22,131 +22,131 @@ public class AwsS3tablesTable : TerraformResource
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("encryption_configuration")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<object> EncryptionConfiguration { get; set; } = default!;
+    [TerraformProperty("encryption_configuration")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<object> EncryptionConfiguration { get; set; }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Format is required")]
-    [TerraformPropertyName("format")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("format")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Format { get; set; }
 
     /// <summary>
     /// The maintenance_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("maintenance_configuration")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<object> MaintenanceConfiguration { get; set; } = default!;
+    [TerraformProperty("maintenance_configuration")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<object> MaintenanceConfiguration { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Namespace is required")]
-    [TerraformPropertyName("namespace")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("namespace")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Namespace { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The table_bucket_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableBucketArn is required")]
-    [TerraformPropertyName("table_bucket_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("table_bucket_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TableBucketArn { get; set; }
 
     /// <summary>
     /// Block for metadata.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("metadata")]
+    [TerraformProperty("metadata")]
     public TerraformList<TerraformBlock<AwsS3tablesTableMetadataBlock>>? Metadata { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    [TerraformPropertyName("created_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
+    [TerraformProperty("created_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
-    [TerraformPropertyName("created_by")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedBy => new TerraformReference(this, "created_by");
+    [TerraformProperty("created_by")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedBy { get; }
 
     /// <summary>
     /// The metadata_location attribute.
     /// </summary>
-    [TerraformPropertyName("metadata_location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> MetadataLocation => new TerraformReference(this, "metadata_location");
+    [TerraformProperty("metadata_location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> MetadataLocation { get; }
 
     /// <summary>
     /// The modified_at attribute.
     /// </summary>
-    [TerraformPropertyName("modified_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ModifiedAt => new TerraformReference(this, "modified_at");
+    [TerraformProperty("modified_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ModifiedAt { get; }
 
     /// <summary>
     /// The modified_by attribute.
     /// </summary>
-    [TerraformPropertyName("modified_by")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ModifiedBy => new TerraformReference(this, "modified_by");
+    [TerraformProperty("modified_by")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ModifiedBy { get; }
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_account_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerAccountId => new TerraformReference(this, "owner_account_id");
+    [TerraformProperty("owner_account_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerAccountId { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
     /// <summary>
     /// The version_token attribute.
     /// </summary>
-    [TerraformPropertyName("version_token")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VersionToken => new TerraformReference(this, "version_token");
+    [TerraformProperty("version_token")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VersionToken { get; }
 
     /// <summary>
     /// The warehouse_location attribute.
     /// </summary>
-    [TerraformPropertyName("warehouse_location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WarehouseLocation => new TerraformReference(this, "warehouse_location");
+    [TerraformProperty("warehouse_location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WarehouseLocation { get; }
 
 }

@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsFsxOntapStorageVirtualMachineDataSourceFilterBlock
+public partial class AwsFsxOntapStorageVirtualMachineDataSourceFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    [TerraformPropertyName("values")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("values")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Values { get; set; }
 
 }
@@ -29,7 +29,7 @@ public class AwsFsxOntapStorageVirtualMachineDataSourceFilterBlock
 /// <summary>
 /// Retrieves information about a aws_fsx_ontap_storage_virtual_machine.
 /// </summary>
-public class AwsFsxOntapStorageVirtualMachineDataSource : TerraformDataSource
+public partial class AwsFsxOntapStorageVirtualMachineDataSource : TerraformDataSource
 {
     public AwsFsxOntapStorageVirtualMachineDataSource(string name) : base("aws_fsx_ontap_storage_virtual_machine", name)
     {
@@ -38,99 +38,99 @@ public class AwsFsxOntapStorageVirtualMachineDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformSet<TerraformBlock<AwsFsxOntapStorageVirtualMachineDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The active_directory_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("active_directory_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ActiveDirectoryConfiguration => new TerraformReference(this, "active_directory_configuration");
+    [TerraformProperty("active_directory_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ActiveDirectoryConfiguration { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    [TerraformPropertyName("creation_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTime => new TerraformReference(this, "creation_time");
+    [TerraformProperty("creation_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTime { get; }
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
-    [TerraformPropertyName("endpoints")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Endpoints => new TerraformReference(this, "endpoints");
+    [TerraformProperty("endpoints")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Endpoints { get; }
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    [TerraformPropertyName("file_system_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FileSystemId => new TerraformReference(this, "file_system_id");
+    [TerraformProperty("file_system_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FileSystemId { get; }
 
     /// <summary>
     /// The lifecycle_status attribute.
     /// </summary>
-    [TerraformPropertyName("lifecycle_status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LifecycleStatus => new TerraformReference(this, "lifecycle_status");
+    [TerraformProperty("lifecycle_status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LifecycleStatus { get; }
 
     /// <summary>
     /// The lifecycle_transition_reason attribute.
     /// </summary>
-    [TerraformPropertyName("lifecycle_transition_reason")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> LifecycleTransitionReason => new TerraformReference(this, "lifecycle_transition_reason");
+    [TerraformProperty("lifecycle_transition_reason")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> LifecycleTransitionReason { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The subtype attribute.
     /// </summary>
-    [TerraformPropertyName("subtype")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Subtype => new TerraformReference(this, "subtype");
+    [TerraformProperty("subtype")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Subtype { get; }
 
     /// <summary>
     /// The uuid attribute.
     /// </summary>
-    [TerraformPropertyName("uuid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uuid => new TerraformReference(this, "uuid");
+    [TerraformProperty("uuid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uuid { get; }
 
 }

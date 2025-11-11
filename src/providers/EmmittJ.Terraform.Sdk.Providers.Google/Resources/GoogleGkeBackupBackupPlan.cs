@@ -6,38 +6,38 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backup_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeBackupBackupPlanBackupConfigBlock
+public partial class GoogleGkeBackupBackupPlanBackupConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// If True, include all namespaced resources.
     /// </summary>
-    [TerraformPropertyName("all_namespaces")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("all_namespaces")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AllNamespaces { get; set; }
 
     /// <summary>
     /// This flag specifies whether Kubernetes Secret resources should be included
     /// when they fall into the scope of Backups.
     /// </summary>
-    [TerraformPropertyName("include_secrets")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> IncludeSecrets { get; set; } = default!;
+    [TerraformProperty("include_secrets")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> IncludeSecrets { get; set; }
 
     /// <summary>
     /// This flag specifies whether volume data should be backed up when PVCs are
     /// included in the scope of a Backup.
     /// </summary>
-    [TerraformPropertyName("include_volume_data")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> IncludeVolumeData { get; set; } = default!;
+    [TerraformProperty("include_volume_data")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> IncludeVolumeData { get; set; }
 
     /// <summary>
     /// This flag specifies whether Backups will not fail when
     /// Backup for GKE detects Kubernetes configuration that is
     /// non-standard or requires additional setup to restore.
     /// </summary>
-    [TerraformPropertyName("permissive_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("permissive_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PermissiveMode { get; set; }
 
 }
@@ -46,7 +46,7 @@ public class GoogleGkeBackupBackupPlanBackupConfigBlock
 /// Block type for backup_schedule in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeBackupBackupPlanBackupScheduleBlock
+public partial class GoogleGkeBackupBackupPlanBackupScheduleBlock : TerraformBlockBase
 {
     /// <summary>
     /// A standard cron string that defines a repeating schedule for
@@ -55,16 +55,16 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlock
     /// schedule can be defined for a BackupPlan.
     /// If this is defined, then backupRetainDays must also be defined.
     /// </summary>
-    [TerraformPropertyName("cron_schedule")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cron_schedule")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CronSchedule { get; set; }
 
     /// <summary>
     /// This flag denotes whether automatic Backup creation is paused for this BackupPlan.
     /// </summary>
-    [TerraformPropertyName("paused")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> Paused { get; set; } = default!;
+    [TerraformProperty("paused")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> Paused { get; set; }
 
 }
 
@@ -72,7 +72,7 @@ public class GoogleGkeBackupBackupPlanBackupScheduleBlock
 /// Block type for retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeBackupBackupPlanRetentionPolicyBlock
+public partial class GoogleGkeBackupBackupPlanRetentionPolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// Minimum age for a Backup created via this BackupPlan (in days).
@@ -82,9 +82,9 @@ public class GoogleGkeBackupBackupPlanRetentionPolicyBlock
     /// Updating this field of a BackupPlan does not affect existing Backups.
     /// Backups created after a successful update will inherit this new value.
     /// </summary>
-    [TerraformPropertyName("backup_delete_lock_days")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> BackupDeleteLockDays { get; set; } = default!;
+    [TerraformProperty("backup_delete_lock_days")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> BackupDeleteLockDays { get; set; }
 
     /// <summary>
     /// The default maximum age of a Backup created via this BackupPlan.
@@ -100,18 +100,18 @@ public class GoogleGkeBackupBackupPlanRetentionPolicyBlock
     /// If rpo_config is defined, then this must be
     /// &amp;lt;= 360 * targetRpoMinutes/(1440minutes/day)
     /// </summary>
-    [TerraformPropertyName("backup_retain_days")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> BackupRetainDays { get; set; } = default!;
+    [TerraformProperty("backup_retain_days")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> BackupRetainDays { get; set; }
 
     /// <summary>
     /// This flag denotes whether the retention policy of this BackupPlan is locked.
     /// If set to True, no further update is allowed on this policy, including
     /// the locked field itself.
     /// </summary>
-    [TerraformPropertyName("locked")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> Locked { get; set; } = default!;
+    [TerraformProperty("locked")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> Locked { get; set; }
 
 }
 
@@ -119,27 +119,27 @@ public class GoogleGkeBackupBackupPlanRetentionPolicyBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleGkeBackupBackupPlanTimeoutsBlock
+public partial class GoogleGkeBackupBackupPlanTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -148,7 +148,7 @@ public class GoogleGkeBackupBackupPlanTimeoutsBlock
 /// Manages a google_gke_backup_backup_plan resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleGkeBackupBackupPlan : TerraformResource
+public partial class GoogleGkeBackupBackupPlan : TerraformResource
 {
     public GoogleGkeBackupBackupPlan(string name) : base("google_gke_backup_backup_plan", name)
     {
@@ -158,8 +158,8 @@ public class GoogleGkeBackupBackupPlan : TerraformResource
     /// The source cluster from which Backups will be created via this BackupPlan.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
-    [TerraformPropertyName("cluster")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Cluster { get; set; }
 
     /// <summary>
@@ -168,23 +168,23 @@ public class GoogleGkeBackupBackupPlan : TerraformResource
     /// (except deletes), including the deactivated field itself. It also prevents any new Backups
     /// from being created via this BackupPlan (including scheduled Backups).
     /// </summary>
-    [TerraformPropertyName("deactivated")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> Deactivated { get; set; } = default!;
+    [TerraformProperty("deactivated")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> Deactivated { get; set; }
 
     /// <summary>
     /// User specified descriptive string for this BackupPlan.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Description: A set of custom labels supplied by the user.
@@ -195,39 +195,39 @@ public class GoogleGkeBackupBackupPlan : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The region of the Backup Plan.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The full name of the BackupPlan Resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for backup_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupConfig block(s) allowed")]
-    [TerraformPropertyName("backup_config")]
+    [TerraformProperty("backup_config")]
     public TerraformList<TerraformBlock<GoogleGkeBackupBackupPlanBackupConfigBlock>>? BackupConfig { get; set; }
 
     /// <summary>
@@ -235,7 +235,7 @@ public class GoogleGkeBackupBackupPlan : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackupSchedule block(s) allowed")]
-    [TerraformPropertyName("backup_schedule")]
+    [TerraformProperty("backup_schedule")]
     public TerraformList<TerraformBlock<GoogleGkeBackupBackupPlanBackupScheduleBlock>>? BackupSchedule { get; set; }
 
     /// <summary>
@@ -243,22 +243,22 @@ public class GoogleGkeBackupBackupPlan : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
-    [TerraformPropertyName("retention_policy")]
+    [TerraformProperty("retention_policy")]
     public TerraformList<TerraformBlock<GoogleGkeBackupBackupPlanRetentionPolicyBlock>>? RetentionPolicy { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleGkeBackupBackupPlanTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// etag is used for optimistic concurrency control as a way to help prevent simultaneous
@@ -268,44 +268,44 @@ public class GoogleGkeBackupBackupPlan : TerraformResource
     /// and systems are expected to put that etag in the request to backupPlans.patch or
     /// backupPlans.delete to ensure that their change will be applied to the same version of the resource.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The number of Kubernetes Pods backed up in the last successful Backup created via this BackupPlan.
     /// </summary>
-    [TerraformPropertyName("protected_pod_count")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ProtectedPodCount => new TerraformReference(this, "protected_pod_count");
+    [TerraformProperty("protected_pod_count")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ProtectedPodCount { get; }
 
     /// <summary>
     /// The State of the BackupPlan.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// Detailed description of why BackupPlan is in its current state.
     /// </summary>
-    [TerraformPropertyName("state_reason")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StateReason => new TerraformReference(this, "state_reason");
+    [TerraformProperty("state_reason")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StateReason { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Server generated, unique identifier of UUID format.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
 }

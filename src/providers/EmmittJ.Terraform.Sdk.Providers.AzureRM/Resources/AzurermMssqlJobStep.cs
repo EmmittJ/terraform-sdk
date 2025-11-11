@@ -6,36 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for output_target in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMssqlJobStepOutputTargetBlock
+public partial class AzurermMssqlJobStepOutputTargetBlock : TerraformBlockBase
 {
     /// <summary>
     /// The job_credential_id attribute.
     /// </summary>
-    [TerraformPropertyName("job_credential_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("job_credential_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? JobCredentialId { get; set; }
 
     /// <summary>
     /// The mssql_database_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MssqlDatabaseId is required")]
-    [TerraformPropertyName("mssql_database_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("mssql_database_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MssqlDatabaseId { get; set; }
 
     /// <summary>
     /// The schema_name attribute.
     /// </summary>
-    [TerraformPropertyName("schema_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("schema_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SchemaName { get; set; }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
-    [TerraformPropertyName("table_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("table_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TableName { get; set; }
 
 }
@@ -44,34 +44,34 @@ public class AzurermMssqlJobStepOutputTargetBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMssqlJobStepTimeoutsBlock
+public partial class AzurermMssqlJobStepTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -80,7 +80,7 @@ public class AzurermMssqlJobStepTimeoutsBlock
 /// Manages a azurerm_mssql_job_step resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMssqlJobStep : TerraformResource
+public partial class AzurermMssqlJobStep : TerraformResource
 {
     public AzurermMssqlJobStep(string name) : base("azurerm_mssql_job_step", name)
     {
@@ -89,90 +89,90 @@ public class AzurermMssqlJobStep : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The initial_retry_interval_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("initial_retry_interval_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("initial_retry_interval_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? InitialRetryIntervalSeconds { get; set; }
 
     /// <summary>
     /// The job_credential_id attribute.
     /// </summary>
-    [TerraformPropertyName("job_credential_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("job_credential_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? JobCredentialId { get; set; }
 
     /// <summary>
     /// The job_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobId is required")]
-    [TerraformPropertyName("job_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("job_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> JobId { get; set; }
 
     /// <summary>
     /// The job_step_index attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobStepIndex is required")]
-    [TerraformPropertyName("job_step_index")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("job_step_index")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> JobStepIndex { get; set; }
 
     /// <summary>
     /// The job_target_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobTargetGroupId is required")]
-    [TerraformPropertyName("job_target_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("job_target_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> JobTargetGroupId { get; set; }
 
     /// <summary>
     /// The maximum_retry_interval_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("maximum_retry_interval_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("maximum_retry_interval_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaximumRetryIntervalSeconds { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The retry_attempts attribute.
     /// </summary>
-    [TerraformPropertyName("retry_attempts")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retry_attempts")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RetryAttempts { get; set; }
 
     /// <summary>
     /// The retry_interval_backoff_multiplier attribute.
     /// </summary>
-    [TerraformPropertyName("retry_interval_backoff_multiplier")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retry_interval_backoff_multiplier")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RetryIntervalBackoffMultiplier { get; set; }
 
     /// <summary>
     /// The sql_script attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlScript is required")]
-    [TerraformPropertyName("sql_script")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sql_script")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SqlScript { get; set; }
 
     /// <summary>
     /// The timeout_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("timeout_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("timeout_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? TimeoutSeconds { get; set; }
 
     /// <summary>
@@ -180,14 +180,14 @@ public class AzurermMssqlJobStep : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputTarget block(s) allowed")]
-    [TerraformPropertyName("output_target")]
+    [TerraformProperty("output_target")]
     public TerraformList<TerraformBlock<AzurermMssqlJobStepOutputTargetBlock>>? OutputTarget { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMssqlJobStepTimeoutsBlock>? Timeouts { get; set; }
 
 }

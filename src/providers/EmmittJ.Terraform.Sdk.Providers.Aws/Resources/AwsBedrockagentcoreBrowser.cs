@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for network_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentcoreBrowserNetworkConfigurationBlock
+public partial class AwsBedrockagentcoreBrowserNetworkConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The network_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkMode is required")]
-    [TerraformPropertyName("network_mode")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network_mode")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NetworkMode { get; set; }
 
 }
@@ -22,13 +22,13 @@ public class AwsBedrockagentcoreBrowserNetworkConfigurationBlock
 /// Block type for recording in .
 /// Nesting mode: list
 /// </summary>
-public class AwsBedrockagentcoreBrowserRecordingBlock
+public partial class AwsBedrockagentcoreBrowserRecordingBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
 }
@@ -37,20 +37,20 @@ public class AwsBedrockagentcoreBrowserRecordingBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsBedrockagentcoreBrowserTimeoutsBlock
+public partial class AwsBedrockagentcoreBrowserTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -58,7 +58,7 @@ public class AwsBedrockagentcoreBrowserTimeoutsBlock
 /// <summary>
 /// Manages a aws_bedrockagentcore_browser resource.
 /// </summary>
-public class AwsBedrockagentcoreBrowser : TerraformResource
+public partial class AwsBedrockagentcoreBrowser : TerraformResource
 {
     public AwsBedrockagentcoreBrowser(string name) : base("aws_bedrockagentcore_browser", name)
     {
@@ -67,79 +67,79 @@ public class AwsBedrockagentcoreBrowser : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The execution_role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("execution_role_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("execution_role_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for network_configuration.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("network_configuration")]
+    [TerraformProperty("network_configuration")]
     public TerraformList<TerraformBlock<AwsBedrockagentcoreBrowserNetworkConfigurationBlock>>? NetworkConfiguration { get; set; }
 
     /// <summary>
     /// Block for recording.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("recording")]
+    [TerraformProperty("recording")]
     public TerraformList<TerraformBlock<AwsBedrockagentcoreBrowserRecordingBlock>>? Recording { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsBedrockagentcoreBrowserTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The browser_arn attribute.
     /// </summary>
-    [TerraformPropertyName("browser_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BrowserArn => new TerraformReference(this, "browser_arn");
+    [TerraformProperty("browser_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BrowserArn { get; }
 
     /// <summary>
     /// The browser_id attribute.
     /// </summary>
-    [TerraformPropertyName("browser_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BrowserId => new TerraformReference(this, "browser_id");
+    [TerraformProperty("browser_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BrowserId { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
 }

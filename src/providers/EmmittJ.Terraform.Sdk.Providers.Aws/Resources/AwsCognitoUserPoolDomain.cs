@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_cognito_user_pool_domain resource.
 /// </summary>
-public class AwsCognitoUserPoolDomain : TerraformResource
+public partial class AwsCognitoUserPoolDomain : TerraformResource
 {
     public AwsCognitoUserPoolDomain(string name) : base("aws_cognito_user_pool_domain", name)
     {
@@ -14,87 +14,87 @@ public class AwsCognitoUserPoolDomain : TerraformResource
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CertificateArn { get; set; }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Domain is required")]
-    [TerraformPropertyName("domain")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("domain")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Domain { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The managed_login_version attribute.
     /// </summary>
-    [TerraformPropertyName("managed_login_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> ManagedLoginVersion { get; set; } = default!;
+    [TerraformProperty("managed_login_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> ManagedLoginVersion { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
-    [TerraformPropertyName("user_pool_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_pool_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserPoolId { get; set; }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("aws_account_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AwsAccountId => new TerraformReference(this, "aws_account_id");
+    [TerraformProperty("aws_account_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AwsAccountId { get; }
 
     /// <summary>
     /// The cloudfront_distribution attribute.
     /// </summary>
-    [TerraformPropertyName("cloudfront_distribution")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CloudfrontDistribution => new TerraformReference(this, "cloudfront_distribution");
+    [TerraformProperty("cloudfront_distribution")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CloudfrontDistribution { get; }
 
     /// <summary>
     /// The cloudfront_distribution_arn attribute.
     /// </summary>
-    [TerraformPropertyName("cloudfront_distribution_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CloudfrontDistributionArn => new TerraformReference(this, "cloudfront_distribution_arn");
+    [TerraformProperty("cloudfront_distribution_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CloudfrontDistributionArn { get; }
 
     /// <summary>
     /// The cloudfront_distribution_zone_id attribute.
     /// </summary>
-    [TerraformPropertyName("cloudfront_distribution_zone_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CloudfrontDistributionZoneId => new TerraformReference(this, "cloudfront_distribution_zone_id");
+    [TerraformProperty("cloudfront_distribution_zone_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CloudfrontDistributionZoneId { get; }
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    [TerraformPropertyName("s3_bucket")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> S3Bucket => new TerraformReference(this, "s3_bucket");
+    [TerraformProperty("s3_bucket")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> S3Bucket { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Version => new TerraformReference(this, "version");
+    [TerraformProperty("version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Version { get; }
 
 }

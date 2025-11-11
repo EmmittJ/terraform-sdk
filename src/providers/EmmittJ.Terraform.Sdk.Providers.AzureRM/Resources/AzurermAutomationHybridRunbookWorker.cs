@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAutomationHybridRunbookWorkerTimeoutsBlock
+public partial class AzurermAutomationHybridRunbookWorkerTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermAutomationHybridRunbookWorkerTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_automation_hybrid_runbook_worker resource.
 /// </summary>
-public class AzurermAutomationHybridRunbookWorker : TerraformResource
+public partial class AzurermAutomationHybridRunbookWorker : TerraformResource
 {
     public AzurermAutomationHybridRunbookWorker(string name) : base("azurerm_automation_hybrid_runbook_worker", name)
     {
@@ -44,89 +44,89 @@ public class AzurermAutomationHybridRunbookWorker : TerraformResource
     /// The automation_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountName is required")]
-    [TerraformPropertyName("automation_account_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("automation_account_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AutomationAccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The vm_resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmResourceId is required")]
-    [TerraformPropertyName("vm_resource_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vm_resource_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VmResourceId { get; set; }
 
     /// <summary>
     /// The worker_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerGroupName is required")]
-    [TerraformPropertyName("worker_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("worker_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WorkerGroupName { get; set; }
 
     /// <summary>
     /// The worker_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkerId is required")]
-    [TerraformPropertyName("worker_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("worker_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WorkerId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermAutomationHybridRunbookWorkerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The ip attribute.
     /// </summary>
-    [TerraformPropertyName("ip")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Ip => new TerraformReference(this, "ip");
+    [TerraformProperty("ip")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Ip { get; }
 
     /// <summary>
     /// The last_seen_date_time attribute.
     /// </summary>
-    [TerraformPropertyName("last_seen_date_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastSeenDateTime => new TerraformReference(this, "last_seen_date_time");
+    [TerraformProperty("last_seen_date_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastSeenDateTime { get; }
 
     /// <summary>
     /// The registration_date_time attribute.
     /// </summary>
-    [TerraformPropertyName("registration_date_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RegistrationDateTime => new TerraformReference(this, "registration_date_time");
+    [TerraformProperty("registration_date_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RegistrationDateTime { get; }
 
     /// <summary>
     /// The worker_name attribute.
     /// </summary>
-    [TerraformPropertyName("worker_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WorkerName => new TerraformReference(this, "worker_name");
+    [TerraformProperty("worker_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WorkerName { get; }
 
     /// <summary>
     /// The worker_type attribute.
     /// </summary>
-    [TerraformPropertyName("worker_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WorkerType => new TerraformReference(this, "worker_type");
+    [TerraformProperty("worker_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WorkerType { get; }
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for single_region_keys in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock
+public partial class GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock : TerraformBlockBase
 {
     /// <summary>
     /// Single-regional kms key resource name which will be used to encrypt
@@ -14,8 +14,8 @@ public class GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock
     /// &#39;projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
-    [TerraformPropertyName("kms_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kms_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KmsKey { get; set; }
 
 }
@@ -24,27 +24,27 @@ public class GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDiscoveryEngineCmekConfigTimeoutsBlock
+public partial class GoogleDiscoveryEngineCmekConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -52,7 +52,7 @@ public class GoogleDiscoveryEngineCmekConfigTimeoutsBlock
 /// <summary>
 /// Manages a google_discovery_engine_cmek_config resource.
 /// </summary>
-public class GoogleDiscoveryEngineCmekConfig : TerraformResource
+public partial class GoogleDiscoveryEngineCmekConfig : TerraformResource
 {
     public GoogleDiscoveryEngineCmekConfig(string name) : base("google_discovery_engine_cmek_config", name)
     {
@@ -61,24 +61,24 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// <summary>
     /// The unique id of the cmek config.
     /// </summary>
-    [TerraformPropertyName("cmek_config_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cmek_config_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CmekConfigId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// KMS key resource name which will be used to encrypt resources
     /// &#39;projects/{project}/locations/{location}/keyRings/{keyRing}/cryptoKeys/{keyId}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKey is required")]
-    [TerraformPropertyName("kms_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kms_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KmsKey { get; set; }
 
     /// <summary>
@@ -86,60 +86,60 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// only be one of &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Set the following CmekConfig as the default to be used for child resources
     /// if one is not specified. The default value is true.
     /// </summary>
-    [TerraformPropertyName("set_default")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("set_default")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SetDefault { get; set; }
 
     /// <summary>
     /// Block for single_region_keys.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("single_region_keys")]
+    [TerraformProperty("single_region_keys")]
     public TerraformList<TerraformBlock<GoogleDiscoveryEngineCmekConfigSingleRegionKeysBlock>>? SingleRegionKeys { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDiscoveryEngineCmekConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The default CmekConfig for the Customer.
     /// </summary>
-    [TerraformPropertyName("is_default")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> IsDefault => new TerraformReference(this, "is_default");
+    [TerraformProperty("is_default")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> IsDefault { get; }
 
     /// <summary>
     /// KMS key version resource name which will be used to encrypt resources
     /// &#39;&amp;lt;kms_key&amp;gt;/cryptoKeyVersions/{keyVersion}&#39;.
     /// </summary>
-    [TerraformPropertyName("kms_key_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KmsKeyVersion => new TerraformReference(this, "kms_key_version");
+    [TerraformProperty("kms_key_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KmsKeyVersion { get; }
 
     /// <summary>
     /// The timestamp of the last key rotation.
     /// </summary>
-    [TerraformPropertyName("last_rotation_timestamp_micros")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> LastRotationTimestampMicros => new TerraformReference(this, "last_rotation_timestamp_micros");
+    [TerraformProperty("last_rotation_timestamp_micros")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> LastRotationTimestampMicros { get; }
 
     /// <summary>
     /// The unique full resource name of the cmek config. Values are of the format
@@ -147,22 +147,22 @@ public class GoogleDiscoveryEngineCmekConfig : TerraformResource
     /// This field must be a UTF-8 encoded string with a length limit of 1024
     /// characters.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Whether the NotebookLM Corpus is ready to be used.
     /// </summary>
-    [TerraformPropertyName("notebooklm_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> NotebooklmState => new TerraformReference(this, "notebooklm_state");
+    [TerraformProperty("notebooklm_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> NotebooklmState { get; }
 
     /// <summary>
     /// The state of the CmekConfig.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
 }

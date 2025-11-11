@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBotChannelSlackTimeoutsBlock
+public partial class AzurermBotChannelSlackTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermBotChannelSlackTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_bot_channel_slack resource.
 /// </summary>
-public class AzurermBotChannelSlack : TerraformResource
+public partial class AzurermBotChannelSlack : TerraformResource
 {
     public AzurermBotChannelSlack(string name) : base("azurerm_bot_channel_slack", name)
     {
@@ -51,76 +51,76 @@ public class AzurermBotChannelSlack : TerraformResource
     /// The bot_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
-    [TerraformPropertyName("bot_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bot_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BotName { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
-    [TerraformPropertyName("client_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("client_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientSecret is required")]
-    [TerraformPropertyName("client_secret")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("client_secret")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClientSecret { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The landing_page_url attribute.
     /// </summary>
-    [TerraformPropertyName("landing_page_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("landing_page_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LandingPageUrl { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The signing_secret attribute.
     /// </summary>
-    [TerraformPropertyName("signing_secret")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("signing_secret")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SigningSecret { get; set; }
 
     /// <summary>
     /// The verification_token attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VerificationToken is required")]
-    [TerraformPropertyName("verification_token")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("verification_token")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VerificationToken { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermBotChannelSlackTimeoutsBlock>? Timeouts { get; set; }
 
 }

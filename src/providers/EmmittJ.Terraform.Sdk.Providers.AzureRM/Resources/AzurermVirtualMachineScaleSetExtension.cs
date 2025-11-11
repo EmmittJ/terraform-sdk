@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for protected_settings_from_key_vault in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultBlock
+public partial class AzurermVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultBlock : TerraformBlockBase
 {
     /// <summary>
     /// The secret_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretUrl is required")]
-    [TerraformPropertyName("secret_url")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("secret_url")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SecretUrl { get; set; }
 
     /// <summary>
     /// The source_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceVaultId is required")]
-    [TerraformPropertyName("source_vault_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source_vault_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SourceVaultId { get; set; }
 
 }
@@ -30,34 +30,34 @@ public class AzurermVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVault
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualMachineScaleSetExtensionTimeoutsBlock
+public partial class AzurermVirtualMachineScaleSetExtensionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -66,7 +66,7 @@ public class AzurermVirtualMachineScaleSetExtensionTimeoutsBlock
 /// Manages a azurerm_virtual_machine_scale_set_extension resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermVirtualMachineScaleSetExtension : TerraformResource
+public partial class AzurermVirtualMachineScaleSetExtension : TerraformResource
 {
     public AzurermVirtualMachineScaleSetExtension(string name) : base("azurerm_virtual_machine_scale_set_extension", name)
     {
@@ -75,97 +75,97 @@ public class AzurermVirtualMachineScaleSetExtension : TerraformResource
     /// <summary>
     /// The auto_upgrade_minor_version attribute.
     /// </summary>
-    [TerraformPropertyName("auto_upgrade_minor_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auto_upgrade_minor_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AutoUpgradeMinorVersion { get; set; }
 
     /// <summary>
     /// The automatic_upgrade_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("automatic_upgrade_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("automatic_upgrade_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AutomaticUpgradeEnabled { get; set; }
 
     /// <summary>
     /// The failure_suppression_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("failure_suppression_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("failure_suppression_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? FailureSuppressionEnabled { get; set; }
 
     /// <summary>
     /// The force_update_tag attribute.
     /// </summary>
-    [TerraformPropertyName("force_update_tag")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("force_update_tag")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ForceUpdateTag { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The protected_settings attribute.
     /// </summary>
-    [TerraformPropertyName("protected_settings")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("protected_settings")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ProtectedSettings { get; set; }
 
     /// <summary>
     /// The provision_after_extensions attribute.
     /// </summary>
-    [TerraformPropertyName("provision_after_extensions")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("provision_after_extensions")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ProvisionAfterExtensions { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    [TerraformPropertyName("publisher")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("publisher")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Publisher { get; set; }
 
     /// <summary>
     /// The settings attribute.
     /// </summary>
-    [TerraformPropertyName("settings")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("settings")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Settings { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The type_handler_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeHandlerVersion is required")]
-    [TerraformPropertyName("type_handler_version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type_handler_version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TypeHandlerVersion { get; set; }
 
     /// <summary>
     /// The virtual_machine_scale_set_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineScaleSetId is required")]
-    [TerraformPropertyName("virtual_machine_scale_set_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("virtual_machine_scale_set_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VirtualMachineScaleSetId { get; set; }
 
     /// <summary>
@@ -173,14 +173,14 @@ public class AzurermVirtualMachineScaleSetExtension : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProtectedSettingsFromKeyVault block(s) allowed")]
-    [TerraformPropertyName("protected_settings_from_key_vault")]
+    [TerraformProperty("protected_settings_from_key_vault")]
     public TerraformList<TerraformBlock<AzurermVirtualMachineScaleSetExtensionProtectedSettingsFromKeyVaultBlock>>? ProtectedSettingsFromKeyVault { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermVirtualMachineScaleSetExtensionTimeoutsBlock>? Timeouts { get; set; }
 
 }

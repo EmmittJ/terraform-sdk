@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_cloudfront_key_group resource.
 /// </summary>
-public class AwsCloudfrontKeyGroup : TerraformResource
+public partial class AwsCloudfrontKeyGroup : TerraformResource
 {
     public AwsCloudfrontKeyGroup(string name) : base("aws_cloudfront_key_group", name)
     {
@@ -14,38 +14,38 @@ public class AwsCloudfrontKeyGroup : TerraformResource
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    [TerraformPropertyName("comment")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("comment")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The items attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Items is required")]
-    [TerraformPropertyName("items")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("items")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Items { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
 }

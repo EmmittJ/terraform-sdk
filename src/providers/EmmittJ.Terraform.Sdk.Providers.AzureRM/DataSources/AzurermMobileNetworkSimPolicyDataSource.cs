@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMobileNetworkSimPolicyDataSourceTimeoutsBlock
+public partial class AzurermMobileNetworkSimPolicyDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermMobileNetworkSimPolicyDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_mobile_network_sim_policy.
 /// </summary>
-public class AzurermMobileNetworkSimPolicyDataSource : TerraformDataSource
+public partial class AzurermMobileNetworkSimPolicyDataSource : TerraformDataSource
 {
     public AzurermMobileNetworkSimPolicyDataSource(string name) : base("azurerm_mobile_network_sim_policy", name)
     {
@@ -29,80 +29,80 @@ public class AzurermMobileNetworkSimPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The mobile_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkId is required")]
-    [TerraformPropertyName("mobile_network_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("mobile_network_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MobileNetworkId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMobileNetworkSimPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The default_slice_id attribute.
     /// </summary>
-    [TerraformPropertyName("default_slice_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultSliceId => new TerraformReference(this, "default_slice_id");
+    [TerraformProperty("default_slice_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultSliceId { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The rat_frequency_selection_priority_index attribute.
     /// </summary>
-    [TerraformPropertyName("rat_frequency_selection_priority_index")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> RatFrequencySelectionPriorityIndex => new TerraformReference(this, "rat_frequency_selection_priority_index");
+    [TerraformProperty("rat_frequency_selection_priority_index")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> RatFrequencySelectionPriorityIndex { get; }
 
     /// <summary>
     /// The registration_timer_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("registration_timer_in_seconds")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> RegistrationTimerInSeconds => new TerraformReference(this, "registration_timer_in_seconds");
+    [TerraformProperty("registration_timer_in_seconds")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> RegistrationTimerInSeconds { get; }
 
     /// <summary>
     /// The slice attribute.
     /// </summary>
-    [TerraformPropertyName("slice")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Slice => new TerraformReference(this, "slice");
+    [TerraformProperty("slice")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Slice { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The user_equipment_aggregate_maximum_bit_rate attribute.
     /// </summary>
-    [TerraformPropertyName("user_equipment_aggregate_maximum_bit_rate")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> UserEquipmentAggregateMaximumBitRate => new TerraformReference(this, "user_equipment_aggregate_maximum_bit_rate");
+    [TerraformProperty("user_equipment_aggregate_maximum_bit_rate")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> UserEquipmentAggregateMaximumBitRate { get; }
 
 }

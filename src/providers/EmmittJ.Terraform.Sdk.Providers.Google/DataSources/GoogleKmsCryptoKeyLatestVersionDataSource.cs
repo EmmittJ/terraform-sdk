@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_kms_crypto_key_latest_version.
 /// </summary>
-public class GoogleKmsCryptoKeyLatestVersionDataSource : TerraformDataSource
+public partial class GoogleKmsCryptoKeyLatestVersionDataSource : TerraformDataSource
 {
     public GoogleKmsCryptoKeyLatestVersionDataSource(string name) : base("google_kms_crypto_key_latest_version", name)
     {
@@ -15,8 +15,8 @@ public class GoogleKmsCryptoKeyLatestVersionDataSource : TerraformDataSource
     /// The crypto_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CryptoKey is required")]
-    [TerraformPropertyName("crypto_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("crypto_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CryptoKey { get; set; }
 
     /// <summary>
@@ -30,57 +30,57 @@ public class GoogleKmsCryptoKeyLatestVersionDataSource : TerraformDataSource
     /// 					[See the documentation about using filters](https://cloud.google.com/kms/docs/sorting-and-filtering)
     /// 				
     /// </summary>
-    [TerraformPropertyName("filter")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filter")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The algorithm attribute.
     /// </summary>
-    [TerraformPropertyName("algorithm")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Algorithm => new TerraformReference(this, "algorithm");
+    [TerraformProperty("algorithm")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Algorithm { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The protection_level attribute.
     /// </summary>
-    [TerraformPropertyName("protection_level")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ProtectionLevel => new TerraformReference(this, "protection_level");
+    [TerraformProperty("protection_level")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ProtectionLevel { get; }
 
     /// <summary>
     /// The public_key attribute.
     /// </summary>
-    [TerraformPropertyName("public_key")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PublicKey => new TerraformReference(this, "public_key");
+    [TerraformProperty("public_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PublicKey { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Version => new TerraformReference(this, "version");
+    [TerraformProperty("version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Version { get; }
 
 }

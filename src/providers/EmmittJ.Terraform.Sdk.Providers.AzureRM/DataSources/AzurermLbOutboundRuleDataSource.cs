@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLbOutboundRuleDataSourceTimeoutsBlock
+public partial class AzurermLbOutboundRuleDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermLbOutboundRuleDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_lb_outbound_rule.
 /// </summary>
-public class AzurermLbOutboundRuleDataSource : TerraformDataSource
+public partial class AzurermLbOutboundRuleDataSource : TerraformDataSource
 {
     public AzurermLbOutboundRuleDataSource(string name) : base("azurerm_lb_outbound_rule", name)
     {
@@ -29,80 +29,80 @@ public class AzurermLbOutboundRuleDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The loadbalancer_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
-    [TerraformPropertyName("loadbalancer_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("loadbalancer_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LoadbalancerId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermLbOutboundRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The allocated_outbound_ports attribute.
     /// </summary>
-    [TerraformPropertyName("allocated_outbound_ports")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> AllocatedOutboundPorts => new TerraformReference(this, "allocated_outbound_ports");
+    [TerraformProperty("allocated_outbound_ports")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> AllocatedOutboundPorts { get; }
 
     /// <summary>
     /// The backend_address_pool_id attribute.
     /// </summary>
-    [TerraformPropertyName("backend_address_pool_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BackendAddressPoolId => new TerraformReference(this, "backend_address_pool_id");
+    [TerraformProperty("backend_address_pool_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BackendAddressPoolId { get; }
 
     /// <summary>
     /// The enable_tcp_reset attribute.
     /// </summary>
-    [TerraformPropertyName("enable_tcp_reset")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EnableTcpReset => new TerraformReference(this, "enable_tcp_reset");
+    [TerraformProperty("enable_tcp_reset")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EnableTcpReset { get; }
 
     /// <summary>
     /// The frontend_ip_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("frontend_ip_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> FrontendIpConfiguration => new TerraformReference(this, "frontend_ip_configuration");
+    [TerraformProperty("frontend_ip_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> FrontendIpConfiguration { get; }
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("idle_timeout_in_minutes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> IdleTimeoutInMinutes => new TerraformReference(this, "idle_timeout_in_minutes");
+    [TerraformProperty("idle_timeout_in_minutes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> IdleTimeoutInMinutes { get; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    [TerraformPropertyName("protocol")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Protocol => new TerraformReference(this, "protocol");
+    [TerraformProperty("protocol")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Protocol { get; }
 
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("tcp_reset_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> TcpResetEnabled => new TerraformReference(this, "tcp_reset_enabled");
+    [TerraformProperty("tcp_reset_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> TcpResetEnabled { get; }
 
 }

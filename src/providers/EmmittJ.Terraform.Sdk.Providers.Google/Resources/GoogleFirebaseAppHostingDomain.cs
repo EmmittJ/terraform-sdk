@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for serve in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFirebaseAppHostingDomainServeBlock
+public partial class GoogleFirebaseAppHostingDomainServeBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class GoogleFirebaseAppHostingDomainServeBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirebaseAppHostingDomainTimeoutsBlock
+public partial class GoogleFirebaseAppHostingDomainTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class GoogleFirebaseAppHostingDomainTimeoutsBlock
 /// Manages a google_firebase_app_hosting_domain resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleFirebaseAppHostingDomain : TerraformResource
+public partial class GoogleFirebaseAppHostingDomain : TerraformResource
 {
     public GoogleFirebaseAppHostingDomain(string name) : base("google_firebase_app_hosting_domain", name)
     {
@@ -53,8 +53,8 @@ public class GoogleFirebaseAppHostingDomain : TerraformResource
     /// The ID of the Backend that this Domain is associated with
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Backend is required")]
-    [TerraformPropertyName("backend")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("backend")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Backend { get; set; }
 
     /// <summary>
@@ -62,104 +62,104 @@ public class GoogleFirebaseAppHostingDomain : TerraformResource
     /// Must be a valid domain name, such as &amp;quot;foo.com&amp;quot;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
-    [TerraformPropertyName("domain_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("domain_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DomainId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the Backend that this Domain is associated with
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for serve.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Serve block(s) allowed")]
-    [TerraformPropertyName("serve")]
+    [TerraformProperty("serve")]
     public TerraformList<TerraformBlock<GoogleFirebaseAppHostingDomainServeBlock>>? Serve { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleFirebaseAppHostingDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time at which the domain was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The status of a custom domain&#39;s linkage to the Backend.
     /// </summary>
-    [TerraformPropertyName("custom_domain_status")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CustomDomainStatus => new TerraformReference(this, "custom_domain_status");
+    [TerraformProperty("custom_domain_status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CustomDomainStatus { get; }
 
     /// <summary>
     /// Time at which the domain was deleted.
     /// </summary>
-    [TerraformPropertyName("delete_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeleteTime => new TerraformReference(this, "delete_time");
+    [TerraformProperty("delete_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// Server-computed checksum based on other values; may be sent
     /// on update or delete to ensure operation is done on expected resource.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Identifier. The resource name of the domain, e.g.
     /// &#39;projects/{project}/locations/{locationId}/backends/{backendId}/domains/{domainId}&#39;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Time at which a soft-deleted domain will be purged, rendering in
     /// permanently deleted.
     /// </summary>
-    [TerraformPropertyName("purge_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PurgeTime => new TerraformReference(this, "purge_time");
+    [TerraformProperty("purge_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PurgeTime { get; }
 
     /// <summary>
     /// System-assigned, unique identifier.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Time at which the domain was last updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

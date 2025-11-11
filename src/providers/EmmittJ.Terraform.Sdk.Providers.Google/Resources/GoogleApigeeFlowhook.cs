@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeFlowhookTimeoutsBlock
+public partial class GoogleApigeeFlowhookTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class GoogleApigeeFlowhookTimeoutsBlock
 /// <summary>
 /// Manages a google_apigee_flowhook resource.
 /// </summary>
-public class GoogleApigeeFlowhook : TerraformResource
+public partial class GoogleApigeeFlowhook : TerraformResource
 {
     public GoogleApigeeFlowhook(string name) : base("google_apigee_flowhook", name)
     {
@@ -36,61 +36,61 @@ public class GoogleApigeeFlowhook : TerraformResource
     /// <summary>
     /// Flag that specifies whether execution should continue if the flow hook throws an exception. Set to true to continue execution. Set to false to stop execution if the flow hook throws an exception. Defaults to true.
     /// </summary>
-    [TerraformPropertyName("continue_on_error")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("continue_on_error")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ContinueOnError { get; set; }
 
     /// <summary>
     /// Description of the flow hook.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The resource ID of the environment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
-    [TerraformPropertyName("environment")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("environment")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Environment { get; set; }
 
     /// <summary>
     /// Where in the API call flow the flow hook is invoked. Must be one of PreProxyFlowHook, PostProxyFlowHook, PreTargetFlowHook, or PostTargetFlowHook.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowHookPoint is required")]
-    [TerraformPropertyName("flow_hook_point")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("flow_hook_point")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FlowHookPoint { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The Apigee Organization associated with the environment
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    [TerraformPropertyName("org_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("org_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// Id of the Sharedflow attaching to a flowhook point.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sharedflow is required")]
-    [TerraformPropertyName("sharedflow")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sharedflow")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Sharedflow { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleApigeeFlowhookTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_resource_policy.
 /// </summary>
-public class GoogleComputeResourcePolicyDataSource : TerraformDataSource
+public partial class GoogleComputeResourcePolicyDataSource : TerraformDataSource
 {
     public GoogleComputeResourcePolicyDataSource(string name) : base("google_compute_resource_policy", name)
     {
@@ -14,9 +14,9 @@ public class GoogleComputeResourcePolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the resource, provided by the client when initially creating
@@ -28,71 +28,71 @@ public class GoogleComputeResourcePolicyDataSource : TerraformDataSource
     /// which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Region where resource policy resides.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// Replication consistency group for asynchronous disk replication.
     /// </summary>
-    [TerraformPropertyName("disk_consistency_group_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> DiskConsistencyGroupPolicy => new TerraformReference(this, "disk_consistency_group_policy");
+    [TerraformProperty("disk_consistency_group_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> DiskConsistencyGroupPolicy { get; }
 
     /// <summary>
     /// Resource policy for instances used for placement configuration.
     /// </summary>
-    [TerraformPropertyName("group_placement_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> GroupPlacementPolicy => new TerraformReference(this, "group_placement_policy");
+    [TerraformProperty("group_placement_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> GroupPlacementPolicy { get; }
 
     /// <summary>
     /// Resource policy for scheduling instance operations.
     /// </summary>
-    [TerraformPropertyName("instance_schedule_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> InstanceSchedulePolicy => new TerraformReference(this, "instance_schedule_policy");
+    [TerraformProperty("instance_schedule_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> InstanceSchedulePolicy { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Policy for creating snapshots of persistent disks.
     /// </summary>
-    [TerraformPropertyName("snapshot_schedule_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SnapshotSchedulePolicy => new TerraformReference(this, "snapshot_schedule_policy");
+    [TerraformProperty("snapshot_schedule_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SnapshotSchedulePolicy { get; }
 
     /// <summary>
     /// Represents the workload policy.
     /// </summary>
-    [TerraformPropertyName("workload_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> WorkloadPolicy => new TerraformReference(this, "workload_policy");
+    [TerraformProperty("workload_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> WorkloadPolicy { get; }
 
 }

@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermExpressRouteCircuitConnectionTimeoutsBlock
+public partial class AzurermExpressRouteCircuitConnectionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermExpressRouteCircuitConnectionTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_express_route_circuit_connection resource.
 /// </summary>
-public class AzurermExpressRouteCircuitConnection : TerraformResource
+public partial class AzurermExpressRouteCircuitConnection : TerraformResource
 {
     public AzurermExpressRouteCircuitConnection(string name) : base("azurerm_express_route_circuit_connection", name)
     {
@@ -51,60 +51,60 @@ public class AzurermExpressRouteCircuitConnection : TerraformResource
     /// The address_prefix_ipv4 attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AddressPrefixIpv4 is required")]
-    [TerraformPropertyName("address_prefix_ipv4")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("address_prefix_ipv4")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AddressPrefixIpv4 { get; set; }
 
     /// <summary>
     /// The address_prefix_ipv6 attribute.
     /// </summary>
-    [TerraformPropertyName("address_prefix_ipv6")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("address_prefix_ipv6")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AddressPrefixIpv6 { get; set; }
 
     /// <summary>
     /// The authorization_key attribute.
     /// </summary>
-    [TerraformPropertyName("authorization_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("authorization_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthorizationKey { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The peer_peering_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeerPeeringId is required")]
-    [TerraformPropertyName("peer_peering_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("peer_peering_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PeerPeeringId { get; set; }
 
     /// <summary>
     /// The peering_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeeringId is required")]
-    [TerraformPropertyName("peering_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("peering_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PeeringId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermExpressRouteCircuitConnectionTimeoutsBlock>? Timeouts { get; set; }
 
 }

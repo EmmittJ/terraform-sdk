@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDevicefarmDevicePoolRuleBlock
+public partial class AwsDevicefarmDevicePoolRuleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The attribute attribute.
     /// </summary>
-    [TerraformPropertyName("attribute")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("attribute")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Attribute { get; set; }
 
     /// <summary>
     /// The operator attribute.
     /// </summary>
-    [TerraformPropertyName("operator")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("operator")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Operator { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    [TerraformPropertyName("value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Value { get; set; }
 
 }
@@ -35,7 +35,7 @@ public class AwsDevicefarmDevicePoolRuleBlock
 /// Manages a aws_devicefarm_device_pool resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsDevicefarmDevicePool : TerraformResource
+public partial class AwsDevicefarmDevicePool : TerraformResource
 {
     public AwsDevicefarmDevicePool(string name) : base("aws_devicefarm_device_pool", name)
     {
@@ -44,60 +44,60 @@ public class AwsDevicefarmDevicePool : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The max_devices attribute.
     /// </summary>
-    [TerraformPropertyName("max_devices")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_devices")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxDevices { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectArn is required")]
-    [TerraformPropertyName("project_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("project_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProjectArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for rule.
@@ -105,21 +105,21 @@ public class AwsDevicefarmDevicePool : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
-    [TerraformPropertyName("rule")]
+    [TerraformProperty("rule")]
     public TerraformSet<TerraformBlock<AwsDevicefarmDevicePoolRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
 }

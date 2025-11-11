@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_shield_subscription resource.
 /// </summary>
-public class AwsShieldSubscription : TerraformResource
+public partial class AwsShieldSubscription : TerraformResource
 {
     public AwsShieldSubscription(string name) : base("aws_shield_subscription", name)
     {
@@ -14,22 +14,22 @@ public class AwsShieldSubscription : TerraformResource
     /// <summary>
     /// Whether to automatically renew the subscription when it expires.
     /// </summary>
-    [TerraformPropertyName("auto_renew")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AutoRenew { get; set; } = default!;
+    [TerraformProperty("auto_renew")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AutoRenew { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    [TerraformPropertyName("skip_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("skip_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
 }

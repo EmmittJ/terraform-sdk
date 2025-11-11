@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for location_data in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementGatewayLocationDataBlock
+public partial class AzurermApiManagementGatewayLocationDataBlock : TerraformBlockBase
 {
     /// <summary>
     /// The city attribute.
     /// </summary>
-    [TerraformPropertyName("city")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("city")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? City { get; set; }
 
     /// <summary>
     /// The district attribute.
     /// </summary>
-    [TerraformPropertyName("district")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("district")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? District { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
 }
@@ -43,34 +43,34 @@ public class AzurermApiManagementGatewayLocationDataBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementGatewayTimeoutsBlock
+public partial class AzurermApiManagementGatewayTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -79,7 +79,7 @@ public class AzurermApiManagementGatewayTimeoutsBlock
 /// Manages a azurerm_api_management_gateway resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermApiManagementGateway : TerraformResource
+public partial class AzurermApiManagementGateway : TerraformResource
 {
     public AzurermApiManagementGateway(string name) : base("azurerm_api_management_gateway", name)
     {
@@ -89,30 +89,30 @@ public class AzurermApiManagementGateway : TerraformResource
     /// The api_management_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
-    [TerraformPropertyName("api_management_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("api_management_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApiManagementId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
@@ -122,14 +122,14 @@ public class AzurermApiManagementGateway : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationData is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LocationData block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocationData block(s) allowed")]
-    [TerraformPropertyName("location_data")]
+    [TerraformProperty("location_data")]
     public TerraformList<TerraformBlock<AzurermApiManagementGatewayLocationDataBlock>>? LocationData { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermApiManagementGatewayTimeoutsBlock>? Timeouts { get; set; }
 
 }

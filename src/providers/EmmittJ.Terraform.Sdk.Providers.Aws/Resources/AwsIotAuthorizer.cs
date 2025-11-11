@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_iot_authorizer resource.
 /// </summary>
-public class AwsIotAuthorizer : TerraformResource
+public partial class AwsIotAuthorizer : TerraformResource
 {
     public AwsIotAuthorizer(string name) : base("aws_iot_authorizer", name)
     {
@@ -15,86 +15,86 @@ public class AwsIotAuthorizer : TerraformResource
     /// The authorizer_function_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerFunctionArn is required")]
-    [TerraformPropertyName("authorizer_function_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("authorizer_function_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AuthorizerFunctionArn { get; set; }
 
     /// <summary>
     /// The enable_caching_for_http attribute.
     /// </summary>
-    [TerraformPropertyName("enable_caching_for_http")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_caching_for_http")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableCachingForHttp { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The signing_disabled attribute.
     /// </summary>
-    [TerraformPropertyName("signing_disabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("signing_disabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SigningDisabled { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("status")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The token_key_name attribute.
     /// </summary>
-    [TerraformPropertyName("token_key_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("token_key_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TokenKeyName { get; set; }
 
     /// <summary>
     /// The token_signing_public_keys attribute.
     /// </summary>
-    [TerraformPropertyName("token_signing_public_keys")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("token_signing_public_keys")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? TokenSigningPublicKeys { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

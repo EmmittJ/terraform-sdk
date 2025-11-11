@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for asset in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDataexchangeRevisionAssetsAssetBlock
+public partial class AwsDataexchangeRevisionAssetsAssetBlock : TerraformBlockBase
 {
 
 
@@ -19,13 +19,13 @@ public class AwsDataexchangeRevisionAssetsAssetBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDataexchangeRevisionAssetsTimeoutsBlock
+public partial class AwsDataexchangeRevisionAssetsTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
 }
@@ -33,7 +33,7 @@ public class AwsDataexchangeRevisionAssetsTimeoutsBlock
 /// <summary>
 /// Manages a aws_dataexchange_revision_assets resource.
 /// </summary>
-public class AwsDataexchangeRevisionAssets : TerraformResource
+public partial class AwsDataexchangeRevisionAssets : TerraformResource
 {
     public AwsDataexchangeRevisionAssets(string name) : base("aws_dataexchange_revision_assets", name)
     {
@@ -42,93 +42,93 @@ public class AwsDataexchangeRevisionAssets : TerraformResource
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    [TerraformPropertyName("comment")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("comment")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The data_set_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSetId is required")]
-    [TerraformPropertyName("data_set_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data_set_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DataSetId { get; set; }
 
     /// <summary>
     /// The finalized attribute.
     /// </summary>
-    [TerraformPropertyName("finalized")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> Finalized { get; set; } = default!;
+    [TerraformProperty("finalized")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> Finalized { get; set; }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    [TerraformPropertyName("force_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("force_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for asset.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("asset")]
+    [TerraformProperty("asset")]
     public TerraformSet<TerraformBlock<AwsDataexchangeRevisionAssetsAssetBlock>>? Asset { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsDataexchangeRevisionAssetsTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    [TerraformPropertyName("created_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
+    [TerraformProperty("created_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The updated_at attribute.
     /// </summary>
-    [TerraformPropertyName("updated_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdatedAt => new TerraformReference(this, "updated_at");
+    [TerraformProperty("updated_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdatedAt { get; }
 
 }

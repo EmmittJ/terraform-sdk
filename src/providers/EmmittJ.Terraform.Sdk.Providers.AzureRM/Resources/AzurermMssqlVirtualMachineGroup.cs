@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMssqlVirtualMachineGroupTimeoutsBlock
+public partial class AzurermMssqlVirtualMachineGroupTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -42,64 +42,64 @@ public class AzurermMssqlVirtualMachineGroupTimeoutsBlock
 /// Block type for wsfc_domain_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock
+public partial class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cluster_bootstrap_account_name attribute.
     /// </summary>
-    [TerraformPropertyName("cluster_bootstrap_account_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cluster_bootstrap_account_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClusterBootstrapAccountName { get; set; }
 
     /// <summary>
     /// The cluster_operator_account_name attribute.
     /// </summary>
-    [TerraformPropertyName("cluster_operator_account_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cluster_operator_account_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClusterOperatorAccountName { get; set; }
 
     /// <summary>
     /// The cluster_subnet_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterSubnetType is required")]
-    [TerraformPropertyName("cluster_subnet_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_subnet_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterSubnetType { get; set; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Fqdn is required")]
-    [TerraformPropertyName("fqdn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("fqdn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Fqdn { get; set; }
 
     /// <summary>
     /// The organizational_unit_path attribute.
     /// </summary>
-    [TerraformPropertyName("organizational_unit_path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("organizational_unit_path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OrganizationalUnitPath { get; set; }
 
     /// <summary>
     /// The sql_service_account_name attribute.
     /// </summary>
-    [TerraformPropertyName("sql_service_account_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sql_service_account_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SqlServiceAccountName { get; set; }
 
     /// <summary>
     /// The storage_account_primary_key attribute.
     /// </summary>
-    [TerraformPropertyName("storage_account_primary_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("storage_account_primary_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StorageAccountPrimaryKey { get; set; }
 
     /// <summary>
     /// The storage_account_url attribute.
     /// </summary>
-    [TerraformPropertyName("storage_account_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("storage_account_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StorageAccountUrl { get; set; }
 
 }
@@ -108,7 +108,7 @@ public class AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock
 /// Manages a azurerm_mssql_virtual_machine_group resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMssqlVirtualMachineGroup : TerraformResource
+public partial class AzurermMssqlVirtualMachineGroup : TerraformResource
 {
     public AzurermMssqlVirtualMachineGroup(string name) : base("azurerm_mssql_virtual_machine_group", name)
     {
@@ -117,62 +117,62 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sql_image_offer attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlImageOffer is required")]
-    [TerraformPropertyName("sql_image_offer")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sql_image_offer")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SqlImageOffer { get; set; }
 
     /// <summary>
     /// The sql_image_sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SqlImageSku is required")]
-    [TerraformPropertyName("sql_image_sku")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sql_image_sku")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SqlImageSku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMssqlVirtualMachineGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -182,7 +182,7 @@ public class AzurermMssqlVirtualMachineGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WsfcDomainProfile is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 WsfcDomainProfile block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WsfcDomainProfile block(s) allowed")]
-    [TerraformPropertyName("wsfc_domain_profile")]
+    [TerraformProperty("wsfc_domain_profile")]
     public TerraformList<TerraformBlock<AzurermMssqlVirtualMachineGroupWsfcDomainProfileBlock>>? WsfcDomainProfile { get; set; }
 
 }

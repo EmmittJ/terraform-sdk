@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationRedirectUrisTimeoutsBlock
+public partial class AzureadApplicationRedirectUrisTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzureadApplicationRedirectUrisTimeoutsBlock
 /// <summary>
 /// Manages a azuread_application_redirect_uris resource.
 /// </summary>
-public class AzureadApplicationRedirectUris : TerraformResource
+public partial class AzureadApplicationRedirectUris : TerraformResource
 {
     public AzureadApplicationRedirectUris(string name) : base("azuread_application_redirect_uris", name)
     {
@@ -51,38 +51,38 @@ public class AzureadApplicationRedirectUris : TerraformResource
     /// The resource ID of the application to which these redirect URIs belong
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    [TerraformPropertyName("application_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("application_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A set of redirect URIs
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RedirectUris is required")]
-    [TerraformPropertyName("redirect_uris")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("redirect_uris")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> RedirectUris { get; set; }
 
     /// <summary>
     /// The type of redirect URIs to assign to the application
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadApplicationRedirectUrisTimeoutsBlock>? Timeouts { get; set; }
 
 }

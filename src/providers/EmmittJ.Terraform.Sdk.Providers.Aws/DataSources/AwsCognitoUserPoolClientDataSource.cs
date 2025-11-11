@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_cognito_user_pool_client.
 /// </summary>
-public class AwsCognitoUserPoolClientDataSource : TerraformDataSource
+public partial class AwsCognitoUserPoolClientDataSource : TerraformDataSource
 {
     public AwsCognitoUserPoolClientDataSource(string name) : base("aws_cognito_user_pool_client", name)
     {
@@ -15,184 +15,184 @@ public class AwsCognitoUserPoolClientDataSource : TerraformDataSource
     /// The client_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientId is required")]
-    [TerraformPropertyName("client_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("client_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClientId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
-    [TerraformPropertyName("user_pool_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_pool_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserPoolId { get; set; }
 
     /// <summary>
     /// The access_token_validity attribute.
     /// </summary>
-    [TerraformPropertyName("access_token_validity")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> AccessTokenValidity => new TerraformReference(this, "access_token_validity");
+    [TerraformProperty("access_token_validity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> AccessTokenValidity { get; }
 
     /// <summary>
     /// The allowed_oauth_flows attribute.
     /// </summary>
-    [TerraformPropertyName("allowed_oauth_flows")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> AllowedOauthFlows => new TerraformReference(this, "allowed_oauth_flows");
+    [TerraformProperty("allowed_oauth_flows")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> AllowedOauthFlows { get; }
 
     /// <summary>
     /// The allowed_oauth_flows_user_pool_client attribute.
     /// </summary>
-    [TerraformPropertyName("allowed_oauth_flows_user_pool_client")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AllowedOauthFlowsUserPoolClient => new TerraformReference(this, "allowed_oauth_flows_user_pool_client");
+    [TerraformProperty("allowed_oauth_flows_user_pool_client")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AllowedOauthFlowsUserPoolClient { get; }
 
     /// <summary>
     /// The allowed_oauth_scopes attribute.
     /// </summary>
-    [TerraformPropertyName("allowed_oauth_scopes")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> AllowedOauthScopes => new TerraformReference(this, "allowed_oauth_scopes");
+    [TerraformProperty("allowed_oauth_scopes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> AllowedOauthScopes { get; }
 
     /// <summary>
     /// The analytics_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("analytics_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> AnalyticsConfiguration => new TerraformReference(this, "analytics_configuration");
+    [TerraformProperty("analytics_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> AnalyticsConfiguration { get; }
 
     /// <summary>
     /// The callback_urls attribute.
     /// </summary>
-    [TerraformPropertyName("callback_urls")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> CallbackUrls => new TerraformReference(this, "callback_urls");
+    [TerraformProperty("callback_urls")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> CallbackUrls { get; }
 
     /// <summary>
     /// The client_secret attribute.
     /// </summary>
-    [TerraformPropertyName("client_secret")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ClientSecret => new TerraformReference(this, "client_secret");
+    [TerraformProperty("client_secret")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ClientSecret { get; }
 
     /// <summary>
     /// The default_redirect_uri attribute.
     /// </summary>
-    [TerraformPropertyName("default_redirect_uri")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultRedirectUri => new TerraformReference(this, "default_redirect_uri");
+    [TerraformProperty("default_redirect_uri")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultRedirectUri { get; }
 
     /// <summary>
     /// The enable_propagate_additional_user_context_data attribute.
     /// </summary>
-    [TerraformPropertyName("enable_propagate_additional_user_context_data")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EnablePropagateAdditionalUserContextData => new TerraformReference(this, "enable_propagate_additional_user_context_data");
+    [TerraformProperty("enable_propagate_additional_user_context_data")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EnablePropagateAdditionalUserContextData { get; }
 
     /// <summary>
     /// The enable_token_revocation attribute.
     /// </summary>
-    [TerraformPropertyName("enable_token_revocation")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EnableTokenRevocation => new TerraformReference(this, "enable_token_revocation");
+    [TerraformProperty("enable_token_revocation")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EnableTokenRevocation { get; }
 
     /// <summary>
     /// The explicit_auth_flows attribute.
     /// </summary>
-    [TerraformPropertyName("explicit_auth_flows")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> ExplicitAuthFlows => new TerraformReference(this, "explicit_auth_flows");
+    [TerraformProperty("explicit_auth_flows")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> ExplicitAuthFlows { get; }
 
     /// <summary>
     /// The generate_secret attribute.
     /// </summary>
-    [TerraformPropertyName("generate_secret")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> GenerateSecret => new TerraformReference(this, "generate_secret");
+    [TerraformProperty("generate_secret")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> GenerateSecret { get; }
 
     /// <summary>
     /// The id_token_validity attribute.
     /// </summary>
-    [TerraformPropertyName("id_token_validity")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> IdTokenValidity => new TerraformReference(this, "id_token_validity");
+    [TerraformProperty("id_token_validity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> IdTokenValidity { get; }
 
     /// <summary>
     /// The logout_urls attribute.
     /// </summary>
-    [TerraformPropertyName("logout_urls")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> LogoutUrls => new TerraformReference(this, "logout_urls");
+    [TerraformProperty("logout_urls")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> LogoutUrls { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The prevent_user_existence_errors attribute.
     /// </summary>
-    [TerraformPropertyName("prevent_user_existence_errors")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PreventUserExistenceErrors => new TerraformReference(this, "prevent_user_existence_errors");
+    [TerraformProperty("prevent_user_existence_errors")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PreventUserExistenceErrors { get; }
 
     /// <summary>
     /// The read_attributes attribute.
     /// </summary>
-    [TerraformPropertyName("read_attributes")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> ReadAttributes => new TerraformReference(this, "read_attributes");
+    [TerraformProperty("read_attributes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> ReadAttributes { get; }
 
     /// <summary>
     /// The refresh_token_rotation attribute.
     /// </summary>
-    [TerraformPropertyName("refresh_token_rotation")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> RefreshTokenRotation => new TerraformReference(this, "refresh_token_rotation");
+    [TerraformProperty("refresh_token_rotation")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> RefreshTokenRotation { get; }
 
     /// <summary>
     /// The refresh_token_validity attribute.
     /// </summary>
-    [TerraformPropertyName("refresh_token_validity")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> RefreshTokenValidity => new TerraformReference(this, "refresh_token_validity");
+    [TerraformProperty("refresh_token_validity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> RefreshTokenValidity { get; }
 
     /// <summary>
     /// The supported_identity_providers attribute.
     /// </summary>
-    [TerraformPropertyName("supported_identity_providers")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> SupportedIdentityProviders => new TerraformReference(this, "supported_identity_providers");
+    [TerraformProperty("supported_identity_providers")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> SupportedIdentityProviders { get; }
 
     /// <summary>
     /// The token_validity_units attribute.
     /// </summary>
-    [TerraformPropertyName("token_validity_units")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> TokenValidityUnits => new TerraformReference(this, "token_validity_units");
+    [TerraformProperty("token_validity_units")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> TokenValidityUnits { get; }
 
     /// <summary>
     /// The write_attributes attribute.
     /// </summary>
-    [TerraformPropertyName("write_attributes")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> WriteAttributes => new TerraformReference(this, "write_attributes");
+    [TerraformProperty("write_attributes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> WriteAttributes { get; }
 
 }

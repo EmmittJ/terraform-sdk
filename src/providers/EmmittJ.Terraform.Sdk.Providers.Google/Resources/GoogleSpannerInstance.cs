@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscaling_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSpannerInstanceAutoscalingConfigBlock
+public partial class GoogleSpannerInstanceAutoscalingConfigBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class GoogleSpannerInstanceAutoscalingConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSpannerInstanceTimeoutsBlock
+public partial class GoogleSpannerInstanceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class GoogleSpannerInstanceTimeoutsBlock
 /// Manages a google_spanner_instance resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleSpannerInstance : TerraformResource
+public partial class GoogleSpannerInstance : TerraformResource
 {
     public GoogleSpannerInstance(string name) : base("google_spanner_instance", name)
     {
@@ -58,8 +58,8 @@ public class GoogleSpannerInstance : TerraformResource
     /// [Configuration section of the docs](https://cloud.google.com/spanner/docs/instances).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
-    [TerraformPropertyName("config")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("config")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Config { get; set; }
 
     /// <summary>
@@ -67,49 +67,49 @@ public class GoogleSpannerInstance : TerraformResource
     /// Note that &#39;AUTOMATIC&#39; is not permitted for free instances, as backups and backup schedules are not allowed for free instances.
     /// if unset or NONE, no default backup schedule will be created for new databases within the instance. Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;AUTOMATIC&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("default_backup_schedule_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DefaultBackupScheduleType { get; set; } = default!;
+    [TerraformProperty("default_backup_schedule_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DefaultBackupScheduleType { get; set; }
 
     /// <summary>
     /// The descriptive name for this instance as it appears in UIs. Must be
     /// unique per project and between 4 and 30 characters in length.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The edition selected for this instance. Different editions provide different capabilities at different price points. Possible values: [&amp;quot;EDITION_UNSPECIFIED&amp;quot;, &amp;quot;STANDARD&amp;quot;, &amp;quot;ENTERPRISE&amp;quot;, &amp;quot;ENTERPRISE_PLUS&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("edition")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Edition { get; set; } = default!;
+    [TerraformProperty("edition")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Edition { get; set; }
 
     /// <summary>
     /// When deleting a spanner instance, this boolean option will delete all backups of this instance.
     /// This must be set to true if you created a backup manually in the console.
     /// </summary>
-    [TerraformPropertyName("force_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("force_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The type of this instance. The type can be used to distinguish product variants, that can affect aspects like:
     /// usage restrictions, quotas and billing. Currently this is used to distinguish FREE_INSTANCE vs PROVISIONED instances.
     /// When configured as FREE_INSTANCE, the field &#39;edition&#39; should not be configured. Possible values: [&amp;quot;PROVISIONED&amp;quot;, &amp;quot;FREE_INSTANCE&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("instance_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> InstanceType { get; set; } = default!;
+    [TerraformProperty("instance_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs.
@@ -119,8 +119,8 @@ public class GoogleSpannerInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -129,68 +129,68 @@ public class GoogleSpannerInstance : TerraformResource
     /// in length.
     /// If not provided, a random string starting with &#39;tf-&#39; will be selected.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The number of nodes allocated to this instance. Exactly one of either num_nodes, processing_units or
     /// autoscaling_config must be present in terraform except when instance_type = FREE_INSTANCE.
     /// </summary>
-    [TerraformPropertyName("num_nodes")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> NumNodes { get; set; } = default!;
+    [TerraformProperty("num_nodes")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> NumNodes { get; set; }
 
     /// <summary>
     /// The number of processing units allocated to this instance. Exactly one of either num_nodes,
     /// processing_units or autoscaling_config must be present in terraform except when instance_type = FREE_INSTANCE.
     /// </summary>
-    [TerraformPropertyName("processing_units")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> ProcessingUnits { get; set; } = default!;
+    [TerraformProperty("processing_units")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> ProcessingUnits { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for autoscaling_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoscalingConfig block(s) allowed")]
-    [TerraformPropertyName("autoscaling_config")]
+    [TerraformProperty("autoscaling_config")]
     public TerraformList<TerraformBlock<GoogleSpannerInstanceAutoscalingConfigBlock>>? AutoscalingConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleSpannerInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Instance status: &#39;CREATING&#39; or &#39;READY&#39;.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

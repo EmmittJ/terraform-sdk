@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsNetworkmanagerCoreNetworkPolicyAttachmentTimeoutsBlock
+public partial class AwsNetworkmanagerCoreNetworkPolicyAttachmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsNetworkmanagerCoreNetworkPolicyAttachmentTimeoutsBlock
 /// <summary>
 /// Manages a aws_networkmanager_core_network_policy_attachment resource.
 /// </summary>
-public class AwsNetworkmanagerCoreNetworkPolicyAttachment : TerraformResource
+public partial class AwsNetworkmanagerCoreNetworkPolicyAttachment : TerraformResource
 {
     public AwsNetworkmanagerCoreNetworkPolicyAttachment(string name) : base("aws_networkmanager_core_network_policy_attachment", name)
     {
@@ -30,37 +30,37 @@ public class AwsNetworkmanagerCoreNetworkPolicyAttachment : TerraformResource
     /// The core_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CoreNetworkId is required")]
-    [TerraformPropertyName("core_network_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("core_network_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CoreNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy_document attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyDocument is required")]
-    [TerraformPropertyName("policy_document")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_document")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PolicyDocument { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsNetworkmanagerCoreNetworkPolicyAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_ssmincidents_replication_set.
 /// </summary>
-public class AwsSsmincidentsReplicationSetDataSource : TerraformDataSource
+public partial class AwsSsmincidentsReplicationSetDataSource : TerraformDataSource
 {
     public AwsSsmincidentsReplicationSetDataSource(string name) : base("aws_ssmincidents_replication_set", name)
     {
@@ -14,64 +14,64 @@ public class AwsSsmincidentsReplicationSetDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
-    [TerraformPropertyName("created_by")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedBy => new TerraformReference(this, "created_by");
+    [TerraformProperty("created_by")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedBy { get; }
 
     /// <summary>
     /// The deletion_protected attribute.
     /// </summary>
-    [TerraformPropertyName("deletion_protected")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DeletionProtected => new TerraformReference(this, "deletion_protected");
+    [TerraformProperty("deletion_protected")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DeletionProtected { get; }
 
     /// <summary>
     /// The last_modified_by attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified_by")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModifiedBy => new TerraformReference(this, "last_modified_by");
+    [TerraformProperty("last_modified_by")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModifiedBy { get; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Region => new TerraformReference(this, "region");
+    [TerraformProperty("region")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Region { get; }
 
     /// <summary>
     /// The regions attribute.
     /// </summary>
-    [TerraformPropertyName("regions")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Regions => new TerraformReference(this, "regions");
+    [TerraformProperty("regions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Regions { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

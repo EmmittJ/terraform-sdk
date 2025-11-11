@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for permissions in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRoleDefinitionPermissionsBlock
+public partial class AzurermRoleDefinitionPermissionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The actions attribute.
     /// </summary>
-    [TerraformPropertyName("actions")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("actions")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Actions { get; set; }
 
     /// <summary>
     /// The data_actions attribute.
     /// </summary>
-    [TerraformPropertyName("data_actions")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("data_actions")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? DataActions { get; set; }
 
     /// <summary>
     /// The not_actions attribute.
     /// </summary>
-    [TerraformPropertyName("not_actions")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("not_actions")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? NotActions { get; set; }
 
     /// <summary>
     /// The not_data_actions attribute.
     /// </summary>
-    [TerraformPropertyName("not_data_actions")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("not_data_actions")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? NotDataActions { get; set; }
 
 }
@@ -42,34 +42,34 @@ public class AzurermRoleDefinitionPermissionsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermRoleDefinitionTimeoutsBlock
+public partial class AzurermRoleDefinitionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -77,7 +77,7 @@ public class AzurermRoleDefinitionTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_role_definition resource.
 /// </summary>
-public class AzurermRoleDefinition : TerraformResource
+public partial class AzurermRoleDefinition : TerraformResource
 {
     public AzurermRoleDefinition(string name) : base("azurerm_role_definition", name)
     {
@@ -86,66 +86,66 @@ public class AzurermRoleDefinition : TerraformResource
     /// <summary>
     /// The assignable_scopes attribute.
     /// </summary>
-    [TerraformPropertyName("assignable_scopes")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> AssignableScopes { get; set; } = default!;
+    [TerraformProperty("assignable_scopes")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> AssignableScopes { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    [TerraformPropertyName("role_definition_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> RoleDefinitionId { get; set; } = default!;
+    [TerraformProperty("role_definition_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> RoleDefinitionId { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
-    [TerraformPropertyName("scope")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("scope")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// Block for permissions.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("permissions")]
+    [TerraformProperty("permissions")]
     public TerraformList<TerraformBlock<AzurermRoleDefinitionPermissionsBlock>>? Permissions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The role_definition_resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("role_definition_resource_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RoleDefinitionResourceId => new TerraformReference(this, "role_definition_resource_id");
+    [TerraformProperty("role_definition_resource_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RoleDefinitionResourceId { get; }
 
 }

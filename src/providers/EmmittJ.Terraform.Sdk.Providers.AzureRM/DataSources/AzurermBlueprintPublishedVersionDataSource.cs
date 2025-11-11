@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBlueprintPublishedVersionDataSourceTimeoutsBlock
+public partial class AzurermBlueprintPublishedVersionDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermBlueprintPublishedVersionDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_blueprint_published_version.
 /// </summary>
-public class AzurermBlueprintPublishedVersionDataSource : TerraformDataSource
+public partial class AzurermBlueprintPublishedVersionDataSource : TerraformDataSource
 {
     public AzurermBlueprintPublishedVersionDataSource(string name) : base("azurerm_blueprint_published_version", name)
     {
@@ -30,80 +30,80 @@ public class AzurermBlueprintPublishedVersionDataSource : TerraformDataSource
     /// The blueprint_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlueprintName is required")]
-    [TerraformPropertyName("blueprint_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("blueprint_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BlueprintName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The scope_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
-    [TerraformPropertyName("scope_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("scope_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ScopeId { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformPropertyName("version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermBlueprintPublishedVersionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModified => new TerraformReference(this, "last_modified");
+    [TerraformProperty("last_modified")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModified { get; }
 
     /// <summary>
     /// The target_scope attribute.
     /// </summary>
-    [TerraformPropertyName("target_scope")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TargetScope => new TerraformReference(this, "target_scope");
+    [TerraformProperty("target_scope")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TargetScope { get; }
 
     /// <summary>
     /// The time_created attribute.
     /// </summary>
-    [TerraformPropertyName("time_created")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TimeCreated => new TerraformReference(this, "time_created");
+    [TerraformProperty("time_created")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TimeCreated { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
 }

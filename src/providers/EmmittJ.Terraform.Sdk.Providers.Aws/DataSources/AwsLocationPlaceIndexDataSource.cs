@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_location_place_index.
 /// </summary>
-public class AwsLocationPlaceIndexDataSource : TerraformDataSource
+public partial class AwsLocationPlaceIndexDataSource : TerraformDataSource
 {
     public AwsLocationPlaceIndexDataSource(string name) : base("aws_location_place_index", name)
     {
@@ -14,72 +14,72 @@ public class AwsLocationPlaceIndexDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The index_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
-    [TerraformPropertyName("index_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("index_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IndexName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The data_source attribute.
     /// </summary>
-    [TerraformPropertyName("data_source")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DataSource => new TerraformReference(this, "data_source");
+    [TerraformProperty("data_source")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DataSource { get; }
 
     /// <summary>
     /// The data_source_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("data_source_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> DataSourceConfiguration => new TerraformReference(this, "data_source_configuration");
+    [TerraformProperty("data_source_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> DataSourceConfiguration { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The index_arn attribute.
     /// </summary>
-    [TerraformPropertyName("index_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IndexArn => new TerraformReference(this, "index_arn");
+    [TerraformProperty("index_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IndexArn { get; }
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationRegistrationTimeoutsBlock
+public partial class AzureadApplicationRegistrationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzureadApplicationRegistrationTimeoutsBlock
 /// <summary>
 /// Manages a azuread_application_registration resource.
 /// </summary>
-public class AzureadApplicationRegistration : TerraformResource
+public partial class AzureadApplicationRegistration : TerraformResource
 {
     public AzureadApplicationRegistration(string name) : base("azuread_application_registration", name)
     {
@@ -50,149 +50,149 @@ public class AzureadApplicationRegistration : TerraformResource
     /// <summary>
     /// Description of the application as shown to end users
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display name for the application
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Configures the `groups` claim that the app expects issued in a user or OAuth access token
     /// </summary>
-    [TerraformPropertyName("group_membership_claims")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("group_membership_claims")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? GroupMembershipClaims { get; set; }
 
     /// <summary>
     /// URL of the home page for the application
     /// </summary>
-    [TerraformPropertyName("homepage_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("homepage_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HomepageUrl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Whether this application can request an access token using OAuth implicit flow
     /// </summary>
-    [TerraformPropertyName("implicit_access_token_issuance_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("implicit_access_token_issuance_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ImplicitAccessTokenIssuanceEnabled { get; set; }
 
     /// <summary>
     /// Whether this application can request an ID token using OAuth implicit flow
     /// </summary>
-    [TerraformPropertyName("implicit_id_token_issuance_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("implicit_id_token_issuance_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ImplicitIdTokenIssuanceEnabled { get; set; }
 
     /// <summary>
     /// URL of the logout page for the application, where the session is cleared for single sign-out
     /// </summary>
-    [TerraformPropertyName("logout_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("logout_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LogoutUrl { get; set; }
 
     /// <summary>
     /// URL of the marketing page for the application
     /// </summary>
-    [TerraformPropertyName("marketing_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("marketing_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MarketingUrl { get; set; }
 
     /// <summary>
     /// User-specified notes relevant for the management of the application
     /// </summary>
-    [TerraformPropertyName("notes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("notes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Notes { get; set; }
 
     /// <summary>
     /// URL of the privacy statement for the application
     /// </summary>
-    [TerraformPropertyName("privacy_statement_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("privacy_statement_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrivacyStatementUrl { get; set; }
 
     /// <summary>
     /// The access token version expected by this resource
     /// </summary>
-    [TerraformPropertyName("requested_access_token_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("requested_access_token_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RequestedAccessTokenVersion { get; set; }
 
     /// <summary>
     /// References application or contact information from a service or asset management database
     /// </summary>
-    [TerraformPropertyName("service_management_reference")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_management_reference")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServiceManagementReference { get; set; }
 
     /// <summary>
     /// The Microsoft account types that are supported for the current application
     /// </summary>
-    [TerraformPropertyName("sign_in_audience")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sign_in_audience")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SignInAudience { get; set; }
 
     /// <summary>
     /// URL of the support page for the application
     /// </summary>
-    [TerraformPropertyName("support_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("support_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SupportUrl { get; set; }
 
     /// <summary>
     /// URL of the terms of service statement for the application
     /// </summary>
-    [TerraformPropertyName("terms_of_service_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("terms_of_service_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TermsOfServiceUrl { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadApplicationRegistrationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The Client ID (also called Application ID)
     /// </summary>
-    [TerraformPropertyName("client_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ClientId => new TerraformReference(this, "client_id");
+    [TerraformProperty("client_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ClientId { get; }
 
     /// <summary>
     /// If the application has been disabled by Microsoft, this shows the status or reason
     /// </summary>
-    [TerraformPropertyName("disabled_by_microsoft")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisabledByMicrosoft => new TerraformReference(this, "disabled_by_microsoft");
+    [TerraformProperty("disabled_by_microsoft")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisabledByMicrosoft { get; }
 
     /// <summary>
     /// The object ID of the application within the tenant
     /// </summary>
-    [TerraformPropertyName("object_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ObjectId => new TerraformReference(this, "object_id");
+    [TerraformProperty("object_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ObjectId { get; }
 
     /// <summary>
     /// The verified publisher domain for the application
     /// </summary>
-    [TerraformPropertyName("publisher_domain")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PublisherDomain => new TerraformReference(this, "publisher_domain");
+    [TerraformProperty("publisher_domain")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PublisherDomain { get; }
 
 }

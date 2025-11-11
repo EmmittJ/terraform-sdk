@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_networkfirewall_firewall.
 /// </summary>
-public class AwsNetworkfirewallFirewallDataSource : TerraformDataSource
+public partial class AwsNetworkfirewallFirewallDataSource : TerraformDataSource
 {
     public AwsNetworkfirewallFirewallDataSource(string name) : base("aws_networkfirewall_firewall", name)
     {
@@ -14,141 +14,141 @@ public class AwsNetworkfirewallFirewallDataSource : TerraformDataSource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Arn { get; set; } = default!;
+    [TerraformProperty("arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The availability_zone_change_protection attribute.
     /// </summary>
-    [TerraformPropertyName("availability_zone_change_protection")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AvailabilityZoneChangeProtection => new TerraformReference(this, "availability_zone_change_protection");
+    [TerraformProperty("availability_zone_change_protection")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AvailabilityZoneChangeProtection { get; }
 
     /// <summary>
     /// The availability_zone_mapping attribute.
     /// </summary>
-    [TerraformPropertyName("availability_zone_mapping")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> AvailabilityZoneMapping => new TerraformReference(this, "availability_zone_mapping");
+    [TerraformProperty("availability_zone_mapping")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> AvailabilityZoneMapping { get; }
 
     /// <summary>
     /// The delete_protection attribute.
     /// </summary>
-    [TerraformPropertyName("delete_protection")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DeleteProtection => new TerraformReference(this, "delete_protection");
+    [TerraformProperty("delete_protection")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DeleteProtection { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The enabled_analysis_types attribute.
     /// </summary>
-    [TerraformPropertyName("enabled_analysis_types")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> EnabledAnalysisTypes => new TerraformReference(this, "enabled_analysis_types");
+    [TerraformProperty("enabled_analysis_types")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> EnabledAnalysisTypes { get; }
 
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("encryption_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> EncryptionConfiguration => new TerraformReference(this, "encryption_configuration");
+    [TerraformProperty("encryption_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> EncryptionConfiguration { get; }
 
     /// <summary>
     /// The firewall_policy_arn attribute.
     /// </summary>
-    [TerraformPropertyName("firewall_policy_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FirewallPolicyArn => new TerraformReference(this, "firewall_policy_arn");
+    [TerraformProperty("firewall_policy_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FirewallPolicyArn { get; }
 
     /// <summary>
     /// The firewall_policy_change_protection attribute.
     /// </summary>
-    [TerraformPropertyName("firewall_policy_change_protection")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> FirewallPolicyChangeProtection => new TerraformReference(this, "firewall_policy_change_protection");
+    [TerraformProperty("firewall_policy_change_protection")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> FirewallPolicyChangeProtection { get; }
 
     /// <summary>
     /// The firewall_status attribute.
     /// </summary>
-    [TerraformPropertyName("firewall_status")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> FirewallStatus => new TerraformReference(this, "firewall_status");
+    [TerraformProperty("firewall_status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> FirewallStatus { get; }
 
     /// <summary>
     /// The subnet_change_protection attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_change_protection")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> SubnetChangeProtection => new TerraformReference(this, "subnet_change_protection");
+    [TerraformProperty("subnet_change_protection")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> SubnetChangeProtection { get; }
 
     /// <summary>
     /// The subnet_mapping attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_mapping")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> SubnetMapping => new TerraformReference(this, "subnet_mapping");
+    [TerraformProperty("subnet_mapping")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> SubnetMapping { get; }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    [TerraformPropertyName("transit_gateway_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TransitGatewayId => new TerraformReference(this, "transit_gateway_id");
+    [TerraformProperty("transit_gateway_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TransitGatewayId { get; }
 
     /// <summary>
     /// The transit_gateway_owner_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("transit_gateway_owner_account_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TransitGatewayOwnerAccountId => new TerraformReference(this, "transit_gateway_owner_account_id");
+    [TerraformProperty("transit_gateway_owner_account_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TransitGatewayOwnerAccountId { get; }
 
     /// <summary>
     /// The update_token attribute.
     /// </summary>
-    [TerraformPropertyName("update_token")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateToken => new TerraformReference(this, "update_token");
+    [TerraformProperty("update_token")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateToken { get; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VpcId => new TerraformReference(this, "vpc_id");
+    [TerraformProperty("vpc_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VpcId { get; }
 
 }

@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermRouteMapRuleBlock
+public partial class AzurermRouteMapRuleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The next_step_if_matched attribute.
     /// </summary>
-    [TerraformPropertyName("next_step_if_matched")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("next_step_if_matched")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NextStepIfMatched { get; set; }
 
 }
@@ -29,34 +29,34 @@ public class AzurermRouteMapRuleBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermRouteMapTimeoutsBlock
+public partial class AzurermRouteMapTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -64,7 +64,7 @@ public class AzurermRouteMapTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_route_map resource.
 /// </summary>
-public class AzurermRouteMap : TerraformResource
+public partial class AzurermRouteMap : TerraformResource
 {
     public AzurermRouteMap(string name) : base("azurerm_route_map", name)
     {
@@ -73,38 +73,38 @@ public class AzurermRouteMap : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The virtual_hub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualHubId is required")]
-    [TerraformPropertyName("virtual_hub_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("virtual_hub_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VirtualHubId { get; set; }
 
     /// <summary>
     /// Block for rule.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("rule")]
+    [TerraformProperty("rule")]
     public TerraformList<TerraformBlock<AzurermRouteMapRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermRouteMapTimeoutsBlock>? Timeouts { get; set; }
 
 }

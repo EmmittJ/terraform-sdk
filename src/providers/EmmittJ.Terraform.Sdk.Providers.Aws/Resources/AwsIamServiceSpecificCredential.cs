@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_iam_service_specific_credential resource.
 /// </summary>
-public class AwsIamServiceSpecificCredential : TerraformResource
+public partial class AwsIamServiceSpecificCredential : TerraformResource
 {
     public AwsIamServiceSpecificCredential(string name) : base("aws_iam_service_specific_credential", name)
     {
@@ -14,87 +14,87 @@ public class AwsIamServiceSpecificCredential : TerraformResource
     /// <summary>
     /// The credential_age_days attribute.
     /// </summary>
-    [TerraformPropertyName("credential_age_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("credential_age_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? CredentialAgeDays { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
-    [TerraformPropertyName("service_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("status")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
-    [TerraformPropertyName("user_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserName { get; set; }
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
-    [TerraformPropertyName("create_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateDate => new TerraformReference(this, "create_date");
+    [TerraformProperty("create_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateDate { get; }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    [TerraformPropertyName("expiration_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExpirationDate => new TerraformReference(this, "expiration_date");
+    [TerraformProperty("expiration_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExpirationDate { get; }
 
     /// <summary>
     /// The service_credential_alias attribute.
     /// </summary>
-    [TerraformPropertyName("service_credential_alias")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServiceCredentialAlias => new TerraformReference(this, "service_credential_alias");
+    [TerraformProperty("service_credential_alias")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServiceCredentialAlias { get; }
 
     /// <summary>
     /// The service_credential_secret attribute.
     /// </summary>
-    [TerraformPropertyName("service_credential_secret")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServiceCredentialSecret => new TerraformReference(this, "service_credential_secret");
+    [TerraformProperty("service_credential_secret")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServiceCredentialSecret { get; }
 
     /// <summary>
     /// The service_password attribute.
     /// </summary>
-    [TerraformPropertyName("service_password")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServicePassword => new TerraformReference(this, "service_password");
+    [TerraformProperty("service_password")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServicePassword { get; }
 
     /// <summary>
     /// The service_specific_credential_id attribute.
     /// </summary>
-    [TerraformPropertyName("service_specific_credential_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServiceSpecificCredentialId => new TerraformReference(this, "service_specific_credential_id");
+    [TerraformProperty("service_specific_credential_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServiceSpecificCredentialId { get; }
 
     /// <summary>
     /// The service_user_name attribute.
     /// </summary>
-    [TerraformPropertyName("service_user_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServiceUserName => new TerraformReference(this, "service_user_name");
+    [TerraformProperty("service_user_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServiceUserName { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_iam_user_policy_attachments_exclusive resource.
 /// </summary>
-public class AwsIamUserPolicyAttachmentsExclusive : TerraformResource
+public partial class AwsIamUserPolicyAttachmentsExclusive : TerraformResource
 {
     public AwsIamUserPolicyAttachmentsExclusive(string name) : base("aws_iam_user_policy_attachments_exclusive", name)
     {
@@ -15,16 +15,16 @@ public class AwsIamUserPolicyAttachmentsExclusive : TerraformResource
     /// The policy_arns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyArns is required")]
-    [TerraformPropertyName("policy_arns")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_arns")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> PolicyArns { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserName is required")]
-    [TerraformPropertyName("user_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserName { get; set; }
 
 }

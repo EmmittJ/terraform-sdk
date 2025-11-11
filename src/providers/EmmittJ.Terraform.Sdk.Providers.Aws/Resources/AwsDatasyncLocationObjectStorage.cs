@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_datasync_location_object_storage resource.
 /// </summary>
-public class AwsDatasyncLocationObjectStorage : TerraformResource
+public partial class AwsDatasyncLocationObjectStorage : TerraformResource
 {
     public AwsDatasyncLocationObjectStorage(string name) : base("aws_datasync_location_object_storage", name)
     {
@@ -14,108 +14,108 @@ public class AwsDatasyncLocationObjectStorage : TerraformResource
     /// <summary>
     /// The access_key attribute.
     /// </summary>
-    [TerraformPropertyName("access_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("access_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AccessKey { get; set; }
 
     /// <summary>
     /// The agent_arns attribute.
     /// </summary>
-    [TerraformPropertyName("agent_arns")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("agent_arns")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? AgentArns { get; set; }
 
     /// <summary>
     /// The bucket_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
-    [TerraformPropertyName("bucket_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BucketName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The secret_key attribute.
     /// </summary>
-    [TerraformPropertyName("secret_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("secret_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SecretKey { get; set; }
 
     /// <summary>
     /// The server_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("server_certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("server_certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServerCertificate { get; set; }
 
     /// <summary>
     /// The server_hostname attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerHostname is required")]
-    [TerraformPropertyName("server_hostname")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("server_hostname")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServerHostname { get; set; }
 
     /// <summary>
     /// The server_port attribute.
     /// </summary>
-    [TerraformPropertyName("server_port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("server_port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ServerPort { get; set; }
 
     /// <summary>
     /// The server_protocol attribute.
     /// </summary>
-    [TerraformPropertyName("server_protocol")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("server_protocol")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServerProtocol { get; set; }
 
     /// <summary>
     /// The subdirectory attribute.
     /// </summary>
-    [TerraformPropertyName("subdirectory")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Subdirectory { get; set; } = default!;
+    [TerraformProperty("subdirectory")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Subdirectory { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    [TerraformPropertyName("uri")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uri => new TerraformReference(this, "uri");
+    [TerraformProperty("uri")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uri { get; }
 
 }

@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for details in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3controlMultiRegionAccessPointPolicyDetailsBlock
+public partial class AwsS3controlMultiRegionAccessPointPolicyDetailsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
-    [TerraformPropertyName("policy")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Policy { get; set; }
 
 }
@@ -30,20 +30,20 @@ public class AwsS3controlMultiRegionAccessPointPolicyDetailsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsS3controlMultiRegionAccessPointPolicyTimeoutsBlock
+public partial class AwsS3controlMultiRegionAccessPointPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -52,7 +52,7 @@ public class AwsS3controlMultiRegionAccessPointPolicyTimeoutsBlock
 /// Manages a aws_s3control_multi_region_access_point_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsS3controlMultiRegionAccessPointPolicy : TerraformResource
+public partial class AwsS3controlMultiRegionAccessPointPolicy : TerraformResource
 {
     public AwsS3controlMultiRegionAccessPointPolicy(string name) : base("aws_s3control_multi_region_access_point_policy", name)
     {
@@ -61,23 +61,23 @@ public class AwsS3controlMultiRegionAccessPointPolicy : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    [TerraformPropertyName("account_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AccountId { get; set; } = default!;
+    [TerraformProperty("account_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for details.
@@ -86,28 +86,28 @@ public class AwsS3controlMultiRegionAccessPointPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Details is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Details block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Details block(s) allowed")]
-    [TerraformPropertyName("details")]
+    [TerraformProperty("details")]
     public TerraformList<TerraformBlock<AwsS3controlMultiRegionAccessPointPolicyDetailsBlock>>? Details { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsS3controlMultiRegionAccessPointPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The established attribute.
     /// </summary>
-    [TerraformPropertyName("established")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Established => new TerraformReference(this, "established");
+    [TerraformProperty("established")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Established { get; }
 
     /// <summary>
     /// The proposed attribute.
     /// </summary>
-    [TerraformPropertyName("proposed")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Proposed => new TerraformReference(this, "proposed");
+    [TerraformProperty("proposed")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Proposed { get; }
 
 }

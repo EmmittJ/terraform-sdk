@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualNetworkDataSourceTimeoutsBlock
+public partial class AzurermVirtualNetworkDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermVirtualNetworkDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_virtual_network.
 /// </summary>
-public class AzurermVirtualNetworkDataSource : TerraformDataSource
+public partial class AzurermVirtualNetworkDataSource : TerraformDataSource
 {
     public AzurermVirtualNetworkDataSource(string name) : base("azurerm_virtual_network", name)
     {
@@ -29,87 +29,87 @@ public class AzurermVirtualNetworkDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermVirtualNetworkDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The address_space attribute.
     /// </summary>
-    [TerraformPropertyName("address_space")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AddressSpace => new TerraformReference(this, "address_space");
+    [TerraformProperty("address_space")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AddressSpace { get; }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    [TerraformPropertyName("dns_servers")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> DnsServers => new TerraformReference(this, "dns_servers");
+    [TerraformProperty("dns_servers")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> DnsServers { get; }
 
     /// <summary>
     /// The guid attribute.
     /// </summary>
-    [TerraformPropertyName("guid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Guid => new TerraformReference(this, "guid");
+    [TerraformProperty("guid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Guid { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    [TerraformPropertyName("subnets")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Subnets => new TerraformReference(this, "subnets");
+    [TerraformProperty("subnets")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Subnets { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The vnet_peerings attribute.
     /// </summary>
-    [TerraformPropertyName("vnet_peerings")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> VnetPeerings => new TerraformReference(this, "vnet_peerings");
+    [TerraformProperty("vnet_peerings")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> VnetPeerings { get; }
 
     /// <summary>
     /// The vnet_peerings_addresses attribute.
     /// </summary>
-    [TerraformPropertyName("vnet_peerings_addresses")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> VnetPeeringsAddresses => new TerraformReference(this, "vnet_peerings_addresses");
+    [TerraformProperty("vnet_peerings_addresses")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> VnetPeeringsAddresses { get; }
 
 }

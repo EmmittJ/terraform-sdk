@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMemorydbClusterTimeoutsBlock
+public partial class AwsMemorydbClusterTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsMemorydbClusterTimeoutsBlock
 /// <summary>
 /// Manages a aws_memorydb_cluster resource.
 /// </summary>
-public class AwsMemorydbCluster : TerraformResource
+public partial class AwsMemorydbCluster : TerraformResource
 {
     public AwsMemorydbCluster(string name) : base("aws_memorydb_cluster", name)
     {
@@ -44,240 +44,240 @@ public class AwsMemorydbCluster : TerraformResource
     /// The acl_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AclName is required")]
-    [TerraformPropertyName("acl_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("acl_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AclName { get; set; }
 
     /// <summary>
     /// The auto_minor_version_upgrade attribute.
     /// </summary>
-    [TerraformPropertyName("auto_minor_version_upgrade")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auto_minor_version_upgrade")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AutoMinorVersionUpgrade { get; set; }
 
     /// <summary>
     /// The data_tiering attribute.
     /// </summary>
-    [TerraformPropertyName("data_tiering")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("data_tiering")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DataTiering { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    [TerraformPropertyName("engine")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Engine { get; set; } = default!;
+    [TerraformProperty("engine")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Engine { get; set; }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    [TerraformPropertyName("engine_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EngineVersion { get; set; } = default!;
+    [TerraformProperty("engine_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EngineVersion { get; set; }
 
     /// <summary>
     /// The final_snapshot_name attribute.
     /// </summary>
-    [TerraformPropertyName("final_snapshot_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("final_snapshot_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? FinalSnapshotName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The maintenance_window attribute.
     /// </summary>
-    [TerraformPropertyName("maintenance_window")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MaintenanceWindow { get; set; } = default!;
+    [TerraformProperty("maintenance_window")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MaintenanceWindow { get; set; }
 
     /// <summary>
     /// The multi_region_cluster_name attribute.
     /// </summary>
-    [TerraformPropertyName("multi_region_cluster_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("multi_region_cluster_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MultiRegionClusterName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NamePrefix { get; set; } = default!;
+    [TerraformProperty("name_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The node_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NodeType is required")]
-    [TerraformPropertyName("node_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("node_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NodeType { get; set; }
 
     /// <summary>
     /// The num_replicas_per_shard attribute.
     /// </summary>
-    [TerraformPropertyName("num_replicas_per_shard")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("num_replicas_per_shard")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? NumReplicasPerShard { get; set; }
 
     /// <summary>
     /// The num_shards attribute.
     /// </summary>
-    [TerraformPropertyName("num_shards")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("num_shards")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? NumShards { get; set; }
 
     /// <summary>
     /// The parameter_group_name attribute.
     /// </summary>
-    [TerraformPropertyName("parameter_group_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ParameterGroupName { get; set; } = default!;
+    [TerraformProperty("parameter_group_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ParameterGroupName { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    [TerraformPropertyName("port")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Port { get; set; } = default!;
+    [TerraformProperty("port")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_group_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The snapshot_arns attribute.
     /// </summary>
-    [TerraformPropertyName("snapshot_arns")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("snapshot_arns")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? SnapshotArns { get; set; }
 
     /// <summary>
     /// The snapshot_name attribute.
     /// </summary>
-    [TerraformPropertyName("snapshot_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("snapshot_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SnapshotName { get; set; }
 
     /// <summary>
     /// The snapshot_retention_limit attribute.
     /// </summary>
-    [TerraformPropertyName("snapshot_retention_limit")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> SnapshotRetentionLimit { get; set; } = default!;
+    [TerraformProperty("snapshot_retention_limit")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> SnapshotRetentionLimit { get; set; }
 
     /// <summary>
     /// The snapshot_window attribute.
     /// </summary>
-    [TerraformPropertyName("snapshot_window")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SnapshotWindow { get; set; } = default!;
+    [TerraformProperty("snapshot_window")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SnapshotWindow { get; set; }
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
-    [TerraformPropertyName("sns_topic_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sns_topic_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SnsTopicArn { get; set; }
 
     /// <summary>
     /// The subnet_group_name attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_group_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SubnetGroupName { get; set; } = default!;
+    [TerraformProperty("subnet_group_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SubnetGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("tls_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tls_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? TlsEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsMemorydbClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The cluster_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("cluster_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ClusterEndpoint => new TerraformReference(this, "cluster_endpoint");
+    [TerraformProperty("cluster_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ClusterEndpoint { get; }
 
     /// <summary>
     /// The engine_patch_version attribute.
     /// </summary>
-    [TerraformPropertyName("engine_patch_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EnginePatchVersion => new TerraformReference(this, "engine_patch_version");
+    [TerraformProperty("engine_patch_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EnginePatchVersion { get; }
 
     /// <summary>
     /// The shards attribute.
     /// </summary>
-    [TerraformPropertyName("shards")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Shards => new TerraformReference(this, "shards");
+    [TerraformProperty("shards")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Shards { get; }
 
 }

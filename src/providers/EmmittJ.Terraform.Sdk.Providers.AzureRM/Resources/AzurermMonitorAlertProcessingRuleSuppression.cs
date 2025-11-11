@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlock
+public partial class AzurermMonitorAlertProcessingRuleSuppressionConditionBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class AzurermMonitorAlertProcessingRuleSuppressionConditionBlock
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock
+public partial class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The effective_from attribute.
     /// </summary>
-    [TerraformPropertyName("effective_from")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("effective_from")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EffectiveFrom { get; set; }
 
     /// <summary>
     /// The effective_until attribute.
     /// </summary>
-    [TerraformPropertyName("effective_until")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("effective_until")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EffectiveUntil { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    [TerraformPropertyName("time_zone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("time_zone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TimeZone { get; set; }
 
 }
@@ -43,34 +43,34 @@ public class AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock
+public partial class AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -79,7 +79,7 @@ public class AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock
 /// Manages a azurerm_monitor_alert_processing_rule_suppression resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
+public partial class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
 {
     public AzurermMonitorAlertProcessingRuleSuppression(string name) : base("azurerm_monitor_alert_processing_rule_suppression", name)
     {
@@ -88,53 +88,53 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scopes is required")]
-    [TerraformPropertyName("scopes")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("scopes")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Scopes { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -142,7 +142,7 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
-    [TerraformPropertyName("condition")]
+    [TerraformProperty("condition")]
     public TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionConditionBlock>>? Condition { get; set; }
 
     /// <summary>
@@ -150,14 +150,14 @@ public class AzurermMonitorAlertProcessingRuleSuppression : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    [TerraformPropertyName("schedule")]
+    [TerraformProperty("schedule")]
     public TerraformList<TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionScheduleBlock>>? Schedule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMonitorAlertProcessingRuleSuppressionTimeoutsBlock>? Timeouts { get; set; }
 
 }

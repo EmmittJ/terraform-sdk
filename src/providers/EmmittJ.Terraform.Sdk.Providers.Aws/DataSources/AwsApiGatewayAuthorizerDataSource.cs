@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_api_gateway_authorizer.
 /// </summary>
-public class AwsApiGatewayAuthorizerDataSource : TerraformDataSource
+public partial class AwsApiGatewayAuthorizerDataSource : TerraformDataSource
 {
     public AwsApiGatewayAuthorizerDataSource(string name) : base("aws_api_gateway_authorizer", name)
     {
@@ -15,93 +15,93 @@ public class AwsApiGatewayAuthorizerDataSource : TerraformDataSource
     /// The authorizer_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizerId is required")]
-    [TerraformPropertyName("authorizer_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("authorizer_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AuthorizerId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
-    [TerraformPropertyName("rest_api_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("rest_api_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RestApiId { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The authorizer_credentials attribute.
     /// </summary>
-    [TerraformPropertyName("authorizer_credentials")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AuthorizerCredentials => new TerraformReference(this, "authorizer_credentials");
+    [TerraformProperty("authorizer_credentials")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AuthorizerCredentials { get; }
 
     /// <summary>
     /// The authorizer_result_ttl_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("authorizer_result_ttl_in_seconds")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> AuthorizerResultTtlInSeconds => new TerraformReference(this, "authorizer_result_ttl_in_seconds");
+    [TerraformProperty("authorizer_result_ttl_in_seconds")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> AuthorizerResultTtlInSeconds { get; }
 
     /// <summary>
     /// The authorizer_uri attribute.
     /// </summary>
-    [TerraformPropertyName("authorizer_uri")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AuthorizerUri => new TerraformReference(this, "authorizer_uri");
+    [TerraformProperty("authorizer_uri")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AuthorizerUri { get; }
 
     /// <summary>
     /// The identity_source attribute.
     /// </summary>
-    [TerraformPropertyName("identity_source")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IdentitySource => new TerraformReference(this, "identity_source");
+    [TerraformProperty("identity_source")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IdentitySource { get; }
 
     /// <summary>
     /// The identity_validation_expression attribute.
     /// </summary>
-    [TerraformPropertyName("identity_validation_expression")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IdentityValidationExpression => new TerraformReference(this, "identity_validation_expression");
+    [TerraformProperty("identity_validation_expression")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IdentityValidationExpression { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The provider_arns attribute.
     /// </summary>
-    [TerraformPropertyName("provider_arns")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ProviderArns => new TerraformReference(this, "provider_arns");
+    [TerraformProperty("provider_arns")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ProviderArns { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
 }

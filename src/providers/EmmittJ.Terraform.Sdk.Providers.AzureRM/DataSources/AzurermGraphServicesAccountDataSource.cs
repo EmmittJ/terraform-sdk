@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermGraphServicesAccountDataSourceTimeoutsBlock
+public partial class AzurermGraphServicesAccountDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermGraphServicesAccountDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_graph_services_account.
 /// </summary>
-public class AzurermGraphServicesAccountDataSource : TerraformDataSource
+public partial class AzurermGraphServicesAccountDataSource : TerraformDataSource
 {
     public AzurermGraphServicesAccountDataSource(string name) : base("azurerm_graph_services_account", name)
     {
@@ -29,52 +29,52 @@ public class AzurermGraphServicesAccountDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermGraphServicesAccountDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The application_id attribute.
     /// </summary>
-    [TerraformPropertyName("application_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ApplicationId => new TerraformReference(this, "application_id");
+    [TerraformProperty("application_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ApplicationId { get; }
 
     /// <summary>
     /// The billing_plan_id attribute.
     /// </summary>
-    [TerraformPropertyName("billing_plan_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BillingPlanId => new TerraformReference(this, "billing_plan_id");
+    [TerraformProperty("billing_plan_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BillingPlanId { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
 }

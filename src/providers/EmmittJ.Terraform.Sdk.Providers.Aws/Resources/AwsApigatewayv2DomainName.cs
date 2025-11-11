@@ -6,45 +6,45 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for domain_name_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock
+public partial class AwsApigatewayv2DomainNameDomainNameConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
-    [TerraformPropertyName("certificate_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("certificate_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CertificateArn { get; set; }
 
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
-    [TerraformPropertyName("endpoint_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("endpoint_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EndpointType { get; set; }
 
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    [TerraformPropertyName("ip_address_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> IpAddressType { get; set; } = default!;
+    [TerraformProperty("ip_address_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> IpAddressType { get; set; }
 
     /// <summary>
     /// The ownership_verification_certificate_arn attribute.
     /// </summary>
-    [TerraformPropertyName("ownership_verification_certificate_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> OwnershipVerificationCertificateArn { get; set; } = default!;
+    [TerraformProperty("ownership_verification_certificate_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> OwnershipVerificationCertificateArn { get; set; }
 
     /// <summary>
     /// The security_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityPolicy is required")]
-    [TerraformPropertyName("security_policy")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("security_policy")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SecurityPolicy { get; set; }
 
 
@@ -54,21 +54,21 @@ public class AwsApigatewayv2DomainNameDomainNameConfigurationBlock
 /// Block type for mutual_tls_authentication in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock
+public partial class AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The truststore_uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TruststoreUri is required")]
-    [TerraformPropertyName("truststore_uri")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("truststore_uri")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TruststoreUri { get; set; }
 
     /// <summary>
     /// The truststore_version attribute.
     /// </summary>
-    [TerraformPropertyName("truststore_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("truststore_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TruststoreVersion { get; set; }
 
 }
@@ -77,20 +77,20 @@ public class AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsApigatewayv2DomainNameTimeoutsBlock
+public partial class AwsApigatewayv2DomainNameTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -99,7 +99,7 @@ public class AwsApigatewayv2DomainNameTimeoutsBlock
 /// Manages a aws_apigatewayv2_domain_name resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsApigatewayv2DomainName : TerraformResource
+public partial class AwsApigatewayv2DomainName : TerraformResource
 {
     public AwsApigatewayv2DomainName(string name) : base("aws_apigatewayv2_domain_name", name)
     {
@@ -109,37 +109,37 @@ public class AwsApigatewayv2DomainName : TerraformResource
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    [TerraformPropertyName("domain_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("domain_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for domain_name_configuration.
@@ -148,7 +148,7 @@ public class AwsApigatewayv2DomainName : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainNameConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DomainNameConfiguration block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainNameConfiguration block(s) allowed")]
-    [TerraformPropertyName("domain_name_configuration")]
+    [TerraformProperty("domain_name_configuration")]
     public TerraformList<TerraformBlock<AwsApigatewayv2DomainNameDomainNameConfigurationBlock>>? DomainNameConfiguration { get; set; }
 
     /// <summary>
@@ -156,28 +156,28 @@ public class AwsApigatewayv2DomainName : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MutualTlsAuthentication block(s) allowed")]
-    [TerraformPropertyName("mutual_tls_authentication")]
+    [TerraformProperty("mutual_tls_authentication")]
     public TerraformList<TerraformBlock<AwsApigatewayv2DomainNameMutualTlsAuthenticationBlock>>? MutualTlsAuthentication { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsApigatewayv2DomainNameTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The api_mapping_selection_expression attribute.
     /// </summary>
-    [TerraformPropertyName("api_mapping_selection_expression")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ApiMappingSelectionExpression => new TerraformReference(this, "api_mapping_selection_expression");
+    [TerraformProperty("api_mapping_selection_expression")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ApiMappingSelectionExpression { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

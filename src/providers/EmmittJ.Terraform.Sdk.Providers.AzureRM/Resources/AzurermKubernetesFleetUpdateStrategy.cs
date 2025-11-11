@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for stage in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermKubernetesFleetUpdateStrategyStageBlock
+public partial class AzurermKubernetesFleetUpdateStrategyStageBlock : TerraformBlockBase
 {
     /// <summary>
     /// The after_stage_wait_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("after_stage_wait_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("after_stage_wait_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? AfterStageWaitInSeconds { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -29,34 +29,34 @@ public class AzurermKubernetesFleetUpdateStrategyStageBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock
+public partial class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -65,7 +65,7 @@ public class AzurermKubernetesFleetUpdateStrategyTimeoutsBlock
 /// Manages a azurerm_kubernetes_fleet_update_strategy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermKubernetesFleetUpdateStrategy : TerraformResource
+public partial class AzurermKubernetesFleetUpdateStrategy : TerraformResource
 {
     public AzurermKubernetesFleetUpdateStrategy(string name) : base("azurerm_kubernetes_fleet_update_strategy", name)
     {
@@ -74,24 +74,24 @@ public class AzurermKubernetesFleetUpdateStrategy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kubernetes_fleet_manager_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KubernetesFleetManagerId is required")]
-    [TerraformPropertyName("kubernetes_fleet_manager_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kubernetes_fleet_manager_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KubernetesFleetManagerId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
@@ -100,14 +100,14 @@ public class AzurermKubernetesFleetUpdateStrategy : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Stage is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Stage block(s) required")]
-    [TerraformPropertyName("stage")]
+    [TerraformProperty("stage")]
     public TerraformList<TerraformBlock<AzurermKubernetesFleetUpdateStrategyStageBlock>>? Stage { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermKubernetesFleetUpdateStrategyTimeoutsBlock>? Timeouts { get; set; }
 
 }

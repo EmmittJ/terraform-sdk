@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubSchemaIamBindingConditionBlock
+public partial class GooglePubsubSchemaIamBindingConditionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The expression attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
-    [TerraformPropertyName("expression")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("expression")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Expression { get; set; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
-    [TerraformPropertyName("title")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("title")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Title { get; set; }
 
 }
@@ -37,7 +37,7 @@ public class GooglePubsubSchemaIamBindingConditionBlock
 /// Manages a google_pubsub_schema_iam_binding resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GooglePubsubSchemaIamBinding : TerraformResource
+public partial class GooglePubsubSchemaIamBinding : TerraformResource
 {
     public GooglePubsubSchemaIamBinding(string name) : base("google_pubsub_schema_iam_binding", name)
     {
@@ -46,39 +46,39 @@ public class GooglePubsubSchemaIamBinding : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The members attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Members is required")]
-    [TerraformPropertyName("members")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("members")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Members { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
-    [TerraformPropertyName("role")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
-    [TerraformPropertyName("schema")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("schema")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Schema { get; set; }
 
     /// <summary>
@@ -86,14 +86,14 @@ public class GooglePubsubSchemaIamBinding : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
-    [TerraformPropertyName("condition")]
+    [TerraformProperty("condition")]
     public TerraformList<TerraformBlock<GooglePubsubSchemaIamBindingConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock
+public partial class AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_palo_alto_local_rulestack.
 /// </summary>
-public class AzurermPaloAltoLocalRulestackDataSource : TerraformDataSource
+public partial class AzurermPaloAltoLocalRulestackDataSource : TerraformDataSource
 {
     public AzurermPaloAltoLocalRulestackDataSource(string name) : base("azurerm_palo_alto_local_rulestack", name)
     {
@@ -29,101 +29,101 @@ public class AzurermPaloAltoLocalRulestackDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermPaloAltoLocalRulestackDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The anti_spyware_profile attribute.
     /// </summary>
-    [TerraformPropertyName("anti_spyware_profile")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AntiSpywareProfile => new TerraformReference(this, "anti_spyware_profile");
+    [TerraformProperty("anti_spyware_profile")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AntiSpywareProfile { get; }
 
     /// <summary>
     /// The anti_virus_profile attribute.
     /// </summary>
-    [TerraformPropertyName("anti_virus_profile")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AntiVirusProfile => new TerraformReference(this, "anti_virus_profile");
+    [TerraformProperty("anti_virus_profile")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AntiVirusProfile { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The dns_subscription attribute.
     /// </summary>
-    [TerraformPropertyName("dns_subscription")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DnsSubscription => new TerraformReference(this, "dns_subscription");
+    [TerraformProperty("dns_subscription")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DnsSubscription { get; }
 
     /// <summary>
     /// The file_blocking_profile attribute.
     /// </summary>
-    [TerraformPropertyName("file_blocking_profile")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FileBlockingProfile => new TerraformReference(this, "file_blocking_profile");
+    [TerraformProperty("file_blocking_profile")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FileBlockingProfile { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The outbound_trust_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("outbound_trust_certificate")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OutboundTrustCertificate => new TerraformReference(this, "outbound_trust_certificate");
+    [TerraformProperty("outbound_trust_certificate")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OutboundTrustCertificate { get; }
 
     /// <summary>
     /// The outbound_untrust_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("outbound_untrust_certificate")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OutboundUntrustCertificate => new TerraformReference(this, "outbound_untrust_certificate");
+    [TerraformProperty("outbound_untrust_certificate")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OutboundUntrustCertificate { get; }
 
     /// <summary>
     /// The url_filtering_profile attribute.
     /// </summary>
-    [TerraformPropertyName("url_filtering_profile")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UrlFilteringProfile => new TerraformReference(this, "url_filtering_profile");
+    [TerraformProperty("url_filtering_profile")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UrlFilteringProfile { get; }
 
     /// <summary>
     /// The vulnerability_profile attribute.
     /// </summary>
-    [TerraformPropertyName("vulnerability_profile")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VulnerabilityProfile => new TerraformReference(this, "vulnerability_profile");
+    [TerraformProperty("vulnerability_profile")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VulnerabilityProfile { get; }
 
 }

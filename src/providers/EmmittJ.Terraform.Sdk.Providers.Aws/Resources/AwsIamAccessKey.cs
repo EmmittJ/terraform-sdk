@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_iam_access_key resource.
 /// </summary>
-public class AwsIamAccessKey : TerraformResource
+public partial class AwsIamAccessKey : TerraformResource
 {
     public AwsIamAccessKey(string name) : base("aws_iam_access_key", name)
     {
@@ -14,72 +14,72 @@ public class AwsIamAccessKey : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The pgp_key attribute.
     /// </summary>
-    [TerraformPropertyName("pgp_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("pgp_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PgpKey { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("status")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
-    [TerraformPropertyName("user")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> User { get; set; }
 
     /// <summary>
     /// The create_date attribute.
     /// </summary>
-    [TerraformPropertyName("create_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateDate => new TerraformReference(this, "create_date");
+    [TerraformProperty("create_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateDate { get; }
 
     /// <summary>
     /// The encrypted_secret attribute.
     /// </summary>
-    [TerraformPropertyName("encrypted_secret")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EncryptedSecret => new TerraformReference(this, "encrypted_secret");
+    [TerraformProperty("encrypted_secret")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EncryptedSecret { get; }
 
     /// <summary>
     /// The encrypted_ses_smtp_password_v4 attribute.
     /// </summary>
-    [TerraformPropertyName("encrypted_ses_smtp_password_v4")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EncryptedSesSmtpPasswordV4 => new TerraformReference(this, "encrypted_ses_smtp_password_v4");
+    [TerraformProperty("encrypted_ses_smtp_password_v4")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EncryptedSesSmtpPasswordV4 { get; }
 
     /// <summary>
     /// The key_fingerprint attribute.
     /// </summary>
-    [TerraformPropertyName("key_fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KeyFingerprint => new TerraformReference(this, "key_fingerprint");
+    [TerraformProperty("key_fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KeyFingerprint { get; }
 
     /// <summary>
     /// The secret attribute.
     /// </summary>
-    [TerraformPropertyName("secret")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Secret => new TerraformReference(this, "secret");
+    [TerraformProperty("secret")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Secret { get; }
 
     /// <summary>
     /// The ses_smtp_password_v4 attribute.
     /// </summary>
-    [TerraformPropertyName("ses_smtp_password_v4")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SesSmtpPasswordV4 => new TerraformReference(this, "ses_smtp_password_v4");
+    [TerraformProperty("ses_smtp_password_v4")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SesSmtpPasswordV4 { get; }
 
 }

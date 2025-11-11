@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeAddressTimeoutsBlock
+public partial class GoogleComputeAddressTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleComputeAddressTimeoutsBlock
 /// <summary>
 /// Manages a google_compute_address resource.
 /// </summary>
-public class GoogleComputeAddress : TerraformResource
+public partial class GoogleComputeAddress : TerraformResource
 {
     public GoogleComputeAddress(string name) : base("google_compute_address", name)
     {
@@ -45,37 +45,37 @@ public class GoogleComputeAddress : TerraformResource
     /// The IP address must be inside the specified subnetwork,
     /// if any. Set by the API if undefined.
     /// </summary>
-    [TerraformPropertyName("address")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Address { get; set; } = default!;
+    [TerraformProperty("address")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Address { get; set; }
 
     /// <summary>
     /// The type of address to reserve.
     /// Note: if you set this argument&#39;s value as &#39;INTERNAL&#39; you need to leave the &#39;network_tier&#39; argument unset in that resource block. Default value: &amp;quot;EXTERNAL&amp;quot; Possible values: [&amp;quot;INTERNAL&amp;quot;, &amp;quot;EXTERNAL&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("address_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("address_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AddressType { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The IP Version that will be used by this address. The default value is &#39;IPV4&#39;. Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("ip_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IpVersion { get; set; }
 
     /// <summary>
@@ -83,8 +83,8 @@ public class GoogleComputeAddress : TerraformResource
     /// used for deciding which type of endpoint this address can be used after
     /// the external IPv6 address reservation. Possible values: [&amp;quot;VM&amp;quot;, &amp;quot;NETLB&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("ipv6_endpoint_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ipv6_endpoint_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Ipv6EndpointType { get; set; }
 
     /// <summary>
@@ -94,8 +94,8 @@ public class GoogleComputeAddress : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -107,8 +107,8 @@ public class GoogleComputeAddress : TerraformResource
     /// except the last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
@@ -116,8 +116,8 @@ public class GoogleComputeAddress : TerraformResource
     /// can only be used with INTERNAL type with the VPC_PEERING and
     /// IPSEC_INTERCONNECT purposes.
     /// </summary>
-    [TerraformPropertyName("network")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("network")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Network { get; set; }
 
     /// <summary>
@@ -125,23 +125,23 @@ public class GoogleComputeAddress : TerraformResource
     /// specified, it is assumed to be PREMIUM.
     /// This argument should not be used when configuring Internal addresses, because [network tier cannot be set for internal traffic; it&#39;s always Premium](https://cloud.google.com/network-tiers/docs/overview). Possible values: [&amp;quot;PREMIUM&amp;quot;, &amp;quot;STANDARD&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("network_tier")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NetworkTier { get; set; } = default!;
+    [TerraformProperty("network_tier")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NetworkTier { get; set; }
 
     /// <summary>
     /// The prefix length if the resource represents an IP range.
     /// </summary>
-    [TerraformPropertyName("prefix_length")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> PrefixLength { get; set; } = default!;
+    [TerraformProperty("prefix_length")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> PrefixLength { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The purpose of this resource, which can be one of the following values.
@@ -164,17 +164,17 @@ public class GoogleComputeAddress : TerraformResource
     /// 
     /// This should only be set when using an Internal address.
     /// </summary>
-    [TerraformPropertyName("purpose")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Purpose { get; set; } = default!;
+    [TerraformProperty("purpose")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Purpose { get; set; }
 
     /// <summary>
     /// The Region in which the created address should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The URL of the subnetwork in which to reserve the address. If an IP
@@ -182,59 +182,59 @@ public class GoogleComputeAddress : TerraformResource
     /// This field can only be used with INTERNAL type with
     /// GCE_ENDPOINT/DNS_RESOLVER purposes.
     /// </summary>
-    [TerraformPropertyName("subnetwork")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Subnetwork { get; set; } = default!;
+    [TerraformProperty("subnetwork")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Subnetwork { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeAddressTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
-    [TerraformPropertyName("label_fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
+    [TerraformProperty("label_fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The URLs of the resources that are using this address.
     /// </summary>
-    [TerraformPropertyName("users")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Users => new TerraformReference(this, "users");
+    [TerraformProperty("users")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Users { get; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsElasticacheReservedCacheNodeTimeoutsBlock
+public partial class AwsElasticacheReservedCacheNodeTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsElasticacheReservedCacheNodeTimeoutsBlock
 /// <summary>
 /// Manages a aws_elasticache_reserved_cache_node resource.
 /// </summary>
-public class AwsElasticacheReservedCacheNode : TerraformResource
+public partial class AwsElasticacheReservedCacheNode : TerraformResource
 {
     public AwsElasticacheReservedCacheNode(string name) : base("aws_elasticache_reserved_cache_node", name)
     {
@@ -43,121 +43,121 @@ public class AwsElasticacheReservedCacheNode : TerraformResource
     /// <summary>
     /// The cache_node_count attribute.
     /// </summary>
-    [TerraformPropertyName("cache_node_count")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> CacheNodeCount { get; set; } = default!;
+    [TerraformProperty("cache_node_count")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> CacheNodeCount { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The reserved_cache_nodes_offering_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReservedCacheNodesOfferingId is required")]
-    [TerraformPropertyName("reserved_cache_nodes_offering_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("reserved_cache_nodes_offering_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ReservedCacheNodesOfferingId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsElasticacheReservedCacheNodeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The cache_node_type attribute.
     /// </summary>
-    [TerraformPropertyName("cache_node_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CacheNodeType => new TerraformReference(this, "cache_node_type");
+    [TerraformProperty("cache_node_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CacheNodeType { get; }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    [TerraformPropertyName("duration")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Duration => new TerraformReference(this, "duration");
+    [TerraformProperty("duration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Duration { get; }
 
     /// <summary>
     /// The fixed_price attribute.
     /// </summary>
-    [TerraformPropertyName("fixed_price")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> FixedPrice => new TerraformReference(this, "fixed_price");
+    [TerraformProperty("fixed_price")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> FixedPrice { get; }
 
     /// <summary>
     /// The offering_type attribute.
     /// </summary>
-    [TerraformPropertyName("offering_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OfferingType => new TerraformReference(this, "offering_type");
+    [TerraformProperty("offering_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OfferingType { get; }
 
     /// <summary>
     /// The product_description attribute.
     /// </summary>
-    [TerraformPropertyName("product_description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ProductDescription => new TerraformReference(this, "product_description");
+    [TerraformProperty("product_description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ProductDescription { get; }
 
     /// <summary>
     /// The recurring_charges attribute.
     /// </summary>
-    [TerraformPropertyName("recurring_charges")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> RecurringCharges => new TerraformReference(this, "recurring_charges");
+    [TerraformProperty("recurring_charges")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> RecurringCharges { get; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    [TerraformPropertyName("start_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StartTime => new TerraformReference(this, "start_time");
+    [TerraformProperty("start_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StartTime { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The usage_price attribute.
     /// </summary>
-    [TerraformPropertyName("usage_price")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> UsagePrice => new TerraformReference(this, "usage_price");
+    [TerraformProperty("usage_price")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> UsagePrice { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_securityhub_standards_control resource.
 /// </summary>
-public class AwsSecurityhubStandardsControl : TerraformResource
+public partial class AwsSecurityhubStandardsControl : TerraformResource
 {
     public AwsSecurityhubStandardsControl(string name) : base("aws_securityhub_standards_control", name)
     {
@@ -15,86 +15,86 @@ public class AwsSecurityhubStandardsControl : TerraformResource
     /// The control_status attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlStatus is required")]
-    [TerraformPropertyName("control_status")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("control_status")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ControlStatus { get; set; }
 
     /// <summary>
     /// The disabled_reason attribute.
     /// </summary>
-    [TerraformPropertyName("disabled_reason")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DisabledReason { get; set; } = default!;
+    [TerraformProperty("disabled_reason")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DisabledReason { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The standards_control_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StandardsControlArn is required")]
-    [TerraformPropertyName("standards_control_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("standards_control_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StandardsControlArn { get; set; }
 
     /// <summary>
     /// The control_id attribute.
     /// </summary>
-    [TerraformPropertyName("control_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ControlId => new TerraformReference(this, "control_id");
+    [TerraformProperty("control_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ControlId { get; }
 
     /// <summary>
     /// The control_status_updated_at attribute.
     /// </summary>
-    [TerraformPropertyName("control_status_updated_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ControlStatusUpdatedAt => new TerraformReference(this, "control_status_updated_at");
+    [TerraformProperty("control_status_updated_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ControlStatusUpdatedAt { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The related_requirements attribute.
     /// </summary>
-    [TerraformPropertyName("related_requirements")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> RelatedRequirements => new TerraformReference(this, "related_requirements");
+    [TerraformProperty("related_requirements")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> RelatedRequirements { get; }
 
     /// <summary>
     /// The remediation_url attribute.
     /// </summary>
-    [TerraformPropertyName("remediation_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RemediationUrl => new TerraformReference(this, "remediation_url");
+    [TerraformProperty("remediation_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RemediationUrl { get; }
 
     /// <summary>
     /// The severity_rating attribute.
     /// </summary>
-    [TerraformPropertyName("severity_rating")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SeverityRating => new TerraformReference(this, "severity_rating");
+    [TerraformProperty("severity_rating")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SeverityRating { get; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
-    [TerraformPropertyName("title")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Title => new TerraformReference(this, "title");
+    [TerraformProperty("title")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Title { get; }
 
 }

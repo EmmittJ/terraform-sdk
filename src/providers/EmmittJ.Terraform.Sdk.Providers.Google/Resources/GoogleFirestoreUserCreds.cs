@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirestoreUserCredsTimeoutsBlock
+public partial class GoogleFirestoreUserCredsTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class GoogleFirestoreUserCredsTimeoutsBlock
 /// <summary>
 /// Manages a google_firestore_user_creds resource.
 /// </summary>
-public class GoogleFirestoreUserCreds : TerraformResource
+public partial class GoogleFirestoreUserCreds : TerraformResource
 {
     public GoogleFirestoreUserCreds(string name) : base("google_firestore_user_creds", name)
     {
@@ -37,16 +37,16 @@ public class GoogleFirestoreUserCreds : TerraformResource
     /// The Firestore database ID.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
-    [TerraformPropertyName("database")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("database")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Database { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ID to use for the user creds, which will become the final component
@@ -57,57 +57,57 @@ public class GoogleFirestoreUserCreds : TerraformResource
     /// be UUID-like /[0-9a-f]{8}(-[0-9a-f]{4}){3}-[0-9a-f]{12}/.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleFirestoreUserCredsTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp at which these user creds were created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Describes the Resource Identity principal.
     /// </summary>
-    [TerraformPropertyName("resource_identity")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ResourceIdentity => new TerraformReference(this, "resource_identity");
+    [TerraformProperty("resource_identity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ResourceIdentity { get; }
 
     /// <summary>
     /// The plaintext server-generated password for the user creds.
     /// </summary>
-    [TerraformPropertyName("secure_password")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecurePassword => new TerraformReference(this, "secure_password");
+    [TerraformProperty("secure_password")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecurePassword { get; }
 
     /// <summary>
     /// The state of the user creds.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The timestamp at which these user creds were updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

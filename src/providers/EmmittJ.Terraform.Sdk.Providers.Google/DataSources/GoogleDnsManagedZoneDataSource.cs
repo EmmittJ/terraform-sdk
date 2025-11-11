@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_dns_managed_zone.
 /// </summary>
-public class GoogleDnsManagedZoneDataSource : TerraformDataSource
+public partial class GoogleDnsManagedZoneDataSource : TerraformDataSource
 {
     public GoogleDnsManagedZoneDataSource(string name) : base("google_dns_managed_zone", name)
     {
@@ -15,57 +15,57 @@ public class GoogleDnsManagedZoneDataSource : TerraformDataSource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    [TerraformPropertyName("dns_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DnsName => new TerraformReference(this, "dns_name");
+    [TerraformProperty("dns_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DnsName { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The managed_zone_id attribute.
     /// </summary>
-    [TerraformPropertyName("managed_zone_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ManagedZoneId => new TerraformReference(this, "managed_zone_id");
+    [TerraformProperty("managed_zone_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ManagedZoneId { get; }
 
     /// <summary>
     /// The name_servers attribute.
     /// </summary>
-    [TerraformPropertyName("name_servers")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> NameServers => new TerraformReference(this, "name_servers");
+    [TerraformProperty("name_servers")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> NameServers { get; }
 
     /// <summary>
     /// The visibility attribute.
     /// </summary>
-    [TerraformPropertyName("visibility")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Visibility => new TerraformReference(this, "visibility");
+    [TerraformProperty("visibility")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Visibility { get; }
 
 }

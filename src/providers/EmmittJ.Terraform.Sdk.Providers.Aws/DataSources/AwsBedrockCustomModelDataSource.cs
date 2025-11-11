@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_bedrock_custom_model.
 /// </summary>
-public class AwsBedrockCustomModelDataSource : TerraformDataSource
+public partial class AwsBedrockCustomModelDataSource : TerraformDataSource
 {
     public AwsBedrockCustomModelDataSource(string name) : base("aws_bedrock_custom_model", name)
     {
@@ -15,127 +15,127 @@ public class AwsBedrockCustomModelDataSource : TerraformDataSource
     /// The model_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ModelId is required")]
-    [TerraformPropertyName("model_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("model_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ModelId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The base_model_arn attribute.
     /// </summary>
-    [TerraformPropertyName("base_model_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BaseModelArn => new TerraformReference(this, "base_model_arn");
+    [TerraformProperty("base_model_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BaseModelArn { get; }
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    [TerraformPropertyName("creation_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTime => new TerraformReference(this, "creation_time");
+    [TerraformProperty("creation_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTime { get; }
 
     /// <summary>
     /// The hyperparameters attribute.
     /// </summary>
-    [TerraformPropertyName("hyperparameters")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Hyperparameters => new TerraformReference(this, "hyperparameters");
+    [TerraformProperty("hyperparameters")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Hyperparameters { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The job_arn attribute.
     /// </summary>
-    [TerraformPropertyName("job_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> JobArn => new TerraformReference(this, "job_arn");
+    [TerraformProperty("job_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> JobArn { get; }
 
     /// <summary>
     /// The job_name attribute.
     /// </summary>
-    [TerraformPropertyName("job_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> JobName => new TerraformReference(this, "job_name");
+    [TerraformProperty("job_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> JobName { get; }
 
     /// <summary>
     /// The job_tags attribute.
     /// </summary>
-    [TerraformPropertyName("job_tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> JobTags => new TerraformReference(this, "job_tags");
+    [TerraformProperty("job_tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> JobTags { get; }
 
     /// <summary>
     /// The model_arn attribute.
     /// </summary>
-    [TerraformPropertyName("model_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ModelArn => new TerraformReference(this, "model_arn");
+    [TerraformProperty("model_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ModelArn { get; }
 
     /// <summary>
     /// The model_kms_key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("model_kms_key_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ModelKmsKeyArn => new TerraformReference(this, "model_kms_key_arn");
+    [TerraformProperty("model_kms_key_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ModelKmsKeyArn { get; }
 
     /// <summary>
     /// The model_name attribute.
     /// </summary>
-    [TerraformPropertyName("model_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ModelName => new TerraformReference(this, "model_name");
+    [TerraformProperty("model_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ModelName { get; }
 
     /// <summary>
     /// The model_tags attribute.
     /// </summary>
-    [TerraformPropertyName("model_tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> ModelTags => new TerraformReference(this, "model_tags");
+    [TerraformProperty("model_tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> ModelTags { get; }
 
     /// <summary>
     /// The output_data_config attribute.
     /// </summary>
-    [TerraformPropertyName("output_data_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> OutputDataConfig => new TerraformReference(this, "output_data_config");
+    [TerraformProperty("output_data_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> OutputDataConfig { get; }
 
     /// <summary>
     /// The training_data_config attribute.
     /// </summary>
-    [TerraformPropertyName("training_data_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> TrainingDataConfig => new TerraformReference(this, "training_data_config");
+    [TerraformProperty("training_data_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> TrainingDataConfig { get; }
 
     /// <summary>
     /// The training_metrics attribute.
     /// </summary>
-    [TerraformPropertyName("training_metrics")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> TrainingMetrics => new TerraformReference(this, "training_metrics");
+    [TerraformProperty("training_metrics")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> TrainingMetrics { get; }
 
     /// <summary>
     /// The validation_data_config attribute.
     /// </summary>
-    [TerraformPropertyName("validation_data_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ValidationDataConfig => new TerraformReference(this, "validation_data_config");
+    [TerraformProperty("validation_data_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ValidationDataConfig { get; }
 
     /// <summary>
     /// The validation_metrics attribute.
     /// </summary>
-    [TerraformPropertyName("validation_metrics")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ValidationMetrics => new TerraformReference(this, "validation_metrics");
+    [TerraformProperty("validation_metrics")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ValidationMetrics { get; }
 
 }

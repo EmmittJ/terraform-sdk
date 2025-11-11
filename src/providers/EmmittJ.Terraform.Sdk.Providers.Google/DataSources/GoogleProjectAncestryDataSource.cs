@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_project_ancestry.
 /// </summary>
-public class GoogleProjectAncestryDataSource : TerraformDataSource
+public partial class GoogleProjectAncestryDataSource : TerraformDataSource
 {
     public GoogleProjectAncestryDataSource(string name) : base("google_project_ancestry", name)
     {
@@ -14,43 +14,43 @@ public class GoogleProjectAncestryDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The ancestors attribute.
     /// </summary>
-    [TerraformPropertyName("ancestors")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Ancestors => new TerraformReference(this, "ancestors");
+    [TerraformProperty("ancestors")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Ancestors { get; }
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
-    [TerraformPropertyName("org_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OrgId => new TerraformReference(this, "org_id");
+    [TerraformProperty("org_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OrgId { get; }
 
     /// <summary>
     /// The parent_id attribute.
     /// </summary>
-    [TerraformPropertyName("parent_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ParentId => new TerraformReference(this, "parent_id");
+    [TerraformProperty("parent_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ParentId { get; }
 
     /// <summary>
     /// The parent_type attribute.
     /// </summary>
-    [TerraformPropertyName("parent_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ParentType => new TerraformReference(this, "parent_type");
+    [TerraformProperty("parent_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ParentType { get; }
 
 }

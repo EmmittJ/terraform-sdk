@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_neptune_cluster_endpoint resource.
 /// </summary>
-public class AwsNeptuneClusterEndpoint : TerraformResource
+public partial class AwsNeptuneClusterEndpoint : TerraformResource
 {
     public AwsNeptuneClusterEndpoint(string name) : base("aws_neptune_cluster_endpoint", name)
     {
@@ -15,80 +15,80 @@ public class AwsNeptuneClusterEndpoint : TerraformResource
     /// The cluster_endpoint_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterEndpointIdentifier is required")]
-    [TerraformPropertyName("cluster_endpoint_identifier")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_endpoint_identifier")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterEndpointIdentifier { get; set; }
 
     /// <summary>
     /// The cluster_identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterIdentifier is required")]
-    [TerraformPropertyName("cluster_identifier")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_identifier")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterIdentifier { get; set; }
 
     /// <summary>
     /// The endpoint_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EndpointType is required")]
-    [TerraformPropertyName("endpoint_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("endpoint_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EndpointType { get; set; }
 
     /// <summary>
     /// The excluded_members attribute.
     /// </summary>
-    [TerraformPropertyName("excluded_members")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("excluded_members")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? ExcludedMembers { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The static_members attribute.
     /// </summary>
-    [TerraformPropertyName("static_members")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("static_members")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? StaticMembers { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Endpoint => new TerraformReference(this, "endpoint");
+    [TerraformProperty("endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Endpoint { get; }
 
 }

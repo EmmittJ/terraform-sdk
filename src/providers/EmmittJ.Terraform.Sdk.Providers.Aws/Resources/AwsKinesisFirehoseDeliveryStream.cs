@@ -6,78 +6,78 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for elasticsearch_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock
+public partial class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The buffering_interval attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The cluster_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("cluster_endpoint")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cluster_endpoint")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClusterEndpoint { get; set; }
 
     /// <summary>
     /// The domain_arn attribute.
     /// </summary>
-    [TerraformPropertyName("domain_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("domain_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DomainArn { get; set; }
 
     /// <summary>
     /// The index_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
-    [TerraformPropertyName("index_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("index_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IndexName { get; set; }
 
     /// <summary>
     /// The index_rotation_period attribute.
     /// </summary>
-    [TerraformPropertyName("index_rotation_period")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("index_rotation_period")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IndexRotationPeriod { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
-    [TerraformPropertyName("retry_duration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retry_duration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
-    [TerraformPropertyName("s3_backup_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_backup_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3BackupMode { get; set; }
 
     /// <summary>
     /// The type_name attribute.
     /// </summary>
-    [TerraformPropertyName("type_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TypeName { get; set; }
 
 }
@@ -86,85 +86,85 @@ public class AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock
 /// Block type for extended_s3_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock
+public partial class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The bucket_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketArn is required")]
-    [TerraformPropertyName("bucket_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BucketArn { get; set; }
 
     /// <summary>
     /// The buffering_interval attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The compression_format attribute.
     /// </summary>
-    [TerraformPropertyName("compression_format")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("compression_format")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CompressionFormat { get; set; }
 
     /// <summary>
     /// The custom_time_zone attribute.
     /// </summary>
-    [TerraformPropertyName("custom_time_zone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("custom_time_zone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CustomTimeZone { get; set; }
 
     /// <summary>
     /// The error_output_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("error_output_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("error_output_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ErrorOutputPrefix { get; set; }
 
     /// <summary>
     /// The file_extension attribute.
     /// </summary>
-    [TerraformPropertyName("file_extension")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("file_extension")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? FileExtension { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    [TerraformPropertyName("prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Prefix { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
-    [TerraformPropertyName("s3_backup_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_backup_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3BackupMode { get; set; }
 
 }
@@ -173,63 +173,63 @@ public class AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock
 /// Block type for http_endpoint_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock
+public partial class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The access_key attribute.
     /// </summary>
-    [TerraformPropertyName("access_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("access_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AccessKey { get; set; }
 
     /// <summary>
     /// The buffering_interval attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
-    [TerraformPropertyName("retry_duration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retry_duration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("role_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("role_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
-    [TerraformPropertyName("s3_backup_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_backup_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3BackupMode { get; set; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
-    [TerraformPropertyName("url")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("url")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Url { get; set; }
 
 }
@@ -238,57 +238,57 @@ public class AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock
 /// Block type for iceberg_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock
+public partial class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The append_only attribute.
     /// </summary>
-    [TerraformPropertyName("append_only")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> AppendOnly { get; set; } = default!;
+    [TerraformProperty("append_only")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> AppendOnly { get; set; }
 
     /// <summary>
     /// The buffering_interval attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The catalog_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CatalogArn is required")]
-    [TerraformPropertyName("catalog_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("catalog_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CatalogArn { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
-    [TerraformPropertyName("retry_duration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retry_duration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
-    [TerraformPropertyName("s3_backup_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_backup_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3BackupMode { get; set; }
 
 }
@@ -297,22 +297,22 @@ public class AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock
 /// Block type for kinesis_source_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock
+public partial class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The kinesis_stream_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KinesisStreamArn is required")]
-    [TerraformPropertyName("kinesis_stream_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kinesis_stream_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KinesisStreamArn { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
 }
@@ -321,29 +321,29 @@ public class AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock
 /// Block type for msk_source_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock
+public partial class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The msk_cluster_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MskClusterArn is required")]
-    [TerraformPropertyName("msk_cluster_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("msk_cluster_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MskClusterArn { get; set; }
 
     /// <summary>
     /// The read_from_timestamp attribute.
     /// </summary>
-    [TerraformPropertyName("read_from_timestamp")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read_from_timestamp")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ReadFromTimestamp { get; set; }
 
     /// <summary>
     /// The topic_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
-    [TerraformPropertyName("topic_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("topic_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TopicName { get; set; }
 
 }
@@ -352,78 +352,78 @@ public class AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock
 /// Block type for opensearch_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock
+public partial class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The buffering_interval attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The cluster_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("cluster_endpoint")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cluster_endpoint")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClusterEndpoint { get; set; }
 
     /// <summary>
     /// The domain_arn attribute.
     /// </summary>
-    [TerraformPropertyName("domain_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("domain_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DomainArn { get; set; }
 
     /// <summary>
     /// The index_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
-    [TerraformPropertyName("index_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("index_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IndexName { get; set; }
 
     /// <summary>
     /// The index_rotation_period attribute.
     /// </summary>
-    [TerraformPropertyName("index_rotation_period")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("index_rotation_period")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IndexRotationPeriod { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
-    [TerraformPropertyName("retry_duration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retry_duration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
-    [TerraformPropertyName("s3_backup_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_backup_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3BackupMode { get; set; }
 
     /// <summary>
     /// The type_name attribute.
     /// </summary>
-    [TerraformPropertyName("type_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TypeName { get; set; }
 
 }
@@ -432,58 +432,58 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock
 /// Block type for opensearchserverless_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBlock
+public partial class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The buffering_interval attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The collection_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CollectionEndpoint is required")]
-    [TerraformPropertyName("collection_endpoint")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("collection_endpoint")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CollectionEndpoint { get; set; }
 
     /// <summary>
     /// The index_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndexName is required")]
-    [TerraformPropertyName("index_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("index_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IndexName { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
-    [TerraformPropertyName("retry_duration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retry_duration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
-    [TerraformPropertyName("s3_backup_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_backup_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3BackupMode { get; set; }
 
 }
@@ -492,72 +492,72 @@ public class AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBl
 /// Block type for redshift_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock
+public partial class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cluster_jdbcurl attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterJdbcurl is required")]
-    [TerraformPropertyName("cluster_jdbcurl")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_jdbcurl")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterJdbcurl { get; set; }
 
     /// <summary>
     /// The copy_options attribute.
     /// </summary>
-    [TerraformPropertyName("copy_options")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("copy_options")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CopyOptions { get; set; }
 
     /// <summary>
     /// The data_table_columns attribute.
     /// </summary>
-    [TerraformPropertyName("data_table_columns")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("data_table_columns")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DataTableColumns { get; set; }
 
     /// <summary>
     /// The data_table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataTableName is required")]
-    [TerraformPropertyName("data_table_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data_table_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DataTableName { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    [TerraformPropertyName("password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
-    [TerraformPropertyName("retry_duration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retry_duration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
-    [TerraformPropertyName("s3_backup_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_backup_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3BackupMode { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    [TerraformPropertyName("username")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("username")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Username { get; set; }
 
 }
@@ -566,27 +566,27 @@ public class AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock
 /// Block type for server_side_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock
+public partial class AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("key_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KeyArn { get; set; }
 
     /// <summary>
     /// The key_type attribute.
     /// </summary>
-    [TerraformPropertyName("key_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KeyType { get; set; }
 
 }
@@ -595,116 +595,116 @@ public class AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock
 /// Block type for snowflake_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock
+public partial class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The account_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountUrl is required")]
-    [TerraformPropertyName("account_url")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("account_url")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AccountUrl { get; set; }
 
     /// <summary>
     /// The buffering_interval attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The content_column_name attribute.
     /// </summary>
-    [TerraformPropertyName("content_column_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("content_column_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ContentColumnName { get; set; }
 
     /// <summary>
     /// The data_loading_option attribute.
     /// </summary>
-    [TerraformPropertyName("data_loading_option")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("data_loading_option")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DataLoadingOption { get; set; }
 
     /// <summary>
     /// The database attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
-    [TerraformPropertyName("database")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("database")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Database { get; set; }
 
     /// <summary>
     /// The key_passphrase attribute.
     /// </summary>
-    [TerraformPropertyName("key_passphrase")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key_passphrase")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KeyPassphrase { get; set; }
 
     /// <summary>
     /// The metadata_column_name attribute.
     /// </summary>
-    [TerraformPropertyName("metadata_column_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("metadata_column_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MetadataColumnName { get; set; }
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
-    [TerraformPropertyName("private_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrivateKey { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
-    [TerraformPropertyName("retry_duration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retry_duration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
-    [TerraformPropertyName("s3_backup_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_backup_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3BackupMode { get; set; }
 
     /// <summary>
     /// The schema attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schema is required")]
-    [TerraformPropertyName("schema")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("schema")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Schema { get; set; }
 
     /// <summary>
     /// The table attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Table is required")]
-    [TerraformPropertyName("table")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("table")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Table { get; set; }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
-    [TerraformPropertyName("user")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? User { get; set; }
 
 }
@@ -713,63 +713,63 @@ public class AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock
 /// Block type for splunk_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock
+public partial class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The buffering_interval attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingInterval { get; set; }
 
     /// <summary>
     /// The buffering_size attribute.
     /// </summary>
-    [TerraformPropertyName("buffering_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("buffering_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BufferingSize { get; set; }
 
     /// <summary>
     /// The hec_acknowledgment_timeout attribute.
     /// </summary>
-    [TerraformPropertyName("hec_acknowledgment_timeout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("hec_acknowledgment_timeout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? HecAcknowledgmentTimeout { get; set; }
 
     /// <summary>
     /// The hec_endpoint attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HecEndpoint is required")]
-    [TerraformPropertyName("hec_endpoint")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("hec_endpoint")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HecEndpoint { get; set; }
 
     /// <summary>
     /// The hec_endpoint_type attribute.
     /// </summary>
-    [TerraformPropertyName("hec_endpoint_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("hec_endpoint_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HecEndpointType { get; set; }
 
     /// <summary>
     /// The hec_token attribute.
     /// </summary>
-    [TerraformPropertyName("hec_token")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("hec_token")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HecToken { get; set; }
 
     /// <summary>
     /// The retry_duration attribute.
     /// </summary>
-    [TerraformPropertyName("retry_duration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retry_duration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RetryDuration { get; set; }
 
     /// <summary>
     /// The s3_backup_mode attribute.
     /// </summary>
-    [TerraformPropertyName("s3_backup_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_backup_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3BackupMode { get; set; }
 
 }
@@ -778,27 +778,27 @@ public class AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsKinesisFirehoseDeliveryStreamTimeoutsBlock
+public partial class AwsKinesisFirehoseDeliveryStreamTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -807,7 +807,7 @@ public class AwsKinesisFirehoseDeliveryStreamTimeoutsBlock
 /// Manages a aws_kinesis_firehose_delivery_stream resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsKinesisFirehoseDeliveryStream : TerraformResource
+public partial class AwsKinesisFirehoseDeliveryStream : TerraformResource
 {
     public AwsKinesisFirehoseDeliveryStream(string name) : base("aws_kinesis_firehose_delivery_stream", name)
     {
@@ -816,74 +816,74 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Arn { get; set; } = default!;
+    [TerraformProperty("arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The destination attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Destination is required")]
-    [TerraformPropertyName("destination")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("destination")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Destination { get; set; }
 
     /// <summary>
     /// The destination_id attribute.
     /// </summary>
-    [TerraformPropertyName("destination_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DestinationId { get; set; } = default!;
+    [TerraformProperty("destination_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DestinationId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    [TerraformPropertyName("version_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> VersionId { get; set; } = default!;
+    [TerraformProperty("version_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> VersionId { get; set; }
 
     /// <summary>
     /// Block for elasticsearch_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ElasticsearchConfiguration block(s) allowed")]
-    [TerraformPropertyName("elasticsearch_configuration")]
+    [TerraformProperty("elasticsearch_configuration")]
     public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamElasticsearchConfigurationBlock>>? ElasticsearchConfiguration { get; set; }
 
     /// <summary>
@@ -891,7 +891,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ExtendedS3Configuration block(s) allowed")]
-    [TerraformPropertyName("extended_s3_configuration")]
+    [TerraformProperty("extended_s3_configuration")]
     public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamExtendedS3ConfigurationBlock>>? ExtendedS3Configuration { get; set; }
 
     /// <summary>
@@ -899,7 +899,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpEndpointConfiguration block(s) allowed")]
-    [TerraformPropertyName("http_endpoint_configuration")]
+    [TerraformProperty("http_endpoint_configuration")]
     public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamHttpEndpointConfigurationBlock>>? HttpEndpointConfiguration { get; set; }
 
     /// <summary>
@@ -907,7 +907,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IcebergConfiguration block(s) allowed")]
-    [TerraformPropertyName("iceberg_configuration")]
+    [TerraformProperty("iceberg_configuration")]
     public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamIcebergConfigurationBlock>>? IcebergConfiguration { get; set; }
 
     /// <summary>
@@ -915,7 +915,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KinesisSourceConfiguration block(s) allowed")]
-    [TerraformPropertyName("kinesis_source_configuration")]
+    [TerraformProperty("kinesis_source_configuration")]
     public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamKinesisSourceConfigurationBlock>>? KinesisSourceConfiguration { get; set; }
 
     /// <summary>
@@ -923,7 +923,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MskSourceConfiguration block(s) allowed")]
-    [TerraformPropertyName("msk_source_configuration")]
+    [TerraformProperty("msk_source_configuration")]
     public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamMskSourceConfigurationBlock>>? MskSourceConfiguration { get; set; }
 
     /// <summary>
@@ -931,7 +931,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpensearchConfiguration block(s) allowed")]
-    [TerraformPropertyName("opensearch_configuration")]
+    [TerraformProperty("opensearch_configuration")]
     public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamOpensearchConfigurationBlock>>? OpensearchConfiguration { get; set; }
 
     /// <summary>
@@ -939,7 +939,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OpensearchserverlessConfiguration block(s) allowed")]
-    [TerraformPropertyName("opensearchserverless_configuration")]
+    [TerraformProperty("opensearchserverless_configuration")]
     public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamOpensearchserverlessConfigurationBlock>>? OpensearchserverlessConfiguration { get; set; }
 
     /// <summary>
@@ -947,7 +947,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedshiftConfiguration block(s) allowed")]
-    [TerraformPropertyName("redshift_configuration")]
+    [TerraformProperty("redshift_configuration")]
     public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamRedshiftConfigurationBlock>>? RedshiftConfiguration { get; set; }
 
     /// <summary>
@@ -955,7 +955,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
-    [TerraformPropertyName("server_side_encryption")]
+    [TerraformProperty("server_side_encryption")]
     public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamServerSideEncryptionBlock>>? ServerSideEncryption { get; set; }
 
     /// <summary>
@@ -963,7 +963,7 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SnowflakeConfiguration block(s) allowed")]
-    [TerraformPropertyName("snowflake_configuration")]
+    [TerraformProperty("snowflake_configuration")]
     public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamSnowflakeConfigurationBlock>>? SnowflakeConfiguration { get; set; }
 
     /// <summary>
@@ -971,14 +971,14 @@ public class AwsKinesisFirehoseDeliveryStream : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SplunkConfiguration block(s) allowed")]
-    [TerraformPropertyName("splunk_configuration")]
+    [TerraformProperty("splunk_configuration")]
     public TerraformList<TerraformBlock<AwsKinesisFirehoseDeliveryStreamSplunkConfigurationBlock>>? SplunkConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsKinesisFirehoseDeliveryStreamTimeoutsBlock>? Timeouts { get; set; }
 
 }

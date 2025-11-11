@@ -6,48 +6,48 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cors in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaFunctionUrlCorsBlock
+public partial class AwsLambdaFunctionUrlCorsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The allow_credentials attribute.
     /// </summary>
-    [TerraformPropertyName("allow_credentials")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allow_credentials")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AllowCredentials { get; set; }
 
     /// <summary>
     /// The allow_headers attribute.
     /// </summary>
-    [TerraformPropertyName("allow_headers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allow_headers")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? AllowHeaders { get; set; }
 
     /// <summary>
     /// The allow_methods attribute.
     /// </summary>
-    [TerraformPropertyName("allow_methods")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allow_methods")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? AllowMethods { get; set; }
 
     /// <summary>
     /// The allow_origins attribute.
     /// </summary>
-    [TerraformPropertyName("allow_origins")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allow_origins")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? AllowOrigins { get; set; }
 
     /// <summary>
     /// The expose_headers attribute.
     /// </summary>
-    [TerraformPropertyName("expose_headers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expose_headers")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? ExposeHeaders { get; set; }
 
     /// <summary>
     /// The max_age attribute.
     /// </summary>
-    [TerraformPropertyName("max_age")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_age")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxAge { get; set; }
 
 }
@@ -56,13 +56,13 @@ public class AwsLambdaFunctionUrlCorsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLambdaFunctionUrlTimeoutsBlock
+public partial class AwsLambdaFunctionUrlTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
 }
@@ -71,7 +71,7 @@ public class AwsLambdaFunctionUrlTimeoutsBlock
 /// Manages a aws_lambda_function_url resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsLambdaFunctionUrl : TerraformResource
+public partial class AwsLambdaFunctionUrl : TerraformResource
 {
     public AwsLambdaFunctionUrl(string name) : base("aws_lambda_function_url", name)
     {
@@ -81,80 +81,80 @@ public class AwsLambdaFunctionUrl : TerraformResource
     /// The authorization_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthorizationType is required")]
-    [TerraformPropertyName("authorization_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("authorization_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AuthorizationType { get; set; }
 
     /// <summary>
     /// The function_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FunctionName is required")]
-    [TerraformPropertyName("function_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("function_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FunctionName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The invoke_mode attribute.
     /// </summary>
-    [TerraformPropertyName("invoke_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("invoke_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? InvokeMode { get; set; }
 
     /// <summary>
     /// The qualifier attribute.
     /// </summary>
-    [TerraformPropertyName("qualifier")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("qualifier")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Qualifier { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for cors.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
-    [TerraformPropertyName("cors")]
+    [TerraformProperty("cors")]
     public TerraformList<TerraformBlock<AwsLambdaFunctionUrlCorsBlock>>? Cors { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsLambdaFunctionUrlTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The function_arn attribute.
     /// </summary>
-    [TerraformPropertyName("function_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FunctionArn => new TerraformReference(this, "function_arn");
+    [TerraformProperty("function_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FunctionArn { get; }
 
     /// <summary>
     /// The function_url attribute.
     /// </summary>
-    [TerraformPropertyName("function_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FunctionUrl => new TerraformReference(this, "function_url");
+    [TerraformProperty("function_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FunctionUrl { get; }
 
     /// <summary>
     /// The url_id attribute.
     /// </summary>
-    [TerraformPropertyName("url_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UrlId => new TerraformReference(this, "url_id");
+    [TerraformProperty("url_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UrlId { get; }
 
 }

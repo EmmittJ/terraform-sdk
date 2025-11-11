@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for delivery_config in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePubsubLiteSubscriptionDeliveryConfigBlock
+public partial class GooglePubsubLiteSubscriptionDeliveryConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// When this subscription should send messages to subscribers relative to messages persistence in storage. Possible values: [&amp;quot;DELIVER_IMMEDIATELY&amp;quot;, &amp;quot;DELIVER_AFTER_STORED&amp;quot;, &amp;quot;DELIVERY_REQUIREMENT_UNSPECIFIED&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeliveryRequirement is required")]
-    [TerraformPropertyName("delivery_requirement")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("delivery_requirement")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DeliveryRequirement { get; set; }
 
 }
@@ -22,27 +22,27 @@ public class GooglePubsubLiteSubscriptionDeliveryConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GooglePubsubLiteSubscriptionTimeoutsBlock
+public partial class GooglePubsubLiteSubscriptionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -51,7 +51,7 @@ public class GooglePubsubLiteSubscriptionTimeoutsBlock
 /// Manages a google_pubsub_lite_subscription resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GooglePubsubLiteSubscription : TerraformResource
+public partial class GooglePubsubLiteSubscription : TerraformResource
 {
     public GooglePubsubLiteSubscription(string name) : base("google_pubsub_lite_subscription", name)
     {
@@ -60,45 +60,45 @@ public class GooglePubsubLiteSubscription : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the subscription.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region of the pubsub lite topic.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// A reference to a Topic resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
-    [TerraformPropertyName("topic")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("topic")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Topic { get; set; }
 
     /// <summary>
     /// The zone of the pubsub lite topic.
     /// </summary>
-    [TerraformPropertyName("zone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("zone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
@@ -106,14 +106,14 @@ public class GooglePubsubLiteSubscription : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryConfig block(s) allowed")]
-    [TerraformPropertyName("delivery_config")]
+    [TerraformProperty("delivery_config")]
     public TerraformList<TerraformBlock<GooglePubsubLiteSubscriptionDeliveryConfigBlock>>? DeliveryConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GooglePubsubLiteSubscriptionTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for spark_application_environment_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentConfigBlock
+public partial class GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// A map of default Spark properties to apply to workloads in this application environment. These defaults may be overridden by per-application properties.
     /// </summary>
-    [TerraformPropertyName("default_properties")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_properties")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? DefaultProperties { get; set; }
 
     /// <summary>
     /// The default Dataproc version to use for applications submitted to this application environment
     /// </summary>
-    [TerraformPropertyName("default_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DefaultVersion { get; set; }
 
 }
@@ -28,27 +28,27 @@ public class GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentC
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock
+public partial class GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -57,7 +57,7 @@ public class GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock
 /// Manages a google_dataproc_gdc_application_environment resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleDataprocGdcApplicationEnvironment : TerraformResource
+public partial class GoogleDataprocGdcApplicationEnvironment : TerraformResource
 {
     public GoogleDataprocGdcApplicationEnvironment(string name) : base("google_dataproc_gdc_application_environment", name)
     {
@@ -69,30 +69,30 @@ public class GoogleDataprocGdcApplicationEnvironment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    [TerraformPropertyName("annotations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("annotations")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// The id of the application environment
     /// </summary>
-    [TerraformPropertyName("application_environment_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("application_environment_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ApplicationEnvironmentId { get; set; }
 
     /// <summary>
     /// User-provided human-readable name to be used in user interfaces.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The labels to associate with this application environment. Labels may be used for filtering and billing tracking. 
@@ -100,38 +100,38 @@ public class GoogleDataprocGdcApplicationEnvironment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the application environment
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of the namespace in which to create this ApplicationEnvironment. This namespace must already exist in the cluster
     /// </summary>
-    [TerraformPropertyName("namespace")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("namespace")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Namespace { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The id of the service instance to which this application environment belongs.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Serviceinstance is required")]
-    [TerraformPropertyName("serviceinstance")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("serviceinstance")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Serviceinstance { get; set; }
 
     /// <summary>
@@ -139,64 +139,64 @@ public class GoogleDataprocGdcApplicationEnvironment : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SparkApplicationEnvironmentConfig block(s) allowed")]
-    [TerraformPropertyName("spark_application_environment_config")]
+    [TerraformProperty("spark_application_environment_config")]
     public TerraformList<TerraformBlock<GoogleDataprocGdcApplicationEnvironmentSparkApplicationEnvironmentConfigBlock>>? SparkApplicationEnvironmentConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDataprocGdcApplicationEnvironmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp when the resource was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_annotations")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
+    [TerraformProperty("effective_annotations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Identifier. The name of the application environment. Format: projects/{project}/locations/{location}/serviceInstances/{service_instance}/applicationEnvironments/{application_environment_id}
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// System generated unique identifier for this application environment, formatted as UUID4.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The timestamp when the resource was most recently updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

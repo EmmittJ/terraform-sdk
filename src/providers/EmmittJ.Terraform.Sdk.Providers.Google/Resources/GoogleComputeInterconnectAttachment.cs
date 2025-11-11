@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeInterconnectAttachmentTimeoutsBlock
+public partial class GoogleComputeInterconnectAttachmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleComputeInterconnectAttachmentTimeoutsBlock
 /// <summary>
 /// Manages a google_compute_interconnect_attachment resource.
 /// </summary>
-public class GoogleComputeInterconnectAttachment : TerraformResource
+public partial class GoogleComputeInterconnectAttachment : TerraformResource
 {
     public GoogleComputeInterconnectAttachment(string name) : base("google_compute_interconnect_attachment", name)
     {
@@ -44,8 +44,8 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// Whether the VLAN attachment is enabled or disabled.  When using
     /// PARTNER type this will Pre-Activate the interconnect attachment
     /// </summary>
-    [TerraformPropertyName("admin_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("admin_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AdminEnabled { get; set; }
 
     /// <summary>
@@ -55,9 +55,9 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// Output only for PARTNER type, mutable for PARTNER_PROVIDER and DEDICATED,
     /// Defaults to BPS_10G Possible values: [&amp;quot;BPS_50M&amp;quot;, &amp;quot;BPS_100M&amp;quot;, &amp;quot;BPS_200M&amp;quot;, &amp;quot;BPS_300M&amp;quot;, &amp;quot;BPS_400M&amp;quot;, &amp;quot;BPS_500M&amp;quot;, &amp;quot;BPS_1G&amp;quot;, &amp;quot;BPS_2G&amp;quot;, &amp;quot;BPS_5G&amp;quot;, &amp;quot;BPS_10G&amp;quot;, &amp;quot;BPS_20G&amp;quot;, &amp;quot;BPS_50G&amp;quot;, &amp;quot;BPS_100G&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("bandwidth")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Bandwidth { get; set; } = default!;
+    [TerraformProperty("bandwidth")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Bandwidth { get; set; }
 
     /// <summary>
     /// Up to 16 candidate prefixes that can be used to restrict the allocation
@@ -68,15 +68,15 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// fail if all possible /29s are in use on Google&#39;s edge. If not supplied,
     /// Google will randomly select an unused /29 from all of link-local space.
     /// </summary>
-    [TerraformPropertyName("candidate_subnets")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("candidate_subnets")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? CandidateSubnets { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
@@ -87,9 +87,9 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// pairing key so that the provisioned circuit will lie in the specified
     /// domain. If not specified, the value will default to AVAILABILITY_DOMAIN_ANY.
     /// </summary>
-    [TerraformPropertyName("edge_availability_domain")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EdgeAvailabilityDomain { get; set; } = default!;
+    [TerraformProperty("edge_availability_domain")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EdgeAvailabilityDomain { get; set; }
 
     /// <summary>
     /// Indicates the user-supplied encryption option of this interconnect
@@ -104,24 +104,24 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// such a VLAN attachment. To use HA VPN over Cloud Interconnect, the VLAN
     /// attachment must be created with this option. Default value: &amp;quot;NONE&amp;quot; Possible values: [&amp;quot;NONE&amp;quot;, &amp;quot;IPSEC&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("encryption")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("encryption")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Encryption { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// URL of the underlying Interconnect object that this attachment&#39;s
     /// traffic will traverse through. Required if type is DEDICATED, must not
     /// be set if type is PARTNER.
     /// </summary>
-    [TerraformPropertyName("interconnect")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("interconnect")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Interconnect { get; set; }
 
     /// <summary>
@@ -141,8 +141,8 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// interconnect attachment, the HA VPN gateway&#39;s IP address will be
     /// allocated from regional external IP address pool.
     /// </summary>
-    [TerraformPropertyName("ipsec_internal_addresses")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ipsec_internal_addresses")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? IpsecInternalAddresses { get; set; }
 
     /// <summary>
@@ -153,17 +153,17 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Maximum Transmission Unit (MTU), in bytes, of packets passing through this interconnect attachment.
     /// Valid values are 1440, 1460, 1500, and 8896. If not specified, the value will default to 1440.
     /// </summary>
-    [TerraformPropertyName("mtu")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Mtu { get; set; } = default!;
+    [TerraformProperty("mtu")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Mtu { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is created. The
@@ -174,23 +174,23 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Region where the regional interconnect attachment resides.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// URL of the cloud router to be used for dynamic routing. This router must be in
@@ -199,8 +199,8 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// Cloud Router is configured.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Router is required")]
-    [TerraformPropertyName("router")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("router")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Router { get; set; }
 
     /// <summary>
@@ -209,9 +209,9 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// This field can be both set at interconnect attachments creation and update
     /// interconnect attachment operations. Possible values: [&amp;quot;IPV4_IPV6&amp;quot;, &amp;quot;IPV4_ONLY&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("stack_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> StackType { get; set; } = default!;
+    [TerraformProperty("stack_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> StackType { get; set; }
 
     /// <summary>
     /// Length of the IPv4 subnet mask. Allowed values: 29 (default), 30. The default value is 29,
@@ -221,93 +221,93 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// requesting 29 returns an error. Where both 29 and 30 are allowed, 29 is preferred, because it
     /// gives Google Cloud Support more debugging visibility.
     /// </summary>
-    [TerraformPropertyName("subnet_length")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subnet_length")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? SubnetLength { get; set; }
 
     /// <summary>
     /// The type of InterconnectAttachment you wish to create. Defaults to
     /// DEDICATED. Possible values: [&amp;quot;DEDICATED&amp;quot;, &amp;quot;PARTNER&amp;quot;, &amp;quot;PARTNER_PROVIDER&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Type { get; set; } = default!;
+    [TerraformProperty("type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The IEEE 802.1Q VLAN tag for this attachment, in the range 2-4094. When
     /// using PARTNER type this will be managed upstream.
     /// </summary>
-    [TerraformPropertyName("vlan_tag8021q")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> VlanTag8021q { get; set; } = default!;
+    [TerraformProperty("vlan_tag8021q")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> VlanTag8021q { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeInterconnectAttachmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// URL of the AttachmentGroup that includes this Attachment.
     /// </summary>
-    [TerraformPropertyName("attachment_group")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AttachmentGroup => new TerraformReference(this, "attachment_group");
+    [TerraformProperty("attachment_group")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AttachmentGroup { get; }
 
     /// <summary>
     /// IPv4 address + prefix length to be configured on Cloud Router
     /// Interface for this interconnect attachment.
     /// </summary>
-    [TerraformPropertyName("cloud_router_ip_address")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CloudRouterIpAddress => new TerraformReference(this, "cloud_router_ip_address");
+    [TerraformProperty("cloud_router_ip_address")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CloudRouterIpAddress { get; }
 
     /// <summary>
     /// IPv6 address + prefix length to be configured on Cloud Router
     /// Interface for this interconnect attachment.
     /// </summary>
-    [TerraformPropertyName("cloud_router_ipv6_address")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CloudRouterIpv6Address => new TerraformReference(this, "cloud_router_ipv6_address");
+    [TerraformProperty("cloud_router_ipv6_address")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CloudRouterIpv6Address { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// IPv4 address + prefix length to be configured on the customer
     /// router subinterface for this interconnect attachment.
     /// </summary>
-    [TerraformPropertyName("customer_router_ip_address")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CustomerRouterIpAddress => new TerraformReference(this, "customer_router_ip_address");
+    [TerraformProperty("customer_router_ip_address")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CustomerRouterIpAddress { get; }
 
     /// <summary>
     /// IPv6 address + prefix length to be configured on the customer
     /// router subinterface for this interconnect attachment.
     /// </summary>
-    [TerraformPropertyName("customer_router_ipv6_address")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CustomerRouterIpv6Address => new TerraformReference(this, "customer_router_ipv6_address");
+    [TerraformProperty("customer_router_ipv6_address")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CustomerRouterIpv6Address { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Google reference ID, to be used when raising support tickets with
     /// Google or otherwise to debug backend connectivity issues.
     /// </summary>
-    [TerraformPropertyName("google_reference_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> GoogleReferenceId => new TerraformReference(this, "google_reference_id");
+    [TerraformProperty("google_reference_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> GoogleReferenceId { get; }
 
     /// <summary>
     /// A fingerprint for the labels being applied to this Interconnect, which is essentially a hash
@@ -316,56 +316,56 @@ public class GoogleComputeInterconnectAttachment : TerraformResource
     /// You must always provide an up-to-date fingerprint hash in order to update or change labels,
     /// otherwise the request will fail with error 412 conditionNotMet.
     /// </summary>
-    [TerraformPropertyName("label_fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
+    [TerraformProperty("label_fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// [Output only for type PARTNER. Not present for DEDICATED]. The opaque
     /// identifier of an PARTNER attachment used to initiate provisioning with
     /// a selected partner. Of the form &amp;quot;XXXXX/region/domain&amp;quot;
     /// </summary>
-    [TerraformPropertyName("pairing_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PairingKey => new TerraformReference(this, "pairing_key");
+    [TerraformProperty("pairing_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PairingKey { get; }
 
     /// <summary>
     /// [Output only for type PARTNER. Not present for DEDICATED]. Optional
     /// BGP ASN for the router that should be supplied by a layer 3 Partner if
     /// they configured BGP on behalf of the customer.
     /// </summary>
-    [TerraformPropertyName("partner_asn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PartnerAsn => new TerraformReference(this, "partner_asn");
+    [TerraformProperty("partner_asn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PartnerAsn { get; }
 
     /// <summary>
     /// Information specific to an InterconnectAttachment. This property
     /// is populated if the interconnect that this is attached to is of type DEDICATED.
     /// </summary>
-    [TerraformPropertyName("private_interconnect_info")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PrivateInterconnectInfo => new TerraformReference(this, "private_interconnect_info");
+    [TerraformProperty("private_interconnect_info")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PrivateInterconnectInfo { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// [Output Only] The current state of this attachment&#39;s functionality.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

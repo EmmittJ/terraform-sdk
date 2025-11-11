@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_kinesis_stream.
 /// </summary>
-public class AwsKinesisStreamDataSource : TerraformDataSource
+public partial class AwsKinesisStreamDataSource : TerraformDataSource
 {
     public AwsKinesisStreamDataSource(string name) : base("aws_kinesis_stream", name)
     {
@@ -14,100 +14,100 @@ public class AwsKinesisStreamDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The closed_shards attribute.
     /// </summary>
-    [TerraformPropertyName("closed_shards")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> ClosedShards => new TerraformReference(this, "closed_shards");
+    [TerraformProperty("closed_shards")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> ClosedShards { get; }
 
     /// <summary>
     /// The creation_timestamp attribute.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> CreationTimestamp { get; }
 
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
-    [TerraformPropertyName("encryption_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EncryptionType => new TerraformReference(this, "encryption_type");
+    [TerraformProperty("encryption_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EncryptionType { get; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KmsKeyId => new TerraformReference(this, "kms_key_id");
+    [TerraformProperty("kms_key_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KmsKeyId { get; }
 
     /// <summary>
     /// The open_shards attribute.
     /// </summary>
-    [TerraformPropertyName("open_shards")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> OpenShards => new TerraformReference(this, "open_shards");
+    [TerraformProperty("open_shards")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> OpenShards { get; }
 
     /// <summary>
     /// The retention_period attribute.
     /// </summary>
-    [TerraformPropertyName("retention_period")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> RetentionPeriod => new TerraformReference(this, "retention_period");
+    [TerraformProperty("retention_period")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> RetentionPeriod { get; }
 
     /// <summary>
     /// The shard_level_metrics attribute.
     /// </summary>
-    [TerraformPropertyName("shard_level_metrics")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> ShardLevelMetrics => new TerraformReference(this, "shard_level_metrics");
+    [TerraformProperty("shard_level_metrics")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> ShardLevelMetrics { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The stream_mode_details attribute.
     /// </summary>
-    [TerraformPropertyName("stream_mode_details")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> StreamModeDetails => new TerraformReference(this, "stream_mode_details");
+    [TerraformProperty("stream_mode_details")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> StreamModeDetails { get; }
 
 }

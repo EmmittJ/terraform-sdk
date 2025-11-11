@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsAccountRegionTimeoutsBlock
+public partial class AwsAccountRegionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class AwsAccountRegionTimeoutsBlock
 /// <summary>
 /// Manages a aws_account_region resource.
 /// </summary>
-public class AwsAccountRegion : TerraformResource
+public partial class AwsAccountRegion : TerraformResource
 {
     public AwsAccountRegion(string name) : base("aws_account_region", name)
     {
@@ -36,45 +36,45 @@ public class AwsAccountRegion : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    [TerraformPropertyName("account_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("account_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AccountId { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The region_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionName is required")]
-    [TerraformPropertyName("region_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("region_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RegionName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsAccountRegionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The opt_status attribute.
     /// </summary>
-    [TerraformPropertyName("opt_status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OptStatus => new TerraformReference(this, "opt_status");
+    [TerraformProperty("opt_status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OptStatus { get; }
 
 }

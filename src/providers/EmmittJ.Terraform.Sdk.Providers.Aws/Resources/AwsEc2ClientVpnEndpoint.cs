@@ -6,42 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for authentication_options in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock
+public partial class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The active_directory_id attribute.
     /// </summary>
-    [TerraformPropertyName("active_directory_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("active_directory_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ActiveDirectoryId { get; set; }
 
     /// <summary>
     /// The root_certificate_chain_arn attribute.
     /// </summary>
-    [TerraformPropertyName("root_certificate_chain_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("root_certificate_chain_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RootCertificateChainArn { get; set; }
 
     /// <summary>
     /// The saml_provider_arn attribute.
     /// </summary>
-    [TerraformPropertyName("saml_provider_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("saml_provider_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SamlProviderArn { get; set; }
 
     /// <summary>
     /// The self_service_saml_provider_arn attribute.
     /// </summary>
-    [TerraformPropertyName("self_service_saml_provider_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("self_service_saml_provider_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SelfServiceSamlProviderArn { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -50,21 +50,21 @@ public class AwsEc2ClientVpnEndpointAuthenticationOptionsBlock
 /// Block type for client_connect_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2ClientVpnEndpointClientConnectOptionsBlock
+public partial class AwsEc2ClientVpnEndpointClientConnectOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> Enabled { get; set; } = default!;
+    [TerraformProperty("enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The lambda_function_arn attribute.
     /// </summary>
-    [TerraformPropertyName("lambda_function_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LambdaFunctionArn { get; set; } = default!;
+    [TerraformProperty("lambda_function_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LambdaFunctionArn { get; set; }
 
 }
 
@@ -72,21 +72,21 @@ public class AwsEc2ClientVpnEndpointClientConnectOptionsBlock
 /// Block type for client_login_banner_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock
+public partial class AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The banner_text attribute.
     /// </summary>
-    [TerraformPropertyName("banner_text")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> BannerText { get; set; } = default!;
+    [TerraformProperty("banner_text")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> BannerText { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> Enabled { get; set; } = default!;
+    [TerraformProperty("enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> Enabled { get; set; }
 
 }
 
@@ -94,14 +94,14 @@ public class AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock
 /// Block type for client_route_enforcement_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock
+public partial class AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enforced attribute.
     /// </summary>
-    [TerraformPropertyName("enforced")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> Enforced { get; set; } = default!;
+    [TerraformProperty("enforced")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> Enforced { get; set; }
 
 }
 
@@ -109,28 +109,28 @@ public class AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock
 /// Block type for connection_log_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2ClientVpnEndpointConnectionLogOptionsBlock
+public partial class AwsEc2ClientVpnEndpointConnectionLogOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cloudwatch_log_group attribute.
     /// </summary>
-    [TerraformPropertyName("cloudwatch_log_group")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cloudwatch_log_group")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CloudwatchLogGroup { get; set; }
 
     /// <summary>
     /// The cloudwatch_log_stream attribute.
     /// </summary>
-    [TerraformPropertyName("cloudwatch_log_stream")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CloudwatchLogStream { get; set; } = default!;
+    [TerraformProperty("cloudwatch_log_stream")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CloudwatchLogStream { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
 }
@@ -139,7 +139,7 @@ public class AwsEc2ClientVpnEndpointConnectionLogOptionsBlock
 /// Manages a aws_ec2_client_vpn_endpoint resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsEc2ClientVpnEndpoint : TerraformResource
+public partial class AwsEc2ClientVpnEndpoint : TerraformResource
 {
     public AwsEc2ClientVpnEndpoint(string name) : base("aws_ec2_client_vpn_endpoint", name)
     {
@@ -148,128 +148,128 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     /// <summary>
     /// The client_cidr_block attribute.
     /// </summary>
-    [TerraformPropertyName("client_cidr_block")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("client_cidr_block")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClientCidrBlock { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The disconnect_on_session_timeout attribute.
     /// </summary>
-    [TerraformPropertyName("disconnect_on_session_timeout")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> DisconnectOnSessionTimeout { get; set; } = default!;
+    [TerraformProperty("disconnect_on_session_timeout")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> DisconnectOnSessionTimeout { get; set; }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    [TerraformPropertyName("dns_servers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dns_servers")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? DnsServers { get; set; }
 
     /// <summary>
     /// The endpoint_ip_address_type attribute.
     /// </summary>
-    [TerraformPropertyName("endpoint_ip_address_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EndpointIpAddressType { get; set; } = default!;
+    [TerraformProperty("endpoint_ip_address_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EndpointIpAddressType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_ids")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> SecurityGroupIds { get; set; } = default!;
+    [TerraformProperty("security_group_ids")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The self_service_portal attribute.
     /// </summary>
-    [TerraformPropertyName("self_service_portal")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("self_service_portal")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SelfServicePortal { get; set; }
 
     /// <summary>
     /// The server_certificate_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerCertificateArn is required")]
-    [TerraformPropertyName("server_certificate_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("server_certificate_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServerCertificateArn { get; set; }
 
     /// <summary>
     /// The session_timeout_hours attribute.
     /// </summary>
-    [TerraformPropertyName("session_timeout_hours")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("session_timeout_hours")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? SessionTimeoutHours { get; set; }
 
     /// <summary>
     /// The split_tunnel attribute.
     /// </summary>
-    [TerraformPropertyName("split_tunnel")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("split_tunnel")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SplitTunnel { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The traffic_ip_address_type attribute.
     /// </summary>
-    [TerraformPropertyName("traffic_ip_address_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> TrafficIpAddressType { get; set; } = default!;
+    [TerraformProperty("traffic_ip_address_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> TrafficIpAddressType { get; set; }
 
     /// <summary>
     /// The transport_protocol attribute.
     /// </summary>
-    [TerraformPropertyName("transport_protocol")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("transport_protocol")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TransportProtocol { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> VpcId { get; set; } = default!;
+    [TerraformProperty("vpc_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> VpcId { get; set; }
 
     /// <summary>
     /// The vpn_port attribute.
     /// </summary>
-    [TerraformPropertyName("vpn_port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vpn_port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? VpnPort { get; set; }
 
     /// <summary>
@@ -279,7 +279,7 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthenticationOptions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AuthenticationOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 AuthenticationOptions block(s) allowed")]
-    [TerraformPropertyName("authentication_options")]
+    [TerraformProperty("authentication_options")]
     public TerraformSet<TerraformBlock<AwsEc2ClientVpnEndpointAuthenticationOptionsBlock>>? AuthenticationOptions { get; set; }
 
     /// <summary>
@@ -287,7 +287,7 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientConnectOptions block(s) allowed")]
-    [TerraformPropertyName("client_connect_options")]
+    [TerraformProperty("client_connect_options")]
     public TerraformList<TerraformBlock<AwsEc2ClientVpnEndpointClientConnectOptionsBlock>>? ClientConnectOptions { get; set; }
 
     /// <summary>
@@ -295,7 +295,7 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientLoginBannerOptions block(s) allowed")]
-    [TerraformPropertyName("client_login_banner_options")]
+    [TerraformProperty("client_login_banner_options")]
     public TerraformList<TerraformBlock<AwsEc2ClientVpnEndpointClientLoginBannerOptionsBlock>>? ClientLoginBannerOptions { get; set; }
 
     /// <summary>
@@ -303,7 +303,7 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClientRouteEnforcementOptions block(s) allowed")]
-    [TerraformPropertyName("client_route_enforcement_options")]
+    [TerraformProperty("client_route_enforcement_options")]
     public TerraformList<TerraformBlock<AwsEc2ClientVpnEndpointClientRouteEnforcementOptionsBlock>>? ClientRouteEnforcementOptions { get; set; }
 
     /// <summary>
@@ -313,28 +313,28 @@ public class AwsEc2ClientVpnEndpoint : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionLogOptions is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ConnectionLogOptions block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConnectionLogOptions block(s) allowed")]
-    [TerraformPropertyName("connection_log_options")]
+    [TerraformProperty("connection_log_options")]
     public TerraformList<TerraformBlock<AwsEc2ClientVpnEndpointConnectionLogOptionsBlock>>? ConnectionLogOptions { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    [TerraformPropertyName("dns_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DnsName => new TerraformReference(this, "dns_name");
+    [TerraformProperty("dns_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DnsName { get; }
 
     /// <summary>
     /// The self_service_portal_url attribute.
     /// </summary>
-    [TerraformPropertyName("self_service_portal_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfServicePortalUrl => new TerraformReference(this, "self_service_portal_url");
+    [TerraformProperty("self_service_portal_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfServicePortalUrl { get; }
 
 }

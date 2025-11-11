@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_cloud_identity_group_transitive_memberships.
 /// </summary>
-public class GoogleCloudIdentityGroupTransitiveMembershipsDataSource : TerraformDataSource
+public partial class GoogleCloudIdentityGroupTransitiveMembershipsDataSource : TerraformDataSource
 {
     public GoogleCloudIdentityGroupTransitiveMembershipsDataSource(string name) : base("google_cloud_identity_group_transitive_memberships", name)
     {
@@ -15,22 +15,22 @@ public class GoogleCloudIdentityGroupTransitiveMembershipsDataSource : Terraform
     /// The name of the Group to get memberships from.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Group is required")]
-    [TerraformPropertyName("group")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("group")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Group { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// List of Cloud Identity group memberships.
     /// </summary>
-    [TerraformPropertyName("memberships")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Memberships => new TerraformReference(this, "memberships");
+    [TerraformProperty("memberships")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Memberships { get; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock
+public partial class AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_consumption_budget_subscription.
 /// </summary>
-public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSource
+public partial class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSource
 {
     public AzurermConsumptionBudgetSubscriptionDataSource(string name) : base("azurerm_consumption_budget_subscription", name)
     {
@@ -29,66 +29,66 @@ public class AzurermConsumptionBudgetSubscriptionDataSource : TerraformDataSourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
-    [TerraformPropertyName("subscription_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subscription_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SubscriptionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermConsumptionBudgetSubscriptionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The amount attribute.
     /// </summary>
-    [TerraformPropertyName("amount")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Amount => new TerraformReference(this, "amount");
+    [TerraformProperty("amount")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Amount { get; }
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    [TerraformPropertyName("filter")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Filter => new TerraformReference(this, "filter");
+    [TerraformProperty("filter")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Filter { get; }
 
     /// <summary>
     /// The notification attribute.
     /// </summary>
-    [TerraformPropertyName("notification")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Notification => new TerraformReference(this, "notification");
+    [TerraformProperty("notification")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Notification { get; }
 
     /// <summary>
     /// The time_grain attribute.
     /// </summary>
-    [TerraformPropertyName("time_grain")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TimeGrain => new TerraformReference(this, "time_grain");
+    [TerraformProperty("time_grain")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TimeGrain { get; }
 
     /// <summary>
     /// The time_period attribute.
     /// </summary>
-    [TerraformPropertyName("time_period")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> TimePeriod => new TerraformReference(this, "time_period");
+    [TerraformProperty("time_period")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> TimePeriod { get; }
 
 }

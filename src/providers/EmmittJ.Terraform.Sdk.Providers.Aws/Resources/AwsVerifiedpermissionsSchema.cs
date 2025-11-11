@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for definition in .
 /// Nesting mode: list
 /// </summary>
-public class AwsVerifiedpermissionsSchemaDefinitionBlock
+public partial class AwsVerifiedpermissionsSchemaDefinitionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -21,7 +21,7 @@ public class AwsVerifiedpermissionsSchemaDefinitionBlock
 /// <summary>
 /// Manages a aws_verifiedpermissions_schema resource.
 /// </summary>
-public class AwsVerifiedpermissionsSchema : TerraformResource
+public partial class AwsVerifiedpermissionsSchema : TerraformResource
 {
     public AwsVerifiedpermissionsSchema(string name) : base("aws_verifiedpermissions_schema", name)
     {
@@ -31,36 +31,36 @@ public class AwsVerifiedpermissionsSchema : TerraformResource
     /// The policy_store_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyStoreId is required")]
-    [TerraformPropertyName("policy_store_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_store_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PolicyStoreId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for definition.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("definition")]
+    [TerraformProperty("definition")]
     public TerraformList<TerraformBlock<AwsVerifiedpermissionsSchemaDefinitionBlock>>? Definition { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The namespaces attribute.
     /// </summary>
-    [TerraformPropertyName("namespaces")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> Namespaces => new TerraformReference(this, "namespaces");
+    [TerraformProperty("namespaces")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> Namespaces { get; }
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for email_preferences in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryDataTransferConfigEmailPreferencesBlock
+public partial class GoogleBigqueryDataTransferConfigEmailPreferencesBlock : TerraformBlockBase
 {
     /// <summary>
     /// If true, email notifications will be sent on transfer run failures.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableFailureEmail is required")]
-    [TerraformPropertyName("enable_failure_email")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enable_failure_email")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> EnableFailureEmail { get; set; }
 
 }
@@ -22,14 +22,14 @@ public class GoogleBigqueryDataTransferConfigEmailPreferencesBlock
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock
+public partial class GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name of the KMS key used for encrypting BigQuery data.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
-    [TerraformPropertyName("kms_key_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kms_key_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KmsKeyName { get; set; }
 
 }
@@ -38,7 +38,7 @@ public class GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock
 /// Block type for schedule_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryDataTransferConfigScheduleOptionsBlock
+public partial class GoogleBigqueryDataTransferConfigScheduleOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// If true, automatic scheduling of data transfer runs for this
@@ -47,8 +47,8 @@ public class GoogleBigqueryDataTransferConfigScheduleOptionsBlock
     /// scheduling is disabled, the TransferConfig.schedule field will
     /// be ignored.
     /// </summary>
-    [TerraformPropertyName("disable_auto_scheduling")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disable_auto_scheduling")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DisableAutoScheduling { get; set; }
 
     /// <summary>
@@ -57,8 +57,8 @@ public class GoogleBigqueryDataTransferConfigScheduleOptionsBlock
     /// moment. The time when a data transfer can be triggered manually is not
     /// limited by this option.
     /// </summary>
-    [TerraformPropertyName("end_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("end_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EndTime { get; set; }
 
     /// <summary>
@@ -68,8 +68,8 @@ public class GoogleBigqueryDataTransferConfigScheduleOptionsBlock
     /// moment. The time when a data transfer can be triggered manually is not
     /// limited by this option.
     /// </summary>
-    [TerraformPropertyName("start_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("start_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StartTime { get; set; }
 
 }
@@ -78,27 +78,27 @@ public class GoogleBigqueryDataTransferConfigScheduleOptionsBlock
 /// Block type for sensitive_params in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryDataTransferConfigSensitiveParamsBlock
+public partial class GoogleBigqueryDataTransferConfigSensitiveParamsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The Secret Access Key of the AWS account transferring data from.
     /// </summary>
-    [TerraformPropertyName("secret_access_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("secret_access_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SecretAccessKey { get; set; }
 
     /// <summary>
     /// The Secret Access Key of the AWS account transferring data from.
     /// </summary>
-    [TerraformPropertyName("secret_access_key_wo")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("secret_access_key_wo")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SecretAccessKeyWo { get; set; }
 
     /// <summary>
     /// The version of the sensitive params - used to trigger updates of the write-only params. For more info see [updating write-only attributes](/docs/providers/google/guides/using_write_only_attributes.html#updating-write-only-attributes)
     /// </summary>
-    [TerraformPropertyName("secret_access_key_wo_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("secret_access_key_wo_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? SecretAccessKeyWoVersion { get; set; }
 
 }
@@ -107,27 +107,27 @@ public class GoogleBigqueryDataTransferConfigSensitiveParamsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryDataTransferConfigTimeoutsBlock
+public partial class GoogleBigqueryDataTransferConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -136,7 +136,7 @@ public class GoogleBigqueryDataTransferConfigTimeoutsBlock
 /// Manages a google_bigquery_data_transfer_config resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleBigqueryDataTransferConfig : TerraformResource
+public partial class GoogleBigqueryDataTransferConfig : TerraformResource
 {
     public GoogleBigqueryDataTransferConfig(string name) : base("google_bigquery_data_transfer_config", name)
     {
@@ -149,61 +149,61 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// just [today-1]. Only valid if the data source supports the feature.
     /// Set the value to 0 to use the default value.
     /// </summary>
-    [TerraformPropertyName("data_refresh_window_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("data_refresh_window_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? DataRefreshWindowDays { get; set; }
 
     /// <summary>
     /// The data source id. Cannot be changed once the transfer config is created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
-    [TerraformPropertyName("data_source_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data_source_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DataSourceId { get; set; }
 
     /// <summary>
     /// The BigQuery target dataset id.
     /// </summary>
-    [TerraformPropertyName("destination_dataset_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("destination_dataset_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DestinationDatasetId { get; set; }
 
     /// <summary>
     /// When set to true, no runs are scheduled for a given transfer.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The user specified display name for the transfer config.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The geographic location where the transfer config should reside.
     /// Examples: US, EU, asia-northeast1. The default value is US.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Pub/Sub topic where notifications will be sent after transfer runs
     /// associated with this transfer config finish.
     /// </summary>
-    [TerraformPropertyName("notification_pubsub_topic")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("notification_pubsub_topic")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NotificationPubsubTopic { get; set; }
 
     /// <summary>
@@ -214,16 +214,16 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// **NOTE** : If you are attempting to update a parameter that cannot be updated (due to api limitations) [please force recreation of the resource](https://www.terraform.io/cli/state/taint#forcing-re-creation-of-resources).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Params is required")]
-    [TerraformPropertyName("params")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("params")]
+    // Required argument - source generator will implement get/set
     public required TerraformMap<string> Params { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Data transfer schedule. If the data source does not support a custom
@@ -236,8 +236,8 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// NOTE: The minimum interval time between recurring transfers depends
     /// on the data source; refer to the documentation for your data source.
     /// </summary>
-    [TerraformPropertyName("schedule")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("schedule")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Schedule { get; set; }
 
     /// <summary>
@@ -245,8 +245,8 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// be created with this service account credentials. It requires that
     /// requesting user calling this API has permissions to act as this service account.
     /// </summary>
-    [TerraformPropertyName("service_account_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_account_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServiceAccountName { get; set; }
 
     /// <summary>
@@ -254,7 +254,7 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EmailPreferences block(s) allowed")]
-    [TerraformPropertyName("email_preferences")]
+    [TerraformProperty("email_preferences")]
     public TerraformList<TerraformBlock<GoogleBigqueryDataTransferConfigEmailPreferencesBlock>>? EmailPreferences { get; set; }
 
     /// <summary>
@@ -262,7 +262,7 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
-    [TerraformPropertyName("encryption_configuration")]
+    [TerraformProperty("encryption_configuration")]
     public TerraformList<TerraformBlock<GoogleBigqueryDataTransferConfigEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
 
     /// <summary>
@@ -270,7 +270,7 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleOptions block(s) allowed")]
-    [TerraformPropertyName("schedule_options")]
+    [TerraformProperty("schedule_options")]
     public TerraformList<TerraformBlock<GoogleBigqueryDataTransferConfigScheduleOptionsBlock>>? ScheduleOptions { get; set; }
 
     /// <summary>
@@ -278,14 +278,14 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SensitiveParams block(s) allowed")]
-    [TerraformPropertyName("sensitive_params")]
+    [TerraformProperty("sensitive_params")]
     public TerraformList<TerraformBlock<GoogleBigqueryDataTransferConfigSensitiveParamsBlock>>? SensitiveParams { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleBigqueryDataTransferConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -295,8 +295,8 @@ public class GoogleBigqueryDataTransferConfig : TerraformResource
     /// where configId is usually a uuid, but this is not required.
     /// The name is ignored when creating a transfer config.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

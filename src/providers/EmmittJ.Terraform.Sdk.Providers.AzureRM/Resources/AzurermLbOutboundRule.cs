@@ -6,15 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for frontend_ip_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLbOutboundRuleFrontendIpConfigurationBlock
+public partial class AzurermLbOutboundRuleFrontendIpConfigurationBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -23,34 +23,34 @@ public class AzurermLbOutboundRuleFrontendIpConfigurationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLbOutboundRuleTimeoutsBlock
+public partial class AzurermLbOutboundRuleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -58,7 +58,7 @@ public class AzurermLbOutboundRuleTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_lb_outbound_rule resource.
 /// </summary>
-public class AzurermLbOutboundRule : TerraformResource
+public partial class AzurermLbOutboundRule : TerraformResource
 {
     public AzurermLbOutboundRule(string name) : base("azurerm_lb_outbound_rule", name)
     {
@@ -67,83 +67,83 @@ public class AzurermLbOutboundRule : TerraformResource
     /// <summary>
     /// The allocated_outbound_ports attribute.
     /// </summary>
-    [TerraformPropertyName("allocated_outbound_ports")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allocated_outbound_ports")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? AllocatedOutboundPorts { get; set; }
 
     /// <summary>
     /// The backend_address_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
-    [TerraformPropertyName("backend_address_pool_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("backend_address_pool_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BackendAddressPoolId { get; set; }
 
     /// <summary>
     /// The enable_tcp_reset attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("enable_tcp_reset")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> EnableTcpReset { get; set; } = default!;
+    [TerraformProperty("enable_tcp_reset")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> EnableTcpReset { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The idle_timeout_in_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("idle_timeout_in_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("idle_timeout_in_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? IdleTimeoutInMinutes { get; set; }
 
     /// <summary>
     /// The loadbalancer_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadbalancerId is required")]
-    [TerraformPropertyName("loadbalancer_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("loadbalancer_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LoadbalancerId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformPropertyName("protocol")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("protocol")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The tcp_reset_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("tcp_reset_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> TcpResetEnabled { get; set; } = default!;
+    [TerraformProperty("tcp_reset_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> TcpResetEnabled { get; set; }
 
     /// <summary>
     /// Block for frontend_ip_configuration.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("frontend_ip_configuration")]
+    [TerraformProperty("frontend_ip_configuration")]
     public TerraformList<TerraformBlock<AzurermLbOutboundRuleFrontendIpConfigurationBlock>>? FrontendIpConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermLbOutboundRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

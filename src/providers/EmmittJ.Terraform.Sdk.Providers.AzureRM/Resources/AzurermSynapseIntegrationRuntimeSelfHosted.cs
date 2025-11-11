@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSynapseIntegrationRuntimeSelfHostedTimeoutsBlock
+public partial class AzurermSynapseIntegrationRuntimeSelfHostedTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermSynapseIntegrationRuntimeSelfHostedTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_synapse_integration_runtime_self_hosted resource.
 /// </summary>
-public class AzurermSynapseIntegrationRuntimeSelfHosted : TerraformResource
+public partial class AzurermSynapseIntegrationRuntimeSelfHosted : TerraformResource
 {
     public AzurermSynapseIntegrationRuntimeSelfHosted(string name) : base("azurerm_synapse_integration_runtime_self_hosted", name)
     {
@@ -50,52 +50,52 @@ public class AzurermSynapseIntegrationRuntimeSelfHosted : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The synapse_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SynapseWorkspaceId is required")]
-    [TerraformPropertyName("synapse_workspace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("synapse_workspace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SynapseWorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSynapseIntegrationRuntimeSelfHostedTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The authorization_key_primary attribute.
     /// </summary>
-    [TerraformPropertyName("authorization_key_primary")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AuthorizationKeyPrimary => new TerraformReference(this, "authorization_key_primary");
+    [TerraformProperty("authorization_key_primary")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AuthorizationKeyPrimary { get; }
 
     /// <summary>
     /// The authorization_key_secondary attribute.
     /// </summary>
-    [TerraformPropertyName("authorization_key_secondary")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AuthorizationKeySecondary => new TerraformReference(this, "authorization_key_secondary");
+    [TerraformProperty("authorization_key_secondary")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AuthorizationKeySecondary { get; }
 
 }

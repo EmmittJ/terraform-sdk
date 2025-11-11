@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_servicequotas_service_quota.
 /// </summary>
-public class AwsServicequotasServiceQuotaDataSource : TerraformDataSource
+public partial class AwsServicequotasServiceQuotaDataSource : TerraformDataSource
 {
     public AwsServicequotasServiceQuotaDataSource(string name) : base("aws_servicequotas_service_quota", name)
     {
@@ -14,86 +14,86 @@ public class AwsServicequotasServiceQuotaDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The quota_code attribute.
     /// </summary>
-    [TerraformPropertyName("quota_code")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> QuotaCode { get; set; } = default!;
+    [TerraformProperty("quota_code")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> QuotaCode { get; set; }
 
     /// <summary>
     /// The quota_name attribute.
     /// </summary>
-    [TerraformPropertyName("quota_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> QuotaName { get; set; } = default!;
+    [TerraformProperty("quota_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> QuotaName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The service_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCode is required")]
-    [TerraformPropertyName("service_code")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_code")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceCode { get; set; }
 
     /// <summary>
     /// The adjustable attribute.
     /// </summary>
-    [TerraformPropertyName("adjustable")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Adjustable => new TerraformReference(this, "adjustable");
+    [TerraformProperty("adjustable")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Adjustable { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The default_value attribute.
     /// </summary>
-    [TerraformPropertyName("default_value")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> DefaultValue => new TerraformReference(this, "default_value");
+    [TerraformProperty("default_value")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> DefaultValue { get; }
 
     /// <summary>
     /// The global_quota attribute.
     /// </summary>
-    [TerraformPropertyName("global_quota")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> GlobalQuota => new TerraformReference(this, "global_quota");
+    [TerraformProperty("global_quota")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> GlobalQuota { get; }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
-    [TerraformPropertyName("service_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServiceName => new TerraformReference(this, "service_name");
+    [TerraformProperty("service_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServiceName { get; }
 
     /// <summary>
     /// The usage_metric attribute.
     /// </summary>
-    [TerraformPropertyName("usage_metric")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> UsageMetric => new TerraformReference(this, "usage_metric");
+    [TerraformProperty("usage_metric")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> UsageMetric { get; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    [TerraformPropertyName("value")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Value => new TerraformReference(this, "value");
+    [TerraformProperty("value")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Value { get; }
 
 }

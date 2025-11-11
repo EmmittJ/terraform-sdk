@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_secretsmanager_secret_rotation.
 /// </summary>
-public class AwsSecretsmanagerSecretRotationDataSource : TerraformDataSource
+public partial class AwsSecretsmanagerSecretRotationDataSource : TerraformDataSource
 {
     public AwsSecretsmanagerSecretRotationDataSource(string name) : base("aws_secretsmanager_secret_rotation", name)
     {
@@ -14,44 +14,44 @@ public class AwsSecretsmanagerSecretRotationDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The secret_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
-    [TerraformPropertyName("secret_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("secret_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SecretId { get; set; }
 
     /// <summary>
     /// The rotation_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("rotation_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> RotationEnabled => new TerraformReference(this, "rotation_enabled");
+    [TerraformProperty("rotation_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> RotationEnabled { get; }
 
     /// <summary>
     /// The rotation_lambda_arn attribute.
     /// </summary>
-    [TerraformPropertyName("rotation_lambda_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RotationLambdaArn => new TerraformReference(this, "rotation_lambda_arn");
+    [TerraformProperty("rotation_lambda_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RotationLambdaArn { get; }
 
     /// <summary>
     /// The rotation_rules attribute.
     /// </summary>
-    [TerraformPropertyName("rotation_rules")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> RotationRules => new TerraformReference(this, "rotation_rules");
+    [TerraformProperty("rotation_rules")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> RotationRules { get; }
 
 }

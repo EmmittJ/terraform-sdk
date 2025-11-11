@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destination_flow_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppflowFlowDestinationFlowConfigBlock
+public partial class AwsAppflowFlowDestinationFlowConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The api_version attribute.
     /// </summary>
-    [TerraformPropertyName("api_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("api_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ApiVersion { get; set; }
 
     /// <summary>
     /// The connector_profile_name attribute.
     /// </summary>
-    [TerraformPropertyName("connector_profile_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("connector_profile_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConnectorProfileName { get; set; }
 
     /// <summary>
     /// The connector_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
-    [TerraformPropertyName("connector_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connector_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConnectorType { get; set; }
 
 }
@@ -36,7 +36,7 @@ public class AwsAppflowFlowDestinationFlowConfigBlock
 /// Block type for metadata_catalog_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppflowFlowMetadataCatalogConfigBlock
+public partial class AwsAppflowFlowMetadataCatalogConfigBlock : TerraformBlockBase
 {
 }
 
@@ -44,28 +44,28 @@ public class AwsAppflowFlowMetadataCatalogConfigBlock
 /// Block type for source_flow_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppflowFlowSourceFlowConfigBlock
+public partial class AwsAppflowFlowSourceFlowConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The api_version attribute.
     /// </summary>
-    [TerraformPropertyName("api_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("api_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ApiVersion { get; set; }
 
     /// <summary>
     /// The connector_profile_name attribute.
     /// </summary>
-    [TerraformPropertyName("connector_profile_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("connector_profile_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConnectorProfileName { get; set; }
 
     /// <summary>
     /// The connector_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorType is required")]
-    [TerraformPropertyName("connector_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connector_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConnectorType { get; set; }
 
 }
@@ -74,35 +74,35 @@ public class AwsAppflowFlowSourceFlowConfigBlock
 /// Block type for task in .
 /// Nesting mode: set
 /// </summary>
-public class AwsAppflowFlowTaskBlock
+public partial class AwsAppflowFlowTaskBlock : TerraformBlockBase
 {
     /// <summary>
     /// The destination_field attribute.
     /// </summary>
-    [TerraformPropertyName("destination_field")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("destination_field")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DestinationField { get; set; }
 
     /// <summary>
     /// The source_fields attribute.
     /// </summary>
-    [TerraformPropertyName("source_fields")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> SourceFields { get; set; } = default!;
+    [TerraformProperty("source_fields")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> SourceFields { get; set; }
 
     /// <summary>
     /// The task_properties attribute.
     /// </summary>
-    [TerraformPropertyName("task_properties")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("task_properties")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? TaskProperties { get; set; }
 
     /// <summary>
     /// The task_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskType is required")]
-    [TerraformPropertyName("task_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("task_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TaskType { get; set; }
 
 }
@@ -111,14 +111,14 @@ public class AwsAppflowFlowTaskBlock
 /// Block type for trigger_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppflowFlowTriggerConfigBlock
+public partial class AwsAppflowFlowTriggerConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The trigger_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerType is required")]
-    [TerraformPropertyName("trigger_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("trigger_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TriggerType { get; set; }
 
 }
@@ -127,7 +127,7 @@ public class AwsAppflowFlowTriggerConfigBlock
 /// Manages a aws_appflow_flow resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsAppflowFlow : TerraformResource
+public partial class AwsAppflowFlow : TerraformResource
 {
     public AwsAppflowFlow(string name) : base("aws_appflow_flow", name)
     {
@@ -136,52 +136,52 @@ public class AwsAppflowFlow : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_arn attribute.
     /// </summary>
-    [TerraformPropertyName("kms_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KmsArn { get; set; } = default!;
+    [TerraformProperty("kms_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KmsArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for destination_flow_config.
@@ -189,7 +189,7 @@ public class AwsAppflowFlow : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationFlowConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationFlowConfig block(s) required")]
-    [TerraformPropertyName("destination_flow_config")]
+    [TerraformProperty("destination_flow_config")]
     public TerraformList<TerraformBlock<AwsAppflowFlowDestinationFlowConfigBlock>>? DestinationFlowConfig { get; set; }
 
     /// <summary>
@@ -197,7 +197,7 @@ public class AwsAppflowFlow : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetadataCatalogConfig block(s) allowed")]
-    [TerraformPropertyName("metadata_catalog_config")]
+    [TerraformProperty("metadata_catalog_config")]
     public TerraformList<TerraformBlock<AwsAppflowFlowMetadataCatalogConfigBlock>>? MetadataCatalogConfig { get; set; }
 
     /// <summary>
@@ -207,7 +207,7 @@ public class AwsAppflowFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceFlowConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SourceFlowConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceFlowConfig block(s) allowed")]
-    [TerraformPropertyName("source_flow_config")]
+    [TerraformProperty("source_flow_config")]
     public TerraformList<TerraformBlock<AwsAppflowFlowSourceFlowConfigBlock>>? SourceFlowConfig { get; set; }
 
     /// <summary>
@@ -216,7 +216,7 @@ public class AwsAppflowFlow : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Task is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Task block(s) required")]
-    [TerraformPropertyName("task")]
+    [TerraformProperty("task")]
     public TerraformSet<TerraformBlock<AwsAppflowFlowTaskBlock>>? Task { get; set; }
 
     /// <summary>
@@ -226,21 +226,21 @@ public class AwsAppflowFlow : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TriggerConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TriggerConfig block(s) allowed")]
-    [TerraformPropertyName("trigger_config")]
+    [TerraformProperty("trigger_config")]
     public TerraformList<TerraformBlock<AwsAppflowFlowTriggerConfigBlock>>? TriggerConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The flow_status attribute.
     /// </summary>
-    [TerraformPropertyName("flow_status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FlowStatus => new TerraformReference(this, "flow_status");
+    [TerraformProperty("flow_status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FlowStatus { get; }
 
 }

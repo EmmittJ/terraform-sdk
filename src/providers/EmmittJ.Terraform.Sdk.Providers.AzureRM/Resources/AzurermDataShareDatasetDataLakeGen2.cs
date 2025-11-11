@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataShareDatasetDataLakeGen2TimeoutsBlock
+public partial class AzurermDataShareDatasetDataLakeGen2TimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermDataShareDatasetDataLakeGen2TimeoutsBlock
 /// <summary>
 /// Manages a azurerm_data_share_dataset_data_lake_gen2 resource.
 /// </summary>
-public class AzurermDataShareDatasetDataLakeGen2 : TerraformResource
+public partial class AzurermDataShareDatasetDataLakeGen2 : TerraformResource
 {
     public AzurermDataShareDatasetDataLakeGen2(string name) : base("azurerm_data_share_dataset_data_lake_gen2", name)
     {
@@ -43,68 +43,68 @@ public class AzurermDataShareDatasetDataLakeGen2 : TerraformResource
     /// <summary>
     /// The file_path attribute.
     /// </summary>
-    [TerraformPropertyName("file_path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("file_path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? FilePath { get; set; }
 
     /// <summary>
     /// The file_system_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemName is required")]
-    [TerraformPropertyName("file_system_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("file_system_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FileSystemName { get; set; }
 
     /// <summary>
     /// The folder_path attribute.
     /// </summary>
-    [TerraformPropertyName("folder_path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("folder_path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? FolderPath { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The share_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareId is required")]
-    [TerraformPropertyName("share_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("share_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ShareId { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformPropertyName("storage_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermDataShareDatasetDataLakeGen2TimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_neptune_orderable_db_instance.
 /// </summary>
-public class AwsNeptuneOrderableDbInstanceDataSource : TerraformDataSource
+public partial class AwsNeptuneOrderableDbInstanceDataSource : TerraformDataSource
 {
     public AwsNeptuneOrderableDbInstanceDataSource(string name) : base("aws_neptune_orderable_db_instance", name)
     {
@@ -14,162 +14,162 @@ public class AwsNeptuneOrderableDbInstanceDataSource : TerraformDataSource
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    [TerraformPropertyName("engine")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("engine")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Engine { get; set; }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
-    [TerraformPropertyName("engine_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EngineVersion { get; set; } = default!;
+    [TerraformProperty("engine_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EngineVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_class attribute.
     /// </summary>
-    [TerraformPropertyName("instance_class")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> InstanceClass { get; set; } = default!;
+    [TerraformProperty("instance_class")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> InstanceClass { get; set; }
 
     /// <summary>
     /// The license_model attribute.
     /// </summary>
-    [TerraformPropertyName("license_model")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("license_model")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LicenseModel { get; set; }
 
     /// <summary>
     /// The preferred_instance_classes attribute.
     /// </summary>
-    [TerraformPropertyName("preferred_instance_classes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("preferred_instance_classes")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? PreferredInstanceClasses { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The vpc attribute.
     /// </summary>
-    [TerraformPropertyName("vpc")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> Vpc { get; set; } = default!;
+    [TerraformProperty("vpc")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> Vpc { get; set; }
 
     /// <summary>
     /// The availability_zones attribute.
     /// </summary>
-    [TerraformPropertyName("availability_zones")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AvailabilityZones => new TerraformReference(this, "availability_zones");
+    [TerraformProperty("availability_zones")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AvailabilityZones { get; }
 
     /// <summary>
     /// The max_iops_per_db_instance attribute.
     /// </summary>
-    [TerraformPropertyName("max_iops_per_db_instance")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaxIopsPerDbInstance => new TerraformReference(this, "max_iops_per_db_instance");
+    [TerraformProperty("max_iops_per_db_instance")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaxIopsPerDbInstance { get; }
 
     /// <summary>
     /// The max_iops_per_gib attribute.
     /// </summary>
-    [TerraformPropertyName("max_iops_per_gib")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaxIopsPerGib => new TerraformReference(this, "max_iops_per_gib");
+    [TerraformProperty("max_iops_per_gib")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaxIopsPerGib { get; }
 
     /// <summary>
     /// The max_storage_size attribute.
     /// </summary>
-    [TerraformPropertyName("max_storage_size")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaxStorageSize => new TerraformReference(this, "max_storage_size");
+    [TerraformProperty("max_storage_size")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaxStorageSize { get; }
 
     /// <summary>
     /// The min_iops_per_db_instance attribute.
     /// </summary>
-    [TerraformPropertyName("min_iops_per_db_instance")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MinIopsPerDbInstance => new TerraformReference(this, "min_iops_per_db_instance");
+    [TerraformProperty("min_iops_per_db_instance")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MinIopsPerDbInstance { get; }
 
     /// <summary>
     /// The min_iops_per_gib attribute.
     /// </summary>
-    [TerraformPropertyName("min_iops_per_gib")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MinIopsPerGib => new TerraformReference(this, "min_iops_per_gib");
+    [TerraformProperty("min_iops_per_gib")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MinIopsPerGib { get; }
 
     /// <summary>
     /// The min_storage_size attribute.
     /// </summary>
-    [TerraformPropertyName("min_storage_size")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MinStorageSize => new TerraformReference(this, "min_storage_size");
+    [TerraformProperty("min_storage_size")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MinStorageSize { get; }
 
     /// <summary>
     /// The multi_az_capable attribute.
     /// </summary>
-    [TerraformPropertyName("multi_az_capable")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> MultiAzCapable => new TerraformReference(this, "multi_az_capable");
+    [TerraformProperty("multi_az_capable")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> MultiAzCapable { get; }
 
     /// <summary>
     /// The read_replica_capable attribute.
     /// </summary>
-    [TerraformPropertyName("read_replica_capable")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ReadReplicaCapable => new TerraformReference(this, "read_replica_capable");
+    [TerraformProperty("read_replica_capable")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ReadReplicaCapable { get; }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    [TerraformPropertyName("storage_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StorageType => new TerraformReference(this, "storage_type");
+    [TerraformProperty("storage_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StorageType { get; }
 
     /// <summary>
     /// The supports_enhanced_monitoring attribute.
     /// </summary>
-    [TerraformPropertyName("supports_enhanced_monitoring")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> SupportsEnhancedMonitoring => new TerraformReference(this, "supports_enhanced_monitoring");
+    [TerraformProperty("supports_enhanced_monitoring")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> SupportsEnhancedMonitoring { get; }
 
     /// <summary>
     /// The supports_iam_database_authentication attribute.
     /// </summary>
-    [TerraformPropertyName("supports_iam_database_authentication")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> SupportsIamDatabaseAuthentication => new TerraformReference(this, "supports_iam_database_authentication");
+    [TerraformProperty("supports_iam_database_authentication")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> SupportsIamDatabaseAuthentication { get; }
 
     /// <summary>
     /// The supports_iops attribute.
     /// </summary>
-    [TerraformPropertyName("supports_iops")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> SupportsIops => new TerraformReference(this, "supports_iops");
+    [TerraformProperty("supports_iops")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> SupportsIops { get; }
 
     /// <summary>
     /// The supports_performance_insights attribute.
     /// </summary>
-    [TerraformPropertyName("supports_performance_insights")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> SupportsPerformanceInsights => new TerraformReference(this, "supports_performance_insights");
+    [TerraformProperty("supports_performance_insights")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> SupportsPerformanceInsights { get; }
 
     /// <summary>
     /// The supports_storage_encryption attribute.
     /// </summary>
-    [TerraformPropertyName("supports_storage_encryption")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> SupportsStorageEncryption => new TerraformReference(this, "supports_storage_encryption");
+    [TerraformProperty("supports_storage_encryption")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> SupportsStorageEncryption { get; }
 
 }

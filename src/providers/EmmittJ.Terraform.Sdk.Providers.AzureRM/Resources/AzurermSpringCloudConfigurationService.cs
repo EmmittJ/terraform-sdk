@@ -6,94 +6,94 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for repository in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudConfigurationServiceRepositoryBlock
+public partial class AzurermSpringCloudConfigurationServiceRepositoryBlock : TerraformBlockBase
 {
     /// <summary>
     /// The ca_certificate_id attribute.
     /// </summary>
-    [TerraformPropertyName("ca_certificate_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ca_certificate_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CaCertificateId { get; set; }
 
     /// <summary>
     /// The host_key attribute.
     /// </summary>
-    [TerraformPropertyName("host_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("host_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HostKey { get; set; }
 
     /// <summary>
     /// The host_key_algorithm attribute.
     /// </summary>
-    [TerraformPropertyName("host_key_algorithm")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("host_key_algorithm")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HostKeyAlgorithm { get; set; }
 
     /// <summary>
     /// The label attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Label is required")]
-    [TerraformPropertyName("label")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("label")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Label { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The password attribute.
     /// </summary>
-    [TerraformPropertyName("password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Password { get; set; }
 
     /// <summary>
     /// The patterns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Patterns is required")]
-    [TerraformPropertyName("patterns")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("patterns")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Patterns { get; set; }
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
-    [TerraformPropertyName("private_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrivateKey { get; set; }
 
     /// <summary>
     /// The search_paths attribute.
     /// </summary>
-    [TerraformPropertyName("search_paths")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("search_paths")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SearchPaths { get; set; }
 
     /// <summary>
     /// The strict_host_key_checking attribute.
     /// </summary>
-    [TerraformPropertyName("strict_host_key_checking")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("strict_host_key_checking")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? StrictHostKeyChecking { get; set; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    [TerraformPropertyName("uri")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("uri")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Uri { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
-    [TerraformPropertyName("username")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("username")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Username { get; set; }
 
 }
@@ -102,34 +102,34 @@ public class AzurermSpringCloudConfigurationServiceRepositoryBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudConfigurationServiceTimeoutsBlock
+public partial class AzurermSpringCloudConfigurationServiceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -137,7 +137,7 @@ public class AzurermSpringCloudConfigurationServiceTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_spring_cloud_configuration_service resource.
 /// </summary>
-public class AzurermSpringCloudConfigurationService : TerraformResource
+public partial class AzurermSpringCloudConfigurationService : TerraformResource
 {
     public AzurermSpringCloudConfigurationService(string name) : base("azurerm_spring_cloud_configuration_service", name)
     {
@@ -146,52 +146,52 @@ public class AzurermSpringCloudConfigurationService : TerraformResource
     /// <summary>
     /// The generation attribute.
     /// </summary>
-    [TerraformPropertyName("generation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("generation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Generation { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The refresh_interval_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("refresh_interval_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("refresh_interval_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RefreshIntervalInSeconds { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
-    [TerraformPropertyName("spring_cloud_service_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("spring_cloud_service_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// Block for repository.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("repository")]
+    [TerraformProperty("repository")]
     public TerraformList<TerraformBlock<AzurermSpringCloudConfigurationServiceRepositoryBlock>>? Repository { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSpringCloudConfigurationServiceTimeoutsBlock>? Timeouts { get; set; }
 
 }

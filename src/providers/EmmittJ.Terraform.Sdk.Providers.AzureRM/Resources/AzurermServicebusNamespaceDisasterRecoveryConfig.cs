@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermServicebusNamespaceDisasterRecoveryConfigTimeoutsBlock
+public partial class AzurermServicebusNamespaceDisasterRecoveryConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfigTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_servicebus_namespace_disaster_recovery_config resource.
 /// </summary>
-public class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResource
+public partial class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResource
 {
     public AzurermServicebusNamespaceDisasterRecoveryConfig(string name) : base("azurerm_servicebus_namespace_disaster_recovery_config", name)
     {
@@ -50,74 +50,74 @@ public class AzurermServicebusNamespaceDisasterRecoveryConfig : TerraformResourc
     /// <summary>
     /// The alias_authorization_rule_id attribute.
     /// </summary>
-    [TerraformPropertyName("alias_authorization_rule_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("alias_authorization_rule_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AliasAuthorizationRuleId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The partner_namespace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerNamespaceId is required")]
-    [TerraformPropertyName("partner_namespace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("partner_namespace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PartnerNamespaceId { get; set; }
 
     /// <summary>
     /// The primary_namespace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryNamespaceId is required")]
-    [TerraformPropertyName("primary_namespace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("primary_namespace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrimaryNamespaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermServicebusNamespaceDisasterRecoveryConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The default_primary_key attribute.
     /// </summary>
-    [TerraformPropertyName("default_primary_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultPrimaryKey => new TerraformReference(this, "default_primary_key");
+    [TerraformProperty("default_primary_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultPrimaryKey { get; }
 
     /// <summary>
     /// The default_secondary_key attribute.
     /// </summary>
-    [TerraformPropertyName("default_secondary_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultSecondaryKey => new TerraformReference(this, "default_secondary_key");
+    [TerraformProperty("default_secondary_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultSecondaryKey { get; }
 
     /// <summary>
     /// The primary_connection_string_alias attribute.
     /// </summary>
-    [TerraformPropertyName("primary_connection_string_alias")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryConnectionStringAlias => new TerraformReference(this, "primary_connection_string_alias");
+    [TerraformProperty("primary_connection_string_alias")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryConnectionStringAlias { get; }
 
     /// <summary>
     /// The secondary_connection_string_alias attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_connection_string_alias")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryConnectionStringAlias => new TerraformReference(this, "secondary_connection_string_alias");
+    [TerraformProperty("secondary_connection_string_alias")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryConnectionStringAlias { get; }
 
 }

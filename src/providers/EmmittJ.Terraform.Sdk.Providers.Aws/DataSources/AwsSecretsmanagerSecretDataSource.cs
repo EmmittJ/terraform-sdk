@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_secretsmanager_secret.
 /// </summary>
-public class AwsSecretsmanagerSecretDataSource : TerraformDataSource
+public partial class AwsSecretsmanagerSecretDataSource : TerraformDataSource
 {
     public AwsSecretsmanagerSecretDataSource(string name) : base("aws_secretsmanager_secret", name)
     {
@@ -14,71 +14,71 @@ public class AwsSecretsmanagerSecretDataSource : TerraformDataSource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Arn { get; set; } = default!;
+    [TerraformProperty("arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
-    [TerraformPropertyName("created_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedDate => new TerraformReference(this, "created_date");
+    [TerraformProperty("created_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KmsKeyId => new TerraformReference(this, "kms_key_id");
+    [TerraformProperty("kms_key_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KmsKeyId { get; }
 
     /// <summary>
     /// The last_changed_date attribute.
     /// </summary>
-    [TerraformPropertyName("last_changed_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastChangedDate => new TerraformReference(this, "last_changed_date");
+    [TerraformProperty("last_changed_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastChangedDate { get; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    [TerraformPropertyName("policy")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Policy => new TerraformReference(this, "policy");
+    [TerraformProperty("policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Policy { get; }
 
 }

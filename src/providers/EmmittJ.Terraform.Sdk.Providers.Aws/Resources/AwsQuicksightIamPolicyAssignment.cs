@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for identities in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightIamPolicyAssignmentIdentitiesBlock
+public partial class AwsQuicksightIamPolicyAssignmentIdentitiesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The group attribute.
     /// </summary>
-    [TerraformPropertyName("group")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("group")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Group { get; set; }
 
     /// <summary>
     /// The user attribute.
     /// </summary>
-    [TerraformPropertyName("user")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? User { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class AwsQuicksightIamPolicyAssignmentIdentitiesBlock
 /// <summary>
 /// Manages a aws_quicksight_iam_policy_assignment resource.
 /// </summary>
-public class AwsQuicksightIamPolicyAssignment : TerraformResource
+public partial class AwsQuicksightIamPolicyAssignment : TerraformResource
 {
     public AwsQuicksightIamPolicyAssignment(string name) : base("aws_quicksight_iam_policy_assignment", name)
     {
@@ -37,65 +37,65 @@ public class AwsQuicksightIamPolicyAssignment : TerraformResource
     /// The assignment_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentName is required")]
-    [TerraformPropertyName("assignment_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("assignment_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AssignmentName { get; set; }
 
     /// <summary>
     /// The assignment_status attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AssignmentStatus is required")]
-    [TerraformPropertyName("assignment_status")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("assignment_status")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AssignmentStatus { get; set; }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("aws_account_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AwsAccountId { get; set; } = default!;
+    [TerraformProperty("aws_account_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AwsAccountId { get; set; }
 
     /// <summary>
     /// The namespace attribute.
     /// </summary>
-    [TerraformPropertyName("namespace")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Namespace { get; set; } = default!;
+    [TerraformProperty("namespace")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Namespace { get; set; }
 
     /// <summary>
     /// The policy_arn attribute.
     /// </summary>
-    [TerraformPropertyName("policy_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("policy_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PolicyArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for identities.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("identities")]
+    [TerraformProperty("identities")]
     public TerraformList<TerraformBlock<AwsQuicksightIamPolicyAssignmentIdentitiesBlock>>? Identities { get; set; }
 
     /// <summary>
     /// The assignment_id attribute.
     /// </summary>
-    [TerraformPropertyName("assignment_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AssignmentId => new TerraformReference(this, "assignment_id");
+    [TerraformProperty("assignment_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AssignmentId { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
 }

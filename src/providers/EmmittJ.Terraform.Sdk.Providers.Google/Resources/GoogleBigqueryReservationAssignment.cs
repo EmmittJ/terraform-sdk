@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryReservationAssignmentTimeoutsBlock
+public partial class GoogleBigqueryReservationAssignmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class GoogleBigqueryReservationAssignmentTimeoutsBlock
 /// <summary>
 /// Manages a google_bigquery_reservation_assignment resource.
 /// </summary>
-public class GoogleBigqueryReservationAssignment : TerraformResource
+public partial class GoogleBigqueryReservationAssignment : TerraformResource
 {
     public GoogleBigqueryReservationAssignment(string name) : base("google_bigquery_reservation_assignment", name)
     {
@@ -37,67 +37,67 @@ public class GoogleBigqueryReservationAssignment : TerraformResource
     /// The resource which will use the reservation. E.g. projects/myproject, folders/123, organizations/456.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Assignee is required")]
-    [TerraformPropertyName("assignee")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("assignee")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Assignee { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Types of job, which could be specified when using the reservation. Possible values: JOB_TYPE_UNSPECIFIED, PIPELINE, QUERY, CONTINUOUS
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobType is required")]
-    [TerraformPropertyName("job_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("job_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> JobType { get; set; }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Location { get; set; } = default!;
+    [TerraformProperty("location")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The reservation for the resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Reservation is required")]
-    [TerraformPropertyName("reservation")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("reservation")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Reservation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleBigqueryReservationAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The resource name of the assignment.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Assignment will remain in PENDING state if no active capacity commitment is present. It will become ACTIVE when some capacity commitment becomes active.
     /// Possible values: STATE_UNSPECIFIED, PENDING, ACTIVE
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
 }

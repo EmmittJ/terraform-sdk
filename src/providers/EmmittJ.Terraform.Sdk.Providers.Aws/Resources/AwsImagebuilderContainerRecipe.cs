@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for component in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderContainerRecipeComponentBlock
+public partial class AwsImagebuilderContainerRecipeComponentBlock : TerraformBlockBase
 {
     /// <summary>
     /// The component_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComponentArn is required")]
-    [TerraformPropertyName("component_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("component_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ComponentArn { get; set; }
 
 }
@@ -22,13 +22,13 @@ public class AwsImagebuilderContainerRecipeComponentBlock
 /// Block type for instance_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderContainerRecipeInstanceConfigurationBlock
+public partial class AwsImagebuilderContainerRecipeInstanceConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The image attribute.
     /// </summary>
-    [TerraformPropertyName("image")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("image")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Image { get; set; }
 
 }
@@ -37,22 +37,22 @@ public class AwsImagebuilderContainerRecipeInstanceConfigurationBlock
 /// Block type for target_repository in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderContainerRecipeTargetRepositoryBlock
+public partial class AwsImagebuilderContainerRecipeTargetRepositoryBlock : TerraformBlockBase
 {
     /// <summary>
     /// The repository_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepositoryName is required")]
-    [TerraformPropertyName("repository_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("repository_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RepositoryName { get; set; }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
-    [TerraformPropertyName("service")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Service { get; set; }
 
 }
@@ -61,7 +61,7 @@ public class AwsImagebuilderContainerRecipeTargetRepositoryBlock
 /// Manages a aws_imagebuilder_container_recipe resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsImagebuilderContainerRecipe : TerraformResource
+public partial class AwsImagebuilderContainerRecipe : TerraformResource
 {
     public AwsImagebuilderContainerRecipe(string name) : base("aws_imagebuilder_container_recipe", name)
     {
@@ -71,102 +71,102 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     /// The container_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerType is required")]
-    [TerraformPropertyName("container_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("container_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ContainerType { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The dockerfile_template_data attribute.
     /// </summary>
-    [TerraformPropertyName("dockerfile_template_data")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DockerfileTemplateData { get; set; } = default!;
+    [TerraformProperty("dockerfile_template_data")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DockerfileTemplateData { get; set; }
 
     /// <summary>
     /// The dockerfile_template_uri attribute.
     /// </summary>
-    [TerraformPropertyName("dockerfile_template_uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dockerfile_template_uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DockerfileTemplateUri { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parent_image attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentImage is required")]
-    [TerraformPropertyName("parent_image")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parent_image")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ParentImage { get; set; }
 
     /// <summary>
     /// The platform_override attribute.
     /// </summary>
-    [TerraformPropertyName("platform_override")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("platform_override")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PlatformOverride { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformPropertyName("version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// The working_directory attribute.
     /// </summary>
-    [TerraformPropertyName("working_directory")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("working_directory")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? WorkingDirectory { get; set; }
 
     /// <summary>
@@ -175,7 +175,7 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Component is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Component block(s) required")]
-    [TerraformPropertyName("component")]
+    [TerraformProperty("component")]
     public TerraformList<TerraformBlock<AwsImagebuilderContainerRecipeComponentBlock>>? Component { get; set; }
 
     /// <summary>
@@ -183,7 +183,7 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceConfiguration block(s) allowed")]
-    [TerraformPropertyName("instance_configuration")]
+    [TerraformProperty("instance_configuration")]
     public TerraformList<TerraformBlock<AwsImagebuilderContainerRecipeInstanceConfigurationBlock>>? InstanceConfiguration { get; set; }
 
     /// <summary>
@@ -193,42 +193,42 @@ public class AwsImagebuilderContainerRecipe : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetRepository is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetRepository block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetRepository block(s) allowed")]
-    [TerraformPropertyName("target_repository")]
+    [TerraformProperty("target_repository")]
     public TerraformList<TerraformBlock<AwsImagebuilderContainerRecipeTargetRepositoryBlock>>? TargetRepository { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
-    [TerraformPropertyName("date_created")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DateCreated => new TerraformReference(this, "date_created");
+    [TerraformProperty("date_created")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DateCreated { get; }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    [TerraformPropertyName("encrypted")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Encrypted => new TerraformReference(this, "encrypted");
+    [TerraformProperty("encrypted")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Encrypted { get; }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
-    [TerraformPropertyName("owner")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Owner => new TerraformReference(this, "owner");
+    [TerraformProperty("owner")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Owner { get; }
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
-    [TerraformPropertyName("platform")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Platform => new TerraformReference(this, "platform");
+    [TerraformProperty("platform")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Platform { get; }
 
 }

@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsQuicksightAccountSettingsTimeoutsBlock
+public partial class AwsQuicksightAccountSettingsTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class AwsQuicksightAccountSettingsTimeoutsBlock
 /// <summary>
 /// Manages a aws_quicksight_account_settings resource.
 /// </summary>
-public class AwsQuicksightAccountSettings : TerraformResource
+public partial class AwsQuicksightAccountSettings : TerraformResource
 {
     public AwsQuicksightAccountSettings(string name) : base("aws_quicksight_account_settings", name)
     {
@@ -36,29 +36,29 @@ public class AwsQuicksightAccountSettings : TerraformResource
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("aws_account_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AwsAccountId { get; set; } = default!;
+    [TerraformProperty("aws_account_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AwsAccountId { get; set; }
 
     /// <summary>
     /// The default_namespace attribute.
     /// </summary>
-    [TerraformPropertyName("default_namespace")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DefaultNamespace { get; set; } = default!;
+    [TerraformProperty("default_namespace")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DefaultNamespace { get; set; }
 
     /// <summary>
     /// The termination_protection_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("termination_protection_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> TerminationProtectionEnabled { get; set; } = default!;
+    [TerraformProperty("termination_protection_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> TerminationProtectionEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsQuicksightAccountSettingsTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for dns_config in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermTrafficManagerProfileDnsConfigBlock
+public partial class AzurermTrafficManagerProfileDnsConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The relative_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeName is required")]
-    [TerraformPropertyName("relative_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("relative_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RelativeName { get; set; }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ttl is required")]
-    [TerraformPropertyName("ttl")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("ttl")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Ttl { get; set; }
 
 }
@@ -30,57 +30,57 @@ public class AzurermTrafficManagerProfileDnsConfigBlock
 /// Block type for monitor_config in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermTrafficManagerProfileMonitorConfigBlock
+public partial class AzurermTrafficManagerProfileMonitorConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The expected_status_code_ranges attribute.
     /// </summary>
-    [TerraformPropertyName("expected_status_code_ranges")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expected_status_code_ranges")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ExpectedStatusCodeRanges { get; set; }
 
     /// <summary>
     /// The interval_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("interval_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("interval_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? IntervalInSeconds { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformPropertyName("path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    [TerraformPropertyName("port")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("port")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformPropertyName("protocol")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("protocol")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The timeout_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("timeout_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("timeout_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? TimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The tolerated_number_of_failures attribute.
     /// </summary>
-    [TerraformPropertyName("tolerated_number_of_failures")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tolerated_number_of_failures")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ToleratedNumberOfFailures { get; set; }
 
 }
@@ -89,34 +89,34 @@ public class AzurermTrafficManagerProfileMonitorConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermTrafficManagerProfileTimeoutsBlock
+public partial class AzurermTrafficManagerProfileTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -125,7 +125,7 @@ public class AzurermTrafficManagerProfileTimeoutsBlock
 /// Manages a azurerm_traffic_manager_profile resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermTrafficManagerProfile : TerraformResource
+public partial class AzurermTrafficManagerProfile : TerraformResource
 {
     public AzurermTrafficManagerProfile(string name) : base("azurerm_traffic_manager_profile", name)
     {
@@ -134,60 +134,60 @@ public class AzurermTrafficManagerProfile : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The max_return attribute.
     /// </summary>
-    [TerraformPropertyName("max_return")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_return")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxReturn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The profile_status attribute.
     /// </summary>
-    [TerraformPropertyName("profile_status")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("profile_status")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ProfileStatus { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The traffic_routing_method attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TrafficRoutingMethod is required")]
-    [TerraformPropertyName("traffic_routing_method")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("traffic_routing_method")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TrafficRoutingMethod { get; set; }
 
     /// <summary>
     /// The traffic_view_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("traffic_view_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("traffic_view_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? TrafficViewEnabled { get; set; }
 
     /// <summary>
@@ -197,7 +197,7 @@ public class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DnsConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DnsConfig block(s) allowed")]
-    [TerraformPropertyName("dns_config")]
+    [TerraformProperty("dns_config")]
     public TerraformList<TerraformBlock<AzurermTrafficManagerProfileDnsConfigBlock>>? DnsConfig { get; set; }
 
     /// <summary>
@@ -207,21 +207,21 @@ public class AzurermTrafficManagerProfile : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MonitorConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MonitorConfig block(s) allowed")]
-    [TerraformPropertyName("monitor_config")]
+    [TerraformProperty("monitor_config")]
     public TerraformList<TerraformBlock<AzurermTrafficManagerProfileMonitorConfigBlock>>? MonitorConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermTrafficManagerProfileTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    [TerraformPropertyName("fqdn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fqdn => new TerraformReference(this, "fqdn");
+    [TerraformProperty("fqdn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fqdn { get; }
 
 }

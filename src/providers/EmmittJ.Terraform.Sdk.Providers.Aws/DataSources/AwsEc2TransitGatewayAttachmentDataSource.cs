@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsEc2TransitGatewayAttachmentDataSourceFilterBlock
+public partial class AwsEc2TransitGatewayAttachmentDataSourceFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    [TerraformPropertyName("values")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("values")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Values { get; set; }
 
 }
@@ -29,7 +29,7 @@ public class AwsEc2TransitGatewayAttachmentDataSourceFilterBlock
 /// <summary>
 /// Retrieves information about a aws_ec2_transit_gateway_attachment.
 /// </summary>
-public class AwsEc2TransitGatewayAttachmentDataSource : TerraformDataSource
+public partial class AwsEc2TransitGatewayAttachmentDataSource : TerraformDataSource
 {
     public AwsEc2TransitGatewayAttachmentDataSource(string name) : base("aws_ec2_transit_gateway_attachment", name)
     {
@@ -38,99 +38,99 @@ public class AwsEc2TransitGatewayAttachmentDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The transit_gateway_attachment_id attribute.
     /// </summary>
-    [TerraformPropertyName("transit_gateway_attachment_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> TransitGatewayAttachmentId { get; set; } = default!;
+    [TerraformProperty("transit_gateway_attachment_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> TransitGatewayAttachmentId { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformSet<TerraformBlock<AwsEc2TransitGatewayAttachmentDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The association_state attribute.
     /// </summary>
-    [TerraformPropertyName("association_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AssociationState => new TerraformReference(this, "association_state");
+    [TerraformProperty("association_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AssociationState { get; }
 
     /// <summary>
     /// The association_transit_gateway_route_table_id attribute.
     /// </summary>
-    [TerraformPropertyName("association_transit_gateway_route_table_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AssociationTransitGatewayRouteTableId => new TerraformReference(this, "association_transit_gateway_route_table_id");
+    [TerraformProperty("association_transit_gateway_route_table_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AssociationTransitGatewayRouteTableId { get; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("resource_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceId => new TerraformReference(this, "resource_id");
+    [TerraformProperty("resource_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceId { get; }
 
     /// <summary>
     /// The resource_owner_id attribute.
     /// </summary>
-    [TerraformPropertyName("resource_owner_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceOwnerId => new TerraformReference(this, "resource_owner_id");
+    [TerraformProperty("resource_owner_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceOwnerId { get; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    [TerraformPropertyName("resource_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceType => new TerraformReference(this, "resource_type");
+    [TerraformProperty("resource_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceType { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    [TerraformPropertyName("transit_gateway_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TransitGatewayId => new TerraformReference(this, "transit_gateway_id");
+    [TerraformProperty("transit_gateway_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TransitGatewayId { get; }
 
     /// <summary>
     /// The transit_gateway_owner_id attribute.
     /// </summary>
-    [TerraformPropertyName("transit_gateway_owner_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TransitGatewayOwnerId => new TerraformReference(this, "transit_gateway_owner_id");
+    [TerraformProperty("transit_gateway_owner_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TransitGatewayOwnerId { get; }
 
 }

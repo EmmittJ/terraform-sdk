@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleOsLoginSshPublicKeyTimeoutsBlock
+public partial class GoogleOsLoginSshPublicKeyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleOsLoginSshPublicKeyTimeoutsBlock
 /// <summary>
 /// Manages a google_os_login_ssh_public_key resource.
 /// </summary>
-public class GoogleOsLoginSshPublicKey : TerraformResource
+public partial class GoogleOsLoginSshPublicKey : TerraformResource
 {
     public GoogleOsLoginSshPublicKey(string name) : base("google_os_login_ssh_public_key", name)
     {
@@ -43,52 +43,52 @@ public class GoogleOsLoginSshPublicKey : TerraformResource
     /// <summary>
     /// An expiration time in microseconds since epoch.
     /// </summary>
-    [TerraformPropertyName("expiration_time_usec")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expiration_time_usec")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExpirationTimeUsec { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Public key text in SSH format, defined by RFC4253 section 6.6.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformPropertyName("key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The project ID of the Google Cloud Platform project.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The user email.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "User is required")]
-    [TerraformPropertyName("user")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> User { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleOsLoginSshPublicKeyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The SHA-256 fingerprint of the SSH public key.
     /// </summary>
-    [TerraformPropertyName("fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
+    [TerraformProperty("fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fingerprint { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_storage_project_service_account.
 /// </summary>
-public class GoogleStorageProjectServiceAccountDataSource : TerraformDataSource
+public partial class GoogleStorageProjectServiceAccountDataSource : TerraformDataSource
 {
     public GoogleStorageProjectServiceAccountDataSource(string name) : base("google_storage_project_service_account", name)
     {
@@ -14,36 +14,36 @@ public class GoogleStorageProjectServiceAccountDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The user_project attribute.
     /// </summary>
-    [TerraformPropertyName("user_project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user_project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? UserProject { get; set; }
 
     /// <summary>
     /// The email_address attribute.
     /// </summary>
-    [TerraformPropertyName("email_address")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EmailAddress => new TerraformReference(this, "email_address");
+    [TerraformProperty("email_address")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EmailAddress { get; }
 
     /// <summary>
     /// The member attribute.
     /// </summary>
-    [TerraformPropertyName("member")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Member => new TerraformReference(this, "member");
+    [TerraformProperty("member")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Member { get; }
 
 }

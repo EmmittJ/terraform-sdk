@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFluidRelayServerCustomerManagedKeyBlock
+public partial class AzurermFluidRelayServerCustomerManagedKeyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyId is required")]
-    [TerraformPropertyName("key_vault_key_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_vault_key_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserAssignedIdentityId is required")]
-    [TerraformPropertyName("user_assigned_identity_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_assigned_identity_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserAssignedIdentityId { get; set; }
 
 }
@@ -30,13 +30,13 @@ public class AzurermFluidRelayServerCustomerManagedKeyBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFluidRelayServerIdentityBlock
+public partial class AzurermFluidRelayServerIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformPropertyName("identity_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IdentityIds { get; set; }
 
 
@@ -45,8 +45,8 @@ public class AzurermFluidRelayServerIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -55,34 +55,34 @@ public class AzurermFluidRelayServerIdentityBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermFluidRelayServerTimeoutsBlock
+public partial class AzurermFluidRelayServerTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -91,7 +91,7 @@ public class AzurermFluidRelayServerTimeoutsBlock
 /// Manages a azurerm_fluid_relay_server resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermFluidRelayServer : TerraformResource
+public partial class AzurermFluidRelayServer : TerraformResource
 {
     public AzurermFluidRelayServer(string name) : base("azurerm_fluid_relay_server", name)
     {
@@ -100,46 +100,46 @@ public class AzurermFluidRelayServer : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The storage_sku attribute.
     /// </summary>
-    [TerraformPropertyName("storage_sku")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> StorageSku { get; set; } = default!;
+    [TerraformProperty("storage_sku")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> StorageSku { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -147,7 +147,7 @@ public class AzurermFluidRelayServer : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    [TerraformPropertyName("customer_managed_key")]
+    [TerraformProperty("customer_managed_key")]
     public TerraformList<TerraformBlock<AzurermFluidRelayServerCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
 
     /// <summary>
@@ -155,56 +155,56 @@ public class AzurermFluidRelayServer : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermFluidRelayServerIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermFluidRelayServerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The frs_tenant_id attribute.
     /// </summary>
-    [TerraformPropertyName("frs_tenant_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FrsTenantId => new TerraformReference(this, "frs_tenant_id");
+    [TerraformProperty("frs_tenant_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FrsTenantId { get; }
 
     /// <summary>
     /// The orderer_endpoints attribute.
     /// </summary>
-    [TerraformPropertyName("orderer_endpoints")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> OrdererEndpoints => new TerraformReference(this, "orderer_endpoints");
+    [TerraformProperty("orderer_endpoints")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> OrdererEndpoints { get; }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    [TerraformPropertyName("primary_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryKey => new TerraformReference(this, "primary_key");
+    [TerraformProperty("primary_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryKey { get; }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryKey => new TerraformReference(this, "secondary_key");
+    [TerraformProperty("secondary_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryKey { get; }
 
     /// <summary>
     /// The service_endpoints attribute.
     /// </summary>
-    [TerraformPropertyName("service_endpoints")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ServiceEndpoints => new TerraformReference(this, "service_endpoints");
+    [TerraformProperty("service_endpoints")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ServiceEndpoints { get; }
 
     /// <summary>
     /// The storage_endpoints attribute.
     /// </summary>
-    [TerraformPropertyName("storage_endpoints")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> StorageEndpoints => new TerraformReference(this, "storage_endpoints");
+    [TerraformProperty("storage_endpoints")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> StorageEndpoints { get; }
 
 }

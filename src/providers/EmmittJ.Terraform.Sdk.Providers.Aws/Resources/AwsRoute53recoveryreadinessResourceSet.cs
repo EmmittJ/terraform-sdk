@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for resources in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRoute53recoveryreadinessResourceSetResourcesBlock
+public partial class AwsRoute53recoveryreadinessResourceSetResourcesBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The readiness_scopes attribute.
     /// </summary>
-    [TerraformPropertyName("readiness_scopes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("readiness_scopes")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ReadinessScopes { get; set; }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    [TerraformPropertyName("resource_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("resource_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ResourceArn { get; set; }
 
 }
@@ -29,13 +29,13 @@ public class AwsRoute53recoveryreadinessResourceSetResourcesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRoute53recoveryreadinessResourceSetTimeoutsBlock
+public partial class AwsRoute53recoveryreadinessResourceSetTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -44,7 +44,7 @@ public class AwsRoute53recoveryreadinessResourceSetTimeoutsBlock
 /// Manages a aws_route53recoveryreadiness_resource_set resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsRoute53recoveryreadinessResourceSet : TerraformResource
+public partial class AwsRoute53recoveryreadinessResourceSet : TerraformResource
 {
     public AwsRoute53recoveryreadinessResourceSet(string name) : base("aws_route53recoveryreadiness_resource_set", name)
     {
@@ -53,39 +53,39 @@ public class AwsRoute53recoveryreadinessResourceSet : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_set_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceSetName is required")]
-    [TerraformPropertyName("resource_set_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_set_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceSetName { get; set; }
 
     /// <summary>
     /// The resource_set_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceSetType is required")]
-    [TerraformPropertyName("resource_set_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_set_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceSetType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for resources.
@@ -93,21 +93,21 @@ public class AwsRoute53recoveryreadinessResourceSet : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Resources is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Resources block(s) required")]
-    [TerraformPropertyName("resources")]
+    [TerraformProperty("resources")]
     public TerraformList<TerraformBlock<AwsRoute53recoveryreadinessResourceSetResourcesBlock>>? Resources { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsRoute53recoveryreadinessResourceSetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

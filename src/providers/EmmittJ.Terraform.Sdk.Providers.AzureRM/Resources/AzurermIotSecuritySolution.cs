@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for additional_workspace in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock
+public partial class AzurermIotSecuritySolutionAdditionalWorkspaceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The data_types attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataTypes is required")]
-    [TerraformPropertyName("data_types")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data_types")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> DataTypes { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformPropertyName("workspace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("workspace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WorkspaceId { get; set; }
 
 }
@@ -30,118 +30,118 @@ public class AzurermIotSecuritySolutionAdditionalWorkspaceBlock
 /// Block type for recommendations_enabled in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermIotSecuritySolutionRecommendationsEnabledBlock
+public partial class AzurermIotSecuritySolutionRecommendationsEnabledBlock : TerraformBlockBase
 {
     /// <summary>
     /// The acr_authentication attribute.
     /// </summary>
-    [TerraformPropertyName("acr_authentication")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("acr_authentication")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AcrAuthentication { get; set; }
 
     /// <summary>
     /// The agent_send_unutilized_msg attribute.
     /// </summary>
-    [TerraformPropertyName("agent_send_unutilized_msg")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("agent_send_unutilized_msg")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AgentSendUnutilizedMsg { get; set; }
 
     /// <summary>
     /// The baseline attribute.
     /// </summary>
-    [TerraformPropertyName("baseline")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("baseline")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Baseline { get; set; }
 
     /// <summary>
     /// The edge_hub_mem_optimize attribute.
     /// </summary>
-    [TerraformPropertyName("edge_hub_mem_optimize")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("edge_hub_mem_optimize")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EdgeHubMemOptimize { get; set; }
 
     /// <summary>
     /// The edge_logging_option attribute.
     /// </summary>
-    [TerraformPropertyName("edge_logging_option")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("edge_logging_option")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EdgeLoggingOption { get; set; }
 
     /// <summary>
     /// The inconsistent_module_settings attribute.
     /// </summary>
-    [TerraformPropertyName("inconsistent_module_settings")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("inconsistent_module_settings")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? InconsistentModuleSettings { get; set; }
 
     /// <summary>
     /// The install_agent attribute.
     /// </summary>
-    [TerraformPropertyName("install_agent")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("install_agent")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? InstallAgent { get; set; }
 
     /// <summary>
     /// The ip_filter_deny_all attribute.
     /// </summary>
-    [TerraformPropertyName("ip_filter_deny_all")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_filter_deny_all")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IpFilterDenyAll { get; set; }
 
     /// <summary>
     /// The ip_filter_permissive_rule attribute.
     /// </summary>
-    [TerraformPropertyName("ip_filter_permissive_rule")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_filter_permissive_rule")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IpFilterPermissiveRule { get; set; }
 
     /// <summary>
     /// The open_ports attribute.
     /// </summary>
-    [TerraformPropertyName("open_ports")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("open_ports")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? OpenPorts { get; set; }
 
     /// <summary>
     /// The permissive_firewall_policy attribute.
     /// </summary>
-    [TerraformPropertyName("permissive_firewall_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("permissive_firewall_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PermissiveFirewallPolicy { get; set; }
 
     /// <summary>
     /// The permissive_input_firewall_rules attribute.
     /// </summary>
-    [TerraformPropertyName("permissive_input_firewall_rules")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("permissive_input_firewall_rules")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PermissiveInputFirewallRules { get; set; }
 
     /// <summary>
     /// The permissive_output_firewall_rules attribute.
     /// </summary>
-    [TerraformPropertyName("permissive_output_firewall_rules")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("permissive_output_firewall_rules")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PermissiveOutputFirewallRules { get; set; }
 
     /// <summary>
     /// The privileged_docker_options attribute.
     /// </summary>
-    [TerraformPropertyName("privileged_docker_options")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("privileged_docker_options")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PrivilegedDockerOptions { get; set; }
 
     /// <summary>
     /// The shared_credentials attribute.
     /// </summary>
-    [TerraformPropertyName("shared_credentials")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("shared_credentials")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SharedCredentials { get; set; }
 
     /// <summary>
     /// The vulnerable_tls_cipher_suite attribute.
     /// </summary>
-    [TerraformPropertyName("vulnerable_tls_cipher_suite")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vulnerable_tls_cipher_suite")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? VulnerableTlsCipherSuite { get; set; }
 
 }
@@ -150,34 +150,34 @@ public class AzurermIotSecuritySolutionRecommendationsEnabledBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermIotSecuritySolutionTimeoutsBlock
+public partial class AzurermIotSecuritySolutionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -186,7 +186,7 @@ public class AzurermIotSecuritySolutionTimeoutsBlock
 /// Manages a azurerm_iot_security_solution resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermIotSecuritySolution : TerraformResource
+public partial class AzurermIotSecuritySolution : TerraformResource
 {
     public AzurermIotSecuritySolution(string name) : base("azurerm_iot_security_solution", name)
     {
@@ -195,111 +195,111 @@ public class AzurermIotSecuritySolution : TerraformResource
     /// <summary>
     /// The disabled_data_sources attribute.
     /// </summary>
-    [TerraformPropertyName("disabled_data_sources")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disabled_data_sources")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? DisabledDataSources { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The events_to_export attribute.
     /// </summary>
-    [TerraformPropertyName("events_to_export")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("events_to_export")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? EventsToExport { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The iothub_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubIds is required")]
-    [TerraformPropertyName("iothub_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("iothub_ids")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> IothubIds { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
-    [TerraformPropertyName("log_analytics_workspace_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("log_analytics_workspace_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The log_unmasked_ips_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("log_unmasked_ips_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("log_unmasked_ips_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LogUnmaskedIpsEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The query_for_resources attribute.
     /// </summary>
-    [TerraformPropertyName("query_for_resources")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> QueryForResources { get; set; } = default!;
+    [TerraformProperty("query_for_resources")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> QueryForResources { get; set; }
 
     /// <summary>
     /// The query_subscription_ids attribute.
     /// </summary>
-    [TerraformPropertyName("query_subscription_ids")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> QuerySubscriptionIds { get; set; } = default!;
+    [TerraformProperty("query_subscription_ids")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> QuerySubscriptionIds { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for additional_workspace.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("additional_workspace")]
+    [TerraformProperty("additional_workspace")]
     public TerraformSet<TerraformBlock<AzurermIotSecuritySolutionAdditionalWorkspaceBlock>>? AdditionalWorkspace { get; set; }
 
     /// <summary>
@@ -307,14 +307,14 @@ public class AzurermIotSecuritySolution : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RecommendationsEnabled block(s) allowed")]
-    [TerraformPropertyName("recommendations_enabled")]
+    [TerraformProperty("recommendations_enabled")]
     public TerraformList<TerraformBlock<AzurermIotSecuritySolutionRecommendationsEnabledBlock>>? RecommendationsEnabled { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermIotSecuritySolutionTimeoutsBlock>? Timeouts { get; set; }
 
 }

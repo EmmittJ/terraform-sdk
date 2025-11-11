@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVmwareClusterTimeoutsBlock
+public partial class AzurermVmwareClusterTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermVmwareClusterTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_vmware_cluster resource.
 /// </summary>
-public class AzurermVmwareCluster : TerraformResource
+public partial class AzurermVmwareCluster : TerraformResource
 {
     public AzurermVmwareCluster(string name) : base("azurerm_vmware_cluster", name)
     {
@@ -51,60 +51,60 @@ public class AzurermVmwareCluster : TerraformResource
     /// The cluster_node_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterNodeCount is required")]
-    [TerraformPropertyName("cluster_node_count")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_node_count")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> ClusterNodeCount { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SkuName is required")]
-    [TerraformPropertyName("sku_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sku_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The vmware_cloud_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmwareCloudId is required")]
-    [TerraformPropertyName("vmware_cloud_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vmware_cloud_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VmwareCloudId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermVmwareClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The cluster_number attribute.
     /// </summary>
-    [TerraformPropertyName("cluster_number")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ClusterNumber => new TerraformReference(this, "cluster_number");
+    [TerraformProperty("cluster_number")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ClusterNumber { get; }
 
     /// <summary>
     /// The hosts attribute.
     /// </summary>
-    [TerraformPropertyName("hosts")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Hosts => new TerraformReference(this, "hosts");
+    [TerraformProperty("hosts")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Hosts { get; }
 
 }

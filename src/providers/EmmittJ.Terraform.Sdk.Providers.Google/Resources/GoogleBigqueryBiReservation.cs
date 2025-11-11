@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for preferred_tables in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigqueryBiReservationPreferredTablesBlock
+public partial class GoogleBigqueryBiReservationPreferredTablesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The ID of the dataset in the above project.
     /// </summary>
-    [TerraformPropertyName("dataset_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dataset_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DatasetId { get; set; }
 
     /// <summary>
     /// The assigned project ID of the project.
     /// </summary>
-    [TerraformPropertyName("project_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ProjectId { get; set; }
 
     /// <summary>
     /// The ID of the table in the above dataset.
     /// </summary>
-    [TerraformPropertyName("table_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("table_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TableId { get; set; }
 
 }
@@ -35,27 +35,27 @@ public class GoogleBigqueryBiReservationPreferredTablesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigqueryBiReservationTimeoutsBlock
+public partial class GoogleBigqueryBiReservationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -63,7 +63,7 @@ public class GoogleBigqueryBiReservationTimeoutsBlock
 /// <summary>
 /// Manages a google_bigquery_bi_reservation resource.
 /// </summary>
-public class GoogleBigqueryBiReservation : TerraformResource
+public partial class GoogleBigqueryBiReservation : TerraformResource
 {
     public GoogleBigqueryBiReservation(string name) : base("google_bigquery_bi_reservation", name)
     {
@@ -72,60 +72,60 @@ public class GoogleBigqueryBiReservation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// LOCATION_DESCRIPTION
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Size of a reservation, in bytes.
     /// </summary>
-    [TerraformPropertyName("size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Size { get; set; }
 
     /// <summary>
     /// Block for preferred_tables.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("preferred_tables")]
+    [TerraformProperty("preferred_tables")]
     public TerraformList<TerraformBlock<GoogleBigqueryBiReservationPreferredTablesBlock>>? PreferredTables { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleBigqueryBiReservationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The resource name of the singleton BI reservation. Reservation names have the form &#39;projects/{projectId}/locations/{locationId}/biReservation&#39;.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The last update timestamp of a reservation.
     /// 
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

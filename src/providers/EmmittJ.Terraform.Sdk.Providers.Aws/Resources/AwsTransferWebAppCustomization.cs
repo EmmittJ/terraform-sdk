@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_transfer_web_app_customization resource.
 /// </summary>
-public class AwsTransferWebAppCustomization : TerraformResource
+public partial class AwsTransferWebAppCustomization : TerraformResource
 {
     public AwsTransferWebAppCustomization(string name) : base("aws_transfer_web_app_customization", name)
     {
@@ -14,37 +14,37 @@ public class AwsTransferWebAppCustomization : TerraformResource
     /// <summary>
     /// The favicon_file attribute.
     /// </summary>
-    [TerraformPropertyName("favicon_file")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> FaviconFile { get; set; } = default!;
+    [TerraformProperty("favicon_file")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> FaviconFile { get; set; }
 
     /// <summary>
     /// The logo_file attribute.
     /// </summary>
-    [TerraformPropertyName("logo_file")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LogoFile { get; set; } = default!;
+    [TerraformProperty("logo_file")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LogoFile { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
-    [TerraformPropertyName("title")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("title")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Title { get; set; }
 
     /// <summary>
     /// The web_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WebAppId is required")]
-    [TerraformPropertyName("web_app_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("web_app_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WebAppId { get; set; }
 
 }

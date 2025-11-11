@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for conversation_logs in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLexBotAliasConversationLogsBlock
+public partial class AwsLexBotAliasConversationLogsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
-    [TerraformPropertyName("iam_role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("iam_role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IamRoleArn { get; set; }
 
 }
@@ -22,27 +22,27 @@ public class AwsLexBotAliasConversationLogsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLexBotAliasTimeoutsBlock
+public partial class AwsLexBotAliasTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -51,7 +51,7 @@ public class AwsLexBotAliasTimeoutsBlock
 /// Manages a aws_lex_bot_alias resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsLexBotAlias : TerraformResource
+public partial class AwsLexBotAlias : TerraformResource
 {
     public AwsLexBotAlias(string name) : base("aws_lex_bot_alias", name)
     {
@@ -61,88 +61,88 @@ public class AwsLexBotAlias : TerraformResource
     /// The bot_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotName is required")]
-    [TerraformPropertyName("bot_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bot_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BotName { get; set; }
 
     /// <summary>
     /// The bot_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BotVersion is required")]
-    [TerraformPropertyName("bot_version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bot_version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BotVersion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for conversation_logs.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ConversationLogs block(s) allowed")]
-    [TerraformPropertyName("conversation_logs")]
+    [TerraformProperty("conversation_logs")]
     public TerraformList<TerraformBlock<AwsLexBotAliasConversationLogsBlock>>? ConversationLogs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsLexBotAliasTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The checksum attribute.
     /// </summary>
-    [TerraformPropertyName("checksum")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Checksum => new TerraformReference(this, "checksum");
+    [TerraformProperty("checksum")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Checksum { get; }
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
-    [TerraformPropertyName("created_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedDate => new TerraformReference(this, "created_date");
+    [TerraformProperty("created_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
-    [TerraformPropertyName("last_updated_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastUpdatedDate => new TerraformReference(this, "last_updated_date");
+    [TerraformProperty("last_updated_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastUpdatedDate { get; }
 
 }

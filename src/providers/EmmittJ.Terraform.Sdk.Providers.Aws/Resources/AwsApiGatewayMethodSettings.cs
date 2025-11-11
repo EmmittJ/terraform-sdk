@@ -6,77 +6,77 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApiGatewayMethodSettingsSettingsBlock
+public partial class AwsApiGatewayMethodSettingsSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cache_data_encrypted attribute.
     /// </summary>
-    [TerraformPropertyName("cache_data_encrypted")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> CacheDataEncrypted { get; set; } = default!;
+    [TerraformProperty("cache_data_encrypted")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> CacheDataEncrypted { get; set; }
 
     /// <summary>
     /// The cache_ttl_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("cache_ttl_in_seconds")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> CacheTtlInSeconds { get; set; } = default!;
+    [TerraformProperty("cache_ttl_in_seconds")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> CacheTtlInSeconds { get; set; }
 
     /// <summary>
     /// The caching_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("caching_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> CachingEnabled { get; set; } = default!;
+    [TerraformProperty("caching_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> CachingEnabled { get; set; }
 
     /// <summary>
     /// The data_trace_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("data_trace_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> DataTraceEnabled { get; set; } = default!;
+    [TerraformProperty("data_trace_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> DataTraceEnabled { get; set; }
 
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    [TerraformPropertyName("logging_level")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LoggingLevel { get; set; } = default!;
+    [TerraformProperty("logging_level")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LoggingLevel { get; set; }
 
     /// <summary>
     /// The metrics_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("metrics_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> MetricsEnabled { get; set; } = default!;
+    [TerraformProperty("metrics_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> MetricsEnabled { get; set; }
 
     /// <summary>
     /// The require_authorization_for_cache_control attribute.
     /// </summary>
-    [TerraformPropertyName("require_authorization_for_cache_control")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> RequireAuthorizationForCacheControl { get; set; } = default!;
+    [TerraformProperty("require_authorization_for_cache_control")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> RequireAuthorizationForCacheControl { get; set; }
 
     /// <summary>
     /// The throttling_burst_limit attribute.
     /// </summary>
-    [TerraformPropertyName("throttling_burst_limit")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("throttling_burst_limit")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ThrottlingBurstLimit { get; set; }
 
     /// <summary>
     /// The throttling_rate_limit attribute.
     /// </summary>
-    [TerraformPropertyName("throttling_rate_limit")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("throttling_rate_limit")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ThrottlingRateLimit { get; set; }
 
     /// <summary>
     /// The unauthorized_cache_control_header_strategy attribute.
     /// </summary>
-    [TerraformPropertyName("unauthorized_cache_control_header_strategy")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> UnauthorizedCacheControlHeaderStrategy { get; set; } = default!;
+    [TerraformProperty("unauthorized_cache_control_header_strategy")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> UnauthorizedCacheControlHeaderStrategy { get; set; }
 
 }
 
@@ -84,7 +84,7 @@ public class AwsApiGatewayMethodSettingsSettingsBlock
 /// Manages a aws_api_gateway_method_settings resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsApiGatewayMethodSettings : TerraformResource
+public partial class AwsApiGatewayMethodSettings : TerraformResource
 {
     public AwsApiGatewayMethodSettings(string name) : base("aws_api_gateway_method_settings", name)
     {
@@ -93,39 +93,39 @@ public class AwsApiGatewayMethodSettings : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The method_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MethodPath is required")]
-    [TerraformPropertyName("method_path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("method_path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MethodPath { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
-    [TerraformPropertyName("rest_api_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("rest_api_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RestApiId { get; set; }
 
     /// <summary>
     /// The stage_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StageName is required")]
-    [TerraformPropertyName("stage_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("stage_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StageName { get; set; }
 
     /// <summary>
@@ -135,7 +135,7 @@ public class AwsApiGatewayMethodSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Settings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Settings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Settings block(s) allowed")]
-    [TerraformPropertyName("settings")]
+    [TerraformProperty("settings")]
     public TerraformList<TerraformBlock<AwsApiGatewayMethodSettingsSettingsBlock>>? Settings { get; set; }
 
 }

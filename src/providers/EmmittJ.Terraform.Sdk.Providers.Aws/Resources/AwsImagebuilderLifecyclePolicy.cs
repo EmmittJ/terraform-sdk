@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for policy_detail in .
 /// Nesting mode: set
 /// </summary>
-public class AwsImagebuilderLifecyclePolicyPolicyDetailBlock
+public partial class AwsImagebuilderLifecyclePolicyPolicyDetailBlock : TerraformBlockBase
 {
 }
 
@@ -14,13 +14,13 @@ public class AwsImagebuilderLifecyclePolicyPolicyDetailBlock
 /// Block type for resource_selection in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderLifecyclePolicyResourceSelectionBlock
+public partial class AwsImagebuilderLifecyclePolicyResourceSelectionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The tag_map attribute.
     /// </summary>
-    [TerraformPropertyName("tag_map")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tag_map")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? TagMap { get; set; }
 
 }
@@ -28,7 +28,7 @@ public class AwsImagebuilderLifecyclePolicyResourceSelectionBlock
 /// <summary>
 /// Manages a aws_imagebuilder_lifecycle_policy resource.
 /// </summary>
-public class AwsImagebuilderLifecyclePolicy : TerraformResource
+public partial class AwsImagebuilderLifecyclePolicy : TerraformResource
 {
     public AwsImagebuilderLifecyclePolicy(string name) : base("aws_imagebuilder_lifecycle_policy", name)
     {
@@ -37,88 +37,88 @@ public class AwsImagebuilderLifecyclePolicy : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The execution_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
-    [TerraformPropertyName("execution_role")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("execution_role")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ExecutionRole { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
-    [TerraformPropertyName("resource_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceType { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Status { get; set; } = default!;
+    [TerraformProperty("status")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Status { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for policy_detail.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("policy_detail")]
+    [TerraformProperty("policy_detail")]
     public TerraformSet<TerraformBlock<AwsImagebuilderLifecyclePolicyPolicyDetailBlock>>? PolicyDetail { get; set; }
 
     /// <summary>
     /// Block for resource_selection.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("resource_selection")]
+    [TerraformProperty("resource_selection")]
     public TerraformList<TerraformBlock<AwsImagebuilderLifecyclePolicyResourceSelectionBlock>>? ResourceSelection { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
 }

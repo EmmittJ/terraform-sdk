@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_arn.
 /// </summary>
-public class AwsArnDataSource : TerraformDataSource
+public partial class AwsArnDataSource : TerraformDataSource
 {
     public AwsArnDataSource(string name) : base("aws_arn", name)
     {
@@ -15,50 +15,50 @@ public class AwsArnDataSource : TerraformDataSource
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    [TerraformPropertyName("arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The account attribute.
     /// </summary>
-    [TerraformPropertyName("account")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Account => new TerraformReference(this, "account");
+    [TerraformProperty("account")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Account { get; }
 
     /// <summary>
     /// The partition attribute.
     /// </summary>
-    [TerraformPropertyName("partition")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Partition => new TerraformReference(this, "partition");
+    [TerraformProperty("partition")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Partition { get; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Region => new TerraformReference(this, "region");
+    [TerraformProperty("region")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Region { get; }
 
     /// <summary>
     /// The resource attribute.
     /// </summary>
-    [TerraformPropertyName("resource")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Resource => new TerraformReference(this, "resource");
+    [TerraformProperty("resource")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Resource { get; }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
-    [TerraformPropertyName("service")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Service => new TerraformReference(this, "service");
+    [TerraformProperty("service")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Service { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_ecs_service.
 /// </summary>
-public class AwsEcsServiceDataSource : TerraformDataSource
+public partial class AwsEcsServiceDataSource : TerraformDataSource
 {
     public AwsEcsServiceDataSource(string name) : base("aws_ecs_service", name)
     {
@@ -15,86 +15,86 @@ public class AwsEcsServiceDataSource : TerraformDataSource
     /// The cluster_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterArn is required")]
-    [TerraformPropertyName("cluster_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterArn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
-    [TerraformPropertyName("service_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The availability_zone_rebalancing attribute.
     /// </summary>
-    [TerraformPropertyName("availability_zone_rebalancing")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AvailabilityZoneRebalancing => new TerraformReference(this, "availability_zone_rebalancing");
+    [TerraformProperty("availability_zone_rebalancing")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AvailabilityZoneRebalancing { get; }
 
     /// <summary>
     /// The desired_count attribute.
     /// </summary>
-    [TerraformPropertyName("desired_count")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> DesiredCount => new TerraformReference(this, "desired_count");
+    [TerraformProperty("desired_count")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> DesiredCount { get; }
 
     /// <summary>
     /// The launch_type attribute.
     /// </summary>
-    [TerraformPropertyName("launch_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LaunchType => new TerraformReference(this, "launch_type");
+    [TerraformProperty("launch_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LaunchType { get; }
 
     /// <summary>
     /// The load_balancer attribute.
     /// </summary>
-    [TerraformPropertyName("load_balancer")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> LoadBalancer => new TerraformReference(this, "load_balancer");
+    [TerraformProperty("load_balancer")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> LoadBalancer { get; }
 
     /// <summary>
     /// The scheduling_strategy attribute.
     /// </summary>
-    [TerraformPropertyName("scheduling_strategy")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SchedulingStrategy => new TerraformReference(this, "scheduling_strategy");
+    [TerraformProperty("scheduling_strategy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SchedulingStrategy { get; }
 
     /// <summary>
     /// The task_definition attribute.
     /// </summary>
-    [TerraformPropertyName("task_definition")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TaskDefinition => new TerraformReference(this, "task_definition");
+    [TerraformProperty("task_definition")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TaskDefinition { get; }
 
 }

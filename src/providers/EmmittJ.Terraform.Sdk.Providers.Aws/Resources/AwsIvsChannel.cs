@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsIvsChannelTimeoutsBlock
+public partial class AwsIvsChannelTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsIvsChannelTimeoutsBlock
 /// <summary>
 /// Manages a aws_ivs_channel resource.
 /// </summary>
-public class AwsIvsChannel : TerraformResource
+public partial class AwsIvsChannel : TerraformResource
 {
     public AwsIvsChannel(string name) : base("aws_ivs_channel", name)
     {
@@ -43,92 +43,92 @@ public class AwsIvsChannel : TerraformResource
     /// <summary>
     /// The authorized attribute.
     /// </summary>
-    [TerraformPropertyName("authorized")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> Authorized { get; set; } = default!;
+    [TerraformProperty("authorized")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> Authorized { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The latency_mode attribute.
     /// </summary>
-    [TerraformPropertyName("latency_mode")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LatencyMode { get; set; } = default!;
+    [TerraformProperty("latency_mode")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LatencyMode { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The recording_configuration_arn attribute.
     /// </summary>
-    [TerraformPropertyName("recording_configuration_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> RecordingConfigurationArn { get; set; } = default!;
+    [TerraformProperty("recording_configuration_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> RecordingConfigurationArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Type { get; set; } = default!;
+    [TerraformProperty("type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsIvsChannelTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The ingest_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("ingest_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IngestEndpoint => new TerraformReference(this, "ingest_endpoint");
+    [TerraformProperty("ingest_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IngestEndpoint { get; }
 
     /// <summary>
     /// The playback_url attribute.
     /// </summary>
-    [TerraformPropertyName("playback_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PlaybackUrl => new TerraformReference(this, "playback_url");
+    [TerraformProperty("playback_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PlaybackUrl { get; }
 
 }

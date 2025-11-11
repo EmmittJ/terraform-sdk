@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCosmosdbSqlRoleDefinitionDataSourceTimeoutsBlock
+public partial class AzurermCosmosdbSqlRoleDefinitionDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermCosmosdbSqlRoleDefinitionDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_cosmosdb_sql_role_definition.
 /// </summary>
-public class AzurermCosmosdbSqlRoleDefinitionDataSource : TerraformDataSource
+public partial class AzurermCosmosdbSqlRoleDefinitionDataSource : TerraformDataSource
 {
     public AzurermCosmosdbSqlRoleDefinitionDataSource(string name) : base("azurerm_cosmosdb_sql_role_definition", name)
     {
@@ -30,66 +30,66 @@ public class AzurermCosmosdbSqlRoleDefinitionDataSource : TerraformDataSource
     /// The account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountName is required")]
-    [TerraformPropertyName("account_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("account_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
-    [TerraformPropertyName("role_definition_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_definition_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleDefinitionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermCosmosdbSqlRoleDefinitionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The assignable_scopes attribute.
     /// </summary>
-    [TerraformPropertyName("assignable_scopes")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> AssignableScopes => new TerraformReference(this, "assignable_scopes");
+    [TerraformProperty("assignable_scopes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> AssignableScopes { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
-    [TerraformPropertyName("permissions")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Permissions => new TerraformReference(this, "permissions");
+    [TerraformProperty("permissions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Permissions { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
 }

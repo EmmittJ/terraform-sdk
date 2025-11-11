@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Use this data source to access the configuration of the Google Cloud provider.
 /// </summary>
-public class GoogleClientConfigDataSource : TerraformDataSource
+public partial class GoogleClientConfigDataSource : TerraformDataSource
 {
     public GoogleClientConfigDataSource(string name) : base("google_client_config", name)
     {
@@ -14,43 +14,43 @@ public class GoogleClientConfigDataSource : TerraformDataSource
     /// <summary>
     /// The OAuth2 access token used by the client to authenticate against the Google Cloud API.
     /// </summary>
-    [TerraformPropertyName("access_token")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AccessToken => new TerraformReference(this, "access_token");
+    [TerraformProperty("access_token")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AccessToken { get; }
 
     /// <summary>
     /// The default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("default_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> DefaultLabels => new TerraformReference(this, "default_labels");
+    [TerraformProperty("default_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> DefaultLabels { get; }
 
     /// <summary>
     /// The ID of this data source in Terraform state. It is created in a projects/{{project}}/regions/{{region}}/zones/{{zone}} format and is NOT used by the data source in requests to Google APIs.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The ID of the project to apply any resources to.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Project => new TerraformReference(this, "project");
+    [TerraformProperty("project")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Project { get; }
 
     /// <summary>
     /// The region to operate under.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Region => new TerraformReference(this, "region");
+    [TerraformProperty("region")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Region { get; }
 
     /// <summary>
     /// The zone to operate under.
     /// </summary>
-    [TerraformPropertyName("zone")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Zone => new TerraformReference(this, "zone");
+    [TerraformProperty("zone")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Zone { get; }
 
 }

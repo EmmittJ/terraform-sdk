@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleProjectUsageExportBucketTimeoutsBlock
+public partial class GoogleProjectUsageExportBucketTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class GoogleProjectUsageExportBucketTimeoutsBlock
 /// <summary>
 /// Manages a google_project_usage_export_bucket resource.
 /// </summary>
-public class GoogleProjectUsageExportBucket : TerraformResource
+public partial class GoogleProjectUsageExportBucket : TerraformResource
 {
     public GoogleProjectUsageExportBucket(string name) : base("google_project_usage_export_bucket", name)
     {
@@ -37,36 +37,36 @@ public class GoogleProjectUsageExportBucket : TerraformResource
     /// The bucket to store reports in.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketName is required")]
-    [TerraformPropertyName("bucket_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BucketName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A prefix for the reports, for instance, the project name.
     /// </summary>
-    [TerraformPropertyName("prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Prefix { get; set; }
 
     /// <summary>
     /// The project to set the export bucket on. If it is not provided, the provider project is used.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleProjectUsageExportBucketTimeoutsBlock>? Timeouts { get; set; }
 
 }

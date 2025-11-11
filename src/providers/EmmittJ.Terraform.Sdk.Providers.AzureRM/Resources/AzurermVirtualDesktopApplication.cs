@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualDesktopApplicationTimeoutsBlock
+public partial class AzurermVirtualDesktopApplicationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermVirtualDesktopApplicationTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_virtual_desktop_application resource.
 /// </summary>
-public class AzurermVirtualDesktopApplication : TerraformResource
+public partial class AzurermVirtualDesktopApplication : TerraformResource
 {
     public AzurermVirtualDesktopApplication(string name) : base("azurerm_virtual_desktop_application", name)
     {
@@ -51,88 +51,88 @@ public class AzurermVirtualDesktopApplication : TerraformResource
     /// The application_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationGroupId is required")]
-    [TerraformPropertyName("application_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("application_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApplicationGroupId { get; set; }
 
     /// <summary>
     /// The command_line_argument_policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CommandLineArgumentPolicy is required")]
-    [TerraformPropertyName("command_line_argument_policy")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("command_line_argument_policy")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CommandLineArgumentPolicy { get; set; }
 
     /// <summary>
     /// The command_line_arguments attribute.
     /// </summary>
-    [TerraformPropertyName("command_line_arguments")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("command_line_arguments")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CommandLineArguments { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The friendly_name attribute.
     /// </summary>
-    [TerraformPropertyName("friendly_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> FriendlyName { get; set; } = default!;
+    [TerraformProperty("friendly_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> FriendlyName { get; set; }
 
     /// <summary>
     /// The icon_index attribute.
     /// </summary>
-    [TerraformPropertyName("icon_index")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("icon_index")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? IconIndex { get; set; }
 
     /// <summary>
     /// The icon_path attribute.
     /// </summary>
-    [TerraformPropertyName("icon_path")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> IconPath { get; set; } = default!;
+    [TerraformProperty("icon_path")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> IconPath { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    [TerraformPropertyName("path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// The show_in_portal attribute.
     /// </summary>
-    [TerraformPropertyName("show_in_portal")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("show_in_portal")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ShowInPortal { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermVirtualDesktopApplicationTimeoutsBlock>? Timeouts { get; set; }
 
 }

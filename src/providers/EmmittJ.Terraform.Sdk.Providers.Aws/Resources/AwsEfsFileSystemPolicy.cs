@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_efs_file_system_policy resource.
 /// </summary>
-public class AwsEfsFileSystemPolicy : TerraformResource
+public partial class AwsEfsFileSystemPolicy : TerraformResource
 {
     public AwsEfsFileSystemPolicy(string name) : base("aws_efs_file_system_policy", name)
     {
@@ -14,38 +14,38 @@ public class AwsEfsFileSystemPolicy : TerraformResource
     /// <summary>
     /// The bypass_policy_lockout_safety_check attribute.
     /// </summary>
-    [TerraformPropertyName("bypass_policy_lockout_safety_check")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bypass_policy_lockout_safety_check")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemId is required")]
-    [TerraformPropertyName("file_system_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("file_system_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FileSystemId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Policy is required")]
-    [TerraformPropertyName("policy")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Policy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
 }

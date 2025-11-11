@@ -6,41 +6,41 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMysqlFlexibleServerCustomerManagedKeyBlock
+public partial class AzurermMysqlFlexibleServerCustomerManagedKeyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The geo_backup_key_vault_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("geo_backup_key_vault_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("geo_backup_key_vault_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? GeoBackupKeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The geo_backup_user_assigned_identity_id attribute.
     /// </summary>
-    [TerraformPropertyName("geo_backup_user_assigned_identity_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("geo_backup_user_assigned_identity_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? GeoBackupUserAssignedIdentityId { get; set; }
 
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("key_vault_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key_vault_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("managed_hsm_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("managed_hsm_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ManagedHsmKeyId { get; set; }
 
     /// <summary>
     /// The primary_user_assigned_identity_id attribute.
     /// </summary>
-    [TerraformPropertyName("primary_user_assigned_identity_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("primary_user_assigned_identity_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrimaryUserAssignedIdentityId { get; set; }
 
 }
@@ -49,22 +49,22 @@ public class AzurermMysqlFlexibleServerCustomerManagedKeyBlock
 /// Block type for high_availability in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMysqlFlexibleServerHighAvailabilityBlock
+public partial class AzurermMysqlFlexibleServerHighAvailabilityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    [TerraformPropertyName("mode")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("mode")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Mode { get; set; }
 
     /// <summary>
     /// The standby_availability_zone attribute.
     /// </summary>
-    [TerraformPropertyName("standby_availability_zone")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> StandbyAvailabilityZone { get; set; } = default!;
+    [TerraformProperty("standby_availability_zone")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> StandbyAvailabilityZone { get; set; }
 
 }
 
@@ -72,22 +72,22 @@ public class AzurermMysqlFlexibleServerHighAvailabilityBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMysqlFlexibleServerIdentityBlock
+public partial class AzurermMysqlFlexibleServerIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
-    [TerraformPropertyName("identity_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("identity_ids")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> IdentityIds { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -96,27 +96,27 @@ public class AzurermMysqlFlexibleServerIdentityBlock
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMysqlFlexibleServerMaintenanceWindowBlock
+public partial class AzurermMysqlFlexibleServerMaintenanceWindowBlock : TerraformBlockBase
 {
     /// <summary>
     /// The day_of_week attribute.
     /// </summary>
-    [TerraformPropertyName("day_of_week")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("day_of_week")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? DayOfWeek { get; set; }
 
     /// <summary>
     /// The start_hour attribute.
     /// </summary>
-    [TerraformPropertyName("start_hour")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("start_hour")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? StartHour { get; set; }
 
     /// <summary>
     /// The start_minute attribute.
     /// </summary>
-    [TerraformPropertyName("start_minute")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("start_minute")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? StartMinute { get; set; }
 
 }
@@ -125,42 +125,42 @@ public class AzurermMysqlFlexibleServerMaintenanceWindowBlock
 /// Block type for storage in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermMysqlFlexibleServerStorageBlock
+public partial class AzurermMysqlFlexibleServerStorageBlock : TerraformBlockBase
 {
     /// <summary>
     /// The auto_grow_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("auto_grow_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auto_grow_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AutoGrowEnabled { get; set; }
 
     /// <summary>
     /// The io_scaling_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("io_scaling_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("io_scaling_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IoScalingEnabled { get; set; }
 
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    [TerraformPropertyName("iops")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Iops { get; set; } = default!;
+    [TerraformProperty("iops")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Iops { get; set; }
 
     /// <summary>
     /// The log_on_disk_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("log_on_disk_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("log_on_disk_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LogOnDiskEnabled { get; set; }
 
     /// <summary>
     /// The size_gb attribute.
     /// </summary>
-    [TerraformPropertyName("size_gb")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> SizeGb { get; set; } = default!;
+    [TerraformProperty("size_gb")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> SizeGb { get; set; }
 
 }
 
@@ -168,34 +168,34 @@ public class AzurermMysqlFlexibleServerStorageBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMysqlFlexibleServerTimeoutsBlock
+public partial class AzurermMysqlFlexibleServerTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -204,7 +204,7 @@ public class AzurermMysqlFlexibleServerTimeoutsBlock
 /// Manages a azurerm_mysql_flexible_server resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermMysqlFlexibleServer : TerraformResource
+public partial class AzurermMysqlFlexibleServer : TerraformResource
 {
     public AzurermMysqlFlexibleServer(string name) : base("azurerm_mysql_flexible_server", name)
     {
@@ -213,159 +213,159 @@ public class AzurermMysqlFlexibleServer : TerraformResource
     /// <summary>
     /// The administrator_login attribute.
     /// </summary>
-    [TerraformPropertyName("administrator_login")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AdministratorLogin { get; set; } = default!;
+    [TerraformProperty("administrator_login")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AdministratorLogin { get; set; }
 
     /// <summary>
     /// The administrator_password attribute.
     /// </summary>
-    [TerraformPropertyName("administrator_password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("administrator_password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AdministratorPassword { get; set; }
 
     /// <summary>
     /// The administrator_password_wo attribute.
     /// </summary>
-    [TerraformPropertyName("administrator_password_wo")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("administrator_password_wo")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AdministratorPasswordWo { get; set; }
 
     /// <summary>
     /// The administrator_password_wo_version attribute.
     /// </summary>
-    [TerraformPropertyName("administrator_password_wo_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("administrator_password_wo_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? AdministratorPasswordWoVersion { get; set; }
 
     /// <summary>
     /// The backup_retention_days attribute.
     /// </summary>
-    [TerraformPropertyName("backup_retention_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("backup_retention_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BackupRetentionDays { get; set; }
 
     /// <summary>
     /// The create_mode attribute.
     /// </summary>
-    [TerraformPropertyName("create_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CreateMode { get; set; }
 
     /// <summary>
     /// The delegated_subnet_id attribute.
     /// </summary>
-    [TerraformPropertyName("delegated_subnet_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delegated_subnet_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DelegatedSubnetId { get; set; }
 
     /// <summary>
     /// The geo_redundant_backup_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("geo_redundant_backup_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("geo_redundant_backup_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? GeoRedundantBackupEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The point_in_time_restore_time_in_utc attribute.
     /// </summary>
-    [TerraformPropertyName("point_in_time_restore_time_in_utc")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("point_in_time_restore_time_in_utc")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PointInTimeRestoreTimeInUtc { get; set; }
 
     /// <summary>
     /// The private_dns_zone_id attribute.
     /// </summary>
-    [TerraformPropertyName("private_dns_zone_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_dns_zone_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrivateDnsZoneId { get; set; }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    [TerraformPropertyName("public_network_access")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PublicNetworkAccess { get; set; } = default!;
+    [TerraformProperty("public_network_access")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PublicNetworkAccess { get; set; }
 
     /// <summary>
     /// The replication_role attribute.
     /// </summary>
-    [TerraformPropertyName("replication_role")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ReplicationRole { get; set; } = default!;
+    [TerraformProperty("replication_role")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ReplicationRole { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    [TerraformPropertyName("sku_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SkuName { get; set; } = default!;
+    [TerraformProperty("sku_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SkuName { get; set; }
 
     /// <summary>
     /// The source_server_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_server_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_server_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceServerId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Version { get; set; } = default!;
+    [TerraformProperty("version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    [TerraformPropertyName("zone")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Zone { get; set; } = default!;
+    [TerraformProperty("zone")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for customer_managed_key.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    [TerraformPropertyName("customer_managed_key")]
+    [TerraformProperty("customer_managed_key")]
     public TerraformList<TerraformBlock<AzurermMysqlFlexibleServerCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
 
     /// <summary>
@@ -373,7 +373,7 @@ public class AzurermMysqlFlexibleServer : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HighAvailability block(s) allowed")]
-    [TerraformPropertyName("high_availability")]
+    [TerraformProperty("high_availability")]
     public TerraformList<TerraformBlock<AzurermMysqlFlexibleServerHighAvailabilityBlock>>? HighAvailability { get; set; }
 
     /// <summary>
@@ -381,7 +381,7 @@ public class AzurermMysqlFlexibleServer : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermMysqlFlexibleServerIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
@@ -389,7 +389,7 @@ public class AzurermMysqlFlexibleServer : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceWindow block(s) allowed")]
-    [TerraformPropertyName("maintenance_window")]
+    [TerraformProperty("maintenance_window")]
     public TerraformList<TerraformBlock<AzurermMysqlFlexibleServerMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
 
     /// <summary>
@@ -397,35 +397,35 @@ public class AzurermMysqlFlexibleServer : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
-    [TerraformPropertyName("storage")]
+    [TerraformProperty("storage")]
     public TerraformList<TerraformBlock<AzurermMysqlFlexibleServerStorageBlock>>? Storage { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMysqlFlexibleServerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    [TerraformPropertyName("fqdn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fqdn => new TerraformReference(this, "fqdn");
+    [TerraformProperty("fqdn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fqdn { get; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("public_network_access_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> PublicNetworkAccessEnabled => new TerraformReference(this, "public_network_access_enabled");
+    [TerraformProperty("public_network_access_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> PublicNetworkAccessEnabled { get; }
 
     /// <summary>
     /// The replica_capacity attribute.
     /// </summary>
-    [TerraformPropertyName("replica_capacity")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ReplicaCapacity => new TerraformReference(this, "replica_capacity");
+    [TerraformProperty("replica_capacity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ReplicaCapacity { get; }
 
 }

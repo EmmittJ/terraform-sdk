@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for instance_metadata_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock
+public partial class AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The http_put_response_hop_limit attribute.
     /// </summary>
-    [TerraformPropertyName("http_put_response_hop_limit")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("http_put_response_hop_limit")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? HttpPutResponseHopLimit { get; set; }
 
     /// <summary>
     /// The http_tokens attribute.
     /// </summary>
-    [TerraformPropertyName("http_tokens")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("http_tokens")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HttpTokens { get; set; }
 
 }
@@ -28,7 +28,7 @@ public class AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBl
 /// Block type for logging in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderInfrastructureConfigurationLoggingBlock
+public partial class AwsImagebuilderInfrastructureConfigurationLoggingBlock : TerraformBlockBase
 {
 }
 
@@ -36,34 +36,34 @@ public class AwsImagebuilderInfrastructureConfigurationLoggingBlock
 /// Block type for placement in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderInfrastructureConfigurationPlacementBlock
+public partial class AwsImagebuilderInfrastructureConfigurationPlacementBlock : TerraformBlockBase
 {
     /// <summary>
     /// The availability_zone attribute.
     /// </summary>
-    [TerraformPropertyName("availability_zone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("availability_zone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AvailabilityZone { get; set; }
 
     /// <summary>
     /// The host_id attribute.
     /// </summary>
-    [TerraformPropertyName("host_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("host_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HostId { get; set; }
 
     /// <summary>
     /// The host_resource_group_arn attribute.
     /// </summary>
-    [TerraformPropertyName("host_resource_group_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("host_resource_group_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HostResourceGroupArn { get; set; }
 
     /// <summary>
     /// The tenancy attribute.
     /// </summary>
-    [TerraformPropertyName("tenancy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tenancy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Tenancy { get; set; }
 
 }
@@ -72,7 +72,7 @@ public class AwsImagebuilderInfrastructureConfigurationPlacementBlock
 /// Manages a aws_imagebuilder_infrastructure_configuration resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
+public partial class AwsImagebuilderInfrastructureConfiguration : TerraformResource
 {
     public AwsImagebuilderInfrastructureConfiguration(string name) : base("aws_imagebuilder_infrastructure_configuration", name)
     {
@@ -81,101 +81,101 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_profile_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceProfileName is required")]
-    [TerraformPropertyName("instance_profile_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_profile_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstanceProfileName { get; set; }
 
     /// <summary>
     /// The instance_types attribute.
     /// </summary>
-    [TerraformPropertyName("instance_types")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("instance_types")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? InstanceTypes { get; set; }
 
     /// <summary>
     /// The key_pair attribute.
     /// </summary>
-    [TerraformPropertyName("key_pair")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key_pair")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KeyPair { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    [TerraformPropertyName("resource_tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("resource_tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? ResourceTags { get; set; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_group_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The sns_topic_arn attribute.
     /// </summary>
-    [TerraformPropertyName("sns_topic_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sns_topic_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SnsTopicArn { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subnet_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SubnetId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The terminate_instance_on_failure attribute.
     /// </summary>
-    [TerraformPropertyName("terminate_instance_on_failure")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("terminate_instance_on_failure")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? TerminateInstanceOnFailure { get; set; }
 
     /// <summary>
@@ -183,7 +183,7 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceMetadataOptions block(s) allowed")]
-    [TerraformPropertyName("instance_metadata_options")]
+    [TerraformProperty("instance_metadata_options")]
     public TerraformList<TerraformBlock<AwsImagebuilderInfrastructureConfigurationInstanceMetadataOptionsBlock>>? InstanceMetadataOptions { get; set; }
 
     /// <summary>
@@ -191,7 +191,7 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Logging block(s) allowed")]
-    [TerraformPropertyName("logging")]
+    [TerraformProperty("logging")]
     public TerraformList<TerraformBlock<AwsImagebuilderInfrastructureConfigurationLoggingBlock>>? Logging { get; set; }
 
     /// <summary>
@@ -199,28 +199,28 @@ public class AwsImagebuilderInfrastructureConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Placement block(s) allowed")]
-    [TerraformPropertyName("placement")]
+    [TerraformProperty("placement")]
     public TerraformList<TerraformBlock<AwsImagebuilderInfrastructureConfigurationPlacementBlock>>? Placement { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
-    [TerraformPropertyName("date_created")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DateCreated => new TerraformReference(this, "date_created");
+    [TerraformProperty("date_created")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DateCreated { get; }
 
     /// <summary>
     /// The date_updated attribute.
     /// </summary>
-    [TerraformPropertyName("date_updated")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DateUpdated => new TerraformReference(this, "date_updated");
+    [TerraformProperty("date_updated")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DateUpdated { get; }
 
 }

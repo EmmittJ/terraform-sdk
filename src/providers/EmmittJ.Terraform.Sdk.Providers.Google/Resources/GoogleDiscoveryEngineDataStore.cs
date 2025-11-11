@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for advanced_site_search_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock
+public partial class GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// If set true, automatic refresh is disabled for the DataStore.
     /// </summary>
-    [TerraformPropertyName("disable_automatic_refresh")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disable_automatic_refresh")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DisableAutomaticRefresh { get; set; }
 
     /// <summary>
     /// If set true, initial indexing is disabled for the DataStore.
     /// </summary>
-    [TerraformPropertyName("disable_initial_index")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disable_initial_index")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DisableInitialIndex { get; set; }
 
 }
@@ -28,7 +28,7 @@ public class GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock
 /// Block type for document_processing_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock
+public partial class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock : TerraformBlockBase
 {
 
 }
@@ -37,27 +37,27 @@ public class GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDiscoveryEngineDataStoreTimeoutsBlock
+public partial class GoogleDiscoveryEngineDataStoreTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -66,7 +66,7 @@ public class GoogleDiscoveryEngineDataStoreTimeoutsBlock
 /// Manages a google_discovery_engine_data_store resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleDiscoveryEngineDataStore : TerraformResource
+public partial class GoogleDiscoveryEngineDataStore : TerraformResource
 {
     public GoogleDiscoveryEngineDataStore(string name) : base("google_discovery_engine_data_store", name)
     {
@@ -76,8 +76,8 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// The content config of the data store. Possible values: [&amp;quot;NO_CONTENT&amp;quot;, &amp;quot;CONTENT_REQUIRED&amp;quot;, &amp;quot;PUBLIC_WEBSITE&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContentConfig is required")]
-    [TerraformPropertyName("content_config")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("content_config")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ContentConfig { get; set; }
 
     /// <summary>
@@ -85,16 +85,16 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// data store is not configured as site search (GENERIC vertical and
     /// PUBLIC_WEBSITE contentConfig), this flag will be ignored.
     /// </summary>
-    [TerraformPropertyName("create_advanced_site_search")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create_advanced_site_search")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? CreateAdvancedSiteSearch { get; set; }
 
     /// <summary>
     /// The unique id of the data store.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataStoreId is required")]
-    [TerraformPropertyName("data_store_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data_store_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DataStoreId { get; set; }
 
     /// <summary>
@@ -102,23 +102,23 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// string with a length limit of 128 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The industry vertical that the data store registers. Possible values: [&amp;quot;GENERIC&amp;quot;, &amp;quot;MEDIA&amp;quot;, &amp;quot;HEALTHCARE_FHIR&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IndustryVertical is required")]
-    [TerraformPropertyName("industry_vertical")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("industry_vertical")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IndustryVertical { get; set; }
 
     /// <summary>
@@ -129,8 +129,8 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// If this field is set and processed successfully, the DataStore will be
     /// protected by the KMS key, as indicated in the cmek_config field.
     /// </summary>
-    [TerraformPropertyName("kms_key_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyName { get; set; }
 
     /// <summary>
@@ -138,16 +138,16 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A boolean flag indicating whether to skip the default schema creation for
@@ -158,15 +158,15 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// This flag cannot be specified if &#39;data_store.starting_schema&#39; is
     /// specified.
     /// </summary>
-    [TerraformPropertyName("skip_default_schema_creation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("skip_default_schema_creation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SkipDefaultSchemaCreation { get; set; }
 
     /// <summary>
     /// The solutions that the data store enrolls. Possible values: [&amp;quot;SOLUTION_TYPE_RECOMMENDATION&amp;quot;, &amp;quot;SOLUTION_TYPE_SEARCH&amp;quot;, &amp;quot;SOLUTION_TYPE_CHAT&amp;quot;, &amp;quot;SOLUTION_TYPE_GENERATIVE_CHAT&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("solution_types")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("solution_types")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? SolutionTypes { get; set; }
 
     /// <summary>
@@ -174,7 +174,7 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdvancedSiteSearchConfig block(s) allowed")]
-    [TerraformPropertyName("advanced_site_search_config")]
+    [TerraformProperty("advanced_site_search_config")]
     public TerraformList<TerraformBlock<GoogleDiscoveryEngineDataStoreAdvancedSiteSearchConfigBlock>>? AdvancedSiteSearchConfig { get; set; }
 
     /// <summary>
@@ -182,29 +182,29 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DocumentProcessingConfig block(s) allowed")]
-    [TerraformPropertyName("document_processing_config")]
+    [TerraformProperty("document_processing_config")]
     public TerraformList<TerraformBlock<GoogleDiscoveryEngineDataStoreDocumentProcessingConfigBlock>>? DocumentProcessingConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDiscoveryEngineDataStoreTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Timestamp when the DataStore was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The id of the default Schema associated with this data store.
     /// </summary>
-    [TerraformPropertyName("default_schema_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultSchemaId => new TerraformReference(this, "default_schema_id");
+    [TerraformProperty("default_schema_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultSchemaId { get; }
 
     /// <summary>
     /// The unique full resource name of the data store. Values are of the format
@@ -212,8 +212,8 @@ public class GoogleDiscoveryEngineDataStore : TerraformResource
     /// This field must be a UTF-8 encoded string with a length limit of 1024
     /// characters.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

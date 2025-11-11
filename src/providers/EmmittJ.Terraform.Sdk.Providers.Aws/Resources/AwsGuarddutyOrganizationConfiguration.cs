@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsGuarddutyOrganizationConfigurationDatasourcesBlock
+public partial class AwsGuarddutyOrganizationConfigurationDatasourcesBlock : TerraformBlockBase
 {
 }
 
@@ -15,7 +15,7 @@ public class AwsGuarddutyOrganizationConfigurationDatasourcesBlock
 /// Manages a aws_guardduty_organization_configuration resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsGuarddutyOrganizationConfiguration : TerraformResource
+public partial class AwsGuarddutyOrganizationConfiguration : TerraformResource
 {
     public AwsGuarddutyOrganizationConfiguration(string name) : base("aws_guardduty_organization_configuration", name)
     {
@@ -25,31 +25,31 @@ public class AwsGuarddutyOrganizationConfiguration : TerraformResource
     /// The auto_enable_organization_members attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutoEnableOrganizationMembers is required")]
-    [TerraformPropertyName("auto_enable_organization_members")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("auto_enable_organization_members")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AutoEnableOrganizationMembers { get; set; }
 
     /// <summary>
     /// The detector_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DetectorId is required")]
-    [TerraformPropertyName("detector_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("detector_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DetectorId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for datasources.
@@ -57,7 +57,7 @@ public class AwsGuarddutyOrganizationConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Datasources block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    [TerraformPropertyName("datasources")]
+    [TerraformProperty("datasources")]
     public TerraformList<TerraformBlock<AwsGuarddutyOrganizationConfigurationDatasourcesBlock>>? Datasources { get; set; }
 
 }

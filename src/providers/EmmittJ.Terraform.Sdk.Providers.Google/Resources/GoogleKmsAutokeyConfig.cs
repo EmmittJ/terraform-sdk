@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleKmsAutokeyConfigTimeoutsBlock
+public partial class GoogleKmsAutokeyConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleKmsAutokeyConfigTimeoutsBlock
 /// <summary>
 /// Manages a google_kms_autokey_config resource.
 /// </summary>
-public class GoogleKmsAutokeyConfig : TerraformResource
+public partial class GoogleKmsAutokeyConfig : TerraformResource
 {
     public GoogleKmsAutokeyConfig(string name) : base("google_kms_autokey_config", name)
     {
@@ -44,38 +44,38 @@ public class GoogleKmsAutokeyConfig : TerraformResource
     /// The folder for which to retrieve config.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
-    [TerraformPropertyName("folder")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("folder")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The target key project for a given folder where KMS Autokey will provision a
     /// CryptoKey for any new KeyHandle the Developer creates. Should have the form
     /// &#39;projects/&amp;lt;project_id_or_number&amp;gt;&#39;.
     /// </summary>
-    [TerraformPropertyName("key_project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key_project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KeyProject { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleKmsAutokeyConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The etag of the AutokeyConfig for optimistic concurrency control.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
 }

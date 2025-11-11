@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for error_document in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketWebsiteConfigurationErrorDocumentBlock
+public partial class AwsS3BucketWebsiteConfigurationErrorDocumentBlock : TerraformBlockBase
 {
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformPropertyName("key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Key { get; set; }
 
 }
@@ -22,14 +22,14 @@ public class AwsS3BucketWebsiteConfigurationErrorDocumentBlock
 /// Block type for index_document in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketWebsiteConfigurationIndexDocumentBlock
+public partial class AwsS3BucketWebsiteConfigurationIndexDocumentBlock : TerraformBlockBase
 {
     /// <summary>
     /// The suffix attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Suffix is required")]
-    [TerraformPropertyName("suffix")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("suffix")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Suffix { get; set; }
 
 }
@@ -38,21 +38,21 @@ public class AwsS3BucketWebsiteConfigurationIndexDocumentBlock
 /// Block type for redirect_all_requests_to in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock
+public partial class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock : TerraformBlockBase
 {
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    [TerraformPropertyName("host_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("host_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HostName { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    [TerraformPropertyName("protocol")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("protocol")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Protocol { get; set; }
 
 }
@@ -61,7 +61,7 @@ public class AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock
 /// Block type for routing_rule in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketWebsiteConfigurationRoutingRuleBlock
+public partial class AwsS3BucketWebsiteConfigurationRoutingRuleBlock : TerraformBlockBase
 {
 }
 
@@ -69,7 +69,7 @@ public class AwsS3BucketWebsiteConfigurationRoutingRuleBlock
 /// Manages a aws_s3_bucket_website_configuration resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsS3BucketWebsiteConfiguration : TerraformResource
+public partial class AwsS3BucketWebsiteConfiguration : TerraformResource
 {
     public AwsS3BucketWebsiteConfiguration(string name) : base("aws_s3_bucket_website_configuration", name)
     {
@@ -79,44 +79,44 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    [TerraformPropertyName("bucket")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    [TerraformPropertyName("expected_bucket_owner")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expected_bucket_owner")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The routing_rules attribute.
     /// </summary>
-    [TerraformPropertyName("routing_rules")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> RoutingRules { get; set; } = default!;
+    [TerraformProperty("routing_rules")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> RoutingRules { get; set; }
 
     /// <summary>
     /// Block for error_document.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ErrorDocument block(s) allowed")]
-    [TerraformPropertyName("error_document")]
+    [TerraformProperty("error_document")]
     public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationErrorDocumentBlock>>? ErrorDocument { get; set; }
 
     /// <summary>
@@ -124,7 +124,7 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexDocument block(s) allowed")]
-    [TerraformPropertyName("index_document")]
+    [TerraformProperty("index_document")]
     public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationIndexDocumentBlock>>? IndexDocument { get; set; }
 
     /// <summary>
@@ -132,28 +132,28 @@ public class AwsS3BucketWebsiteConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RedirectAllRequestsTo block(s) allowed")]
-    [TerraformPropertyName("redirect_all_requests_to")]
+    [TerraformProperty("redirect_all_requests_to")]
     public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationRedirectAllRequestsToBlock>>? RedirectAllRequestsTo { get; set; }
 
     /// <summary>
     /// Block for routing_rule.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("routing_rule")]
+    [TerraformProperty("routing_rule")]
     public TerraformList<TerraformBlock<AwsS3BucketWebsiteConfigurationRoutingRuleBlock>>? RoutingRule { get; set; }
 
     /// <summary>
     /// The website_domain attribute.
     /// </summary>
-    [TerraformPropertyName("website_domain")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WebsiteDomain => new TerraformReference(this, "website_domain");
+    [TerraformProperty("website_domain")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WebsiteDomain { get; }
 
     /// <summary>
     /// The website_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("website_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WebsiteEndpoint => new TerraformReference(this, "website_endpoint");
+    [TerraformProperty("website_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WebsiteEndpoint { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_opensearchserverless_collection.
 /// </summary>
-public class AwsOpensearchserverlessCollectionDataSource : TerraformDataSource
+public partial class AwsOpensearchserverlessCollectionDataSource : TerraformDataSource
 {
     public AwsOpensearchserverlessCollectionDataSource(string name) : base("aws_opensearchserverless_collection", name)
     {
@@ -14,106 +14,106 @@ public class AwsOpensearchserverlessCollectionDataSource : TerraformDataSource
     /// <summary>
     /// ID of the collection.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the collection.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
     /// </summary>
-    [TerraformPropertyName("collection_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CollectionEndpoint => new TerraformReference(this, "collection_endpoint");
+    [TerraformProperty("collection_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CollectionEndpoint { get; }
 
     /// <summary>
     /// Date the Collection was created.
     /// </summary>
-    [TerraformPropertyName("created_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedDate => new TerraformReference(this, "created_date");
+    [TerraformProperty("created_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// Collection-specific endpoint used to access OpenSearch Dashboards.
     /// </summary>
-    [TerraformPropertyName("dashboard_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DashboardEndpoint => new TerraformReference(this, "dashboard_endpoint");
+    [TerraformProperty("dashboard_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DashboardEndpoint { get; }
 
     /// <summary>
     /// Description of the collection.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// A failure code associated with the collection.
     /// </summary>
-    [TerraformPropertyName("failure_code")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FailureCode => new TerraformReference(this, "failure_code");
+    [TerraformProperty("failure_code")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FailureCode { get; }
 
     /// <summary>
     /// A failure reason associated with the collection.
     /// </summary>
-    [TerraformPropertyName("failure_message")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FailureMessage => new TerraformReference(this, "failure_message");
+    [TerraformProperty("failure_message")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FailureMessage { get; }
 
     /// <summary>
     /// The ARN of the Amazon Web Services KMS key used to encrypt the collection.
     /// </summary>
-    [TerraformPropertyName("kms_key_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KmsKeyArn => new TerraformReference(this, "kms_key_arn");
+    [TerraformProperty("kms_key_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KmsKeyArn { get; }
 
     /// <summary>
     /// Date the Collection was last modified.
     /// </summary>
-    [TerraformPropertyName("last_modified_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModifiedDate => new TerraformReference(this, "last_modified_date");
+    [TerraformProperty("last_modified_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModifiedDate { get; }
 
     /// <summary>
     /// Indicates whether standby replicas should be used for a collection.
     /// </summary>
-    [TerraformPropertyName("standby_replicas")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StandbyReplicas => new TerraformReference(this, "standby_replicas");
+    [TerraformProperty("standby_replicas")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StandbyReplicas { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// Type of collection.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
 }

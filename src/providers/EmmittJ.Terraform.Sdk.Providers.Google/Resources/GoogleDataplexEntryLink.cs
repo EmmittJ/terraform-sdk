@@ -6,30 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for entry_references in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataplexEntryLinkEntryReferencesBlock
+public partial class GoogleDataplexEntryLinkEntryReferencesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The relative resource name of the referenced Entry, of the form:
     /// projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The path in the Entry that is referenced in the Entry Link.
     /// Empty path denotes that the Entry itself is referenced in the Entry Link.
     /// </summary>
-    [TerraformPropertyName("path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The reference type of the Entry. Possible values: [&amp;quot;SOURCE&amp;quot;, &amp;quot;TARGET&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
 }
@@ -38,20 +38,20 @@ public class GoogleDataplexEntryLinkEntryReferencesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataplexEntryLinkTimeoutsBlock
+public partial class GoogleDataplexEntryLinkTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -60,7 +60,7 @@ public class GoogleDataplexEntryLinkTimeoutsBlock
 /// Manages a google_dataplex_entry_link resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleDataplexEntryLink : TerraformResource
+public partial class GoogleDataplexEntryLink : TerraformResource
 {
     public GoogleDataplexEntryLink(string name) : base("google_dataplex_entry_link", name)
     {
@@ -70,16 +70,16 @@ public class GoogleDataplexEntryLink : TerraformResource
     /// The id of the entry group this entry link is in.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryGroupId is required")]
-    [TerraformPropertyName("entry_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("entry_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EntryGroupId { get; set; }
 
     /// <summary>
     /// The id of the entry link to create.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryLinkId is required")]
-    [TerraformPropertyName("entry_link_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("entry_link_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EntryLinkId { get; set; }
 
     /// <summary>
@@ -87,31 +87,31 @@ public class GoogleDataplexEntryLink : TerraformResource
     /// projects/dataplex-types/locations/global/entryLinkTypes/definition
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryLinkType is required")]
-    [TerraformPropertyName("entry_link_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("entry_link_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EntryLinkType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the entry.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for entry_references.
@@ -119,36 +119,36 @@ public class GoogleDataplexEntryLink : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntryReferences is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EntryReferences block(s) required")]
-    [TerraformPropertyName("entry_references")]
+    [TerraformProperty("entry_references")]
     public TerraformList<TerraformBlock<GoogleDataplexEntryLinkEntryReferencesBlock>>? EntryReferences { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDataplexEntryLinkTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time when the Entry Link was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The relative resource name of the Entry Link, of the form:
     /// projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entryLinks/{entry_link_id}
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The time when the Entry Link was last updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

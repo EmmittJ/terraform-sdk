@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeSyncAuthorizationTimeoutsBlock
+public partial class GoogleApigeeSyncAuthorizationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleApigeeSyncAuthorizationTimeoutsBlock
 /// <summary>
 /// Manages a google_apigee_sync_authorization resource.
 /// </summary>
-public class GoogleApigeeSyncAuthorization : TerraformResource
+public partial class GoogleApigeeSyncAuthorization : TerraformResource
 {
     public GoogleApigeeSyncAuthorization(string name) : base("google_apigee_sync_authorization", name)
     {
@@ -43,9 +43,9 @@ public class GoogleApigeeSyncAuthorization : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Array of service accounts to grant access to control plane resources, each specified using the following format: &#39;serviceAccount:service-account-name&#39;.
@@ -57,31 +57,31 @@ public class GoogleApigeeSyncAuthorization : TerraformResource
     /// The service accounts must have **Apigee Synchronizer Manager** role. See also [Create service accounts](https://cloud.google.com/apigee/docs/hybrid/v1.8/sa-about#create-the-service-accounts).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identities is required")]
-    [TerraformPropertyName("identities")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("identities")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Identities { get; set; }
 
     /// <summary>
     /// Name of the Apigee organization.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleApigeeSyncAuthorizationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Entity tag (ETag) used for optimistic concurrency control as a way to help prevent simultaneous updates from overwriting each other.
     /// Used internally during updates.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
 }

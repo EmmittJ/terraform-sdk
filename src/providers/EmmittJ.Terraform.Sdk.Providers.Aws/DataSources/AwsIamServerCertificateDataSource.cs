@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_iam_server_certificate.
 /// </summary>
-public class AwsIamServerCertificateDataSource : TerraformDataSource
+public partial class AwsIamServerCertificateDataSource : TerraformDataSource
 {
     public AwsIamServerCertificateDataSource(string name) : base("aws_iam_server_certificate", name)
     {
@@ -14,78 +14,78 @@ public class AwsIamServerCertificateDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The latest attribute.
     /// </summary>
-    [TerraformPropertyName("latest")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("latest")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Latest { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NamePrefix { get; set; }
 
     /// <summary>
     /// The path_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("path_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("path_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PathPrefix { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The certificate_body attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_body")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CertificateBody => new TerraformReference(this, "certificate_body");
+    [TerraformProperty("certificate_body")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CertificateBody { get; }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_chain")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CertificateChain => new TerraformReference(this, "certificate_chain");
+    [TerraformProperty("certificate_chain")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CertificateChain { get; }
 
     /// <summary>
     /// The expiration_date attribute.
     /// </summary>
-    [TerraformPropertyName("expiration_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExpirationDate => new TerraformReference(this, "expiration_date");
+    [TerraformProperty("expiration_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExpirationDate { get; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformPropertyName("path")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Path => new TerraformReference(this, "path");
+    [TerraformProperty("path")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Path { get; }
 
     /// <summary>
     /// The upload_date attribute.
     /// </summary>
-    [TerraformPropertyName("upload_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UploadDate => new TerraformReference(this, "upload_date");
+    [TerraformProperty("upload_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UploadDate { get; }
 
 }

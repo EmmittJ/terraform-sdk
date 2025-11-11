@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for magnetic_store_write_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTimestreamwriteTableMagneticStoreWritePropertiesBlock
+public partial class AwsTimestreamwriteTableMagneticStoreWritePropertiesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enable_magnetic_store_writes attribute.
     /// </summary>
-    [TerraformPropertyName("enable_magnetic_store_writes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_magnetic_store_writes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableMagneticStoreWrites { get; set; }
 
 }
@@ -21,22 +21,22 @@ public class AwsTimestreamwriteTableMagneticStoreWritePropertiesBlock
 /// Block type for retention_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTimestreamwriteTableRetentionPropertiesBlock
+public partial class AwsTimestreamwriteTableRetentionPropertiesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The magnetic_store_retention_period_in_days attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MagneticStoreRetentionPeriodInDays is required")]
-    [TerraformPropertyName("magnetic_store_retention_period_in_days")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("magnetic_store_retention_period_in_days")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MagneticStoreRetentionPeriodInDays { get; set; }
 
     /// <summary>
     /// The memory_store_retention_period_in_hours attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MemoryStoreRetentionPeriodInHours is required")]
-    [TerraformPropertyName("memory_store_retention_period_in_hours")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("memory_store_retention_period_in_hours")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MemoryStoreRetentionPeriodInHours { get; set; }
 
 }
@@ -45,7 +45,7 @@ public class AwsTimestreamwriteTableRetentionPropertiesBlock
 /// Block type for schema in .
 /// Nesting mode: list
 /// </summary>
-public class AwsTimestreamwriteTableSchemaBlock
+public partial class AwsTimestreamwriteTableSchemaBlock : TerraformBlockBase
 {
 }
 
@@ -53,7 +53,7 @@ public class AwsTimestreamwriteTableSchemaBlock
 /// Manages a aws_timestreamwrite_table resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsTimestreamwriteTable : TerraformResource
+public partial class AwsTimestreamwriteTable : TerraformResource
 {
     public AwsTimestreamwriteTable(string name) : base("aws_timestreamwrite_table", name)
     {
@@ -63,52 +63,52 @@ public class AwsTimestreamwriteTable : TerraformResource
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    [TerraformPropertyName("database_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("database_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TableName is required")]
-    [TerraformPropertyName("table_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("table_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TableName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for magnetic_store_write_properties.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MagneticStoreWriteProperties block(s) allowed")]
-    [TerraformPropertyName("magnetic_store_write_properties")]
+    [TerraformProperty("magnetic_store_write_properties")]
     public TerraformList<TerraformBlock<AwsTimestreamwriteTableMagneticStoreWritePropertiesBlock>>? MagneticStoreWriteProperties { get; set; }
 
     /// <summary>
@@ -116,7 +116,7 @@ public class AwsTimestreamwriteTable : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionProperties block(s) allowed")]
-    [TerraformPropertyName("retention_properties")]
+    [TerraformProperty("retention_properties")]
     public TerraformList<TerraformBlock<AwsTimestreamwriteTableRetentionPropertiesBlock>>? RetentionProperties { get; set; }
 
     /// <summary>
@@ -124,14 +124,14 @@ public class AwsTimestreamwriteTable : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schema block(s) allowed")]
-    [TerraformPropertyName("schema")]
+    [TerraformProperty("schema")]
     public TerraformList<TerraformBlock<AwsTimestreamwriteTableSchemaBlock>>? Schema { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

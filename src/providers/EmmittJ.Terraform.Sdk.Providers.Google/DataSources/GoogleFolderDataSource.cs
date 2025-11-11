@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_folder.
 /// </summary>
-public class GoogleFolderDataSource : TerraformDataSource
+public partial class GoogleFolderDataSource : TerraformDataSource
 {
     public GoogleFolderDataSource(string name) : base("google_folder", name)
     {
@@ -15,92 +15,92 @@ public class GoogleFolderDataSource : TerraformDataSource
     /// The folder attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Folder is required")]
-    [TerraformPropertyName("folder")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("folder")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Folder { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The lookup_organization attribute.
     /// </summary>
-    [TerraformPropertyName("lookup_organization")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("lookup_organization")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LookupOrganization { get; set; }
 
     /// <summary>
     /// The configured_capabilities attribute.
     /// </summary>
-    [TerraformPropertyName("configured_capabilities")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ConfiguredCapabilities => new TerraformReference(this, "configured_capabilities");
+    [TerraformProperty("configured_capabilities")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ConfiguredCapabilities { get; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The deletion_protection attribute.
     /// </summary>
-    [TerraformPropertyName("deletion_protection")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DeletionProtection => new TerraformReference(this, "deletion_protection");
+    [TerraformProperty("deletion_protection")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The folder_id attribute.
     /// </summary>
-    [TerraformPropertyName("folder_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FolderId => new TerraformReference(this, "folder_id");
+    [TerraformProperty("folder_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FolderId { get; }
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
-    [TerraformPropertyName("lifecycle_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LifecycleState => new TerraformReference(this, "lifecycle_state");
+    [TerraformProperty("lifecycle_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LifecycleState { get; }
 
     /// <summary>
     /// The management_project attribute.
     /// </summary>
-    [TerraformPropertyName("management_project")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ManagementProject => new TerraformReference(this, "management_project");
+    [TerraformProperty("management_project")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ManagementProject { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The organization attribute.
     /// </summary>
-    [TerraformPropertyName("organization")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Organization => new TerraformReference(this, "organization");
+    [TerraformProperty("organization")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Organization { get; }
 
     /// <summary>
     /// The parent attribute.
     /// </summary>
-    [TerraformPropertyName("parent")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Parent => new TerraformReference(this, "parent");
+    [TerraformProperty("parent")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Parent { get; }
 
 }

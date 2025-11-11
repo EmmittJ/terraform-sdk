@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for preserved_state in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionPerInstanceConfigPreservedStateBlock
+public partial class GoogleComputeRegionPerInstanceConfigPreservedStateBlock : TerraformBlockBase
 {
     /// <summary>
     /// Preserved metadata defined for this instance. This is a list of key-&amp;gt;value pairs.
     /// </summary>
-    [TerraformPropertyName("metadata")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("metadata")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Metadata { get; set; }
 
 }
@@ -21,27 +21,27 @@ public class GoogleComputeRegionPerInstanceConfigPreservedStateBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRegionPerInstanceConfigTimeoutsBlock
+public partial class GoogleComputeRegionPerInstanceConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -50,7 +50,7 @@ public class GoogleComputeRegionPerInstanceConfigTimeoutsBlock
 /// Manages a google_compute_region_per_instance_config resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputeRegionPerInstanceConfig : TerraformResource
+public partial class GoogleComputeRegionPerInstanceConfig : TerraformResource
 {
     public GoogleComputeRegionPerInstanceConfig(string name) : base("google_compute_region_per_instance_config", name)
     {
@@ -59,9 +59,9 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The minimal action to perform on the instance during an update.
@@ -71,8 +71,8 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     /// * REFRESH
     /// * NONE
     /// </summary>
-    [TerraformPropertyName("minimal_action")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("minimal_action")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MinimalAction { get; set; }
 
     /// <summary>
@@ -83,46 +83,46 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     /// * REFRESH
     /// * NONE
     /// </summary>
-    [TerraformPropertyName("most_disruptive_allowed_action")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("most_disruptive_allowed_action")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MostDisruptiveAllowedAction { get; set; }
 
     /// <summary>
     /// The name for this per-instance config and its corresponding instance.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Region where the containing instance group manager is located
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The region instance group manager this instance config is part of.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RegionInstanceGroupManager is required")]
-    [TerraformPropertyName("region_instance_group_manager")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("region_instance_group_manager")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RegionInstanceGroupManager { get; set; }
 
     /// <summary>
     /// When true, deleting this config will immediately remove the underlying instance.
     /// When false, deleting this config will use the behavior as determined by remove_instance_on_destroy.
     /// </summary>
-    [TerraformPropertyName("remove_instance_on_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("remove_instance_on_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? RemoveInstanceOnDestroy { get; set; }
 
     /// <summary>
@@ -130,8 +130,8 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     /// When false, deleting this config will *not* immediately remove any state from the underlying instance.
     /// State will be removed on the next instance recreation or update.
     /// </summary>
-    [TerraformPropertyName("remove_instance_state_on_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("remove_instance_state_on_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? RemoveInstanceStateOnDestroy { get; set; }
 
     /// <summary>
@@ -139,14 +139,14 @@ public class GoogleComputeRegionPerInstanceConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreservedState block(s) allowed")]
-    [TerraformPropertyName("preserved_state")]
+    [TerraformProperty("preserved_state")]
     public TerraformList<TerraformBlock<GoogleComputeRegionPerInstanceConfigPreservedStateBlock>>? PreservedState { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeRegionPerInstanceConfigTimeoutsBlock>? Timeouts { get; set; }
 
 }

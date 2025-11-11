@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_container_engine_versions.
 /// </summary>
-public class GoogleContainerEngineVersionsDataSource : TerraformDataSource
+public partial class GoogleContainerEngineVersionsDataSource : TerraformDataSource
 {
     public GoogleContainerEngineVersionsDataSource(string name) : base("google_container_engine_versions", name)
     {
@@ -14,85 +14,85 @@ public class GoogleContainerEngineVersionsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The version_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("version_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VersionPrefix { get; set; }
 
     /// <summary>
     /// The default_cluster_version attribute.
     /// </summary>
-    [TerraformPropertyName("default_cluster_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultClusterVersion => new TerraformReference(this, "default_cluster_version");
+    [TerraformProperty("default_cluster_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultClusterVersion { get; }
 
     /// <summary>
     /// The latest_master_version attribute.
     /// </summary>
-    [TerraformPropertyName("latest_master_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LatestMasterVersion => new TerraformReference(this, "latest_master_version");
+    [TerraformProperty("latest_master_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LatestMasterVersion { get; }
 
     /// <summary>
     /// The latest_node_version attribute.
     /// </summary>
-    [TerraformPropertyName("latest_node_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LatestNodeVersion => new TerraformReference(this, "latest_node_version");
+    [TerraformProperty("latest_node_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LatestNodeVersion { get; }
 
     /// <summary>
     /// The release_channel_default_version attribute.
     /// </summary>
-    [TerraformPropertyName("release_channel_default_version")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> ReleaseChannelDefaultVersion => new TerraformReference(this, "release_channel_default_version");
+    [TerraformProperty("release_channel_default_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> ReleaseChannelDefaultVersion { get; }
 
     /// <summary>
     /// The release_channel_latest_version attribute.
     /// </summary>
-    [TerraformPropertyName("release_channel_latest_version")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> ReleaseChannelLatestVersion => new TerraformReference(this, "release_channel_latest_version");
+    [TerraformProperty("release_channel_latest_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> ReleaseChannelLatestVersion { get; }
 
     /// <summary>
     /// The release_channel_upgrade_target_version attribute.
     /// </summary>
-    [TerraformPropertyName("release_channel_upgrade_target_version")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> ReleaseChannelUpgradeTargetVersion => new TerraformReference(this, "release_channel_upgrade_target_version");
+    [TerraformProperty("release_channel_upgrade_target_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> ReleaseChannelUpgradeTargetVersion { get; }
 
     /// <summary>
     /// The valid_master_versions attribute.
     /// </summary>
-    [TerraformPropertyName("valid_master_versions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ValidMasterVersions => new TerraformReference(this, "valid_master_versions");
+    [TerraformProperty("valid_master_versions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ValidMasterVersions { get; }
 
     /// <summary>
     /// The valid_node_versions attribute.
     /// </summary>
-    [TerraformPropertyName("valid_node_versions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ValidNodeVersions => new TerraformReference(this, "valid_node_versions");
+    [TerraformProperty("valid_node_versions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ValidNodeVersions { get; }
 
 }

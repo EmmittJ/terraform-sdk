@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock
+public partial class AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_healthcare_medtech_service.
 /// </summary>
-public class AzurermHealthcareMedtechServiceDataSource : TerraformDataSource
+public partial class AzurermHealthcareMedtechServiceDataSource : TerraformDataSource
 {
     public AzurermHealthcareMedtechServiceDataSource(string name) : base("azurerm_healthcare_medtech_service", name)
     {
@@ -29,66 +29,66 @@ public class AzurermHealthcareMedtechServiceDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformPropertyName("workspace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("workspace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermHealthcareMedtechServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The device_mapping_json attribute.
     /// </summary>
-    [TerraformPropertyName("device_mapping_json")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeviceMappingJson => new TerraformReference(this, "device_mapping_json");
+    [TerraformProperty("device_mapping_json")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeviceMappingJson { get; }
 
     /// <summary>
     /// The eventhub_consumer_group_name attribute.
     /// </summary>
-    [TerraformPropertyName("eventhub_consumer_group_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EventhubConsumerGroupName => new TerraformReference(this, "eventhub_consumer_group_name");
+    [TerraformProperty("eventhub_consumer_group_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EventhubConsumerGroupName { get; }
 
     /// <summary>
     /// The eventhub_name attribute.
     /// </summary>
-    [TerraformPropertyName("eventhub_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EventhubName => new TerraformReference(this, "eventhub_name");
+    [TerraformProperty("eventhub_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EventhubName { get; }
 
     /// <summary>
     /// The eventhub_namespace_name attribute.
     /// </summary>
-    [TerraformPropertyName("eventhub_namespace_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EventhubNamespaceName => new TerraformReference(this, "eventhub_namespace_name");
+    [TerraformProperty("eventhub_namespace_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EventhubNamespaceName { get; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    [TerraformPropertyName("identity")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Identity => new TerraformReference(this, "identity");
+    [TerraformProperty("identity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Identity { get; }
 
 }

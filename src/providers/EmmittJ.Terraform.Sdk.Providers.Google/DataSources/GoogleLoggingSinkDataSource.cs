@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_logging_sink.
 /// </summary>
-public class GoogleLoggingSinkDataSource : TerraformDataSource
+public partial class GoogleLoggingSinkDataSource : TerraformDataSource
 {
     public GoogleLoggingSinkDataSource(string name) : base("google_logging_sink", name)
     {
@@ -15,64 +15,64 @@ public class GoogleLoggingSinkDataSource : TerraformDataSource
     /// Required. An identifier for the resource in format: &amp;quot;projects/[PROJECT_ID]/sinks/[SINK_NAME]&amp;quot;, &amp;quot;organizations/[ORGANIZATION_ID]/sinks/[SINK_NAME]&amp;quot;, &amp;quot;billingAccounts/[BILLING_ACCOUNT_ID]/sinks/[SINK_NAME]&amp;quot;, &amp;quot;folders/[FOLDER_ID]/sinks/[SINK_NAME]&amp;quot;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Options that affect sinks exporting data to BigQuery.
     /// </summary>
-    [TerraformPropertyName("bigquery_options")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> BigqueryOptions => new TerraformReference(this, "bigquery_options");
+    [TerraformProperty("bigquery_options")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> BigqueryOptions { get; }
 
     /// <summary>
     /// A description of this sink. The maximum length of the description is 8000 characters.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The destination of the sink (or, in other words, where logs are written to). Can be a Cloud Storage bucket, a PubSub topic, or a BigQuery dataset. Examples: &amp;quot;storage.googleapis.com/[GCS_BUCKET]&amp;quot; &amp;quot;bigquery.googleapis.com/projects/[PROJECT_ID]/datasets/[DATASET]&amp;quot; &amp;quot;pubsub.googleapis.com/projects/[PROJECT_ID]/topics/[TOPIC_ID]&amp;quot; The writer associated with the sink must have access to write to the above resource.
     /// </summary>
-    [TerraformPropertyName("destination")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Destination => new TerraformReference(this, "destination");
+    [TerraformProperty("destination")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Destination { get; }
 
     /// <summary>
     /// If set to True, then this sink is disabled and it does not export any log entries.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Disabled => new TerraformReference(this, "disabled");
+    [TerraformProperty("disabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Disabled { get; }
 
     /// <summary>
     /// Log entries that match any of the exclusion filters will not be exported. If a log entry is matched by both filter and one of exclusion&#39;s filters, it will not be exported.
     /// </summary>
-    [TerraformPropertyName("exclusions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Exclusions => new TerraformReference(this, "exclusions");
+    [TerraformProperty("exclusions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Exclusions { get; }
 
     /// <summary>
     /// The filter to apply when exporting logs. Only log entries that match the filter are exported.
     /// </summary>
-    [TerraformPropertyName("filter")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Filter => new TerraformReference(this, "filter");
+    [TerraformProperty("filter")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Filter { get; }
 
     /// <summary>
     /// The name of the logging sink.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The identity associated with this sink. This identity must be granted write access to the configured destination.
     /// </summary>
-    [TerraformPropertyName("writer_identity")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WriterIdentity => new TerraformReference(this, "writer_identity");
+    [TerraformProperty("writer_identity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WriterIdentity { get; }
 
 }

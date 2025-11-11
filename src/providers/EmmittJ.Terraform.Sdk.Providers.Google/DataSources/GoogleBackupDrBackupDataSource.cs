@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_backup_dr_backup.
 /// </summary>
-public class GoogleBackupDrBackupDataSource : TerraformDataSource
+public partial class GoogleBackupDrBackupDataSource : TerraformDataSource
 {
     public GoogleBackupDrBackupDataSource(string name) : base("google_backup_dr_backup", name)
     {
@@ -15,60 +15,60 @@ public class GoogleBackupDrBackupDataSource : TerraformDataSource
     /// The backup_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVaultId is required")]
-    [TerraformPropertyName("backup_vault_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("backup_vault_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BackupVaultId { get; set; }
 
     /// <summary>
     /// The data_source_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataSourceId is required")]
-    [TerraformPropertyName("data_source_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data_source_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DataSourceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
-    [TerraformPropertyName("project")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("project")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// List of all backups under data source.
     /// </summary>
-    [TerraformPropertyName("backups")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Backups => new TerraformReference(this, "backups");
+    [TerraformProperty("backups")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Backups { get; }
 
     /// <summary>
     /// The time when the backup was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Name of resource
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

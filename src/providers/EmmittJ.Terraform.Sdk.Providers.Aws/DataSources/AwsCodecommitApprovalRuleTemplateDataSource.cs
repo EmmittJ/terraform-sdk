@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_codecommit_approval_rule_template.
 /// </summary>
-public class AwsCodecommitApprovalRuleTemplateDataSource : TerraformDataSource
+public partial class AwsCodecommitApprovalRuleTemplateDataSource : TerraformDataSource
 {
     public AwsCodecommitApprovalRuleTemplateDataSource(string name) : base("aws_codecommit_approval_rule_template", name)
     {
@@ -14,72 +14,72 @@ public class AwsCodecommitApprovalRuleTemplateDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The approval_rule_template_id attribute.
     /// </summary>
-    [TerraformPropertyName("approval_rule_template_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ApprovalRuleTemplateId => new TerraformReference(this, "approval_rule_template_id");
+    [TerraformProperty("approval_rule_template_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ApprovalRuleTemplateId { get; }
 
     /// <summary>
     /// The content attribute.
     /// </summary>
-    [TerraformPropertyName("content")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Content => new TerraformReference(this, "content");
+    [TerraformProperty("content")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Content { get; }
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
-    [TerraformPropertyName("creation_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationDate => new TerraformReference(this, "creation_date");
+    [TerraformProperty("creation_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationDate { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The last_modified_date attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModifiedDate => new TerraformReference(this, "last_modified_date");
+    [TerraformProperty("last_modified_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModifiedDate { get; }
 
     /// <summary>
     /// The last_modified_user attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified_user")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModifiedUser => new TerraformReference(this, "last_modified_user");
+    [TerraformProperty("last_modified_user")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModifiedUser { get; }
 
     /// <summary>
     /// The rule_content_sha256 attribute.
     /// </summary>
-    [TerraformPropertyName("rule_content_sha256")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RuleContentSha256 => new TerraformReference(this, "rule_content_sha256");
+    [TerraformProperty("rule_content_sha256")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RuleContentSha256 { get; }
 
 }

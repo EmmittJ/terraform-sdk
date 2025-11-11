@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for certificate_authority_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock
+public partial class GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthori
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock
+public partial class GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock
 /// Manages a google_certificate_manager_certificate_issuance_config resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResource
+public partial class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResource
 {
     public GoogleCertificateManagerCertificateIssuanceConfig(string name) : base("google_certificate_manager_certificate_issuance_config", name)
     {
@@ -52,23 +52,23 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// <summary>
     /// One or more paragraphs of text description of a CertificateIssuanceConfig.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Key algorithm to use when generating the private key. Possible values: [&amp;quot;RSA_2048&amp;quot;, &amp;quot;ECDSA_P256&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyAlgorithm is required")]
-    [TerraformPropertyName("key_algorithm")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_algorithm")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyAlgorithm { get; set; }
 
     /// <summary>
@@ -79,8 +79,8 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -88,15 +88,15 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// Example: &amp;quot;1814400s&amp;quot;. Valid values are from 21 days (1814400s) to 30 days (2592000s)
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Lifetime is required")]
-    [TerraformPropertyName("lifetime")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("lifetime")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Lifetime { get; set; }
 
     /// <summary>
     /// The Certificate Manager location. If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
@@ -104,16 +104,16 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// CertificateIssuanceConfig names must be unique globally.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// It specifies the percentage of elapsed time of the certificate lifetime to wait before renewing the certificate.
@@ -122,8 +122,8 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// the certificate has been issued and at least 7 days before it expires.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RotationWindowPercentage is required")]
-    [TerraformPropertyName("rotation_window_percentage")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("rotation_window_percentage")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> RotationWindowPercentage { get; set; }
 
     /// <summary>
@@ -133,14 +133,14 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateAuthorityConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CertificateAuthorityConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CertificateAuthorityConfig block(s) allowed")]
-    [TerraformPropertyName("certificate_authority_config")]
+    [TerraformProperty("certificate_authority_config")]
     public TerraformList<TerraformBlock<GoogleCertificateManagerCertificateIssuanceConfigCertificateAuthorityConfigBlock>>? CertificateAuthorityConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleCertificateManagerCertificateIssuanceConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -148,32 +148,32 @@ public class GoogleCertificateManagerCertificateIssuanceConfig : TerraformResour
     /// accurate to nanoseconds with up to nine fractional digits.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The last update timestamp of a CertificateIssuanceConfig. Timestamp is in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
     /// accurate to nanoseconds with up to nine fractional digits.
     /// Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

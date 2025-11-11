@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_vpc_access_connector.
 /// </summary>
-public class GoogleVpcAccessConnectorDataSource : TerraformDataSource
+public partial class GoogleVpcAccessConnectorDataSource : TerraformDataSource
 {
     public GoogleVpcAccessConnectorDataSource(string name) : base("google_vpc_access_connector", name)
     {
@@ -14,113 +14,113 @@ public class GoogleVpcAccessConnectorDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the resource (Max 25 characters).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// Region where the VPC Access connector resides. If it is not provided, the provider region is used.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// List of projects using the connector.
     /// </summary>
-    [TerraformPropertyName("connected_projects")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ConnectedProjects => new TerraformReference(this, "connected_projects");
+    [TerraformProperty("connected_projects")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ConnectedProjects { get; }
 
     /// <summary>
     /// The range of internal addresses that follows RFC 4632 notation. Example: &#39;10.132.0.0/28&#39;.
     /// </summary>
-    [TerraformPropertyName("ip_cidr_range")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IpCidrRange => new TerraformReference(this, "ip_cidr_range");
+    [TerraformProperty("ip_cidr_range")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IpCidrRange { get; }
 
     /// <summary>
     /// Machine type of VM Instance underlying connector. Default is e2-micro
     /// </summary>
-    [TerraformPropertyName("machine_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> MachineType => new TerraformReference(this, "machine_type");
+    [TerraformProperty("machine_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> MachineType { get; }
 
     /// <summary>
     /// Maximum value of instances in autoscaling group underlying the connector. Value must be between 3 and 10, inclusive. Must be
     /// higher than the value specified by min_instances. Required alongside &#39;min_instances&#39; if not using &#39;min_throughput&#39;/&#39;max_throughput&#39;.
     /// </summary>
-    [TerraformPropertyName("max_instances")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaxInstances => new TerraformReference(this, "max_instances");
+    [TerraformProperty("max_instances")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaxInstances { get; }
 
     /// <summary>
     /// Maximum throughput of the connector in Mbps, must be greater than &#39;min_throughput&#39;. Default is 300. Refers to the expected throughput
     /// when using an e2-micro machine type. Value must be a multiple of 100 from 300 through 1000. Must be higher than the value specified by
     /// min_throughput. Only one of &#39;max_throughput&#39; and &#39;max_instances&#39; can be specified. The use of max_throughput is discouraged in favor of max_instances.
     /// </summary>
-    [TerraformPropertyName("max_throughput")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaxThroughput => new TerraformReference(this, "max_throughput");
+    [TerraformProperty("max_throughput")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaxThroughput { get; }
 
     /// <summary>
     /// Minimum value of instances in autoscaling group underlying the connector. Value must be between 2 and 9, inclusive. Must be
     /// lower than the value specified by max_instances. Required alongside &#39;max_instances&#39; if not using &#39;min_throughput&#39;/&#39;max_throughput&#39;.
     /// </summary>
-    [TerraformPropertyName("min_instances")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MinInstances => new TerraformReference(this, "min_instances");
+    [TerraformProperty("min_instances")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MinInstances { get; }
 
     /// <summary>
     /// Minimum throughput of the connector in Mbps. Default and min is 200. Refers to the expected throughput when using an e2-micro machine type.
     /// Value must be a multiple of 100 from 200 through 900. Must be lower than the value specified by max_throughput.
     /// Only one of &#39;min_throughput&#39; and &#39;min_instances&#39; can be specified. The use of min_throughput is discouraged in favor of min_instances.
     /// </summary>
-    [TerraformPropertyName("min_throughput")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MinThroughput => new TerraformReference(this, "min_throughput");
+    [TerraformProperty("min_throughput")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MinThroughput { get; }
 
     /// <summary>
     /// Name or self_link of the VPC network. Required if &#39;ip_cidr_range&#39; is set.
     /// </summary>
-    [TerraformPropertyName("network")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Network => new TerraformReference(this, "network");
+    [TerraformProperty("network")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Network { get; }
 
     /// <summary>
     /// The fully qualified name of this VPC connector
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// State of the VPC access connector.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The subnet in which to house the connector
     /// </summary>
-    [TerraformPropertyName("subnet")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Subnet => new TerraformReference(this, "subnet");
+    [TerraformProperty("subnet")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Subnet { get; }
 
 }

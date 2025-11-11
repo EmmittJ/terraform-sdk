@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_oracle_database_cloud_vm_cluster.
 /// </summary>
-public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
+public partial class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
 {
     public GoogleOracleDatabaseCloudVmClusterDataSource(string name) : base("google_oracle_database_cloud_vm_cluster", name)
     {
@@ -18,30 +18,30 @@ public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
     /// a letter or a number.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudVmClusterId is required")]
-    [TerraformPropertyName("cloud_vm_cluster_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cloud_vm_cluster_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CloudVmClusterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. See documentation for resource type &#39;oracledatabase.googleapis.com/DbNode&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
@@ -49,68 +49,68 @@ public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
     /// Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    [TerraformPropertyName("backup_odb_subnet")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BackupOdbSubnet => new TerraformReference(this, "backup_odb_subnet");
+    [TerraformProperty("backup_odb_subnet")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BackupOdbSubnet { get; }
 
     /// <summary>
     /// CIDR range of the backup subnet.
     /// </summary>
-    [TerraformPropertyName("backup_subnet_cidr")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BackupSubnetCidr => new TerraformReference(this, "backup_subnet_cidr");
+    [TerraformProperty("backup_subnet_cidr")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BackupSubnetCidr { get; }
 
     /// <summary>
     /// Network settings. CIDR to use for cluster IP allocation.
     /// </summary>
-    [TerraformPropertyName("cidr")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Cidr => new TerraformReference(this, "cidr");
+    [TerraformProperty("cidr")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Cidr { get; }
 
     /// <summary>
     /// The date and time that the VM cluster was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the cluster. Deleting this cluster via terraform destroy or terraform apply will only succeed if this field is false in the Terraform state.
     /// </summary>
-    [TerraformPropertyName("deletion_protection")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DeletionProtection => new TerraformReference(this, "deletion_protection");
+    [TerraformProperty("deletion_protection")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// User friendly name for this resource.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The name of the Exadata Infrastructure resource on which VM cluster
     /// resource is created, in the following format:
     /// projects/{project}/locations/{region}/cloudExadataInfrastuctures/{cloud_extradata_infrastructure}
     /// </summary>
-    [TerraformPropertyName("exadata_infrastructure")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExadataInfrastructure => new TerraformReference(this, "exadata_infrastructure");
+    [TerraformProperty("exadata_infrastructure")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExadataInfrastructure { get; }
 
     /// <summary>
     /// GCP location where Oracle Exadata is hosted. It is same as GCP Oracle zone
     /// of Exadata infrastructure.
     /// </summary>
-    [TerraformPropertyName("gcp_oracle_zone")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> GcpOracleZone => new TerraformReference(this, "gcp_oracle_zone");
+    [TerraformProperty("gcp_oracle_zone")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> GcpOracleZone { get; }
 
     /// <summary>
     /// Labels or tags associated with the VM Cluster. 
@@ -118,25 +118,25 @@ public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
+    [TerraformProperty("labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// Identifier. The name of the VM Cluster resource with the format:
     /// projects/{project}/locations/{region}/cloudVmClusters/{cloud_vm_cluster}
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The name of the VPC network.
     /// Format: projects/{project}/global/networks/{network}
     /// </summary>
-    [TerraformPropertyName("network")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Network => new TerraformReference(this, "network");
+    [TerraformProperty("network")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Network { get; }
 
     /// <summary>
     /// The name of the OdbNetwork associated with the VM Cluster.
@@ -145,32 +145,32 @@ public class GoogleOracleDatabaseCloudVmClusterDataSource : TerraformDataSource
     /// It is optional but if specified, this should match the parent ODBNetwork of
     /// the odb_subnet and backup_odb_subnet.
     /// </summary>
-    [TerraformPropertyName("odb_network")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OdbNetwork => new TerraformReference(this, "odb_network");
+    [TerraformProperty("odb_network")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OdbNetwork { get; }
 
     /// <summary>
     /// The name of the OdbSubnet associated with the VM Cluster for
     /// IP allocation. Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    [TerraformPropertyName("odb_subnet")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OdbSubnet => new TerraformReference(this, "odb_subnet");
+    [TerraformProperty("odb_subnet")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OdbSubnet { get; }
 
     /// <summary>
     /// Various properties and settings associated with Exadata VM cluster.
     /// </summary>
-    [TerraformPropertyName("properties")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Properties => new TerraformReference(this, "properties");
+    [TerraformProperty("properties")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Properties { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

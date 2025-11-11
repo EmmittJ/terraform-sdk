@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_batch_job_queue.
 /// </summary>
-public class AwsBatchJobQueueDataSource : TerraformDataSource
+public partial class AwsBatchJobQueueDataSource : TerraformDataSource
 {
     public AwsBatchJobQueueDataSource(string name) : base("aws_batch_job_queue", name)
     {
@@ -14,86 +14,86 @@ public class AwsBatchJobQueueDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The compute_environment_order attribute.
     /// </summary>
-    [TerraformPropertyName("compute_environment_order")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ComputeEnvironmentOrder => new TerraformReference(this, "compute_environment_order");
+    [TerraformProperty("compute_environment_order")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ComputeEnvironmentOrder { get; }
 
     /// <summary>
     /// The job_state_time_limit_action attribute.
     /// </summary>
-    [TerraformPropertyName("job_state_time_limit_action")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> JobStateTimeLimitAction => new TerraformReference(this, "job_state_time_limit_action");
+    [TerraformProperty("job_state_time_limit_action")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> JobStateTimeLimitAction { get; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    [TerraformPropertyName("priority")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Priority => new TerraformReference(this, "priority");
+    [TerraformProperty("priority")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Priority { get; }
 
     /// <summary>
     /// The scheduling_policy_arn attribute.
     /// </summary>
-    [TerraformPropertyName("scheduling_policy_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SchedulingPolicyArn => new TerraformReference(this, "scheduling_policy_arn");
+    [TerraformProperty("scheduling_policy_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SchedulingPolicyArn { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
-    [TerraformPropertyName("status_reason")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StatusReason => new TerraformReference(this, "status_reason");
+    [TerraformProperty("status_reason")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StatusReason { get; }
 
 }

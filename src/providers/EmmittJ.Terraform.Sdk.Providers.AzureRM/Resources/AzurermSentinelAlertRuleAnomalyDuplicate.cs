@@ -6,15 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for multi_select_observation in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock
+public partial class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 
@@ -22,8 +22,8 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    [TerraformPropertyName("values")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("values")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Values { get; set; }
 
 }
@@ -32,29 +32,29 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock
 /// Block type for prioritized_exclude_observation in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock
+public partial class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The exclude attribute.
     /// </summary>
-    [TerraformPropertyName("exclude")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("exclude")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Exclude { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The prioritize attribute.
     /// </summary>
-    [TerraformPropertyName("prioritize")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("prioritize")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Prioritize { get; set; }
 
 }
@@ -63,15 +63,15 @@ public class AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservati
 /// Block type for single_select_observation in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock
+public partial class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 
@@ -79,8 +79,8 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBloc
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -89,7 +89,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBloc
 /// Block type for threshold_observation in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock
+public partial class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock : TerraformBlockBase
 {
 
 
@@ -98,16 +98,16 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -116,34 +116,34 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock
+public partial class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -151,7 +151,7 @@ public class AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_sentinel_alert_rule_anomaly_duplicate resource.
 /// </summary>
-public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
+public partial class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
 {
     public AzurermSentinelAlertRuleAnomalyDuplicate(string name) : base("azurerm_sentinel_alert_rule_anomaly_duplicate", name)
     {
@@ -161,152 +161,152 @@ public class AzurermSentinelAlertRuleAnomalyDuplicate : TerraformResource
     /// The built_in_rule_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BuiltInRuleId is required")]
-    [TerraformPropertyName("built_in_rule_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("built_in_rule_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BuiltInRuleId { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The log_analytics_workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogAnalyticsWorkspaceId is required")]
-    [TerraformPropertyName("log_analytics_workspace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("log_analytics_workspace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LogAnalyticsWorkspaceId { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    [TerraformPropertyName("mode")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("mode")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Mode { get; set; }
 
     /// <summary>
     /// Block for multi_select_observation.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("multi_select_observation")]
+    [TerraformProperty("multi_select_observation")]
     public TerraformList<TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicateMultiSelectObservationBlock>>? MultiSelectObservation { get; set; }
 
     /// <summary>
     /// Block for prioritized_exclude_observation.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("prioritized_exclude_observation")]
+    [TerraformProperty("prioritized_exclude_observation")]
     public TerraformList<TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicatePrioritizedExcludeObservationBlock>>? PrioritizedExcludeObservation { get; set; }
 
     /// <summary>
     /// Block for single_select_observation.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("single_select_observation")]
+    [TerraformProperty("single_select_observation")]
     public TerraformList<TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicateSingleSelectObservationBlock>>? SingleSelectObservation { get; set; }
 
     /// <summary>
     /// Block for threshold_observation.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("threshold_observation")]
+    [TerraformProperty("threshold_observation")]
     public TerraformList<TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicateThresholdObservationBlock>>? ThresholdObservation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSentinelAlertRuleAnomalyDuplicateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The anomaly_settings_version attribute.
     /// </summary>
-    [TerraformPropertyName("anomaly_settings_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> AnomalySettingsVersion => new TerraformReference(this, "anomaly_settings_version");
+    [TerraformProperty("anomaly_settings_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> AnomalySettingsVersion { get; }
 
     /// <summary>
     /// The anomaly_version attribute.
     /// </summary>
-    [TerraformPropertyName("anomaly_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AnomalyVersion => new TerraformReference(this, "anomaly_version");
+    [TerraformProperty("anomaly_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AnomalyVersion { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
-    [TerraformPropertyName("frequency")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Frequency => new TerraformReference(this, "frequency");
+    [TerraformProperty("frequency")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Frequency { get; }
 
     /// <summary>
     /// The is_default_settings attribute.
     /// </summary>
-    [TerraformPropertyName("is_default_settings")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> IsDefaultSettings => new TerraformReference(this, "is_default_settings");
+    [TerraformProperty("is_default_settings")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> IsDefaultSettings { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The required_data_connector attribute.
     /// </summary>
-    [TerraformPropertyName("required_data_connector")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> RequiredDataConnector => new TerraformReference(this, "required_data_connector");
+    [TerraformProperty("required_data_connector")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> RequiredDataConnector { get; }
 
     /// <summary>
     /// The settings_definition_id attribute.
     /// </summary>
-    [TerraformPropertyName("settings_definition_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SettingsDefinitionId => new TerraformReference(this, "settings_definition_id");
+    [TerraformProperty("settings_definition_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SettingsDefinitionId { get; }
 
     /// <summary>
     /// The tactics attribute.
     /// </summary>
-    [TerraformPropertyName("tactics")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Tactics => new TerraformReference(this, "tactics");
+    [TerraformProperty("tactics")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Tactics { get; }
 
     /// <summary>
     /// The techniques attribute.
     /// </summary>
-    [TerraformPropertyName("techniques")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Techniques => new TerraformReference(this, "techniques");
+    [TerraformProperty("techniques")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Techniques { get; }
 
 }

@@ -6,69 +6,69 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for app_monitor_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRumAppMonitorAppMonitorConfigurationBlock
+public partial class AwsRumAppMonitorAppMonitorConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The allow_cookies attribute.
     /// </summary>
-    [TerraformPropertyName("allow_cookies")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allow_cookies")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AllowCookies { get; set; }
 
     /// <summary>
     /// The enable_xray attribute.
     /// </summary>
-    [TerraformPropertyName("enable_xray")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_xray")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableXray { get; set; }
 
     /// <summary>
     /// The excluded_pages attribute.
     /// </summary>
-    [TerraformPropertyName("excluded_pages")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("excluded_pages")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? ExcludedPages { get; set; }
 
     /// <summary>
     /// The favorite_pages attribute.
     /// </summary>
-    [TerraformPropertyName("favorite_pages")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("favorite_pages")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? FavoritePages { get; set; }
 
     /// <summary>
     /// The guest_role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("guest_role_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("guest_role_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? GuestRoleArn { get; set; }
 
     /// <summary>
     /// The identity_pool_id attribute.
     /// </summary>
-    [TerraformPropertyName("identity_pool_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_pool_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IdentityPoolId { get; set; }
 
     /// <summary>
     /// The included_pages attribute.
     /// </summary>
-    [TerraformPropertyName("included_pages")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("included_pages")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IncludedPages { get; set; }
 
     /// <summary>
     /// The session_sample_rate attribute.
     /// </summary>
-    [TerraformPropertyName("session_sample_rate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("session_sample_rate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? SessionSampleRate { get; set; }
 
     /// <summary>
     /// The telemetries attribute.
     /// </summary>
-    [TerraformPropertyName("telemetries")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("telemetries")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Telemetries { get; set; }
 
 }
@@ -77,13 +77,13 @@ public class AwsRumAppMonitorAppMonitorConfigurationBlock
 /// Block type for custom_events in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRumAppMonitorCustomEventsBlock
+public partial class AwsRumAppMonitorCustomEventsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("status")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Status { get; set; }
 
 }
@@ -92,7 +92,7 @@ public class AwsRumAppMonitorCustomEventsBlock
 /// Manages a aws_rum_app_monitor resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsRumAppMonitor : TerraformResource
+public partial class AwsRumAppMonitor : TerraformResource
 {
     public AwsRumAppMonitor(string name) : base("aws_rum_app_monitor", name)
     {
@@ -101,66 +101,66 @@ public class AwsRumAppMonitor : TerraformResource
     /// <summary>
     /// The cw_log_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("cw_log_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cw_log_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? CwLogEnabled { get; set; }
 
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    [TerraformPropertyName("domain")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("domain")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Domain { get; set; }
 
     /// <summary>
     /// The domain_list attribute.
     /// </summary>
-    [TerraformPropertyName("domain_list")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("domain_list")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? DomainList { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for app_monitor_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppMonitorConfiguration block(s) allowed")]
-    [TerraformPropertyName("app_monitor_configuration")]
+    [TerraformProperty("app_monitor_configuration")]
     public TerraformList<TerraformBlock<AwsRumAppMonitorAppMonitorConfigurationBlock>>? AppMonitorConfiguration { get; set; }
 
     /// <summary>
@@ -168,28 +168,28 @@ public class AwsRumAppMonitor : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomEvents block(s) allowed")]
-    [TerraformPropertyName("custom_events")]
+    [TerraformProperty("custom_events")]
     public TerraformList<TerraformBlock<AwsRumAppMonitorCustomEventsBlock>>? CustomEvents { get; set; }
 
     /// <summary>
     /// The app_monitor_id attribute.
     /// </summary>
-    [TerraformPropertyName("app_monitor_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AppMonitorId => new TerraformReference(this, "app_monitor_id");
+    [TerraformProperty("app_monitor_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AppMonitorId { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The cw_log_group attribute.
     /// </summary>
-    [TerraformPropertyName("cw_log_group")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CwLogGroup => new TerraformReference(this, "cw_log_group");
+    [TerraformProperty("cw_log_group")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CwLogGroup { get; }
 
 }

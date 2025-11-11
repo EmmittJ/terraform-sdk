@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAppServiceCertificateBindingTimeoutsBlock
+public partial class AzurermAppServiceCertificateBindingTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermAppServiceCertificateBindingTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_app_service_certificate_binding resource.
 /// </summary>
-public class AzurermAppServiceCertificateBinding : TerraformResource
+public partial class AzurermAppServiceCertificateBinding : TerraformResource
 {
     public AzurermAppServiceCertificateBinding(string name) : base("azurerm_app_service_certificate_binding", name)
     {
@@ -44,59 +44,59 @@ public class AzurermAppServiceCertificateBinding : TerraformResource
     /// The certificate_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateId is required")]
-    [TerraformPropertyName("certificate_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("certificate_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CertificateId { get; set; }
 
     /// <summary>
     /// The hostname_binding_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostnameBindingId is required")]
-    [TerraformPropertyName("hostname_binding_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("hostname_binding_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HostnameBindingId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ssl_state attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SslState is required")]
-    [TerraformPropertyName("ssl_state")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("ssl_state")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SslState { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermAppServiceCertificateBindingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The app_service_name attribute.
     /// </summary>
-    [TerraformPropertyName("app_service_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AppServiceName => new TerraformReference(this, "app_service_name");
+    [TerraformProperty("app_service_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AppServiceName { get; }
 
     /// <summary>
     /// The hostname attribute.
     /// </summary>
-    [TerraformPropertyName("hostname")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Hostname => new TerraformReference(this, "hostname");
+    [TerraformProperty("hostname")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Hostname { get; }
 
     /// <summary>
     /// The thumbprint attribute.
     /// </summary>
-    [TerraformPropertyName("thumbprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Thumbprint => new TerraformReference(this, "thumbprint");
+    [TerraformProperty("thumbprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Thumbprint { get; }
 
 }

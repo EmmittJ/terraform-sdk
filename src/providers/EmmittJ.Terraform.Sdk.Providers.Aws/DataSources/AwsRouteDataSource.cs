@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRouteDataSourceTimeoutsBlock
+public partial class AwsRouteDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsRouteDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a aws_route.
 /// </summary>
-public class AwsRouteDataSource : TerraformDataSource
+public partial class AwsRouteDataSource : TerraformDataSource
 {
     public AwsRouteDataSource(string name) : base("aws_route", name)
     {
@@ -29,121 +29,121 @@ public class AwsRouteDataSource : TerraformDataSource
     /// <summary>
     /// The carrier_gateway_id attribute.
     /// </summary>
-    [TerraformPropertyName("carrier_gateway_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CarrierGatewayId { get; set; } = default!;
+    [TerraformProperty("carrier_gateway_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CarrierGatewayId { get; set; }
 
     /// <summary>
     /// The core_network_arn attribute.
     /// </summary>
-    [TerraformPropertyName("core_network_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CoreNetworkArn { get; set; } = default!;
+    [TerraformProperty("core_network_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CoreNetworkArn { get; set; }
 
     /// <summary>
     /// The destination_cidr_block attribute.
     /// </summary>
-    [TerraformPropertyName("destination_cidr_block")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DestinationCidrBlock { get; set; } = default!;
+    [TerraformProperty("destination_cidr_block")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DestinationCidrBlock { get; set; }
 
     /// <summary>
     /// The destination_ipv6_cidr_block attribute.
     /// </summary>
-    [TerraformPropertyName("destination_ipv6_cidr_block")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DestinationIpv6CidrBlock { get; set; } = default!;
+    [TerraformProperty("destination_ipv6_cidr_block")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DestinationIpv6CidrBlock { get; set; }
 
     /// <summary>
     /// The destination_prefix_list_id attribute.
     /// </summary>
-    [TerraformPropertyName("destination_prefix_list_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DestinationPrefixListId { get; set; } = default!;
+    [TerraformProperty("destination_prefix_list_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DestinationPrefixListId { get; set; }
 
     /// <summary>
     /// The egress_only_gateway_id attribute.
     /// </summary>
-    [TerraformPropertyName("egress_only_gateway_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EgressOnlyGatewayId { get; set; } = default!;
+    [TerraformProperty("egress_only_gateway_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EgressOnlyGatewayId { get; set; }
 
     /// <summary>
     /// The gateway_id attribute.
     /// </summary>
-    [TerraformPropertyName("gateway_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> GatewayId { get; set; } = default!;
+    [TerraformProperty("gateway_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> GatewayId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
-    [TerraformPropertyName("instance_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> InstanceId { get; set; } = default!;
+    [TerraformProperty("instance_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// The local_gateway_id attribute.
     /// </summary>
-    [TerraformPropertyName("local_gateway_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LocalGatewayId { get; set; } = default!;
+    [TerraformProperty("local_gateway_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LocalGatewayId { get; set; }
 
     /// <summary>
     /// The nat_gateway_id attribute.
     /// </summary>
-    [TerraformPropertyName("nat_gateway_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NatGatewayId { get; set; } = default!;
+    [TerraformProperty("nat_gateway_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NatGatewayId { get; set; }
 
     /// <summary>
     /// The network_interface_id attribute.
     /// </summary>
-    [TerraformPropertyName("network_interface_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NetworkInterfaceId { get; set; } = default!;
+    [TerraformProperty("network_interface_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NetworkInterfaceId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The route_table_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RouteTableId is required")]
-    [TerraformPropertyName("route_table_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("route_table_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RouteTableId { get; set; }
 
     /// <summary>
     /// The transit_gateway_id attribute.
     /// </summary>
-    [TerraformPropertyName("transit_gateway_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> TransitGatewayId { get; set; } = default!;
+    [TerraformProperty("transit_gateway_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> TransitGatewayId { get; set; }
 
     /// <summary>
     /// The vpc_peering_connection_id attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_peering_connection_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> VpcPeeringConnectionId { get; set; } = default!;
+    [TerraformProperty("vpc_peering_connection_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> VpcPeeringConnectionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsRouteDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
 }

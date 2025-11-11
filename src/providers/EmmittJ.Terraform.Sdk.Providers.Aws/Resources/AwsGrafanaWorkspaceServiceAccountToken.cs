@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_grafana_workspace_service_account_token resource.
 /// </summary>
-public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
+public partial class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
 {
     public AwsGrafanaWorkspaceServiceAccountToken(string name) : base("aws_grafana_workspace_service_account_token", name)
     {
@@ -15,74 +15,74 @@ public class AwsGrafanaWorkspaceServiceAccountToken : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The seconds_to_live attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecondsToLive is required")]
-    [TerraformPropertyName("seconds_to_live")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("seconds_to_live")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> SecondsToLive { get; set; }
 
     /// <summary>
     /// The service_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountId is required")]
-    [TerraformPropertyName("service_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceAccountId { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformPropertyName("workspace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("workspace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    [TerraformPropertyName("created_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
+    [TerraformProperty("created_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The expires_at attribute.
     /// </summary>
-    [TerraformPropertyName("expires_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExpiresAt => new TerraformReference(this, "expires_at");
+    [TerraformProperty("expires_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExpiresAt { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
-    [TerraformPropertyName("key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Key => new TerraformReference(this, "key");
+    [TerraformProperty("key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Key { get; }
 
     /// <summary>
     /// The service_account_token_id attribute.
     /// </summary>
-    [TerraformPropertyName("service_account_token_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServiceAccountTokenId => new TerraformReference(this, "service_account_token_id");
+    [TerraformProperty("service_account_token_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServiceAccountTokenId { get; }
 
 }

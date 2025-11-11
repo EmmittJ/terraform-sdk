@@ -6,56 +6,56 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for endpoint in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermNetworkConnectionMonitorEndpointBlock
+public partial class AzurermNetworkConnectionMonitorEndpointBlock : TerraformBlockBase
 {
     /// <summary>
     /// The address attribute.
     /// </summary>
-    [TerraformPropertyName("address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Address { get; set; }
 
     /// <summary>
     /// The coverage_level attribute.
     /// </summary>
-    [TerraformPropertyName("coverage_level")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("coverage_level")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CoverageLevel { get; set; }
 
     /// <summary>
     /// The excluded_ip_addresses attribute.
     /// </summary>
-    [TerraformPropertyName("excluded_ip_addresses")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("excluded_ip_addresses")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? ExcludedIpAddresses { get; set; }
 
     /// <summary>
     /// The included_ip_addresses attribute.
     /// </summary>
-    [TerraformPropertyName("included_ip_addresses")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("included_ip_addresses")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IncludedIpAddresses { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The target_resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("target_resource_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("target_resource_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TargetResourceId { get; set; }
 
     /// <summary>
     /// The target_resource_type attribute.
     /// </summary>
-    [TerraformPropertyName("target_resource_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("target_resource_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TargetResourceType { get; set; }
 
 }
@@ -64,36 +64,36 @@ public class AzurermNetworkConnectionMonitorEndpointBlock
 /// Block type for test_configuration in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermNetworkConnectionMonitorTestConfigurationBlock
+public partial class AzurermNetworkConnectionMonitorTestConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The preferred_ip_version attribute.
     /// </summary>
-    [TerraformPropertyName("preferred_ip_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("preferred_ip_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PreferredIpVersion { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformPropertyName("protocol")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("protocol")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// The test_frequency_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("test_frequency_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("test_frequency_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? TestFrequencyInSeconds { get; set; }
 
 }
@@ -102,45 +102,45 @@ public class AzurermNetworkConnectionMonitorTestConfigurationBlock
 /// Block type for test_group in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermNetworkConnectionMonitorTestGroupBlock
+public partial class AzurermNetworkConnectionMonitorTestGroupBlock : TerraformBlockBase
 {
     /// <summary>
     /// The destination_endpoints attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationEndpoints is required")]
-    [TerraformPropertyName("destination_endpoints")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("destination_endpoints")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> DestinationEndpoints { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The source_endpoints attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceEndpoints is required")]
-    [TerraformPropertyName("source_endpoints")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source_endpoints")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> SourceEndpoints { get; set; }
 
     /// <summary>
     /// The test_configuration_names attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TestConfigurationNames is required")]
-    [TerraformPropertyName("test_configuration_names")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("test_configuration_names")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> TestConfigurationNames { get; set; }
 
 }
@@ -149,34 +149,34 @@ public class AzurermNetworkConnectionMonitorTestGroupBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetworkConnectionMonitorTimeoutsBlock
+public partial class AzurermNetworkConnectionMonitorTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -185,7 +185,7 @@ public class AzurermNetworkConnectionMonitorTimeoutsBlock
 /// Manages a azurerm_network_connection_monitor resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermNetworkConnectionMonitor : TerraformResource
+public partial class AzurermNetworkConnectionMonitor : TerraformResource
 {
     public AzurermNetworkConnectionMonitor(string name) : base("azurerm_network_connection_monitor", name)
     {
@@ -194,53 +194,53 @@ public class AzurermNetworkConnectionMonitor : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_watcher_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkWatcherId is required")]
-    [TerraformPropertyName("network_watcher_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network_watcher_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NetworkWatcherId { get; set; }
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
-    [TerraformPropertyName("notes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("notes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Notes { get; set; }
 
     /// <summary>
     /// The output_workspace_resource_ids attribute.
     /// </summary>
-    [TerraformPropertyName("output_workspace_resource_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("output_workspace_resource_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? OutputWorkspaceResourceIds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -249,7 +249,7 @@ public class AzurermNetworkConnectionMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Endpoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Endpoint block(s) required")]
-    [TerraformPropertyName("endpoint")]
+    [TerraformProperty("endpoint")]
     public TerraformSet<TerraformBlock<AzurermNetworkConnectionMonitorEndpointBlock>>? Endpoint { get; set; }
 
     /// <summary>
@@ -258,7 +258,7 @@ public class AzurermNetworkConnectionMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TestConfiguration is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TestConfiguration block(s) required")]
-    [TerraformPropertyName("test_configuration")]
+    [TerraformProperty("test_configuration")]
     public TerraformSet<TerraformBlock<AzurermNetworkConnectionMonitorTestConfigurationBlock>>? TestConfiguration { get; set; }
 
     /// <summary>
@@ -267,14 +267,14 @@ public class AzurermNetworkConnectionMonitor : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TestGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TestGroup block(s) required")]
-    [TerraformPropertyName("test_group")]
+    [TerraformProperty("test_group")]
     public TerraformSet<TerraformBlock<AzurermNetworkConnectionMonitorTestGroupBlock>>? TestGroup { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermNetworkConnectionMonitorTimeoutsBlock>? Timeouts { get; set; }
 
 }

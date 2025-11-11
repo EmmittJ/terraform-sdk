@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_network_endpoint_group.
 /// </summary>
-public class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
+public partial class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
 {
     public GoogleComputeNetworkEndpointGroupDataSource(string name) : base("google_compute_network_endpoint_group", name)
     {
@@ -14,9 +14,9 @@ public class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is
@@ -27,61 +27,61 @@ public class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
     /// characters must be a dash, lowercase letter, or digit, except the last
     /// character, which cannot be a dash.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("self_link")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SelfLink { get; set; }
 
     /// <summary>
     /// Zone where the network endpoint group is located.
     /// </summary>
-    [TerraformPropertyName("zone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("zone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Zone { get; set; }
 
     /// <summary>
     /// The default port used if the port number is not specified in the
     /// network endpoint.
     /// </summary>
-    [TerraformPropertyName("default_port")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> DefaultPort => new TerraformReference(this, "default_port");
+    [TerraformProperty("default_port")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> DefaultPort { get; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The uniquely generated identifier for the resource. This identifier is defined by the server.
     /// </summary>
-    [TerraformPropertyName("generated_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> GeneratedId => new TerraformReference(this, "generated_id");
+    [TerraformProperty("generated_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> GeneratedId { get; }
 
     /// <summary>
     /// The network to which all network endpoints in the NEG belong.
     /// Uses &amp;quot;default&amp;quot; project network if unspecified.
     /// </summary>
-    [TerraformPropertyName("network")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Network => new TerraformReference(this, "network");
+    [TerraformProperty("network")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Network { get; }
 
     /// <summary>
     /// Type of network endpoints in this network endpoint group.
@@ -94,22 +94,22 @@ public class GoogleComputeNetworkEndpointGroupDataSource : TerraformDataSource
     /// 
     /// Possible values include: GCE_VM_IP, GCE_VM_IP_PORT, NON_GCP_PRIVATE_IP_PORT, INTERNET_IP_PORT, INTERNET_FQDN_PORT, SERVERLESS, and PRIVATE_SERVICE_CONNECT. Default value: &amp;quot;GCE_VM_IP_PORT&amp;quot; Possible values: [&amp;quot;GCE_VM_IP&amp;quot;, &amp;quot;GCE_VM_IP_PORT&amp;quot;, &amp;quot;NON_GCP_PRIVATE_IP_PORT&amp;quot;, &amp;quot;INTERNET_IP_PORT&amp;quot;, &amp;quot;INTERNET_FQDN_PORT&amp;quot;, &amp;quot;SERVERLESS&amp;quot;, &amp;quot;PRIVATE_SERVICE_CONNECT&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("network_endpoint_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> NetworkEndpointType => new TerraformReference(this, "network_endpoint_type");
+    [TerraformProperty("network_endpoint_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> NetworkEndpointType { get; }
 
     /// <summary>
     /// Number of network endpoints in the network endpoint group.
     /// </summary>
-    [TerraformPropertyName("size")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Size => new TerraformReference(this, "size");
+    [TerraformProperty("size")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Size { get; }
 
     /// <summary>
     /// Optional subnetwork to which all network endpoints in the NEG belong.
     /// </summary>
-    [TerraformPropertyName("subnetwork")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Subnetwork => new TerraformReference(this, "subnetwork");
+    [TerraformProperty("subnetwork")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Subnetwork { get; }
 
 }

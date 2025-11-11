@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for client in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIdentityPlatformTenantClientBlock
+public partial class GoogleIdentityPlatformTenantClientBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class GoogleIdentityPlatformTenantClientBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIdentityPlatformTenantTimeoutsBlock
+public partial class GoogleIdentityPlatformTenantTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class GoogleIdentityPlatformTenantTimeoutsBlock
 /// Manages a google_identity_platform_tenant resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleIdentityPlatformTenant : TerraformResource
+public partial class GoogleIdentityPlatformTenant : TerraformResource
 {
     public GoogleIdentityPlatformTenant(string name) : base("google_identity_platform_tenant", name)
     {
@@ -52,8 +52,8 @@ public class GoogleIdentityPlatformTenant : TerraformResource
     /// <summary>
     /// Whether to allow email/password user authentication.
     /// </summary>
-    [TerraformPropertyName("allow_password_signup")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allow_password_signup")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AllowPasswordSignup { get; set; }
 
     /// <summary>
@@ -61,59 +61,59 @@ public class GoogleIdentityPlatformTenant : TerraformResource
     /// the disabled tenant are not allowed to sign-in. Admins of the disabled tenant
     /// are not able to manage its users.
     /// </summary>
-    [TerraformPropertyName("disable_auth")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disable_auth")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DisableAuth { get; set; }
 
     /// <summary>
     /// Human friendly display name of the tenant.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Whether to enable email link user authentication.
     /// </summary>
-    [TerraformPropertyName("enable_email_link_signin")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_email_link_signin")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableEmailLinkSignin { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for client.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Client block(s) allowed")]
-    [TerraformPropertyName("client")]
+    [TerraformProperty("client")]
     public TerraformList<TerraformBlock<GoogleIdentityPlatformTenantClientBlock>>? Client { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleIdentityPlatformTenantTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The name of the tenant that is generated by the server
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

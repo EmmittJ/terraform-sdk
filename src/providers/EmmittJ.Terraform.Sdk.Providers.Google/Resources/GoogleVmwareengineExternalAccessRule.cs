@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for destination_ip_ranges in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock
+public partial class GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name of an &#39;ExternalAddress&#39; resource.
     /// </summary>
-    [TerraformPropertyName("external_address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("external_address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExternalAddress { get; set; }
 
     /// <summary>
     /// An IP address range in the CIDR format.
     /// </summary>
-    [TerraformPropertyName("ip_address_range")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_address_range")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IpAddressRange { get; set; }
 
 }
@@ -28,20 +28,20 @@ public class GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock
 /// Block type for source_ip_ranges in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock
+public partial class GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock : TerraformBlockBase
 {
     /// <summary>
     /// A single IP address.
     /// </summary>
-    [TerraformPropertyName("ip_address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IpAddress { get; set; }
 
     /// <summary>
     /// An IP address range in the CIDR format.
     /// </summary>
-    [TerraformPropertyName("ip_address_range")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_address_range")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IpAddressRange { get; set; }
 
 }
@@ -50,27 +50,27 @@ public class GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVmwareengineExternalAccessRuleTimeoutsBlock
+public partial class GoogleVmwareengineExternalAccessRuleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -79,7 +79,7 @@ public class GoogleVmwareengineExternalAccessRuleTimeoutsBlock
 /// Manages a google_vmwareengine_external_access_rule resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleVmwareengineExternalAccessRule : TerraformResource
+public partial class GoogleVmwareengineExternalAccessRule : TerraformResource
 {
     public GoogleVmwareengineExternalAccessRule(string name) : base("google_vmwareengine_external_access_rule", name)
     {
@@ -89,46 +89,46 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     /// The action that the external access rule performs. Possible values: [&amp;quot;ALLOW&amp;quot;, &amp;quot;DENY&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformPropertyName("action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// User-provided description for the external access rule.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A list of destination ports to which the external access rule applies.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationPorts is required")]
-    [TerraformPropertyName("destination_ports")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("destination_ports")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? DestinationPorts { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The IP protocol to which the external access rule applies.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpProtocol is required")]
-    [TerraformPropertyName("ip_protocol")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("ip_protocol")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IpProtocol { get; set; }
 
     /// <summary>
     /// The ID of the external access rule.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
@@ -137,24 +137,24 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     /// For example: projects/my-project/locations/us-west1-a/networkPolicies/my-policy
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    [TerraformPropertyName("parent")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parent")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// External access rule priority, which determines the external access rule to use when multiple rules apply.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformPropertyName("priority")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("priority")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// A list of source ports to which the external access rule applies.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourcePorts is required")]
-    [TerraformPropertyName("source_ports")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source_ports")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? SourcePorts { get; set; }
 
     /// <summary>
@@ -163,7 +163,7 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationIpRanges is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DestinationIpRanges block(s) required")]
-    [TerraformPropertyName("destination_ip_ranges")]
+    [TerraformProperty("destination_ip_ranges")]
     public TerraformList<TerraformBlock<GoogleVmwareengineExternalAccessRuleDestinationIpRangesBlock>>? DestinationIpRanges { get; set; }
 
     /// <summary>
@@ -172,14 +172,14 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceIpRanges is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SourceIpRanges block(s) required")]
-    [TerraformPropertyName("source_ip_ranges")]
+    [TerraformProperty("source_ip_ranges")]
     public TerraformList<TerraformBlock<GoogleVmwareengineExternalAccessRuleSourceIpRangesBlock>>? SourceIpRanges { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleVmwareengineExternalAccessRuleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -187,31 +187,31 @@ public class GoogleVmwareengineExternalAccessRule : TerraformResource
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and
     /// up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// State of the Cluster.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// System-generated unique identifier for the resource.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Last updated time of this resource.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

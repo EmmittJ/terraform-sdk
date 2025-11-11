@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkManagementVpcFlowLogsConfigTimeoutsBlock
+public partial class GoogleNetworkManagementVpcFlowLogsConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleNetworkManagementVpcFlowLogsConfigTimeoutsBlock
 /// <summary>
 /// Manages a google_network_management_vpc_flow_logs_config resource.
 /// </summary>
-public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
+public partial class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
 {
     public GoogleNetworkManagementVpcFlowLogsConfig(string name) : base("google_network_management_vpc_flow_logs_config", name)
     {
@@ -44,23 +44,23 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     /// Optional. The aggregation interval for the logs. Default value is
     /// INTERVAL_5_SEC.   Possible values:  AGGREGATION_INTERVAL_UNSPECIFIED INTERVAL_5_SEC INTERVAL_30_SEC INTERVAL_1_MIN INTERVAL_5_MIN INTERVAL_10_MIN INTERVAL_15_MIN
     /// </summary>
-    [TerraformPropertyName("aggregation_interval")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AggregationInterval { get; set; } = default!;
+    [TerraformProperty("aggregation_interval")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AggregationInterval { get; set; }
 
     /// <summary>
     /// Optional. The user-supplied description of the VPC Flow Logs configuration. Maximum
     /// of 512 characters.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Optional. Export filter used to define which VPC Flow Logs should be logged.
     /// </summary>
-    [TerraformPropertyName("filter_expr")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filter_expr")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? FilterExpr { get; set; }
 
     /// <summary>
@@ -69,22 +69,22 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     /// sampling rate to 0.0 is not allowed. If you want to disable VPC Flow Logs, use
     /// the state field instead. Default value is 1.0.
     /// </summary>
-    [TerraformPropertyName("flow_sampling")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> FlowSampling { get; set; } = default!;
+    [TerraformProperty("flow_sampling")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> FlowSampling { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Traffic will be logged from the Interconnect Attachment. Format: projects/{project_id}/regions/{region}/interconnectAttachments/{name}
     /// </summary>
-    [TerraformPropertyName("interconnect_attachment")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("interconnect_attachment")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? InterconnectAttachment { get; set; }
 
     /// <summary>
@@ -94,8 +94,8 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -104,8 +104,8 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     /// for resource type &#39;networkmanagement.googleapis.com/VpcFlowLogsConfig&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
@@ -113,90 +113,90 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     /// should be added to the reported VPC flow logs. Default value is INCLUDE_ALL_METADATA.
     ///   Possible values:  METADATA_UNSPECIFIED INCLUDE_ALL_METADATA EXCLUDE_ALL_METADATA CUSTOM_METADATA
     /// </summary>
-    [TerraformPropertyName("metadata")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Metadata { get; set; } = default!;
+    [TerraformProperty("metadata")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Metadata { get; set; }
 
     /// <summary>
     /// Optional. Custom metadata fields to include in the reported VPC flow
     /// logs. Can only be specified if \&amp;quot;metadata\&amp;quot; was set to CUSTOM_METADATA.
     /// </summary>
-    [TerraformPropertyName("metadata_fields")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("metadata_fields")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? MetadataFields { get; set; }
 
     /// <summary>
     /// Traffic will be logged from VMs, VPN tunnels and Interconnect Attachments within the network. Format: projects/{project_id}/global/networks/{name}
     /// </summary>
-    [TerraformPropertyName("network")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("network")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Optional. The state of the VPC Flow Log configuration. Default value
     /// is ENABLED. When creating a new configuration, it must be enabled.
     /// Possible values: STATE_UNSPECIFIED ENABLED DISABLED
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> State { get; set; } = default!;
+    [TerraformProperty("state")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> State { get; set; }
 
     /// <summary>
     /// Traffic will be logged from VMs within the subnetwork. Format: projects/{project_id}/regions/{region}/subnetworks/{name}
     /// </summary>
-    [TerraformPropertyName("subnet")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subnet")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Subnet { get; set; }
 
     /// <summary>
     /// Required. ID of the &#39;VpcFlowLogsConfig&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcFlowLogsConfigId is required")]
-    [TerraformPropertyName("vpc_flow_logs_config_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vpc_flow_logs_config_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VpcFlowLogsConfigId { get; set; }
 
     /// <summary>
     /// Traffic will be logged from the VPN Tunnel. Format: projects/{project_id}/regions/{region}/vpnTunnels/{name}
     /// </summary>
-    [TerraformPropertyName("vpn_tunnel")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vpn_tunnel")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VpnTunnel { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleNetworkManagementVpcFlowLogsConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time the config was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Identifier. Unique name of the configuration using the form:     &#39;projects/{project_id}/locations/global/vpcFlowLogsConfigs/{vpc_flow_logs_config_id}&#39;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Describes the state of the configured target resource for diagnostic
@@ -206,23 +206,23 @@ public class GoogleNetworkManagementVpcFlowLogsConfig : TerraformResource
     /// TARGET_RESOURCE_EXISTS
     /// TARGET_RESOURCE_DOES_NOT_EXIST
     /// </summary>
-    [TerraformPropertyName("target_resource_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TargetResourceState => new TerraformReference(this, "target_resource_state");
+    [TerraformProperty("target_resource_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TargetResourceState { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. The time the config was updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_neptune_engine_version.
 /// </summary>
-public class AwsNeptuneEngineVersionDataSource : TerraformDataSource
+public partial class AwsNeptuneEngineVersionDataSource : TerraformDataSource
 {
     public AwsNeptuneEngineVersionDataSource(string name) : base("aws_neptune_engine_version", name)
     {
@@ -14,176 +14,176 @@ public class AwsNeptuneEngineVersionDataSource : TerraformDataSource
     /// <summary>
     /// The default_only attribute.
     /// </summary>
-    [TerraformPropertyName("default_only")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_only")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DefaultOnly { get; set; }
 
     /// <summary>
     /// The engine attribute.
     /// </summary>
-    [TerraformPropertyName("engine")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("engine")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Engine { get; set; }
 
     /// <summary>
     /// The has_major_target attribute.
     /// </summary>
-    [TerraformPropertyName("has_major_target")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("has_major_target")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? HasMajorTarget { get; set; }
 
     /// <summary>
     /// The has_minor_target attribute.
     /// </summary>
-    [TerraformPropertyName("has_minor_target")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("has_minor_target")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? HasMinorTarget { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The latest attribute.
     /// </summary>
-    [TerraformPropertyName("latest")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("latest")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Latest { get; set; }
 
     /// <summary>
     /// The parameter_group_family attribute.
     /// </summary>
-    [TerraformPropertyName("parameter_group_family")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ParameterGroupFamily { get; set; } = default!;
+    [TerraformProperty("parameter_group_family")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ParameterGroupFamily { get; set; }
 
     /// <summary>
     /// The preferred_major_targets attribute.
     /// </summary>
-    [TerraformPropertyName("preferred_major_targets")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("preferred_major_targets")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? PreferredMajorTargets { get; set; }
 
     /// <summary>
     /// The preferred_upgrade_targets attribute.
     /// </summary>
-    [TerraformPropertyName("preferred_upgrade_targets")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("preferred_upgrade_targets")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? PreferredUpgradeTargets { get; set; }
 
     /// <summary>
     /// The preferred_versions attribute.
     /// </summary>
-    [TerraformPropertyName("preferred_versions")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("preferred_versions")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? PreferredVersions { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Version { get; set; } = default!;
+    [TerraformProperty("version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Version { get; set; }
 
     /// <summary>
     /// The default_character_set attribute.
     /// </summary>
-    [TerraformPropertyName("default_character_set")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultCharacterSet => new TerraformReference(this, "default_character_set");
+    [TerraformProperty("default_character_set")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultCharacterSet { get; }
 
     /// <summary>
     /// The engine_description attribute.
     /// </summary>
-    [TerraformPropertyName("engine_description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EngineDescription => new TerraformReference(this, "engine_description");
+    [TerraformProperty("engine_description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EngineDescription { get; }
 
     /// <summary>
     /// The exportable_log_types attribute.
     /// </summary>
-    [TerraformPropertyName("exportable_log_types")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> ExportableLogTypes => new TerraformReference(this, "exportable_log_types");
+    [TerraformProperty("exportable_log_types")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> ExportableLogTypes { get; }
 
     /// <summary>
     /// The supported_character_sets attribute.
     /// </summary>
-    [TerraformPropertyName("supported_character_sets")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> SupportedCharacterSets => new TerraformReference(this, "supported_character_sets");
+    [TerraformProperty("supported_character_sets")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> SupportedCharacterSets { get; }
 
     /// <summary>
     /// The supported_timezones attribute.
     /// </summary>
-    [TerraformPropertyName("supported_timezones")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> SupportedTimezones => new TerraformReference(this, "supported_timezones");
+    [TerraformProperty("supported_timezones")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> SupportedTimezones { get; }
 
     /// <summary>
     /// The supports_global_databases attribute.
     /// </summary>
-    [TerraformPropertyName("supports_global_databases")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> SupportsGlobalDatabases => new TerraformReference(this, "supports_global_databases");
+    [TerraformProperty("supports_global_databases")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> SupportsGlobalDatabases { get; }
 
     /// <summary>
     /// The supports_log_exports_to_cloudwatch attribute.
     /// </summary>
-    [TerraformPropertyName("supports_log_exports_to_cloudwatch")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> SupportsLogExportsToCloudwatch => new TerraformReference(this, "supports_log_exports_to_cloudwatch");
+    [TerraformProperty("supports_log_exports_to_cloudwatch")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> SupportsLogExportsToCloudwatch { get; }
 
     /// <summary>
     /// The supports_read_replica attribute.
     /// </summary>
-    [TerraformPropertyName("supports_read_replica")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> SupportsReadReplica => new TerraformReference(this, "supports_read_replica");
+    [TerraformProperty("supports_read_replica")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> SupportsReadReplica { get; }
 
     /// <summary>
     /// The valid_major_targets attribute.
     /// </summary>
-    [TerraformPropertyName("valid_major_targets")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> ValidMajorTargets => new TerraformReference(this, "valid_major_targets");
+    [TerraformProperty("valid_major_targets")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> ValidMajorTargets { get; }
 
     /// <summary>
     /// The valid_minor_targets attribute.
     /// </summary>
-    [TerraformPropertyName("valid_minor_targets")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> ValidMinorTargets => new TerraformReference(this, "valid_minor_targets");
+    [TerraformProperty("valid_minor_targets")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> ValidMinorTargets { get; }
 
     /// <summary>
     /// The valid_upgrade_targets attribute.
     /// </summary>
-    [TerraformPropertyName("valid_upgrade_targets")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> ValidUpgradeTargets => new TerraformReference(this, "valid_upgrade_targets");
+    [TerraformProperty("valid_upgrade_targets")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> ValidUpgradeTargets { get; }
 
     /// <summary>
     /// The version_actual attribute.
     /// </summary>
-    [TerraformPropertyName("version_actual")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VersionActual => new TerraformReference(this, "version_actual");
+    [TerraformProperty("version_actual")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VersionActual { get; }
 
     /// <summary>
     /// The version_description attribute.
     /// </summary>
-    [TerraformPropertyName("version_description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VersionDescription => new TerraformReference(this, "version_description");
+    [TerraformProperty("version_description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VersionDescription { get; }
 
 }

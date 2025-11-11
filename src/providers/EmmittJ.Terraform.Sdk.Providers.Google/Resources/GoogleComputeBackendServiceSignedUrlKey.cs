@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock
+public partial class GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock
 /// <summary>
 /// Manages a google_compute_backend_service_signed_url_key resource.
 /// </summary>
-public class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
+public partial class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
 {
     public GoogleComputeBackendServiceSignedUrlKey(string name) : base("google_compute_backend_service_signed_url_key", name)
     {
@@ -37,46 +37,46 @@ public class GoogleComputeBackendServiceSignedUrlKey : TerraformResource
     /// The backend service this signed URL key belongs.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendService is required")]
-    [TerraformPropertyName("backend_service")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("backend_service")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BackendService { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// 128-bit key value used for signing the URL. The key value must be a
     /// valid RFC 4648 Section 5 base64url encoded string.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValue is required")]
-    [TerraformPropertyName("key_value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyValue { get; set; }
 
     /// <summary>
     /// Name of the signed URL key.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeBackendServiceSignedUrlKeyTimeoutsBlock>? Timeouts { get; set; }
 
 }

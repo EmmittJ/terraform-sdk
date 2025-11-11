@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeStoragePoolTimeoutsBlock
+public partial class GoogleComputeStoragePoolTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleComputeStoragePoolTimeoutsBlock
 /// <summary>
 /// Manages a google_compute_storage_pool resource.
 /// </summary>
-public class GoogleComputeStoragePool : TerraformResource
+public partial class GoogleComputeStoragePool : TerraformResource
 {
     public GoogleComputeStoragePool(string name) : base("google_compute_storage_pool", name)
     {
@@ -43,9 +43,9 @@ public class GoogleComputeStoragePool : TerraformResource
     /// <summary>
     /// Provisioning type of the byte capacity of the pool. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ADVANCED&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("capacity_provisioning_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CapacityProvisioningType { get; set; } = default!;
+    [TerraformProperty("capacity_provisioning_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CapacityProvisioningType { get; set; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the StoragePool.
@@ -53,15 +53,15 @@ public class GoogleComputeStoragePool : TerraformResource
     /// or &#39;terraform destroy&#39; that would delete the StoragePool will fail.
     /// When the field is set to false, deleting the StoragePool is allowed.
     /// </summary>
-    [TerraformPropertyName("deletion_protection")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deletion_protection")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// A description of this resource. Provide this property when you create the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
@@ -71,8 +71,8 @@ public class GoogleComputeStoragePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -85,32 +85,32 @@ public class GoogleComputeStoragePool : TerraformResource
     /// except the last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Provisioning type of the performance-related parameters of the pool, such as throughput and IOPS. Possible values: [&amp;quot;STANDARD&amp;quot;, &amp;quot;ADVANCED&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("performance_provisioning_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PerformanceProvisioningType { get; set; } = default!;
+    [TerraformProperty("performance_provisioning_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PerformanceProvisioningType { get; set; }
 
     /// <summary>
     /// Size, in GiB, of the storage pool. For more information about the size limits,
     /// see https://cloud.google.com/compute/docs/disks/storage-pools.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolProvisionedCapacityGb is required")]
-    [TerraformPropertyName("pool_provisioned_capacity_gb")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("pool_provisioned_capacity_gb")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PoolProvisionedCapacityGb { get; set; }
 
     /// <summary>
     /// Provisioned IOPS of the storage pool.
     /// Only relevant if the storage pool type is &#39;hyperdisk-balanced&#39;.
     /// </summary>
-    [TerraformPropertyName("pool_provisioned_iops")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("pool_provisioned_iops")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PoolProvisionedIops { get; set; }
 
     /// <summary>
@@ -118,16 +118,16 @@ public class GoogleComputeStoragePool : TerraformResource
     /// Only relevant if the storage pool type is &#39;hyperdisk-balanced&#39; or &#39;hyperdisk-throughput&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolProvisionedThroughput is required")]
-    [TerraformPropertyName("pool_provisioned_throughput")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("pool_provisioned_throughput")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PoolProvisionedThroughput { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Type of the storage pool. For example, the
@@ -137,80 +137,80 @@ public class GoogleComputeStoragePool : TerraformResource
     /// * &#39;hyperdisk-throughput&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StoragePoolType is required")]
-    [TerraformPropertyName("storage_pool_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_pool_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StoragePoolType { get; set; }
 
     /// <summary>
     /// A reference to the zone where the storage pool resides.
     /// </summary>
-    [TerraformPropertyName("zone")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Zone { get; set; } = default!;
+    [TerraformProperty("zone")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeStoragePoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// Type of the resource.
     /// </summary>
-    [TerraformPropertyName("kind")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Kind => new TerraformReference(this, "kind");
+    [TerraformProperty("kind")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Kind { get; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.
     /// Used internally during updates.
     /// </summary>
-    [TerraformPropertyName("label_fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
+    [TerraformProperty("label_fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// Status information for the storage pool resource.
     /// </summary>
-    [TerraformPropertyName("resource_status")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ResourceStatus => new TerraformReference(this, "resource_status");
+    [TerraformProperty("resource_status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ResourceStatus { get; }
 
     /// <summary>
     /// Status information for the storage pool resource.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Status { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

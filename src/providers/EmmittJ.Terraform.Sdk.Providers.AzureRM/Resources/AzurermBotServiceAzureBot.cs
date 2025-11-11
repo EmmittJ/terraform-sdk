@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBotServiceAzureBotTimeoutsBlock
+public partial class AzurermBotServiceAzureBotTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermBotServiceAzureBotTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_bot_service_azure_bot resource.
 /// </summary>
-public class AzurermBotServiceAzureBot : TerraformResource
+public partial class AzurermBotServiceAzureBot : TerraformResource
 {
     public AzurermBotServiceAzureBot(string name) : base("azurerm_bot_service_azure_bot", name)
     {
@@ -50,167 +50,167 @@ public class AzurermBotServiceAzureBot : TerraformResource
     /// <summary>
     /// The cmk_key_vault_key_url attribute.
     /// </summary>
-    [TerraformPropertyName("cmk_key_vault_key_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cmk_key_vault_key_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CmkKeyVaultKeyUrl { get; set; }
 
     /// <summary>
     /// The developer_app_insights_api_key attribute.
     /// </summary>
-    [TerraformPropertyName("developer_app_insights_api_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("developer_app_insights_api_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeveloperAppInsightsApiKey { get; set; }
 
     /// <summary>
     /// The developer_app_insights_application_id attribute.
     /// </summary>
-    [TerraformPropertyName("developer_app_insights_application_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("developer_app_insights_application_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeveloperAppInsightsApplicationId { get; set; }
 
     /// <summary>
     /// The developer_app_insights_key attribute.
     /// </summary>
-    [TerraformPropertyName("developer_app_insights_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("developer_app_insights_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeveloperAppInsightsKey { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DisplayName { get; set; } = default!;
+    [TerraformProperty("display_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("endpoint")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("endpoint")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Endpoint { get; set; }
 
     /// <summary>
     /// The icon_url attribute.
     /// </summary>
-    [TerraformPropertyName("icon_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("icon_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IconUrl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The local_authentication_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("local_authentication_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("local_authentication_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LocalAuthenticationEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The luis_app_ids attribute.
     /// </summary>
-    [TerraformPropertyName("luis_app_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("luis_app_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? LuisAppIds { get; set; }
 
     /// <summary>
     /// The luis_key attribute.
     /// </summary>
-    [TerraformPropertyName("luis_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("luis_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LuisKey { get; set; }
 
     /// <summary>
     /// The microsoft_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MicrosoftAppId is required")]
-    [TerraformPropertyName("microsoft_app_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("microsoft_app_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MicrosoftAppId { get; set; }
 
     /// <summary>
     /// The microsoft_app_msi_id attribute.
     /// </summary>
-    [TerraformPropertyName("microsoft_app_msi_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("microsoft_app_msi_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MicrosoftAppMsiId { get; set; }
 
     /// <summary>
     /// The microsoft_app_tenant_id attribute.
     /// </summary>
-    [TerraformPropertyName("microsoft_app_tenant_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("microsoft_app_tenant_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MicrosoftAppTenantId { get; set; }
 
     /// <summary>
     /// The microsoft_app_type attribute.
     /// </summary>
-    [TerraformPropertyName("microsoft_app_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("microsoft_app_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MicrosoftAppType { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("public_network_access_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("public_network_access_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    [TerraformPropertyName("sku")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sku")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Sku { get; set; }
 
     /// <summary>
     /// The streaming_endpoint_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("streaming_endpoint_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("streaming_endpoint_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? StreamingEndpointEnabled { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermBotServiceAzureBotTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2ImageBlockPublicAccessTimeoutsBlock
+public partial class AwsEc2ImageBlockPublicAccessTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsEc2ImageBlockPublicAccessTimeoutsBlock
 /// <summary>
 /// Manages a aws_ec2_image_block_public_access resource.
 /// </summary>
-public class AwsEc2ImageBlockPublicAccess : TerraformResource
+public partial class AwsEc2ImageBlockPublicAccess : TerraformResource
 {
     public AwsEc2ImageBlockPublicAccess(string name) : base("aws_ec2_image_block_public_access", name)
     {
@@ -29,23 +29,23 @@ public class AwsEc2ImageBlockPublicAccess : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
-    [TerraformPropertyName("state")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("state")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> State { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsEc2ImageBlockPublicAccessTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBackupProtectedVmTimeoutsBlock
+public partial class AzurermBackupProtectedVmTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermBackupProtectedVmTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_backup_protected_vm resource.
 /// </summary>
-public class AzurermBackupProtectedVm : TerraformResource
+public partial class AzurermBackupProtectedVm : TerraformResource
 {
     public AzurermBackupProtectedVm(string name) : base("azurerm_backup_protected_vm", name)
     {
@@ -50,66 +50,66 @@ public class AzurermBackupProtectedVm : TerraformResource
     /// <summary>
     /// The backup_policy_id attribute.
     /// </summary>
-    [TerraformPropertyName("backup_policy_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("backup_policy_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BackupPolicyId { get; set; }
 
     /// <summary>
     /// The exclude_disk_luns attribute.
     /// </summary>
-    [TerraformPropertyName("exclude_disk_luns")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("exclude_disk_luns")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<double>? ExcludeDiskLuns { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The include_disk_luns attribute.
     /// </summary>
-    [TerraformPropertyName("include_disk_luns")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_disk_luns")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<double>? IncludeDiskLuns { get; set; }
 
     /// <summary>
     /// The protection_state attribute.
     /// </summary>
-    [TerraformPropertyName("protection_state")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ProtectionState { get; set; } = default!;
+    [TerraformProperty("protection_state")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ProtectionState { get; set; }
 
     /// <summary>
     /// The recovery_vault_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RecoveryVaultName is required")]
-    [TerraformPropertyName("recovery_vault_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("recovery_vault_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RecoveryVaultName { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The source_vm_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_vm_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SourceVmId { get; set; } = default!;
+    [TerraformProperty("source_vm_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SourceVmId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermBackupProtectedVmTimeoutsBlock>? Timeouts { get; set; }
 
 }

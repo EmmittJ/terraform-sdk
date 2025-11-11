@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for privilege in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock
+public partial class AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock : TerraformBlockBase
 {
     /// <summary>
     /// The actions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
-    [TerraformPropertyName("actions")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("actions")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Actions { get; set; }
 
 }
@@ -22,34 +22,34 @@ public class AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock
+public partial class AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -57,7 +57,7 @@ public class AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_cosmosdb_mongo_role_definition resource.
 /// </summary>
-public class AzurermCosmosdbMongoRoleDefinition : TerraformResource
+public partial class AzurermCosmosdbMongoRoleDefinition : TerraformResource
 {
     public AzurermCosmosdbMongoRoleDefinition(string name) : base("azurerm_cosmosdb_mongo_role_definition", name)
     {
@@ -67,44 +67,44 @@ public class AzurermCosmosdbMongoRoleDefinition : TerraformResource
     /// The cosmos_mongo_database_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosMongoDatabaseId is required")]
-    [TerraformPropertyName("cosmos_mongo_database_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cosmos_mongo_database_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CosmosMongoDatabaseId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The inherited_role_names attribute.
     /// </summary>
-    [TerraformPropertyName("inherited_role_names")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("inherited_role_names")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? InheritedRoleNames { get; set; }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
-    [TerraformPropertyName("role_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleName { get; set; }
 
     /// <summary>
     /// Block for privilege.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("privilege")]
+    [TerraformProperty("privilege")]
     public TerraformList<TerraformBlock<AzurermCosmosdbMongoRoleDefinitionPrivilegeBlock>>? Privilege { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermCosmosdbMongoRoleDefinitionTimeoutsBlock>? Timeouts { get; set; }
 
 }

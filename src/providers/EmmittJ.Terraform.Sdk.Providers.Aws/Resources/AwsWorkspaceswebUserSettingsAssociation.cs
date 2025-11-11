@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_workspacesweb_user_settings_association resource.
 /// </summary>
-public class AwsWorkspaceswebUserSettingsAssociation : TerraformResource
+public partial class AwsWorkspaceswebUserSettingsAssociation : TerraformResource
 {
     public AwsWorkspaceswebUserSettingsAssociation(string name) : base("aws_workspacesweb_user_settings_association", name)
     {
@@ -15,23 +15,23 @@ public class AwsWorkspaceswebUserSettingsAssociation : TerraformResource
     /// The portal_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PortalArn is required")]
-    [TerraformPropertyName("portal_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("portal_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PortalArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The user_settings_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserSettingsArn is required")]
-    [TerraformPropertyName("user_settings_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_settings_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserSettingsArn { get; set; }
 
 }

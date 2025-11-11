@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock
+public partial class AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock
 /// <summary>
 /// Manages a aws_directory_service_shared_directory_accepter resource.
 /// </summary>
-public class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResource
+public partial class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResource
 {
     public AwsDirectoryServiceSharedDirectoryAccepter(string name) : base("aws_directory_service_shared_directory_accepter", name)
     {
@@ -36,58 +36,58 @@ public class AwsDirectoryServiceSharedDirectoryAccepter : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The shared_directory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SharedDirectoryId is required")]
-    [TerraformPropertyName("shared_directory_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("shared_directory_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SharedDirectoryId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsDirectoryServiceSharedDirectoryAccepterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The method attribute.
     /// </summary>
-    [TerraformPropertyName("method")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Method => new TerraformReference(this, "method");
+    [TerraformProperty("method")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Method { get; }
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
-    [TerraformPropertyName("notes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Notes => new TerraformReference(this, "notes");
+    [TerraformProperty("notes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Notes { get; }
 
     /// <summary>
     /// The owner_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_account_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerAccountId => new TerraformReference(this, "owner_account_id");
+    [TerraformProperty("owner_account_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerAccountId { get; }
 
     /// <summary>
     /// The owner_directory_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_directory_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerDirectoryId => new TerraformReference(this, "owner_directory_id");
+    [TerraformProperty("owner_directory_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerDirectoryId { get; }
 
 }

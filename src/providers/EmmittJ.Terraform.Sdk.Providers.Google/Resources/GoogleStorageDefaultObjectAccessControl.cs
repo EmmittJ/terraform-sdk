@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleStorageDefaultObjectAccessControlTimeoutsBlock
+public partial class GoogleStorageDefaultObjectAccessControlTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleStorageDefaultObjectAccessControlTimeoutsBlock
 /// <summary>
 /// Manages a google_storage_default_object_access_control resource.
 /// </summary>
-public class GoogleStorageDefaultObjectAccessControl : TerraformResource
+public partial class GoogleStorageDefaultObjectAccessControl : TerraformResource
 {
     public GoogleStorageDefaultObjectAccessControl(string name) : base("google_storage_default_object_access_control", name)
     {
@@ -44,8 +44,8 @@ public class GoogleStorageDefaultObjectAccessControl : TerraformResource
     /// The name of the bucket.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    [TerraformPropertyName("bucket")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
@@ -60,72 +60,72 @@ public class GoogleStorageDefaultObjectAccessControl : TerraformResource
     ///   * allAuthenticatedUsers
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entity is required")]
-    [TerraformPropertyName("entity")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("entity")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Entity { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the object, if applied to an object.
     /// </summary>
-    [TerraformPropertyName("object")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("object")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Object { get; set; }
 
     /// <summary>
     /// The access permission for the entity. Possible values: [&amp;quot;OWNER&amp;quot;, &amp;quot;READER&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
-    [TerraformPropertyName("role")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleStorageDefaultObjectAccessControlTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The domain associated with the entity.
     /// </summary>
-    [TerraformPropertyName("domain")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Domain => new TerraformReference(this, "domain");
+    [TerraformProperty("domain")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Domain { get; }
 
     /// <summary>
     /// The email address associated with the entity.
     /// </summary>
-    [TerraformPropertyName("email")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Email => new TerraformReference(this, "email");
+    [TerraformProperty("email")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Email { get; }
 
     /// <summary>
     /// The ID for the entity
     /// </summary>
-    [TerraformPropertyName("entity_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EntityId => new TerraformReference(this, "entity_id");
+    [TerraformProperty("entity_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EntityId { get; }
 
     /// <summary>
     /// The content generation of the object, if applied to an object.
     /// </summary>
-    [TerraformPropertyName("generation")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Generation => new TerraformReference(this, "generation");
+    [TerraformProperty("generation")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Generation { get; }
 
     /// <summary>
     /// The project team associated with the entity
     /// </summary>
-    [TerraformPropertyName("project_team")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ProjectTeam => new TerraformReference(this, "project_team");
+    [TerraformProperty("project_team")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ProjectTeam { get; }
 
 }

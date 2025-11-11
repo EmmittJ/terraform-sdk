@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_oracle_database_cloud_exadata_infrastructure.
 /// </summary>
-public class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : TerraformDataSource
+public partial class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : TerraformDataSource
 {
     public GoogleOracleDatabaseCloudExadataInfrastructureDataSource(string name) : base("google_oracle_database_cloud_exadata_infrastructure", name)
     {
@@ -18,74 +18,74 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : Terrafor
     /// a letter or a number.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CloudExadataInfrastructureId is required")]
-    [TerraformPropertyName("cloud_exadata_infrastructure_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cloud_exadata_infrastructure_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CloudExadataInfrastructureId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. See documentation for resource type &#39;oracledatabase.googleapis.com/DbServer&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The date and time that the Exadata Infrastructure was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
-    [TerraformPropertyName("deletion_protection")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DeletionProtection => new TerraformReference(this, "deletion_protection");
+    [TerraformProperty("deletion_protection")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// User friendly name for this resource.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Entitlement ID of the private offer against which this infrastructure
     /// resource is provisioned.
     /// </summary>
-    [TerraformPropertyName("entitlement_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EntitlementId => new TerraformReference(this, "entitlement_id");
+    [TerraformProperty("entitlement_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EntitlementId { get; }
 
     /// <summary>
     /// GCP location where Oracle Exadata is hosted.
     /// </summary>
-    [TerraformPropertyName("gcp_oracle_zone")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> GcpOracleZone => new TerraformReference(this, "gcp_oracle_zone");
+    [TerraformProperty("gcp_oracle_zone")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> GcpOracleZone { get; }
 
     /// <summary>
     /// Labels or tags associated with the resource. 
@@ -93,31 +93,31 @@ public class GoogleOracleDatabaseCloudExadataInfrastructureDataSource : Terrafor
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
+    [TerraformProperty("labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// Identifier. The name of the Exadata Infrastructure resource with the following format:
     /// projects/{project}/locations/{region}/cloudExadataInfrastructures/{cloud_exadata_infrastructure}
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Various properties of Exadata Infrastructure.
     /// </summary>
-    [TerraformPropertyName("properties")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Properties => new TerraformReference(this, "properties");
+    [TerraformProperty("properties")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Properties { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

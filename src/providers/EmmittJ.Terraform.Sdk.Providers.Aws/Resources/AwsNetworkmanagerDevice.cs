@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for aws_location in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkmanagerDeviceAwsLocationBlock
+public partial class AwsNetworkmanagerDeviceAwsLocationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The subnet_arn attribute.
     /// </summary>
-    [TerraformPropertyName("subnet_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subnet_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SubnetArn { get; set; }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    [TerraformPropertyName("zone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("zone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Zone { get; set; }
 
 }
@@ -28,27 +28,27 @@ public class AwsNetworkmanagerDeviceAwsLocationBlock
 /// Block type for location in .
 /// Nesting mode: list
 /// </summary>
-public class AwsNetworkmanagerDeviceLocationBlock
+public partial class AwsNetworkmanagerDeviceLocationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The address attribute.
     /// </summary>
-    [TerraformPropertyName("address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Address { get; set; }
 
     /// <summary>
     /// The latitude attribute.
     /// </summary>
-    [TerraformPropertyName("latitude")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("latitude")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Latitude { get; set; }
 
     /// <summary>
     /// The longitude attribute.
     /// </summary>
-    [TerraformPropertyName("longitude")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("longitude")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Longitude { get; set; }
 
 }
@@ -57,27 +57,27 @@ public class AwsNetworkmanagerDeviceLocationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsNetworkmanagerDeviceTimeoutsBlock
+public partial class AwsNetworkmanagerDeviceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -86,7 +86,7 @@ public class AwsNetworkmanagerDeviceTimeoutsBlock
 /// Manages a aws_networkmanager_device resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsNetworkmanagerDevice : TerraformResource
+public partial class AwsNetworkmanagerDevice : TerraformResource
 {
     public AwsNetworkmanagerDevice(string name) : base("aws_networkmanager_device", name)
     {
@@ -95,72 +95,72 @@ public class AwsNetworkmanagerDevice : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
-    [TerraformPropertyName("global_network_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("global_network_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GlobalNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The model attribute.
     /// </summary>
-    [TerraformPropertyName("model")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("model")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Model { get; set; }
 
     /// <summary>
     /// The serial_number attribute.
     /// </summary>
-    [TerraformPropertyName("serial_number")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("serial_number")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SerialNumber { get; set; }
 
     /// <summary>
     /// The site_id attribute.
     /// </summary>
-    [TerraformPropertyName("site_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("site_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SiteId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The vendor attribute.
     /// </summary>
-    [TerraformPropertyName("vendor")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vendor")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Vendor { get; set; }
 
     /// <summary>
@@ -168,7 +168,7 @@ public class AwsNetworkmanagerDevice : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AwsLocation block(s) allowed")]
-    [TerraformPropertyName("aws_location")]
+    [TerraformProperty("aws_location")]
     public TerraformList<TerraformBlock<AwsNetworkmanagerDeviceAwsLocationBlock>>? AwsLocation { get; set; }
 
     /// <summary>
@@ -176,21 +176,21 @@ public class AwsNetworkmanagerDevice : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Location block(s) allowed")]
-    [TerraformPropertyName("location")]
+    [TerraformProperty("location")]
     public TerraformList<TerraformBlock<AwsNetworkmanagerDeviceLocationBlock>>? Location { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsNetworkmanagerDeviceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

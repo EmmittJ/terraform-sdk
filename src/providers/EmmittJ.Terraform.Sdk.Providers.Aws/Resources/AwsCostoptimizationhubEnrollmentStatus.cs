@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_costoptimizationhub_enrollment_status resource.
 /// </summary>
-public class AwsCostoptimizationhubEnrollmentStatus : TerraformResource
+public partial class AwsCostoptimizationhubEnrollmentStatus : TerraformResource
 {
     public AwsCostoptimizationhubEnrollmentStatus(string name) : base("aws_costoptimizationhub_enrollment_status", name)
     {
@@ -14,22 +14,22 @@ public class AwsCostoptimizationhubEnrollmentStatus : TerraformResource
     /// <summary>
     /// The include_member_accounts attribute.
     /// </summary>
-    [TerraformPropertyName("include_member_accounts")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> IncludeMemberAccounts { get; set; } = default!;
+    [TerraformProperty("include_member_accounts")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> IncludeMemberAccounts { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

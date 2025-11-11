@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_medialive_input.
 /// </summary>
-public class AwsMedialiveInputDataSource : TerraformDataSource
+public partial class AwsMedialiveInputDataSource : TerraformDataSource
 {
     public AwsMedialiveInputDataSource(string name) : base("aws_medialive_input", name)
     {
@@ -15,120 +15,120 @@ public class AwsMedialiveInputDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The attached_channels attribute.
     /// </summary>
-    [TerraformPropertyName("attached_channels")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AttachedChannels => new TerraformReference(this, "attached_channels");
+    [TerraformProperty("attached_channels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AttachedChannels { get; }
 
     /// <summary>
     /// The destinations attribute.
     /// </summary>
-    [TerraformPropertyName("destinations")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Destinations => new TerraformReference(this, "destinations");
+    [TerraformProperty("destinations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Destinations { get; }
 
     /// <summary>
     /// The input_class attribute.
     /// </summary>
-    [TerraformPropertyName("input_class")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> InputClass => new TerraformReference(this, "input_class");
+    [TerraformProperty("input_class")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> InputClass { get; }
 
     /// <summary>
     /// The input_devices attribute.
     /// </summary>
-    [TerraformPropertyName("input_devices")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> InputDevices => new TerraformReference(this, "input_devices");
+    [TerraformProperty("input_devices")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> InputDevices { get; }
 
     /// <summary>
     /// The input_partner_ids attribute.
     /// </summary>
-    [TerraformPropertyName("input_partner_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> InputPartnerIds => new TerraformReference(this, "input_partner_ids");
+    [TerraformProperty("input_partner_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> InputPartnerIds { get; }
 
     /// <summary>
     /// The input_source_type attribute.
     /// </summary>
-    [TerraformPropertyName("input_source_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> InputSourceType => new TerraformReference(this, "input_source_type");
+    [TerraformProperty("input_source_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> InputSourceType { get; }
 
     /// <summary>
     /// The media_connect_flows attribute.
     /// </summary>
-    [TerraformPropertyName("media_connect_flows")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> MediaConnectFlows => new TerraformReference(this, "media_connect_flows");
+    [TerraformProperty("media_connect_flows")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> MediaConnectFlows { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("role_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RoleArn => new TerraformReference(this, "role_arn");
+    [TerraformProperty("role_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RoleArn { get; }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    [TerraformPropertyName("security_groups")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SecurityGroups => new TerraformReference(this, "security_groups");
+    [TerraformProperty("security_groups")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SecurityGroups { get; }
 
     /// <summary>
     /// The sources attribute.
     /// </summary>
-    [TerraformPropertyName("sources")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Sources => new TerraformReference(this, "sources");
+    [TerraformProperty("sources")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Sources { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
 }

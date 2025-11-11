@@ -6,56 +6,56 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for maintenance_window in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock
+public partial class AzurermOracleExadataInfrastructureMaintenanceWindowBlock : TerraformBlockBase
 {
     /// <summary>
     /// The days_of_week attribute.
     /// </summary>
-    [TerraformPropertyName("days_of_week")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> DaysOfWeek { get; set; } = default!;
+    [TerraformProperty("days_of_week")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> DaysOfWeek { get; set; }
 
     /// <summary>
     /// The hours_of_day attribute.
     /// </summary>
-    [TerraformPropertyName("hours_of_day")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<double> HoursOfDay { get; set; } = default!;
+    [TerraformProperty("hours_of_day")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<double> HoursOfDay { get; set; }
 
     /// <summary>
     /// The lead_time_in_weeks attribute.
     /// </summary>
-    [TerraformPropertyName("lead_time_in_weeks")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> LeadTimeInWeeks { get; set; } = default!;
+    [TerraformProperty("lead_time_in_weeks")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> LeadTimeInWeeks { get; set; }
 
     /// <summary>
     /// The months attribute.
     /// </summary>
-    [TerraformPropertyName("months")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> Months { get; set; } = default!;
+    [TerraformProperty("months")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> Months { get; set; }
 
     /// <summary>
     /// The patching_mode attribute.
     /// </summary>
-    [TerraformPropertyName("patching_mode")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PatchingMode { get; set; } = default!;
+    [TerraformProperty("patching_mode")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PatchingMode { get; set; }
 
     /// <summary>
     /// The preference attribute.
     /// </summary>
-    [TerraformPropertyName("preference")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Preference { get; set; } = default!;
+    [TerraformProperty("preference")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Preference { get; set; }
 
     /// <summary>
     /// The weeks_of_month attribute.
     /// </summary>
-    [TerraformPropertyName("weeks_of_month")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<double> WeeksOfMonth { get; set; } = default!;
+    [TerraformProperty("weeks_of_month")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<double> WeeksOfMonth { get; set; }
 
 }
 
@@ -63,34 +63,34 @@ public class AzurermOracleExadataInfrastructureMaintenanceWindowBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermOracleExadataInfrastructureTimeoutsBlock
+public partial class AzurermOracleExadataInfrastructureTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -98,7 +98,7 @@ public class AzurermOracleExadataInfrastructureTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_oracle_exadata_infrastructure resource.
 /// </summary>
-public class AzurermOracleExadataInfrastructure : TerraformResource
+public partial class AzurermOracleExadataInfrastructure : TerraformResource
 {
     public AzurermOracleExadataInfrastructure(string name) : base("azurerm_oracle_exadata_infrastructure", name)
     {
@@ -108,113 +108,113 @@ public class AzurermOracleExadataInfrastructure : TerraformResource
     /// The compute_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
-    [TerraformPropertyName("compute_count")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("compute_count")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> ComputeCount { get; set; }
 
     /// <summary>
     /// The customer_contacts attribute.
     /// </summary>
-    [TerraformPropertyName("customer_contacts")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> CustomerContacts { get; set; } = default!;
+    [TerraformProperty("customer_contacts")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> CustomerContacts { get; set; }
 
     /// <summary>
     /// The database_server_type attribute.
     /// </summary>
-    [TerraformPropertyName("database_server_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DatabaseServerType { get; set; } = default!;
+    [TerraformProperty("database_server_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DatabaseServerType { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The shape attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
-    [TerraformPropertyName("shape")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("shape")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Shape { get; set; }
 
     /// <summary>
     /// The storage_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCount is required")]
-    [TerraformPropertyName("storage_count")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_count")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> StorageCount { get; set; }
 
     /// <summary>
     /// The storage_server_type attribute.
     /// </summary>
-    [TerraformPropertyName("storage_server_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> StorageServerType { get; set; } = default!;
+    [TerraformProperty("storage_server_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> StorageServerType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zones is required")]
-    [TerraformPropertyName("zones")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("zones")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Zones { get; set; }
 
     /// <summary>
     /// Block for maintenance_window.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("maintenance_window")]
+    [TerraformProperty("maintenance_window")]
     public TerraformList<TerraformBlock<AzurermOracleExadataInfrastructureMaintenanceWindowBlock>>? MaintenanceWindow { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermOracleExadataInfrastructureTimeoutsBlock>? Timeouts { get; set; }
 
 }

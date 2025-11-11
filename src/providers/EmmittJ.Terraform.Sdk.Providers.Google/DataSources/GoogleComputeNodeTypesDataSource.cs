@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_node_types.
 /// </summary>
-public class GoogleComputeNodeTypesDataSource : TerraformDataSource
+public partial class GoogleComputeNodeTypesDataSource : TerraformDataSource
 {
     public GoogleComputeNodeTypesDataSource(string name) : base("google_compute_node_types", name)
     {
@@ -14,29 +14,29 @@ public class GoogleComputeNodeTypesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The zone attribute.
     /// </summary>
-    [TerraformPropertyName("zone")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Zone { get; set; } = default!;
+    [TerraformProperty("zone")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// The names attribute.
     /// </summary>
-    [TerraformPropertyName("names")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Names => new TerraformReference(this, "names");
+    [TerraformProperty("names")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Names { get; }
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for secondary_disk in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock
+public partial class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock : TerraformBlockBase
 {
     /// <summary>
     /// Secondary disk for asynchronous replication.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Disk is required")]
-    [TerraformPropertyName("disk")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("disk")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Disk { get; set; }
 
 
@@ -23,20 +23,20 @@ public class GoogleComputeDiskAsyncReplicationSecondaryDiskBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeDiskAsyncReplicationTimeoutsBlock
+public partial class GoogleComputeDiskAsyncReplicationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -45,7 +45,7 @@ public class GoogleComputeDiskAsyncReplicationTimeoutsBlock
 /// Manages a google_compute_disk_async_replication resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputeDiskAsyncReplication : TerraformResource
+public partial class GoogleComputeDiskAsyncReplication : TerraformResource
 {
     public GoogleComputeDiskAsyncReplication(string name) : base("google_compute_disk_async_replication", name)
     {
@@ -54,16 +54,16 @@ public class GoogleComputeDiskAsyncReplication : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Primary disk for asynchronous replication.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrimaryDisk is required")]
-    [TerraformPropertyName("primary_disk")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("primary_disk")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrimaryDisk { get; set; }
 
     /// <summary>
@@ -73,14 +73,14 @@ public class GoogleComputeDiskAsyncReplication : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecondaryDisk is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 SecondaryDisk block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecondaryDisk block(s) allowed")]
-    [TerraformPropertyName("secondary_disk")]
+    [TerraformProperty("secondary_disk")]
     public TerraformList<TerraformBlock<GoogleComputeDiskAsyncReplicationSecondaryDiskBlock>>? SecondaryDisk { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeDiskAsyncReplicationTimeoutsBlock>? Timeouts { get; set; }
 
 }

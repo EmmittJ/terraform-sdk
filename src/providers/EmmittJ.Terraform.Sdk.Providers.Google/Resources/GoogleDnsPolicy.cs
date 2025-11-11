@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for alternative_name_server_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDnsPolicyAlternativeNameServerConfigBlock
+public partial class GoogleDnsPolicyAlternativeNameServerConfigBlock : TerraformBlockBase
 {
 }
 
@@ -14,7 +14,7 @@ public class GoogleDnsPolicyAlternativeNameServerConfigBlock
 /// Block type for dns64_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDnsPolicyDns64ConfigBlock
+public partial class GoogleDnsPolicyDns64ConfigBlock : TerraformBlockBase
 {
 }
 
@@ -22,7 +22,7 @@ public class GoogleDnsPolicyDns64ConfigBlock
 /// Block type for networks in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleDnsPolicyNetworksBlock
+public partial class GoogleDnsPolicyNetworksBlock : TerraformBlockBase
 {
     /// <summary>
     /// The id or fully qualified URL of the VPC network to forward queries to.
@@ -30,8 +30,8 @@ public class GoogleDnsPolicyNetworksBlock
     /// &#39;https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
-    [TerraformPropertyName("network_url")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network_url")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NetworkUrl { get; set; }
 
 }
@@ -40,27 +40,27 @@ public class GoogleDnsPolicyNetworksBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDnsPolicyTimeoutsBlock
+public partial class GoogleDnsPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -69,7 +69,7 @@ public class GoogleDnsPolicyTimeoutsBlock
 /// Manages a google_dns_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleDnsPolicy : TerraformResource
+public partial class GoogleDnsPolicy : TerraformResource
 {
     public GoogleDnsPolicy(string name) : base("google_dns_policy", name)
     {
@@ -78,8 +78,8 @@ public class GoogleDnsPolicy : TerraformResource
     /// <summary>
     /// A textual description field. Defaults to &#39;Managed by Terraform&#39;.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
@@ -88,46 +88,46 @@ public class GoogleDnsPolicy : TerraformResource
     /// virtual IP address will be allocated from each of the sub-networks
     /// that are bound to this policy.
     /// </summary>
-    [TerraformPropertyName("enable_inbound_forwarding")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_inbound_forwarding")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableInboundForwarding { get; set; }
 
     /// <summary>
     /// Controls whether logging is enabled for the networks bound to this policy.
     /// Defaults to no logging if not set.
     /// </summary>
-    [TerraformPropertyName("enable_logging")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_logging")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableLogging { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// User assigned name for this policy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for alternative_name_server_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AlternativeNameServerConfig block(s) allowed")]
-    [TerraformPropertyName("alternative_name_server_config")]
+    [TerraformProperty("alternative_name_server_config")]
     public TerraformList<TerraformBlock<GoogleDnsPolicyAlternativeNameServerConfigBlock>>? AlternativeNameServerConfig { get; set; }
 
     /// <summary>
@@ -135,21 +135,21 @@ public class GoogleDnsPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Dns64Config block(s) allowed")]
-    [TerraformPropertyName("dns64_config")]
+    [TerraformProperty("dns64_config")]
     public TerraformList<TerraformBlock<GoogleDnsPolicyDns64ConfigBlock>>? Dns64Config { get; set; }
 
     /// <summary>
     /// Block for networks.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("networks")]
+    [TerraformProperty("networks")]
     public TerraformSet<TerraformBlock<GoogleDnsPolicyNetworksBlock>>? Networks { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDnsPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

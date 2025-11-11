@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for xss_match_tuple in .
 /// Nesting mode: set
 /// </summary>
-public class AwsWafregionalXssMatchSetXssMatchTupleBlock
+public partial class AwsWafregionalXssMatchSetXssMatchTupleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The text_transformation attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
-    [TerraformPropertyName("text_transformation")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("text_transformation")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TextTransformation { get; set; }
 
 }
@@ -21,7 +21,7 @@ public class AwsWafregionalXssMatchSetXssMatchTupleBlock
 /// <summary>
 /// Manages a aws_wafregional_xss_match_set resource.
 /// </summary>
-public class AwsWafregionalXssMatchSet : TerraformResource
+public partial class AwsWafregionalXssMatchSet : TerraformResource
 {
     public AwsWafregionalXssMatchSet(string name) : base("aws_wafregional_xss_match_set", name)
     {
@@ -30,30 +30,30 @@ public class AwsWafregionalXssMatchSet : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for xss_match_tuple.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("xss_match_tuple")]
+    [TerraformProperty("xss_match_tuple")]
     public TerraformSet<TerraformBlock<AwsWafregionalXssMatchSetXssMatchTupleBlock>>? XssMatchTuple { get; set; }
 
 }

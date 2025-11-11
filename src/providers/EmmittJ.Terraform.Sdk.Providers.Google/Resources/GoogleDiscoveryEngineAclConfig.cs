@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for idp_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDiscoveryEngineAclConfigIdpConfigBlock
+public partial class GoogleDiscoveryEngineAclConfigIdpConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Identity provider type. Possible values: [&amp;quot;GSUITE&amp;quot;, &amp;quot;THIRD_PARTY&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("idp_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("idp_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IdpType { get; set; }
 
 }
@@ -21,27 +21,27 @@ public class GoogleDiscoveryEngineAclConfigIdpConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDiscoveryEngineAclConfigTimeoutsBlock
+public partial class GoogleDiscoveryEngineAclConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -50,7 +50,7 @@ public class GoogleDiscoveryEngineAclConfigTimeoutsBlock
 /// Manages a google_discovery_engine_acl_config resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleDiscoveryEngineAclConfig : TerraformResource
+public partial class GoogleDiscoveryEngineAclConfig : TerraformResource
 {
     public GoogleDiscoveryEngineAclConfig(string name) : base("google_discovery_engine_acl_config", name)
     {
@@ -59,47 +59,47 @@ public class GoogleDiscoveryEngineAclConfig : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The geographic location where the data store should reside. The value can
     /// only be one of &amp;quot;global&amp;quot;, &amp;quot;us&amp;quot; and &amp;quot;eu&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for idp_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IdpConfig block(s) allowed")]
-    [TerraformPropertyName("idp_config")]
+    [TerraformProperty("idp_config")]
     public TerraformList<TerraformBlock<GoogleDiscoveryEngineAclConfigIdpConfigBlock>>? IdpConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDiscoveryEngineAclConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique full resource name of the aclConfig. Values are of the format
     /// &#39;projects/{project}/locations/{location}/aclConfig&#39;.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

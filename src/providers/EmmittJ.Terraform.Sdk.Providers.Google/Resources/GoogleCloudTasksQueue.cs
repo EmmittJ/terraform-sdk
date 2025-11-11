@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for app_engine_routing_override in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock
+public partial class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock : TerraformBlockBase
 {
 
     /// <summary>
@@ -14,8 +14,8 @@ public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock
     /// 
     /// By default, the task is sent to an instance which is available when the task is attempted.
     /// </summary>
-    [TerraformPropertyName("instance")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("instance")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Instance { get; set; }
 
     /// <summary>
@@ -23,8 +23,8 @@ public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock
     /// 
     /// By default, the task is sent to the service which is the default service when the task is attempted.
     /// </summary>
-    [TerraformPropertyName("service")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Service { get; set; }
 
     /// <summary>
@@ -32,8 +32,8 @@ public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock
     /// 
     /// By default, the task is sent to the version which is the default version when the task is attempted.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Version { get; set; }
 
 }
@@ -42,7 +42,7 @@ public class GoogleCloudTasksQueueAppEngineRoutingOverrideBlock
 /// Block type for http_target in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudTasksQueueHttpTargetBlock
+public partial class GoogleCloudTasksQueueHttpTargetBlock : TerraformBlockBase
 {
     /// <summary>
     /// The HTTP method to use for the request.
@@ -50,9 +50,9 @@ public class GoogleCloudTasksQueueHttpTargetBlock
     /// When specified, it overrides HttpRequest for the task.
     /// Note that if the value is set to GET the body of the task will be ignored at execution time. Possible values: [&amp;quot;HTTP_METHOD_UNSPECIFIED&amp;quot;, &amp;quot;POST&amp;quot;, &amp;quot;GET&amp;quot;, &amp;quot;HEAD&amp;quot;, &amp;quot;PUT&amp;quot;, &amp;quot;DELETE&amp;quot;, &amp;quot;PATCH&amp;quot;, &amp;quot;OPTIONS&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("http_method")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> HttpMethod { get; set; } = default!;
+    [TerraformProperty("http_method")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> HttpMethod { get; set; }
 
 }
 
@@ -60,7 +60,7 @@ public class GoogleCloudTasksQueueHttpTargetBlock
 /// Block type for rate_limits in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudTasksQueueRateLimitsBlock
+public partial class GoogleCloudTasksQueueRateLimitsBlock : TerraformBlockBase
 {
 
     /// <summary>
@@ -69,18 +69,18 @@ public class GoogleCloudTasksQueueRateLimitsBlock
     /// reached, Cloud Tasks stops dispatching tasks until the number of
     /// concurrent requests decreases.
     /// </summary>
-    [TerraformPropertyName("max_concurrent_dispatches")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxConcurrentDispatches { get; set; } = default!;
+    [TerraformProperty("max_concurrent_dispatches")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxConcurrentDispatches { get; set; }
 
     /// <summary>
     /// The maximum rate at which tasks are dispatched from this queue.
     /// 
     /// If unspecified when the queue is created, Cloud Tasks will pick the default.
     /// </summary>
-    [TerraformPropertyName("max_dispatches_per_second")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxDispatchesPerSecond { get; set; } = default!;
+    [TerraformProperty("max_dispatches_per_second")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxDispatchesPerSecond { get; set; }
 
 }
 
@@ -88,7 +88,7 @@ public class GoogleCloudTasksQueueRateLimitsBlock
 /// Block type for retry_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudTasksQueueRetryConfigBlock
+public partial class GoogleCloudTasksQueueRetryConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Number of attempts per task.
@@ -102,18 +102,18 @@ public class GoogleCloudTasksQueueRetryConfigBlock
     /// 
     /// -1 indicates unlimited attempts.
     /// </summary>
-    [TerraformPropertyName("max_attempts")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxAttempts { get; set; } = default!;
+    [TerraformProperty("max_attempts")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxAttempts { get; set; }
 
     /// <summary>
     /// A task will be scheduled for retry between minBackoff and
     /// maxBackoff duration after it fails, if the queue&#39;s RetryConfig
     /// specifies that the task should be retried.
     /// </summary>
-    [TerraformPropertyName("max_backoff")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MaxBackoff { get; set; } = default!;
+    [TerraformProperty("max_backoff")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MaxBackoff { get; set; }
 
     /// <summary>
     /// The time between retries will double maxDoublings times.
@@ -122,9 +122,9 @@ public class GoogleCloudTasksQueueRetryConfigBlock
     /// then increases linearly, and finally retries retries at intervals of maxBackoff
     /// up to maxAttempts times.
     /// </summary>
-    [TerraformPropertyName("max_doublings")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxDoublings { get; set; } = default!;
+    [TerraformProperty("max_doublings")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxDoublings { get; set; }
 
     /// <summary>
     /// If positive, maxRetryDuration specifies the time limit for
@@ -135,18 +135,18 @@ public class GoogleCloudTasksQueueRetryConfigBlock
     /// 
     /// If zero, then the task age is unlimited.
     /// </summary>
-    [TerraformPropertyName("max_retry_duration")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MaxRetryDuration { get; set; } = default!;
+    [TerraformProperty("max_retry_duration")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MaxRetryDuration { get; set; }
 
     /// <summary>
     /// A task will be scheduled for retry between minBackoff and
     /// maxBackoff duration after it fails, if the queue&#39;s RetryConfig
     /// specifies that the task should be retried.
     /// </summary>
-    [TerraformPropertyName("min_backoff")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MinBackoff { get; set; } = default!;
+    [TerraformProperty("min_backoff")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MinBackoff { get; set; }
 
 }
 
@@ -154,7 +154,7 @@ public class GoogleCloudTasksQueueRetryConfigBlock
 /// Block type for stackdriver_logging_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudTasksQueueStackdriverLoggingConfigBlock
+public partial class GoogleCloudTasksQueueStackdriverLoggingConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Specifies the fraction of operations to write to Stackdriver Logging.
@@ -162,8 +162,8 @@ public class GoogleCloudTasksQueueStackdriverLoggingConfigBlock
     /// default and means that no operations are logged.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SamplingRatio is required")]
-    [TerraformPropertyName("sampling_ratio")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sampling_ratio")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> SamplingRatio { get; set; }
 
 }
@@ -172,27 +172,27 @@ public class GoogleCloudTasksQueueStackdriverLoggingConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCloudTasksQueueTimeoutsBlock
+public partial class GoogleCloudTasksQueueTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -201,7 +201,7 @@ public class GoogleCloudTasksQueueTimeoutsBlock
 /// Manages a google_cloud_tasks_queue resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleCloudTasksQueue : TerraformResource
+public partial class GoogleCloudTasksQueue : TerraformResource
 {
     public GoogleCloudTasksQueue(string name) : base("google_cloud_tasks_queue", name)
     {
@@ -213,46 +213,46 @@ public class GoogleCloudTasksQueue : TerraformResource
     /// * RUNNING: The queue is running. Tasks can be dispatched.
     /// * PAUSED: The queue is paused. Tasks are not dispatched but can be added to the queue. Default value: &amp;quot;RUNNING&amp;quot; Possible values: [&amp;quot;RUNNING&amp;quot;, &amp;quot;PAUSED&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("desired_state")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("desired_state")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DesiredState { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the queue
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The queue name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for app_engine_routing_override.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppEngineRoutingOverride block(s) allowed")]
-    [TerraformPropertyName("app_engine_routing_override")]
+    [TerraformProperty("app_engine_routing_override")]
     public TerraformList<TerraformBlock<GoogleCloudTasksQueueAppEngineRoutingOverrideBlock>>? AppEngineRoutingOverride { get; set; }
 
     /// <summary>
@@ -260,7 +260,7 @@ public class GoogleCloudTasksQueue : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpTarget block(s) allowed")]
-    [TerraformPropertyName("http_target")]
+    [TerraformProperty("http_target")]
     public TerraformList<TerraformBlock<GoogleCloudTasksQueueHttpTargetBlock>>? HttpTarget { get; set; }
 
     /// <summary>
@@ -268,7 +268,7 @@ public class GoogleCloudTasksQueue : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RateLimits block(s) allowed")]
-    [TerraformPropertyName("rate_limits")]
+    [TerraformProperty("rate_limits")]
     public TerraformList<TerraformBlock<GoogleCloudTasksQueueRateLimitsBlock>>? RateLimits { get; set; }
 
     /// <summary>
@@ -276,7 +276,7 @@ public class GoogleCloudTasksQueue : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryConfig block(s) allowed")]
-    [TerraformPropertyName("retry_config")]
+    [TerraformProperty("retry_config")]
     public TerraformList<TerraformBlock<GoogleCloudTasksQueueRetryConfigBlock>>? RetryConfig { get; set; }
 
     /// <summary>
@@ -284,21 +284,21 @@ public class GoogleCloudTasksQueue : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StackdriverLoggingConfig block(s) allowed")]
-    [TerraformPropertyName("stackdriver_logging_config")]
+    [TerraformProperty("stackdriver_logging_config")]
     public TerraformList<TerraformBlock<GoogleCloudTasksQueueStackdriverLoggingConfigBlock>>? StackdriverLoggingConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleCloudTasksQueueTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The current state of the queue.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
 }

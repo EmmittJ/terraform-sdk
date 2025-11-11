@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for basic_algorithm in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock
+public partial class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock : TerraformBlockBase
 {
     /// <summary>
     /// Duration between scaling events. A scaling period starts after the
@@ -14,8 +14,8 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock
     /// 
     /// Bounds: [2m, 1d]. Default: 2m.
     /// </summary>
-    [TerraformPropertyName("cooldown_period")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cooldown_period")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CooldownPeriod { get; set; }
 
 }
@@ -24,22 +24,22 @@ public class GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock
 /// Block type for secondary_worker_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock
+public partial class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Maximum number of instances for this group. Note that by default, clusters will not use
     /// secondary workers. Required for secondary workers if the minimum secondary instances is set.
     /// Bounds: [minInstances, ). Defaults to 0.
     /// </summary>
-    [TerraformPropertyName("max_instances")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_instances")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxInstances { get; set; }
 
     /// <summary>
     /// Minimum number of instances for this group. Bounds: [0, maxInstances]. Defaults to 0.
     /// </summary>
-    [TerraformPropertyName("min_instances")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("min_instances")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MinInstances { get; set; }
 
     /// <summary>
@@ -58,8 +58,8 @@ public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock
     /// the cluster will default to zero weight on the unset group. For example if weight is set
     /// only on primary workers, the cluster will use primary workers only and no secondary workers.
     /// </summary>
-    [TerraformPropertyName("weight")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("weight")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Weight { get; set; }
 
 }
@@ -68,27 +68,27 @@ public class GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDataprocAutoscalingPolicyTimeoutsBlock
+public partial class GoogleDataprocAutoscalingPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -97,21 +97,21 @@ public class GoogleDataprocAutoscalingPolicyTimeoutsBlock
 /// Block type for worker_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock
+public partial class GoogleDataprocAutoscalingPolicyWorkerConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Maximum number of instances for this group.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxInstances is required")]
-    [TerraformPropertyName("max_instances")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("max_instances")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MaxInstances { get; set; }
 
     /// <summary>
     /// Minimum number of instances for this group. Bounds: [2, maxInstances]. Defaults to 2.
     /// </summary>
-    [TerraformPropertyName("min_instances")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("min_instances")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MinInstances { get; set; }
 
     /// <summary>
@@ -130,8 +130,8 @@ public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock
     /// the cluster will default to zero weight on the unset group. For example if weight is set
     /// only on primary workers, the cluster will use primary workers only and no secondary workers.
     /// </summary>
-    [TerraformPropertyName("weight")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("weight")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Weight { get; set; }
 
 }
@@ -140,7 +140,7 @@ public class GoogleDataprocAutoscalingPolicyWorkerConfigBlock
 /// Manages a google_dataproc_autoscaling_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleDataprocAutoscalingPolicy : TerraformResource
+public partial class GoogleDataprocAutoscalingPolicy : TerraformResource
 {
     public GoogleDataprocAutoscalingPolicy(string name) : base("google_dataproc_autoscaling_policy", name)
     {
@@ -149,16 +149,16 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The  location where the autoscaling policy should reside.
     /// The default value is &#39;global&#39;.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
@@ -167,23 +167,23 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     /// 3 and 50 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyId is required")]
-    [TerraformPropertyName("policy_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PolicyId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for basic_algorithm.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicAlgorithm block(s) allowed")]
-    [TerraformPropertyName("basic_algorithm")]
+    [TerraformProperty("basic_algorithm")]
     public TerraformList<TerraformBlock<GoogleDataprocAutoscalingPolicyBasicAlgorithmBlock>>? BasicAlgorithm { get; set; }
 
     /// <summary>
@@ -191,14 +191,14 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecondaryWorkerConfig block(s) allowed")]
-    [TerraformPropertyName("secondary_worker_config")]
+    [TerraformProperty("secondary_worker_config")]
     public TerraformList<TerraformBlock<GoogleDataprocAutoscalingPolicySecondaryWorkerConfigBlock>>? SecondaryWorkerConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDataprocAutoscalingPolicyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -206,14 +206,14 @@ public class GoogleDataprocAutoscalingPolicy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerConfig block(s) allowed")]
-    [TerraformPropertyName("worker_config")]
+    [TerraformProperty("worker_config")]
     public TerraformList<TerraformBlock<GoogleDataprocAutoscalingPolicyWorkerConfigBlock>>? WorkerConfig { get; set; }
 
     /// <summary>
     /// The &amp;quot;resource name&amp;quot; of the autoscaling policy.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

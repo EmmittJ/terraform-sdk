@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLbBackendAddressPoolAddressTimeoutsBlock
+public partial class AzurermLbBackendAddressPoolAddressTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermLbBackendAddressPoolAddressTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_lb_backend_address_pool_address resource.
 /// </summary>
-public class AzurermLbBackendAddressPoolAddress : TerraformResource
+public partial class AzurermLbBackendAddressPoolAddress : TerraformResource
 {
     public AzurermLbBackendAddressPoolAddress(string name) : base("azurerm_lb_backend_address_pool_address", name)
     {
@@ -50,59 +50,59 @@ public class AzurermLbBackendAddressPoolAddress : TerraformResource
     /// <summary>
     /// For global load balancer, user needs to specify the `backend_address_ip_configuration_id` of the added regional load balancers
     /// </summary>
-    [TerraformPropertyName("backend_address_ip_configuration_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("backend_address_ip_configuration_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BackendAddressIpConfigurationId { get; set; }
 
     /// <summary>
     /// The backend_address_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackendAddressPoolId is required")]
-    [TerraformPropertyName("backend_address_pool_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("backend_address_pool_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BackendAddressPoolId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_address attribute.
     /// </summary>
-    [TerraformPropertyName("ip_address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IpAddress { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
-    [TerraformPropertyName("virtual_network_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("virtual_network_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VirtualNetworkId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermLbBackendAddressPoolAddressTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The inbound_nat_rule_port_mapping attribute.
     /// </summary>
-    [TerraformPropertyName("inbound_nat_rule_port_mapping")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> InboundNatRulePortMapping => new TerraformReference(this, "inbound_nat_rule_port_mapping");
+    [TerraformProperty("inbound_nat_rule_port_mapping")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> InboundNatRulePortMapping { get; }
 
 }

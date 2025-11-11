@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadAdministrativeUnitDataSourceTimeoutsBlock
+public partial class AzureadAdministrativeUnitDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzureadAdministrativeUnitDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azuread_administrative_unit.
 /// </summary>
-public class AzureadAdministrativeUnitDataSource : TerraformDataSource
+public partial class AzureadAdministrativeUnitDataSource : TerraformDataSource
 {
     public AzureadAdministrativeUnitDataSource(string name) : base("azuread_administrative_unit", name)
     {
@@ -50,50 +50,50 @@ public class AzureadAdministrativeUnitDataSource : TerraformDataSource
     /// <summary>
     /// The display name for the administrative unit
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DisplayName { get; set; } = default!;
+    [TerraformProperty("display_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object ID of the administrative unit
     /// </summary>
-    [TerraformPropertyName("object_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ObjectId { get; set; } = default!;
+    [TerraformProperty("object_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ObjectId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadAdministrativeUnitDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The description for the administrative unit
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// A list of object IDs of members who are be present in this administrative unit.
     /// </summary>
-    [TerraformPropertyName("members")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Members => new TerraformReference(this, "members");
+    [TerraformProperty("members")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Members { get; }
 
     /// <summary>
     /// Whether the administrative unit and its members are hidden or publicly viewable in the directory
     /// </summary>
-    [TerraformPropertyName("visibility")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Visibility => new TerraformReference(this, "visibility");
+    [TerraformProperty("visibility")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Visibility { get; }
 
 }

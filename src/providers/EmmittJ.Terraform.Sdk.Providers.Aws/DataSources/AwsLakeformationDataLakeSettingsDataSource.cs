@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_lakeformation_data_lake_settings.
 /// </summary>
-public class AwsLakeformationDataLakeSettingsDataSource : TerraformDataSource
+public partial class AwsLakeformationDataLakeSettingsDataSource : TerraformDataSource
 {
     public AwsLakeformationDataLakeSettingsDataSource(string name) : base("aws_lakeformation_data_lake_settings", name)
     {
@@ -14,92 +14,92 @@ public class AwsLakeformationDataLakeSettingsDataSource : TerraformDataSource
     /// <summary>
     /// The catalog_id attribute.
     /// </summary>
-    [TerraformPropertyName("catalog_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("catalog_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CatalogId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The admins attribute.
     /// </summary>
-    [TerraformPropertyName("admins")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> Admins => new TerraformReference(this, "admins");
+    [TerraformProperty("admins")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> Admins { get; }
 
     /// <summary>
     /// The allow_external_data_filtering attribute.
     /// </summary>
-    [TerraformPropertyName("allow_external_data_filtering")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AllowExternalDataFiltering => new TerraformReference(this, "allow_external_data_filtering");
+    [TerraformProperty("allow_external_data_filtering")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AllowExternalDataFiltering { get; }
 
     /// <summary>
     /// The allow_full_table_external_data_access attribute.
     /// </summary>
-    [TerraformPropertyName("allow_full_table_external_data_access")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AllowFullTableExternalDataAccess => new TerraformReference(this, "allow_full_table_external_data_access");
+    [TerraformProperty("allow_full_table_external_data_access")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AllowFullTableExternalDataAccess { get; }
 
     /// <summary>
     /// The authorized_session_tag_value_list attribute.
     /// </summary>
-    [TerraformPropertyName("authorized_session_tag_value_list")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AuthorizedSessionTagValueList => new TerraformReference(this, "authorized_session_tag_value_list");
+    [TerraformProperty("authorized_session_tag_value_list")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AuthorizedSessionTagValueList { get; }
 
     /// <summary>
     /// The create_database_default_permissions attribute.
     /// </summary>
-    [TerraformPropertyName("create_database_default_permissions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CreateDatabaseDefaultPermissions => new TerraformReference(this, "create_database_default_permissions");
+    [TerraformProperty("create_database_default_permissions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CreateDatabaseDefaultPermissions { get; }
 
     /// <summary>
     /// The create_table_default_permissions attribute.
     /// </summary>
-    [TerraformPropertyName("create_table_default_permissions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CreateTableDefaultPermissions => new TerraformReference(this, "create_table_default_permissions");
+    [TerraformProperty("create_table_default_permissions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CreateTableDefaultPermissions { get; }
 
     /// <summary>
     /// The external_data_filtering_allow_list attribute.
     /// </summary>
-    [TerraformPropertyName("external_data_filtering_allow_list")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> ExternalDataFilteringAllowList => new TerraformReference(this, "external_data_filtering_allow_list");
+    [TerraformProperty("external_data_filtering_allow_list")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> ExternalDataFilteringAllowList { get; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformPropertyName("parameters")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Parameters => new TerraformReference(this, "parameters");
+    [TerraformProperty("parameters")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Parameters { get; }
 
     /// <summary>
     /// The read_only_admins attribute.
     /// </summary>
-    [TerraformPropertyName("read_only_admins")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> ReadOnlyAdmins => new TerraformReference(this, "read_only_admins");
+    [TerraformProperty("read_only_admins")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> ReadOnlyAdmins { get; }
 
     /// <summary>
     /// The trusted_resource_owners attribute.
     /// </summary>
-    [TerraformPropertyName("trusted_resource_owners")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> TrustedResourceOwners => new TerraformReference(this, "trusted_resource_owners");
+    [TerraformProperty("trusted_resource_owners")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> TrustedResourceOwners { get; }
 
 }

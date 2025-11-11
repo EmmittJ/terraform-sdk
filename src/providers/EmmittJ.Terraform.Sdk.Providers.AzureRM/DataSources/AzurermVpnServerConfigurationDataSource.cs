@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVpnServerConfigurationDataSourceTimeoutsBlock
+public partial class AzurermVpnServerConfigurationDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermVpnServerConfigurationDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_vpn_server_configuration.
 /// </summary>
-public class AzurermVpnServerConfigurationDataSource : TerraformDataSource
+public partial class AzurermVpnServerConfigurationDataSource : TerraformDataSource
 {
     public AzurermVpnServerConfigurationDataSource(string name) : base("azurerm_vpn_server_configuration", name)
     {
@@ -29,94 +29,94 @@ public class AzurermVpnServerConfigurationDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermVpnServerConfigurationDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The azure_active_directory_authentication attribute.
     /// </summary>
-    [TerraformPropertyName("azure_active_directory_authentication")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> AzureActiveDirectoryAuthentication => new TerraformReference(this, "azure_active_directory_authentication");
+    [TerraformProperty("azure_active_directory_authentication")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> AzureActiveDirectoryAuthentication { get; }
 
     /// <summary>
     /// The client_revoked_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("client_revoked_certificate")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> ClientRevokedCertificate => new TerraformReference(this, "client_revoked_certificate");
+    [TerraformProperty("client_revoked_certificate")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> ClientRevokedCertificate { get; }
 
     /// <summary>
     /// The client_root_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("client_root_certificate")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> ClientRootCertificate => new TerraformReference(this, "client_root_certificate");
+    [TerraformProperty("client_root_certificate")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> ClientRootCertificate { get; }
 
     /// <summary>
     /// The ipsec_policy attribute.
     /// </summary>
-    [TerraformPropertyName("ipsec_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> IpsecPolicy => new TerraformReference(this, "ipsec_policy");
+    [TerraformProperty("ipsec_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> IpsecPolicy { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The radius attribute.
     /// </summary>
-    [TerraformPropertyName("radius")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Radius => new TerraformReference(this, "radius");
+    [TerraformProperty("radius")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Radius { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The vpn_authentication_types attribute.
     /// </summary>
-    [TerraformPropertyName("vpn_authentication_types")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> VpnAuthenticationTypes => new TerraformReference(this, "vpn_authentication_types");
+    [TerraformProperty("vpn_authentication_types")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> VpnAuthenticationTypes { get; }
 
     /// <summary>
     /// The vpn_protocols attribute.
     /// </summary>
-    [TerraformPropertyName("vpn_protocols")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> VpnProtocols => new TerraformReference(this, "vpn_protocols");
+    [TerraformProperty("vpn_protocols")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> VpnProtocols { get; }
 
 }

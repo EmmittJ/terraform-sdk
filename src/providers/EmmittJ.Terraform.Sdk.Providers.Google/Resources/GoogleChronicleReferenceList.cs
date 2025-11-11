@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for entries in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleChronicleReferenceListEntriesBlock
+public partial class GoogleChronicleReferenceListEntriesBlock : TerraformBlockBase
 {
     /// <summary>
     /// Required. The value of the entry. Maximum length is 512 characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -22,7 +22,7 @@ public class GoogleChronicleReferenceListEntriesBlock
 /// Block type for scope_info in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleChronicleReferenceListScopeInfoBlock
+public partial class GoogleChronicleReferenceListScopeInfoBlock : TerraformBlockBase
 {
 }
 
@@ -30,27 +30,27 @@ public class GoogleChronicleReferenceListScopeInfoBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleChronicleReferenceListTimeoutsBlock
+public partial class GoogleChronicleReferenceListTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -59,7 +59,7 @@ public class GoogleChronicleReferenceListTimeoutsBlock
 /// Manages a google_chronicle_reference_list resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleChronicleReferenceList : TerraformResource
+public partial class GoogleChronicleReferenceList : TerraformResource
 {
     public GoogleChronicleReferenceList(string name) : base("google_chronicle_reference_list", name)
     {
@@ -69,39 +69,39 @@ public class GoogleChronicleReferenceList : TerraformResource
     /// Required. A user-provided description of the reference list.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
-    [TerraformPropertyName("description")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("description")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The unique identifier for the Chronicle instance, which is the same as the customer ID.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    [TerraformPropertyName("instance")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Instance { get; set; }
 
     /// <summary>
     /// The location of the resource. This is the geographical region where the Chronicle instance resides, such as &amp;quot;us&amp;quot; or &amp;quot;europe-west2&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Required. The ID to use for the reference list. This is also the display name for
@@ -112,8 +112,8 @@ public class GoogleChronicleReferenceList : TerraformResource
     /// - Must be unique.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReferenceListId is required")]
-    [TerraformPropertyName("reference_list_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("reference_list_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ReferenceListId { get; set; }
 
     /// <summary>
@@ -123,8 +123,8 @@ public class GoogleChronicleReferenceList : TerraformResource
     /// REFERENCE_LIST_SYNTAX_TYPE_CIDR
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SyntaxType is required")]
-    [TerraformPropertyName("syntax_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("syntax_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SyntaxType { get; set; }
 
     /// <summary>
@@ -133,7 +133,7 @@ public class GoogleChronicleReferenceList : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entries is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Entries block(s) required")]
-    [TerraformPropertyName("entries")]
+    [TerraformProperty("entries")]
     public TerraformList<TerraformBlock<GoogleChronicleReferenceListEntriesBlock>>? Entries { get; set; }
 
     /// <summary>
@@ -141,53 +141,53 @@ public class GoogleChronicleReferenceList : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScopeInfo block(s) allowed")]
-    [TerraformPropertyName("scope_info")]
+    [TerraformProperty("scope_info")]
     public TerraformList<TerraformBlock<GoogleChronicleReferenceListScopeInfoBlock>>? ScopeInfo { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleChronicleReferenceListTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The unique display name of the reference list.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// Output only. The resource name of the reference list.
     /// Format:
     /// projects/{project}/locations/{location}/instances/{instance}/referenceLists/{reference_list}
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. The timestamp when the reference list was last updated.
     /// </summary>
-    [TerraformPropertyName("revision_create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RevisionCreateTime => new TerraformReference(this, "revision_create_time");
+    [TerraformProperty("revision_create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RevisionCreateTime { get; }
 
     /// <summary>
     /// Output only. The count of self-authored rules using the reference list.
     /// </summary>
-    [TerraformPropertyName("rule_associations_count")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> RuleAssociationsCount => new TerraformReference(this, "rule_associations_count");
+    [TerraformProperty("rule_associations_count")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> RuleAssociationsCount { get; }
 
     /// <summary>
     /// Output only. The resource names for the associated self-authored Rules that use this
     /// reference list.
     /// This is returned only when the view is REFERENCE_LIST_VIEW_FULL.
     /// </summary>
-    [TerraformPropertyName("rules")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Rules => new TerraformReference(this, "rules");
+    [TerraformProperty("rules")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Rules { get; }
 
 }

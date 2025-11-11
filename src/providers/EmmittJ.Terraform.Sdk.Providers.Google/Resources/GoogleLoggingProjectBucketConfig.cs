@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for cmek_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleLoggingProjectBucketConfigCmekSettingsBlock
+public partial class GoogleLoggingProjectBucketConfigCmekSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The resource name for the configured Cloud KMS key.
@@ -17,8 +17,8 @@ public class GoogleLoggingProjectBucketConfigCmekSettingsBlock
     /// See [Enabling CMEK for Logging Buckets](https://cloud.google.com/logging/docs/routing/managed-encryption-storage) for more information.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
-    [TerraformPropertyName("kms_key_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kms_key_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KmsKeyName { get; set; }
 
 
@@ -30,14 +30,14 @@ public class GoogleLoggingProjectBucketConfigCmekSettingsBlock
 /// Block type for index_configs in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleLoggingProjectBucketConfigIndexConfigsBlock
+public partial class GoogleLoggingProjectBucketConfigIndexConfigsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The LogEntry field path to index.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FieldPath is required")]
-    [TerraformPropertyName("field_path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("field_path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FieldPath { get; set; }
 
     /// <summary>
@@ -46,8 +46,8 @@ public class GoogleLoggingProjectBucketConfigIndexConfigsBlock
     /// For example: jsonPayload.request.status
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -56,7 +56,7 @@ public class GoogleLoggingProjectBucketConfigIndexConfigsBlock
 /// Manages a google_logging_project_bucket_config resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleLoggingProjectBucketConfig : TerraformResource
+public partial class GoogleLoggingProjectBucketConfig : TerraformResource
 {
     public GoogleLoggingProjectBucketConfig(string name) : base("google_logging_project_bucket_config", name)
     {
@@ -66,59 +66,59 @@ public class GoogleLoggingProjectBucketConfig : TerraformResource
     /// The name of the logging bucket. Logging automatically creates two log buckets: _Required and _Default.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BucketId is required")]
-    [TerraformPropertyName("bucket_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BucketId { get; set; }
 
     /// <summary>
     /// An optional description for this bucket.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Description { get; set; } = default!;
+    [TerraformProperty("description")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// Enable log analytics for the bucket. Cannot be disabled once enabled.
     /// </summary>
-    [TerraformPropertyName("enable_analytics")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_analytics")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableAnalytics { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the bucket.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Whether the bucket is locked. The retention period on a locked bucket cannot be changed. Locked buckets may only be deleted if they are empty.
     /// </summary>
-    [TerraformPropertyName("locked")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("locked")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Locked { get; set; }
 
     /// <summary>
     /// The parent project that contains the logging bucket.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Project is required")]
-    [TerraformPropertyName("project")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("project")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Logs will be retained by default for this amount of time, after which they will automatically be deleted. The minimum retention period is 1 day. If this value is set to zero at bucket creation time, the default time of 30 days will be used.
     /// </summary>
-    [TerraformPropertyName("retention_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retention_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RetentionDays { get; set; }
 
     /// <summary>
@@ -126,7 +126,7 @@ public class GoogleLoggingProjectBucketConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CmekSettings block(s) allowed")]
-    [TerraformPropertyName("cmek_settings")]
+    [TerraformProperty("cmek_settings")]
     public TerraformList<TerraformBlock<GoogleLoggingProjectBucketConfigCmekSettingsBlock>>? CmekSettings { get; set; }
 
     /// <summary>
@@ -134,21 +134,21 @@ public class GoogleLoggingProjectBucketConfig : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 IndexConfigs block(s) allowed")]
-    [TerraformPropertyName("index_configs")]
+    [TerraformProperty("index_configs")]
     public TerraformSet<TerraformBlock<GoogleLoggingProjectBucketConfigIndexConfigsBlock>>? IndexConfigs { get; set; }
 
     /// <summary>
     /// The bucket&#39;s lifecycle such as active or deleted.
     /// </summary>
-    [TerraformPropertyName("lifecycle_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LifecycleState => new TerraformReference(this, "lifecycle_state");
+    [TerraformProperty("lifecycle_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LifecycleState { get; }
 
     /// <summary>
     /// The resource name of the bucket
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

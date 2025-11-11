@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for anthos_cluster in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleClouddeployTargetAnthosClusterBlock
+public partial class GoogleClouddeployTargetAnthosClusterBlock : TerraformBlockBase
 {
     /// <summary>
     /// Membership of the GKE Hub-registered cluster to which to apply the Skaffold configuration. Format is `projects/{project}/locations/{location}/memberships/{membership_name}`.
     /// </summary>
-    [TerraformPropertyName("membership")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("membership")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Membership { get; set; }
 
 }
@@ -21,14 +21,14 @@ public class GoogleClouddeployTargetAnthosClusterBlock
 /// Block type for associated_entities in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleClouddeployTargetAssociatedEntitiesBlock
+public partial class GoogleClouddeployTargetAssociatedEntitiesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name for the key in the map for which this object is mapped to in the API
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EntityId is required")]
-    [TerraformPropertyName("entity_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("entity_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EntityId { get; set; }
 
 }
@@ -37,14 +37,14 @@ public class GoogleClouddeployTargetAssociatedEntitiesBlock
 /// Block type for custom_target in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleClouddeployTargetCustomTargetBlock
+public partial class GoogleClouddeployTargetCustomTargetBlock : TerraformBlockBase
 {
     /// <summary>
     /// Required. The name of the CustomTargetType. Format must be `projects/{project}/locations/{location}/customTargetTypes/{custom_target_type}`.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomTargetType is required")]
-    [TerraformPropertyName("custom_target_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("custom_target_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CustomTargetType { get; set; }
 
 }
@@ -53,49 +53,49 @@ public class GoogleClouddeployTargetCustomTargetBlock
 /// Block type for execution_configs in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleClouddeployTargetExecutionConfigsBlock
+public partial class GoogleClouddeployTargetExecutionConfigsBlock : TerraformBlockBase
 {
     /// <summary>
     /// Optional. Cloud Storage location in which to store execution outputs. This can either be a bucket (&amp;quot;gs://my-bucket&amp;quot;) or a path within a bucket (&amp;quot;gs://my-bucket/my-dir&amp;quot;). If unspecified, a default bucket located in the same region will be used.
     /// </summary>
-    [TerraformPropertyName("artifact_storage")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ArtifactStorage { get; set; } = default!;
+    [TerraformProperty("artifact_storage")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ArtifactStorage { get; set; }
 
     /// <summary>
     /// Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and 24h in seconds format. If unspecified, a default timeout of 1h is used.
     /// </summary>
-    [TerraformPropertyName("execution_timeout")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ExecutionTimeout { get; set; } = default!;
+    [TerraformProperty("execution_timeout")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ExecutionTimeout { get; set; }
 
     /// <summary>
     /// Optional. Google service account to use for execution. If unspecified, the project execution service account (-compute@developer.gserviceaccount.com) is used.
     /// </summary>
-    [TerraformPropertyName("service_account")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ServiceAccount { get; set; } = default!;
+    [TerraformProperty("service_account")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ServiceAccount { get; set; }
 
     /// <summary>
     /// Required. Usages when this configuration should be applied.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Usages is required")]
-    [TerraformPropertyName("usages")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("usages")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Usages { get; set; }
 
     /// <summary>
     /// Optional. If true, additional logging will be enabled when running builds in this execution environment.
     /// </summary>
-    [TerraformPropertyName("verbose")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("verbose")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Verbose { get; set; }
 
     /// <summary>
     /// Optional. The resource name of the `WorkerPool`, with the format `projects/{project}/locations/{location}/workerPools/{worker_pool}`. If this optional field is unspecified, the default Cloud Build pool will be used.
     /// </summary>
-    [TerraformPropertyName("worker_pool")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("worker_pool")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? WorkerPool { get; set; }
 
 }
@@ -104,34 +104,34 @@ public class GoogleClouddeployTargetExecutionConfigsBlock
 /// Block type for gke in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleClouddeployTargetGkeBlock
+public partial class GoogleClouddeployTargetGkeBlock : TerraformBlockBase
 {
     /// <summary>
     /// Information specifying a GKE Cluster. Format is `projects/{project_id}/locations/{location_id}/clusters/{cluster_id}.
     /// </summary>
-    [TerraformPropertyName("cluster")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cluster")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Cluster { get; set; }
 
     /// <summary>
     /// Optional. If set, the cluster will be accessed using the DNS endpoint. Note that both `dns_endpoint` and `internal_ip` cannot be set to true.
     /// </summary>
-    [TerraformPropertyName("dns_endpoint")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dns_endpoint")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DnsEndpoint { get; set; }
 
     /// <summary>
     /// Optional. If true, `cluster` is accessed using the private IP address of the control plane endpoint. Otherwise, the default IP address of the control plane endpoint is used. The default IP address is the private IP address for clusters with private control-plane endpoints and the public IP address otherwise. Only specify this option when `cluster` is a [private GKE cluster](https://cloud.google.com/kubernetes-engine/docs/concepts/private-cluster-concept).
     /// </summary>
-    [TerraformPropertyName("internal_ip")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("internal_ip")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? InternalIp { get; set; }
 
     /// <summary>
     /// Optional. If set, used to configure a [proxy](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#proxy) to the Kubernetes server.
     /// </summary>
-    [TerraformPropertyName("proxy_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("proxy_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ProxyUrl { get; set; }
 
 }
@@ -140,14 +140,14 @@ public class GoogleClouddeployTargetGkeBlock
 /// Block type for multi_target in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleClouddeployTargetMultiTargetBlock
+public partial class GoogleClouddeployTargetMultiTargetBlock : TerraformBlockBase
 {
     /// <summary>
     /// Required. The target_ids of this multiTarget.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetIds is required")]
-    [TerraformPropertyName("target_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_ids")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? TargetIds { get; set; }
 
 }
@@ -156,14 +156,14 @@ public class GoogleClouddeployTargetMultiTargetBlock
 /// Block type for run in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleClouddeployTargetRunBlock
+public partial class GoogleClouddeployTargetRunBlock : TerraformBlockBase
 {
     /// <summary>
     /// Required. The location where the Cloud Run Service should be located. Format is `projects/{project}/locations/{location}`.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
 }
@@ -172,27 +172,27 @@ public class GoogleClouddeployTargetRunBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleClouddeployTargetTimeoutsBlock
+public partial class GoogleClouddeployTargetTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -201,7 +201,7 @@ public class GoogleClouddeployTargetTimeoutsBlock
 /// Manages a google_clouddeploy_target resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleClouddeployTarget : TerraformResource
+public partial class GoogleClouddeployTarget : TerraformResource
 {
     public GoogleClouddeployTarget(string name) : base("google_clouddeploy_target", name)
     {
@@ -213,30 +213,30 @@ public class GoogleClouddeployTarget : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
     /// </summary>
-    [TerraformPropertyName("annotations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("annotations")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// Optional. The deploy parameters to use for this target.
     /// </summary>
-    [TerraformPropertyName("deploy_parameters")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deploy_parameters")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? DeployParameters { get; set; }
 
     /// <summary>
     /// Optional. Description of the `Target`. Max length is 255 characters.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Optional. Labels are attributes that can be set and used by both the user and by Google Cloud Deploy. Labels must meet the following constraints: * Keys and values can contain only lowercase letters, numeric characters, underscores, and dashes. * All characters must use UTF-8 encoding, and international characters are allowed. * Keys must start with a lowercase letter or international character. * Each resource is limited to a maximum of 64 labels. Both keys and values are additionally constrained to be &amp;lt;= 128 bytes.
@@ -244,38 +244,38 @@ public class GoogleClouddeployTarget : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field `effective_labels` for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Name of the `Target`. Format is `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Optional. Whether or not the `Target` requires approval.
     /// </summary>
-    [TerraformPropertyName("require_approval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("require_approval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? RequireApproval { get; set; }
 
     /// <summary>
@@ -283,14 +283,14 @@ public class GoogleClouddeployTarget : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AnthosCluster block(s) allowed")]
-    [TerraformPropertyName("anthos_cluster")]
+    [TerraformProperty("anthos_cluster")]
     public TerraformList<TerraformBlock<GoogleClouddeployTargetAnthosClusterBlock>>? AnthosCluster { get; set; }
 
     /// <summary>
     /// Block for associated_entities.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("associated_entities")]
+    [TerraformProperty("associated_entities")]
     public TerraformSet<TerraformBlock<GoogleClouddeployTargetAssociatedEntitiesBlock>>? AssociatedEntities { get; set; }
 
     /// <summary>
@@ -298,14 +298,14 @@ public class GoogleClouddeployTarget : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomTarget block(s) allowed")]
-    [TerraformPropertyName("custom_target")]
+    [TerraformProperty("custom_target")]
     public TerraformList<TerraformBlock<GoogleClouddeployTargetCustomTargetBlock>>? CustomTarget { get; set; }
 
     /// <summary>
     /// Block for execution_configs.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("execution_configs")]
+    [TerraformProperty("execution_configs")]
     public TerraformList<TerraformBlock<GoogleClouddeployTargetExecutionConfigsBlock>>? ExecutionConfigs { get; set; }
 
     /// <summary>
@@ -313,7 +313,7 @@ public class GoogleClouddeployTarget : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Gke block(s) allowed")]
-    [TerraformPropertyName("gke")]
+    [TerraformProperty("gke")]
     public TerraformList<TerraformBlock<GoogleClouddeployTargetGkeBlock>>? Gke { get; set; }
 
     /// <summary>
@@ -321,7 +321,7 @@ public class GoogleClouddeployTarget : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MultiTarget block(s) allowed")]
-    [TerraformPropertyName("multi_target")]
+    [TerraformProperty("multi_target")]
     public TerraformList<TerraformBlock<GoogleClouddeployTargetMultiTargetBlock>>? MultiTarget { get; set; }
 
     /// <summary>
@@ -329,70 +329,70 @@ public class GoogleClouddeployTarget : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Run block(s) allowed")]
-    [TerraformPropertyName("run")]
+    [TerraformProperty("run")]
     public TerraformList<TerraformBlock<GoogleClouddeployTargetRunBlock>>? Run { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleClouddeployTargetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Time at which the `Target` was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_annotations")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
+    [TerraformProperty("effective_annotations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Optional. This checksum is computed by the server based on the value of other fields, and may be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Output only. Resource id of the `Target`.
     /// </summary>
-    [TerraformPropertyName("target_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TargetId => new TerraformReference(this, "target_id");
+    [TerraformProperty("target_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TargetId { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. Unique identifier of the `Target`.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Output only. Most recent time at which the `Target` was updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock
+public partial class AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_postgresql_flexible_server_database resource.
 /// </summary>
-public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
+public partial class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
 {
     public AzurermPostgresqlFlexibleServerDatabase(string name) : base("azurerm_postgresql_flexible_server_database", name)
     {
@@ -43,45 +43,45 @@ public class AzurermPostgresqlFlexibleServerDatabase : TerraformResource
     /// <summary>
     /// The charset attribute.
     /// </summary>
-    [TerraformPropertyName("charset")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("charset")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Charset { get; set; }
 
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    [TerraformPropertyName("collation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("collation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Collation { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    [TerraformPropertyName("server_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("server_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServerId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermPostgresqlFlexibleServerDatabaseTimeoutsBlock>? Timeouts { get; set; }
 
 }

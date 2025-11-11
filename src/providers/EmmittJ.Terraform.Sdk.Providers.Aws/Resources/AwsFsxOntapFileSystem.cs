@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for disk_iops_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsFsxOntapFileSystemDiskIopsConfigurationBlock
+public partial class AwsFsxOntapFileSystemDiskIopsConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The iops attribute.
     /// </summary>
-    [TerraformPropertyName("iops")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Iops { get; set; } = default!;
+    [TerraformProperty("iops")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Iops { get; set; }
 
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    [TerraformPropertyName("mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Mode { get; set; }
 
 }
@@ -28,27 +28,27 @@ public class AwsFsxOntapFileSystemDiskIopsConfigurationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsFsxOntapFileSystemTimeoutsBlock
+public partial class AwsFsxOntapFileSystemTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -57,7 +57,7 @@ public class AwsFsxOntapFileSystemTimeoutsBlock
 /// Manages a aws_fsx_ontap_file_system resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsFsxOntapFileSystem : TerraformResource
+public partial class AwsFsxOntapFileSystem : TerraformResource
 {
     public AwsFsxOntapFileSystem(string name) : base("aws_fsx_ontap_file_system", name)
     {
@@ -66,202 +66,202 @@ public class AwsFsxOntapFileSystem : TerraformResource
     /// <summary>
     /// The automatic_backup_retention_days attribute.
     /// </summary>
-    [TerraformPropertyName("automatic_backup_retention_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("automatic_backup_retention_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? AutomaticBackupRetentionDays { get; set; }
 
     /// <summary>
     /// The daily_automatic_backup_start_time attribute.
     /// </summary>
-    [TerraformPropertyName("daily_automatic_backup_start_time")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DailyAutomaticBackupStartTime { get; set; } = default!;
+    [TerraformProperty("daily_automatic_backup_start_time")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DailyAutomaticBackupStartTime { get; set; }
 
     /// <summary>
     /// The deployment_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentType is required")]
-    [TerraformPropertyName("deployment_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("deployment_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DeploymentType { get; set; }
 
     /// <summary>
     /// The endpoint_ip_address_range attribute.
     /// </summary>
-    [TerraformPropertyName("endpoint_ip_address_range")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EndpointIpAddressRange { get; set; } = default!;
+    [TerraformProperty("endpoint_ip_address_range")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EndpointIpAddressRange { get; set; }
 
     /// <summary>
     /// The fsx_admin_password attribute.
     /// </summary>
-    [TerraformPropertyName("fsx_admin_password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("fsx_admin_password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? FsxAdminPassword { get; set; }
 
     /// <summary>
     /// The ha_pairs attribute.
     /// </summary>
-    [TerraformPropertyName("ha_pairs")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> HaPairs { get; set; } = default!;
+    [TerraformProperty("ha_pairs")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> HaPairs { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KmsKeyId { get; set; } = default!;
+    [TerraformProperty("kms_key_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KmsKeyId { get; set; }
 
     /// <summary>
     /// The preferred_subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PreferredSubnetId is required")]
-    [TerraformPropertyName("preferred_subnet_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("preferred_subnet_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PreferredSubnetId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The route_table_ids attribute.
     /// </summary>
-    [TerraformPropertyName("route_table_ids")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> RouteTableIds { get; set; } = default!;
+    [TerraformProperty("route_table_ids")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> RouteTableIds { get; set; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_group_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The storage_capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageCapacity is required")]
-    [TerraformPropertyName("storage_capacity")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_capacity")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> StorageCapacity { get; set; }
 
     /// <summary>
     /// The storage_type attribute.
     /// </summary>
-    [TerraformPropertyName("storage_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("storage_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StorageType { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    [TerraformPropertyName("subnet_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_ids")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? SubnetIds { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The throughput_capacity attribute.
     /// </summary>
-    [TerraformPropertyName("throughput_capacity")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> ThroughputCapacity { get; set; } = default!;
+    [TerraformProperty("throughput_capacity")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> ThroughputCapacity { get; set; }
 
     /// <summary>
     /// The throughput_capacity_per_ha_pair attribute.
     /// </summary>
-    [TerraformPropertyName("throughput_capacity_per_ha_pair")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> ThroughputCapacityPerHaPair { get; set; } = default!;
+    [TerraformProperty("throughput_capacity_per_ha_pair")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> ThroughputCapacityPerHaPair { get; set; }
 
     /// <summary>
     /// The weekly_maintenance_start_time attribute.
     /// </summary>
-    [TerraformPropertyName("weekly_maintenance_start_time")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> WeeklyMaintenanceStartTime { get; set; } = default!;
+    [TerraformProperty("weekly_maintenance_start_time")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> WeeklyMaintenanceStartTime { get; set; }
 
     /// <summary>
     /// Block for disk_iops_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DiskIopsConfiguration block(s) allowed")]
-    [TerraformPropertyName("disk_iops_configuration")]
+    [TerraformProperty("disk_iops_configuration")]
     public TerraformList<TerraformBlock<AwsFsxOntapFileSystemDiskIopsConfigurationBlock>>? DiskIopsConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsFsxOntapFileSystemTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    [TerraformPropertyName("dns_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DnsName => new TerraformReference(this, "dns_name");
+    [TerraformProperty("dns_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DnsName { get; }
 
     /// <summary>
     /// The endpoints attribute.
     /// </summary>
-    [TerraformPropertyName("endpoints")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Endpoints => new TerraformReference(this, "endpoints");
+    [TerraformProperty("endpoints")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Endpoints { get; }
 
     /// <summary>
     /// The network_interface_ids attribute.
     /// </summary>
-    [TerraformPropertyName("network_interface_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> NetworkInterfaceIds => new TerraformReference(this, "network_interface_ids");
+    [TerraformProperty("network_interface_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> NetworkInterfaceIds { get; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerId => new TerraformReference(this, "owner_id");
+    [TerraformProperty("owner_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerId { get; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VpcId => new TerraformReference(this, "vpc_id");
+    [TerraformProperty("vpc_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VpcId { get; }
 
 }

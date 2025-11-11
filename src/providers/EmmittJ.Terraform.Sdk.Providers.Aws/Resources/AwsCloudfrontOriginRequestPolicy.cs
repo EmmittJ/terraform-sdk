@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cookies_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontOriginRequestPolicyCookiesConfigBlock
+public partial class AwsCloudfrontOriginRequestPolicyCookiesConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cookie_behavior attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookieBehavior is required")]
-    [TerraformPropertyName("cookie_behavior")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cookie_behavior")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CookieBehavior { get; set; }
 
 }
@@ -22,13 +22,13 @@ public class AwsCloudfrontOriginRequestPolicyCookiesConfigBlock
 /// Block type for headers_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontOriginRequestPolicyHeadersConfigBlock
+public partial class AwsCloudfrontOriginRequestPolicyHeadersConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The header_behavior attribute.
     /// </summary>
-    [TerraformPropertyName("header_behavior")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("header_behavior")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HeaderBehavior { get; set; }
 
 }
@@ -37,14 +37,14 @@ public class AwsCloudfrontOriginRequestPolicyHeadersConfigBlock
 /// Block type for query_strings_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock
+public partial class AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The query_string_behavior attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryStringBehavior is required")]
-    [TerraformPropertyName("query_string_behavior")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("query_string_behavior")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> QueryStringBehavior { get; set; }
 
 }
@@ -53,7 +53,7 @@ public class AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock
 /// Manages a aws_cloudfront_origin_request_policy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsCloudfrontOriginRequestPolicy : TerraformResource
+public partial class AwsCloudfrontOriginRequestPolicy : TerraformResource
 {
     public AwsCloudfrontOriginRequestPolicy(string name) : base("aws_cloudfront_origin_request_policy", name)
     {
@@ -62,23 +62,23 @@ public class AwsCloudfrontOriginRequestPolicy : TerraformResource
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    [TerraformPropertyName("comment")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("comment")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
@@ -88,7 +88,7 @@ public class AwsCloudfrontOriginRequestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CookiesConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 CookiesConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CookiesConfig block(s) allowed")]
-    [TerraformPropertyName("cookies_config")]
+    [TerraformProperty("cookies_config")]
     public TerraformList<TerraformBlock<AwsCloudfrontOriginRequestPolicyCookiesConfigBlock>>? CookiesConfig { get; set; }
 
     /// <summary>
@@ -98,7 +98,7 @@ public class AwsCloudfrontOriginRequestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HeadersConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 HeadersConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HeadersConfig block(s) allowed")]
-    [TerraformPropertyName("headers_config")]
+    [TerraformProperty("headers_config")]
     public TerraformList<TerraformBlock<AwsCloudfrontOriginRequestPolicyHeadersConfigBlock>>? HeadersConfig { get; set; }
 
     /// <summary>
@@ -108,21 +108,21 @@ public class AwsCloudfrontOriginRequestPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "QueryStringsConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 QueryStringsConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueryStringsConfig block(s) allowed")]
-    [TerraformPropertyName("query_strings_config")]
+    [TerraformProperty("query_strings_config")]
     public TerraformList<TerraformBlock<AwsCloudfrontOriginRequestPolicyQueryStringsConfigBlock>>? QueryStringsConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
 }

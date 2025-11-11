@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Manages a google_billing_subaccount resource.
 /// </summary>
-public class GoogleBillingSubaccount : TerraformResource
+public partial class GoogleBillingSubaccount : TerraformResource
 {
     public GoogleBillingSubaccount(string name) : base("google_billing_subaccount", name)
     {
@@ -14,52 +14,52 @@ public class GoogleBillingSubaccount : TerraformResource
     /// <summary>
     /// The deletion_policy attribute.
     /// </summary>
-    [TerraformPropertyName("deletion_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deletion_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeletionPolicy { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The master_billing_account attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MasterBillingAccount is required")]
-    [TerraformPropertyName("master_billing_account")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("master_billing_account")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MasterBillingAccount { get; set; }
 
     /// <summary>
     /// The billing_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("billing_account_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BillingAccountId => new TerraformReference(this, "billing_account_id");
+    [TerraformProperty("billing_account_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BillingAccountId { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The open attribute.
     /// </summary>
-    [TerraformPropertyName("open")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Open => new TerraformReference(this, "open");
+    [TerraformProperty("open")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Open { get; }
 
 }

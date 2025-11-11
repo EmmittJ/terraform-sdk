@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_mq_configuration resource.
 /// </summary>
-public class AwsMqConfiguration : TerraformResource
+public partial class AwsMqConfiguration : TerraformResource
 {
     public AwsMqConfiguration(string name) : base("aws_mq_configuration", name)
     {
@@ -14,89 +14,89 @@ public class AwsMqConfiguration : TerraformResource
     /// <summary>
     /// The authentication_strategy attribute.
     /// </summary>
-    [TerraformPropertyName("authentication_strategy")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AuthenticationStrategy { get; set; } = default!;
+    [TerraformProperty("authentication_strategy")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AuthenticationStrategy { get; set; }
 
     /// <summary>
     /// The data attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Data is required")]
-    [TerraformPropertyName("data")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Data { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The engine_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineType is required")]
-    [TerraformPropertyName("engine_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("engine_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EngineType { get; set; }
 
     /// <summary>
     /// The engine_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EngineVersion is required")]
-    [TerraformPropertyName("engine_version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("engine_version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EngineVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The latest_revision attribute.
     /// </summary>
-    [TerraformPropertyName("latest_revision")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> LatestRevision => new TerraformReference(this, "latest_revision");
+    [TerraformProperty("latest_revision")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> LatestRevision { get; }
 
 }

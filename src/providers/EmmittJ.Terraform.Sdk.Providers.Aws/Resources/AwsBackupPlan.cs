@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for advanced_backup_setting in .
 /// Nesting mode: set
 /// </summary>
-public class AwsBackupPlanAdvancedBackupSettingBlock
+public partial class AwsBackupPlanAdvancedBackupSettingBlock : TerraformBlockBase
 {
     /// <summary>
     /// The backup_options attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupOptions is required")]
-    [TerraformPropertyName("backup_options")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("backup_options")]
+    // Required argument - source generator will implement get/set
     public required TerraformMap<string> BackupOptions { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
-    [TerraformPropertyName("resource_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceType { get; set; }
 
 }
@@ -30,64 +30,64 @@ public class AwsBackupPlanAdvancedBackupSettingBlock
 /// Block type for rule in .
 /// Nesting mode: set
 /// </summary>
-public class AwsBackupPlanRuleBlock
+public partial class AwsBackupPlanRuleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The completion_window attribute.
     /// </summary>
-    [TerraformPropertyName("completion_window")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("completion_window")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? CompletionWindow { get; set; }
 
     /// <summary>
     /// The enable_continuous_backup attribute.
     /// </summary>
-    [TerraformPropertyName("enable_continuous_backup")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_continuous_backup")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableContinuousBackup { get; set; }
 
     /// <summary>
     /// The recovery_point_tags attribute.
     /// </summary>
-    [TerraformPropertyName("recovery_point_tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("recovery_point_tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? RecoveryPointTags { get; set; }
 
     /// <summary>
     /// The rule_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
-    [TerraformPropertyName("rule_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("rule_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RuleName { get; set; }
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
-    [TerraformPropertyName("schedule")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("schedule")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Schedule { get; set; }
 
     /// <summary>
     /// The schedule_expression_timezone attribute.
     /// </summary>
-    [TerraformPropertyName("schedule_expression_timezone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("schedule_expression_timezone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ScheduleExpressionTimezone { get; set; }
 
     /// <summary>
     /// The start_window attribute.
     /// </summary>
-    [TerraformPropertyName("start_window")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("start_window")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? StartWindow { get; set; }
 
     /// <summary>
     /// The target_vault_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetVaultName is required")]
-    [TerraformPropertyName("target_vault_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_vault_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TargetVaultName { get; set; }
 
 }
@@ -96,7 +96,7 @@ public class AwsBackupPlanRuleBlock
 /// Manages a aws_backup_plan resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsBackupPlan : TerraformResource
+public partial class AwsBackupPlan : TerraformResource
 {
     public AwsBackupPlan(string name) : base("aws_backup_plan", name)
     {
@@ -105,44 +105,44 @@ public class AwsBackupPlan : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for advanced_backup_setting.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("advanced_backup_setting")]
+    [TerraformProperty("advanced_backup_setting")]
     public TerraformSet<TerraformBlock<AwsBackupPlanAdvancedBackupSettingBlock>>? AdvancedBackupSetting { get; set; }
 
     /// <summary>
@@ -151,21 +151,21 @@ public class AwsBackupPlan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
-    [TerraformPropertyName("rule")]
+    [TerraformProperty("rule")]
     public TerraformSet<TerraformBlock<AwsBackupPlanRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Version => new TerraformReference(this, "version");
+    [TerraformProperty("version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Version { get; }
 
 }

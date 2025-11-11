@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadAdministrativeUnitMemberTimeoutsBlock
+public partial class AzureadAdministrativeUnitMemberTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzureadAdministrativeUnitMemberTimeoutsBlock
 /// <summary>
 /// Manages a azuread_administrative_unit_member resource.
 /// </summary>
-public class AzureadAdministrativeUnitMember : TerraformResource
+public partial class AzureadAdministrativeUnitMember : TerraformResource
 {
     public AzureadAdministrativeUnitMember(string name) : base("azuread_administrative_unit_member", name)
     {
@@ -43,29 +43,29 @@ public class AzureadAdministrativeUnitMember : TerraformResource
     /// <summary>
     /// The object ID of the administrative unit
     /// </summary>
-    [TerraformPropertyName("administrative_unit_object_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("administrative_unit_object_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AdministrativeUnitObjectId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object ID of the member
     /// </summary>
-    [TerraformPropertyName("member_object_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("member_object_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MemberObjectId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadAdministrativeUnitMemberTimeoutsBlock>? Timeouts { get; set; }
 
 }

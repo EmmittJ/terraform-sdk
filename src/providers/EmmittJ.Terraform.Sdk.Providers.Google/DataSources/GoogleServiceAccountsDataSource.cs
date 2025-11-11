@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_service_accounts.
 /// </summary>
-public class GoogleServiceAccountsDataSource : TerraformDataSource
+public partial class GoogleServiceAccountsDataSource : TerraformDataSource
 {
     public GoogleServiceAccountsDataSource(string name) : base("google_service_accounts", name)
     {
@@ -14,36 +14,36 @@ public class GoogleServiceAccountsDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    [TerraformPropertyName("prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Prefix { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The regex attribute.
     /// </summary>
-    [TerraformPropertyName("regex")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("regex")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Regex { get; set; }
 
     /// <summary>
     /// The accounts attribute.
     /// </summary>
-    [TerraformPropertyName("accounts")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Accounts => new TerraformReference(this, "accounts");
+    [TerraformProperty("accounts")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Accounts { get; }
 
 }

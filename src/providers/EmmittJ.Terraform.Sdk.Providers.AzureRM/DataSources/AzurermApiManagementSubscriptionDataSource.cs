@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementSubscriptionDataSourceTimeoutsBlock
+public partial class AzurermApiManagementSubscriptionDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermApiManagementSubscriptionDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_api_management_subscription.
 /// </summary>
-public class AzurermApiManagementSubscriptionDataSource : TerraformDataSource
+public partial class AzurermApiManagementSubscriptionDataSource : TerraformDataSource
 {
     public AzurermApiManagementSubscriptionDataSource(string name) : base("azurerm_api_management_subscription", name)
     {
@@ -30,86 +30,86 @@ public class AzurermApiManagementSubscriptionDataSource : TerraformDataSource
     /// The api_management_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
-    [TerraformPropertyName("api_management_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("api_management_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApiManagementId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubscriptionId is required")]
-    [TerraformPropertyName("subscription_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subscription_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SubscriptionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermApiManagementSubscriptionDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The allow_tracing attribute.
     /// </summary>
-    [TerraformPropertyName("allow_tracing")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AllowTracing => new TerraformReference(this, "allow_tracing");
+    [TerraformProperty("allow_tracing")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AllowTracing { get; }
 
     /// <summary>
     /// The api_id attribute.
     /// </summary>
-    [TerraformPropertyName("api_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ApiId => new TerraformReference(this, "api_id");
+    [TerraformProperty("api_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ApiId { get; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The primary_key attribute.
     /// </summary>
-    [TerraformPropertyName("primary_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryKey => new TerraformReference(this, "primary_key");
+    [TerraformProperty("primary_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryKey { get; }
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
-    [TerraformPropertyName("product_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ProductId => new TerraformReference(this, "product_id");
+    [TerraformProperty("product_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ProductId { get; }
 
     /// <summary>
     /// The secondary_key attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryKey => new TerraformReference(this, "secondary_key");
+    [TerraformProperty("secondary_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryKey { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The user_id attribute.
     /// </summary>
-    [TerraformPropertyName("user_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UserId => new TerraformReference(this, "user_id");
+    [TerraformProperty("user_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UserId { get; }
 
 }

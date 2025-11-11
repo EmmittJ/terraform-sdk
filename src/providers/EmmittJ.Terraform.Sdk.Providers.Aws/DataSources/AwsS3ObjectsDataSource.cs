@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_s3_objects.
 /// </summary>
-public class AwsS3ObjectsDataSource : TerraformDataSource
+public partial class AwsS3ObjectsDataSource : TerraformDataSource
 {
     public AwsS3ObjectsDataSource(string name) : base("aws_s3_objects", name)
     {
@@ -15,99 +15,99 @@ public class AwsS3ObjectsDataSource : TerraformDataSource
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    [TerraformPropertyName("bucket")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The delimiter attribute.
     /// </summary>
-    [TerraformPropertyName("delimiter")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delimiter")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delimiter { get; set; }
 
     /// <summary>
     /// The encoding_type attribute.
     /// </summary>
-    [TerraformPropertyName("encoding_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("encoding_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EncodingType { get; set; }
 
     /// <summary>
     /// The fetch_owner attribute.
     /// </summary>
-    [TerraformPropertyName("fetch_owner")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("fetch_owner")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? FetchOwner { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The max_keys attribute.
     /// </summary>
-    [TerraformPropertyName("max_keys")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_keys")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxKeys { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    [TerraformPropertyName("prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Prefix { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The request_payer attribute.
     /// </summary>
-    [TerraformPropertyName("request_payer")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("request_payer")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RequestPayer { get; set; }
 
     /// <summary>
     /// The start_after attribute.
     /// </summary>
-    [TerraformPropertyName("start_after")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("start_after")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StartAfter { get; set; }
 
     /// <summary>
     /// The common_prefixes attribute.
     /// </summary>
-    [TerraformPropertyName("common_prefixes")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> CommonPrefixes => new TerraformReference(this, "common_prefixes");
+    [TerraformProperty("common_prefixes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> CommonPrefixes { get; }
 
     /// <summary>
     /// The keys attribute.
     /// </summary>
-    [TerraformPropertyName("keys")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Keys => new TerraformReference(this, "keys");
+    [TerraformProperty("keys")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Keys { get; }
 
     /// <summary>
     /// The owners attribute.
     /// </summary>
-    [TerraformPropertyName("owners")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Owners => new TerraformReference(this, "owners");
+    [TerraformProperty("owners")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Owners { get; }
 
     /// <summary>
     /// The request_charged attribute.
     /// </summary>
-    [TerraformPropertyName("request_charged")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RequestCharged => new TerraformReference(this, "request_charged");
+    [TerraformProperty("request_charged")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RequestCharged { get; }
 
 }

@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketIntelligentTieringConfigurationFilterBlock
+public partial class AwsS3BucketIntelligentTieringConfigurationFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The prefix attribute.
     /// </summary>
-    [TerraformPropertyName("prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Prefix { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
 }
@@ -28,22 +28,22 @@ public class AwsS3BucketIntelligentTieringConfigurationFilterBlock
 /// Block type for tiering in .
 /// Nesting mode: set
 /// </summary>
-public class AwsS3BucketIntelligentTieringConfigurationTieringBlock
+public partial class AwsS3BucketIntelligentTieringConfigurationTieringBlock : TerraformBlockBase
 {
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessTier is required")]
-    [TerraformPropertyName("access_tier")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("access_tier")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AccessTier { get; set; }
 
     /// <summary>
     /// The days attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Days is required")]
-    [TerraformPropertyName("days")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("days")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Days { get; set; }
 
 }
@@ -52,7 +52,7 @@ public class AwsS3BucketIntelligentTieringConfigurationTieringBlock
 /// Manages a aws_s3_bucket_intelligent_tiering_configuration resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsS3BucketIntelligentTieringConfiguration : TerraformResource
+public partial class AwsS3BucketIntelligentTieringConfiguration : TerraformResource
 {
     public AwsS3BucketIntelligentTieringConfiguration(string name) : base("aws_s3_bucket_intelligent_tiering_configuration", name)
     {
@@ -62,37 +62,37 @@ public class AwsS3BucketIntelligentTieringConfiguration : TerraformResource
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    [TerraformPropertyName("bucket")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("status")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Status { get; set; }
 
     /// <summary>
@@ -100,7 +100,7 @@ public class AwsS3BucketIntelligentTieringConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformList<TerraformBlock<AwsS3BucketIntelligentTieringConfigurationFilterBlock>>? Filter { get; set; }
 
     /// <summary>
@@ -109,7 +109,7 @@ public class AwsS3BucketIntelligentTieringConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tiering is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Tiering block(s) required")]
-    [TerraformPropertyName("tiering")]
+    [TerraformProperty("tiering")]
     public TerraformSet<TerraformBlock<AwsS3BucketIntelligentTieringConfigurationTieringBlock>>? Tiering { get; set; }
 
 }

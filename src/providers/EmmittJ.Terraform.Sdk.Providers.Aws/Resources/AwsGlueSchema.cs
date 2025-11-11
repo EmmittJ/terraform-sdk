@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_glue_schema resource.
 /// </summary>
-public class AwsGlueSchema : TerraformResource
+public partial class AwsGlueSchema : TerraformResource
 {
     public AwsGlueSchema(string name) : base("aws_glue_schema", name)
     {
@@ -15,109 +15,109 @@ public class AwsGlueSchema : TerraformResource
     /// The compatibility attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Compatibility is required")]
-    [TerraformPropertyName("compatibility")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("compatibility")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Compatibility { get; set; }
 
     /// <summary>
     /// The data_format attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFormat is required")]
-    [TerraformPropertyName("data_format")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data_format")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DataFormat { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The registry_arn attribute.
     /// </summary>
-    [TerraformPropertyName("registry_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> RegistryArn { get; set; } = default!;
+    [TerraformProperty("registry_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> RegistryArn { get; set; }
 
     /// <summary>
     /// The schema_definition attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaDefinition is required")]
-    [TerraformPropertyName("schema_definition")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("schema_definition")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SchemaDefinition { get; set; }
 
     /// <summary>
     /// The schema_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaName is required")]
-    [TerraformPropertyName("schema_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("schema_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SchemaName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The latest_schema_version attribute.
     /// </summary>
-    [TerraformPropertyName("latest_schema_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> LatestSchemaVersion => new TerraformReference(this, "latest_schema_version");
+    [TerraformProperty("latest_schema_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> LatestSchemaVersion { get; }
 
     /// <summary>
     /// The next_schema_version attribute.
     /// </summary>
-    [TerraformPropertyName("next_schema_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> NextSchemaVersion => new TerraformReference(this, "next_schema_version");
+    [TerraformProperty("next_schema_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> NextSchemaVersion { get; }
 
     /// <summary>
     /// The registry_name attribute.
     /// </summary>
-    [TerraformPropertyName("registry_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RegistryName => new TerraformReference(this, "registry_name");
+    [TerraformProperty("registry_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RegistryName { get; }
 
     /// <summary>
     /// The schema_checkpoint attribute.
     /// </summary>
-    [TerraformPropertyName("schema_checkpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> SchemaCheckpoint => new TerraformReference(this, "schema_checkpoint");
+    [TerraformProperty("schema_checkpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> SchemaCheckpoint { get; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for instance_filter in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock
+public partial class GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// Target all VMs in the project. If true, no other criteria is permitted.
     /// </summary>
-    [TerraformPropertyName("all")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("all")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? All { get; set; }
 
 }
@@ -21,20 +21,20 @@ public class GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock
 /// Block type for os_policies in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock
+public partial class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock : TerraformBlockBase
 {
     /// <summary>
     /// This flag determines the OS policy compliance status when none of the resource groups within the policy are applicable for a VM. Set this value to &#39;true&#39; if the policy needs to be reported as compliant even if the policy has nothing to validate or enforce.
     /// </summary>
-    [TerraformPropertyName("allow_no_resource_group_match")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allow_no_resource_group_match")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AllowNoResourceGroupMatch { get; set; }
 
     /// <summary>
     /// Policy description. Length of the description is limited to 1024 characters.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
@@ -46,16 +46,16 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock
     /// * Must be unique within the assignment.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Policy mode Possible values: [&amp;quot;MODE_UNSPECIFIED&amp;quot;, &amp;quot;VALIDATION&amp;quot;, &amp;quot;ENFORCEMENT&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mode is required")]
-    [TerraformPropertyName("mode")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("mode")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Mode { get; set; }
 
 }
@@ -64,14 +64,14 @@ public class GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock
 /// Block type for rollout in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOsConfigOsPolicyAssignmentRolloutBlock
+public partial class GoogleOsConfigOsPolicyAssignmentRolloutBlock : TerraformBlockBase
 {
     /// <summary>
     /// This determines the minimum duration of time to wait after the configuration changes are applied through the current rollout. A VM continues to count towards the &#39;disruption_budget&#39; at least until this duration of time has passed after configuration changes are applied.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinWaitDuration is required")]
-    [TerraformPropertyName("min_wait_duration")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("min_wait_duration")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MinWaitDuration { get; set; }
 
 }
@@ -80,27 +80,27 @@ public class GoogleOsConfigOsPolicyAssignmentRolloutBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleOsConfigOsPolicyAssignmentTimeoutsBlock
+public partial class GoogleOsConfigOsPolicyAssignmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -109,7 +109,7 @@ public class GoogleOsConfigOsPolicyAssignmentTimeoutsBlock
 /// Manages a google_os_config_os_policy_assignment resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleOsConfigOsPolicyAssignment : TerraformResource
+public partial class GoogleOsConfigOsPolicyAssignment : TerraformResource
 {
     public GoogleOsConfigOsPolicyAssignment(string name) : base("google_os_config_os_policy_assignment", name)
     {
@@ -118,45 +118,45 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
     /// <summary>
     /// OS policy assignment description. Length of the description is limited to 1024 characters.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Resource name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Set to true to skip awaiting rollout during resource creation and update.
     /// </summary>
-    [TerraformPropertyName("skip_await_rollout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("skip_await_rollout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SkipAwaitRollout { get; set; }
 
     /// <summary>
@@ -166,7 +166,7 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceFilter is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 InstanceFilter block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InstanceFilter block(s) allowed")]
-    [TerraformPropertyName("instance_filter")]
+    [TerraformProperty("instance_filter")]
     public TerraformList<TerraformBlock<GoogleOsConfigOsPolicyAssignmentInstanceFilterBlock>>? InstanceFilter { get; set; }
 
     /// <summary>
@@ -175,7 +175,7 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OsPolicies is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 OsPolicies block(s) required")]
-    [TerraformPropertyName("os_policies")]
+    [TerraformProperty("os_policies")]
     public TerraformList<TerraformBlock<GoogleOsConfigOsPolicyAssignmentOsPoliciesBlock>>? OsPolicies { get; set; }
 
     /// <summary>
@@ -185,73 +185,73 @@ public class GoogleOsConfigOsPolicyAssignment : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rollout is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rollout block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rollout block(s) allowed")]
-    [TerraformPropertyName("rollout")]
+    [TerraformProperty("rollout")]
     public TerraformList<TerraformBlock<GoogleOsConfigOsPolicyAssignmentRolloutBlock>>? Rollout { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleOsConfigOsPolicyAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Indicates that this revision has been successfully rolled out in this zone and new VMs will be assigned OS policies from this revision.
     /// For a given OS policy assignment, there is only one revision with a value of &#39;true&#39; for this field.
     /// </summary>
-    [TerraformPropertyName("baseline")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Baseline => new TerraformReference(this, "baseline");
+    [TerraformProperty("baseline")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Baseline { get; }
 
     /// <summary>
     /// Output only. Indicates that this revision deletes the OS policy assignment.
     /// </summary>
-    [TerraformPropertyName("deleted")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Deleted => new TerraformReference(this, "deleted");
+    [TerraformProperty("deleted")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Deleted { get; }
 
     /// <summary>
     /// The etag for this OS policy assignment. If this is provided on update, it must match the server&#39;s etag.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Output only. Indicates that reconciliation is in progress for the revision. This value is &#39;true&#39; when the &#39;rollout_state&#39; is one of:
     /// * IN_PROGRESS
     /// * CANCELLING
     /// </summary>
-    [TerraformPropertyName("reconciling")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Reconciling => new TerraformReference(this, "reconciling");
+    [TerraformProperty("reconciling")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// Output only. The timestamp that the revision was created.
     /// </summary>
-    [TerraformPropertyName("revision_create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RevisionCreateTime => new TerraformReference(this, "revision_create_time");
+    [TerraformProperty("revision_create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RevisionCreateTime { get; }
 
     /// <summary>
     /// Output only. The assignment revision ID A new revision is committed whenever a rollout is triggered for a OS policy assignment
     /// </summary>
-    [TerraformPropertyName("revision_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RevisionId => new TerraformReference(this, "revision_id");
+    [TerraformProperty("revision_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RevisionId { get; }
 
     /// <summary>
     /// Output only. OS policy assignment rollout state
     /// </summary>
-    [TerraformPropertyName("rollout_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RolloutState => new TerraformReference(this, "rollout_state");
+    [TerraformProperty("rollout_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RolloutState { get; }
 
     /// <summary>
     /// Output only. Server generated unique id for the OS policy assignment resource.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
 }

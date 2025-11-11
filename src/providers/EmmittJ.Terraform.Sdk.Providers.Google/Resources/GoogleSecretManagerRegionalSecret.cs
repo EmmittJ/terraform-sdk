@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for customer_managed_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock
+public partial class GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKey used to encrypt secret payloads.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
-    [TerraformPropertyName("kms_key_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kms_key_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KmsKeyName { get; set; }
 
 }
@@ -22,15 +22,15 @@ public class GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock
 /// Block type for rotation in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSecretManagerRegionalSecretRotationBlock
+public partial class GoogleSecretManagerRegionalSecretRotationBlock : TerraformBlockBase
 {
     /// <summary>
     /// Timestamp in UTC at which the Secret is scheduled to rotate.
     /// A timestamp in RFC3339 UTC &amp;quot;Zulu&amp;quot; format, with nanosecond resolution and up to nine
     /// fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("next_rotation_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("next_rotation_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NextRotationTime { get; set; }
 
     /// <summary>
@@ -39,8 +39,8 @@ public class GoogleSecretManagerRegionalSecretRotationBlock
     /// be set. &#39;next_rotation_time&#39; will be advanced by this period when the service
     /// automatically sends rotation notifications.
     /// </summary>
-    [TerraformPropertyName("rotation_period")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("rotation_period")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RotationPeriod { get; set; }
 
 }
@@ -49,27 +49,27 @@ public class GoogleSecretManagerRegionalSecretRotationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSecretManagerRegionalSecretTimeoutsBlock
+public partial class GoogleSecretManagerRegionalSecretTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -78,7 +78,7 @@ public class GoogleSecretManagerRegionalSecretTimeoutsBlock
 /// Block type for topics in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleSecretManagerRegionalSecretTopicsBlock
+public partial class GoogleSecretManagerRegionalSecretTopicsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The resource name of the Pub/Sub topic that will be published to, in the following format:
@@ -86,8 +86,8 @@ public class GoogleSecretManagerRegionalSecretTopicsBlock
     /// Agent service account must have pubsub.publisher permissions on the topic.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -96,7 +96,7 @@ public class GoogleSecretManagerRegionalSecretTopicsBlock
 /// Manages a google_secret_manager_regional_secret resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleSecretManagerRegionalSecret : TerraformResource
+public partial class GoogleSecretManagerRegionalSecret : TerraformResource
 {
     public GoogleSecretManagerRegionalSecret(string name) : base("google_secret_manager_regional_secret", name)
     {
@@ -122,8 +122,8 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    [TerraformPropertyName("annotations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("annotations")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
@@ -131,8 +131,8 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// When the field is set to true in Terraform state, a &#39;terraform apply&#39;
     /// or &#39;terraform destroy&#39; that would delete the federation will fail.
     /// </summary>
-    [TerraformPropertyName("deletion_protection")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deletion_protection")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
@@ -141,16 +141,16 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;. Only one of &#39;expire_time&#39; or &#39;ttl&#39; can be provided.
     /// </summary>
-    [TerraformPropertyName("expire_time")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ExpireTime { get; set; } = default!;
+    [TerraformProperty("expire_time")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ExpireTime { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The labels assigned to this regional secret.
@@ -170,31 +170,31 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location of the regional secret. eg us-central1
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// This must be unique within the project.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
-    [TerraformPropertyName("secret_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("secret_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SecretId { get; set; }
 
     /// <summary>
@@ -202,16 +202,16 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// Resource manager tag keys and values have the same definition as resource manager tags.
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The TTL for the regional secret. A duration in seconds with up to nine fractional digits,
     /// terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;. Only one of &#39;ttl&#39; or &#39;expire_time&#39; can be provided.
     /// </summary>
-    [TerraformPropertyName("ttl")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ttl")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Ttl { get; set; }
 
     /// <summary>
@@ -225,8 +225,8 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example:
     /// { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    [TerraformPropertyName("version_aliases")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version_aliases")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? VersionAliases { get; set; }
 
     /// <summary>
@@ -236,8 +236,8 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// on calling destroy instead the version goes to a disabled state and
     /// the actual destruction happens after this TTL expires. It must be atleast 24h.
     /// </summary>
-    [TerraformPropertyName("version_destroy_ttl")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version_destroy_ttl")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VersionDestroyTtl { get; set; }
 
     /// <summary>
@@ -245,7 +245,7 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedEncryption block(s) allowed")]
-    [TerraformPropertyName("customer_managed_encryption")]
+    [TerraformProperty("customer_managed_encryption")]
     public TerraformList<TerraformBlock<GoogleSecretManagerRegionalSecretCustomerManagedEncryptionBlock>>? CustomerManagedEncryption { get; set; }
 
     /// <summary>
@@ -253,58 +253,58 @@ public class GoogleSecretManagerRegionalSecret : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rotation block(s) allowed")]
-    [TerraformPropertyName("rotation")]
+    [TerraformProperty("rotation")]
     public TerraformList<TerraformBlock<GoogleSecretManagerRegionalSecretRotationBlock>>? Rotation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleSecretManagerRegionalSecretTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for topics.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("topics")]
+    [TerraformProperty("topics")]
     public TerraformList<TerraformBlock<GoogleSecretManagerRegionalSecretTopicsBlock>>? Topics { get; set; }
 
     /// <summary>
     /// The time at which the regional secret was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_annotations")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
+    [TerraformProperty("effective_annotations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The resource name of the regional secret. Format:
     /// &#39;projects/{{project}}/locations/{{location}}/secrets/{{secret_id}}&#39;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

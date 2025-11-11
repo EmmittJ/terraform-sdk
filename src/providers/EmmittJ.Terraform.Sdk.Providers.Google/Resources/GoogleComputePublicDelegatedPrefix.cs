@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputePublicDelegatedPrefixTimeoutsBlock
+public partial class GoogleComputePublicDelegatedPrefixTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class GoogleComputePublicDelegatedPrefixTimeoutsBlock
 /// <summary>
 /// Manages a google_compute_public_delegated_prefix resource.
 /// </summary>
-public class GoogleComputePublicDelegatedPrefix : TerraformResource
+public partial class GoogleComputePublicDelegatedPrefix : TerraformResource
 {
     public GoogleComputePublicDelegatedPrefix(string name) : base("google_compute_public_delegated_prefix", name)
     {
@@ -36,45 +36,45 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// <summary>
     /// The allocatable prefix length supported by this public delegated prefix. This field is optional and cannot be set for prefixes in DELEGATION mode. It cannot be set for IPv4 prefixes either, and it always defaults to 32.
     /// </summary>
-    [TerraformPropertyName("allocatable_prefix_length")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> AllocatablePrefixLength { get; set; } = default!;
+    [TerraformProperty("allocatable_prefix_length")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> AllocatablePrefixLength { get; set; }
 
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The IP address range, in CIDR format, represented by this public delegated prefix.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpCidrRange is required")]
-    [TerraformPropertyName("ip_cidr_range")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("ip_cidr_range")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IpCidrRange { get; set; }
 
     /// <summary>
     /// If true, the prefix will be live migrated.
     /// </summary>
-    [TerraformPropertyName("is_live_migration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("is_live_migration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IsLiveMigration { get; set; }
 
     /// <summary>
     /// Specifies the mode of this IPv6 PDP. MODE must be one of: DELEGATION,
     /// EXTERNAL_IPV6_FORWARDING_RULE_CREATION and EXTERNAL_IPV6_SUBNETWORK_CREATION. Possible values: [&amp;quot;DELEGATION&amp;quot;, &amp;quot;EXTERNAL_IPV6_FORWARDING_RULE_CREATION&amp;quot;, &amp;quot;EXTERNAL_IPV6_SUBNETWORK_CREATION&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Mode { get; set; }
 
     /// <summary>
@@ -86,38 +86,38 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// except the last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The URL of parent prefix. Either PublicAdvertisedPrefix or PublicDelegatedPrefix.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParentPrefix is required")]
-    [TerraformPropertyName("parent_prefix")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parent_prefix")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ParentPrefix { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A region where the prefix will reside.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
-    [TerraformPropertyName("region")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("region")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputePublicDelegatedPrefixTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -125,15 +125,15 @@ public class GoogleComputePublicDelegatedPrefix : TerraformResource
     /// Each item in this array represents a sub prefix that can be
     /// used to create addresses or further allocations.
     /// </summary>
-    [TerraformPropertyName("public_delegated_sub_prefixs")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PublicDelegatedSubPrefixs => new TerraformReference(this, "public_delegated_sub_prefixs");
+    [TerraformProperty("public_delegated_sub_prefixs")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PublicDelegatedSubPrefixs { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualHubDataSourceTimeoutsBlock
+public partial class AzurermVirtualHubDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermVirtualHubDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_virtual_hub.
 /// </summary>
-public class AzurermVirtualHubDataSource : TerraformDataSource
+public partial class AzurermVirtualHubDataSource : TerraformDataSource
 {
     public AzurermVirtualHubDataSource(string name) : base("azurerm_virtual_hub", name)
     {
@@ -29,80 +29,80 @@ public class AzurermVirtualHubDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermVirtualHubDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The address_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("address_prefix")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AddressPrefix => new TerraformReference(this, "address_prefix");
+    [TerraformProperty("address_prefix")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AddressPrefix { get; }
 
     /// <summary>
     /// The default_route_table_id attribute.
     /// </summary>
-    [TerraformPropertyName("default_route_table_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultRouteTableId => new TerraformReference(this, "default_route_table_id");
+    [TerraformProperty("default_route_table_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultRouteTableId { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The virtual_router_asn attribute.
     /// </summary>
-    [TerraformPropertyName("virtual_router_asn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> VirtualRouterAsn => new TerraformReference(this, "virtual_router_asn");
+    [TerraformProperty("virtual_router_asn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> VirtualRouterAsn { get; }
 
     /// <summary>
     /// The virtual_router_ips attribute.
     /// </summary>
-    [TerraformPropertyName("virtual_router_ips")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> VirtualRouterIps => new TerraformReference(this, "virtual_router_ips");
+    [TerraformProperty("virtual_router_ips")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> VirtualRouterIps { get; }
 
     /// <summary>
     /// The virtual_wan_id attribute.
     /// </summary>
-    [TerraformPropertyName("virtual_wan_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VirtualWanId => new TerraformReference(this, "virtual_wan_id");
+    [TerraformProperty("virtual_wan_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VirtualWanId { get; }
 
 }

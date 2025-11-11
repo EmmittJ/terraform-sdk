@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock
+public partial class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_container_registry_cache_rule.
 /// </summary>
-public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
+public partial class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
 {
     public AzurermContainerRegistryCacheRuleDataSource(string name) : base("azurerm_container_registry_cache_rule", name)
     {
@@ -30,51 +30,51 @@ public class AzurermContainerRegistryCacheRuleDataSource : TerraformDataSource
     /// The container_registry_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerRegistryId is required")]
-    [TerraformPropertyName("container_registry_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("container_registry_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ContainerRegistryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermContainerRegistryCacheRuleDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The credential_set_id attribute.
     /// </summary>
-    [TerraformPropertyName("credential_set_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CredentialSetId => new TerraformReference(this, "credential_set_id");
+    [TerraformProperty("credential_set_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CredentialSetId { get; }
 
     /// <summary>
     /// The source_repo attribute.
     /// </summary>
-    [TerraformPropertyName("source_repo")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceRepo => new TerraformReference(this, "source_repo");
+    [TerraformProperty("source_repo")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceRepo { get; }
 
     /// <summary>
     /// The target_repo attribute.
     /// </summary>
-    [TerraformPropertyName("target_repo")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TargetRepo => new TerraformReference(this, "target_repo");
+    [TerraformProperty("target_repo")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TargetRepo { get; }
 
 }

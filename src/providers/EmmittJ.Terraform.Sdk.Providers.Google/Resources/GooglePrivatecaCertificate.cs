@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public class GooglePrivatecaCertificateConfigBlock
+public partial class GooglePrivatecaCertificateConfigBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class GooglePrivatecaCertificateConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GooglePrivatecaCertificateTimeoutsBlock
+public partial class GooglePrivatecaCertificateTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class GooglePrivatecaCertificateTimeoutsBlock
 /// Manages a google_privateca_certificate resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GooglePrivatecaCertificate : TerraformResource
+public partial class GooglePrivatecaCertificate : TerraformResource
 {
     public GooglePrivatecaCertificate(string name) : base("google_privateca_certificate", name)
     {
@@ -55,8 +55,8 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// argument &#39;pool&#39; should be set to &#39;projects/my-project/locations/us-central1/caPools/my-pool&#39;, argument &#39;certificate_authority&#39;
     /// should be set to &#39;my-ca&#39;.
     /// </summary>
-    [TerraformPropertyName("certificate_authority")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate_authority")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CertificateAuthority { get; set; }
 
     /// <summary>
@@ -66,16 +66,16 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// omitted, no template will be used. This template must be in the same location
     /// as the Certificate.
     /// </summary>
-    [TerraformPropertyName("certificate_template")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate_template")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CertificateTemplate { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels with user-defined metadata to apply to this resource.
@@ -84,8 +84,8 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -93,8 +93,8 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// &amp;quot;notAfterTime&amp;quot; fields inside an X.509 certificate. A duration in seconds with up to nine
     /// fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("lifetime")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("lifetime")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Lifetime { get; set; }
 
     /// <summary>
@@ -102,120 +102,120 @@ public class GooglePrivatecaCertificate : TerraformResource
     /// running &#39;gcloud privateca locations list&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name for this Certificate.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Immutable. A pem-encoded X.509 certificate signing request (CSR).
     /// </summary>
-    [TerraformPropertyName("pem_csr")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("pem_csr")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PemCsr { get; set; }
 
     /// <summary>
     /// The name of the CaPool this Certificate belongs to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pool is required")]
-    [TerraformPropertyName("pool")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("pool")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Pool { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
-    [TerraformPropertyName("config")]
+    [TerraformProperty("config")]
     public TerraformList<TerraformBlock<GooglePrivatecaCertificateConfigBlock>>? Config { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GooglePrivatecaCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Details regarding the revocation of this Certificate. This Certificate is considered revoked if and only if this field is present.
     /// </summary>
-    [TerraformPropertyName("certificate_description")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CertificateDescription => new TerraformReference(this, "certificate_description");
+    [TerraformProperty("certificate_description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CertificateDescription { get; }
 
     /// <summary>
     /// The time that this resource was created on the server.
     /// This is in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The resource name of the issuing CertificateAuthority in the format &#39;projects/*/locations/*/caPools/*/certificateAuthorities/*&#39;.
     /// </summary>
-    [TerraformPropertyName("issuer_certificate_authority")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IssuerCertificateAuthority => new TerraformReference(this, "issuer_certificate_authority");
+    [TerraformProperty("issuer_certificate_authority")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IssuerCertificateAuthority { get; }
 
     /// <summary>
     /// Output only. The pem-encoded, signed X.509 certificate.
     /// </summary>
-    [TerraformPropertyName("pem_certificate")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PemCertificate => new TerraformReference(this, "pem_certificate");
+    [TerraformProperty("pem_certificate")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PemCertificate { get; }
 
     /// <summary>
     /// The chain that may be used to verify the X.509 certificate. Expected to be in issuer-to-root order according to RFC 5246.
     /// </summary>
-    [TerraformPropertyName("pem_certificate_chain")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> PemCertificateChain => new TerraformReference(this, "pem_certificate_chain");
+    [TerraformProperty("pem_certificate_chain")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> PemCertificateChain { get; }
 
     /// <summary>
     /// Output only. Details regarding the revocation of this Certificate. This Certificate is
     /// considered revoked if and only if this field is present.
     /// </summary>
-    [TerraformPropertyName("revocation_details")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> RevocationDetails => new TerraformReference(this, "revocation_details");
+    [TerraformProperty("revocation_details")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> RevocationDetails { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Output only. The time at which this CertificateAuthority was updated.
     /// This is in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageBlobDataSourceTimeoutsBlock
+public partial class AzurermStorageBlobDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermStorageBlobDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_storage_blob.
 /// </summary>
-public class AzurermStorageBlobDataSource : TerraformDataSource
+public partial class AzurermStorageBlobDataSource : TerraformDataSource
 {
     public AzurermStorageBlobDataSource(string name) : base("azurerm_storage_blob", name)
     {
@@ -29,88 +29,88 @@ public class AzurermStorageBlobDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    [TerraformPropertyName("metadata")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Metadata { get; set; } = default!;
+    [TerraformProperty("metadata")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
-    [TerraformPropertyName("storage_account_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_account_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageAccountName { get; set; }
 
     /// <summary>
     /// The storage_container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageContainerName is required")]
-    [TerraformPropertyName("storage_container_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_container_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageContainerName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermStorageBlobDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
-    [TerraformPropertyName("access_tier")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AccessTier => new TerraformReference(this, "access_tier");
+    [TerraformProperty("access_tier")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AccessTier { get; }
 
     /// <summary>
     /// The content_md5 attribute.
     /// </summary>
-    [TerraformPropertyName("content_md5")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ContentMd5 => new TerraformReference(this, "content_md5");
+    [TerraformProperty("content_md5")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ContentMd5 { get; }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    [TerraformPropertyName("content_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ContentType => new TerraformReference(this, "content_type");
+    [TerraformProperty("content_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ContentType { get; }
 
     /// <summary>
     /// The encryption_scope attribute.
     /// </summary>
-    [TerraformPropertyName("encryption_scope")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EncryptionScope => new TerraformReference(this, "encryption_scope");
+    [TerraformProperty("encryption_scope")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EncryptionScope { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    [TerraformPropertyName("url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Url => new TerraformReference(this, "url");
+    [TerraformProperty("url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Url { get; }
 
 }

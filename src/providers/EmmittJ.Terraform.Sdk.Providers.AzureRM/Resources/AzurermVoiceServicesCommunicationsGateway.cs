@@ -6,43 +6,43 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for service_location in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock
+public partial class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The allowed_media_source_address_prefixes attribute.
     /// </summary>
-    [TerraformPropertyName("allowed_media_source_address_prefixes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allowed_media_source_address_prefixes")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? AllowedMediaSourceAddressPrefixes { get; set; }
 
     /// <summary>
     /// The allowed_signaling_source_address_prefixes attribute.
     /// </summary>
-    [TerraformPropertyName("allowed_signaling_source_address_prefixes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allowed_signaling_source_address_prefixes")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? AllowedSignalingSourceAddressPrefixes { get; set; }
 
     /// <summary>
     /// The esrp_addresses attribute.
     /// </summary>
-    [TerraformPropertyName("esrp_addresses")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("esrp_addresses")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? EsrpAddresses { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The operator_addresses attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OperatorAddresses is required")]
-    [TerraformPropertyName("operator_addresses")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("operator_addresses")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> OperatorAddresses { get; set; }
 
 }
@@ -51,34 +51,34 @@ public class AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock
+public partial class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -87,7 +87,7 @@ public class AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock
 /// Manages a azurerm_voice_services_communications_gateway resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
+public partial class AzurermVoiceServicesCommunicationsGateway : TerraformResource
 {
     public AzurermVoiceServicesCommunicationsGateway(string name) : base("azurerm_voice_services_communications_gateway", name)
     {
@@ -96,106 +96,106 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     /// <summary>
     /// The api_bridge attribute.
     /// </summary>
-    [TerraformPropertyName("api_bridge")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("api_bridge")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ApiBridge { get; set; }
 
     /// <summary>
     /// The auto_generated_domain_name_label_scope attribute.
     /// </summary>
-    [TerraformPropertyName("auto_generated_domain_name_label_scope")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auto_generated_domain_name_label_scope")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AutoGeneratedDomainNameLabelScope { get; set; }
 
     /// <summary>
     /// The codecs attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Codecs is required")]
-    [TerraformPropertyName("codecs")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("codecs")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Codecs { get; set; }
 
     /// <summary>
     /// The connectivity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Connectivity is required")]
-    [TerraformPropertyName("connectivity")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connectivity")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Connectivity { get; set; }
 
     /// <summary>
     /// The e911_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "E911Type is required")]
-    [TerraformPropertyName("e911_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("e911_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> E911Type { get; set; }
 
     /// <summary>
     /// The emergency_dial_strings attribute.
     /// </summary>
-    [TerraformPropertyName("emergency_dial_strings")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("emergency_dial_strings")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? EmergencyDialStrings { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The microsoft_teams_voicemail_pilot_number attribute.
     /// </summary>
-    [TerraformPropertyName("microsoft_teams_voicemail_pilot_number")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("microsoft_teams_voicemail_pilot_number")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MicrosoftTeamsVoicemailPilotNumber { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The on_prem_mcp_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("on_prem_mcp_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("on_prem_mcp_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? OnPremMcpEnabled { get; set; }
 
     /// <summary>
     /// The platforms attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Platforms is required")]
-    [TerraformPropertyName("platforms")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("platforms")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Platforms { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -204,14 +204,14 @@ public class AzurermVoiceServicesCommunicationsGateway : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceLocation is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceLocation block(s) required")]
-    [TerraformPropertyName("service_location")]
+    [TerraformProperty("service_location")]
     public TerraformSet<TerraformBlock<AzurermVoiceServicesCommunicationsGatewayServiceLocationBlock>>? ServiceLocation { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermVoiceServicesCommunicationsGatewayTimeoutsBlock>? Timeouts { get; set; }
 
 }

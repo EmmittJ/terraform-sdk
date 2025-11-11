@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for role in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeHubScopeRbacRoleBindingRoleBlock
+public partial class GoogleGkeHubScopeRbacRoleBindingRoleBlock : TerraformBlockBase
 {
     /// <summary>
     /// CustomRole is the custom Kubernetes ClusterRole to be used. The custom role format must be allowlisted in the rbacrolebindingactuation feature and RFC 1123 compliant.
     /// </summary>
-    [TerraformPropertyName("custom_role")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("custom_role")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CustomRole { get; set; }
 
     /// <summary>
     /// PredefinedRole is an ENUM representation of the default Kubernetes Roles Possible values: [&amp;quot;UNKNOWN&amp;quot;, &amp;quot;ADMIN&amp;quot;, &amp;quot;EDIT&amp;quot;, &amp;quot;VIEW&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("predefined_role")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("predefined_role")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PredefinedRole { get; set; }
 
 }
@@ -28,27 +28,27 @@ public class GoogleGkeHubScopeRbacRoleBindingRoleBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock
+public partial class GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -57,7 +57,7 @@ public class GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock
 /// Manages a google_gke_hub_scope_rbac_role_binding resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
+public partial class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
 {
     public GoogleGkeHubScopeRbacRoleBinding(string name) : base("google_gke_hub_scope_rbac_role_binding", name)
     {
@@ -68,16 +68,16 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// is required). Updating one will unset the other automatically.
     /// group is the group, as seen by the kubernetes cluster.
     /// </summary>
-    [TerraformPropertyName("group")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("group")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Group { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels for this ScopeRBACRoleBinding.
@@ -86,31 +86,31 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Id of the scope
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeId is required")]
-    [TerraformPropertyName("scope_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("scope_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ScopeId { get; set; }
 
     /// <summary>
     /// The client-provided identifier of the RBAC Role Binding.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ScopeRbacRoleBindingId is required")]
-    [TerraformPropertyName("scope_rbac_role_binding_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("scope_rbac_role_binding_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ScopeRbacRoleBindingId { get; set; }
 
     /// <summary>
@@ -119,8 +119,8 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     /// user is the name of the user as seen by the kubernetes cluster, example
     /// &amp;quot;alice&amp;quot; or &amp;quot;alice@domain.tld&amp;quot;
     /// </summary>
-    [TerraformPropertyName("user")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? User { get; set; }
 
     /// <summary>
@@ -130,71 +130,71 @@ public class GoogleGkeHubScopeRbacRoleBinding : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Role block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Role block(s) allowed")]
-    [TerraformPropertyName("role")]
+    [TerraformProperty("role")]
     public TerraformList<TerraformBlock<GoogleGkeHubScopeRbacRoleBindingRoleBlock>>? Role { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleGkeHubScopeRbacRoleBindingTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Time the RBAC Role Binding was created in UTC.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Time the RBAC Role Binding was deleted in UTC.
     /// </summary>
-    [TerraformPropertyName("delete_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeleteTime => new TerraformReference(this, "delete_time");
+    [TerraformProperty("delete_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The resource name for the RBAC Role Binding
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// State of the RBAC Role Binding resource.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Google-generated UUID for this resource.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Time the RBAC Role Binding was updated in UTC.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

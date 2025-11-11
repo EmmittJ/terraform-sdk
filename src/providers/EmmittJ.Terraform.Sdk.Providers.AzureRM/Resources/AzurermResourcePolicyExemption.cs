@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermResourcePolicyExemptionTimeoutsBlock
+public partial class AzurermResourcePolicyExemptionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermResourcePolicyExemptionTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_resource_policy_exemption resource.
 /// </summary>
-public class AzurermResourcePolicyExemption : TerraformResource
+public partial class AzurermResourcePolicyExemption : TerraformResource
 {
     public AzurermResourcePolicyExemption(string name) : base("azurerm_resource_policy_exemption", name)
     {
@@ -50,82 +50,82 @@ public class AzurermResourcePolicyExemption : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The exemption_category attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExemptionCategory is required")]
-    [TerraformPropertyName("exemption_category")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("exemption_category")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ExemptionCategory { get; set; }
 
     /// <summary>
     /// The expires_on attribute.
     /// </summary>
-    [TerraformPropertyName("expires_on")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expires_on")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExpiresOn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    [TerraformPropertyName("metadata")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Metadata { get; set; } = default!;
+    [TerraformProperty("metadata")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Metadata { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The policy_assignment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PolicyAssignmentId is required")]
-    [TerraformPropertyName("policy_assignment_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("policy_assignment_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PolicyAssignmentId { get; set; }
 
     /// <summary>
     /// The policy_definition_reference_ids attribute.
     /// </summary>
-    [TerraformPropertyName("policy_definition_reference_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("policy_definition_reference_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? PolicyDefinitionReferenceIds { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
-    [TerraformPropertyName("resource_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermResourcePolicyExemptionTimeoutsBlock>? Timeouts { get; set; }
 
 }

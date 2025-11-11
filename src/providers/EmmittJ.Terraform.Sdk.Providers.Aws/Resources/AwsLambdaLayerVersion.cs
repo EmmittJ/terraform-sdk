@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_lambda_layer_version resource.
 /// </summary>
-public class AwsLambdaLayerVersion : TerraformResource
+public partial class AwsLambdaLayerVersion : TerraformResource
 {
     public AwsLambdaLayerVersion(string name) : base("aws_lambda_layer_version", name)
     {
@@ -14,149 +14,149 @@ public class AwsLambdaLayerVersion : TerraformResource
     /// <summary>
     /// The compatible_architectures attribute.
     /// </summary>
-    [TerraformPropertyName("compatible_architectures")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("compatible_architectures")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? CompatibleArchitectures { get; set; }
 
     /// <summary>
     /// The compatible_runtimes attribute.
     /// </summary>
-    [TerraformPropertyName("compatible_runtimes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("compatible_runtimes")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? CompatibleRuntimes { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The filename attribute.
     /// </summary>
-    [TerraformPropertyName("filename")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filename")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Filename { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The layer_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LayerName is required")]
-    [TerraformPropertyName("layer_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("layer_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LayerName { get; set; }
 
     /// <summary>
     /// The license_info attribute.
     /// </summary>
-    [TerraformPropertyName("license_info")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("license_info")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LicenseInfo { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    [TerraformPropertyName("s3_bucket")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_bucket")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3Bucket { get; set; }
 
     /// <summary>
     /// The s3_key attribute.
     /// </summary>
-    [TerraformPropertyName("s3_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3Key { get; set; }
 
     /// <summary>
     /// The s3_object_version attribute.
     /// </summary>
-    [TerraformPropertyName("s3_object_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("s3_object_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? S3ObjectVersion { get; set; }
 
     /// <summary>
     /// The skip_destroy attribute.
     /// </summary>
-    [TerraformPropertyName("skip_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("skip_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SkipDestroy { get; set; }
 
     /// <summary>
     /// The source_code_hash attribute.
     /// </summary>
-    [TerraformPropertyName("source_code_hash")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SourceCodeHash { get; set; } = default!;
+    [TerraformProperty("source_code_hash")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SourceCodeHash { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The code_sha256 attribute.
     /// </summary>
-    [TerraformPropertyName("code_sha256")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CodeSha256 => new TerraformReference(this, "code_sha256");
+    [TerraformProperty("code_sha256")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CodeSha256 { get; }
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
-    [TerraformPropertyName("created_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedDate => new TerraformReference(this, "created_date");
+    [TerraformProperty("created_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The layer_arn attribute.
     /// </summary>
-    [TerraformPropertyName("layer_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LayerArn => new TerraformReference(this, "layer_arn");
+    [TerraformProperty("layer_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LayerArn { get; }
 
     /// <summary>
     /// The signing_job_arn attribute.
     /// </summary>
-    [TerraformPropertyName("signing_job_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SigningJobArn => new TerraformReference(this, "signing_job_arn");
+    [TerraformProperty("signing_job_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SigningJobArn { get; }
 
     /// <summary>
     /// The signing_profile_version_arn attribute.
     /// </summary>
-    [TerraformPropertyName("signing_profile_version_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SigningProfileVersionArn => new TerraformReference(this, "signing_profile_version_arn");
+    [TerraformProperty("signing_profile_version_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SigningProfileVersionArn { get; }
 
     /// <summary>
     /// The source_code_size attribute.
     /// </summary>
-    [TerraformPropertyName("source_code_size")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> SourceCodeSize => new TerraformReference(this, "source_code_size");
+    [TerraformProperty("source_code_size")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> SourceCodeSize { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Version => new TerraformReference(this, "version");
+    [TerraformProperty("version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Version { get; }
 
 }

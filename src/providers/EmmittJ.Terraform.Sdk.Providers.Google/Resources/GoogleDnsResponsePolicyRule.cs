@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for local_data in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDnsResponsePolicyRuleLocalDataBlock
+public partial class GoogleDnsResponsePolicyRuleLocalDataBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class GoogleDnsResponsePolicyRuleLocalDataBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDnsResponsePolicyRuleTimeoutsBlock
+public partial class GoogleDnsResponsePolicyRuleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class GoogleDnsResponsePolicyRuleTimeoutsBlock
 /// Manages a google_dns_response_policy_rule resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleDnsResponsePolicyRule : TerraformResource
+public partial class GoogleDnsResponsePolicyRule : TerraformResource
 {
     public GoogleDnsResponsePolicyRule(string name) : base("google_dns_response_policy_rule", name)
     {
@@ -53,38 +53,38 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     /// The DNS name (wildcard or exact) to apply this rule to. Must be unique within the Response Policy Rule.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsName is required")]
-    [TerraformPropertyName("dns_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("dns_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DnsName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Identifies the response policy addressed by this request.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponsePolicy is required")]
-    [TerraformPropertyName("response_policy")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("response_policy")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResponsePolicy { get; set; }
 
     /// <summary>
     /// An identifier for this rule. Must be unique with the ResponsePolicy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleName is required")]
-    [TerraformPropertyName("rule_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("rule_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RuleName { get; set; }
 
     /// <summary>
@@ -92,14 +92,14 @@ public class GoogleDnsResponsePolicyRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LocalData block(s) allowed")]
-    [TerraformPropertyName("local_data")]
+    [TerraformProperty("local_data")]
     public TerraformList<TerraformBlock<GoogleDnsResponsePolicyRuleLocalDataBlock>>? LocalData { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDnsResponsePolicyRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

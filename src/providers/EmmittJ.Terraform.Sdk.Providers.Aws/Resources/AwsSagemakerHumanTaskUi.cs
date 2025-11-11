@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for ui_template in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerHumanTaskUiUiTemplateBlock
+public partial class AwsSagemakerHumanTaskUiUiTemplateBlock : TerraformBlockBase
 {
     /// <summary>
     /// The content attribute.
     /// </summary>
-    [TerraformPropertyName("content")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("content")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Content { get; set; }
 
 
@@ -23,7 +23,7 @@ public class AwsSagemakerHumanTaskUiUiTemplateBlock
 /// Manages a aws_sagemaker_human_task_ui resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsSagemakerHumanTaskUi : TerraformResource
+public partial class AwsSagemakerHumanTaskUi : TerraformResource
 {
     public AwsSagemakerHumanTaskUi(string name) : base("aws_sagemaker_human_task_ui", name)
     {
@@ -33,37 +33,37 @@ public class AwsSagemakerHumanTaskUi : TerraformResource
     /// The human_task_ui_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HumanTaskUiName is required")]
-    [TerraformPropertyName("human_task_ui_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("human_task_ui_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HumanTaskUiName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for ui_template.
@@ -72,14 +72,14 @@ public class AwsSagemakerHumanTaskUi : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UiTemplate is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 UiTemplate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UiTemplate block(s) allowed")]
-    [TerraformPropertyName("ui_template")]
+    [TerraformProperty("ui_template")]
     public TerraformList<TerraformBlock<AwsSagemakerHumanTaskUiUiTemplateBlock>>? UiTemplate { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

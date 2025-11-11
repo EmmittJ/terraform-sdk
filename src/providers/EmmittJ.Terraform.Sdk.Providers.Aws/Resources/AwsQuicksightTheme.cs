@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsQuicksightThemeConfigurationBlock
+public partial class AwsQuicksightThemeConfigurationBlock : TerraformBlockBase
 {
 }
 
@@ -14,22 +14,22 @@ public class AwsQuicksightThemeConfigurationBlock
 /// Block type for permissions in .
 /// Nesting mode: set
 /// </summary>
-public class AwsQuicksightThemePermissionsBlock
+public partial class AwsQuicksightThemePermissionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The actions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Actions is required")]
-    [TerraformPropertyName("actions")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("actions")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Actions { get; set; }
 
     /// <summary>
     /// The principal attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Principal is required")]
-    [TerraformPropertyName("principal")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("principal")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Principal { get; set; }
 
 }
@@ -38,27 +38,27 @@ public class AwsQuicksightThemePermissionsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsQuicksightThemeTimeoutsBlock
+public partial class AwsQuicksightThemeTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -67,7 +67,7 @@ public class AwsQuicksightThemeTimeoutsBlock
 /// Manages a aws_quicksight_theme resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsQuicksightTheme : TerraformResource
+public partial class AwsQuicksightTheme : TerraformResource
 {
     public AwsQuicksightTheme(string name) : base("aws_quicksight_theme", name)
     {
@@ -76,67 +76,67 @@ public class AwsQuicksightTheme : TerraformResource
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("aws_account_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AwsAccountId { get; set; } = default!;
+    [TerraformProperty("aws_account_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AwsAccountId { get; set; }
 
     /// <summary>
     /// The base_theme_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseThemeId is required")]
-    [TerraformPropertyName("base_theme_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("base_theme_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BaseThemeId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The theme_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThemeId is required")]
-    [TerraformPropertyName("theme_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("theme_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ThemeId { get; set; }
 
     /// <summary>
     /// The version_description attribute.
     /// </summary>
-    [TerraformPropertyName("version_description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version_description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VersionDescription { get; set; }
 
     /// <summary>
@@ -144,7 +144,7 @@ public class AwsQuicksightTheme : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
-    [TerraformPropertyName("configuration")]
+    [TerraformProperty("configuration")]
     public TerraformList<TerraformBlock<AwsQuicksightThemeConfigurationBlock>>? Configuration { get; set; }
 
     /// <summary>
@@ -152,49 +152,49 @@ public class AwsQuicksightTheme : TerraformResource
     /// Nesting mode: set
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(64, ErrorMessage = "Maximum 64 Permissions block(s) allowed")]
-    [TerraformPropertyName("permissions")]
+    [TerraformProperty("permissions")]
     public TerraformSet<TerraformBlock<AwsQuicksightThemePermissionsBlock>>? Permissions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsQuicksightThemeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
-    [TerraformPropertyName("created_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedTime => new TerraformReference(this, "created_time");
+    [TerraformProperty("created_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedTime { get; }
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
-    [TerraformPropertyName("last_updated_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastUpdatedTime => new TerraformReference(this, "last_updated_time");
+    [TerraformProperty("last_updated_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastUpdatedTime { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The version_number attribute.
     /// </summary>
-    [TerraformPropertyName("version_number")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> VersionNumber => new TerraformReference(this, "version_number");
+    [TerraformProperty("version_number")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> VersionNumber { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_project_service.
 /// </summary>
-public class GoogleProjectServiceDataSource : TerraformDataSource
+public partial class GoogleProjectServiceDataSource : TerraformDataSource
 {
     public GoogleProjectServiceDataSource(string name) : base("google_project_service", name)
     {
@@ -14,37 +14,37 @@ public class GoogleProjectServiceDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The service attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
-    [TerraformPropertyName("service")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// The disable_dependent_services attribute.
     /// </summary>
-    [TerraformPropertyName("disable_dependent_services")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DisableDependentServices => new TerraformReference(this, "disable_dependent_services");
+    [TerraformProperty("disable_dependent_services")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DisableDependentServices { get; }
 
     /// <summary>
     /// The disable_on_destroy attribute.
     /// </summary>
-    [TerraformPropertyName("disable_on_destroy")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DisableOnDestroy => new TerraformReference(this, "disable_on_destroy");
+    [TerraformProperty("disable_on_destroy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DisableOnDestroy { get; }
 
 }

@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for response_parameters in .
 /// Nesting mode: set
 /// </summary>
-public class AwsApigatewayv2IntegrationResponseParametersBlock
+public partial class AwsApigatewayv2IntegrationResponseParametersBlock : TerraformBlockBase
 {
     /// <summary>
     /// The mappings attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Mappings is required")]
-    [TerraformPropertyName("mappings")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("mappings")]
+    // Required argument - source generator will implement get/set
     public required TerraformMap<string> Mappings { get; set; }
 
     /// <summary>
     /// The status_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StatusCode is required")]
-    [TerraformPropertyName("status_code")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("status_code")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StatusCode { get; set; }
 
 }
@@ -30,13 +30,13 @@ public class AwsApigatewayv2IntegrationResponseParametersBlock
 /// Block type for tls_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApigatewayv2IntegrationTlsConfigBlock
+public partial class AwsApigatewayv2IntegrationTlsConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The server_name_to_verify attribute.
     /// </summary>
-    [TerraformPropertyName("server_name_to_verify")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("server_name_to_verify")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServerNameToVerify { get; set; }
 
 }
@@ -45,7 +45,7 @@ public class AwsApigatewayv2IntegrationTlsConfigBlock
 /// Manages a aws_apigatewayv2_integration resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsApigatewayv2Integration : TerraformResource
+public partial class AwsApigatewayv2Integration : TerraformResource
 {
     public AwsApigatewayv2Integration(string name) : base("aws_apigatewayv2_integration", name)
     {
@@ -55,135 +55,135 @@ public class AwsApigatewayv2Integration : TerraformResource
     /// The api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiId is required")]
-    [TerraformPropertyName("api_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("api_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApiId { get; set; }
 
     /// <summary>
     /// The connection_id attribute.
     /// </summary>
-    [TerraformPropertyName("connection_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("connection_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConnectionId { get; set; }
 
     /// <summary>
     /// The connection_type attribute.
     /// </summary>
-    [TerraformPropertyName("connection_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("connection_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConnectionType { get; set; }
 
     /// <summary>
     /// The content_handling_strategy attribute.
     /// </summary>
-    [TerraformPropertyName("content_handling_strategy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("content_handling_strategy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ContentHandlingStrategy { get; set; }
 
     /// <summary>
     /// The credentials_arn attribute.
     /// </summary>
-    [TerraformPropertyName("credentials_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("credentials_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CredentialsArn { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The integration_method attribute.
     /// </summary>
-    [TerraformPropertyName("integration_method")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("integration_method")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IntegrationMethod { get; set; }
 
     /// <summary>
     /// The integration_subtype attribute.
     /// </summary>
-    [TerraformPropertyName("integration_subtype")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("integration_subtype")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IntegrationSubtype { get; set; }
 
     /// <summary>
     /// The integration_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IntegrationType is required")]
-    [TerraformPropertyName("integration_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("integration_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IntegrationType { get; set; }
 
     /// <summary>
     /// The integration_uri attribute.
     /// </summary>
-    [TerraformPropertyName("integration_uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("integration_uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IntegrationUri { get; set; }
 
     /// <summary>
     /// The passthrough_behavior attribute.
     /// </summary>
-    [TerraformPropertyName("passthrough_behavior")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("passthrough_behavior")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PassthroughBehavior { get; set; }
 
     /// <summary>
     /// The payload_format_version attribute.
     /// </summary>
-    [TerraformPropertyName("payload_format_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("payload_format_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PayloadFormatVersion { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The request_parameters attribute.
     /// </summary>
-    [TerraformPropertyName("request_parameters")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("request_parameters")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? RequestParameters { get; set; }
 
     /// <summary>
     /// The request_templates attribute.
     /// </summary>
-    [TerraformPropertyName("request_templates")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("request_templates")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? RequestTemplates { get; set; }
 
     /// <summary>
     /// The template_selection_expression attribute.
     /// </summary>
-    [TerraformPropertyName("template_selection_expression")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("template_selection_expression")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TemplateSelectionExpression { get; set; }
 
     /// <summary>
     /// The timeout_milliseconds attribute.
     /// </summary>
-    [TerraformPropertyName("timeout_milliseconds")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> TimeoutMilliseconds { get; set; } = default!;
+    [TerraformProperty("timeout_milliseconds")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> TimeoutMilliseconds { get; set; }
 
     /// <summary>
     /// Block for response_parameters.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("response_parameters")]
+    [TerraformProperty("response_parameters")]
     public TerraformSet<TerraformBlock<AwsApigatewayv2IntegrationResponseParametersBlock>>? ResponseParameters { get; set; }
 
     /// <summary>
@@ -191,14 +191,14 @@ public class AwsApigatewayv2Integration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TlsConfig block(s) allowed")]
-    [TerraformPropertyName("tls_config")]
+    [TerraformProperty("tls_config")]
     public TerraformList<TerraformBlock<AwsApigatewayv2IntegrationTlsConfigBlock>>? TlsConfig { get; set; }
 
     /// <summary>
     /// The integration_response_selection_expression attribute.
     /// </summary>
-    [TerraformPropertyName("integration_response_selection_expression")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IntegrationResponseSelectionExpression => new TerraformReference(this, "integration_response_selection_expression");
+    [TerraformProperty("integration_response_selection_expression")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IntegrationResponseSelectionExpression { get; }
 
 }

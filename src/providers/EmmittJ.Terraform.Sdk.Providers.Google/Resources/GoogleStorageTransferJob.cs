@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for event_stream in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageTransferJobEventStreamBlock
+public partial class GoogleStorageTransferJobEventStreamBlock : TerraformBlockBase
 {
     /// <summary>
     /// Specifies the data and time at which Storage Transfer Service stops listening for events from this stream. After this time, any transfers in progress will complete, but no new transfers are initiated
     /// </summary>
-    [TerraformPropertyName("event_stream_expiration_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("event_stream_expiration_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EventStreamExpirationTime { get; set; }
 
     /// <summary>
     /// Specifies the date and time that Storage Transfer Service starts listening for events from this stream. If no start time is specified or start time is in the past, Storage Transfer Service starts listening immediately
     /// </summary>
-    [TerraformPropertyName("event_stream_start_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("event_stream_start_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EventStreamStartTime { get; set; }
 
     /// <summary>
     /// Specifies a unique name of the resource such as AWS SQS ARN in the form &#39;arn:aws:sqs:region:account_id:queue_name&#39;, or Pub/Sub subscription resource name in the form &#39;projects/{project}/subscriptions/{sub}&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -36,27 +36,27 @@ public class GoogleStorageTransferJobEventStreamBlock
 /// Block type for logging_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageTransferJobLoggingConfigBlock
+public partial class GoogleStorageTransferJobLoggingConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// For transfers with a PosixFilesystem source, this option enables the Cloud Storage transfer logs for this transfer.
     /// </summary>
-    [TerraformPropertyName("enable_on_prem_gcs_transfer_logs")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_on_prem_gcs_transfer_logs")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableOnPremGcsTransferLogs { get; set; }
 
     /// <summary>
     /// States in which logActions are logged. Not supported for transfers with PosifxFilesystem data sources; use enable_on_prem_gcs_transfer_logs instead.
     /// </summary>
-    [TerraformPropertyName("log_action_states")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("log_action_states")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? LogActionStates { get; set; }
 
     /// <summary>
     /// Specifies the actions to be logged. Not supported for transfers with PosifxFilesystem data sources; use enable_on_prem_gcs_transfer_logs instead.
     /// </summary>
-    [TerraformPropertyName("log_actions")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("log_actions")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? LogActions { get; set; }
 
 }
@@ -65,29 +65,29 @@ public class GoogleStorageTransferJobLoggingConfigBlock
 /// Block type for notification_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageTransferJobNotificationConfigBlock
+public partial class GoogleStorageTransferJobNotificationConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Event types for which a notification is desired. If empty, send notifications for all event types. The valid types are &amp;quot;TRANSFER_OPERATION_SUCCESS&amp;quot;, &amp;quot;TRANSFER_OPERATION_FAILED&amp;quot;, &amp;quot;TRANSFER_OPERATION_ABORTED&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("event_types")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("event_types")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? EventTypes { get; set; }
 
     /// <summary>
     /// The desired format of the notification message payloads. One of &amp;quot;NONE&amp;quot; or &amp;quot;JSON&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PayloadFormat is required")]
-    [TerraformPropertyName("payload_format")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("payload_format")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PayloadFormat { get; set; }
 
     /// <summary>
     /// The Topic.name of the Pub/Sub topic to which to publish notifications.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
-    [TerraformPropertyName("pubsub_topic")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("pubsub_topic")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PubsubTopic { get; set; }
 
 }
@@ -96,7 +96,7 @@ public class GoogleStorageTransferJobNotificationConfigBlock
 /// Block type for replication_spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageTransferJobReplicationSpecBlock
+public partial class GoogleStorageTransferJobReplicationSpecBlock : TerraformBlockBase
 {
 }
 
@@ -104,13 +104,13 @@ public class GoogleStorageTransferJobReplicationSpecBlock
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageTransferJobScheduleBlock
+public partial class GoogleStorageTransferJobScheduleBlock : TerraformBlockBase
 {
     /// <summary>
     /// Interval between the start of each scheduled transfer. If unspecified, the default value is 24 hours. This value may not be less than 1 hour. A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("repeat_interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("repeat_interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RepeatInterval { get; set; }
 
 }
@@ -119,21 +119,21 @@ public class GoogleStorageTransferJobScheduleBlock
 /// Block type for transfer_spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageTransferJobTransferSpecBlock
+public partial class GoogleStorageTransferJobTransferSpecBlock : TerraformBlockBase
 {
     /// <summary>
     /// Specifies the agent pool name associated with the posix data source. When unspecified, the default name is used.
     /// </summary>
-    [TerraformPropertyName("sink_agent_pool_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SinkAgentPoolName { get; set; } = default!;
+    [TerraformProperty("sink_agent_pool_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SinkAgentPoolName { get; set; }
 
     /// <summary>
     /// Specifies the agent pool name associated with the posix data source. When unspecified, the default name is used.
     /// </summary>
-    [TerraformPropertyName("source_agent_pool_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SourceAgentPoolName { get; set; } = default!;
+    [TerraformProperty("source_agent_pool_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SourceAgentPoolName { get; set; }
 
 }
 
@@ -141,7 +141,7 @@ public class GoogleStorageTransferJobTransferSpecBlock
 /// Manages a google_storage_transfer_job resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleStorageTransferJob : TerraformResource
+public partial class GoogleStorageTransferJob : TerraformResource
 {
     public GoogleStorageTransferJob(string name) : base("google_storage_transfer_job", name)
     {
@@ -151,43 +151,43 @@ public class GoogleStorageTransferJob : TerraformResource
     /// Unique description to identify the Transfer Job.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Description is required")]
-    [TerraformPropertyName("description")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("description")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Transfer Job.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The user-managed service account to run the job. If this field is specified, the given service account is granted the necessary permissions to all applicable resources (e.g. GCS buckets) required by the job.
     /// </summary>
-    [TerraformPropertyName("service_account")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_account")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServiceAccount { get; set; }
 
     /// <summary>
     /// Status of the job. Default: ENABLED. NOTE: The effect of the new job status takes place during a subsequent job run. For example, if you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("status")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Status { get; set; }
 
     /// <summary>
@@ -195,7 +195,7 @@ public class GoogleStorageTransferJob : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EventStream block(s) allowed")]
-    [TerraformPropertyName("event_stream")]
+    [TerraformProperty("event_stream")]
     public TerraformList<TerraformBlock<GoogleStorageTransferJobEventStreamBlock>>? EventStream { get; set; }
 
     /// <summary>
@@ -203,7 +203,7 @@ public class GoogleStorageTransferJob : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoggingConfig block(s) allowed")]
-    [TerraformPropertyName("logging_config")]
+    [TerraformProperty("logging_config")]
     public TerraformList<TerraformBlock<GoogleStorageTransferJobLoggingConfigBlock>>? LoggingConfig { get; set; }
 
     /// <summary>
@@ -211,7 +211,7 @@ public class GoogleStorageTransferJob : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
-    [TerraformPropertyName("notification_config")]
+    [TerraformProperty("notification_config")]
     public TerraformList<TerraformBlock<GoogleStorageTransferJobNotificationConfigBlock>>? NotificationConfig { get; set; }
 
     /// <summary>
@@ -219,7 +219,7 @@ public class GoogleStorageTransferJob : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReplicationSpec block(s) allowed")]
-    [TerraformPropertyName("replication_spec")]
+    [TerraformProperty("replication_spec")]
     public TerraformList<TerraformBlock<GoogleStorageTransferJobReplicationSpecBlock>>? ReplicationSpec { get; set; }
 
     /// <summary>
@@ -227,7 +227,7 @@ public class GoogleStorageTransferJob : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    [TerraformPropertyName("schedule")]
+    [TerraformProperty("schedule")]
     public TerraformList<TerraformBlock<GoogleStorageTransferJobScheduleBlock>>? Schedule { get; set; }
 
     /// <summary>
@@ -235,28 +235,28 @@ public class GoogleStorageTransferJob : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TransferSpec block(s) allowed")]
-    [TerraformPropertyName("transfer_spec")]
+    [TerraformProperty("transfer_spec")]
     public TerraformList<TerraformBlock<GoogleStorageTransferJobTransferSpecBlock>>? TransferSpec { get; set; }
 
     /// <summary>
     /// When the Transfer Job was created.
     /// </summary>
-    [TerraformPropertyName("creation_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTime => new TerraformReference(this, "creation_time");
+    [TerraformProperty("creation_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTime { get; }
 
     /// <summary>
     /// When the Transfer Job was deleted.
     /// </summary>
-    [TerraformPropertyName("deletion_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeletionTime => new TerraformReference(this, "deletion_time");
+    [TerraformProperty("deletion_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeletionTime { get; }
 
     /// <summary>
     /// When the Transfer Job was last modified.
     /// </summary>
-    [TerraformPropertyName("last_modification_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModificationTime => new TerraformReference(this, "last_modification_time");
+    [TerraformProperty("last_modification_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModificationTime { get; }
 
 }

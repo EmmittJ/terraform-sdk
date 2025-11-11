@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for rules in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermStorageObjectReplicationRulesBlock
+public partial class AzurermStorageObjectReplicationRulesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The copy_blobs_created_after attribute.
     /// </summary>
-    [TerraformPropertyName("copy_blobs_created_after")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("copy_blobs_created_after")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CopyBlobsCreatedAfter { get; set; }
 
     /// <summary>
     /// The destination_container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationContainerName is required")]
-    [TerraformPropertyName("destination_container_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("destination_container_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DestinationContainerName { get; set; }
 
     /// <summary>
     /// The filter_out_blobs_with_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("filter_out_blobs_with_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filter_out_blobs_with_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? FilterOutBlobsWithPrefix { get; set; }
 
 
@@ -35,8 +35,8 @@ public class AzurermStorageObjectReplicationRulesBlock
     /// The source_container_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceContainerName is required")]
-    [TerraformPropertyName("source_container_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source_container_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SourceContainerName { get; set; }
 
 }
@@ -45,34 +45,34 @@ public class AzurermStorageObjectReplicationRulesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageObjectReplicationTimeoutsBlock
+public partial class AzurermStorageObjectReplicationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -81,7 +81,7 @@ public class AzurermStorageObjectReplicationTimeoutsBlock
 /// Manages a azurerm_storage_object_replication resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermStorageObjectReplication : TerraformResource
+public partial class AzurermStorageObjectReplication : TerraformResource
 {
     public AzurermStorageObjectReplication(string name) : base("azurerm_storage_object_replication", name)
     {
@@ -91,23 +91,23 @@ public class AzurermStorageObjectReplication : TerraformResource
     /// The destination_storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestinationStorageAccountId is required")]
-    [TerraformPropertyName("destination_storage_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("destination_storage_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DestinationStorageAccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The source_storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceStorageAccountId is required")]
-    [TerraformPropertyName("source_storage_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source_storage_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SourceStorageAccountId { get; set; }
 
     /// <summary>
@@ -116,28 +116,28 @@ public class AzurermStorageObjectReplication : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rules block(s) required")]
-    [TerraformPropertyName("rules")]
+    [TerraformProperty("rules")]
     public TerraformSet<TerraformBlock<AzurermStorageObjectReplicationRulesBlock>>? Rules { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermStorageObjectReplicationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The destination_object_replication_id attribute.
     /// </summary>
-    [TerraformPropertyName("destination_object_replication_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DestinationObjectReplicationId => new TerraformReference(this, "destination_object_replication_id");
+    [TerraformProperty("destination_object_replication_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DestinationObjectReplicationId { get; }
 
     /// <summary>
     /// The source_object_replication_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_object_replication_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceObjectReplicationId => new TerraformReference(this, "source_object_replication_id");
+    [TerraformProperty("source_object_replication_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceObjectReplicationId { get; }
 
 }

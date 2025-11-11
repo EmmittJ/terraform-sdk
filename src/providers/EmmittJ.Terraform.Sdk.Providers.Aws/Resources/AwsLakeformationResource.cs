@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_lakeformation_resource resource.
 /// </summary>
-public class AwsLakeformationResource : TerraformResource
+public partial class AwsLakeformationResource : TerraformResource
 {
     public AwsLakeformationResource(string name) : base("aws_lakeformation_resource", name)
     {
@@ -15,64 +15,64 @@ public class AwsLakeformationResource : TerraformResource
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    [TerraformPropertyName("arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The hybrid_access_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("hybrid_access_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> HybridAccessEnabled { get; set; } = default!;
+    [TerraformProperty("hybrid_access_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> HybridAccessEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("role_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> RoleArn { get; set; } = default!;
+    [TerraformProperty("role_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The use_service_linked_role attribute.
     /// </summary>
-    [TerraformPropertyName("use_service_linked_role")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("use_service_linked_role")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? UseServiceLinkedRole { get; set; }
 
     /// <summary>
     /// The with_federation attribute.
     /// </summary>
-    [TerraformPropertyName("with_federation")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> WithFederation { get; set; } = default!;
+    [TerraformProperty("with_federation")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> WithFederation { get; set; }
 
     /// <summary>
     /// The with_privileged_access attribute.
     /// </summary>
-    [TerraformPropertyName("with_privileged_access")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> WithPrivilegedAccess { get; set; } = default!;
+    [TerraformProperty("with_privileged_access")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> WithPrivilegedAccess { get; set; }
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModified => new TerraformReference(this, "last_modified");
+    [TerraformProperty("last_modified")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModified { get; }
 
 }

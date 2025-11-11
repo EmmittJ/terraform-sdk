@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_organizations_delegated_administrator resource.
 /// </summary>
-public class AwsOrganizationsDelegatedAdministrator : TerraformResource
+public partial class AwsOrganizationsDelegatedAdministrator : TerraformResource
 {
     public AwsOrganizationsDelegatedAdministrator(string name) : base("aws_organizations_delegated_administrator", name)
     {
@@ -15,72 +15,72 @@ public class AwsOrganizationsDelegatedAdministrator : TerraformResource
     /// The account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountId is required")]
-    [TerraformPropertyName("account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The service_principal attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServicePrincipal is required")]
-    [TerraformPropertyName("service_principal")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_principal")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServicePrincipal { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The delegation_enabled_date attribute.
     /// </summary>
-    [TerraformPropertyName("delegation_enabled_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DelegationEnabledDate => new TerraformReference(this, "delegation_enabled_date");
+    [TerraformProperty("delegation_enabled_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DelegationEnabledDate { get; }
 
     /// <summary>
     /// The email attribute.
     /// </summary>
-    [TerraformPropertyName("email")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Email => new TerraformReference(this, "email");
+    [TerraformProperty("email")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Email { get; }
 
     /// <summary>
     /// The joined_method attribute.
     /// </summary>
-    [TerraformPropertyName("joined_method")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> JoinedMethod => new TerraformReference(this, "joined_method");
+    [TerraformProperty("joined_method")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> JoinedMethod { get; }
 
     /// <summary>
     /// The joined_timestamp attribute.
     /// </summary>
-    [TerraformPropertyName("joined_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> JoinedTimestamp => new TerraformReference(this, "joined_timestamp");
+    [TerraformProperty("joined_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> JoinedTimestamp { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

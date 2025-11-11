@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock
+public partial class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_active_directory_domain_service_replica_set resource.
 /// </summary>
-public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
+public partial class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
 {
     public AzurermActiveDirectoryDomainServiceReplicaSet(string name) : base("azurerm_active_directory_domain_service_replica_set", name)
     {
@@ -44,59 +44,59 @@ public class AzurermActiveDirectoryDomainServiceReplicaSet : TerraformResource
     /// The domain_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainServiceId is required")]
-    [TerraformPropertyName("domain_service_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("domain_service_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DomainServiceId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformPropertyName("subnet_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermActiveDirectoryDomainServiceReplicaSetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The domain_controller_ip_addresses attribute.
     /// </summary>
-    [TerraformPropertyName("domain_controller_ip_addresses")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> DomainControllerIpAddresses => new TerraformReference(this, "domain_controller_ip_addresses");
+    [TerraformProperty("domain_controller_ip_addresses")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> DomainControllerIpAddresses { get; }
 
     /// <summary>
     /// The external_access_ip_address attribute.
     /// </summary>
-    [TerraformPropertyName("external_access_ip_address")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExternalAccessIpAddress => new TerraformReference(this, "external_access_ip_address");
+    [TerraformProperty("external_access_ip_address")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExternalAccessIpAddress { get; }
 
     /// <summary>
     /// The service_status attribute.
     /// </summary>
-    [TerraformPropertyName("service_status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServiceStatus => new TerraformReference(this, "service_status");
+    [TerraformProperty("service_status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServiceStatus { get; }
 
 }

@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for minimum_healthy_hosts in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock
+public partial class AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
-    [TerraformPropertyName("value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Value { get; set; }
 
 }
@@ -28,13 +28,13 @@ public class AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock
 /// Block type for traffic_routing_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock
+public partial class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
 }
@@ -43,20 +43,20 @@ public class AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock
 /// Block type for zonal_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodedeployDeploymentConfigZonalConfigBlock
+public partial class AwsCodedeployDeploymentConfigZonalConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The first_zone_monitor_duration_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("first_zone_monitor_duration_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("first_zone_monitor_duration_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? FirstZoneMonitorDurationInSeconds { get; set; }
 
     /// <summary>
     /// The monitor_duration_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("monitor_duration_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("monitor_duration_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MonitorDurationInSeconds { get; set; }
 
 }
@@ -65,7 +65,7 @@ public class AwsCodedeployDeploymentConfigZonalConfigBlock
 /// Manages a aws_codedeploy_deployment_config resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsCodedeployDeploymentConfig : TerraformResource
+public partial class AwsCodedeployDeploymentConfig : TerraformResource
 {
     public AwsCodedeployDeploymentConfig(string name) : base("aws_codedeploy_deployment_config", name)
     {
@@ -74,38 +74,38 @@ public class AwsCodedeployDeploymentConfig : TerraformResource
     /// <summary>
     /// The compute_platform attribute.
     /// </summary>
-    [TerraformPropertyName("compute_platform")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("compute_platform")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ComputePlatform { get; set; }
 
     /// <summary>
     /// The deployment_config_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeploymentConfigName is required")]
-    [TerraformPropertyName("deployment_config_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("deployment_config_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DeploymentConfigName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for minimum_healthy_hosts.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MinimumHealthyHosts block(s) allowed")]
-    [TerraformPropertyName("minimum_healthy_hosts")]
+    [TerraformProperty("minimum_healthy_hosts")]
     public TerraformList<TerraformBlock<AwsCodedeployDeploymentConfigMinimumHealthyHostsBlock>>? MinimumHealthyHosts { get; set; }
 
     /// <summary>
@@ -113,7 +113,7 @@ public class AwsCodedeployDeploymentConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrafficRoutingConfig block(s) allowed")]
-    [TerraformPropertyName("traffic_routing_config")]
+    [TerraformProperty("traffic_routing_config")]
     public TerraformList<TerraformBlock<AwsCodedeployDeploymentConfigTrafficRoutingConfigBlock>>? TrafficRoutingConfig { get; set; }
 
     /// <summary>
@@ -121,21 +121,21 @@ public class AwsCodedeployDeploymentConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ZonalConfig block(s) allowed")]
-    [TerraformPropertyName("zonal_config")]
+    [TerraformProperty("zonal_config")]
     public TerraformList<TerraformBlock<AwsCodedeployDeploymentConfigZonalConfigBlock>>? ZonalConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The deployment_config_id attribute.
     /// </summary>
-    [TerraformPropertyName("deployment_config_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeploymentConfigId => new TerraformReference(this, "deployment_config_id");
+    [TerraformProperty("deployment_config_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeploymentConfigId { get; }
 
 }

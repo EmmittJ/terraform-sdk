@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeFirewallPolicyWithRulesRuleBlock
+public partial class GoogleComputeFirewallPolicyWithRulesRuleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The Action to perform when the client connection triggers the rule. Can currently be either
     /// &amp;quot;allow&amp;quot;, &amp;quot;deny&amp;quot;, &amp;quot;apply_security_profile_group&amp;quot; or &amp;quot;goto_next&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformPropertyName("action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// A description of the rule.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The direction in which this rule applies. If unspecified an INGRESS rule is created. Possible values: [&amp;quot;INGRESS&amp;quot;, &amp;quot;EGRESS&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("direction")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("direction")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Direction { get; set; }
 
     /// <summary>
@@ -37,8 +37,8 @@ public class GoogleComputeFirewallPolicyWithRulesRuleBlock
     /// not exist. If this is unspecified, the firewall policy rule will be
     /// enabled.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
@@ -46,8 +46,8 @@ public class GoogleComputeFirewallPolicyWithRulesRuleBlock
     /// If logging is enabled, logs will be exported to the
     /// configured export destination in Stackdriver.
     /// </summary>
-    [TerraformPropertyName("enable_logging")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_logging")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableLogging { get; set; }
 
     /// <summary>
@@ -56,16 +56,16 @@ public class GoogleComputeFirewallPolicyWithRulesRuleBlock
     /// highest priority and 2147483647 is the lowest priority.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformPropertyName("priority")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("priority")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// An optional name for the rule. This field is not a unique identifier
     /// and can be updated.
     /// </summary>
-    [TerraformPropertyName("rule_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("rule_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RuleName { get; set; }
 
     /// <summary>
@@ -74,8 +74,8 @@ public class GoogleComputeFirewallPolicyWithRulesRuleBlock
     /// https://networksecurity.googleapis.com/v1/projects/{project}/locations/{location}/securityProfileGroups/my-security-profile-group
     /// Must be specified if action is &#39;apply_security_profile_group&#39;.
     /// </summary>
-    [TerraformPropertyName("security_profile_group")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_profile_group")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SecurityProfileGroup { get; set; }
 
     /// <summary>
@@ -84,24 +84,24 @@ public class GoogleComputeFirewallPolicyWithRulesRuleBlock
     /// this rule. If this field is left blank, all VMs
     /// within the organization will receive the rule.
     /// </summary>
-    [TerraformPropertyName("target_resources")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("target_resources")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? TargetResources { get; set; }
 
     /// <summary>
     /// A list of service accounts indicating the sets of
     /// instances that are applied with this rule.
     /// </summary>
-    [TerraformPropertyName("target_service_accounts")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("target_service_accounts")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? TargetServiceAccounts { get; set; }
 
     /// <summary>
     /// Boolean flag indicating if the traffic should be TLS decrypted.
     /// It can be set only if action = &#39;apply_security_profile_group&#39; and cannot be set for other actions.
     /// </summary>
-    [TerraformPropertyName("tls_inspect")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tls_inspect")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? TlsInspect { get; set; }
 
 }
@@ -110,27 +110,27 @@ public class GoogleComputeFirewallPolicyWithRulesRuleBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeFirewallPolicyWithRulesTimeoutsBlock
+public partial class GoogleComputeFirewallPolicyWithRulesTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -139,7 +139,7 @@ public class GoogleComputeFirewallPolicyWithRulesTimeoutsBlock
 /// Manages a google_compute_firewall_policy_with_rules resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputeFirewallPolicyWithRules : TerraformResource
+public partial class GoogleComputeFirewallPolicyWithRules : TerraformResource
 {
     public GoogleComputeFirewallPolicyWithRules(string name) : base("google_compute_firewall_policy_with_rules", name)
     {
@@ -148,32 +148,32 @@ public class GoogleComputeFirewallPolicyWithRules : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The parent of this FirewallPolicy in the Cloud Resource Hierarchy.
     /// Format: organizations/{organization_id} or folders/{folder_id}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    [TerraformPropertyName("parent")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parent")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// A textual name of the security policy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShortName is required")]
-    [TerraformPropertyName("short_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("short_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ShortName { get; set; }
 
     /// <summary>
@@ -182,63 +182,63 @@ public class GoogleComputeFirewallPolicyWithRules : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Rule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Rule block(s) required")]
-    [TerraformPropertyName("rule")]
+    [TerraformProperty("rule")]
     public TerraformList<TerraformBlock<GoogleComputeFirewallPolicyWithRulesRuleBlock>>? Rule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeFirewallPolicyWithRulesTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// Fingerprint of the resource. This field is used internally during updates of this resource.
     /// </summary>
-    [TerraformPropertyName("fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fingerprint => new TerraformReference(this, "fingerprint");
+    [TerraformProperty("fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fingerprint { get; }
 
     /// <summary>
     /// The unique identifier for the resource. This identifier is defined by the server.
     /// </summary>
-    [TerraformPropertyName("policy_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PolicyId => new TerraformReference(this, "policy_id");
+    [TerraformProperty("policy_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PolicyId { get; }
 
     /// <summary>
     /// A list of pre-define firewall policy rules.
     /// </summary>
-    [TerraformPropertyName("predefined_rules")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PredefinedRules => new TerraformReference(this, "predefined_rules");
+    [TerraformProperty("predefined_rules")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PredefinedRules { get; }
 
     /// <summary>
     /// Total count of all firewall policy rule tuples. A firewall policy can not exceed a set number of tuples.
     /// </summary>
-    [TerraformPropertyName("rule_tuple_count")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> RuleTupleCount => new TerraformReference(this, "rule_tuple_count");
+    [TerraformProperty("rule_tuple_count")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> RuleTupleCount { get; }
 
     /// <summary>
     /// Server-defined URL for the resource.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// Server-defined URL for this resource with the resource id.
     /// </summary>
-    [TerraformPropertyName("self_link_with_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLinkWithId => new TerraformReference(this, "self_link_with_id");
+    [TerraformProperty("self_link_with_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLinkWithId { get; }
 
 }

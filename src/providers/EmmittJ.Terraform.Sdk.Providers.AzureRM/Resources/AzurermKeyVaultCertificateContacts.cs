@@ -6,28 +6,28 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for contact in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermKeyVaultCertificateContactsContactBlock
+public partial class AzurermKeyVaultCertificateContactsContactBlock : TerraformBlockBase
 {
     /// <summary>
     /// The email attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Email is required")]
-    [TerraformPropertyName("email")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("email")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Email { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The phone attribute.
     /// </summary>
-    [TerraformPropertyName("phone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("phone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Phone { get; set; }
 
 }
@@ -36,34 +36,34 @@ public class AzurermKeyVaultCertificateContactsContactBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKeyVaultCertificateContactsTimeoutsBlock
+public partial class AzurermKeyVaultCertificateContactsTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -71,7 +71,7 @@ public class AzurermKeyVaultCertificateContactsTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_key_vault_certificate_contacts resource.
 /// </summary>
-public class AzurermKeyVaultCertificateContacts : TerraformResource
+public partial class AzurermKeyVaultCertificateContacts : TerraformResource
 {
     public AzurermKeyVaultCertificateContacts(string name) : base("azurerm_key_vault_certificate_contacts", name)
     {
@@ -80,30 +80,30 @@ public class AzurermKeyVaultCertificateContacts : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultId is required")]
-    [TerraformPropertyName("key_vault_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_vault_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// Block for contact.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("contact")]
+    [TerraformProperty("contact")]
     public TerraformSet<TerraformBlock<AzurermKeyVaultCertificateContactsContactBlock>>? Contact { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermKeyVaultCertificateContactsTimeoutsBlock>? Timeouts { get; set; }
 
 }

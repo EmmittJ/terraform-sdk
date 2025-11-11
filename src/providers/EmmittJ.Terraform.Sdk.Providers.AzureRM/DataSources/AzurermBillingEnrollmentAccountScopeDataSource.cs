@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermBillingEnrollmentAccountScopeDataSourceTimeoutsBlock
+public partial class AzurermBillingEnrollmentAccountScopeDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermBillingEnrollmentAccountScopeDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_billing_enrollment_account_scope.
 /// </summary>
-public class AzurermBillingEnrollmentAccountScopeDataSource : TerraformDataSource
+public partial class AzurermBillingEnrollmentAccountScopeDataSource : TerraformDataSource
 {
     public AzurermBillingEnrollmentAccountScopeDataSource(string name) : base("azurerm_billing_enrollment_account_scope", name)
     {
@@ -30,30 +30,30 @@ public class AzurermBillingEnrollmentAccountScopeDataSource : TerraformDataSourc
     /// The billing_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BillingAccountName is required")]
-    [TerraformPropertyName("billing_account_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("billing_account_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BillingAccountName { get; set; }
 
     /// <summary>
     /// The enrollment_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnrollmentAccountName is required")]
-    [TerraformPropertyName("enrollment_account_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enrollment_account_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EnrollmentAccountName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermBillingEnrollmentAccountScopeDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for capacity in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskconnectConnectorCapacityBlock
+public partial class AwsMskconnectConnectorCapacityBlock : TerraformBlockBase
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsMskconnectConnectorCapacityBlock
 /// Block type for kafka_cluster in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskconnectConnectorKafkaClusterBlock
+public partial class AwsMskconnectConnectorKafkaClusterBlock : TerraformBlockBase
 {
 }
 
@@ -22,13 +22,13 @@ public class AwsMskconnectConnectorKafkaClusterBlock
 /// Block type for kafka_cluster_client_authentication in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskconnectConnectorKafkaClusterClientAuthenticationBlock
+public partial class AwsMskconnectConnectorKafkaClusterClientAuthenticationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    [TerraformPropertyName("authentication_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("authentication_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthenticationType { get; set; }
 
 }
@@ -37,13 +37,13 @@ public class AwsMskconnectConnectorKafkaClusterClientAuthenticationBlock
 /// Block type for kafka_cluster_encryption_in_transit in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskconnectConnectorKafkaClusterEncryptionInTransitBlock
+public partial class AwsMskconnectConnectorKafkaClusterEncryptionInTransitBlock : TerraformBlockBase
 {
     /// <summary>
     /// The encryption_type attribute.
     /// </summary>
-    [TerraformPropertyName("encryption_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("encryption_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EncryptionType { get; set; }
 
 }
@@ -52,7 +52,7 @@ public class AwsMskconnectConnectorKafkaClusterEncryptionInTransitBlock
 /// Block type for log_delivery in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskconnectConnectorLogDeliveryBlock
+public partial class AwsMskconnectConnectorLogDeliveryBlock : TerraformBlockBase
 {
 }
 
@@ -60,7 +60,7 @@ public class AwsMskconnectConnectorLogDeliveryBlock
 /// Block type for plugin in .
 /// Nesting mode: set
 /// </summary>
-public class AwsMskconnectConnectorPluginBlock
+public partial class AwsMskconnectConnectorPluginBlock : TerraformBlockBase
 {
 }
 
@@ -68,27 +68,27 @@ public class AwsMskconnectConnectorPluginBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMskconnectConnectorTimeoutsBlock
+public partial class AwsMskconnectConnectorTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -97,22 +97,22 @@ public class AwsMskconnectConnectorTimeoutsBlock
 /// Block type for worker_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMskconnectConnectorWorkerConfigurationBlock
+public partial class AwsMskconnectConnectorWorkerConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    [TerraformPropertyName("arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The revision attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
-    [TerraformPropertyName("revision")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("revision")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Revision { get; set; }
 
 }
@@ -121,7 +121,7 @@ public class AwsMskconnectConnectorWorkerConfigurationBlock
 /// Manages a aws_mskconnect_connector resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsMskconnectConnector : TerraformResource
+public partial class AwsMskconnectConnector : TerraformResource
 {
     public AwsMskconnectConnector(string name) : base("aws_mskconnect_connector", name)
     {
@@ -131,68 +131,68 @@ public class AwsMskconnectConnector : TerraformResource
     /// The connector_configuration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectorConfiguration is required")]
-    [TerraformPropertyName("connector_configuration")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connector_configuration")]
+    // Required argument - source generator will implement get/set
     public required TerraformMap<string> ConnectorConfiguration { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kafkaconnect_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaconnectVersion is required")]
-    [TerraformPropertyName("kafkaconnect_version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kafkaconnect_version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KafkaconnectVersion { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The service_execution_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceExecutionRoleArn is required")]
-    [TerraformPropertyName("service_execution_role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_execution_role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceExecutionRoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for capacity.
@@ -201,7 +201,7 @@ public class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Capacity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Capacity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Capacity block(s) allowed")]
-    [TerraformPropertyName("capacity")]
+    [TerraformProperty("capacity")]
     public TerraformList<TerraformBlock<AwsMskconnectConnectorCapacityBlock>>? Capacity { get; set; }
 
     /// <summary>
@@ -211,7 +211,7 @@ public class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaCluster is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KafkaCluster block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KafkaCluster block(s) allowed")]
-    [TerraformPropertyName("kafka_cluster")]
+    [TerraformProperty("kafka_cluster")]
     public TerraformList<TerraformBlock<AwsMskconnectConnectorKafkaClusterBlock>>? KafkaCluster { get; set; }
 
     /// <summary>
@@ -221,7 +221,7 @@ public class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaClusterClientAuthentication is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KafkaClusterClientAuthentication block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KafkaClusterClientAuthentication block(s) allowed")]
-    [TerraformPropertyName("kafka_cluster_client_authentication")]
+    [TerraformProperty("kafka_cluster_client_authentication")]
     public TerraformList<TerraformBlock<AwsMskconnectConnectorKafkaClusterClientAuthenticationBlock>>? KafkaClusterClientAuthentication { get; set; }
 
     /// <summary>
@@ -231,7 +231,7 @@ public class AwsMskconnectConnector : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KafkaClusterEncryptionInTransit is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 KafkaClusterEncryptionInTransit block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 KafkaClusterEncryptionInTransit block(s) allowed")]
-    [TerraformPropertyName("kafka_cluster_encryption_in_transit")]
+    [TerraformProperty("kafka_cluster_encryption_in_transit")]
     public TerraformList<TerraformBlock<AwsMskconnectConnectorKafkaClusterEncryptionInTransitBlock>>? KafkaClusterEncryptionInTransit { get; set; }
 
     /// <summary>
@@ -239,7 +239,7 @@ public class AwsMskconnectConnector : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LogDelivery block(s) allowed")]
-    [TerraformPropertyName("log_delivery")]
+    [TerraformProperty("log_delivery")]
     public TerraformList<TerraformBlock<AwsMskconnectConnectorLogDeliveryBlock>>? LogDelivery { get; set; }
 
     /// <summary>
@@ -248,14 +248,14 @@ public class AwsMskconnectConnector : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Plugin is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Plugin block(s) required")]
-    [TerraformPropertyName("plugin")]
+    [TerraformProperty("plugin")]
     public TerraformSet<TerraformBlock<AwsMskconnectConnectorPluginBlock>>? Plugin { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsMskconnectConnectorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -263,21 +263,21 @@ public class AwsMskconnectConnector : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WorkerConfiguration block(s) allowed")]
-    [TerraformPropertyName("worker_configuration")]
+    [TerraformProperty("worker_configuration")]
     public TerraformList<TerraformBlock<AwsMskconnectConnectorWorkerConfigurationBlock>>? WorkerConfiguration { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Version => new TerraformReference(this, "version");
+    [TerraformProperty("version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Version { get; }
 
 }

@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for pipeline in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermDataFactoryTriggerBlobEventPipelineBlock
+public partial class AzurermDataFactoryTriggerBlobEventPipelineBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformPropertyName("parameters")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parameters")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Parameters { get; set; }
 
 }
@@ -29,34 +29,34 @@ public class AzurermDataFactoryTriggerBlobEventPipelineBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDataFactoryTriggerBlobEventTimeoutsBlock
+public partial class AzurermDataFactoryTriggerBlobEventTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -65,7 +65,7 @@ public class AzurermDataFactoryTriggerBlobEventTimeoutsBlock
 /// Manages a azurerm_data_factory_trigger_blob_event resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDataFactoryTriggerBlobEvent : TerraformResource
+public partial class AzurermDataFactoryTriggerBlobEvent : TerraformResource
 {
     public AzurermDataFactoryTriggerBlobEvent(string name) : base("azurerm_data_factory_trigger_blob_event", name)
     {
@@ -74,89 +74,89 @@ public class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     /// <summary>
     /// The activated attribute.
     /// </summary>
-    [TerraformPropertyName("activated")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("activated")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Activated { get; set; }
 
     /// <summary>
     /// The additional_properties attribute.
     /// </summary>
-    [TerraformPropertyName("additional_properties")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("additional_properties")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? AdditionalProperties { get; set; }
 
     /// <summary>
     /// The annotations attribute.
     /// </summary>
-    [TerraformPropertyName("annotations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("annotations")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Annotations { get; set; }
 
     /// <summary>
     /// The blob_path_begins_with attribute.
     /// </summary>
-    [TerraformPropertyName("blob_path_begins_with")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("blob_path_begins_with")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BlobPathBeginsWith { get; set; }
 
     /// <summary>
     /// The blob_path_ends_with attribute.
     /// </summary>
-    [TerraformPropertyName("blob_path_ends_with")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("blob_path_ends_with")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BlobPathEndsWith { get; set; }
 
     /// <summary>
     /// The data_factory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataFactoryId is required")]
-    [TerraformPropertyName("data_factory_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data_factory_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DataFactoryId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The events attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Events is required")]
-    [TerraformPropertyName("events")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("events")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Events { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ignore_empty_blobs attribute.
     /// </summary>
-    [TerraformPropertyName("ignore_empty_blobs")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ignore_empty_blobs")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IgnoreEmptyBlobs { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformPropertyName("storage_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
@@ -165,14 +165,14 @@ public class AzurermDataFactoryTriggerBlobEvent : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Pipeline is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Pipeline block(s) required")]
-    [TerraformPropertyName("pipeline")]
+    [TerraformProperty("pipeline")]
     public TerraformSet<TerraformBlock<AzurermDataFactoryTriggerBlobEventPipelineBlock>>? Pipeline { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermDataFactoryTriggerBlobEventTimeoutsBlock>? Timeouts { get; set; }
 
 }

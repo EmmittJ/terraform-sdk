@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermClientConfigDataSourceTimeoutsBlock
+public partial class AzurermClientConfigDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermClientConfigDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_client_config.
 /// </summary>
-public class AzurermClientConfigDataSource : TerraformDataSource
+public partial class AzurermClientConfigDataSource : TerraformDataSource
 {
     public AzurermClientConfigDataSource(string name) : base("azurerm_client_config", name)
     {
@@ -29,43 +29,43 @@ public class AzurermClientConfigDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermClientConfigDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    [TerraformPropertyName("client_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ClientId => new TerraformReference(this, "client_id");
+    [TerraformProperty("client_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ClientId { get; }
 
     /// <summary>
     /// The object_id attribute.
     /// </summary>
-    [TerraformPropertyName("object_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ObjectId => new TerraformReference(this, "object_id");
+    [TerraformProperty("object_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ObjectId { get; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    [TerraformPropertyName("subscription_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SubscriptionId => new TerraformReference(this, "subscription_id");
+    [TerraformProperty("subscription_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SubscriptionId { get; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TenantId => new TerraformReference(this, "tenant_id");
+    [TerraformProperty("tenant_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TenantId { get; }
 
 }

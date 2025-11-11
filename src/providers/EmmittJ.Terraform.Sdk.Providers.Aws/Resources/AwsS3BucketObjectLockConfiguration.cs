@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for rule in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3BucketObjectLockConfigurationRuleBlock
+public partial class AwsS3BucketObjectLockConfigurationRuleBlock : TerraformBlockBase
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsS3BucketObjectLockConfigurationRuleBlock
 /// Manages a aws_s3_bucket_object_lock_configuration resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsS3BucketObjectLockConfiguration : TerraformResource
+public partial class AwsS3BucketObjectLockConfiguration : TerraformResource
 {
     public AwsS3BucketObjectLockConfiguration(string name) : base("aws_s3_bucket_object_lock_configuration", name)
     {
@@ -24,43 +24,43 @@ public class AwsS3BucketObjectLockConfiguration : TerraformResource
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    [TerraformPropertyName("bucket")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    [TerraformPropertyName("expected_bucket_owner")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expected_bucket_owner")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object_lock_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("object_lock_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("object_lock_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ObjectLockEnabled { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The token attribute.
     /// </summary>
-    [TerraformPropertyName("token")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("token")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Token { get; set; }
 
     /// <summary>
@@ -68,7 +68,7 @@ public class AwsS3BucketObjectLockConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Rule block(s) allowed")]
-    [TerraformPropertyName("rule")]
+    [TerraformProperty("rule")]
     public TerraformList<TerraformBlock<AwsS3BucketObjectLockConfigurationRuleBlock>>? Rule { get; set; }
 
 }

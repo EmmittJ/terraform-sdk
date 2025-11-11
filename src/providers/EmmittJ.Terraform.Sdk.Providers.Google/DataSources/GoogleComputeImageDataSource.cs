@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_image.
 /// </summary>
-public class GoogleComputeImageDataSource : TerraformDataSource
+public partial class GoogleComputeImageDataSource : TerraformDataSource
 {
     public GoogleComputeImageDataSource(string name) : base("google_compute_image", name)
     {
@@ -14,148 +14,148 @@ public class GoogleComputeImageDataSource : TerraformDataSource
     /// <summary>
     /// The family attribute.
     /// </summary>
-    [TerraformPropertyName("family")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Family { get; set; } = default!;
+    [TerraformProperty("family")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Family { get; set; }
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    [TerraformPropertyName("filter")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filter")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The most_recent attribute.
     /// </summary>
-    [TerraformPropertyName("most_recent")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("most_recent")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? MostRecent { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The archive_size_bytes attribute.
     /// </summary>
-    [TerraformPropertyName("archive_size_bytes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ArchiveSizeBytes => new TerraformReference(this, "archive_size_bytes");
+    [TerraformProperty("archive_size_bytes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ArchiveSizeBytes { get; }
 
     /// <summary>
     /// The creation_timestamp attribute.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    [TerraformPropertyName("disk_size_gb")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> DiskSizeGb => new TerraformReference(this, "disk_size_gb");
+    [TerraformProperty("disk_size_gb")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> DiskSizeGb { get; }
 
     /// <summary>
     /// The image_encryption_key_sha256 attribute.
     /// </summary>
-    [TerraformPropertyName("image_encryption_key_sha256")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ImageEncryptionKeySha256 => new TerraformReference(this, "image_encryption_key_sha256");
+    [TerraformProperty("image_encryption_key_sha256")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ImageEncryptionKeySha256 { get; }
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
-    [TerraformPropertyName("image_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ImageId => new TerraformReference(this, "image_id");
+    [TerraformProperty("image_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ImageId { get; }
 
     /// <summary>
     /// The label_fingerprint attribute.
     /// </summary>
-    [TerraformPropertyName("label_fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
+    [TerraformProperty("label_fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// The labels attribute.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
+    [TerraformProperty("labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// The licenses attribute.
     /// </summary>
-    [TerraformPropertyName("licenses")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Licenses => new TerraformReference(this, "licenses");
+    [TerraformProperty("licenses")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Licenses { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The source_disk attribute.
     /// </summary>
-    [TerraformPropertyName("source_disk")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceDisk => new TerraformReference(this, "source_disk");
+    [TerraformProperty("source_disk")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceDisk { get; }
 
     /// <summary>
     /// The source_disk_encryption_key_sha256 attribute.
     /// </summary>
-    [TerraformPropertyName("source_disk_encryption_key_sha256")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceDiskEncryptionKeySha256 => new TerraformReference(this, "source_disk_encryption_key_sha256");
+    [TerraformProperty("source_disk_encryption_key_sha256")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceDiskEncryptionKeySha256 { get; }
 
     /// <summary>
     /// The source_disk_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_disk_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceDiskId => new TerraformReference(this, "source_disk_id");
+    [TerraformProperty("source_disk_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceDiskId { get; }
 
     /// <summary>
     /// The source_image_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_image_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceImageId => new TerraformReference(this, "source_image_id");
+    [TerraformProperty("source_image_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceImageId { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

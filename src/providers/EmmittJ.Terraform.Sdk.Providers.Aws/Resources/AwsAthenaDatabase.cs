@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for acl_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAthenaDatabaseAclConfigurationBlock
+public partial class AwsAthenaDatabaseAclConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The s3_acl_option attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3AclOption is required")]
-    [TerraformPropertyName("s3_acl_option")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("s3_acl_option")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> S3AclOption { get; set; }
 
 }
@@ -22,21 +22,21 @@ public class AwsAthenaDatabaseAclConfigurationBlock
 /// Block type for encryption_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAthenaDatabaseEncryptionConfigurationBlock
+public partial class AwsAthenaDatabaseEncryptionConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The encryption_option attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EncryptionOption is required")]
-    [TerraformPropertyName("encryption_option")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("encryption_option")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EncryptionOption { get; set; }
 
     /// <summary>
     /// The kms_key attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKey { get; set; }
 
 }
@@ -45,7 +45,7 @@ public class AwsAthenaDatabaseEncryptionConfigurationBlock
 /// Manages a aws_athena_database resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsAthenaDatabase : TerraformResource
+public partial class AwsAthenaDatabase : TerraformResource
 {
     public AwsAthenaDatabase(string name) : base("aws_athena_database", name)
     {
@@ -54,65 +54,65 @@ public class AwsAthenaDatabase : TerraformResource
     /// <summary>
     /// The bucket attribute.
     /// </summary>
-    [TerraformPropertyName("bucket")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bucket")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Bucket { get; set; }
 
     /// <summary>
     /// The comment attribute.
     /// </summary>
-    [TerraformPropertyName("comment")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("comment")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Comment { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    [TerraformPropertyName("expected_bucket_owner")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expected_bucket_owner")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    [TerraformPropertyName("force_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("force_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
-    [TerraformPropertyName("properties")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("properties")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Properties { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The workgroup attribute.
     /// </summary>
-    [TerraformPropertyName("workgroup")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("workgroup")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Workgroup { get; set; }
 
     /// <summary>
@@ -120,7 +120,7 @@ public class AwsAthenaDatabase : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AclConfiguration block(s) allowed")]
-    [TerraformPropertyName("acl_configuration")]
+    [TerraformProperty("acl_configuration")]
     public TerraformList<TerraformBlock<AwsAthenaDatabaseAclConfigurationBlock>>? AclConfiguration { get; set; }
 
     /// <summary>
@@ -128,7 +128,7 @@ public class AwsAthenaDatabase : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionConfiguration block(s) allowed")]
-    [TerraformPropertyName("encryption_configuration")]
+    [TerraformProperty("encryption_configuration")]
     public TerraformList<TerraformBlock<AwsAthenaDatabaseEncryptionConfigurationBlock>>? EncryptionConfiguration { get; set; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_cloudformation_stack.
 /// </summary>
-public class AwsCloudformationStackDataSource : TerraformDataSource
+public partial class AwsCloudformationStackDataSource : TerraformDataSource
 {
     public AwsCloudformationStackDataSource(string name) : base("aws_cloudformation_stack", name)
     {
@@ -14,93 +14,93 @@ public class AwsCloudformationStackDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The capabilities attribute.
     /// </summary>
-    [TerraformPropertyName("capabilities")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> Capabilities => new TerraformReference(this, "capabilities");
+    [TerraformProperty("capabilities")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> Capabilities { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The disable_rollback attribute.
     /// </summary>
-    [TerraformPropertyName("disable_rollback")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DisableRollback => new TerraformReference(this, "disable_rollback");
+    [TerraformProperty("disable_rollback")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DisableRollback { get; }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("iam_role_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IamRoleArn => new TerraformReference(this, "iam_role_arn");
+    [TerraformProperty("iam_role_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IamRoleArn { get; }
 
     /// <summary>
     /// The notification_arns attribute.
     /// </summary>
-    [TerraformPropertyName("notification_arns")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> NotificationArns => new TerraformReference(this, "notification_arns");
+    [TerraformProperty("notification_arns")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> NotificationArns { get; }
 
     /// <summary>
     /// The outputs attribute.
     /// </summary>
-    [TerraformPropertyName("outputs")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Outputs => new TerraformReference(this, "outputs");
+    [TerraformProperty("outputs")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Outputs { get; }
 
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformPropertyName("parameters")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Parameters => new TerraformReference(this, "parameters");
+    [TerraformProperty("parameters")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Parameters { get; }
 
     /// <summary>
     /// The template_body attribute.
     /// </summary>
-    [TerraformPropertyName("template_body")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TemplateBody => new TerraformReference(this, "template_body");
+    [TerraformProperty("template_body")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TemplateBody { get; }
 
     /// <summary>
     /// The timeout_in_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("timeout_in_minutes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> TimeoutInMinutes => new TerraformReference(this, "timeout_in_minutes");
+    [TerraformProperty("timeout_in_minutes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> TimeoutInMinutes { get; }
 
 }

@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for autoscaling in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAzureNodePoolAutoscalingBlock
+public partial class GoogleContainerAzureNodePoolAutoscalingBlock : TerraformBlockBase
 {
     /// <summary>
     /// Maximum number of nodes in the node pool. Must be &amp;gt;= min_node_count.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxNodeCount is required")]
-    [TerraformPropertyName("max_node_count")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("max_node_count")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MaxNodeCount { get; set; }
 
     /// <summary>
     /// Minimum number of nodes in the node pool. Must be &amp;gt;= 1 and &amp;lt;= max_node_count.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinNodeCount is required")]
-    [TerraformPropertyName("min_node_count")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("min_node_count")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MinNodeCount { get; set; }
 
 }
@@ -30,28 +30,28 @@ public class GoogleContainerAzureNodePoolAutoscalingBlock
 /// Block type for config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAzureNodePoolConfigBlock
+public partial class GoogleContainerAzureNodePoolConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Optional. The initial labels assigned to nodes of this node pool. An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example: { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Optional. A set of tags to apply to all underlying Azure resources for this node pool. This currently only includes Virtual Machine Scale Sets. Specify at most 50 pairs containing alphanumerics, spaces, and symbols (.+-=_:@/). Keys can be up to 127 Unicode characters. Values can be up to 255 Unicode characters.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Optional. The Azure VM size name. Example: `Standard_DS2_v2`. See (/anthos/clusters/docs/azure/reference/supported-vms) for options. When unspecified, it defaults to `Standard_DS2_v2`.
     /// </summary>
-    [TerraformPropertyName("vm_size")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> VmSize { get; set; } = default!;
+    [TerraformProperty("vm_size")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> VmSize { get; set; }
 
 }
 
@@ -59,14 +59,14 @@ public class GoogleContainerAzureNodePoolConfigBlock
 /// Block type for management in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAzureNodePoolManagementBlock
+public partial class GoogleContainerAzureNodePoolManagementBlock : TerraformBlockBase
 {
     /// <summary>
     /// Optional. Whether or not the nodes will be automatically repaired.
     /// </summary>
-    [TerraformPropertyName("auto_repair")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> AutoRepair { get; set; } = default!;
+    [TerraformProperty("auto_repair")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> AutoRepair { get; set; }
 
 }
 
@@ -74,14 +74,14 @@ public class GoogleContainerAzureNodePoolManagementBlock
 /// Block type for max_pods_constraint in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleContainerAzureNodePoolMaxPodsConstraintBlock
+public partial class GoogleContainerAzureNodePoolMaxPodsConstraintBlock : TerraformBlockBase
 {
     /// <summary>
     /// The maximum number of pods to schedule on a single node.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPodsPerNode is required")]
-    [TerraformPropertyName("max_pods_per_node")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("max_pods_per_node")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MaxPodsPerNode { get; set; }
 
 }
@@ -90,27 +90,27 @@ public class GoogleContainerAzureNodePoolMaxPodsConstraintBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleContainerAzureNodePoolTimeoutsBlock
+public partial class GoogleContainerAzureNodePoolTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -119,7 +119,7 @@ public class GoogleContainerAzureNodePoolTimeoutsBlock
 /// Manages a google_container_azure_node_pool resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleContainerAzureNodePool : TerraformResource
+public partial class GoogleContainerAzureNodePool : TerraformResource
 {
     public GoogleContainerAzureNodePool(string name) : base("google_container_azure_node_pool", name)
     {
@@ -131,69 +131,69 @@ public class GoogleContainerAzureNodePool : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field `effective_annotations` for all of the annotations present on the resource.
     /// </summary>
-    [TerraformPropertyName("annotations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("annotations")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// Optional. The Azure availability zone of the nodes in this nodepool. When unspecified, it defaults to `1`.
     /// </summary>
-    [TerraformPropertyName("azure_availability_zone")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AzureAvailabilityZone { get; set; } = default!;
+    [TerraformProperty("azure_availability_zone")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AzureAvailabilityZone { get; set; }
 
     /// <summary>
     /// The azureCluster for the resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cluster is required")]
-    [TerraformPropertyName("cluster")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Cluster { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of this resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project for the resource
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The ARM ID of the subnet where the node pool VMs run. Make sure it&#39;s a subnet under the virtual network in the cluster configuration.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformPropertyName("subnet_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// The Kubernetes version (e.g. `1.19.10-gke.1000`) running on this node pool.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformPropertyName("version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Version { get; set; }
 
     /// <summary>
@@ -203,7 +203,7 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Autoscaling is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Autoscaling block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Autoscaling block(s) allowed")]
-    [TerraformPropertyName("autoscaling")]
+    [TerraformProperty("autoscaling")]
     public TerraformList<TerraformBlock<GoogleContainerAzureNodePoolAutoscalingBlock>>? Autoscaling { get; set; }
 
     /// <summary>
@@ -213,7 +213,7 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Config block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Config block(s) allowed")]
-    [TerraformPropertyName("config")]
+    [TerraformProperty("config")]
     public TerraformList<TerraformBlock<GoogleContainerAzureNodePoolConfigBlock>>? Config { get; set; }
 
     /// <summary>
@@ -221,7 +221,7 @@ public class GoogleContainerAzureNodePool : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Management block(s) allowed")]
-    [TerraformPropertyName("management")]
+    [TerraformProperty("management")]
     public TerraformList<TerraformBlock<GoogleContainerAzureNodePoolManagementBlock>>? Management { get; set; }
 
     /// <summary>
@@ -231,63 +231,63 @@ public class GoogleContainerAzureNodePool : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxPodsConstraint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 MaxPodsConstraint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaxPodsConstraint block(s) allowed")]
-    [TerraformPropertyName("max_pods_constraint")]
+    [TerraformProperty("max_pods_constraint")]
     public TerraformList<TerraformBlock<GoogleContainerAzureNodePoolMaxPodsConstraintBlock>>? MaxPodsConstraint { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleContainerAzureNodePoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The time at which this node pool was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_annotations")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
+    [TerraformProperty("effective_annotations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// Allows clients to perform consistent read-modify-writes through optimistic concurrency control. May be sent on update and delete requests to ensure the client has an up-to-date value before proceeding.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Output only. If set, there are currently pending changes to the node pool.
     /// </summary>
-    [TerraformPropertyName("reconciling")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Reconciling => new TerraformReference(this, "reconciling");
+    [TerraformProperty("reconciling")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// Output only. The current state of the node pool. Possible values: STATE_UNSPECIFIED, PROVISIONING, RUNNING, RECONCILING, STOPPING, ERROR, DEGRADED
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// Output only. A globally unique identifier for the node pool.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// Output only. The time at which this node pool was last updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

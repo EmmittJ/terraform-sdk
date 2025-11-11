@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for quota in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudContainerDeploymentQuotaBlock
+public partial class AzurermSpringCloudContainerDeploymentQuotaBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cpu attribute.
     /// </summary>
-    [TerraformPropertyName("cpu")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Cpu { get; set; } = default!;
+    [TerraformProperty("cpu")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Cpu { get; set; }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    [TerraformPropertyName("memory")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Memory { get; set; } = default!;
+    [TerraformProperty("memory")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Memory { get; set; }
 
 }
 
@@ -28,34 +28,34 @@ public class AzurermSpringCloudContainerDeploymentQuotaBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudContainerDeploymentTimeoutsBlock
+public partial class AzurermSpringCloudContainerDeploymentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -64,7 +64,7 @@ public class AzurermSpringCloudContainerDeploymentTimeoutsBlock
 /// Manages a azurerm_spring_cloud_container_deployment resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSpringCloudContainerDeployment : TerraformResource
+public partial class AzurermSpringCloudContainerDeployment : TerraformResource
 {
     public AzurermSpringCloudContainerDeployment(string name) : base("azurerm_spring_cloud_container_deployment", name)
     {
@@ -73,89 +73,89 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// <summary>
     /// The addon_json attribute.
     /// </summary>
-    [TerraformPropertyName("addon_json")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AddonJson { get; set; } = default!;
+    [TerraformProperty("addon_json")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AddonJson { get; set; }
 
     /// <summary>
     /// The application_performance_monitoring_ids attribute.
     /// </summary>
-    [TerraformPropertyName("application_performance_monitoring_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("application_performance_monitoring_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ApplicationPerformanceMonitoringIds { get; set; }
 
     /// <summary>
     /// The arguments attribute.
     /// </summary>
-    [TerraformPropertyName("arguments")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("arguments")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Arguments { get; set; }
 
     /// <summary>
     /// The commands attribute.
     /// </summary>
-    [TerraformPropertyName("commands")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("commands")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Commands { get; set; }
 
     /// <summary>
     /// The environment_variables attribute.
     /// </summary>
-    [TerraformPropertyName("environment_variables")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("environment_variables")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? EnvironmentVariables { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The image attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Image is required")]
-    [TerraformPropertyName("image")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("image")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Image { get; set; }
 
     /// <summary>
     /// The instance_count attribute.
     /// </summary>
-    [TerraformPropertyName("instance_count")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("instance_count")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? InstanceCount { get; set; }
 
     /// <summary>
     /// The language_framework attribute.
     /// </summary>
-    [TerraformPropertyName("language_framework")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("language_framework")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LanguageFramework { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The server attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Server is required")]
-    [TerraformPropertyName("server")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("server")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Server { get; set; }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
-    [TerraformPropertyName("spring_cloud_app_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("spring_cloud_app_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SpringCloudAppId { get; set; }
 
     /// <summary>
@@ -163,14 +163,14 @@ public class AzurermSpringCloudContainerDeployment : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Quota block(s) allowed")]
-    [TerraformPropertyName("quota")]
+    [TerraformProperty("quota")]
     public TerraformList<TerraformBlock<AzurermSpringCloudContainerDeploymentQuotaBlock>>? Quota { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSpringCloudContainerDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
 }

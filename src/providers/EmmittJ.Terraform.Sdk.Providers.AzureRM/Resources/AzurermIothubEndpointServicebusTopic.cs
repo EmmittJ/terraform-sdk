@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermIothubEndpointServicebusTopicTimeoutsBlock
+public partial class AzurermIothubEndpointServicebusTopicTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermIothubEndpointServicebusTopicTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_iothub_endpoint_servicebus_topic resource.
 /// </summary>
-public class AzurermIothubEndpointServicebusTopic : TerraformResource
+public partial class AzurermIothubEndpointServicebusTopic : TerraformResource
 {
     public AzurermIothubEndpointServicebusTopic(string name) : base("azurerm_iothub_endpoint_servicebus_topic", name)
     {
@@ -50,81 +50,81 @@ public class AzurermIothubEndpointServicebusTopic : TerraformResource
     /// <summary>
     /// The authentication_type attribute.
     /// </summary>
-    [TerraformPropertyName("authentication_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("authentication_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthenticationType { get; set; }
 
     /// <summary>
     /// The connection_string attribute.
     /// </summary>
-    [TerraformPropertyName("connection_string")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("connection_string")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConnectionString { get; set; }
 
     /// <summary>
     /// The endpoint_uri attribute.
     /// </summary>
-    [TerraformPropertyName("endpoint_uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("endpoint_uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EndpointUri { get; set; }
 
     /// <summary>
     /// The entity_path attribute.
     /// </summary>
-    [TerraformPropertyName("entity_path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("entity_path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EntityPath { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The identity_id attribute.
     /// </summary>
-    [TerraformPropertyName("identity_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IdentityId { get; set; }
 
     /// <summary>
     /// The iothub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IothubId is required")]
-    [TerraformPropertyName("iothub_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("iothub_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IothubId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The subscription_id attribute.
     /// </summary>
-    [TerraformPropertyName("subscription_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SubscriptionId { get; set; } = default!;
+    [TerraformProperty("subscription_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SubscriptionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermIothubEndpointServicebusTopicTimeoutsBlock>? Timeouts { get; set; }
 
 }

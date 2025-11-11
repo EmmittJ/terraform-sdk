@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermPurviewAccountIdentityBlock
+public partial class AzurermPurviewAccountIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformPropertyName("identity_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IdentityIds { get; set; }
 
 
@@ -21,8 +21,8 @@ public class AzurermPurviewAccountIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -31,34 +31,34 @@ public class AzurermPurviewAccountIdentityBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPurviewAccountTimeoutsBlock
+public partial class AzurermPurviewAccountTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -67,7 +67,7 @@ public class AzurermPurviewAccountTimeoutsBlock
 /// Manages a azurerm_purview_account resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermPurviewAccount : TerraformResource
+public partial class AzurermPurviewAccount : TerraformResource
 {
     public AzurermPurviewAccount(string name) : base("azurerm_purview_account", name)
     {
@@ -76,60 +76,60 @@ public class AzurermPurviewAccount : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The managed_event_hub_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("managed_event_hub_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("managed_event_hub_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ManagedEventHubEnabled { get; set; }
 
     /// <summary>
     /// The managed_resource_group_name attribute.
     /// </summary>
-    [TerraformPropertyName("managed_resource_group_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ManagedResourceGroupName { get; set; } = default!;
+    [TerraformProperty("managed_resource_group_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ManagedResourceGroupName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("public_network_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("public_network_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PublicNetworkEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -139,63 +139,63 @@ public class AzurermPurviewAccount : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identity is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Identity block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermPurviewAccountIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermPurviewAccountTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The atlas_kafka_endpoint_primary_connection_string attribute.
     /// </summary>
-    [TerraformPropertyName("atlas_kafka_endpoint_primary_connection_string")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AtlasKafkaEndpointPrimaryConnectionString => new TerraformReference(this, "atlas_kafka_endpoint_primary_connection_string");
+    [TerraformProperty("atlas_kafka_endpoint_primary_connection_string")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AtlasKafkaEndpointPrimaryConnectionString { get; }
 
     /// <summary>
     /// The atlas_kafka_endpoint_secondary_connection_string attribute.
     /// </summary>
-    [TerraformPropertyName("atlas_kafka_endpoint_secondary_connection_string")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AtlasKafkaEndpointSecondaryConnectionString => new TerraformReference(this, "atlas_kafka_endpoint_secondary_connection_string");
+    [TerraformProperty("atlas_kafka_endpoint_secondary_connection_string")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AtlasKafkaEndpointSecondaryConnectionString { get; }
 
     /// <summary>
     /// The aws_external_id attribute.
     /// </summary>
-    [TerraformPropertyName("aws_external_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AwsExternalId => new TerraformReference(this, "aws_external_id");
+    [TerraformProperty("aws_external_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AwsExternalId { get; }
 
     /// <summary>
     /// The catalog_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("catalog_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CatalogEndpoint => new TerraformReference(this, "catalog_endpoint");
+    [TerraformProperty("catalog_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CatalogEndpoint { get; }
 
     /// <summary>
     /// The guardian_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("guardian_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> GuardianEndpoint => new TerraformReference(this, "guardian_endpoint");
+    [TerraformProperty("guardian_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> GuardianEndpoint { get; }
 
     /// <summary>
     /// The managed_resources attribute.
     /// </summary>
-    [TerraformPropertyName("managed_resources")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ManagedResources => new TerraformReference(this, "managed_resources");
+    [TerraformProperty("managed_resources")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ManagedResources { get; }
 
     /// <summary>
     /// The scan_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("scan_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ScanEndpoint => new TerraformReference(this, "scan_endpoint");
+    [TerraformProperty("scan_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ScanEndpoint { get; }
 
 }

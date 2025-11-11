@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermPrivateLinkServiceDataSourceTimeoutsBlock
+public partial class AzurermPrivateLinkServiceDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermPrivateLinkServiceDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_private_link_service.
 /// </summary>
-public class AzurermPrivateLinkServiceDataSource : TerraformDataSource
+public partial class AzurermPrivateLinkServiceDataSource : TerraformDataSource
 {
     public AzurermPrivateLinkServiceDataSource(string name) : base("azurerm_private_link_service", name)
     {
@@ -29,87 +29,87 @@ public class AzurermPrivateLinkServiceDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermPrivateLinkServiceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    [TerraformPropertyName("alias")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Alias => new TerraformReference(this, "alias");
+    [TerraformProperty("alias")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Alias { get; }
 
     /// <summary>
     /// The auto_approval_subscription_ids attribute.
     /// </summary>
-    [TerraformPropertyName("auto_approval_subscription_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AutoApprovalSubscriptionIds => new TerraformReference(this, "auto_approval_subscription_ids");
+    [TerraformProperty("auto_approval_subscription_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AutoApprovalSubscriptionIds { get; }
 
     /// <summary>
     /// The enable_proxy_protocol attribute.
     /// </summary>
-    [TerraformPropertyName("enable_proxy_protocol")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EnableProxyProtocol => new TerraformReference(this, "enable_proxy_protocol");
+    [TerraformProperty("enable_proxy_protocol")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EnableProxyProtocol { get; }
 
     /// <summary>
     /// The load_balancer_frontend_ip_configuration_ids attribute.
     /// </summary>
-    [TerraformPropertyName("load_balancer_frontend_ip_configuration_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> LoadBalancerFrontendIpConfigurationIds => new TerraformReference(this, "load_balancer_frontend_ip_configuration_ids");
+    [TerraformProperty("load_balancer_frontend_ip_configuration_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> LoadBalancerFrontendIpConfigurationIds { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The nat_ip_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("nat_ip_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> NatIpConfiguration => new TerraformReference(this, "nat_ip_configuration");
+    [TerraformProperty("nat_ip_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> NatIpConfiguration { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The visibility_subscription_ids attribute.
     /// </summary>
-    [TerraformPropertyName("visibility_subscription_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> VisibilitySubscriptionIds => new TerraformReference(this, "visibility_subscription_ids");
+    [TerraformProperty("visibility_subscription_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> VisibilitySubscriptionIds { get; }
 
 }

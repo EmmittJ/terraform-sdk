@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMarketplaceRoleAssignmentTimeoutsBlock
+public partial class AzurermMarketplaceRoleAssignmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermMarketplaceRoleAssignmentTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_marketplace_role_assignment resource.
 /// </summary>
-public class AzurermMarketplaceRoleAssignment : TerraformResource
+public partial class AzurermMarketplaceRoleAssignment : TerraformResource
 {
     public AzurermMarketplaceRoleAssignment(string name) : base("azurerm_marketplace_role_assignment", name)
     {
@@ -43,86 +43,86 @@ public class AzurermMarketplaceRoleAssignment : TerraformResource
     /// <summary>
     /// The condition attribute.
     /// </summary>
-    [TerraformPropertyName("condition")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("condition")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Condition { get; set; }
 
     /// <summary>
     /// The condition_version attribute.
     /// </summary>
-    [TerraformPropertyName("condition_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("condition_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConditionVersion { get; set; }
 
     /// <summary>
     /// The delegated_managed_identity_resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("delegated_managed_identity_resource_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delegated_managed_identity_resource_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DelegatedManagedIdentityResourceId { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    [TerraformPropertyName("principal_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("principal_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrincipalId { get; set; }
 
     /// <summary>
     /// The role_definition_id attribute.
     /// </summary>
-    [TerraformPropertyName("role_definition_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("role_definition_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RoleDefinitionId { get; set; }
 
     /// <summary>
     /// The role_definition_name attribute.
     /// </summary>
-    [TerraformPropertyName("role_definition_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("role_definition_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RoleDefinitionName { get; set; }
 
     /// <summary>
     /// The skip_service_principal_aad_check attribute.
     /// </summary>
-    [TerraformPropertyName("skip_service_principal_aad_check")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("skip_service_principal_aad_check")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SkipServicePrincipalAadCheck { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMarketplaceRoleAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    [TerraformPropertyName("principal_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrincipalType => new TerraformReference(this, "principal_type");
+    [TerraformProperty("principal_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrincipalType { get; }
 
 }

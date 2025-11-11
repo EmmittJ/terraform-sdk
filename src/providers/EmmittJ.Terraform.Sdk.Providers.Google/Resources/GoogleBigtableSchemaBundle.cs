@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for proto_schema in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBigtableSchemaBundleProtoSchemaBlock
+public partial class GoogleBigtableSchemaBundleProtoSchemaBlock : TerraformBlockBase
 {
     /// <summary>
     /// Base64 encoded content of the file.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtoDescriptors is required")]
-    [TerraformPropertyName("proto_descriptors")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("proto_descriptors")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProtoDescriptors { get; set; }
 
 }
@@ -22,27 +22,27 @@ public class GoogleBigtableSchemaBundleProtoSchemaBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBigtableSchemaBundleTimeoutsBlock
+public partial class GoogleBigtableSchemaBundleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -51,7 +51,7 @@ public class GoogleBigtableSchemaBundleTimeoutsBlock
 /// Manages a google_bigtable_schema_bundle resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleBigtableSchemaBundle : TerraformResource
+public partial class GoogleBigtableSchemaBundle : TerraformResource
 {
     public GoogleBigtableSchemaBundle(string name) : base("google_bigtable_schema_bundle", name)
     {
@@ -60,44 +60,44 @@ public class GoogleBigtableSchemaBundle : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// If true, allow backwards incompatible changes.
     /// </summary>
-    [TerraformPropertyName("ignore_warnings")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ignore_warnings")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IgnoreWarnings { get; set; }
 
     /// <summary>
     /// The name of the instance to create the schema bundle within.
     /// </summary>
-    [TerraformPropertyName("instance")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("instance")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Instance { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The unique name of the schema bundle in the form &#39;[_a-zA-Z0-9][-_.a-zA-Z0-9]*&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SchemaBundleId is required")]
-    [TerraformPropertyName("schema_bundle_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("schema_bundle_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SchemaBundleId { get; set; }
 
     /// <summary>
     /// The name of the table to create the schema bundle within.
     /// </summary>
-    [TerraformPropertyName("table")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("table")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Table { get; set; }
 
     /// <summary>
@@ -107,21 +107,21 @@ public class GoogleBigtableSchemaBundle : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProtoSchema is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ProtoSchema block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ProtoSchema block(s) allowed")]
-    [TerraformPropertyName("proto_schema")]
+    [TerraformProperty("proto_schema")]
     public TerraformList<TerraformBlock<GoogleBigtableSchemaBundleProtoSchemaBlock>>? ProtoSchema { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleBigtableSchemaBundleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique name of the requested schema bundle. Values are of the form &#39;projects/&amp;lt;project&amp;gt;/instances/&amp;lt;instance&amp;gt;/tables/&amp;lt;table&amp;gt;/schemaBundles/&amp;lt;schemaBundleId&amp;gt;&#39;.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

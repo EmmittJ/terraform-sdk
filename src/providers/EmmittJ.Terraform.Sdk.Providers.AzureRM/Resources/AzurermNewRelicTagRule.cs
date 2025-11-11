@@ -6,30 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for log_tag_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNewRelicTagRuleLogTagFilterBlock
+public partial class AzurermNewRelicTagRuleLogTagFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformPropertyName("action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -38,30 +38,30 @@ public class AzurermNewRelicTagRuleLogTagFilterBlock
 /// Block type for metric_tag_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNewRelicTagRuleMetricTagFilterBlock
+public partial class AzurermNewRelicTagRuleMetricTagFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformPropertyName("action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -70,34 +70,34 @@ public class AzurermNewRelicTagRuleMetricTagFilterBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNewRelicTagRuleTimeoutsBlock
+public partial class AzurermNewRelicTagRuleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -105,7 +105,7 @@ public class AzurermNewRelicTagRuleTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_new_relic_tag_rule resource.
 /// </summary>
-public class AzurermNewRelicTagRule : TerraformResource
+public partial class AzurermNewRelicTagRule : TerraformResource
 {
     public AzurermNewRelicTagRule(string name) : base("azurerm_new_relic_tag_rule", name)
     {
@@ -114,65 +114,65 @@ public class AzurermNewRelicTagRule : TerraformResource
     /// <summary>
     /// The activity_log_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("activity_log_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("activity_log_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ActivityLogEnabled { get; set; }
 
     /// <summary>
     /// The azure_active_directory_log_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("azure_active_directory_log_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("azure_active_directory_log_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AzureActiveDirectoryLogEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The metric_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("metric_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("metric_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? MetricEnabled { get; set; }
 
     /// <summary>
     /// The monitor_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MonitorId is required")]
-    [TerraformPropertyName("monitor_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("monitor_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MonitorId { get; set; }
 
     /// <summary>
     /// The subscription_log_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("subscription_log_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subscription_log_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SubscriptionLogEnabled { get; set; }
 
     /// <summary>
     /// Block for log_tag_filter.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("log_tag_filter")]
+    [TerraformProperty("log_tag_filter")]
     public TerraformList<TerraformBlock<AzurermNewRelicTagRuleLogTagFilterBlock>>? LogTagFilter { get; set; }
 
     /// <summary>
     /// Block for metric_tag_filter.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("metric_tag_filter")]
+    [TerraformProperty("metric_tag_filter")]
     public TerraformList<TerraformBlock<AzurermNewRelicTagRuleMetricTagFilterBlock>>? MetricTagFilter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermNewRelicTagRuleTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMobileNetworkSimDataSourceTimeoutsBlock
+public partial class AzurermMobileNetworkSimDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermMobileNetworkSimDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_mobile_network_sim.
 /// </summary>
-public class AzurermMobileNetworkSimDataSource : TerraformDataSource
+public partial class AzurermMobileNetworkSimDataSource : TerraformDataSource
 {
     public AzurermMobileNetworkSimDataSource(string name) : base("azurerm_mobile_network_sim", name)
     {
@@ -29,87 +29,87 @@ public class AzurermMobileNetworkSimDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The mobile_network_sim_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MobileNetworkSimGroupId is required")]
-    [TerraformPropertyName("mobile_network_sim_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("mobile_network_sim_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MobileNetworkSimGroupId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMobileNetworkSimDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The device_type attribute.
     /// </summary>
-    [TerraformPropertyName("device_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeviceType => new TerraformReference(this, "device_type");
+    [TerraformProperty("device_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeviceType { get; }
 
     /// <summary>
     /// The integrated_circuit_card_identifier attribute.
     /// </summary>
-    [TerraformPropertyName("integrated_circuit_card_identifier")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IntegratedCircuitCardIdentifier => new TerraformReference(this, "integrated_circuit_card_identifier");
+    [TerraformProperty("integrated_circuit_card_identifier")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IntegratedCircuitCardIdentifier { get; }
 
     /// <summary>
     /// The international_mobile_subscriber_identity attribute.
     /// </summary>
-    [TerraformPropertyName("international_mobile_subscriber_identity")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> InternationalMobileSubscriberIdentity => new TerraformReference(this, "international_mobile_subscriber_identity");
+    [TerraformProperty("international_mobile_subscriber_identity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> InternationalMobileSubscriberIdentity { get; }
 
     /// <summary>
     /// The sim_policy_id attribute.
     /// </summary>
-    [TerraformPropertyName("sim_policy_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SimPolicyId => new TerraformReference(this, "sim_policy_id");
+    [TerraformProperty("sim_policy_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SimPolicyId { get; }
 
     /// <summary>
     /// The sim_state attribute.
     /// </summary>
-    [TerraformPropertyName("sim_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SimState => new TerraformReference(this, "sim_state");
+    [TerraformProperty("sim_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SimState { get; }
 
     /// <summary>
     /// The static_ip_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("static_ip_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> StaticIpConfiguration => new TerraformReference(this, "static_ip_configuration");
+    [TerraformProperty("static_ip_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> StaticIpConfiguration { get; }
 
     /// <summary>
     /// The vendor_key_fingerprint attribute.
     /// </summary>
-    [TerraformPropertyName("vendor_key_fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VendorKeyFingerprint => new TerraformReference(this, "vendor_key_fingerprint");
+    [TerraformProperty("vendor_key_fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VendorKeyFingerprint { get; }
 
     /// <summary>
     /// The vendor_name attribute.
     /// </summary>
-    [TerraformPropertyName("vendor_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VendorName => new TerraformReference(this, "vendor_name");
+    [TerraformProperty("vendor_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VendorName { get; }
 
 }

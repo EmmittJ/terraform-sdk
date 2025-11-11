@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cache_attributes in .
 /// Nesting mode: list
 /// </summary>
-public class AwsStoragegatewayNfsFileShareCacheAttributesBlock
+public partial class AwsStoragegatewayNfsFileShareCacheAttributesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cache_stale_timeout_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("cache_stale_timeout_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cache_stale_timeout_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? CacheStaleTimeoutInSeconds { get; set; }
 
 }
@@ -21,34 +21,34 @@ public class AwsStoragegatewayNfsFileShareCacheAttributesBlock
 /// Block type for nfs_file_share_defaults in .
 /// Nesting mode: list
 /// </summary>
-public class AwsStoragegatewayNfsFileShareNfsFileShareDefaultsBlock
+public partial class AwsStoragegatewayNfsFileShareNfsFileShareDefaultsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The directory_mode attribute.
     /// </summary>
-    [TerraformPropertyName("directory_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("directory_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DirectoryMode { get; set; }
 
     /// <summary>
     /// The file_mode attribute.
     /// </summary>
-    [TerraformPropertyName("file_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("file_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? FileMode { get; set; }
 
     /// <summary>
     /// The group_id attribute.
     /// </summary>
-    [TerraformPropertyName("group_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("group_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? GroupId { get; set; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("owner_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OwnerId { get; set; }
 
 }
@@ -57,27 +57,27 @@ public class AwsStoragegatewayNfsFileShareNfsFileShareDefaultsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsStoragegatewayNfsFileShareTimeoutsBlock
+public partial class AwsStoragegatewayNfsFileShareTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -86,7 +86,7 @@ public class AwsStoragegatewayNfsFileShareTimeoutsBlock
 /// Manages a aws_storagegateway_nfs_file_share resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsStoragegatewayNfsFileShare : TerraformResource
+public partial class AwsStoragegatewayNfsFileShare : TerraformResource
 {
     public AwsStoragegatewayNfsFileShare(string name) : base("aws_storagegateway_nfs_file_share", name)
     {
@@ -95,152 +95,152 @@ public class AwsStoragegatewayNfsFileShare : TerraformResource
     /// <summary>
     /// The audit_destination_arn attribute.
     /// </summary>
-    [TerraformPropertyName("audit_destination_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("audit_destination_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuditDestinationArn { get; set; }
 
     /// <summary>
     /// The bucket_region attribute.
     /// </summary>
-    [TerraformPropertyName("bucket_region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bucket_region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BucketRegion { get; set; }
 
     /// <summary>
     /// The client_list attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClientList is required")]
-    [TerraformPropertyName("client_list")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("client_list")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> ClientList { get; set; }
 
     /// <summary>
     /// The default_storage_class attribute.
     /// </summary>
-    [TerraformPropertyName("default_storage_class")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_storage_class")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DefaultStorageClass { get; set; }
 
     /// <summary>
     /// The file_share_name attribute.
     /// </summary>
-    [TerraformPropertyName("file_share_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> FileShareName { get; set; } = default!;
+    [TerraformProperty("file_share_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> FileShareName { get; set; }
 
     /// <summary>
     /// The gateway_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GatewayArn is required")]
-    [TerraformPropertyName("gateway_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("gateway_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GatewayArn { get; set; }
 
     /// <summary>
     /// The guess_mime_type_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("guess_mime_type_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("guess_mime_type_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? GuessMimeTypeEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_encrypted attribute.
     /// </summary>
-    [TerraformPropertyName("kms_encrypted")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_encrypted")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? KmsEncrypted { get; set; }
 
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The location_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LocationArn is required")]
-    [TerraformPropertyName("location_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LocationArn { get; set; }
 
     /// <summary>
     /// The notification_policy attribute.
     /// </summary>
-    [TerraformPropertyName("notification_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("notification_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NotificationPolicy { get; set; }
 
     /// <summary>
     /// The object_acl attribute.
     /// </summary>
-    [TerraformPropertyName("object_acl")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("object_acl")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ObjectAcl { get; set; }
 
     /// <summary>
     /// The read_only attribute.
     /// </summary>
-    [TerraformPropertyName("read_only")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read_only")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ReadOnly { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The requester_pays attribute.
     /// </summary>
-    [TerraformPropertyName("requester_pays")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("requester_pays")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? RequesterPays { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The squash attribute.
     /// </summary>
-    [TerraformPropertyName("squash")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("squash")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Squash { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The vpc_endpoint_dns_name attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_endpoint_dns_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vpc_endpoint_dns_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VpcEndpointDnsName { get; set; }
 
     /// <summary>
@@ -248,7 +248,7 @@ public class AwsStoragegatewayNfsFileShare : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CacheAttributes block(s) allowed")]
-    [TerraformPropertyName("cache_attributes")]
+    [TerraformProperty("cache_attributes")]
     public TerraformList<TerraformBlock<AwsStoragegatewayNfsFileShareCacheAttributesBlock>>? CacheAttributes { get; set; }
 
     /// <summary>
@@ -256,35 +256,35 @@ public class AwsStoragegatewayNfsFileShare : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NfsFileShareDefaults block(s) allowed")]
-    [TerraformPropertyName("nfs_file_share_defaults")]
+    [TerraformProperty("nfs_file_share_defaults")]
     public TerraformList<TerraformBlock<AwsStoragegatewayNfsFileShareNfsFileShareDefaultsBlock>>? NfsFileShareDefaults { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsStoragegatewayNfsFileShareTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The fileshare_id attribute.
     /// </summary>
-    [TerraformPropertyName("fileshare_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FileshareId => new TerraformReference(this, "fileshare_id");
+    [TerraformProperty("fileshare_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FileshareId { get; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformPropertyName("path")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Path => new TerraformReference(this, "path");
+    [TerraformProperty("path")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Path { get; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermIpGroupCidrTimeoutsBlock
+public partial class AzurermIpGroupCidrTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermIpGroupCidrTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_ip_group_cidr resource.
 /// </summary>
-public class AzurermIpGroupCidr : TerraformResource
+public partial class AzurermIpGroupCidr : TerraformResource
 {
     public AzurermIpGroupCidr(string name) : base("azurerm_ip_group_cidr", name)
     {
@@ -44,30 +44,30 @@ public class AzurermIpGroupCidr : TerraformResource
     /// The cidr attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Cidr is required")]
-    [TerraformPropertyName("cidr")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cidr")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Cidr { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IpGroupId is required")]
-    [TerraformPropertyName("ip_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("ip_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IpGroupId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermIpGroupCidrTimeoutsBlock>? Timeouts { get; set; }
 
 }

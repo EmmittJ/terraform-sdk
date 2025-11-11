@@ -6,56 +6,56 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for data_disk in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermImageDataDiskBlock
+public partial class AzurermImageDataDiskBlock : TerraformBlockBase
 {
     /// <summary>
     /// The blob_uri attribute.
     /// </summary>
-    [TerraformPropertyName("blob_uri")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> BlobUri { get; set; } = default!;
+    [TerraformProperty("blob_uri")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> BlobUri { get; set; }
 
     /// <summary>
     /// The caching attribute.
     /// </summary>
-    [TerraformPropertyName("caching")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("caching")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Caching { get; set; }
 
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    [TerraformPropertyName("disk_encryption_set_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disk_encryption_set_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The lun attribute.
     /// </summary>
-    [TerraformPropertyName("lun")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("lun")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Lun { get; set; }
 
     /// <summary>
     /// The managed_disk_id attribute.
     /// </summary>
-    [TerraformPropertyName("managed_disk_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("managed_disk_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ManagedDiskId { get; set; }
 
     /// <summary>
     /// The size_gb attribute.
     /// </summary>
-    [TerraformPropertyName("size_gb")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> SizeGb { get; set; } = default!;
+    [TerraformProperty("size_gb")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> SizeGb { get; set; }
 
     /// <summary>
     /// The type of storage disk
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
-    [TerraformPropertyName("storage_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageType { get; set; }
 
 }
@@ -64,63 +64,63 @@ public class AzurermImageDataDiskBlock
 /// Block type for os_disk in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermImageOsDiskBlock
+public partial class AzurermImageOsDiskBlock : TerraformBlockBase
 {
     /// <summary>
     /// The blob_uri attribute.
     /// </summary>
-    [TerraformPropertyName("blob_uri")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> BlobUri { get; set; } = default!;
+    [TerraformProperty("blob_uri")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> BlobUri { get; set; }
 
     /// <summary>
     /// The caching attribute.
     /// </summary>
-    [TerraformPropertyName("caching")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("caching")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Caching { get; set; }
 
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    [TerraformPropertyName("disk_encryption_set_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disk_encryption_set_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The managed_disk_id attribute.
     /// </summary>
-    [TerraformPropertyName("managed_disk_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ManagedDiskId { get; set; } = default!;
+    [TerraformProperty("managed_disk_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ManagedDiskId { get; set; }
 
     /// <summary>
     /// The os_state attribute.
     /// </summary>
-    [TerraformPropertyName("os_state")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("os_state")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OsState { get; set; }
 
     /// <summary>
     /// The os_type attribute.
     /// </summary>
-    [TerraformPropertyName("os_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("os_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OsType { get; set; }
 
     /// <summary>
     /// The size_gb attribute.
     /// </summary>
-    [TerraformPropertyName("size_gb")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> SizeGb { get; set; } = default!;
+    [TerraformProperty("size_gb")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> SizeGb { get; set; }
 
     /// <summary>
     /// The type of storage disk
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageType is required")]
-    [TerraformPropertyName("storage_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageType { get; set; }
 
 }
@@ -129,34 +129,34 @@ public class AzurermImageOsDiskBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermImageTimeoutsBlock
+public partial class AzurermImageTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -165,7 +165,7 @@ public class AzurermImageTimeoutsBlock
 /// Manages a azurerm_image resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermImage : TerraformResource
+public partial class AzurermImage : TerraformResource
 {
     public AzurermImage(string name) : base("azurerm_image", name)
     {
@@ -174,67 +174,67 @@ public class AzurermImage : TerraformResource
     /// <summary>
     /// The hyper_v_generation attribute.
     /// </summary>
-    [TerraformPropertyName("hyper_v_generation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("hyper_v_generation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HyperVGeneration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The source_virtual_machine_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_virtual_machine_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_virtual_machine_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceVirtualMachineId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The zone_resilient attribute.
     /// </summary>
-    [TerraformPropertyName("zone_resilient")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("zone_resilient")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ZoneResilient { get; set; }
 
     /// <summary>
     /// Block for data_disk.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("data_disk")]
+    [TerraformProperty("data_disk")]
     public TerraformList<TerraformBlock<AzurermImageDataDiskBlock>>? DataDisk { get; set; }
 
     /// <summary>
@@ -242,14 +242,14 @@ public class AzurermImage : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
-    [TerraformPropertyName("os_disk")]
+    [TerraformProperty("os_disk")]
     public TerraformList<TerraformBlock<AzurermImageOsDiskBlock>>? OsDisk { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermImageTimeoutsBlock>? Timeouts { get; set; }
 
 }

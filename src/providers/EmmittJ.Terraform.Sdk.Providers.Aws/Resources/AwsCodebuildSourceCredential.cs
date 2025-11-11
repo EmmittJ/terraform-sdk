@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_codebuild_source_credential resource.
 /// </summary>
-public class AwsCodebuildSourceCredential : TerraformResource
+public partial class AwsCodebuildSourceCredential : TerraformResource
 {
     public AwsCodebuildSourceCredential(string name) : base("aws_codebuild_source_credential", name)
     {
@@ -15,52 +15,52 @@ public class AwsCodebuildSourceCredential : TerraformResource
     /// The auth_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthType is required")]
-    [TerraformPropertyName("auth_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("auth_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AuthType { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The server_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerType is required")]
-    [TerraformPropertyName("server_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("server_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServerType { get; set; }
 
     /// <summary>
     /// The token attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Token is required")]
-    [TerraformPropertyName("token")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("token")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Token { get; set; }
 
     /// <summary>
     /// The user_name attribute.
     /// </summary>
-    [TerraformPropertyName("user_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? UserName { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

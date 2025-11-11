@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_ssoadmin_application.
 /// </summary>
-public class AwsSsoadminApplicationDataSource : TerraformDataSource
+public partial class AwsSsoadminApplicationDataSource : TerraformDataSource
 {
     public AwsSsoadminApplicationDataSource(string name) : base("aws_ssoadmin_application", name)
     {
@@ -15,71 +15,71 @@ public class AwsSsoadminApplicationDataSource : TerraformDataSource
     /// The application_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationArn is required")]
-    [TerraformPropertyName("application_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("application_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApplicationArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The application_account attribute.
     /// </summary>
-    [TerraformPropertyName("application_account")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ApplicationAccount => new TerraformReference(this, "application_account");
+    [TerraformProperty("application_account")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ApplicationAccount { get; }
 
     /// <summary>
     /// The application_provider_arn attribute.
     /// </summary>
-    [TerraformPropertyName("application_provider_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ApplicationProviderArn => new TerraformReference(this, "application_provider_arn");
+    [TerraformProperty("application_provider_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ApplicationProviderArn { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The instance_arn attribute.
     /// </summary>
-    [TerraformPropertyName("instance_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> InstanceArn => new TerraformReference(this, "instance_arn");
+    [TerraformProperty("instance_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> InstanceArn { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The portal_options attribute.
     /// </summary>
-    [TerraformPropertyName("portal_options")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PortalOptions => new TerraformReference(this, "portal_options");
+    [TerraformProperty("portal_options")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PortalOptions { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

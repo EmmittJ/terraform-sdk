@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for service_catalog_provisioning_details in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock
+public partial class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The path_id attribute.
     /// </summary>
-    [TerraformPropertyName("path_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("path_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PathId { get; set; }
 
     /// <summary>
     /// The product_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductId is required")]
-    [TerraformPropertyName("product_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("product_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProductId { get; set; }
 
     /// <summary>
     /// The provisioning_artifact_id attribute.
     /// </summary>
-    [TerraformPropertyName("provisioning_artifact_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ProvisioningArtifactId { get; set; } = default!;
+    [TerraformProperty("provisioning_artifact_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ProvisioningArtifactId { get; set; }
 
 }
 
@@ -36,7 +36,7 @@ public class AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock
 /// Manages a aws_sagemaker_project resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsSagemakerProject : TerraformResource
+public partial class AwsSagemakerProject : TerraformResource
 {
     public AwsSagemakerProject(string name) : base("aws_sagemaker_project", name)
     {
@@ -45,45 +45,45 @@ public class AwsSagemakerProject : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project_description attribute.
     /// </summary>
-    [TerraformPropertyName("project_description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project_description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ProjectDescription { get; set; }
 
     /// <summary>
     /// The project_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
-    [TerraformPropertyName("project_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("project_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProjectName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for service_catalog_provisioning_details.
@@ -92,21 +92,21 @@ public class AwsSagemakerProject : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceCatalogProvisioningDetails is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ServiceCatalogProvisioningDetails block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServiceCatalogProvisioningDetails block(s) allowed")]
-    [TerraformPropertyName("service_catalog_provisioning_details")]
+    [TerraformProperty("service_catalog_provisioning_details")]
     public TerraformList<TerraformBlock<AwsSagemakerProjectServiceCatalogProvisioningDetailsBlock>>? ServiceCatalogProvisioningDetails { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The project_id attribute.
     /// </summary>
-    [TerraformPropertyName("project_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ProjectId => new TerraformReference(this, "project_id");
+    [TerraformProperty("project_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ProjectId { get; }
 
 }

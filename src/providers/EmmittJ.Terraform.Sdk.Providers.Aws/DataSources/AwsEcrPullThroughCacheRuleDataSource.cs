@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_ecr_pull_through_cache_rule.
 /// </summary>
-public class AwsEcrPullThroughCacheRuleDataSource : TerraformDataSource
+public partial class AwsEcrPullThroughCacheRuleDataSource : TerraformDataSource
 {
     public AwsEcrPullThroughCacheRuleDataSource(string name) : base("aws_ecr_pull_through_cache_rule", name)
     {
@@ -15,57 +15,57 @@ public class AwsEcrPullThroughCacheRuleDataSource : TerraformDataSource
     /// The ecr_repository_prefix attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EcrRepositoryPrefix is required")]
-    [TerraformPropertyName("ecr_repository_prefix")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("ecr_repository_prefix")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EcrRepositoryPrefix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The credential_arn attribute.
     /// </summary>
-    [TerraformPropertyName("credential_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CredentialArn => new TerraformReference(this, "credential_arn");
+    [TerraformProperty("credential_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CredentialArn { get; }
 
     /// <summary>
     /// The custom_role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("custom_role_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CustomRoleArn => new TerraformReference(this, "custom_role_arn");
+    [TerraformProperty("custom_role_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CustomRoleArn { get; }
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
-    [TerraformPropertyName("registry_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RegistryId => new TerraformReference(this, "registry_id");
+    [TerraformProperty("registry_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RegistryId { get; }
 
     /// <summary>
     /// The upstream_registry_url attribute.
     /// </summary>
-    [TerraformPropertyName("upstream_registry_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpstreamRegistryUrl => new TerraformReference(this, "upstream_registry_url");
+    [TerraformProperty("upstream_registry_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpstreamRegistryUrl { get; }
 
     /// <summary>
     /// The upstream_repository_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("upstream_repository_prefix")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpstreamRepositoryPrefix => new TerraformReference(this, "upstream_repository_prefix");
+    [TerraformProperty("upstream_repository_prefix")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpstreamRepositoryPrefix { get; }
 
 }

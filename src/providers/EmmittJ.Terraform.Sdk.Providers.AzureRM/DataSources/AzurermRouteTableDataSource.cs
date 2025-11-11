@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermRouteTableDataSourceTimeoutsBlock
+public partial class AzurermRouteTableDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermRouteTableDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_route_table.
 /// </summary>
-public class AzurermRouteTableDataSource : TerraformDataSource
+public partial class AzurermRouteTableDataSource : TerraformDataSource
 {
     public AzurermRouteTableDataSource(string name) : base("azurerm_route_table", name)
     {
@@ -29,66 +29,66 @@ public class AzurermRouteTableDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermRouteTableDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The bgp_route_propagation_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("bgp_route_propagation_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> BgpRoutePropagationEnabled => new TerraformReference(this, "bgp_route_propagation_enabled");
+    [TerraformProperty("bgp_route_propagation_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> BgpRoutePropagationEnabled { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The route attribute.
     /// </summary>
-    [TerraformPropertyName("route")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Route => new TerraformReference(this, "route");
+    [TerraformProperty("route")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Route { get; }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
-    [TerraformPropertyName("subnets")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> Subnets => new TerraformReference(this, "subnets");
+    [TerraformProperty("subnets")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> Subnets { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
 }

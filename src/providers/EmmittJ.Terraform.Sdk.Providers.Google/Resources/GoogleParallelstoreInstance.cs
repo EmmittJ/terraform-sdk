@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleParallelstoreInstanceTimeoutsBlock
+public partial class GoogleParallelstoreInstanceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleParallelstoreInstanceTimeoutsBlock
 /// <summary>
 /// Manages a google_parallelstore_instance resource.
 /// </summary>
-public class GoogleParallelstoreInstance : TerraformResource
+public partial class GoogleParallelstoreInstance : TerraformResource
 {
     public GoogleParallelstoreInstance(string name) : base("google_parallelstore_instance", name)
     {
@@ -44,8 +44,8 @@ public class GoogleParallelstoreInstance : TerraformResource
     /// Required. Immutable. Storage capacity of Parallelstore instance in Gibibytes (GiB).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGib is required")]
-    [TerraformPropertyName("capacity_gib")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("capacity_gib")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CapacityGib { get; set; }
 
     /// <summary>
@@ -55,15 +55,15 @@ public class GoogleParallelstoreInstance : TerraformResource
     ///   SCRATCH
     ///   PERSISTENT
     /// </summary>
-    [TerraformPropertyName("deployment_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deployment_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeploymentType { get; set; }
 
     /// <summary>
     /// The description of the instance. 2048 characters or less.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
@@ -76,8 +76,8 @@ public class GoogleParallelstoreInstance : TerraformResource
     ///   DIRECTORY_STRIPE_LEVEL_BALANCED
     ///   DIRECTORY_STRIPE_LEVEL_MAX
     /// </summary>
-    [TerraformPropertyName("directory_stripe_level")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("directory_stripe_level")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DirectoryStripeLevel { get; set; }
 
     /// <summary>
@@ -90,16 +90,16 @@ public class GoogleParallelstoreInstance : TerraformResource
     ///   FILE_STRIPE_LEVEL_BALANCED
     ///   FILE_STRIPE_LEVEL_MAX
     /// </summary>
-    [TerraformPropertyName("file_stripe_level")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("file_stripe_level")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? FileStripeLevel { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The logical name of the Parallelstore instance in the user project with the following restrictions:
@@ -110,8 +110,8 @@ public class GoogleParallelstoreInstance : TerraformResource
     ///   * Must be unique within the customer project/ location
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
-    [TerraformPropertyName("instance_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
@@ -141,32 +141,32 @@ public class GoogleParallelstoreInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Part of &#39;parent&#39;. See documentation of &#39;projectsId&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Immutable. The name of the Google Compute Engine [VPC network](https://cloud.google.com/vpc/docs/vpc)
     /// to which the instance is connected.
     /// </summary>
-    [TerraformPropertyName("network")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("network")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Immutable. Contains the id of the allocated IP address range
@@ -174,45 +174,45 @@ public class GoogleParallelstoreInstance : TerraformResource
     /// associated with IP range 10.0.0.0/29. If no range id is provided all ranges will
     /// be considered.
     /// </summary>
-    [TerraformPropertyName("reserved_ip_range")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("reserved_ip_range")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ReservedIpRange { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleParallelstoreInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. List of access_points.
     /// Contains a list of IPv4 addresses used for client side configuration.
     /// </summary>
-    [TerraformPropertyName("access_points")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AccessPoints => new TerraformReference(this, "access_points");
+    [TerraformProperty("access_points")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AccessPoints { get; }
 
     /// <summary>
     /// The time when the instance was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The version of DAOS software running in the instance.
     /// </summary>
-    [TerraformPropertyName("daos_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DaosVersion => new TerraformReference(this, "daos_version");
+    [TerraformProperty("daos_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DaosVersion { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Immutable. Contains the id of the allocated IP address
@@ -220,17 +220,17 @@ public class GoogleParallelstoreInstance : TerraformResource
     /// associated with IP range 10.0.0.0/29. This field is populated by the service
     /// and contains the value currently used by the service.
     /// </summary>
-    [TerraformPropertyName("effective_reserved_ip_range")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EffectiveReservedIpRange => new TerraformReference(this, "effective_reserved_ip_range");
+    [TerraformProperty("effective_reserved_ip_range")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EffectiveReservedIpRange { get; }
 
     /// <summary>
     /// Identifier. The resource name of the instance, in the format
     /// &#39;projects/{project}/locations/{location}/instances/{instance_id}&#39;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The instance state.
@@ -242,23 +242,23 @@ public class GoogleParallelstoreInstance : TerraformResource
     ///   FAILED
     ///   UPGRADING
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The time when the instance was updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

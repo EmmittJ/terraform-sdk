@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_s3outposts_endpoint resource.
 /// </summary>
-public class AwsS3outpostsEndpoint : TerraformResource
+public partial class AwsS3outpostsEndpoint : TerraformResource
 {
     public AwsS3outpostsEndpoint(string name) : base("aws_s3outposts_endpoint", name)
     {
@@ -14,81 +14,81 @@ public class AwsS3outpostsEndpoint : TerraformResource
     /// <summary>
     /// The access_type attribute.
     /// </summary>
-    [TerraformPropertyName("access_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AccessType { get; set; } = default!;
+    [TerraformProperty("access_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AccessType { get; set; }
 
     /// <summary>
     /// The customer_owned_ipv4_pool attribute.
     /// </summary>
-    [TerraformPropertyName("customer_owned_ipv4_pool")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("customer_owned_ipv4_pool")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CustomerOwnedIpv4Pool { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The outpost_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OutpostId is required")]
-    [TerraformPropertyName("outpost_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("outpost_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OutpostId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupId is required")]
-    [TerraformPropertyName("security_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("security_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SecurityGroupId { get; set; }
 
     /// <summary>
     /// The subnet_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetId is required")]
-    [TerraformPropertyName("subnet_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SubnetId { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    [TerraformPropertyName("cidr_block")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CidrBlock => new TerraformReference(this, "cidr_block");
+    [TerraformProperty("cidr_block")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CidrBlock { get; }
 
     /// <summary>
     /// The creation_time attribute.
     /// </summary>
-    [TerraformPropertyName("creation_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTime => new TerraformReference(this, "creation_time");
+    [TerraformProperty("creation_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTime { get; }
 
     /// <summary>
     /// The network_interfaces attribute.
     /// </summary>
-    [TerraformPropertyName("network_interfaces")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> NetworkInterfaces => new TerraformReference(this, "network_interfaces");
+    [TerraformProperty("network_interfaces")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> NetworkInterfaces { get; }
 
 }

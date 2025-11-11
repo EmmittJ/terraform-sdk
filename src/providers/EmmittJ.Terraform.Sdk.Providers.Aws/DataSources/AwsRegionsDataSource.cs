@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsRegionsDataSourceFilterBlock
+public partial class AwsRegionsDataSourceFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    [TerraformPropertyName("values")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("values")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Values { get; set; }
 
 }
@@ -29,7 +29,7 @@ public class AwsRegionsDataSourceFilterBlock
 /// <summary>
 /// Retrieves information about a aws_regions.
 /// </summary>
-public class AwsRegionsDataSource : TerraformDataSource
+public partial class AwsRegionsDataSource : TerraformDataSource
 {
     public AwsRegionsDataSource(string name) : base("aws_regions", name)
     {
@@ -38,29 +38,29 @@ public class AwsRegionsDataSource : TerraformDataSource
     /// <summary>
     /// The all_regions attribute.
     /// </summary>
-    [TerraformPropertyName("all_regions")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("all_regions")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AllRegions { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformSet<TerraformBlock<AwsRegionsDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The names attribute.
     /// </summary>
-    [TerraformPropertyName("names")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> Names => new TerraformReference(this, "names");
+    [TerraformProperty("names")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> Names { get; }
 
 }

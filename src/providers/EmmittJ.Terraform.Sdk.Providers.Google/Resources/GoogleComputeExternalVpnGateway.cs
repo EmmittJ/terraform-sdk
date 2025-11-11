@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for interface in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeExternalVpnGatewayInterfaceBlock
+public partial class GoogleComputeExternalVpnGatewayInterfaceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The numeric ID for this interface. Allowed values are based on the redundancy type
@@ -15,8 +15,8 @@ public class GoogleComputeExternalVpnGatewayInterfaceBlock
     /// * &#39;0, 1 - TWO_IPS_REDUNDANCY&#39;
     /// * &#39;0, 1, 2, 3 - FOUR_IPS_REDUNDANCY&#39;
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Id { get; set; }
 
     /// <summary>
@@ -25,8 +25,8 @@ public class GoogleComputeExternalVpnGatewayInterfaceBlock
     /// your on-premise gateway or another Cloud provider&#39;s VPN gateway,
     /// it cannot be an IP address from Google Compute Engine.
     /// </summary>
-    [TerraformPropertyName("ip_address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IpAddress { get; set; }
 
     /// <summary>
@@ -37,8 +37,8 @@ public class GoogleComputeExternalVpnGatewayInterfaceBlock
     /// described in RFC 4291 (e.g. 2001:db8:0:0:2d9:51:0:0). The output format
     /// is RFC 5952 format (e.g. 2001:db8::2d9:51:0:0).
     /// </summary>
-    [TerraformPropertyName("ipv6_address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ipv6_address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Ipv6Address { get; set; }
 
 }
@@ -47,27 +47,27 @@ public class GoogleComputeExternalVpnGatewayInterfaceBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeExternalVpnGatewayTimeoutsBlock
+public partial class GoogleComputeExternalVpnGatewayTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -75,7 +75,7 @@ public class GoogleComputeExternalVpnGatewayTimeoutsBlock
 /// <summary>
 /// Manages a google_compute_external_vpn_gateway resource.
 /// </summary>
-public class GoogleComputeExternalVpnGateway : TerraformResource
+public partial class GoogleComputeExternalVpnGateway : TerraformResource
 {
     public GoogleComputeExternalVpnGateway(string name) : base("google_compute_external_vpn_gateway", name)
     {
@@ -84,16 +84,16 @@ public class GoogleComputeExternalVpnGateway : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels for the external VPN gateway resource.
@@ -101,8 +101,8 @@ public class GoogleComputeExternalVpnGateway : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -115,66 +115,66 @@ public class GoogleComputeExternalVpnGateway : TerraformResource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Indicates the redundancy type of this external VPN gateway Possible values: [&amp;quot;FOUR_IPS_REDUNDANCY&amp;quot;, &amp;quot;SINGLE_IP_INTERNALLY_REDUNDANT&amp;quot;, &amp;quot;TWO_IPS_REDUNDANCY&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("redundancy_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("redundancy_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RedundancyType { get; set; }
 
     /// <summary>
     /// Block for interface.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("interface")]
+    [TerraformProperty("interface")]
     public TerraformList<TerraformBlock<GoogleComputeExternalVpnGatewayInterfaceBlock>>? Interface { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeExternalVpnGatewayTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The fingerprint used for optimistic locking of this resource.  Used
     /// internally during updates.
     /// </summary>
-    [TerraformPropertyName("label_fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
+    [TerraformProperty("label_fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

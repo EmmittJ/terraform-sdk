@@ -6,42 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for location in .
 /// Nesting mode: list
 /// </summary>
-public class AwsApiGatewayDocumentationPartLocationBlock
+public partial class AwsApiGatewayDocumentationPartLocationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The method attribute.
     /// </summary>
-    [TerraformPropertyName("method")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("method")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Method { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformPropertyName("path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The status_code attribute.
     /// </summary>
-    [TerraformPropertyName("status_code")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("status_code")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StatusCode { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -50,7 +50,7 @@ public class AwsApiGatewayDocumentationPartLocationBlock
 /// Manages a aws_api_gateway_documentation_part resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsApiGatewayDocumentationPart : TerraformResource
+public partial class AwsApiGatewayDocumentationPart : TerraformResource
 {
     public AwsApiGatewayDocumentationPart(string name) : base("aws_api_gateway_documentation_part", name)
     {
@@ -59,31 +59,31 @@ public class AwsApiGatewayDocumentationPart : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The properties attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Properties is required")]
-    [TerraformPropertyName("properties")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("properties")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Properties { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The rest_api_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RestApiId is required")]
-    [TerraformPropertyName("rest_api_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("rest_api_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RestApiId { get; set; }
 
     /// <summary>
@@ -93,14 +93,14 @@ public class AwsApiGatewayDocumentationPart : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Location block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Location block(s) allowed")]
-    [TerraformPropertyName("location")]
+    [TerraformProperty("location")]
     public TerraformList<TerraformBlock<AwsApiGatewayDocumentationPartLocationBlock>>? Location { get; set; }
 
     /// <summary>
     /// The documentation_part_id attribute.
     /// </summary>
-    [TerraformPropertyName("documentation_part_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DocumentationPartId => new TerraformReference(this, "documentation_part_id");
+    [TerraformProperty("documentation_part_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DocumentationPartId { get; }
 
 }

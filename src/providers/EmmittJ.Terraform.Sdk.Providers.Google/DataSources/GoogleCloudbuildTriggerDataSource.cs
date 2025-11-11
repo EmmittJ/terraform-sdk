@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_cloudbuild_trigger.
 /// </summary>
-public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
+public partial class GoogleCloudbuildTriggerDataSource : TerraformDataSource
 {
     public GoogleCloudbuildTriggerDataSource(string name) : base("google_cloudbuild_trigger", name)
     {
@@ -14,32 +14,32 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The [Cloud Build location](https://cloud.google.com/build/docs/locations) for the trigger.
     /// If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The unique identifier for the trigger.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerId is required")]
-    [TerraformPropertyName("trigger_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("trigger_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TriggerId { get; set; }
 
     /// <summary>
@@ -47,83 +47,83 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// Builds created by this trigger will require approval before they execute.
     /// Any user with a Cloud Build Approver role for the project can approve a build.
     /// </summary>
-    [TerraformPropertyName("approval_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ApprovalConfig => new TerraformReference(this, "approval_config");
+    [TerraformProperty("approval_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ApprovalConfig { get; }
 
     /// <summary>
     /// BitbucketServerTriggerConfig describes the configuration of a trigger that creates a build whenever a Bitbucket Server event is received.
     /// </summary>
-    [TerraformPropertyName("bitbucket_server_trigger_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> BitbucketServerTriggerConfig => new TerraformReference(this, "bitbucket_server_trigger_config");
+    [TerraformProperty("bitbucket_server_trigger_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> BitbucketServerTriggerConfig { get; }
 
     /// <summary>
     /// Contents of the build template. Either a filename or build template must be provided.
     /// </summary>
-    [TerraformPropertyName("build")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Build => new TerraformReference(this, "build");
+    [TerraformProperty("build")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Build { get; }
 
     /// <summary>
     /// Time when the trigger was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Human-readable description of the trigger.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// Configuration for triggers that respond to Developer Connect events.
     /// </summary>
-    [TerraformPropertyName("developer_connect_event_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> DeveloperConnectEventConfig => new TerraformReference(this, "developer_connect_event_config");
+    [TerraformProperty("developer_connect_event_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> DeveloperConnectEventConfig { get; }
 
     /// <summary>
     /// Whether the trigger is disabled or not. If true, the trigger will never result in a build.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Disabled => new TerraformReference(this, "disabled");
+    [TerraformProperty("disabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Disabled { get; }
 
     /// <summary>
     /// Path, from the source root, to a file whose contents is used for the template.
     /// Either a filename or build template must be provided. Set this only when using trigger_template or github.
     /// When using Pub/Sub, Webhook or Manual set the file name using git_file_source instead.
     /// </summary>
-    [TerraformPropertyName("filename")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Filename => new TerraformReference(this, "filename");
+    [TerraformProperty("filename")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Filename { get; }
 
     /// <summary>
     /// A Common Expression Language string. Used only with Pub/Sub and Webhook.
     /// </summary>
-    [TerraformPropertyName("filter")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Filter => new TerraformReference(this, "filter");
+    [TerraformProperty("filter")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Filter { get; }
 
     /// <summary>
     /// The file source describing the local or remote Build template.
     /// </summary>
-    [TerraformPropertyName("git_file_source")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> GitFileSource => new TerraformReference(this, "git_file_source");
+    [TerraformProperty("git_file_source")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> GitFileSource { get; }
 
     /// <summary>
     /// Describes the configuration of a trigger that creates a build whenever a GitHub event is received.
     /// 
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; or &#39;webhook_config&#39; must be provided.
     /// </summary>
-    [TerraformPropertyName("github")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Github => new TerraformReference(this, "github");
+    [TerraformProperty("github")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Github { get; }
 
     /// <summary>
     /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
@@ -136,18 +136,18 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// of the ignored_file globs. If the change has no files that are outside
     /// of the ignoredFiles globs, then we do not trigger a build.
     /// </summary>
-    [TerraformPropertyName("ignored_files")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> IgnoredFiles => new TerraformReference(this, "ignored_files");
+    [TerraformProperty("ignored_files")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> IgnoredFiles { get; }
 
     /// <summary>
     /// Build logs will be sent back to GitHub as part of the checkrun
     /// result.  Values can be INCLUDE_BUILD_LOGS_UNSPECIFIED or
     /// INCLUDE_BUILD_LOGS_WITH_STATUS Possible values: [&amp;quot;INCLUDE_BUILD_LOGS_UNSPECIFIED&amp;quot;, &amp;quot;INCLUDE_BUILD_LOGS_WITH_STATUS&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("include_build_logs")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IncludeBuildLogs => new TerraformReference(this, "include_build_logs");
+    [TerraformProperty("include_build_logs")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IncludeBuildLogs { get; }
 
     /// <summary>
     /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
@@ -162,16 +162,16 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// those files matches a includedFiles glob. If not, then we do not trigger
     /// a build.
     /// </summary>
-    [TerraformPropertyName("included_files")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> IncludedFiles => new TerraformReference(this, "included_files");
+    [TerraformProperty("included_files")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> IncludedFiles { get; }
 
     /// <summary>
     /// Name of the trigger. Must be unique within the project.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// PubsubConfig describes the configuration of a trigger that creates
@@ -179,16 +179,16 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// 
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
-    [TerraformPropertyName("pubsub_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PubsubConfig => new TerraformReference(this, "pubsub_config");
+    [TerraformProperty("pubsub_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PubsubConfig { get; }
 
     /// <summary>
     /// The configuration of a trigger that creates a build whenever an event from Repo API is received.
     /// </summary>
-    [TerraformPropertyName("repository_event_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> RepositoryEventConfig => new TerraformReference(this, "repository_event_config");
+    [TerraformProperty("repository_event_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> RepositoryEventConfig { get; }
 
     /// <summary>
     /// The service account used for all user-controlled operations including
@@ -199,9 +199,9 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// 
     /// Format: projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_ID_OR_EMAIL}
     /// </summary>
-    [TerraformPropertyName("service_account")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServiceAccount => new TerraformReference(this, "service_account");
+    [TerraformProperty("service_account")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServiceAccount { get; }
 
     /// <summary>
     /// The repo and ref of the repository from which to build.
@@ -211,23 +211,23 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// 
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
-    [TerraformPropertyName("source_to_build")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SourceToBuild => new TerraformReference(this, "source_to_build");
+    [TerraformProperty("source_to_build")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SourceToBuild { get; }
 
     /// <summary>
     /// Substitutions data for Build resource.
     /// </summary>
-    [TerraformPropertyName("substitutions")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Substitutions => new TerraformReference(this, "substitutions");
+    [TerraformProperty("substitutions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Substitutions { get; }
 
     /// <summary>
     /// Tags for annotation of a BuildTrigger
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Tags { get; }
 
     /// <summary>
     /// Template describing the types of source changes to trigger a build.
@@ -238,9 +238,9 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// 
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39;, &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
-    [TerraformPropertyName("trigger_template")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> TriggerTemplate => new TerraformReference(this, "trigger_template");
+    [TerraformProperty("trigger_template")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> TriggerTemplate { get; }
 
     /// <summary>
     /// WebhookConfig describes the configuration of a trigger that creates
@@ -248,8 +248,8 @@ public class GoogleCloudbuildTriggerDataSource : TerraformDataSource
     /// 
     /// One of &#39;trigger_template&#39;, &#39;github&#39;, &#39;pubsub_config&#39; &#39;webhook_config&#39; or &#39;source_to_build&#39; must be provided.
     /// </summary>
-    [TerraformPropertyName("webhook_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> WebhookConfig => new TerraformReference(this, "webhook_config");
+    [TerraformProperty("webhook_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> WebhookConfig { get; }
 
 }

@@ -7,21 +7,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Nesting mode: set
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AwsSsmincidentsReplicationSetRegionBlock
+public partial class AwsSsmincidentsReplicationSetRegionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 
@@ -32,21 +32,21 @@ public class AwsSsmincidentsReplicationSetRegionBlock
 /// Block type for regions in .
 /// Nesting mode: set
 /// </summary>
-public class AwsSsmincidentsReplicationSetRegionsBlock
+public partial class AwsSsmincidentsReplicationSetRegionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The kms_key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyArn { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 
@@ -57,27 +57,27 @@ public class AwsSsmincidentsReplicationSetRegionsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSsmincidentsReplicationSetTimeoutsBlock
+public partial class AwsSsmincidentsReplicationSetTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -85,7 +85,7 @@ public class AwsSsmincidentsReplicationSetTimeoutsBlock
 /// <summary>
 /// Manages a aws_ssmincidents_replication_set resource.
 /// </summary>
-public class AwsSsmincidentsReplicationSet : TerraformResource
+public partial class AwsSsmincidentsReplicationSet : TerraformResource
 {
     public AwsSsmincidentsReplicationSet(string name) : base("aws_ssmincidents_replication_set", name)
     {
@@ -94,79 +94,79 @@ public class AwsSsmincidentsReplicationSet : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for region.
     /// Nesting mode: set
     /// </summary>
     [Obsolete("This block is deprecated.")]
-    [TerraformPropertyName("region")]
+    [TerraformProperty("region")]
     public TerraformSet<TerraformBlock<AwsSsmincidentsReplicationSetRegionBlock>>? Region { get; set; }
 
     /// <summary>
     /// Block for regions.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("regions")]
+    [TerraformProperty("regions")]
     public TerraformSet<TerraformBlock<AwsSsmincidentsReplicationSetRegionsBlock>>? Regions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsSsmincidentsReplicationSetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_by attribute.
     /// </summary>
-    [TerraformPropertyName("created_by")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedBy => new TerraformReference(this, "created_by");
+    [TerraformProperty("created_by")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedBy { get; }
 
     /// <summary>
     /// The deletion_protected attribute.
     /// </summary>
-    [TerraformPropertyName("deletion_protected")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DeletionProtected => new TerraformReference(this, "deletion_protected");
+    [TerraformProperty("deletion_protected")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DeletionProtected { get; }
 
     /// <summary>
     /// The last_modified_by attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified_by")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModifiedBy => new TerraformReference(this, "last_modified_by");
+    [TerraformProperty("last_modified_by")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModifiedBy { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

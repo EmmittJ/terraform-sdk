@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermConfidentialLedgerDataSourceTimeoutsBlock
+public partial class AzurermConfidentialLedgerDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermConfidentialLedgerDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_confidential_ledger.
 /// </summary>
-public class AzurermConfidentialLedgerDataSource : TerraformDataSource
+public partial class AzurermConfidentialLedgerDataSource : TerraformDataSource
 {
     public AzurermConfidentialLedgerDataSource(string name) : base("azurerm_confidential_ledger", name)
     {
@@ -29,80 +29,80 @@ public class AzurermConfidentialLedgerDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermConfidentialLedgerDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The azuread_based_service_principal attribute.
     /// </summary>
-    [TerraformPropertyName("azuread_based_service_principal")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> AzureadBasedServicePrincipal => new TerraformReference(this, "azuread_based_service_principal");
+    [TerraformProperty("azuread_based_service_principal")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> AzureadBasedServicePrincipal { get; }
 
     /// <summary>
     /// The certificate_based_security_principal attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_based_security_principal")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CertificateBasedSecurityPrincipal => new TerraformReference(this, "certificate_based_security_principal");
+    [TerraformProperty("certificate_based_security_principal")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CertificateBasedSecurityPrincipal { get; }
 
     /// <summary>
     /// The identity_service_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("identity_service_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IdentityServiceEndpoint => new TerraformReference(this, "identity_service_endpoint");
+    [TerraformProperty("identity_service_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IdentityServiceEndpoint { get; }
 
     /// <summary>
     /// The ledger_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("ledger_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LedgerEndpoint => new TerraformReference(this, "ledger_endpoint");
+    [TerraformProperty("ledger_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LedgerEndpoint { get; }
 
     /// <summary>
     /// The ledger_type attribute.
     /// </summary>
-    [TerraformPropertyName("ledger_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LedgerType => new TerraformReference(this, "ledger_type");
+    [TerraformProperty("ledger_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LedgerType { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeControlPlaneAccessTimeoutsBlock
+public partial class GoogleApigeeControlPlaneAccessTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleApigeeControlPlaneAccessTimeoutsBlock
 /// <summary>
 /// Manages a google_apigee_control_plane_access resource.
 /// </summary>
-public class GoogleApigeeControlPlaneAccess : TerraformResource
+public partial class GoogleApigeeControlPlaneAccess : TerraformResource
 {
     public GoogleApigeeControlPlaneAccess(string name) : base("google_apigee_control_plane_access", name)
     {
@@ -47,23 +47,23 @@ public class GoogleApigeeControlPlaneAccess : TerraformResource
     /// 
     /// You might specify multiple service accounts, for example, if you have multiple environments and wish to assign a unique service account to each one.
     /// </summary>
-    [TerraformPropertyName("analytics_publisher_identities")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("analytics_publisher_identities")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? AnalyticsPublisherIdentities { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the Apigee organization.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
@@ -75,15 +75,15 @@ public class GoogleApigeeControlPlaneAccess : TerraformResource
     /// 
     /// The service accounts must have **Apigee Synchronizer Manager** role. See also [Create service accounts](https://cloud.google.com/apigee/docs/hybrid/v1.8/sa-about#create-the-service-accounts).
     /// </summary>
-    [TerraformPropertyName("synchronizer_identities")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("synchronizer_identities")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? SynchronizerIdentities { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleApigeeControlPlaneAccessTimeoutsBlock>? Timeouts { get; set; }
 
 }

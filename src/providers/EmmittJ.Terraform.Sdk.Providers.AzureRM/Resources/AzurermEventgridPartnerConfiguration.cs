@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for partner_authorization in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock
+public partial class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The authorization_expiration_time_in_utc attribute.
     /// </summary>
-    [TerraformPropertyName("authorization_expiration_time_in_utc")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("authorization_expiration_time_in_utc")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthorizationExpirationTimeInUtc { get; set; }
 
     /// <summary>
     /// The partner_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerName is required")]
-    [TerraformPropertyName("partner_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("partner_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PartnerName { get; set; }
 
     /// <summary>
     /// The partner_registration_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PartnerRegistrationId is required")]
-    [TerraformPropertyName("partner_registration_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("partner_registration_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PartnerRegistrationId { get; set; }
 
 }
@@ -37,34 +37,34 @@ public class AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermEventgridPartnerConfigurationTimeoutsBlock
+public partial class AzurermEventgridPartnerConfigurationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -72,7 +72,7 @@ public class AzurermEventgridPartnerConfigurationTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_eventgrid_partner_configuration resource.
 /// </summary>
-public class AzurermEventgridPartnerConfiguration : TerraformResource
+public partial class AzurermEventgridPartnerConfiguration : TerraformResource
 {
     public AzurermEventgridPartnerConfiguration(string name) : base("azurerm_eventgrid_partner_configuration", name)
     {
@@ -81,44 +81,44 @@ public class AzurermEventgridPartnerConfiguration : TerraformResource
     /// <summary>
     /// The default_maximum_expiration_time_in_days attribute.
     /// </summary>
-    [TerraformPropertyName("default_maximum_expiration_time_in_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_maximum_expiration_time_in_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? DefaultMaximumExpirationTimeInDays { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for partner_authorization.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("partner_authorization")]
+    [TerraformProperty("partner_authorization")]
     public TerraformList<TerraformBlock<AzurermEventgridPartnerConfigurationPartnerAuthorizationBlock>>? PartnerAuthorization { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermEventgridPartnerConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

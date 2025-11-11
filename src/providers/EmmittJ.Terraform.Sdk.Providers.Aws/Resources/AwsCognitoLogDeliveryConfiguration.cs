@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for log_configurations in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock
+public partial class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The event_source attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventSource is required")]
-    [TerraformPropertyName("event_source")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("event_source")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EventSource { get; set; }
 
     /// <summary>
     /// The log_level attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LogLevel is required")]
-    [TerraformPropertyName("log_level")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("log_level")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LogLevel { get; set; }
 
 }
@@ -29,7 +29,7 @@ public class AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock
 /// <summary>
 /// Manages a aws_cognito_log_delivery_configuration resource.
 /// </summary>
-public class AwsCognitoLogDeliveryConfiguration : TerraformResource
+public partial class AwsCognitoLogDeliveryConfiguration : TerraformResource
 {
     public AwsCognitoLogDeliveryConfiguration(string name) : base("aws_cognito_log_delivery_configuration", name)
     {
@@ -38,23 +38,23 @@ public class AwsCognitoLogDeliveryConfiguration : TerraformResource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
-    [TerraformPropertyName("user_pool_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_pool_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserPoolId { get; set; }
 
     /// <summary>
     /// Block for log_configurations.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("log_configurations")]
+    [TerraformProperty("log_configurations")]
     public TerraformList<TerraformBlock<AwsCognitoLogDeliveryConfigurationLogConfigurationsBlock>>? LogConfigurations { get; set; }
 
 }

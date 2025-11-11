@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualNetworkPeeringDataSourceTimeoutsBlock
+public partial class AzurermVirtualNetworkPeeringDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermVirtualNetworkPeeringDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_virtual_network_peering.
 /// </summary>
-public class AzurermVirtualNetworkPeeringDataSource : TerraformDataSource
+public partial class AzurermVirtualNetworkPeeringDataSource : TerraformDataSource
 {
     public AzurermVirtualNetworkPeeringDataSource(string name) : base("azurerm_virtual_network_peering", name)
     {
@@ -29,80 +29,80 @@ public class AzurermVirtualNetworkPeeringDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The virtual_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualNetworkId is required")]
-    [TerraformPropertyName("virtual_network_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("virtual_network_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VirtualNetworkId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermVirtualNetworkPeeringDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The allow_forwarded_traffic attribute.
     /// </summary>
-    [TerraformPropertyName("allow_forwarded_traffic")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AllowForwardedTraffic => new TerraformReference(this, "allow_forwarded_traffic");
+    [TerraformProperty("allow_forwarded_traffic")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AllowForwardedTraffic { get; }
 
     /// <summary>
     /// The allow_gateway_transit attribute.
     /// </summary>
-    [TerraformPropertyName("allow_gateway_transit")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AllowGatewayTransit => new TerraformReference(this, "allow_gateway_transit");
+    [TerraformProperty("allow_gateway_transit")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AllowGatewayTransit { get; }
 
     /// <summary>
     /// The allow_virtual_network_access attribute.
     /// </summary>
-    [TerraformPropertyName("allow_virtual_network_access")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AllowVirtualNetworkAccess => new TerraformReference(this, "allow_virtual_network_access");
+    [TerraformProperty("allow_virtual_network_access")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AllowVirtualNetworkAccess { get; }
 
     /// <summary>
     /// The only_ipv6_peering_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("only_ipv6_peering_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> OnlyIpv6PeeringEnabled => new TerraformReference(this, "only_ipv6_peering_enabled");
+    [TerraformProperty("only_ipv6_peering_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> OnlyIpv6PeeringEnabled { get; }
 
     /// <summary>
     /// The peer_complete_virtual_networks_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("peer_complete_virtual_networks_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> PeerCompleteVirtualNetworksEnabled => new TerraformReference(this, "peer_complete_virtual_networks_enabled");
+    [TerraformProperty("peer_complete_virtual_networks_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> PeerCompleteVirtualNetworksEnabled { get; }
 
     /// <summary>
     /// The remote_virtual_network_id attribute.
     /// </summary>
-    [TerraformPropertyName("remote_virtual_network_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RemoteVirtualNetworkId => new TerraformReference(this, "remote_virtual_network_id");
+    [TerraformProperty("remote_virtual_network_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RemoteVirtualNetworkId { get; }
 
     /// <summary>
     /// The use_remote_gateways attribute.
     /// </summary>
-    [TerraformPropertyName("use_remote_gateways")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> UseRemoteGateways => new TerraformReference(this, "use_remote_gateways");
+    [TerraformProperty("use_remote_gateways")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> UseRemoteGateways { get; }
 
 }

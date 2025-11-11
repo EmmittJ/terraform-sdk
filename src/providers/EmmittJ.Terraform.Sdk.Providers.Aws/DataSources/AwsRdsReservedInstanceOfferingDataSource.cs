@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_rds_reserved_instance_offering.
 /// </summary>
-public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
+public partial class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
 {
     public AwsRdsReservedInstanceOfferingDataSource(string name) : base("aws_rds_reserved_instance_offering", name)
     {
@@ -15,75 +15,75 @@ public class AwsRdsReservedInstanceOfferingDataSource : TerraformDataSource
     /// The db_instance_class attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbInstanceClass is required")]
-    [TerraformPropertyName("db_instance_class")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("db_instance_class")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DbInstanceClass { get; set; }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Duration is required")]
-    [TerraformPropertyName("duration")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("duration")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Duration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The multi_az attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MultiAz is required")]
-    [TerraformPropertyName("multi_az")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("multi_az")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> MultiAz { get; set; }
 
     /// <summary>
     /// The offering_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OfferingType is required")]
-    [TerraformPropertyName("offering_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("offering_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OfferingType { get; set; }
 
     /// <summary>
     /// The product_description attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProductDescription is required")]
-    [TerraformPropertyName("product_description")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("product_description")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProductDescription { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The currency_code attribute.
     /// </summary>
-    [TerraformPropertyName("currency_code")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CurrencyCode => new TerraformReference(this, "currency_code");
+    [TerraformProperty("currency_code")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CurrencyCode { get; }
 
     /// <summary>
     /// The fixed_price attribute.
     /// </summary>
-    [TerraformPropertyName("fixed_price")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> FixedPrice => new TerraformReference(this, "fixed_price");
+    [TerraformProperty("fixed_price")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> FixedPrice { get; }
 
     /// <summary>
     /// The offering_id attribute.
     /// </summary>
-    [TerraformPropertyName("offering_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OfferingId => new TerraformReference(this, "offering_id");
+    [TerraformProperty("offering_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OfferingId { get; }
 
 }

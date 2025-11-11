@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeTargetPoolTimeoutsBlock
+public partial class GoogleComputeTargetPoolTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleComputeTargetPoolTimeoutsBlock
 /// <summary>
 /// Manages a google_compute_target_pool resource.
 /// </summary>
-public class GoogleComputeTargetPool : TerraformResource
+public partial class GoogleComputeTargetPool : TerraformResource
 {
     public GoogleComputeTargetPool(string name) : base("google_compute_target_pool", name)
     {
@@ -43,86 +43,86 @@ public class GoogleComputeTargetPool : TerraformResource
     /// <summary>
     /// URL to the backup target pool. Must also set failover_ratio.
     /// </summary>
-    [TerraformPropertyName("backup_pool")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("backup_pool")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BackupPool { get; set; }
 
     /// <summary>
     /// Textual description field.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Ratio (0 to 1) of failed nodes before using the backup pool (which must also be set).
     /// </summary>
-    [TerraformPropertyName("failover_ratio")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("failover_ratio")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? FailoverRatio { get; set; }
 
     /// <summary>
     /// List of zero or one health check name or self_link. Only legacy google_compute_http_health_check is supported.
     /// </summary>
-    [TerraformPropertyName("health_checks")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("health_checks")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? HealthChecks { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// List of instances in the pool. They can be given as URLs, or in the form of &amp;quot;zone/name&amp;quot;. Note that the instances need not exist at the time of target pool creation, so there is no need to use the Terraform interpolators to create a dependency on the instances from the target pool.
     /// </summary>
-    [TerraformPropertyName("instances")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> Instances { get; set; } = default!;
+    [TerraformProperty("instances")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> Instances { get; set; }
 
     /// <summary>
     /// A unique name for the resource, required by GCE. Changing this forces a new resource to be created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The ID of the project in which the resource belongs. If it is not provided, the provider project is used.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Where the target pool resides. Defaults to project region.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// How to distribute load. Options are &amp;quot;NONE&amp;quot; (no affinity). &amp;quot;CLIENT_IP&amp;quot; (hash of the source/dest addresses / ports), and &amp;quot;CLIENT_IP_PROTO&amp;quot; also includes the protocol (default &amp;quot;NONE&amp;quot;).
     /// </summary>
-    [TerraformPropertyName("session_affinity")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("session_affinity")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SessionAffinity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeTargetPoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The URI of the created resource.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for s3_job_definition in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMacie2ClassificationJobS3JobDefinitionBlock
+public partial class AwsMacie2ClassificationJobS3JobDefinitionBlock : TerraformBlockBase
 {
 }
 
@@ -14,28 +14,28 @@ public class AwsMacie2ClassificationJobS3JobDefinitionBlock
 /// Block type for schedule_frequency in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMacie2ClassificationJobScheduleFrequencyBlock
+public partial class AwsMacie2ClassificationJobScheduleFrequencyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The daily_schedule attribute.
     /// </summary>
-    [TerraformPropertyName("daily_schedule")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("daily_schedule")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DailySchedule { get; set; }
 
     /// <summary>
     /// The monthly_schedule attribute.
     /// </summary>
-    [TerraformPropertyName("monthly_schedule")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MonthlySchedule { get; set; } = default!;
+    [TerraformProperty("monthly_schedule")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MonthlySchedule { get; set; }
 
     /// <summary>
     /// The weekly_schedule attribute.
     /// </summary>
-    [TerraformPropertyName("weekly_schedule")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> WeeklySchedule { get; set; } = default!;
+    [TerraformProperty("weekly_schedule")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> WeeklySchedule { get; set; }
 
 }
 
@@ -43,20 +43,20 @@ public class AwsMacie2ClassificationJobScheduleFrequencyBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMacie2ClassificationJobTimeoutsBlock
+public partial class AwsMacie2ClassificationJobTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -65,7 +65,7 @@ public class AwsMacie2ClassificationJobTimeoutsBlock
 /// Manages a aws_macie2_classification_job resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsMacie2ClassificationJob : TerraformResource
+public partial class AwsMacie2ClassificationJob : TerraformResource
 {
     public AwsMacie2ClassificationJob(string name) : base("aws_macie2_classification_job", name)
     {
@@ -74,87 +74,87 @@ public class AwsMacie2ClassificationJob : TerraformResource
     /// <summary>
     /// The custom_data_identifier_ids attribute.
     /// </summary>
-    [TerraformPropertyName("custom_data_identifier_ids")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> CustomDataIdentifierIds { get; set; } = default!;
+    [TerraformProperty("custom_data_identifier_ids")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> CustomDataIdentifierIds { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Description { get; set; } = default!;
+    [TerraformProperty("description")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The initial_run attribute.
     /// </summary>
-    [TerraformPropertyName("initial_run")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("initial_run")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? InitialRun { get; set; }
 
     /// <summary>
     /// The job_status attribute.
     /// </summary>
-    [TerraformPropertyName("job_status")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> JobStatus { get; set; } = default!;
+    [TerraformProperty("job_status")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> JobStatus { get; set; }
 
     /// <summary>
     /// The job_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "JobType is required")]
-    [TerraformPropertyName("job_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("job_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> JobType { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NamePrefix { get; set; } = default!;
+    [TerraformProperty("name_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    [TerraformPropertyName("sampling_percentage")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> SamplingPercentage { get; set; } = default!;
+    [TerraformProperty("sampling_percentage")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> SamplingPercentage { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for s3_job_definition.
@@ -163,7 +163,7 @@ public class AwsMacie2ClassificationJob : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "S3JobDefinition is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 S3JobDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 S3JobDefinition block(s) allowed")]
-    [TerraformPropertyName("s3_job_definition")]
+    [TerraformProperty("s3_job_definition")]
     public TerraformList<TerraformBlock<AwsMacie2ClassificationJobS3JobDefinitionBlock>>? S3JobDefinition { get; set; }
 
     /// <summary>
@@ -171,42 +171,42 @@ public class AwsMacie2ClassificationJob : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScheduleFrequency block(s) allowed")]
-    [TerraformPropertyName("schedule_frequency")]
+    [TerraformProperty("schedule_frequency")]
     public TerraformList<TerraformBlock<AwsMacie2ClassificationJobScheduleFrequencyBlock>>? ScheduleFrequency { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsMacie2ClassificationJobTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The created_at attribute.
     /// </summary>
-    [TerraformPropertyName("created_at")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedAt => new TerraformReference(this, "created_at");
+    [TerraformProperty("created_at")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedAt { get; }
 
     /// <summary>
     /// The job_arn attribute.
     /// </summary>
-    [TerraformPropertyName("job_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> JobArn => new TerraformReference(this, "job_arn");
+    [TerraformProperty("job_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> JobArn { get; }
 
     /// <summary>
     /// The job_id attribute.
     /// </summary>
-    [TerraformPropertyName("job_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> JobId => new TerraformReference(this, "job_id");
+    [TerraformProperty("job_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> JobId { get; }
 
     /// <summary>
     /// The user_paused_details attribute.
     /// </summary>
-    [TerraformPropertyName("user_paused_details")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> UserPausedDetails => new TerraformReference(this, "user_paused_details");
+    [TerraformProperty("user_paused_details")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> UserPausedDetails { get; }
 
 }

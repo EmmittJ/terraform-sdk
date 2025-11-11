@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for permitted_public_security_group_rule_range in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeBlock
+public partial class AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeBlock : TerraformBlockBase
 {
     /// <summary>
     /// The max_range attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxRange is required")]
-    [TerraformPropertyName("max_range")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("max_range")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MaxRange { get; set; }
 
     /// <summary>
     /// The min_range attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinRange is required")]
-    [TerraformPropertyName("min_range")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("min_range")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MinRange { get; set; }
 
 }
@@ -29,7 +29,7 @@ public class AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRul
 /// <summary>
 /// Manages a aws_emr_block_public_access_configuration resource.
 /// </summary>
-public class AwsEmrBlockPublicAccessConfiguration : TerraformResource
+public partial class AwsEmrBlockPublicAccessConfiguration : TerraformResource
 {
     public AwsEmrBlockPublicAccessConfiguration(string name) : base("aws_emr_block_public_access_configuration", name)
     {
@@ -39,29 +39,29 @@ public class AwsEmrBlockPublicAccessConfiguration : TerraformResource
     /// The block_public_security_group_rules attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BlockPublicSecurityGroupRules is required")]
-    [TerraformPropertyName("block_public_security_group_rules")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("block_public_security_group_rules")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> BlockPublicSecurityGroupRules { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for permitted_public_security_group_rule_range.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("permitted_public_security_group_rule_range")]
+    [TerraformProperty("permitted_public_security_group_rule_range")]
     public TerraformList<TerraformBlock<AwsEmrBlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeBlock>>? PermittedPublicSecurityGroupRuleRange { get; set; }
 
 }

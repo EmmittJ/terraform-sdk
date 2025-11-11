@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for additional_capabilities in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The ultra_ssd_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("ultra_ssd_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ultra_ssd_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? UltraSsdEnabled { get; set; }
 
 }
@@ -21,29 +21,29 @@ public class AzurermOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesBloc
 /// Block type for automatic_instance_repair in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlock : TerraformBlockBase
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
-    [TerraformPropertyName("action")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Action { get; set; } = default!;
+    [TerraformProperty("action")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The grace_period attribute.
     /// </summary>
-    [TerraformPropertyName("grace_period")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> GracePeriod { get; set; } = default!;
+    [TerraformProperty("grace_period")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> GracePeriod { get; set; }
 
 }
 
@@ -51,13 +51,13 @@ public class AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlo
 /// Block type for boot_diagnostics in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetBootDiagnosticsBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetBootDiagnosticsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The storage_account_uri attribute.
     /// </summary>
-    [TerraformPropertyName("storage_account_uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("storage_account_uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StorageAccountUri { get; set; }
 
 }
@@ -66,71 +66,71 @@ public class AzurermOrchestratedVirtualMachineScaleSetBootDiagnosticsBlock
 /// Block type for data_disk in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock : TerraformBlockBase
 {
     /// <summary>
     /// The caching attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
-    [TerraformPropertyName("caching")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("caching")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Caching { get; set; }
 
     /// <summary>
     /// The create_option attribute.
     /// </summary>
-    [TerraformPropertyName("create_option")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create_option")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CreateOption { get; set; }
 
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    [TerraformPropertyName("disk_encryption_set_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disk_encryption_set_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    [TerraformPropertyName("disk_size_gb")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> DiskSizeGb { get; set; } = default!;
+    [TerraformProperty("disk_size_gb")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> DiskSizeGb { get; set; }
 
     /// <summary>
     /// The lun attribute.
     /// </summary>
-    [TerraformPropertyName("lun")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Lun { get; set; } = default!;
+    [TerraformProperty("lun")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Lun { get; set; }
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
-    [TerraformPropertyName("storage_account_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_account_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageAccountType { get; set; }
 
     /// <summary>
     /// The ultra_ssd_disk_iops_read_write attribute.
     /// </summary>
-    [TerraformPropertyName("ultra_ssd_disk_iops_read_write")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> UltraSsdDiskIopsReadWrite { get; set; } = default!;
+    [TerraformProperty("ultra_ssd_disk_iops_read_write")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> UltraSsdDiskIopsReadWrite { get; set; }
 
     /// <summary>
     /// The ultra_ssd_disk_mbps_read_write attribute.
     /// </summary>
-    [TerraformPropertyName("ultra_ssd_disk_mbps_read_write")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> UltraSsdDiskMbpsReadWrite { get; set; } = default!;
+    [TerraformProperty("ultra_ssd_disk_mbps_read_write")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> UltraSsdDiskMbpsReadWrite { get; set; }
 
     /// <summary>
     /// The write_accelerator_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("write_accelerator_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("write_accelerator_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? WriteAcceleratorEnabled { get; set; }
 
 }
@@ -139,80 +139,80 @@ public class AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock
 /// Block type for extension in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The auto_upgrade_minor_version_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("auto_upgrade_minor_version_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auto_upgrade_minor_version_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AutoUpgradeMinorVersionEnabled { get; set; }
 
     /// <summary>
     /// The extensions_to_provision_after_vm_creation attribute.
     /// </summary>
-    [TerraformPropertyName("extensions_to_provision_after_vm_creation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("extensions_to_provision_after_vm_creation")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ExtensionsToProvisionAfterVmCreation { get; set; }
 
     /// <summary>
     /// The failure_suppression_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("failure_suppression_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("failure_suppression_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? FailureSuppressionEnabled { get; set; }
 
     /// <summary>
     /// The force_extension_execution_on_change attribute.
     /// </summary>
-    [TerraformPropertyName("force_extension_execution_on_change")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("force_extension_execution_on_change")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ForceExtensionExecutionOnChange { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The protected_settings attribute.
     /// </summary>
-    [TerraformPropertyName("protected_settings")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("protected_settings")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ProtectedSettings { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    [TerraformPropertyName("publisher")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("publisher")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Publisher { get; set; }
 
     /// <summary>
     /// The settings attribute.
     /// </summary>
-    [TerraformPropertyName("settings")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("settings")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Settings { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The type_handler_version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TypeHandlerVersion is required")]
-    [TerraformPropertyName("type_handler_version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type_handler_version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TypeHandlerVersion { get; set; }
 
 }
@@ -221,22 +221,22 @@ public class AzurermOrchestratedVirtualMachineScaleSetExtensionBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetIdentityBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityIds is required")]
-    [TerraformPropertyName("identity_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("identity_ids")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> IdentityIds { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -245,63 +245,63 @@ public class AzurermOrchestratedVirtualMachineScaleSetIdentityBlock
 /// Block type for network_interface in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The auxiliary_mode attribute.
     /// </summary>
-    [TerraformPropertyName("auxiliary_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auxiliary_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuxiliaryMode { get; set; }
 
     /// <summary>
     /// The auxiliary_sku attribute.
     /// </summary>
-    [TerraformPropertyName("auxiliary_sku")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auxiliary_sku")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuxiliarySku { get; set; }
 
     /// <summary>
     /// The dns_servers attribute.
     /// </summary>
-    [TerraformPropertyName("dns_servers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dns_servers")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? DnsServers { get; set; }
 
     /// <summary>
     /// The enable_accelerated_networking attribute.
     /// </summary>
-    [TerraformPropertyName("enable_accelerated_networking")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_accelerated_networking")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableAcceleratedNetworking { get; set; }
 
     /// <summary>
     /// The enable_ip_forwarding attribute.
     /// </summary>
-    [TerraformPropertyName("enable_ip_forwarding")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_ip_forwarding")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableIpForwarding { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_security_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("network_security_group_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("network_security_group_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NetworkSecurityGroupId { get; set; }
 
     /// <summary>
     /// The primary attribute.
     /// </summary>
-    [TerraformPropertyName("primary")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("primary")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Primary { get; set; }
 
 }
@@ -310,43 +310,43 @@ public class AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock
 /// Block type for os_disk in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock : TerraformBlockBase
 {
     /// <summary>
     /// The caching attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Caching is required")]
-    [TerraformPropertyName("caching")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("caching")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Caching { get; set; }
 
     /// <summary>
     /// The disk_encryption_set_id attribute.
     /// </summary>
-    [TerraformPropertyName("disk_encryption_set_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disk_encryption_set_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DiskEncryptionSetId { get; set; }
 
     /// <summary>
     /// The disk_size_gb attribute.
     /// </summary>
-    [TerraformPropertyName("disk_size_gb")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> DiskSizeGb { get; set; } = default!;
+    [TerraformProperty("disk_size_gb")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> DiskSizeGb { get; set; }
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountType is required")]
-    [TerraformPropertyName("storage_account_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_account_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageAccountType { get; set; }
 
     /// <summary>
     /// The write_accelerator_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("write_accelerator_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("write_accelerator_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? WriteAcceleratorEnabled { get; set; }
 
 }
@@ -355,13 +355,13 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock
 /// Block type for os_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlock : TerraformBlockBase
 {
     /// <summary>
     /// The custom_data attribute.
     /// </summary>
-    [TerraformPropertyName("custom_data")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("custom_data")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CustomData { get; set; }
 
 }
@@ -370,30 +370,30 @@ public class AzurermOrchestratedVirtualMachineScaleSetOsProfileBlock
 /// Block type for plan in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetPlanBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetPlanBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The product attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Product is required")]
-    [TerraformPropertyName("product")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("product")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Product { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    [TerraformPropertyName("publisher")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("publisher")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Publisher { get; set; }
 
 }
@@ -402,20 +402,20 @@ public class AzurermOrchestratedVirtualMachineScaleSetPlanBlock
 /// Block type for priority_mix in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetPriorityMixBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetPriorityMixBlock : TerraformBlockBase
 {
     /// <summary>
     /// The base_regular_count attribute.
     /// </summary>
-    [TerraformPropertyName("base_regular_count")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("base_regular_count")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BaseRegularCount { get; set; }
 
     /// <summary>
     /// The regular_percentage_above_base attribute.
     /// </summary>
-    [TerraformPropertyName("regular_percentage_above_base")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("regular_percentage_above_base")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RegularPercentageAboveBase { get; set; }
 
 }
@@ -424,59 +424,59 @@ public class AzurermOrchestratedVirtualMachineScaleSetPriorityMixBlock
 /// Block type for rolling_upgrade_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cross_zone_upgrades_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("cross_zone_upgrades_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cross_zone_upgrades_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? CrossZoneUpgradesEnabled { get; set; }
 
     /// <summary>
     /// The max_batch_instance_percent attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxBatchInstancePercent is required")]
-    [TerraformPropertyName("max_batch_instance_percent")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("max_batch_instance_percent")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MaxBatchInstancePercent { get; set; }
 
     /// <summary>
     /// The max_unhealthy_instance_percent attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnhealthyInstancePercent is required")]
-    [TerraformPropertyName("max_unhealthy_instance_percent")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("max_unhealthy_instance_percent")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MaxUnhealthyInstancePercent { get; set; }
 
     /// <summary>
     /// The max_unhealthy_upgraded_instance_percent attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxUnhealthyUpgradedInstancePercent is required")]
-    [TerraformPropertyName("max_unhealthy_upgraded_instance_percent")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("max_unhealthy_upgraded_instance_percent")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MaxUnhealthyUpgradedInstancePercent { get; set; }
 
     /// <summary>
     /// The maximum_surge_instances_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("maximum_surge_instances_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("maximum_surge_instances_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? MaximumSurgeInstancesEnabled { get; set; }
 
     /// <summary>
     /// The pause_time_between_batches attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PauseTimeBetweenBatches is required")]
-    [TerraformPropertyName("pause_time_between_batches")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("pause_time_between_batches")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PauseTimeBetweenBatches { get; set; }
 
     /// <summary>
     /// The prioritize_unhealthy_instances_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("prioritize_unhealthy_instances_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("prioritize_unhealthy_instances_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PrioritizeUnhealthyInstancesEnabled { get; set; }
 
 }
@@ -485,22 +485,22 @@ public class AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock
 /// Block type for sku_profile in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock : TerraformBlockBase
 {
     /// <summary>
     /// The allocation_strategy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllocationStrategy is required")]
-    [TerraformPropertyName("allocation_strategy")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("allocation_strategy")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AllocationStrategy { get; set; }
 
     /// <summary>
     /// The vm_sizes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VmSizes is required")]
-    [TerraformPropertyName("vm_sizes")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vm_sizes")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> VmSizes { get; set; }
 
 }
@@ -509,38 +509,38 @@ public class AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock
 /// Block type for source_image_reference in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The offer attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Offer is required")]
-    [TerraformPropertyName("offer")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("offer")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Offer { get; set; }
 
     /// <summary>
     /// The publisher attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Publisher is required")]
-    [TerraformPropertyName("publisher")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("publisher")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Publisher { get; set; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Sku is required")]
-    [TerraformPropertyName("sku")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sku")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Sku { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformPropertyName("version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Version { get; set; }
 
 }
@@ -549,21 +549,21 @@ public class AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock
 /// Block type for termination_notification in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Enabled is required")]
-    [TerraformPropertyName("enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Enabled { get; set; }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    [TerraformPropertyName("timeout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("timeout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Timeout { get; set; }
 
 }
@@ -572,34 +572,34 @@ public class AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlo
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermOrchestratedVirtualMachineScaleSetTimeoutsBlock
+public partial class AzurermOrchestratedVirtualMachineScaleSetTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -608,7 +608,7 @@ public class AzurermOrchestratedVirtualMachineScaleSetTimeoutsBlock
 /// Manages a azurerm_orchestrated_virtual_machine_scale_set resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
+public partial class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
 {
     public AzurermOrchestratedVirtualMachineScaleSet(string name) : base("azurerm_orchestrated_virtual_machine_scale_set", name)
     {
@@ -617,173 +617,173 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     /// <summary>
     /// The capacity_reservation_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("capacity_reservation_group_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("capacity_reservation_group_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CapacityReservationGroupId { get; set; }
 
     /// <summary>
     /// The encryption_at_host_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("encryption_at_host_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("encryption_at_host_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EncryptionAtHostEnabled { get; set; }
 
     /// <summary>
     /// The eviction_policy attribute.
     /// </summary>
-    [TerraformPropertyName("eviction_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("eviction_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EvictionPolicy { get; set; }
 
     /// <summary>
     /// The extension_operations_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("extension_operations_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("extension_operations_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ExtensionOperationsEnabled { get; set; }
 
     /// <summary>
     /// The extensions_time_budget attribute.
     /// </summary>
-    [TerraformPropertyName("extensions_time_budget")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("extensions_time_budget")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExtensionsTimeBudget { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instances attribute.
     /// </summary>
-    [TerraformPropertyName("instances")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Instances { get; set; } = default!;
+    [TerraformProperty("instances")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Instances { get; set; }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    [TerraformPropertyName("license_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("license_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LicenseType { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The max_bid_price attribute.
     /// </summary>
-    [TerraformPropertyName("max_bid_price")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_bid_price")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxBidPrice { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_api_version attribute.
     /// </summary>
-    [TerraformPropertyName("network_api_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("network_api_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NetworkApiVersion { get; set; }
 
     /// <summary>
     /// The platform_fault_domain_count attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformFaultDomainCount is required")]
-    [TerraformPropertyName("platform_fault_domain_count")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("platform_fault_domain_count")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> PlatformFaultDomainCount { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    [TerraformPropertyName("priority")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("priority")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Priority { get; set; }
 
     /// <summary>
     /// The proximity_placement_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("proximity_placement_group_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("proximity_placement_group_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ProximityPlacementGroupId { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The single_placement_group attribute.
     /// </summary>
-    [TerraformPropertyName("single_placement_group")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> SinglePlacementGroup { get; set; } = default!;
+    [TerraformProperty("single_placement_group")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> SinglePlacementGroup { get; set; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    [TerraformPropertyName("sku_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sku_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SkuName { get; set; }
 
     /// <summary>
     /// The source_image_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_image_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_image_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceImageId { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The upgrade_mode attribute.
     /// </summary>
-    [TerraformPropertyName("upgrade_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("upgrade_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? UpgradeMode { get; set; }
 
     /// <summary>
     /// The user_data_base64 attribute.
     /// </summary>
-    [TerraformPropertyName("user_data_base64")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("user_data_base64")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? UserDataBase64 { get; set; }
 
     /// <summary>
     /// The zone_balance attribute.
     /// </summary>
-    [TerraformPropertyName("zone_balance")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("zone_balance")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ZoneBalance { get; set; }
 
     /// <summary>
     /// The zones attribute.
     /// </summary>
-    [TerraformPropertyName("zones")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("zones")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Zones { get; set; }
 
     /// <summary>
@@ -791,7 +791,7 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AdditionalCapabilities block(s) allowed")]
-    [TerraformPropertyName("additional_capabilities")]
+    [TerraformProperty("additional_capabilities")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetAdditionalCapabilitiesBlock>>? AdditionalCapabilities { get; set; }
 
     /// <summary>
@@ -799,7 +799,7 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticInstanceRepair block(s) allowed")]
-    [TerraformPropertyName("automatic_instance_repair")]
+    [TerraformProperty("automatic_instance_repair")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetAutomaticInstanceRepairBlock>>? AutomaticInstanceRepair { get; set; }
 
     /// <summary>
@@ -807,21 +807,21 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BootDiagnostics block(s) allowed")]
-    [TerraformPropertyName("boot_diagnostics")]
+    [TerraformProperty("boot_diagnostics")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetBootDiagnosticsBlock>>? BootDiagnostics { get; set; }
 
     /// <summary>
     /// Block for data_disk.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("data_disk")]
+    [TerraformProperty("data_disk")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetDataDiskBlock>>? DataDisk { get; set; }
 
     /// <summary>
     /// Block for extension.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("extension")]
+    [TerraformProperty("extension")]
     public TerraformSet<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetExtensionBlock>>? Extension { get; set; }
 
     /// <summary>
@@ -829,14 +829,14 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for network_interface.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("network_interface")]
+    [TerraformProperty("network_interface")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetNetworkInterfaceBlock>>? NetworkInterface { get; set; }
 
     /// <summary>
@@ -844,7 +844,7 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsDisk block(s) allowed")]
-    [TerraformPropertyName("os_disk")]
+    [TerraformProperty("os_disk")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetOsDiskBlock>>? OsDisk { get; set; }
 
     /// <summary>
@@ -852,7 +852,7 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsProfile block(s) allowed")]
-    [TerraformPropertyName("os_profile")]
+    [TerraformProperty("os_profile")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetOsProfileBlock>>? OsProfile { get; set; }
 
     /// <summary>
@@ -860,7 +860,7 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Plan block(s) allowed")]
-    [TerraformPropertyName("plan")]
+    [TerraformProperty("plan")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetPlanBlock>>? Plan { get; set; }
 
     /// <summary>
@@ -868,7 +868,7 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PriorityMix block(s) allowed")]
-    [TerraformPropertyName("priority_mix")]
+    [TerraformProperty("priority_mix")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetPriorityMixBlock>>? PriorityMix { get; set; }
 
     /// <summary>
@@ -876,7 +876,7 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RollingUpgradePolicy block(s) allowed")]
-    [TerraformPropertyName("rolling_upgrade_policy")]
+    [TerraformProperty("rolling_upgrade_policy")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetRollingUpgradePolicyBlock>>? RollingUpgradePolicy { get; set; }
 
     /// <summary>
@@ -884,7 +884,7 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SkuProfile block(s) allowed")]
-    [TerraformPropertyName("sku_profile")]
+    [TerraformProperty("sku_profile")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetSkuProfileBlock>>? SkuProfile { get; set; }
 
     /// <summary>
@@ -892,7 +892,7 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceImageReference block(s) allowed")]
-    [TerraformPropertyName("source_image_reference")]
+    [TerraformProperty("source_image_reference")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetSourceImageReferenceBlock>>? SourceImageReference { get; set; }
 
     /// <summary>
@@ -900,21 +900,21 @@ public class AzurermOrchestratedVirtualMachineScaleSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TerminationNotification block(s) allowed")]
-    [TerraformPropertyName("termination_notification")]
+    [TerraformProperty("termination_notification")]
     public TerraformList<TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetTerminationNotificationBlock>>? TerminationNotification { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermOrchestratedVirtualMachineScaleSetTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The unique_id attribute.
     /// </summary>
-    [TerraformPropertyName("unique_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UniqueId => new TerraformReference(this, "unique_id");
+    [TerraformProperty("unique_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UniqueId { get; }
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for sql_injection_match_tuples in .
 /// Nesting mode: set
 /// </summary>
-public class AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock
+public partial class AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The text_transformation attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TextTransformation is required")]
-    [TerraformPropertyName("text_transformation")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("text_transformation")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TextTransformation { get; set; }
 
 }
@@ -21,7 +21,7 @@ public class AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock
 /// <summary>
 /// Manages a aws_waf_sql_injection_match_set resource.
 /// </summary>
-public class AwsWafSqlInjectionMatchSet : TerraformResource
+public partial class AwsWafSqlInjectionMatchSet : TerraformResource
 {
     public AwsWafSqlInjectionMatchSet(string name) : base("aws_waf_sql_injection_match_set", name)
     {
@@ -30,30 +30,30 @@ public class AwsWafSqlInjectionMatchSet : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Block for sql_injection_match_tuples.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("sql_injection_match_tuples")]
+    [TerraformProperty("sql_injection_match_tuples")]
     public TerraformSet<TerraformBlock<AwsWafSqlInjectionMatchSetSqlInjectionMatchTuplesBlock>>? SqlInjectionMatchTuples { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

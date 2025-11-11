@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeHttpHealthCheckTimeoutsBlock
+public partial class GoogleComputeHttpHealthCheckTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleComputeHttpHealthCheckTimeoutsBlock
 /// <summary>
 /// Manages a google_compute_http_health_check resource.
 /// </summary>
-public class GoogleComputeHttpHealthCheck : TerraformResource
+public partial class GoogleComputeHttpHealthCheck : TerraformResource
 {
     public GoogleComputeHttpHealthCheck(string name) : base("google_compute_http_health_check", name)
     {
@@ -44,24 +44,24 @@ public class GoogleComputeHttpHealthCheck : TerraformResource
     /// How often (in seconds) to send a health check. The default value is 5
     /// seconds.
     /// </summary>
-    [TerraformPropertyName("check_interval_sec")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("check_interval_sec")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? CheckIntervalSec { get; set; }
 
     /// <summary>
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// A so-far unhealthy instance will be marked healthy after this many
     /// consecutive successes. The default value is 2.
     /// </summary>
-    [TerraformPropertyName("healthy_threshold")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("healthy_threshold")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? HealthyThreshold { get; set; }
 
     /// <summary>
@@ -69,16 +69,16 @@ public class GoogleComputeHttpHealthCheck : TerraformResource
     /// left empty (default value), the public IP on behalf of which this
     /// health check is performed will be used.
     /// </summary>
-    [TerraformPropertyName("host")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("host")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Host { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -90,31 +90,31 @@ public class GoogleComputeHttpHealthCheck : TerraformResource
     /// last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The TCP port number for the HTTP health check request.
     /// The default value is 80.
     /// </summary>
-    [TerraformPropertyName("port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The request path of the HTTP health check request.
     /// The default value is /.
     /// </summary>
-    [TerraformPropertyName("request_path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("request_path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RequestPath { get; set; }
 
     /// <summary>
@@ -122,37 +122,37 @@ public class GoogleComputeHttpHealthCheck : TerraformResource
     /// The default value is 5 seconds.  It is invalid for timeoutSec to have
     /// greater value than checkIntervalSec.
     /// </summary>
-    [TerraformPropertyName("timeout_sec")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("timeout_sec")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? TimeoutSec { get; set; }
 
     /// <summary>
     /// A so-far healthy instance will be marked unhealthy after this many
     /// consecutive failures. The default value is 2.
     /// </summary>
-    [TerraformPropertyName("unhealthy_threshold")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("unhealthy_threshold")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? UnhealthyThreshold { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeHttpHealthCheckTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for delivery_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSesv2ConfigurationSetDeliveryOptionsBlock
+public partial class AwsSesv2ConfigurationSetDeliveryOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The max_delivery_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("max_delivery_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_delivery_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxDeliverySeconds { get; set; }
 
     /// <summary>
     /// The sending_pool_name attribute.
     /// </summary>
-    [TerraformPropertyName("sending_pool_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sending_pool_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SendingPoolName { get; set; }
 
     /// <summary>
     /// The tls_policy attribute.
     /// </summary>
-    [TerraformPropertyName("tls_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tls_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TlsPolicy { get; set; }
 
 }
@@ -35,15 +35,15 @@ public class AwsSesv2ConfigurationSetDeliveryOptionsBlock
 /// Block type for reputation_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSesv2ConfigurationSetReputationOptionsBlock
+public partial class AwsSesv2ConfigurationSetReputationOptionsBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The reputation_metrics_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("reputation_metrics_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> ReputationMetricsEnabled { get; set; } = default!;
+    [TerraformProperty("reputation_metrics_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> ReputationMetricsEnabled { get; set; }
 
 }
 
@@ -51,14 +51,14 @@ public class AwsSesv2ConfigurationSetReputationOptionsBlock
 /// Block type for sending_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSesv2ConfigurationSetSendingOptionsBlock
+public partial class AwsSesv2ConfigurationSetSendingOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The sending_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("sending_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> SendingEnabled { get; set; } = default!;
+    [TerraformProperty("sending_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> SendingEnabled { get; set; }
 
 }
 
@@ -66,13 +66,13 @@ public class AwsSesv2ConfigurationSetSendingOptionsBlock
 /// Block type for suppression_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSesv2ConfigurationSetSuppressionOptionsBlock
+public partial class AwsSesv2ConfigurationSetSuppressionOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The suppressed_reasons attribute.
     /// </summary>
-    [TerraformPropertyName("suppressed_reasons")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("suppressed_reasons")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? SuppressedReasons { get; set; }
 
 }
@@ -81,21 +81,21 @@ public class AwsSesv2ConfigurationSetSuppressionOptionsBlock
 /// Block type for tracking_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSesv2ConfigurationSetTrackingOptionsBlock
+public partial class AwsSesv2ConfigurationSetTrackingOptionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The custom_redirect_domain attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomRedirectDomain is required")]
-    [TerraformPropertyName("custom_redirect_domain")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("custom_redirect_domain")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CustomRedirectDomain { get; set; }
 
     /// <summary>
     /// The https_policy attribute.
     /// </summary>
-    [TerraformPropertyName("https_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("https_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HttpsPolicy { get; set; }
 
 }
@@ -104,7 +104,7 @@ public class AwsSesv2ConfigurationSetTrackingOptionsBlock
 /// Block type for vdm_options in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSesv2ConfigurationSetVdmOptionsBlock
+public partial class AwsSesv2ConfigurationSetVdmOptionsBlock : TerraformBlockBase
 {
 }
 
@@ -112,7 +112,7 @@ public class AwsSesv2ConfigurationSetVdmOptionsBlock
 /// Manages a aws_sesv2_configuration_set resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsSesv2ConfigurationSet : TerraformResource
+public partial class AwsSesv2ConfigurationSet : TerraformResource
 {
     public AwsSesv2ConfigurationSet(string name) : base("aws_sesv2_configuration_set", name)
     {
@@ -122,44 +122,44 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     /// The configuration_set_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationSetName is required")]
-    [TerraformPropertyName("configuration_set_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("configuration_set_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConfigurationSetName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for delivery_options.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeliveryOptions block(s) allowed")]
-    [TerraformPropertyName("delivery_options")]
+    [TerraformProperty("delivery_options")]
     public TerraformList<TerraformBlock<AwsSesv2ConfigurationSetDeliveryOptionsBlock>>? DeliveryOptions { get; set; }
 
     /// <summary>
@@ -167,7 +167,7 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ReputationOptions block(s) allowed")]
-    [TerraformPropertyName("reputation_options")]
+    [TerraformProperty("reputation_options")]
     public TerraformList<TerraformBlock<AwsSesv2ConfigurationSetReputationOptionsBlock>>? ReputationOptions { get; set; }
 
     /// <summary>
@@ -175,7 +175,7 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SendingOptions block(s) allowed")]
-    [TerraformPropertyName("sending_options")]
+    [TerraformProperty("sending_options")]
     public TerraformList<TerraformBlock<AwsSesv2ConfigurationSetSendingOptionsBlock>>? SendingOptions { get; set; }
 
     /// <summary>
@@ -183,7 +183,7 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SuppressionOptions block(s) allowed")]
-    [TerraformPropertyName("suppression_options")]
+    [TerraformProperty("suppression_options")]
     public TerraformList<TerraformBlock<AwsSesv2ConfigurationSetSuppressionOptionsBlock>>? SuppressionOptions { get; set; }
 
     /// <summary>
@@ -191,7 +191,7 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TrackingOptions block(s) allowed")]
-    [TerraformPropertyName("tracking_options")]
+    [TerraformProperty("tracking_options")]
     public TerraformList<TerraformBlock<AwsSesv2ConfigurationSetTrackingOptionsBlock>>? TrackingOptions { get; set; }
 
     /// <summary>
@@ -199,14 +199,14 @@ public class AwsSesv2ConfigurationSet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VdmOptions block(s) allowed")]
-    [TerraformPropertyName("vdm_options")]
+    [TerraformProperty("vdm_options")]
     public TerraformList<TerraformBlock<AwsSesv2ConfigurationSetVdmOptionsBlock>>? VdmOptions { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
 }

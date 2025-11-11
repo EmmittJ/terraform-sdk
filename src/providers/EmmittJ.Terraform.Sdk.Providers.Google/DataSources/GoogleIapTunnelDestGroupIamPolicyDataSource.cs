@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_iap_tunnel_dest_group_iam_policy.
 /// </summary>
-public class GoogleIapTunnelDestGroupIamPolicyDataSource : TerraformDataSource
+public partial class GoogleIapTunnelDestGroupIamPolicyDataSource : TerraformDataSource
 {
     public GoogleIapTunnelDestGroupIamPolicyDataSource(string name) : base("google_iap_tunnel_dest_group_iam_policy", name)
     {
@@ -15,43 +15,43 @@ public class GoogleIapTunnelDestGroupIamPolicyDataSource : TerraformDataSource
     /// The dest_group attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DestGroup is required")]
-    [TerraformPropertyName("dest_group")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("dest_group")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DestGroup { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The policy_data attribute.
     /// </summary>
-    [TerraformPropertyName("policy_data")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PolicyData => new TerraformReference(this, "policy_data");
+    [TerraformProperty("policy_data")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PolicyData { get; }
 
 }

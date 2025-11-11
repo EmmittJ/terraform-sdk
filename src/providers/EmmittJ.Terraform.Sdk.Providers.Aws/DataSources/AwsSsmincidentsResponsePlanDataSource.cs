@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_ssmincidents_response_plan.
 /// </summary>
-public class AwsSsmincidentsResponsePlanDataSource : TerraformDataSource
+public partial class AwsSsmincidentsResponsePlanDataSource : TerraformDataSource
 {
     public AwsSsmincidentsResponsePlanDataSource(string name) : base("aws_ssmincidents_response_plan", name)
     {
@@ -15,78 +15,78 @@ public class AwsSsmincidentsResponsePlanDataSource : TerraformDataSource
     /// The arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Arn is required")]
-    [TerraformPropertyName("arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The action attribute.
     /// </summary>
-    [TerraformPropertyName("action")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Action => new TerraformReference(this, "action");
+    [TerraformProperty("action")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Action { get; }
 
     /// <summary>
     /// The chat_channel attribute.
     /// </summary>
-    [TerraformPropertyName("chat_channel")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> ChatChannel => new TerraformReference(this, "chat_channel");
+    [TerraformProperty("chat_channel")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> ChatChannel { get; }
 
     /// <summary>
     /// The display_name attribute.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DisplayName => new TerraformReference(this, "display_name");
+    [TerraformProperty("display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DisplayName { get; }
 
     /// <summary>
     /// The engagements attribute.
     /// </summary>
-    [TerraformPropertyName("engagements")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> Engagements => new TerraformReference(this, "engagements");
+    [TerraformProperty("engagements")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> Engagements { get; }
 
     /// <summary>
     /// The incident_template attribute.
     /// </summary>
-    [TerraformPropertyName("incident_template")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> IncidentTemplate => new TerraformReference(this, "incident_template");
+    [TerraformProperty("incident_template")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> IncidentTemplate { get; }
 
     /// <summary>
     /// The integration attribute.
     /// </summary>
-    [TerraformPropertyName("integration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Integration => new TerraformReference(this, "integration");
+    [TerraformProperty("integration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Integration { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

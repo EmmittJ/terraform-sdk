@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_organization.
 /// </summary>
-public class GoogleOrganizationDataSource : TerraformDataSource
+public partial class GoogleOrganizationDataSource : TerraformDataSource
 {
     public GoogleOrganizationDataSource(string name) : base("google_organization", name)
     {
@@ -14,57 +14,57 @@ public class GoogleOrganizationDataSource : TerraformDataSource
     /// <summary>
     /// The domain attribute.
     /// </summary>
-    [TerraformPropertyName("domain")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Domain { get; set; } = default!;
+    [TerraformProperty("domain")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Domain { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The organization attribute.
     /// </summary>
-    [TerraformPropertyName("organization")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("organization")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Organization { get; set; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The directory_customer_id attribute.
     /// </summary>
-    [TerraformPropertyName("directory_customer_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DirectoryCustomerId => new TerraformReference(this, "directory_customer_id");
+    [TerraformProperty("directory_customer_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DirectoryCustomerId { get; }
 
     /// <summary>
     /// The lifecycle_state attribute.
     /// </summary>
-    [TerraformPropertyName("lifecycle_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LifecycleState => new TerraformReference(this, "lifecycle_state");
+    [TerraformProperty("lifecycle_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LifecycleState { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The org_id attribute.
     /// </summary>
-    [TerraformPropertyName("org_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OrgId => new TerraformReference(this, "org_id");
+    [TerraformProperty("org_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OrgId { get; }
 
 }

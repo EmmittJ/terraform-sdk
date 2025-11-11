@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_sesv2_dedicated_ip_pool.
 /// </summary>
-public class AwsSesv2DedicatedIpPoolDataSource : TerraformDataSource
+public partial class AwsSesv2DedicatedIpPoolDataSource : TerraformDataSource
 {
     public AwsSesv2DedicatedIpPoolDataSource(string name) : base("aws_sesv2_dedicated_ip_pool", name)
     {
@@ -14,51 +14,51 @@ public class AwsSesv2DedicatedIpPoolDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The pool_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PoolName is required")]
-    [TerraformPropertyName("pool_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("pool_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PoolName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The dedicated_ips attribute.
     /// </summary>
-    [TerraformPropertyName("dedicated_ips")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> DedicatedIps => new TerraformReference(this, "dedicated_ips");
+    [TerraformProperty("dedicated_ips")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> DedicatedIps { get; }
 
     /// <summary>
     /// The scaling_mode attribute.
     /// </summary>
-    [TerraformPropertyName("scaling_mode")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ScalingMode => new TerraformReference(this, "scaling_mode");
+    [TerraformProperty("scaling_mode")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ScalingMode { get; }
 
 }

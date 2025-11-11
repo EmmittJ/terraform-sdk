@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_forwarding_rules.
 /// </summary>
-public class GoogleComputeForwardingRulesDataSource : TerraformDataSource
+public partial class GoogleComputeForwardingRulesDataSource : TerraformDataSource
 {
     public GoogleComputeForwardingRulesDataSource(string name) : base("google_compute_forwarding_rules", name)
     {
@@ -14,29 +14,29 @@ public class GoogleComputeForwardingRulesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
     /// The rules attribute.
     /// </summary>
-    [TerraformPropertyName("rules")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Rules => new TerraformReference(this, "rules");
+    [TerraformProperty("rules")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Rules { get; }
 
 }

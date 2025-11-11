@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDnsMxRecordDataSourceTimeoutsBlock
+public partial class AzurermDnsMxRecordDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermDnsMxRecordDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_dns_mx_record.
 /// </summary>
-public class AzurermDnsMxRecordDataSource : TerraformDataSource
+public partial class AzurermDnsMxRecordDataSource : TerraformDataSource
 {
     public AzurermDnsMxRecordDataSource(string name) : base("azurerm_dns_mx_record", name)
     {
@@ -29,66 +29,66 @@ public class AzurermDnsMxRecordDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The zone_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ZoneName is required")]
-    [TerraformPropertyName("zone_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("zone_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ZoneName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermDnsMxRecordDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    [TerraformPropertyName("fqdn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fqdn => new TerraformReference(this, "fqdn");
+    [TerraformProperty("fqdn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fqdn { get; }
 
     /// <summary>
     /// The record attribute.
     /// </summary>
-    [TerraformPropertyName("record")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Record => new TerraformReference(this, "record");
+    [TerraformProperty("record")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Record { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    [TerraformPropertyName("ttl")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> Ttl => new TerraformReference(this, "ttl");
+    [TerraformProperty("ttl")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> Ttl { get; }
 
 }

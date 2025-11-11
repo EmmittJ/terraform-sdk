@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for signature_validity_period in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSignerSigningProfileSignatureValidityPeriodBlock
+public partial class AwsSignerSigningProfileSignatureValidityPeriodBlock : TerraformBlockBase
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Value { get; set; }
 
 }
@@ -30,14 +30,14 @@ public class AwsSignerSigningProfileSignatureValidityPeriodBlock
 /// Block type for signing_material in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSignerSigningProfileSigningMaterialBlock
+public partial class AwsSignerSigningProfileSigningMaterialBlock : TerraformBlockBase
 {
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateArn is required")]
-    [TerraformPropertyName("certificate_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("certificate_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CertificateArn { get; set; }
 
 }
@@ -46,7 +46,7 @@ public class AwsSignerSigningProfileSigningMaterialBlock
 /// Manages a aws_signer_signing_profile resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsSignerSigningProfile : TerraformResource
+public partial class AwsSignerSigningProfile : TerraformResource
 {
     public AwsSignerSigningProfile(string name) : base("aws_signer_signing_profile", name)
     {
@@ -55,66 +55,66 @@ public class AwsSignerSigningProfile : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NamePrefix { get; set; } = default!;
+    [TerraformProperty("name_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The platform_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PlatformId is required")]
-    [TerraformPropertyName("platform_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("platform_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PlatformId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The signing_parameters attribute.
     /// </summary>
-    [TerraformPropertyName("signing_parameters")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("signing_parameters")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? SigningParameters { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for signature_validity_period.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SignatureValidityPeriod block(s) allowed")]
-    [TerraformPropertyName("signature_validity_period")]
+    [TerraformProperty("signature_validity_period")]
     public TerraformList<TerraformBlock<AwsSignerSigningProfileSignatureValidityPeriodBlock>>? SignatureValidityPeriod { get; set; }
 
     /// <summary>
@@ -122,49 +122,49 @@ public class AwsSignerSigningProfile : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SigningMaterial block(s) allowed")]
-    [TerraformPropertyName("signing_material")]
+    [TerraformProperty("signing_material")]
     public TerraformList<TerraformBlock<AwsSignerSigningProfileSigningMaterialBlock>>? SigningMaterial { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The platform_display_name attribute.
     /// </summary>
-    [TerraformPropertyName("platform_display_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PlatformDisplayName => new TerraformReference(this, "platform_display_name");
+    [TerraformProperty("platform_display_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PlatformDisplayName { get; }
 
     /// <summary>
     /// The revocation_record attribute.
     /// </summary>
-    [TerraformPropertyName("revocation_record")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> RevocationRecord => new TerraformReference(this, "revocation_record");
+    [TerraformProperty("revocation_record")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> RevocationRecord { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Version => new TerraformReference(this, "version");
+    [TerraformProperty("version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Version { get; }
 
     /// <summary>
     /// The version_arn attribute.
     /// </summary>
-    [TerraformPropertyName("version_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VersionArn => new TerraformReference(this, "version_arn");
+    [TerraformProperty("version_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VersionArn { get; }
 
 }

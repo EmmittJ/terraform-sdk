@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeHaVpnGatewayTimeoutsBlock
+public partial class GoogleComputeHaVpnGatewayTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -35,13 +35,13 @@ public class GoogleComputeHaVpnGatewayTimeoutsBlock
 /// Block type for vpn_interfaces in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeHaVpnGatewayVpnInterfacesBlock
+public partial class GoogleComputeHaVpnGatewayVpnInterfacesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The numeric ID of this VPN gateway interface.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Id { get; set; }
 
     /// <summary>
@@ -53,8 +53,8 @@ public class GoogleComputeHaVpnGatewayVpnInterfacesBlock
     /// 
     /// Not currently available publicly.
     /// </summary>
-    [TerraformPropertyName("interconnect_attachment")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("interconnect_attachment")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? InterconnectAttachment { get; set; }
 
 
@@ -63,7 +63,7 @@ public class GoogleComputeHaVpnGatewayVpnInterfacesBlock
 /// <summary>
 /// Manages a google_compute_ha_vpn_gateway resource.
 /// </summary>
-public class GoogleComputeHaVpnGateway : TerraformResource
+public partial class GoogleComputeHaVpnGateway : TerraformResource
 {
     public GoogleComputeHaVpnGateway(string name) : base("google_compute_ha_vpn_gateway", name)
     {
@@ -72,23 +72,23 @@ public class GoogleComputeHaVpnGateway : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The IP family of the gateway IPs for the HA-VPN gateway interfaces. If not specified, IPV4 will be used. Default value: &amp;quot;IPV4&amp;quot; Possible values: [&amp;quot;IPV4&amp;quot;, &amp;quot;IPV6&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("gateway_ip_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("gateway_ip_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? GatewayIpVersion { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels for this resource. These can only be added or modified by the setLabels method.
@@ -98,8 +98,8 @@ public class GoogleComputeHaVpnGateway : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -112,60 +112,60 @@ public class GoogleComputeHaVpnGateway : TerraformResource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network this VPN gateway is accepting traffic for.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
-    [TerraformPropertyName("network")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region this gateway should sit in.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The stack type for this VPN gateway to identify the IP protocols that are enabled.
     /// If not specified, IPV4_ONLY will be used. Default value: &amp;quot;IPV4_ONLY&amp;quot; Possible values: [&amp;quot;IPV4_ONLY&amp;quot;, &amp;quot;IPV4_IPV6&amp;quot;, &amp;quot;IPV6_ONLY&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("stack_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("stack_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StackType { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeHaVpnGatewayTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for vpn_interfaces.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("vpn_interfaces")]
+    [TerraformProperty("vpn_interfaces")]
     public TerraformList<TerraformBlock<GoogleComputeHaVpnGatewayVpnInterfacesBlock>>? VpnInterfaces { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// A fingerprint for the labels being applied to this VpnGateway, which is essentially a hash
@@ -174,23 +174,23 @@ public class GoogleComputeHaVpnGateway : TerraformResource
     /// You must always provide an up-to-date fingerprint hash in order to update or change labels,
     /// otherwise the request will fail with error 412 conditionNotMet.
     /// </summary>
-    [TerraformPropertyName("label_fingerprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LabelFingerprint => new TerraformReference(this, "label_fingerprint");
+    [TerraformProperty("label_fingerprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LabelFingerprint { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsVpcSecurityGroupRuleDataSourceFilterBlock
+public partial class AwsVpcSecurityGroupRuleDataSourceFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    [TerraformPropertyName("values")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("values")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Values { get; set; }
 
 }
@@ -29,7 +29,7 @@ public class AwsVpcSecurityGroupRuleDataSourceFilterBlock
 /// <summary>
 /// Retrieves information about a aws_vpc_security_group_rule.
 /// </summary>
-public class AwsVpcSecurityGroupRuleDataSource : TerraformDataSource
+public partial class AwsVpcSecurityGroupRuleDataSource : TerraformDataSource
 {
     public AwsVpcSecurityGroupRuleDataSource(string name) : base("aws_vpc_security_group_rule", name)
     {
@@ -38,113 +38,113 @@ public class AwsVpcSecurityGroupRuleDataSource : TerraformDataSource
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_group_rule_id attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_rule_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> SecurityGroupRuleId { get; set; } = default!;
+    [TerraformProperty("security_group_rule_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> SecurityGroupRuleId { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformSet<TerraformBlock<AwsVpcSecurityGroupRuleDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The cidr_ipv4 attribute.
     /// </summary>
-    [TerraformPropertyName("cidr_ipv4")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CidrIpv4 => new TerraformReference(this, "cidr_ipv4");
+    [TerraformProperty("cidr_ipv4")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CidrIpv4 { get; }
 
     /// <summary>
     /// The cidr_ipv6 attribute.
     /// </summary>
-    [TerraformPropertyName("cidr_ipv6")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CidrIpv6 => new TerraformReference(this, "cidr_ipv6");
+    [TerraformProperty("cidr_ipv6")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CidrIpv6 { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The from_port attribute.
     /// </summary>
-    [TerraformPropertyName("from_port")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> FromPort => new TerraformReference(this, "from_port");
+    [TerraformProperty("from_port")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> FromPort { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The ip_protocol attribute.
     /// </summary>
-    [TerraformPropertyName("ip_protocol")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IpProtocol => new TerraformReference(this, "ip_protocol");
+    [TerraformProperty("ip_protocol")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IpProtocol { get; }
 
     /// <summary>
     /// The is_egress attribute.
     /// </summary>
-    [TerraformPropertyName("is_egress")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> IsEgress => new TerraformReference(this, "is_egress");
+    [TerraformProperty("is_egress")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> IsEgress { get; }
 
     /// <summary>
     /// The prefix_list_id attribute.
     /// </summary>
-    [TerraformPropertyName("prefix_list_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrefixListId => new TerraformReference(this, "prefix_list_id");
+    [TerraformProperty("prefix_list_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrefixListId { get; }
 
     /// <summary>
     /// The referenced_security_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("referenced_security_group_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ReferencedSecurityGroupId => new TerraformReference(this, "referenced_security_group_id");
+    [TerraformProperty("referenced_security_group_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ReferencedSecurityGroupId { get; }
 
     /// <summary>
     /// The security_group_id attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecurityGroupId => new TerraformReference(this, "security_group_id");
+    [TerraformProperty("security_group_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecurityGroupId { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The to_port attribute.
     /// </summary>
-    [TerraformPropertyName("to_port")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ToPort => new TerraformReference(this, "to_port");
+    [TerraformProperty("to_port")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ToPort { get; }
 
 }

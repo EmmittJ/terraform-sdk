@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for tag_filter in .
 /// Nesting mode: list
 /// </summary>
-public class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock
+public partial class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformPropertyName("key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
-    [TerraformPropertyName("values")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("values")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Values { get; set; }
 
 }
@@ -29,7 +29,7 @@ public class AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock
 /// Retrieves information about a aws_resourcegroupstaggingapi_resources.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsResourcegroupstaggingapiResourcesDataSource : TerraformDataSource
+public partial class AwsResourcegroupstaggingapiResourcesDataSource : TerraformDataSource
 {
     public AwsResourcegroupstaggingapiResourcesDataSource(string name) : base("aws_resourcegroupstaggingapi_resources", name)
     {
@@ -38,43 +38,43 @@ public class AwsResourcegroupstaggingapiResourcesDataSource : TerraformDataSourc
     /// <summary>
     /// The exclude_compliant_resources attribute.
     /// </summary>
-    [TerraformPropertyName("exclude_compliant_resources")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("exclude_compliant_resources")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ExcludeCompliantResources { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The include_compliance_details attribute.
     /// </summary>
-    [TerraformPropertyName("include_compliance_details")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_compliance_details")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IncludeComplianceDetails { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_arn_list attribute.
     /// </summary>
-    [TerraformPropertyName("resource_arn_list")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("resource_arn_list")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? ResourceArnList { get; set; }
 
     /// <summary>
     /// The resource_type_filters attribute.
     /// </summary>
-    [TerraformPropertyName("resource_type_filters")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("resource_type_filters")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? ResourceTypeFilters { get; set; }
 
     /// <summary>
@@ -82,14 +82,14 @@ public class AwsResourcegroupstaggingapiResourcesDataSource : TerraformDataSourc
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(50, ErrorMessage = "Maximum 50 TagFilter block(s) allowed")]
-    [TerraformPropertyName("tag_filter")]
+    [TerraformProperty("tag_filter")]
     public TerraformList<TerraformBlock<AwsResourcegroupstaggingapiResourcesDataSourceTagFilterBlock>>? TagFilter { get; set; }
 
     /// <summary>
     /// The resource_tag_mapping_list attribute.
     /// </summary>
-    [TerraformPropertyName("resource_tag_mapping_list")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ResourceTagMappingList => new TerraformReference(this, "resource_tag_mapping_list");
+    [TerraformProperty("resource_tag_mapping_list")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ResourceTagMappingList { get; }
 
 }

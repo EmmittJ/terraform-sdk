@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for error_blob_managed_identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock
+public partial class AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    [TerraformPropertyName("client_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("client_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The object_id attribute.
     /// </summary>
-    [TerraformPropertyName("object_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("object_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ObjectId { get; set; }
 
 }
@@ -28,20 +28,20 @@ public class AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock
 /// Block type for output_blob_managed_identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock
+public partial class AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    [TerraformPropertyName("client_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("client_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The object_id attribute.
     /// </summary>
-    [TerraformPropertyName("object_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("object_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ObjectId { get; set; }
 
 }
@@ -50,22 +50,22 @@ public class AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock
 /// Block type for parameter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVirtualMachineRunCommandParameterBlock
+public partial class AzurermVirtualMachineRunCommandParameterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -74,22 +74,22 @@ public class AzurermVirtualMachineRunCommandParameterBlock
 /// Block type for protected_parameter in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVirtualMachineRunCommandProtectedParameterBlock
+public partial class AzurermVirtualMachineRunCommandProtectedParameterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -98,27 +98,27 @@ public class AzurermVirtualMachineRunCommandProtectedParameterBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermVirtualMachineRunCommandSourceBlock
+public partial class AzurermVirtualMachineRunCommandSourceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The command_id attribute.
     /// </summary>
-    [TerraformPropertyName("command_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("command_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CommandId { get; set; }
 
     /// <summary>
     /// The script attribute.
     /// </summary>
-    [TerraformPropertyName("script")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("script")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Script { get; set; }
 
     /// <summary>
     /// The script_uri attribute.
     /// </summary>
-    [TerraformPropertyName("script_uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("script_uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ScriptUri { get; set; }
 
 }
@@ -127,34 +127,34 @@ public class AzurermVirtualMachineRunCommandSourceBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualMachineRunCommandTimeoutsBlock
+public partial class AzurermVirtualMachineRunCommandTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -163,7 +163,7 @@ public class AzurermVirtualMachineRunCommandTimeoutsBlock
 /// Manages a azurerm_virtual_machine_run_command resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermVirtualMachineRunCommand : TerraformResource
+public partial class AzurermVirtualMachineRunCommand : TerraformResource
 {
     public AzurermVirtualMachineRunCommand(string name) : base("azurerm_virtual_machine_run_command", name)
     {
@@ -172,67 +172,67 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     /// <summary>
     /// The error_blob_uri attribute.
     /// </summary>
-    [TerraformPropertyName("error_blob_uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("error_blob_uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ErrorBlobUri { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The output_blob_uri attribute.
     /// </summary>
-    [TerraformPropertyName("output_blob_uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("output_blob_uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OutputBlobUri { get; set; }
 
     /// <summary>
     /// The run_as_password attribute.
     /// </summary>
-    [TerraformPropertyName("run_as_password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("run_as_password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RunAsPassword { get; set; }
 
     /// <summary>
     /// The run_as_user attribute.
     /// </summary>
-    [TerraformPropertyName("run_as_user")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("run_as_user")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RunAsUser { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The virtual_machine_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineId is required")]
-    [TerraformPropertyName("virtual_machine_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("virtual_machine_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VirtualMachineId { get; set; }
 
     /// <summary>
@@ -240,7 +240,7 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ErrorBlobManagedIdentity block(s) allowed")]
-    [TerraformPropertyName("error_blob_managed_identity")]
+    [TerraformProperty("error_blob_managed_identity")]
     public TerraformList<TerraformBlock<AzurermVirtualMachineRunCommandErrorBlobManagedIdentityBlock>>? ErrorBlobManagedIdentity { get; set; }
 
     /// <summary>
@@ -248,21 +248,21 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OutputBlobManagedIdentity block(s) allowed")]
-    [TerraformPropertyName("output_blob_managed_identity")]
+    [TerraformProperty("output_blob_managed_identity")]
     public TerraformList<TerraformBlock<AzurermVirtualMachineRunCommandOutputBlobManagedIdentityBlock>>? OutputBlobManagedIdentity { get; set; }
 
     /// <summary>
     /// Block for parameter.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("parameter")]
+    [TerraformProperty("parameter")]
     public TerraformList<TerraformBlock<AzurermVirtualMachineRunCommandParameterBlock>>? Parameter { get; set; }
 
     /// <summary>
     /// Block for protected_parameter.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("protected_parameter")]
+    [TerraformProperty("protected_parameter")]
     public TerraformList<TerraformBlock<AzurermVirtualMachineRunCommandProtectedParameterBlock>>? ProtectedParameter { get; set; }
 
     /// <summary>
@@ -272,21 +272,21 @@ public class AzurermVirtualMachineRunCommand : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    [TerraformPropertyName("source")]
+    [TerraformProperty("source")]
     public TerraformList<TerraformBlock<AzurermVirtualMachineRunCommandSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermVirtualMachineRunCommandTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The instance_view attribute.
     /// </summary>
-    [TerraformPropertyName("instance_view")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> InstanceView => new TerraformReference(this, "instance_view");
+    [TerraformProperty("instance_view")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> InstanceView { get; }
 
 }

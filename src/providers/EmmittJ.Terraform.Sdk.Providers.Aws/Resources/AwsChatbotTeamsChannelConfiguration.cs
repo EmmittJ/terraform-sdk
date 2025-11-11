@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsChatbotTeamsChannelConfigurationTimeoutsBlock
+public partial class AwsChatbotTeamsChannelConfigurationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as &amp;quot;30s&amp;quot; or &amp;quot;2h45m&amp;quot;. Valid time units are &amp;quot;s&amp;quot; (seconds), &amp;quot;m&amp;quot; (minutes), &amp;quot;h&amp;quot; (hours).
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsChatbotTeamsChannelConfigurationTimeoutsBlock
 /// <summary>
 /// Manages a aws_chatbot_teams_channel_configuration resource.
 /// </summary>
-public class AwsChatbotTeamsChannelConfiguration : TerraformResource
+public partial class AwsChatbotTeamsChannelConfiguration : TerraformResource
 {
     public AwsChatbotTeamsChannelConfiguration(string name) : base("aws_chatbot_teams_channel_configuration", name)
     {
@@ -44,117 +44,117 @@ public class AwsChatbotTeamsChannelConfiguration : TerraformResource
     /// The channel_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ChannelId is required")]
-    [TerraformPropertyName("channel_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("channel_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ChannelId { get; set; }
 
     /// <summary>
     /// The channel_name attribute.
     /// </summary>
-    [TerraformPropertyName("channel_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ChannelName { get; set; } = default!;
+    [TerraformProperty("channel_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ChannelName { get; set; }
 
     /// <summary>
     /// The configuration_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConfigurationName is required")]
-    [TerraformPropertyName("configuration_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("configuration_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConfigurationName { get; set; }
 
     /// <summary>
     /// The guardrail_policy_arns attribute.
     /// </summary>
-    [TerraformPropertyName("guardrail_policy_arns")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> GuardrailPolicyArns { get; set; } = default!;
+    [TerraformProperty("guardrail_policy_arns")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> GuardrailPolicyArns { get; set; }
 
     /// <summary>
     /// The iam_role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRoleArn is required")]
-    [TerraformPropertyName("iam_role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("iam_role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IamRoleArn { get; set; }
 
     /// <summary>
     /// The logging_level attribute.
     /// </summary>
-    [TerraformPropertyName("logging_level")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LoggingLevel { get; set; } = default!;
+    [TerraformProperty("logging_level")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LoggingLevel { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The sns_topic_arns attribute.
     /// </summary>
-    [TerraformPropertyName("sns_topic_arns")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> SnsTopicArns { get; set; } = default!;
+    [TerraformProperty("sns_topic_arns")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> SnsTopicArns { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The team_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TeamId is required")]
-    [TerraformPropertyName("team_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("team_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TeamId { get; set; }
 
     /// <summary>
     /// The team_name attribute.
     /// </summary>
-    [TerraformPropertyName("team_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> TeamName { get; set; } = default!;
+    [TerraformProperty("team_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> TeamName { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TenantId is required")]
-    [TerraformPropertyName("tenant_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("tenant_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TenantId { get; set; }
 
     /// <summary>
     /// The user_authorization_required attribute.
     /// </summary>
-    [TerraformPropertyName("user_authorization_required")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> UserAuthorizationRequired { get; set; } = default!;
+    [TerraformProperty("user_authorization_required")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> UserAuthorizationRequired { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsChatbotTeamsChannelConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The chat_configuration_arn attribute.
     /// </summary>
-    [TerraformPropertyName("chat_configuration_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ChatConfigurationArn => new TerraformReference(this, "chat_configuration_arn");
+    [TerraformProperty("chat_configuration_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ChatConfigurationArn { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
 }

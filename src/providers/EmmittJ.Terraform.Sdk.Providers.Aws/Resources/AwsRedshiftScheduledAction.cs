@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target_action in .
 /// Nesting mode: list
 /// </summary>
-public class AwsRedshiftScheduledActionTargetActionBlock
+public partial class AwsRedshiftScheduledActionTargetActionBlock : TerraformBlockBase
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsRedshiftScheduledActionTargetActionBlock
 /// Manages a aws_redshift_scheduled_action resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsRedshiftScheduledAction : TerraformResource
+public partial class AwsRedshiftScheduledAction : TerraformResource
 {
     public AwsRedshiftScheduledAction(string name) : base("aws_redshift_scheduled_action", name)
     {
@@ -23,67 +23,67 @@ public class AwsRedshiftScheduledAction : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The enable attribute.
     /// </summary>
-    [TerraformPropertyName("enable")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enable { get; set; }
 
     /// <summary>
     /// The end_time attribute.
     /// </summary>
-    [TerraformPropertyName("end_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("end_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EndTime { get; set; }
 
     /// <summary>
     /// The iam_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IamRole is required")]
-    [TerraformPropertyName("iam_role")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("iam_role")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IamRole { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The schedule attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
-    [TerraformPropertyName("schedule")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("schedule")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Schedule { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    [TerraformPropertyName("start_time")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("start_time")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? StartTime { get; set; }
 
     /// <summary>
@@ -93,7 +93,7 @@ public class AwsRedshiftScheduledAction : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetAction is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetAction block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetAction block(s) allowed")]
-    [TerraformPropertyName("target_action")]
+    [TerraformProperty("target_action")]
     public TerraformList<TerraformBlock<AwsRedshiftScheduledActionTargetActionBlock>>? TargetAction { get; set; }
 
 }

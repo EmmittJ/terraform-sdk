@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_vpc_ipam.
 /// </summary>
-public class AwsVpcIpamDataSource : TerraformDataSource
+public partial class AwsVpcIpamDataSource : TerraformDataSource
 {
     public AwsVpcIpamDataSource(string name) : base("aws_vpc_ipam", name)
     {
@@ -15,134 +15,134 @@ public class AwsVpcIpamDataSource : TerraformDataSource
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The default_resource_discovery_association_id attribute.
     /// </summary>
-    [TerraformPropertyName("default_resource_discovery_association_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultResourceDiscoveryAssociationId => new TerraformReference(this, "default_resource_discovery_association_id");
+    [TerraformProperty("default_resource_discovery_association_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultResourceDiscoveryAssociationId { get; }
 
     /// <summary>
     /// The default_resource_discovery_id attribute.
     /// </summary>
-    [TerraformPropertyName("default_resource_discovery_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultResourceDiscoveryId => new TerraformReference(this, "default_resource_discovery_id");
+    [TerraformProperty("default_resource_discovery_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultResourceDiscoveryId { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The enable_private_gua attribute.
     /// </summary>
-    [TerraformPropertyName("enable_private_gua")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> EnablePrivateGua => new TerraformReference(this, "enable_private_gua");
+    [TerraformProperty("enable_private_gua")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> EnablePrivateGua { get; }
 
     /// <summary>
     /// The ipam_region attribute.
     /// </summary>
-    [TerraformPropertyName("ipam_region")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IpamRegion => new TerraformReference(this, "ipam_region");
+    [TerraformProperty("ipam_region")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IpamRegion { get; }
 
     /// <summary>
     /// The metered_account attribute.
     /// </summary>
-    [TerraformPropertyName("metered_account")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> MeteredAccount => new TerraformReference(this, "metered_account");
+    [TerraformProperty("metered_account")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> MeteredAccount { get; }
 
     /// <summary>
     /// The operating_regions attribute.
     /// </summary>
-    [TerraformPropertyName("operating_regions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> OperatingRegions => new TerraformReference(this, "operating_regions");
+    [TerraformProperty("operating_regions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> OperatingRegions { get; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerId => new TerraformReference(this, "owner_id");
+    [TerraformProperty("owner_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerId { get; }
 
     /// <summary>
     /// The private_default_scope_id attribute.
     /// </summary>
-    [TerraformPropertyName("private_default_scope_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrivateDefaultScopeId => new TerraformReference(this, "private_default_scope_id");
+    [TerraformProperty("private_default_scope_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrivateDefaultScopeId { get; }
 
     /// <summary>
     /// The public_default_scope_id attribute.
     /// </summary>
-    [TerraformPropertyName("public_default_scope_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PublicDefaultScopeId => new TerraformReference(this, "public_default_scope_id");
+    [TerraformProperty("public_default_scope_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PublicDefaultScopeId { get; }
 
     /// <summary>
     /// The resource_discovery_association_count attribute.
     /// </summary>
-    [TerraformPropertyName("resource_discovery_association_count")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ResourceDiscoveryAssociationCount => new TerraformReference(this, "resource_discovery_association_count");
+    [TerraformProperty("resource_discovery_association_count")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ResourceDiscoveryAssociationCount { get; }
 
     /// <summary>
     /// The scope_count attribute.
     /// </summary>
-    [TerraformPropertyName("scope_count")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ScopeCount => new TerraformReference(this, "scope_count");
+    [TerraformProperty("scope_count")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ScopeCount { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The state_message attribute.
     /// </summary>
-    [TerraformPropertyName("state_message")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StateMessage => new TerraformReference(this, "state_message");
+    [TerraformProperty("state_message")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StateMessage { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The tier attribute.
     /// </summary>
-    [TerraformPropertyName("tier")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Tier => new TerraformReference(this, "tier");
+    [TerraformProperty("tier")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Tier { get; }
 
 }

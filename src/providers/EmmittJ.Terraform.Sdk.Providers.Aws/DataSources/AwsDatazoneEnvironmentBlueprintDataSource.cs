@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_datazone_environment_blueprint.
 /// </summary>
-public class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSource
+public partial class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSource
 {
     public AwsDatazoneEnvironmentBlueprintDataSource(string name) : base("aws_datazone_environment_blueprint", name)
     {
@@ -15,52 +15,52 @@ public class AwsDatazoneEnvironmentBlueprintDataSource : TerraformDataSource
     /// The domain_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainId is required")]
-    [TerraformPropertyName("domain_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("domain_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DomainId { get; set; }
 
     /// <summary>
     /// The managed attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Managed is required")]
-    [TerraformPropertyName("managed")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("managed")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> Managed { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The blueprint_provider attribute.
     /// </summary>
-    [TerraformPropertyName("blueprint_provider")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BlueprintProvider => new TerraformReference(this, "blueprint_provider");
+    [TerraformProperty("blueprint_provider")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BlueprintProvider { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
 }

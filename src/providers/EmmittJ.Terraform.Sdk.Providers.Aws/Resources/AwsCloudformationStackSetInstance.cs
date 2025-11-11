@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for deployment_targets in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudformationStackSetInstanceDeploymentTargetsBlock
+public partial class AwsCloudformationStackSetInstanceDeploymentTargetsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The account_filter_type attribute.
     /// </summary>
-    [TerraformPropertyName("account_filter_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("account_filter_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AccountFilterType { get; set; }
 
     /// <summary>
     /// The accounts attribute.
     /// </summary>
-    [TerraformPropertyName("accounts")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("accounts")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Accounts { get; set; }
 
     /// <summary>
     /// The accounts_url attribute.
     /// </summary>
-    [TerraformPropertyName("accounts_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("accounts_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AccountsUrl { get; set; }
 
     /// <summary>
     /// The organizational_unit_ids attribute.
     /// </summary>
-    [TerraformPropertyName("organizational_unit_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("organizational_unit_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? OrganizationalUnitIds { get; set; }
 
 }
@@ -42,55 +42,55 @@ public class AwsCloudformationStackSetInstanceDeploymentTargetsBlock
 /// Block type for operation_preferences in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudformationStackSetInstanceOperationPreferencesBlock
+public partial class AwsCloudformationStackSetInstanceOperationPreferencesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The concurrency_mode attribute.
     /// </summary>
-    [TerraformPropertyName("concurrency_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("concurrency_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConcurrencyMode { get; set; }
 
     /// <summary>
     /// The failure_tolerance_count attribute.
     /// </summary>
-    [TerraformPropertyName("failure_tolerance_count")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("failure_tolerance_count")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? FailureToleranceCount { get; set; }
 
     /// <summary>
     /// The failure_tolerance_percentage attribute.
     /// </summary>
-    [TerraformPropertyName("failure_tolerance_percentage")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("failure_tolerance_percentage")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? FailureTolerancePercentage { get; set; }
 
     /// <summary>
     /// The max_concurrent_count attribute.
     /// </summary>
-    [TerraformPropertyName("max_concurrent_count")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_concurrent_count")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxConcurrentCount { get; set; }
 
     /// <summary>
     /// The max_concurrent_percentage attribute.
     /// </summary>
-    [TerraformPropertyName("max_concurrent_percentage")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_concurrent_percentage")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxConcurrentPercentage { get; set; }
 
     /// <summary>
     /// The region_concurrency_type attribute.
     /// </summary>
-    [TerraformPropertyName("region_concurrency_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region_concurrency_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RegionConcurrencyType { get; set; }
 
     /// <summary>
     /// The region_order attribute.
     /// </summary>
-    [TerraformPropertyName("region_order")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region_order")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? RegionOrder { get; set; }
 
 }
@@ -99,27 +99,27 @@ public class AwsCloudformationStackSetInstanceOperationPreferencesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsCloudformationStackSetInstanceTimeoutsBlock
+public partial class AwsCloudformationStackSetInstanceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -128,7 +128,7 @@ public class AwsCloudformationStackSetInstanceTimeoutsBlock
 /// Manages a aws_cloudformation_stack_set_instance resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsCloudformationStackSetInstance : TerraformResource
+public partial class AwsCloudformationStackSetInstance : TerraformResource
 {
     public AwsCloudformationStackSetInstance(string name) : base("aws_cloudformation_stack_set_instance", name)
     {
@@ -137,59 +137,59 @@ public class AwsCloudformationStackSetInstance : TerraformResource
     /// <summary>
     /// The account_id attribute.
     /// </summary>
-    [TerraformPropertyName("account_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AccountId { get; set; } = default!;
+    [TerraformProperty("account_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AccountId { get; set; }
 
     /// <summary>
     /// The call_as attribute.
     /// </summary>
-    [TerraformPropertyName("call_as")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("call_as")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CallAs { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The parameter_overrides attribute.
     /// </summary>
-    [TerraformPropertyName("parameter_overrides")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parameter_overrides")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? ParameterOverrides { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The retain_stack attribute.
     /// </summary>
-    [TerraformPropertyName("retain_stack")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retain_stack")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? RetainStack { get; set; }
 
     /// <summary>
     /// The stack_set_instance_region attribute.
     /// </summary>
-    [TerraformPropertyName("stack_set_instance_region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> StackSetInstanceRegion { get; set; } = default!;
+    [TerraformProperty("stack_set_instance_region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> StackSetInstanceRegion { get; set; }
 
     /// <summary>
     /// The stack_set_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StackSetName is required")]
-    [TerraformPropertyName("stack_set_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("stack_set_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StackSetName { get; set; }
 
     /// <summary>
@@ -197,7 +197,7 @@ public class AwsCloudformationStackSetInstance : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeploymentTargets block(s) allowed")]
-    [TerraformPropertyName("deployment_targets")]
+    [TerraformProperty("deployment_targets")]
     public TerraformList<TerraformBlock<AwsCloudformationStackSetInstanceDeploymentTargetsBlock>>? DeploymentTargets { get; set; }
 
     /// <summary>
@@ -205,35 +205,35 @@ public class AwsCloudformationStackSetInstance : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OperationPreferences block(s) allowed")]
-    [TerraformPropertyName("operation_preferences")]
+    [TerraformProperty("operation_preferences")]
     public TerraformList<TerraformBlock<AwsCloudformationStackSetInstanceOperationPreferencesBlock>>? OperationPreferences { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsCloudformationStackSetInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The organizational_unit_id attribute.
     /// </summary>
-    [TerraformPropertyName("organizational_unit_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OrganizationalUnitId => new TerraformReference(this, "organizational_unit_id");
+    [TerraformProperty("organizational_unit_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OrganizationalUnitId { get; }
 
     /// <summary>
     /// The stack_id attribute.
     /// </summary>
-    [TerraformPropertyName("stack_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StackId => new TerraformReference(this, "stack_id");
+    [TerraformProperty("stack_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StackId { get; }
 
     /// <summary>
     /// List of stack instances created from an organizational unit deployment target. This will only be populated when `deployment_targets` is set.
     /// </summary>
-    [TerraformPropertyName("stack_instance_summaries")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> StackInstanceSummaries => new TerraformReference(this, "stack_instance_summaries");
+    [TerraformProperty("stack_instance_summaries")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> StackInstanceSummaries { get; }
 
 }

@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for default_space_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerDomainDefaultSpaceSettingsBlock
+public partial class AwsSagemakerDomainDefaultSpaceSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The execution_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
-    [TerraformPropertyName("execution_role")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("execution_role")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ExecutionRole { get; set; }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    [TerraformPropertyName("security_groups")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_groups")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SecurityGroups { get; set; }
 
 }
@@ -29,43 +29,43 @@ public class AwsSagemakerDomainDefaultSpaceSettingsBlock
 /// Block type for default_user_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerDomainDefaultUserSettingsBlock
+public partial class AwsSagemakerDomainDefaultUserSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The auto_mount_home_efs attribute.
     /// </summary>
-    [TerraformPropertyName("auto_mount_home_efs")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AutoMountHomeEfs { get; set; } = default!;
+    [TerraformProperty("auto_mount_home_efs")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AutoMountHomeEfs { get; set; }
 
     /// <summary>
     /// The default_landing_uri attribute.
     /// </summary>
-    [TerraformPropertyName("default_landing_uri")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DefaultLandingUri { get; set; } = default!;
+    [TerraformProperty("default_landing_uri")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DefaultLandingUri { get; set; }
 
     /// <summary>
     /// The execution_role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExecutionRole is required")]
-    [TerraformPropertyName("execution_role")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("execution_role")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ExecutionRole { get; set; }
 
     /// <summary>
     /// The security_groups attribute.
     /// </summary>
-    [TerraformPropertyName("security_groups")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_groups")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SecurityGroups { get; set; }
 
     /// <summary>
     /// The studio_web_portal attribute.
     /// </summary>
-    [TerraformPropertyName("studio_web_portal")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> StudioWebPortal { get; set; } = default!;
+    [TerraformProperty("studio_web_portal")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> StudioWebPortal { get; set; }
 
 }
 
@@ -73,20 +73,20 @@ public class AwsSagemakerDomainDefaultUserSettingsBlock
 /// Block type for domain_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerDomainDomainSettingsBlock
+public partial class AwsSagemakerDomainDomainSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The execution_role_identity_config attribute.
     /// </summary>
-    [TerraformPropertyName("execution_role_identity_config")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("execution_role_identity_config")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExecutionRoleIdentityConfig { get; set; }
 
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_group_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? SecurityGroupIds { get; set; }
 
 }
@@ -95,13 +95,13 @@ public class AwsSagemakerDomainDomainSettingsBlock
 /// Block type for retention_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSagemakerDomainRetentionPolicyBlock
+public partial class AwsSagemakerDomainRetentionPolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The home_efs_file_system attribute.
     /// </summary>
-    [TerraformPropertyName("home_efs_file_system")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("home_efs_file_system")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HomeEfsFileSystem { get; set; }
 
 }
@@ -110,7 +110,7 @@ public class AwsSagemakerDomainRetentionPolicyBlock
 /// Manages a aws_sagemaker_domain resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsSagemakerDomain : TerraformResource
+public partial class AwsSagemakerDomain : TerraformResource
 {
     public AwsSagemakerDomain(string name) : base("aws_sagemaker_domain", name)
     {
@@ -119,89 +119,89 @@ public class AwsSagemakerDomain : TerraformResource
     /// <summary>
     /// The app_network_access_type attribute.
     /// </summary>
-    [TerraformPropertyName("app_network_access_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("app_network_access_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AppNetworkAccessType { get; set; }
 
     /// <summary>
     /// The app_security_group_management attribute.
     /// </summary>
-    [TerraformPropertyName("app_security_group_management")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("app_security_group_management")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AppSecurityGroupManagement { get; set; }
 
     /// <summary>
     /// The auth_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AuthMode is required")]
-    [TerraformPropertyName("auth_mode")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("auth_mode")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AuthMode { get; set; }
 
     /// <summary>
     /// The domain_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DomainName is required")]
-    [TerraformPropertyName("domain_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("domain_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DomainName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    [TerraformPropertyName("subnet_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_ids")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> SubnetIds { get; set; }
 
     /// <summary>
     /// The tag_propagation attribute.
     /// </summary>
-    [TerraformPropertyName("tag_propagation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tag_propagation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TagPropagation { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    [TerraformPropertyName("vpc_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vpc_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VpcId { get; set; }
 
     /// <summary>
@@ -209,7 +209,7 @@ public class AwsSagemakerDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultSpaceSettings block(s) allowed")]
-    [TerraformPropertyName("default_space_settings")]
+    [TerraformProperty("default_space_settings")]
     public TerraformList<TerraformBlock<AwsSagemakerDomainDefaultSpaceSettingsBlock>>? DefaultSpaceSettings { get; set; }
 
     /// <summary>
@@ -219,7 +219,7 @@ public class AwsSagemakerDomain : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultUserSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 DefaultUserSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DefaultUserSettings block(s) allowed")]
-    [TerraformPropertyName("default_user_settings")]
+    [TerraformProperty("default_user_settings")]
     public TerraformList<TerraformBlock<AwsSagemakerDomainDefaultUserSettingsBlock>>? DefaultUserSettings { get; set; }
 
     /// <summary>
@@ -227,7 +227,7 @@ public class AwsSagemakerDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DomainSettings block(s) allowed")]
-    [TerraformPropertyName("domain_settings")]
+    [TerraformProperty("domain_settings")]
     public TerraformList<TerraformBlock<AwsSagemakerDomainDomainSettingsBlock>>? DomainSettings { get; set; }
 
     /// <summary>
@@ -235,49 +235,49 @@ public class AwsSagemakerDomain : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetentionPolicy block(s) allowed")]
-    [TerraformPropertyName("retention_policy")]
+    [TerraformProperty("retention_policy")]
     public TerraformList<TerraformBlock<AwsSagemakerDomainRetentionPolicyBlock>>? RetentionPolicy { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The home_efs_file_system_id attribute.
     /// </summary>
-    [TerraformPropertyName("home_efs_file_system_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> HomeEfsFileSystemId => new TerraformReference(this, "home_efs_file_system_id");
+    [TerraformProperty("home_efs_file_system_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> HomeEfsFileSystemId { get; }
 
     /// <summary>
     /// The security_group_id_for_domain_boundary attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_id_for_domain_boundary")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecurityGroupIdForDomainBoundary => new TerraformReference(this, "security_group_id_for_domain_boundary");
+    [TerraformProperty("security_group_id_for_domain_boundary")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecurityGroupIdForDomainBoundary { get; }
 
     /// <summary>
     /// The single_sign_on_application_arn attribute.
     /// </summary>
-    [TerraformPropertyName("single_sign_on_application_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SingleSignOnApplicationArn => new TerraformReference(this, "single_sign_on_application_arn");
+    [TerraformProperty("single_sign_on_application_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SingleSignOnApplicationArn { get; }
 
     /// <summary>
     /// The single_sign_on_managed_application_instance_id attribute.
     /// </summary>
-    [TerraformPropertyName("single_sign_on_managed_application_instance_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SingleSignOnManagedApplicationInstanceId => new TerraformReference(this, "single_sign_on_managed_application_instance_id");
+    [TerraformProperty("single_sign_on_managed_application_instance_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SingleSignOnManagedApplicationInstanceId { get; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    [TerraformPropertyName("url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Url => new TerraformReference(this, "url");
+    [TerraformProperty("url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Url { get; }
 
 }

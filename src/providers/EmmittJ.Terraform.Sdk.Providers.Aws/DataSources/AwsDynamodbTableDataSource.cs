@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for server_side_encryption in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDynamodbTableDataSourceServerSideEncryptionBlock
+public partial class AwsDynamodbTableDataSourceServerSideEncryptionBlock : TerraformBlockBase
 {
 
 
@@ -16,7 +16,7 @@ public class AwsDynamodbTableDataSourceServerSideEncryptionBlock
 /// Retrieves information about a aws_dynamodb_table.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsDynamodbTableDataSource : TerraformDataSource
+public partial class AwsDynamodbTableDataSource : TerraformDataSource
 {
     public AwsDynamodbTableDataSource(string name) : base("aws_dynamodb_table", name)
     {
@@ -25,178 +25,178 @@ public class AwsDynamodbTableDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// Block for server_side_encryption.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ServerSideEncryption block(s) allowed")]
-    [TerraformPropertyName("server_side_encryption")]
+    [TerraformProperty("server_side_encryption")]
     public TerraformList<TerraformBlock<AwsDynamodbTableDataSourceServerSideEncryptionBlock>>? ServerSideEncryption { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The attribute attribute.
     /// </summary>
-    [TerraformPropertyName("attribute")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Attribute => new TerraformReference(this, "attribute");
+    [TerraformProperty("attribute")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Attribute { get; }
 
     /// <summary>
     /// The billing_mode attribute.
     /// </summary>
-    [TerraformPropertyName("billing_mode")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BillingMode => new TerraformReference(this, "billing_mode");
+    [TerraformProperty("billing_mode")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BillingMode { get; }
 
     /// <summary>
     /// The deletion_protection_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("deletion_protection_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DeletionProtectionEnabled => new TerraformReference(this, "deletion_protection_enabled");
+    [TerraformProperty("deletion_protection_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DeletionProtectionEnabled { get; }
 
     /// <summary>
     /// The global_secondary_index attribute.
     /// </summary>
-    [TerraformPropertyName("global_secondary_index")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> GlobalSecondaryIndex => new TerraformReference(this, "global_secondary_index");
+    [TerraformProperty("global_secondary_index")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> GlobalSecondaryIndex { get; }
 
     /// <summary>
     /// The hash_key attribute.
     /// </summary>
-    [TerraformPropertyName("hash_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> HashKey => new TerraformReference(this, "hash_key");
+    [TerraformProperty("hash_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> HashKey { get; }
 
     /// <summary>
     /// The local_secondary_index attribute.
     /// </summary>
-    [TerraformPropertyName("local_secondary_index")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> LocalSecondaryIndex => new TerraformReference(this, "local_secondary_index");
+    [TerraformProperty("local_secondary_index")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> LocalSecondaryIndex { get; }
 
     /// <summary>
     /// The on_demand_throughput attribute.
     /// </summary>
-    [TerraformPropertyName("on_demand_throughput")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> OnDemandThroughput => new TerraformReference(this, "on_demand_throughput");
+    [TerraformProperty("on_demand_throughput")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> OnDemandThroughput { get; }
 
     /// <summary>
     /// The point_in_time_recovery attribute.
     /// </summary>
-    [TerraformPropertyName("point_in_time_recovery")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PointInTimeRecovery => new TerraformReference(this, "point_in_time_recovery");
+    [TerraformProperty("point_in_time_recovery")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PointInTimeRecovery { get; }
 
     /// <summary>
     /// The range_key attribute.
     /// </summary>
-    [TerraformPropertyName("range_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RangeKey => new TerraformReference(this, "range_key");
+    [TerraformProperty("range_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RangeKey { get; }
 
     /// <summary>
     /// The read_capacity attribute.
     /// </summary>
-    [TerraformPropertyName("read_capacity")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ReadCapacity => new TerraformReference(this, "read_capacity");
+    [TerraformProperty("read_capacity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ReadCapacity { get; }
 
     /// <summary>
     /// The replica attribute.
     /// </summary>
-    [TerraformPropertyName("replica")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Replica => new TerraformReference(this, "replica");
+    [TerraformProperty("replica")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Replica { get; }
 
     /// <summary>
     /// The stream_arn attribute.
     /// </summary>
-    [TerraformPropertyName("stream_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StreamArn => new TerraformReference(this, "stream_arn");
+    [TerraformProperty("stream_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StreamArn { get; }
 
     /// <summary>
     /// The stream_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("stream_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> StreamEnabled => new TerraformReference(this, "stream_enabled");
+    [TerraformProperty("stream_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> StreamEnabled { get; }
 
     /// <summary>
     /// The stream_label attribute.
     /// </summary>
-    [TerraformPropertyName("stream_label")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StreamLabel => new TerraformReference(this, "stream_label");
+    [TerraformProperty("stream_label")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StreamLabel { get; }
 
     /// <summary>
     /// The stream_view_type attribute.
     /// </summary>
-    [TerraformPropertyName("stream_view_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StreamViewType => new TerraformReference(this, "stream_view_type");
+    [TerraformProperty("stream_view_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StreamViewType { get; }
 
     /// <summary>
     /// The table_class attribute.
     /// </summary>
-    [TerraformPropertyName("table_class")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TableClass => new TerraformReference(this, "table_class");
+    [TerraformProperty("table_class")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TableClass { get; }
 
     /// <summary>
     /// The ttl attribute.
     /// </summary>
-    [TerraformPropertyName("ttl")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Ttl => new TerraformReference(this, "ttl");
+    [TerraformProperty("ttl")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Ttl { get; }
 
     /// <summary>
     /// The warm_throughput attribute.
     /// </summary>
-    [TerraformPropertyName("warm_throughput")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> WarmThroughput => new TerraformReference(this, "warm_throughput");
+    [TerraformProperty("warm_throughput")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> WarmThroughput { get; }
 
     /// <summary>
     /// The write_capacity attribute.
     /// </summary>
-    [TerraformPropertyName("write_capacity")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> WriteCapacity => new TerraformReference(this, "write_capacity");
+    [TerraformProperty("write_capacity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> WriteCapacity { get; }
 
 }

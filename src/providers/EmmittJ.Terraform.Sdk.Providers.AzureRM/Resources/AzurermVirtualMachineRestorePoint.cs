@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermVirtualMachineRestorePointTimeoutsBlock
+public partial class AzurermVirtualMachineRestorePointTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermVirtualMachineRestorePointTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_virtual_machine_restore_point resource.
 /// </summary>
-public class AzurermVirtualMachineRestorePoint : TerraformResource
+public partial class AzurermVirtualMachineRestorePoint : TerraformResource
 {
     public AzurermVirtualMachineRestorePoint(string name) : base("azurerm_virtual_machine_restore_point", name)
     {
@@ -43,45 +43,45 @@ public class AzurermVirtualMachineRestorePoint : TerraformResource
     /// <summary>
     /// The crash_consistency_mode_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("crash_consistency_mode_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("crash_consistency_mode_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? CrashConsistencyModeEnabled { get; set; }
 
     /// <summary>
     /// The excluded_disks attribute.
     /// </summary>
-    [TerraformPropertyName("excluded_disks")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("excluded_disks")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? ExcludedDisks { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The virtual_machine_restore_point_collection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualMachineRestorePointCollectionId is required")]
-    [TerraformPropertyName("virtual_machine_restore_point_collection_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("virtual_machine_restore_point_collection_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VirtualMachineRestorePointCollectionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermVirtualMachineRestorePointTimeoutsBlock>? Timeouts { get; set; }
 
 }

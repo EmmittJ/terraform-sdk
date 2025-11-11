@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_secret_manager_regional_secret.
 /// </summary>
-public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
+public partial class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
 {
     public GoogleSecretManagerRegionalSecretDataSource(string name) : base("google_secret_manager_regional_secret", name)
     {
@@ -14,31 +14,31 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the regional secret. eg us-central1
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// This must be unique within the project.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecretId is required")]
-    [TerraformPropertyName("secret_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("secret_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SecretId { get; set; }
 
     /// <summary>
@@ -61,46 +61,46 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    [TerraformPropertyName("annotations")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Annotations => new TerraformReference(this, "annotations");
+    [TerraformProperty("annotations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Annotations { get; }
 
     /// <summary>
     /// The time at which the regional secret was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The customer-managed encryption configuration of the regional secret.
     /// </summary>
-    [TerraformPropertyName("customer_managed_encryption")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> CustomerManagedEncryption => new TerraformReference(this, "customer_managed_encryption");
+    [TerraformProperty("customer_managed_encryption")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> CustomerManagedEncryption { get; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the regional secret. Defaults to false.
     /// When the field is set to true in Terraform state, a &#39;terraform apply&#39;
     /// or &#39;terraform destroy&#39; that would delete the federation will fail.
     /// </summary>
-    [TerraformPropertyName("deletion_protection")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DeletionProtection => new TerraformReference(this, "deletion_protection");
+    [TerraformProperty("deletion_protection")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_annotations")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
+    [TerraformProperty("effective_annotations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Timestamp in UTC when the regional secret is scheduled to expire. This is always provided on
@@ -108,9 +108,9 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// nanosecond resolution and up to nine fractional digits. Examples: &amp;quot;2014-10-02T15:01:23Z&amp;quot; and
     /// &amp;quot;2014-10-02T15:01:23.045123456Z&amp;quot;. Only one of &#39;expire_time&#39; or &#39;ttl&#39; can be provided.
     /// </summary>
-    [TerraformPropertyName("expire_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExpireTime => new TerraformReference(this, "expire_time");
+    [TerraformProperty("expire_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// The labels assigned to this regional secret.
@@ -130,59 +130,59 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
+    [TerraformProperty("labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// The resource name of the regional secret. Format:
     /// &#39;projects/{{project}}/locations/{{location}}/secrets/{{secret_id}}&#39;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The rotation time and period for a regional secret. At &#39;next_rotation_time&#39;, Secret Manager
     /// will send a Pub/Sub notification to the topics configured on the Secret. &#39;topics&#39; must be
     /// set to configure rotation.
     /// </summary>
-    [TerraformPropertyName("rotation")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Rotation => new TerraformReference(this, "rotation");
+    [TerraformProperty("rotation")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Rotation { get; }
 
     /// <summary>
     /// A map of resource manager tags.
     /// Resource manager tag keys and values have the same definition as resource manager tags.
     /// Keys must be in the format tagKeys/{tag_key_id}, and values are in the format tagValues/{tag_value_id}.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// A list of up to 10 Pub/Sub topics to which messages are published when control plane
     /// operations are called on the regional secret or its versions.
     /// </summary>
-    [TerraformPropertyName("topics")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Topics => new TerraformReference(this, "topics");
+    [TerraformProperty("topics")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Topics { get; }
 
     /// <summary>
     /// The TTL for the regional secret. A duration in seconds with up to nine fractional digits,
     /// terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;. Only one of &#39;ttl&#39; or &#39;expire_time&#39; can be provided.
     /// </summary>
-    [TerraformPropertyName("ttl")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Ttl => new TerraformReference(this, "ttl");
+    [TerraformProperty("ttl")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Ttl { get; }
 
     /// <summary>
     /// Mapping from version alias to version name.
@@ -195,9 +195,9 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// An object containing a list of &amp;quot;key&amp;quot;: value pairs. Example:
     /// { &amp;quot;name&amp;quot;: &amp;quot;wrench&amp;quot;, &amp;quot;mass&amp;quot;: &amp;quot;1.3kg&amp;quot;, &amp;quot;count&amp;quot;: &amp;quot;3&amp;quot; }.
     /// </summary>
-    [TerraformPropertyName("version_aliases")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> VersionAliases => new TerraformReference(this, "version_aliases");
+    [TerraformProperty("version_aliases")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> VersionAliases { get; }
 
     /// <summary>
     /// Secret Version TTL after destruction request.
@@ -206,8 +206,8 @@ public class GoogleSecretManagerRegionalSecretDataSource : TerraformDataSource
     /// on calling destroy instead the version goes to a disabled state and
     /// the actual destruction happens after this TTL expires. It must be atleast 24h.
     /// </summary>
-    [TerraformPropertyName("version_destroy_ttl")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VersionDestroyTtl => new TerraformReference(this, "version_destroy_ttl");
+    [TerraformProperty("version_destroy_ttl")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VersionDestroyTtl { get; }
 
 }

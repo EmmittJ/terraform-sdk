@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for thing_group_indexing_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock
+public partial class AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The thing_group_indexing_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingGroupIndexingMode is required")]
-    [TerraformPropertyName("thing_group_indexing_mode")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("thing_group_indexing_mode")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ThingGroupIndexingMode { get; set; }
 
 }
@@ -22,35 +22,35 @@ public class AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock
 /// Block type for thing_indexing_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsIotIndexingConfigurationThingIndexingConfigurationBlock
+public partial class AwsIotIndexingConfigurationThingIndexingConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The device_defender_indexing_mode attribute.
     /// </summary>
-    [TerraformPropertyName("device_defender_indexing_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("device_defender_indexing_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeviceDefenderIndexingMode { get; set; }
 
     /// <summary>
     /// The named_shadow_indexing_mode attribute.
     /// </summary>
-    [TerraformPropertyName("named_shadow_indexing_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("named_shadow_indexing_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NamedShadowIndexingMode { get; set; }
 
     /// <summary>
     /// The thing_connectivity_indexing_mode attribute.
     /// </summary>
-    [TerraformPropertyName("thing_connectivity_indexing_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("thing_connectivity_indexing_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ThingConnectivityIndexingMode { get; set; }
 
     /// <summary>
     /// The thing_indexing_mode attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ThingIndexingMode is required")]
-    [TerraformPropertyName("thing_indexing_mode")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("thing_indexing_mode")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ThingIndexingMode { get; set; }
 
 }
@@ -59,7 +59,7 @@ public class AwsIotIndexingConfigurationThingIndexingConfigurationBlock
 /// Manages a aws_iot_indexing_configuration resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsIotIndexingConfiguration : TerraformResource
+public partial class AwsIotIndexingConfiguration : TerraformResource
 {
     public AwsIotIndexingConfiguration(string name) : base("aws_iot_indexing_configuration", name)
     {
@@ -68,23 +68,23 @@ public class AwsIotIndexingConfiguration : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for thing_group_indexing_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThingGroupIndexingConfiguration block(s) allowed")]
-    [TerraformPropertyName("thing_group_indexing_configuration")]
+    [TerraformProperty("thing_group_indexing_configuration")]
     public TerraformList<TerraformBlock<AwsIotIndexingConfigurationThingGroupIndexingConfigurationBlock>>? ThingGroupIndexingConfiguration { get; set; }
 
     /// <summary>
@@ -92,7 +92,7 @@ public class AwsIotIndexingConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ThingIndexingConfiguration block(s) allowed")]
-    [TerraformPropertyName("thing_indexing_configuration")]
+    [TerraformProperty("thing_indexing_configuration")]
     public TerraformList<TerraformBlock<AwsIotIndexingConfigurationThingIndexingConfigurationBlock>>? ThingIndexingConfiguration { get; set; }
 
 }

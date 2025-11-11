@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_route53_cidr_location resource.
 /// </summary>
-public class AwsRoute53CidrLocation : TerraformResource
+public partial class AwsRoute53CidrLocation : TerraformResource
 {
     public AwsRoute53CidrLocation(string name) : base("aws_route53_cidr_location", name)
     {
@@ -15,31 +15,31 @@ public class AwsRoute53CidrLocation : TerraformResource
     /// The cidr_blocks attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrBlocks is required")]
-    [TerraformPropertyName("cidr_blocks")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cidr_blocks")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> CidrBlocks { get; set; }
 
     /// <summary>
     /// The cidr_collection_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CidrCollectionId is required")]
-    [TerraformPropertyName("cidr_collection_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cidr_collection_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CidrCollectionId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
 }

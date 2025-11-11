@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter_at_destination in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2NetworkInsightsPathFilterAtDestinationBlock
+public partial class AwsEc2NetworkInsightsPathFilterAtDestinationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The destination_address attribute.
     /// </summary>
-    [TerraformPropertyName("destination_address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("destination_address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DestinationAddress { get; set; }
 
     /// <summary>
     /// The source_address attribute.
     /// </summary>
-    [TerraformPropertyName("source_address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceAddress { get; set; }
 
 }
@@ -28,20 +28,20 @@ public class AwsEc2NetworkInsightsPathFilterAtDestinationBlock
 /// Block type for filter_at_source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsEc2NetworkInsightsPathFilterAtSourceBlock
+public partial class AwsEc2NetworkInsightsPathFilterAtSourceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The destination_address attribute.
     /// </summary>
-    [TerraformPropertyName("destination_address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("destination_address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DestinationAddress { get; set; }
 
     /// <summary>
     /// The source_address attribute.
     /// </summary>
-    [TerraformPropertyName("source_address")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_address")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceAddress { get; set; }
 
 }
@@ -50,7 +50,7 @@ public class AwsEc2NetworkInsightsPathFilterAtSourceBlock
 /// Manages a aws_ec2_network_insights_path resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsEc2NetworkInsightsPath : TerraformResource
+public partial class AwsEc2NetworkInsightsPath : TerraformResource
 {
     public AwsEc2NetworkInsightsPath(string name) : base("aws_ec2_network_insights_path", name)
     {
@@ -59,81 +59,81 @@ public class AwsEc2NetworkInsightsPath : TerraformResource
     /// <summary>
     /// The destination attribute.
     /// </summary>
-    [TerraformPropertyName("destination")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("destination")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Destination { get; set; }
 
     /// <summary>
     /// The destination_ip attribute.
     /// </summary>
-    [TerraformPropertyName("destination_ip")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("destination_ip")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DestinationIp { get; set; }
 
     /// <summary>
     /// The destination_port attribute.
     /// </summary>
-    [TerraformPropertyName("destination_port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("destination_port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? DestinationPort { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Protocol is required")]
-    [TerraformPropertyName("protocol")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("protocol")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Protocol { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
-    [TerraformPropertyName("source")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Source { get; set; }
 
     /// <summary>
     /// The source_ip attribute.
     /// </summary>
-    [TerraformPropertyName("source_ip")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_ip")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceIp { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for filter_at_destination.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAtDestination block(s) allowed")]
-    [TerraformPropertyName("filter_at_destination")]
+    [TerraformProperty("filter_at_destination")]
     public TerraformList<TerraformBlock<AwsEc2NetworkInsightsPathFilterAtDestinationBlock>>? FilterAtDestination { get; set; }
 
     /// <summary>
@@ -141,28 +141,28 @@ public class AwsEc2NetworkInsightsPath : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FilterAtSource block(s) allowed")]
-    [TerraformPropertyName("filter_at_source")]
+    [TerraformProperty("filter_at_source")]
     public TerraformList<TerraformBlock<AwsEc2NetworkInsightsPathFilterAtSourceBlock>>? FilterAtSource { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The destination_arn attribute.
     /// </summary>
-    [TerraformPropertyName("destination_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DestinationArn => new TerraformReference(this, "destination_arn");
+    [TerraformProperty("destination_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DestinationArn { get; }
 
     /// <summary>
     /// The source_arn attribute.
     /// </summary>
-    [TerraformPropertyName("source_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceArn => new TerraformReference(this, "source_arn");
+    [TerraformProperty("source_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceArn { get; }
 
 }

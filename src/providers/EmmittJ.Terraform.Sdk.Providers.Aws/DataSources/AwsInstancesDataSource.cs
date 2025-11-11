@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for filter in .
 /// Nesting mode: set
 /// </summary>
-public class AwsInstancesDataSourceFilterBlock
+public partial class AwsInstancesDataSourceFilterBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The values attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Values is required")]
-    [TerraformPropertyName("values")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("values")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Values { get; set; }
 
 }
@@ -30,13 +30,13 @@ public class AwsInstancesDataSourceFilterBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsInstancesDataSourceTimeoutsBlock
+public partial class AwsInstancesDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -44,7 +44,7 @@ public class AwsInstancesDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a aws_instances.
 /// </summary>
-public class AwsInstancesDataSource : TerraformDataSource
+public partial class AwsInstancesDataSource : TerraformDataSource
 {
     public AwsInstancesDataSource(string name) : base("aws_instances", name)
     {
@@ -53,71 +53,71 @@ public class AwsInstancesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_state_names attribute.
     /// </summary>
-    [TerraformPropertyName("instance_state_names")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("instance_state_names")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? InstanceStateNames { get; set; }
 
     /// <summary>
     /// The instance_tags attribute.
     /// </summary>
-    [TerraformPropertyName("instance_tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> InstanceTags { get; set; } = default!;
+    [TerraformProperty("instance_tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> InstanceTags { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for filter.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformSet<TerraformBlock<AwsInstancesDataSourceFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsInstancesDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
-    [TerraformPropertyName("ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Ids => new TerraformReference(this, "ids");
+    [TerraformProperty("ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Ids { get; }
 
     /// <summary>
     /// The ipv6_addresses attribute.
     /// </summary>
-    [TerraformPropertyName("ipv6_addresses")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Ipv6Addresses => new TerraformReference(this, "ipv6_addresses");
+    [TerraformProperty("ipv6_addresses")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Ipv6Addresses { get; }
 
     /// <summary>
     /// The private_ips attribute.
     /// </summary>
-    [TerraformPropertyName("private_ips")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> PrivateIps => new TerraformReference(this, "private_ips");
+    [TerraformProperty("private_ips")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> PrivateIps { get; }
 
     /// <summary>
     /// The public_ips attribute.
     /// </summary>
-    [TerraformPropertyName("public_ips")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> PublicIps => new TerraformReference(this, "public_ips");
+    [TerraformProperty("public_ips")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> PublicIps { get; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadServicePrincipalsDataSourceTimeoutsBlock
+public partial class AzureadServicePrincipalsDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzureadServicePrincipalsDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azuread_service_principals.
 /// </summary>
-public class AzureadServicePrincipalsDataSource : TerraformDataSource
+public partial class AzureadServicePrincipalsDataSource : TerraformDataSource
 {
     public AzureadServicePrincipalsDataSource(string name) : base("azuread_service_principals", name)
     {
@@ -29,57 +29,57 @@ public class AzureadServicePrincipalsDataSource : TerraformDataSource
     /// <summary>
     /// The client IDs of the applications associated with the service principals
     /// </summary>
-    [TerraformPropertyName("client_ids")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> ClientIds { get; set; } = default!;
+    [TerraformProperty("client_ids")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> ClientIds { get; set; }
 
     /// <summary>
     /// The display names of the applications associated with the service principals
     /// </summary>
-    [TerraformPropertyName("display_names")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> DisplayNames { get; set; } = default!;
+    [TerraformProperty("display_names")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> DisplayNames { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Ignore missing service principals and return the service principals that were found. The data source will still fail if no service principals are found
     /// </summary>
-    [TerraformPropertyName("ignore_missing")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ignore_missing")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IgnoreMissing { get; set; }
 
     /// <summary>
     /// The object IDs of the service principals
     /// </summary>
-    [TerraformPropertyName("object_ids")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformList<string> ObjectIds { get; set; } = default!;
+    [TerraformProperty("object_ids")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformList<string> ObjectIds { get; set; }
 
     /// <summary>
     /// Fetch all service principals with no filter and return all that were found. The data source will still fail if no service principals are found.
     /// </summary>
-    [TerraformPropertyName("return_all")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("return_all")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ReturnAll { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadServicePrincipalsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// A list of service_principals
     /// </summary>
-    [TerraformPropertyName("service_principals")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ServicePrincipals => new TerraformReference(this, "service_principals");
+    [TerraformProperty("service_principals")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ServicePrincipals { get; }
 
 }

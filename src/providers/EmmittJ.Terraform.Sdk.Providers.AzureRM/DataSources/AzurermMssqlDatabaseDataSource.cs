@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMssqlDatabaseDataSourceTimeoutsBlock
+public partial class AzurermMssqlDatabaseDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermMssqlDatabaseDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_mssql_database.
 /// </summary>
-public class AzurermMssqlDatabaseDataSource : TerraformDataSource
+public partial class AzurermMssqlDatabaseDataSource : TerraformDataSource
 {
     public AzurermMssqlDatabaseDataSource(string name) : base("azurerm_mssql_database", name)
     {
@@ -29,136 +29,136 @@ public class AzurermMssqlDatabaseDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The server_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServerId is required")]
-    [TerraformPropertyName("server_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("server_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServerId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMssqlDatabaseDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The collation attribute.
     /// </summary>
-    [TerraformPropertyName("collation")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Collation => new TerraformReference(this, "collation");
+    [TerraformProperty("collation")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Collation { get; }
 
     /// <summary>
     /// The elastic_pool_id attribute.
     /// </summary>
-    [TerraformPropertyName("elastic_pool_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ElasticPoolId => new TerraformReference(this, "elastic_pool_id");
+    [TerraformProperty("elastic_pool_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ElasticPoolId { get; }
 
     /// <summary>
     /// The enclave_type attribute.
     /// </summary>
-    [TerraformPropertyName("enclave_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EnclaveType => new TerraformReference(this, "enclave_type");
+    [TerraformProperty("enclave_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EnclaveType { get; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    [TerraformPropertyName("identity")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Identity => new TerraformReference(this, "identity");
+    [TerraformProperty("identity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The license_type attribute.
     /// </summary>
-    [TerraformPropertyName("license_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LicenseType => new TerraformReference(this, "license_type");
+    [TerraformProperty("license_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LicenseType { get; }
 
     /// <summary>
     /// The max_size_gb attribute.
     /// </summary>
-    [TerraformPropertyName("max_size_gb")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> MaxSizeGb => new TerraformReference(this, "max_size_gb");
+    [TerraformProperty("max_size_gb")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> MaxSizeGb { get; }
 
     /// <summary>
     /// The read_replica_count attribute.
     /// </summary>
-    [TerraformPropertyName("read_replica_count")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ReadReplicaCount => new TerraformReference(this, "read_replica_count");
+    [TerraformProperty("read_replica_count")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ReadReplicaCount { get; }
 
     /// <summary>
     /// The read_scale attribute.
     /// </summary>
-    [TerraformPropertyName("read_scale")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ReadScale => new TerraformReference(this, "read_scale");
+    [TerraformProperty("read_scale")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ReadScale { get; }
 
     /// <summary>
     /// The sku_name attribute.
     /// </summary>
-    [TerraformPropertyName("sku_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SkuName => new TerraformReference(this, "sku_name");
+    [TerraformProperty("sku_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SkuName { get; }
 
     /// <summary>
     /// The storage_account_type attribute.
     /// </summary>
-    [TerraformPropertyName("storage_account_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StorageAccountType => new TerraformReference(this, "storage_account_type");
+    [TerraformProperty("storage_account_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StorageAccountType { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The transparent_data_encryption_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("transparent_data_encryption_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> TransparentDataEncryptionEnabled => new TerraformReference(this, "transparent_data_encryption_enabled");
+    [TerraformProperty("transparent_data_encryption_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> TransparentDataEncryptionEnabled { get; }
 
     /// <summary>
     /// The transparent_data_encryption_key_automatic_rotation_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("transparent_data_encryption_key_automatic_rotation_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> TransparentDataEncryptionKeyAutomaticRotationEnabled => new TerraformReference(this, "transparent_data_encryption_key_automatic_rotation_enabled");
+    [TerraformProperty("transparent_data_encryption_key_automatic_rotation_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> TransparentDataEncryptionKeyAutomaticRotationEnabled { get; }
 
     /// <summary>
     /// The transparent_data_encryption_key_vault_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("transparent_data_encryption_key_vault_key_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TransparentDataEncryptionKeyVaultKeyId => new TerraformReference(this, "transparent_data_encryption_key_vault_key_id");
+    [TerraformProperty("transparent_data_encryption_key_vault_key_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TransparentDataEncryptionKeyVaultKeyId { get; }
 
     /// <summary>
     /// The zone_redundant attribute.
     /// </summary>
-    [TerraformPropertyName("zone_redundant")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ZoneRedundant => new TerraformReference(this, "zone_redundant");
+    [TerraformProperty("zone_redundant")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ZoneRedundant { get; }
 
 }

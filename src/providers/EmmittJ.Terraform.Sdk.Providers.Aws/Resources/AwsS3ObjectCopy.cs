@@ -6,43 +6,43 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for grant in .
 /// Nesting mode: set
 /// </summary>
-public class AwsS3ObjectCopyGrantBlock
+public partial class AwsS3ObjectCopyGrantBlock : TerraformBlockBase
 {
     /// <summary>
     /// The email attribute.
     /// </summary>
-    [TerraformPropertyName("email")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("email")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Email { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Id { get; set; }
 
     /// <summary>
     /// The permissions attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Permissions is required")]
-    [TerraformPropertyName("permissions")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("permissions")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Permissions { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
-    [TerraformPropertyName("uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Uri { get; set; }
 
 }
@@ -51,7 +51,7 @@ public class AwsS3ObjectCopyGrantBlock
 /// Block type for override_provider in .
 /// Nesting mode: list
 /// </summary>
-public class AwsS3ObjectCopyOverrideProviderBlock
+public partial class AwsS3ObjectCopyOverrideProviderBlock : TerraformBlockBase
 {
 }
 
@@ -59,7 +59,7 @@ public class AwsS3ObjectCopyOverrideProviderBlock
 /// Manages a aws_s3_object_copy resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsS3ObjectCopy : TerraformResource
+public partial class AwsS3ObjectCopy : TerraformResource
 {
     public AwsS3ObjectCopy(string name) : base("aws_s3_object_copy", name)
     {
@@ -68,298 +68,298 @@ public class AwsS3ObjectCopy : TerraformResource
     /// <summary>
     /// The acl attribute.
     /// </summary>
-    [TerraformPropertyName("acl")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Acl { get; set; } = default!;
+    [TerraformProperty("acl")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Acl { get; set; }
 
     /// <summary>
     /// The bucket attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    [TerraformPropertyName("bucket")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The bucket_key_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("bucket_key_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> BucketKeyEnabled { get; set; } = default!;
+    [TerraformProperty("bucket_key_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> BucketKeyEnabled { get; set; }
 
     /// <summary>
     /// The cache_control attribute.
     /// </summary>
-    [TerraformPropertyName("cache_control")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CacheControl { get; set; } = default!;
+    [TerraformProperty("cache_control")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CacheControl { get; set; }
 
     /// <summary>
     /// The checksum_algorithm attribute.
     /// </summary>
-    [TerraformPropertyName("checksum_algorithm")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("checksum_algorithm")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ChecksumAlgorithm { get; set; }
 
     /// <summary>
     /// The content_disposition attribute.
     /// </summary>
-    [TerraformPropertyName("content_disposition")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ContentDisposition { get; set; } = default!;
+    [TerraformProperty("content_disposition")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ContentDisposition { get; set; }
 
     /// <summary>
     /// The content_encoding attribute.
     /// </summary>
-    [TerraformPropertyName("content_encoding")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ContentEncoding { get; set; } = default!;
+    [TerraformProperty("content_encoding")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ContentEncoding { get; set; }
 
     /// <summary>
     /// The content_language attribute.
     /// </summary>
-    [TerraformPropertyName("content_language")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ContentLanguage { get; set; } = default!;
+    [TerraformProperty("content_language")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ContentLanguage { get; set; }
 
     /// <summary>
     /// The content_type attribute.
     /// </summary>
-    [TerraformPropertyName("content_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ContentType { get; set; } = default!;
+    [TerraformProperty("content_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ContentType { get; set; }
 
     /// <summary>
     /// The copy_if_match attribute.
     /// </summary>
-    [TerraformPropertyName("copy_if_match")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("copy_if_match")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CopyIfMatch { get; set; }
 
     /// <summary>
     /// The copy_if_modified_since attribute.
     /// </summary>
-    [TerraformPropertyName("copy_if_modified_since")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("copy_if_modified_since")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CopyIfModifiedSince { get; set; }
 
     /// <summary>
     /// The copy_if_none_match attribute.
     /// </summary>
-    [TerraformPropertyName("copy_if_none_match")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("copy_if_none_match")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CopyIfNoneMatch { get; set; }
 
     /// <summary>
     /// The copy_if_unmodified_since attribute.
     /// </summary>
-    [TerraformPropertyName("copy_if_unmodified_since")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("copy_if_unmodified_since")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CopyIfUnmodifiedSince { get; set; }
 
     /// <summary>
     /// The customer_algorithm attribute.
     /// </summary>
-    [TerraformPropertyName("customer_algorithm")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CustomerAlgorithm { get; set; } = default!;
+    [TerraformProperty("customer_algorithm")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CustomerAlgorithm { get; set; }
 
     /// <summary>
     /// The customer_key attribute.
     /// </summary>
-    [TerraformPropertyName("customer_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("customer_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CustomerKey { get; set; }
 
     /// <summary>
     /// The customer_key_md5 attribute.
     /// </summary>
-    [TerraformPropertyName("customer_key_md5")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CustomerKeyMd5 { get; set; } = default!;
+    [TerraformProperty("customer_key_md5")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CustomerKeyMd5 { get; set; }
 
     /// <summary>
     /// The expected_bucket_owner attribute.
     /// </summary>
-    [TerraformPropertyName("expected_bucket_owner")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expected_bucket_owner")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExpectedBucketOwner { get; set; }
 
     /// <summary>
     /// The expected_source_bucket_owner attribute.
     /// </summary>
-    [TerraformPropertyName("expected_source_bucket_owner")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expected_source_bucket_owner")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExpectedSourceBucketOwner { get; set; }
 
     /// <summary>
     /// The expires attribute.
     /// </summary>
-    [TerraformPropertyName("expires")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expires")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Expires { get; set; }
 
     /// <summary>
     /// The force_destroy attribute.
     /// </summary>
-    [TerraformPropertyName("force_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("force_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ForceDestroy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformPropertyName("key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The kms_encryption_context attribute.
     /// </summary>
-    [TerraformPropertyName("kms_encryption_context")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KmsEncryptionContext { get; set; } = default!;
+    [TerraformProperty("kms_encryption_context")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KmsEncryptionContext { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KmsKeyId { get; set; } = default!;
+    [TerraformProperty("kms_key_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KmsKeyId { get; set; }
 
     /// <summary>
     /// The metadata attribute.
     /// </summary>
-    [TerraformPropertyName("metadata")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Metadata { get; set; } = default!;
+    [TerraformProperty("metadata")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Metadata { get; set; }
 
     /// <summary>
     /// The metadata_directive attribute.
     /// </summary>
-    [TerraformPropertyName("metadata_directive")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("metadata_directive")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MetadataDirective { get; set; }
 
     /// <summary>
     /// The object_lock_legal_hold_status attribute.
     /// </summary>
-    [TerraformPropertyName("object_lock_legal_hold_status")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ObjectLockLegalHoldStatus { get; set; } = default!;
+    [TerraformProperty("object_lock_legal_hold_status")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ObjectLockLegalHoldStatus { get; set; }
 
     /// <summary>
     /// The object_lock_mode attribute.
     /// </summary>
-    [TerraformPropertyName("object_lock_mode")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ObjectLockMode { get; set; } = default!;
+    [TerraformProperty("object_lock_mode")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ObjectLockMode { get; set; }
 
     /// <summary>
     /// The object_lock_retain_until_date attribute.
     /// </summary>
-    [TerraformPropertyName("object_lock_retain_until_date")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ObjectLockRetainUntilDate { get; set; } = default!;
+    [TerraformProperty("object_lock_retain_until_date")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ObjectLockRetainUntilDate { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The request_payer attribute.
     /// </summary>
-    [TerraformPropertyName("request_payer")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("request_payer")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RequestPayer { get; set; }
 
     /// <summary>
     /// The server_side_encryption attribute.
     /// </summary>
-    [TerraformPropertyName("server_side_encryption")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ServerSideEncryption { get; set; } = default!;
+    [TerraformProperty("server_side_encryption")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ServerSideEncryption { get; set; }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
-    [TerraformPropertyName("source")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Source { get; set; }
 
     /// <summary>
     /// The source_customer_algorithm attribute.
     /// </summary>
-    [TerraformPropertyName("source_customer_algorithm")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_customer_algorithm")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceCustomerAlgorithm { get; set; }
 
     /// <summary>
     /// The source_customer_key attribute.
     /// </summary>
-    [TerraformPropertyName("source_customer_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_customer_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceCustomerKey { get; set; }
 
     /// <summary>
     /// The source_customer_key_md5 attribute.
     /// </summary>
-    [TerraformPropertyName("source_customer_key_md5")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_customer_key_md5")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceCustomerKeyMd5 { get; set; }
 
     /// <summary>
     /// The storage_class attribute.
     /// </summary>
-    [TerraformPropertyName("storage_class")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> StorageClass { get; set; } = default!;
+    [TerraformProperty("storage_class")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> StorageClass { get; set; }
 
     /// <summary>
     /// The tagging_directive attribute.
     /// </summary>
-    [TerraformPropertyName("tagging_directive")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tagging_directive")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TaggingDirective { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The website_redirect attribute.
     /// </summary>
-    [TerraformPropertyName("website_redirect")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> WebsiteRedirect { get; set; } = default!;
+    [TerraformProperty("website_redirect")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> WebsiteRedirect { get; set; }
 
     /// <summary>
     /// Block for grant.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("grant")]
+    [TerraformProperty("grant")]
     public TerraformSet<TerraformBlock<AwsS3ObjectCopyGrantBlock>>? Grant { get; set; }
 
     /// <summary>
@@ -367,91 +367,91 @@ public class AwsS3ObjectCopy : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OverrideProvider block(s) allowed")]
-    [TerraformPropertyName("override_provider")]
+    [TerraformProperty("override_provider")]
     public TerraformList<TerraformBlock<AwsS3ObjectCopyOverrideProviderBlock>>? OverrideProvider { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The checksum_crc32 attribute.
     /// </summary>
-    [TerraformPropertyName("checksum_crc32")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ChecksumCrc32 => new TerraformReference(this, "checksum_crc32");
+    [TerraformProperty("checksum_crc32")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ChecksumCrc32 { get; }
 
     /// <summary>
     /// The checksum_crc32c attribute.
     /// </summary>
-    [TerraformPropertyName("checksum_crc32c")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ChecksumCrc32c => new TerraformReference(this, "checksum_crc32c");
+    [TerraformProperty("checksum_crc32c")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ChecksumCrc32c { get; }
 
     /// <summary>
     /// The checksum_crc64nvme attribute.
     /// </summary>
-    [TerraformPropertyName("checksum_crc64nvme")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ChecksumCrc64nvme => new TerraformReference(this, "checksum_crc64nvme");
+    [TerraformProperty("checksum_crc64nvme")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ChecksumCrc64nvme { get; }
 
     /// <summary>
     /// The checksum_sha1 attribute.
     /// </summary>
-    [TerraformPropertyName("checksum_sha1")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ChecksumSha1 => new TerraformReference(this, "checksum_sha1");
+    [TerraformProperty("checksum_sha1")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ChecksumSha1 { get; }
 
     /// <summary>
     /// The checksum_sha256 attribute.
     /// </summary>
-    [TerraformPropertyName("checksum_sha256")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ChecksumSha256 => new TerraformReference(this, "checksum_sha256");
+    [TerraformProperty("checksum_sha256")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ChecksumSha256 { get; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
-    [TerraformPropertyName("expiration")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Expiration => new TerraformReference(this, "expiration");
+    [TerraformProperty("expiration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Expiration { get; }
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModified => new TerraformReference(this, "last_modified");
+    [TerraformProperty("last_modified")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModified { get; }
 
     /// <summary>
     /// The request_charged attribute.
     /// </summary>
-    [TerraformPropertyName("request_charged")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> RequestCharged => new TerraformReference(this, "request_charged");
+    [TerraformProperty("request_charged")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> RequestCharged { get; }
 
     /// <summary>
     /// The source_version_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_version_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceVersionId => new TerraformReference(this, "source_version_id");
+    [TerraformProperty("source_version_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceVersionId { get; }
 
     /// <summary>
     /// The version_id attribute.
     /// </summary>
-    [TerraformPropertyName("version_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VersionId => new TerraformReference(this, "version_id");
+    [TerraformProperty("version_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VersionId { get; }
 
 }

@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIapClientTimeoutsBlock
+public partial class GoogleIapClientTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -28,7 +28,7 @@ public class GoogleIapClientTimeoutsBlock
 /// Manages a google_iap_client resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
-public class GoogleIapClient : TerraformResource
+public partial class GoogleIapClient : TerraformResource
 {
     public GoogleIapClient(string name) : base("google_iap_client", name)
     {
@@ -40,44 +40,44 @@ public class GoogleIapClient : TerraformResource
     /// &#39;projects/{project_number}/brands/{brand_id}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Brand is required")]
-    [TerraformPropertyName("brand")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("brand")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Brand { get; set; }
 
     /// <summary>
     /// Human-friendly name given to the OAuth client.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleIapClientTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. Unique identifier of the OAuth client.
     /// </summary>
-    [TerraformPropertyName("client_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ClientId => new TerraformReference(this, "client_id");
+    [TerraformProperty("client_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ClientId { get; }
 
     /// <summary>
     /// Output only. Client secret of the OAuth client.
     /// </summary>
-    [TerraformPropertyName("secret")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Secret => new TerraformReference(this, "secret");
+    [TerraformProperty("secret")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Secret { get; }
 
 }

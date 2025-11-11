@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_cognito_identity_pool.
 /// </summary>
-public class AwsCognitoIdentityPoolDataSource : TerraformDataSource
+public partial class AwsCognitoIdentityPoolDataSource : TerraformDataSource
 {
     public AwsCognitoIdentityPoolDataSource(string name) : base("aws_cognito_identity_pool", name)
     {
@@ -14,86 +14,86 @@ public class AwsCognitoIdentityPoolDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The identity_pool_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "IdentityPoolName is required")]
-    [TerraformPropertyName("identity_pool_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("identity_pool_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> IdentityPoolName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The allow_classic_flow attribute.
     /// </summary>
-    [TerraformPropertyName("allow_classic_flow")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AllowClassicFlow => new TerraformReference(this, "allow_classic_flow");
+    [TerraformProperty("allow_classic_flow")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AllowClassicFlow { get; }
 
     /// <summary>
     /// The allow_unauthenticated_identities attribute.
     /// </summary>
-    [TerraformPropertyName("allow_unauthenticated_identities")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> AllowUnauthenticatedIdentities => new TerraformReference(this, "allow_unauthenticated_identities");
+    [TerraformProperty("allow_unauthenticated_identities")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> AllowUnauthenticatedIdentities { get; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The cognito_identity_providers attribute.
     /// </summary>
-    [TerraformPropertyName("cognito_identity_providers")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> CognitoIdentityProviders => new TerraformReference(this, "cognito_identity_providers");
+    [TerraformProperty("cognito_identity_providers")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> CognitoIdentityProviders { get; }
 
     /// <summary>
     /// The developer_provider_name attribute.
     /// </summary>
-    [TerraformPropertyName("developer_provider_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeveloperProviderName => new TerraformReference(this, "developer_provider_name");
+    [TerraformProperty("developer_provider_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeveloperProviderName { get; }
 
     /// <summary>
     /// The openid_connect_provider_arns attribute.
     /// </summary>
-    [TerraformPropertyName("openid_connect_provider_arns")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> OpenidConnectProviderArns => new TerraformReference(this, "openid_connect_provider_arns");
+    [TerraformProperty("openid_connect_provider_arns")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> OpenidConnectProviderArns { get; }
 
     /// <summary>
     /// The saml_provider_arns attribute.
     /// </summary>
-    [TerraformPropertyName("saml_provider_arns")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SamlProviderArns => new TerraformReference(this, "saml_provider_arns");
+    [TerraformProperty("saml_provider_arns")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SamlProviderArns { get; }
 
     /// <summary>
     /// The supported_login_providers attribute.
     /// </summary>
-    [TerraformPropertyName("supported_login_providers")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> SupportedLoginProviders => new TerraformReference(this, "supported_login_providers");
+    [TerraformProperty("supported_login_providers")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> SupportedLoginProviders { get; }
 
 }

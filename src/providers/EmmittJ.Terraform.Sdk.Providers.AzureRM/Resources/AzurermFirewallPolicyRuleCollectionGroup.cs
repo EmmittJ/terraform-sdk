@@ -6,30 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for application_rule_collection in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock
+public partial class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformPropertyName("action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformPropertyName("priority")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("priority")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Priority { get; set; }
 
 }
@@ -38,30 +38,30 @@ public class AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBl
 /// Block type for nat_rule_collection in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock
+public partial class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformPropertyName("action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformPropertyName("priority")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("priority")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Priority { get; set; }
 
 }
@@ -70,30 +70,30 @@ public class AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock
 /// Block type for network_rule_collection in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock
+public partial class AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Action is required")]
-    [TerraformPropertyName("action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Action { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformPropertyName("priority")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("priority")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Priority { get; set; }
 
 }
@@ -102,34 +102,34 @@ public class AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock
+public partial class AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -137,7 +137,7 @@ public class AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_firewall_policy_rule_collection_group resource.
 /// </summary>
-public class AzurermFirewallPolicyRuleCollectionGroup : TerraformResource
+public partial class AzurermFirewallPolicyRuleCollectionGroup : TerraformResource
 {
     public AzurermFirewallPolicyRuleCollectionGroup(string name) : base("azurerm_firewall_policy_rule_collection_group", name)
     {
@@ -147,59 +147,59 @@ public class AzurermFirewallPolicyRuleCollectionGroup : TerraformResource
     /// The firewall_policy_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FirewallPolicyId is required")]
-    [TerraformPropertyName("firewall_policy_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("firewall_policy_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FirewallPolicyId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformPropertyName("priority")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("priority")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// Block for application_rule_collection.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("application_rule_collection")]
+    [TerraformProperty("application_rule_collection")]
     public TerraformList<TerraformBlock<AzurermFirewallPolicyRuleCollectionGroupApplicationRuleCollectionBlock>>? ApplicationRuleCollection { get; set; }
 
     /// <summary>
     /// Block for nat_rule_collection.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("nat_rule_collection")]
+    [TerraformProperty("nat_rule_collection")]
     public TerraformList<TerraformBlock<AzurermFirewallPolicyRuleCollectionGroupNatRuleCollectionBlock>>? NatRuleCollection { get; set; }
 
     /// <summary>
     /// Block for network_rule_collection.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("network_rule_collection")]
+    [TerraformProperty("network_rule_collection")]
     public TerraformList<TerraformBlock<AzurermFirewallPolicyRuleCollectionGroupNetworkRuleCollectionBlock>>? NetworkRuleCollection { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermFirewallPolicyRuleCollectionGroupTimeoutsBlock>? Timeouts { get; set; }
 
 }

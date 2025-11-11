@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for properties in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock
+public partial class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock : TerraformBlockBase
 {
 
 
@@ -19,23 +19,23 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock
     /// in days, can range from 1 day to 60 days, and has a default value of
     /// 60 days.
     /// </summary>
-    [TerraformPropertyName("backup_retention_period_days")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> BackupRetentionPeriodDays { get; set; } = default!;
+    [TerraformProperty("backup_retention_period_days")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> BackupRetentionPeriodDays { get; set; }
 
     /// <summary>
     /// The character set for the Autonomous Database. The default is AL32UTF8.
     /// </summary>
-    [TerraformPropertyName("character_set")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("character_set")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CharacterSet { get; set; }
 
     /// <summary>
     /// The number of compute servers for the Autonomous Database.
     /// </summary>
-    [TerraformPropertyName("compute_count")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> ComputeCount { get; set; } = default!;
+    [TerraformProperty("compute_count")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> ComputeCount { get; set; }
 
 
 
@@ -43,16 +43,16 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock
     /// <summary>
     /// The size of the data stored in the database, in gigabytes.
     /// </summary>
-    [TerraformPropertyName("data_storage_size_gb")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> DataStorageSizeGb { get; set; } = default!;
+    [TerraformProperty("data_storage_size_gb")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> DataStorageSizeGb { get; set; }
 
     /// <summary>
     /// The size of the data stored in the database, in terabytes.
     /// </summary>
-    [TerraformPropertyName("data_storage_size_tb")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> DataStorageSizeTb { get; set; } = default!;
+    [TerraformProperty("data_storage_size_tb")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> DataStorageSizeTb { get; set; }
 
 
     /// <summary>
@@ -62,15 +62,15 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock
     /// STANDARD_EDITION
     /// ENTERPRISE_EDITION
     /// </summary>
-    [TerraformPropertyName("db_edition")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("db_edition")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DbEdition { get; set; }
 
     /// <summary>
     /// The Oracle Database version for the Autonomous Database.
     /// </summary>
-    [TerraformPropertyName("db_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("db_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DbVersion { get; set; }
 
     /// <summary>
@@ -82,8 +82,8 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock
     /// APEX
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbWorkload is required")]
-    [TerraformPropertyName("db_workload")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("db_workload")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DbWorkload { get; set; }
 
 
@@ -91,8 +91,8 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock
     /// This field indicates if auto scaling is enabled for the Autonomous Database
     /// CPU core count.
     /// </summary>
-    [TerraformPropertyName("is_auto_scaling_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("is_auto_scaling_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IsAutoScalingEnabled { get; set; }
 
 
@@ -100,9 +100,9 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock
     /// This field indicates if auto scaling is enabled for the Autonomous Database
     /// storage.
     /// </summary>
-    [TerraformPropertyName("is_storage_auto_scaling_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> IsStorageAutoScalingEnabled { get; set; } = default!;
+    [TerraformProperty("is_storage_auto_scaling_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> IsStorageAutoScalingEnabled { get; set; }
 
     /// <summary>
     /// The license type used for the Autonomous Database. 
@@ -112,8 +112,8 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock
     /// BRING_YOUR_OWN_LICENSE
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseType is required")]
-    [TerraformPropertyName("license_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("license_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LicenseType { get; set; }
 
 
@@ -129,25 +129,25 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock
     /// EARLY
     /// REGULAR
     /// </summary>
-    [TerraformPropertyName("maintenance_schedule_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MaintenanceScheduleType { get; set; } = default!;
+    [TerraformProperty("maintenance_schedule_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MaintenanceScheduleType { get; set; }
 
 
 
     /// <summary>
     /// This field specifies if the Autonomous Database requires mTLS connections.
     /// </summary>
-    [TerraformPropertyName("mtls_connection_required")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("mtls_connection_required")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? MtlsConnectionRequired { get; set; }
 
     /// <summary>
     /// The national character set for the Autonomous Database. The default is
     /// AL16UTF16.
     /// </summary>
-    [TerraformPropertyName("n_character_set")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("n_character_set")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NCharacterSet { get; set; }
 
 
@@ -164,9 +164,9 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock
     /// FAILED_ENABLING
     /// FAILED_DISABLING
     /// </summary>
-    [TerraformPropertyName("operations_insights_state")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> OperationsInsightsState { get; set; } = default!;
+    [TerraformProperty("operations_insights_state")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> OperationsInsightsState { get; set; }
 
 
 
@@ -174,16 +174,16 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock
     /// <summary>
     /// The private endpoint IP address for the Autonomous Database.
     /// </summary>
-    [TerraformPropertyName("private_endpoint_ip")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PrivateEndpointIp { get; set; } = default!;
+    [TerraformProperty("private_endpoint_ip")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PrivateEndpointIp { get; set; }
 
     /// <summary>
     /// The private endpoint label for the Autonomous Database.
     /// </summary>
-    [TerraformPropertyName("private_endpoint_label")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PrivateEndpointLabel { get; set; } = default!;
+    [TerraformProperty("private_endpoint_label")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PrivateEndpointLabel { get; set; }
 
 
 
@@ -200,27 +200,27 @@ public class GoogleOracleDatabaseAutonomousDatabasePropertiesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock
+public partial class GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -229,7 +229,7 @@ public class GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock
 /// Manages a google_oracle_database_autonomous_database resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
+public partial class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
 {
     public GoogleOracleDatabaseAutonomousDatabase(string name) : base("google_oracle_database_autonomous_database", name)
     {
@@ -238,8 +238,8 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// <summary>
     /// The password for the default ADMIN user.
     /// </summary>
-    [TerraformPropertyName("admin_password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("admin_password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AdminPassword { get; set; }
 
     /// <summary>
@@ -249,15 +249,15 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// a letter or a number.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutonomousDatabaseId is required")]
-    [TerraformPropertyName("autonomous_database_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("autonomous_database_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AutonomousDatabaseId { get; set; }
 
     /// <summary>
     /// The subnet CIDR range for the Autonmous Database.
     /// </summary>
-    [TerraformPropertyName("cidr")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cidr")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Cidr { get; set; }
 
     /// <summary>
@@ -266,31 +266,31 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// contain a maximum of 30 alphanumeric characters.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Database is required")]
-    [TerraformPropertyName("database")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("database")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Database { get; set; }
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
-    [TerraformPropertyName("deletion_protection")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deletion_protection")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
     /// The display name for the Autonomous Database. The name does not have to
     /// be unique within your project.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DisplayName { get; set; } = default!;
+    [TerraformProperty("display_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The labels or tags associated with the Autonomous Database. 
@@ -298,24 +298,24 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. See documentation for resource type &#39;oracledatabase.googleapis.com/AutonomousDatabaseBackup&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name of the VPC network used by the Autonomous Database.
     /// Format: projects/{project}/global/networks/{network}
     /// </summary>
-    [TerraformPropertyName("network")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("network")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Network { get; set; }
 
     /// <summary>
@@ -325,25 +325,25 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     /// It is optional but if specified, this should match the parent ODBNetwork of
     /// the odb_subnet and backup_odb_subnet.
     /// </summary>
-    [TerraformPropertyName("odb_network")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> OdbNetwork { get; set; } = default!;
+    [TerraformProperty("odb_network")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> OdbNetwork { get; set; }
 
     /// <summary>
     /// The name of the OdbSubnet associated with the Autonomous Database for
     /// IP allocation. Format:
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
-    [TerraformPropertyName("odb_subnet")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> OdbSubnet { get; set; } = default!;
+    [TerraformProperty("odb_subnet")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> OdbSubnet { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for properties.
@@ -352,52 +352,52 @@ public class GoogleOracleDatabaseAutonomousDatabase : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Properties is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Properties block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
-    [TerraformPropertyName("properties")]
+    [TerraformProperty("properties")]
     public TerraformList<TerraformBlock<GoogleOracleDatabaseAutonomousDatabasePropertiesBlock>>? Properties { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleOracleDatabaseAutonomousDatabaseTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The date and time that the Autonomous Database was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The ID of the subscription entitlement associated with the Autonomous
     /// Database.
     /// </summary>
-    [TerraformPropertyName("entitlement_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EntitlementId => new TerraformReference(this, "entitlement_id");
+    [TerraformProperty("entitlement_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EntitlementId { get; }
 
     /// <summary>
     /// Identifier. The name of the Autonomous Database resource in the following format:
     /// projects/{project}/locations/{region}/autonomousDatabases/{autonomous_database}
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

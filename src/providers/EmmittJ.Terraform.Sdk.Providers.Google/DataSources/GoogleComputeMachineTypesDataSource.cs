@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_compute_machine_types.
 /// </summary>
-public class GoogleComputeMachineTypesDataSource : TerraformDataSource
+public partial class GoogleComputeMachineTypesDataSource : TerraformDataSource
 {
     public GoogleComputeMachineTypesDataSource(string name) : base("google_compute_machine_types", name)
     {
@@ -14,36 +14,36 @@ public class GoogleComputeMachineTypesDataSource : TerraformDataSource
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    [TerraformPropertyName("filter")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filter")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Project ID for this request.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The name of the zone for this request.
     /// </summary>
-    [TerraformPropertyName("zone")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Zone { get; set; } = default!;
+    [TerraformProperty("zone")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// The list of machine types
     /// </summary>
-    [TerraformPropertyName("machine_types")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> MachineTypes => new TerraformReference(this, "machine_types");
+    [TerraformProperty("machine_types")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> MachineTypes { get; }
 
 }

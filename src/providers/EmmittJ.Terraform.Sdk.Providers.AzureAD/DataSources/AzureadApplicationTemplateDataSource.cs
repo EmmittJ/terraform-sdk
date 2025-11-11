@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadApplicationTemplateDataSourceTimeoutsBlock
+public partial class AzureadApplicationTemplateDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzureadApplicationTemplateDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azuread_application_template.
 /// </summary>
-public class AzureadApplicationTemplateDataSource : TerraformDataSource
+public partial class AzureadApplicationTemplateDataSource : TerraformDataSource
 {
     public AzureadApplicationTemplateDataSource(string name) : base("azuread_application_template", name)
     {
@@ -29,71 +29,71 @@ public class AzureadApplicationTemplateDataSource : TerraformDataSource
     /// <summary>
     /// The display name for the application template
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DisplayName { get; set; } = default!;
+    [TerraformProperty("display_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The application template&#39;s ID
     /// </summary>
-    [TerraformPropertyName("template_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> TemplateId { get; set; } = default!;
+    [TerraformProperty("template_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> TemplateId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadApplicationTemplateDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// List of categories for this templated application
     /// </summary>
-    [TerraformPropertyName("categories")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Categories => new TerraformReference(this, "categories");
+    [TerraformProperty("categories")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Categories { get; }
 
     /// <summary>
     /// Home page URL of the templated application
     /// </summary>
-    [TerraformPropertyName("homepage_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> HomepageUrl => new TerraformReference(this, "homepage_url");
+    [TerraformProperty("homepage_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> HomepageUrl { get; }
 
     /// <summary>
     /// URL to retrieve the logo for this templated application
     /// </summary>
-    [TerraformPropertyName("logo_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LogoUrl => new TerraformReference(this, "logo_url");
+    [TerraformProperty("logo_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LogoUrl { get; }
 
     /// <summary>
     /// Name of the publisher for this templated application
     /// </summary>
-    [TerraformPropertyName("publisher")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Publisher => new TerraformReference(this, "publisher");
+    [TerraformProperty("publisher")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Publisher { get; }
 
     /// <summary>
     /// The provisioning modes supported by this templated application
     /// </summary>
-    [TerraformPropertyName("supported_provisioning_types")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SupportedProvisioningTypes => new TerraformReference(this, "supported_provisioning_types");
+    [TerraformProperty("supported_provisioning_types")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SupportedProvisioningTypes { get; }
 
     /// <summary>
     /// The single sign on modes supported by this templated application
     /// </summary>
-    [TerraformPropertyName("supported_single_sign_on_modes")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SupportedSingleSignOnModes => new TerraformReference(this, "supported_single_sign_on_modes");
+    [TerraformProperty("supported_single_sign_on_modes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SupportedSingleSignOnModes { get; }
 
 }

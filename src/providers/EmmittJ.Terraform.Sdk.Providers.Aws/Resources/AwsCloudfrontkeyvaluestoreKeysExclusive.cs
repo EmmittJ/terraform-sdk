@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for resource_key_value_pair in .
 /// Nesting mode: set
 /// </summary>
-public class AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock
+public partial class AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock : TerraformBlockBase
 {
     /// <summary>
     /// The key to put.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Key is required")]
-    [TerraformPropertyName("key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Key { get; set; }
 
     /// <summary>
     /// The value to put.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -29,7 +29,7 @@ public class AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock
 /// <summary>
 /// Manages a aws_cloudfrontkeyvaluestore_keys_exclusive resource.
 /// </summary>
-public class AwsCloudfrontkeyvaluestoreKeysExclusive : TerraformResource
+public partial class AwsCloudfrontkeyvaluestoreKeysExclusive : TerraformResource
 {
     public AwsCloudfrontkeyvaluestoreKeysExclusive(string name) : base("aws_cloudfrontkeyvaluestore_keys_exclusive", name)
     {
@@ -39,29 +39,29 @@ public class AwsCloudfrontkeyvaluestoreKeysExclusive : TerraformResource
     /// The Amazon Resource Name (ARN) of the Key Value Store.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyValueStoreArn is required")]
-    [TerraformPropertyName("key_value_store_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_value_store_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyValueStoreArn { get; set; }
 
     /// <summary>
     /// Maximum resource key values pairs that you wills update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first
     /// </summary>
-    [TerraformPropertyName("max_batch_size")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxBatchSize { get; set; } = default!;
+    [TerraformProperty("max_batch_size")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxBatchSize { get; set; }
 
     /// <summary>
     /// Block for resource_key_value_pair.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("resource_key_value_pair")]
+    [TerraformProperty("resource_key_value_pair")]
     public TerraformSet<TerraformBlock<AwsCloudfrontkeyvaluestoreKeysExclusiveResourceKeyValuePairBlock>>? ResourceKeyValuePair { get; set; }
 
     /// <summary>
     /// Total size of the Key Value Store in bytes.
     /// </summary>
-    [TerraformPropertyName("total_size_in_bytes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> TotalSizeInBytes => new TerraformReference(this, "total_size_in_bytes");
+    [TerraformProperty("total_size_in_bytes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> TotalSizeInBytes { get; }
 
 }

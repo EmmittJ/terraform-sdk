@@ -6,36 +6,36 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for applies_to_group in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock
+public partial class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock : TerraformBlockBase
 {
     /// <summary>
     /// The global_mesh_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("global_mesh_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("global_mesh_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? GlobalMeshEnabled { get; set; }
 
     /// <summary>
     /// The group_connectivity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GroupConnectivity is required")]
-    [TerraformPropertyName("group_connectivity")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("group_connectivity")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GroupConnectivity { get; set; }
 
     /// <summary>
     /// The network_group_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkGroupId is required")]
-    [TerraformPropertyName("network_group_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network_group_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NetworkGroupId { get; set; }
 
     /// <summary>
     /// The use_hub_gateway attribute.
     /// </summary>
-    [TerraformPropertyName("use_hub_gateway")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("use_hub_gateway")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? UseHubGateway { get; set; }
 
 }
@@ -44,22 +44,22 @@ public class AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock
 /// Block type for hub in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermNetworkManagerConnectivityConfigurationHubBlock
+public partial class AzurermNetworkManagerConnectivityConfigurationHubBlock : TerraformBlockBase
 {
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
-    [TerraformPropertyName("resource_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
-    [TerraformPropertyName("resource_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceType { get; set; }
 
 }
@@ -68,34 +68,34 @@ public class AzurermNetworkManagerConnectivityConfigurationHubBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock
+public partial class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -104,7 +104,7 @@ public class AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock
 /// Manages a azurerm_network_manager_connectivity_configuration resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
+public partial class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
 {
     public AzurermNetworkManagerConnectivityConfiguration(string name) : base("azurerm_network_manager_connectivity_configuration", name)
     {
@@ -114,52 +114,52 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     /// The connectivity_topology attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectivityTopology is required")]
-    [TerraformPropertyName("connectivity_topology")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connectivity_topology")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConnectivityTopology { get; set; }
 
     /// <summary>
     /// The delete_existing_peering_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("delete_existing_peering_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete_existing_peering_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DeleteExistingPeeringEnabled { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The global_mesh_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("global_mesh_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("global_mesh_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? GlobalMeshEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The network_manager_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkManagerId is required")]
-    [TerraformPropertyName("network_manager_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network_manager_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NetworkManagerId { get; set; }
 
     /// <summary>
@@ -168,7 +168,7 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppliesToGroup is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AppliesToGroup block(s) required")]
-    [TerraformPropertyName("applies_to_group")]
+    [TerraformProperty("applies_to_group")]
     public TerraformList<TerraformBlock<AzurermNetworkManagerConnectivityConfigurationAppliesToGroupBlock>>? AppliesToGroup { get; set; }
 
     /// <summary>
@@ -176,14 +176,14 @@ public class AzurermNetworkManagerConnectivityConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Hub block(s) allowed")]
-    [TerraformPropertyName("hub")]
+    [TerraformProperty("hub")]
     public TerraformList<TerraformBlock<AzurermNetworkManagerConnectivityConfigurationHubBlock>>? Hub { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermNetworkManagerConnectivityConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

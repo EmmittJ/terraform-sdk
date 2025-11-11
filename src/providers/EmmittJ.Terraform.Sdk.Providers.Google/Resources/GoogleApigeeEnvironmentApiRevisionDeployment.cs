@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock
+public partial class GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock
 /// <summary>
 /// Manages a google_apigee_environment_api_revision_deployment resource.
 /// </summary>
-public class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformResource
+public partial class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformResource
 {
     public GoogleApigeeEnvironmentApiRevisionDeployment(string name) : base("google_apigee_environment_api_revision_deployment", name)
     {
@@ -37,88 +37,88 @@ public class GoogleApigeeEnvironmentApiRevisionDeployment : TerraformResource
     /// Apigee API proxy name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Api is required")]
-    [TerraformPropertyName("api")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("api")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Api { get; set; }
 
     /// <summary>
     /// Apigee environment name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Environment is required")]
-    [TerraformPropertyName("environment")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("environment")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Environment { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Apigee organization ID.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OrgId is required")]
-    [TerraformPropertyName("org_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("org_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OrgId { get; set; }
 
     /// <summary>
     /// If true, replaces other deployed revisions of this proxy in the environment.
     /// </summary>
-    [TerraformPropertyName("override")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("override")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Override { get; set; }
 
     /// <summary>
     /// API proxy revision number to deploy.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Revision is required")]
-    [TerraformPropertyName("revision")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("revision")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Revision { get; set; }
 
     /// <summary>
     /// If true, enables sequenced rollout for safe traffic switching.
     /// </summary>
-    [TerraformPropertyName("sequenced_rollout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sequenced_rollout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SequencedRollout { get; set; }
 
     /// <summary>
     /// Optional service account the deployed proxy runs as.
     /// </summary>
-    [TerraformPropertyName("service_account")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_account")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServiceAccount { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleApigeeEnvironmentApiRevisionDeploymentTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Basepaths associated with the deployed proxy.
     /// </summary>
-    [TerraformPropertyName("basepaths")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Basepaths => new TerraformReference(this, "basepaths");
+    [TerraformProperty("basepaths")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Basepaths { get; }
 
     /// <summary>
     /// RFC3339 timestamp when deployment started.
     /// </summary>
-    [TerraformPropertyName("deploy_start_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeployStartTime => new TerraformReference(this, "deploy_start_time");
+    [TerraformProperty("deploy_start_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeployStartTime { get; }
 
     /// <summary>
     /// Deployment state reported by Apigee.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
 }

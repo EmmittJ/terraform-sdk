@@ -6,38 +6,38 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for catalog_adogit in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDevCenterCatalogCatalogAdogitBlock
+public partial class AzurermDevCenterCatalogCatalogAdogitBlock : TerraformBlockBase
 {
     /// <summary>
     /// The branch attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
-    [TerraformPropertyName("branch")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("branch")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Branch { get; set; }
 
     /// <summary>
     /// The key_vault_key_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyUrl is required")]
-    [TerraformPropertyName("key_vault_key_url")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_vault_key_url")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyVaultKeyUrl { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    [TerraformPropertyName("path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    [TerraformPropertyName("uri")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("uri")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Uri { get; set; }
 
 }
@@ -46,38 +46,38 @@ public class AzurermDevCenterCatalogCatalogAdogitBlock
 /// Block type for catalog_github in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDevCenterCatalogCatalogGithubBlock
+public partial class AzurermDevCenterCatalogCatalogGithubBlock : TerraformBlockBase
 {
     /// <summary>
     /// The branch attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Branch is required")]
-    [TerraformPropertyName("branch")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("branch")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Branch { get; set; }
 
     /// <summary>
     /// The key_vault_key_url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyVaultKeyUrl is required")]
-    [TerraformPropertyName("key_vault_key_url")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_vault_key_url")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyVaultKeyUrl { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    [TerraformPropertyName("path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// The uri attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    [TerraformPropertyName("uri")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("uri")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Uri { get; set; }
 
 }
@@ -86,34 +86,34 @@ public class AzurermDevCenterCatalogCatalogGithubBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDevCenterCatalogTimeoutsBlock
+public partial class AzurermDevCenterCatalogTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -122,7 +122,7 @@ public class AzurermDevCenterCatalogTimeoutsBlock
 /// Manages a azurerm_dev_center_catalog resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDevCenterCatalog : TerraformResource
+public partial class AzurermDevCenterCatalog : TerraformResource
 {
     public AzurermDevCenterCatalog(string name) : base("azurerm_dev_center_catalog", name)
     {
@@ -132,31 +132,31 @@ public class AzurermDevCenterCatalog : TerraformResource
     /// The dev_center_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DevCenterId is required")]
-    [TerraformPropertyName("dev_center_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("dev_center_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DevCenterId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
@@ -164,7 +164,7 @@ public class AzurermDevCenterCatalog : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogAdogit block(s) allowed")]
-    [TerraformPropertyName("catalog_adogit")]
+    [TerraformProperty("catalog_adogit")]
     public TerraformList<TerraformBlock<AzurermDevCenterCatalogCatalogAdogitBlock>>? CatalogAdogit { get; set; }
 
     /// <summary>
@@ -172,14 +172,14 @@ public class AzurermDevCenterCatalog : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CatalogGithub block(s) allowed")]
-    [TerraformPropertyName("catalog_github")]
+    [TerraformProperty("catalog_github")]
     public TerraformList<TerraformBlock<AzurermDevCenterCatalogCatalogGithubBlock>>? CatalogGithub { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermDevCenterCatalogTimeoutsBlock>? Timeouts { get; set; }
 
 }

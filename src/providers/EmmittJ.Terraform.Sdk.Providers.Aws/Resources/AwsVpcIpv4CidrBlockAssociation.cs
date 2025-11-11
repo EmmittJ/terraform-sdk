@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsVpcIpv4CidrBlockAssociationTimeoutsBlock
+public partial class AwsVpcIpv4CidrBlockAssociationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class AwsVpcIpv4CidrBlockAssociationTimeoutsBlock
 /// <summary>
 /// Manages a aws_vpc_ipv4_cidr_block_association resource.
 /// </summary>
-public class AwsVpcIpv4CidrBlockAssociation : TerraformResource
+public partial class AwsVpcIpv4CidrBlockAssociation : TerraformResource
 {
     public AwsVpcIpv4CidrBlockAssociation(string name) : base("aws_vpc_ipv4_cidr_block_association", name)
     {
@@ -36,51 +36,51 @@ public class AwsVpcIpv4CidrBlockAssociation : TerraformResource
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    [TerraformPropertyName("cidr_block")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CidrBlock { get; set; } = default!;
+    [TerraformProperty("cidr_block")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CidrBlock { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ipv4_ipam_pool_id attribute.
     /// </summary>
-    [TerraformPropertyName("ipv4_ipam_pool_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ipv4_ipam_pool_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Ipv4IpamPoolId { get; set; }
 
     /// <summary>
     /// The ipv4_netmask_length attribute.
     /// </summary>
-    [TerraformPropertyName("ipv4_netmask_length")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ipv4_netmask_length")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Ipv4NetmaskLength { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    [TerraformPropertyName("vpc_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vpc_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VpcId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsVpcIpv4CidrBlockAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

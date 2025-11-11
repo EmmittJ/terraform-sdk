@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock
+public partial class AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_spring_cloud_app_cosmosdb_association resource.
 /// </summary>
-public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
+public partial class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
 {
     public AzurermSpringCloudAppCosmosdbAssociation(string name) : base("azurerm_spring_cloud_app_cosmosdb_association", name)
     {
@@ -51,89 +51,89 @@ public class AzurermSpringCloudAppCosmosdbAssociation : TerraformResource
     /// The api_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiType is required")]
-    [TerraformPropertyName("api_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("api_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApiType { get; set; }
 
     /// <summary>
     /// The cosmosdb_access_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccessKey is required")]
-    [TerraformPropertyName("cosmosdb_access_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cosmosdb_access_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CosmosdbAccessKey { get; set; }
 
     /// <summary>
     /// The cosmosdb_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CosmosdbAccountId is required")]
-    [TerraformPropertyName("cosmosdb_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cosmosdb_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CosmosdbAccountId { get; set; }
 
     /// <summary>
     /// The cosmosdb_cassandra_keyspace_name attribute.
     /// </summary>
-    [TerraformPropertyName("cosmosdb_cassandra_keyspace_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cosmosdb_cassandra_keyspace_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CosmosdbCassandraKeyspaceName { get; set; }
 
     /// <summary>
     /// The cosmosdb_gremlin_database_name attribute.
     /// </summary>
-    [TerraformPropertyName("cosmosdb_gremlin_database_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cosmosdb_gremlin_database_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CosmosdbGremlinDatabaseName { get; set; }
 
     /// <summary>
     /// The cosmosdb_gremlin_graph_name attribute.
     /// </summary>
-    [TerraformPropertyName("cosmosdb_gremlin_graph_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cosmosdb_gremlin_graph_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CosmosdbGremlinGraphName { get; set; }
 
     /// <summary>
     /// The cosmosdb_mongo_database_name attribute.
     /// </summary>
-    [TerraformPropertyName("cosmosdb_mongo_database_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cosmosdb_mongo_database_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CosmosdbMongoDatabaseName { get; set; }
 
     /// <summary>
     /// The cosmosdb_sql_database_name attribute.
     /// </summary>
-    [TerraformPropertyName("cosmosdb_sql_database_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cosmosdb_sql_database_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CosmosdbSqlDatabaseName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The spring_cloud_app_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudAppId is required")]
-    [TerraformPropertyName("spring_cloud_app_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("spring_cloud_app_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SpringCloudAppId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSpringCloudAppCosmosdbAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

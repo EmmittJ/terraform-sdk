@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock
+public partial class AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_log_analytics_workspace.
 /// </summary>
-public class AzurermLogAnalyticsWorkspaceDataSource : TerraformDataSource
+public partial class AzurermLogAnalyticsWorkspaceDataSource : TerraformDataSource
 {
     public AzurermLogAnalyticsWorkspaceDataSource(string name) : base("azurerm_log_analytics_workspace", name)
     {
@@ -29,87 +29,87 @@ public class AzurermLogAnalyticsWorkspaceDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermLogAnalyticsWorkspaceDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The daily_quota_gb attribute.
     /// </summary>
-    [TerraformPropertyName("daily_quota_gb")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> DailyQuotaGb => new TerraformReference(this, "daily_quota_gb");
+    [TerraformProperty("daily_quota_gb")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> DailyQuotaGb { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The primary_shared_key attribute.
     /// </summary>
-    [TerraformPropertyName("primary_shared_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimarySharedKey => new TerraformReference(this, "primary_shared_key");
+    [TerraformProperty("primary_shared_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimarySharedKey { get; }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    [TerraformPropertyName("retention_in_days")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> RetentionInDays => new TerraformReference(this, "retention_in_days");
+    [TerraformProperty("retention_in_days")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> RetentionInDays { get; }
 
     /// <summary>
     /// The secondary_shared_key attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_shared_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondarySharedKey => new TerraformReference(this, "secondary_shared_key");
+    [TerraformProperty("secondary_shared_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondarySharedKey { get; }
 
     /// <summary>
     /// The sku attribute.
     /// </summary>
-    [TerraformPropertyName("sku")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Sku => new TerraformReference(this, "sku");
+    [TerraformProperty("sku")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Sku { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
-    [TerraformPropertyName("workspace_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> WorkspaceId => new TerraformReference(this, "workspace_id");
+    [TerraformProperty("workspace_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> WorkspaceId { get; }
 
 }

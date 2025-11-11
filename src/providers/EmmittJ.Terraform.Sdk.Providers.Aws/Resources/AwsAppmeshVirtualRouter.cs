@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for spec in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAppmeshVirtualRouterSpecBlock
+public partial class AwsAppmeshVirtualRouterSpecBlock : TerraformBlockBase
 {
 }
 
@@ -14,7 +14,7 @@ public class AwsAppmeshVirtualRouterSpecBlock
 /// Manages a aws_appmesh_virtual_router resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsAppmeshVirtualRouter : TerraformResource
+public partial class AwsAppmeshVirtualRouter : TerraformResource
 {
     public AwsAppmeshVirtualRouter(string name) : base("aws_appmesh_virtual_router", name)
     {
@@ -23,53 +23,53 @@ public class AwsAppmeshVirtualRouter : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The mesh_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MeshName is required")]
-    [TerraformPropertyName("mesh_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("mesh_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MeshName { get; set; }
 
     /// <summary>
     /// The mesh_owner attribute.
     /// </summary>
-    [TerraformPropertyName("mesh_owner")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MeshOwner { get; set; } = default!;
+    [TerraformProperty("mesh_owner")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MeshOwner { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for spec.
@@ -78,35 +78,35 @@ public class AwsAppmeshVirtualRouter : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Spec is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Spec block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
-    [TerraformPropertyName("spec")]
+    [TerraformProperty("spec")]
     public TerraformList<TerraformBlock<AwsAppmeshVirtualRouterSpecBlock>>? Spec { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
-    [TerraformPropertyName("created_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedDate => new TerraformReference(this, "created_date");
+    [TerraformProperty("created_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
-    [TerraformPropertyName("last_updated_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastUpdatedDate => new TerraformReference(this, "last_updated_date");
+    [TerraformProperty("last_updated_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastUpdatedDate { get; }
 
     /// <summary>
     /// The resource_owner attribute.
     /// </summary>
-    [TerraformPropertyName("resource_owner")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceOwner => new TerraformReference(this, "resource_owner");
+    [TerraformProperty("resource_owner")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceOwner { get; }
 
 }

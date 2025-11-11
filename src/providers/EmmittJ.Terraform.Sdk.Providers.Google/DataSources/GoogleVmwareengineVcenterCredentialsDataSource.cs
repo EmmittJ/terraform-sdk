@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_vmwareengine_vcenter_credentials.
 /// </summary>
-public class GoogleVmwareengineVcenterCredentialsDataSource : TerraformDataSource
+public partial class GoogleVmwareengineVcenterCredentialsDataSource : TerraformDataSource
 {
     public GoogleVmwareengineVcenterCredentialsDataSource(string name) : base("google_vmwareengine_vcenter_credentials", name)
     {
@@ -14,9 +14,9 @@ public class GoogleVmwareengineVcenterCredentialsDataSource : TerraformDataSourc
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource name of the private cloud which contains vcenter.
@@ -24,22 +24,22 @@ public class GoogleVmwareengineVcenterCredentialsDataSource : TerraformDataSourc
     /// For example: projects/my-project/locations/us-west1-a/privateClouds/my-cloud
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    [TerraformPropertyName("parent")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parent")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// Initial password.
     /// </summary>
-    [TerraformPropertyName("password")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Password => new TerraformReference(this, "password");
+    [TerraformProperty("password")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Password { get; }
 
     /// <summary>
     /// Initial username.
     /// </summary>
-    [TerraformPropertyName("username")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Username => new TerraformReference(this, "username");
+    [TerraformProperty("username")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Username { get; }
 
 }

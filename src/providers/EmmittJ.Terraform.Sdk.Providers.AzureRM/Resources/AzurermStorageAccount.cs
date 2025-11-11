@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for azure_files_authentication in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountAzureFilesAuthenticationBlock
+public partial class AzurermStorageAccountAzureFilesAuthenticationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The default_share_level_permission attribute.
     /// </summary>
-    [TerraformPropertyName("default_share_level_permission")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_share_level_permission")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DefaultShareLevelPermission { get; set; }
 
     /// <summary>
     /// The directory_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryType is required")]
-    [TerraformPropertyName("directory_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("directory_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DirectoryType { get; set; }
 
 }
@@ -29,41 +29,41 @@ public class AzurermStorageAccountAzureFilesAuthenticationBlock
 /// Block type for blob_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountBlobPropertiesBlock
+public partial class AzurermStorageAccountBlobPropertiesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The change_feed_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("change_feed_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("change_feed_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ChangeFeedEnabled { get; set; }
 
     /// <summary>
     /// The change_feed_retention_in_days attribute.
     /// </summary>
-    [TerraformPropertyName("change_feed_retention_in_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("change_feed_retention_in_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ChangeFeedRetentionInDays { get; set; }
 
     /// <summary>
     /// The default_service_version attribute.
     /// </summary>
-    [TerraformPropertyName("default_service_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DefaultServiceVersion { get; set; } = default!;
+    [TerraformProperty("default_service_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DefaultServiceVersion { get; set; }
 
     /// <summary>
     /// The last_access_time_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("last_access_time_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("last_access_time_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LastAccessTimeEnabled { get; set; }
 
     /// <summary>
     /// The versioning_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("versioning_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("versioning_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? VersioningEnabled { get; set; }
 
 }
@@ -72,21 +72,21 @@ public class AzurermStorageAccountBlobPropertiesBlock
 /// Block type for custom_domain in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountCustomDomainBlock
+public partial class AzurermStorageAccountCustomDomainBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The use_subdomain attribute.
     /// </summary>
-    [TerraformPropertyName("use_subdomain")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("use_subdomain")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? UseSubdomain { get; set; }
 
 }
@@ -95,28 +95,28 @@ public class AzurermStorageAccountCustomDomainBlock
 /// Block type for customer_managed_key in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountCustomerManagedKeyBlock
+public partial class AzurermStorageAccountCustomerManagedKeyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The key_vault_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("key_vault_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key_vault_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KeyVaultKeyId { get; set; }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("managed_hsm_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("managed_hsm_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ManagedHsmKeyId { get; set; }
 
     /// <summary>
     /// The user_assigned_identity_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserAssignedIdentityId is required")]
-    [TerraformPropertyName("user_assigned_identity_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_assigned_identity_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserAssignedIdentityId { get; set; }
 
 }
@@ -125,13 +125,13 @@ public class AzurermStorageAccountCustomerManagedKeyBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountIdentityBlock
+public partial class AzurermStorageAccountIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformPropertyName("identity_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IdentityIds { get; set; }
 
 
@@ -140,8 +140,8 @@ public class AzurermStorageAccountIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -150,30 +150,30 @@ public class AzurermStorageAccountIdentityBlock
 /// Block type for immutability_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountImmutabilityPolicyBlock
+public partial class AzurermStorageAccountImmutabilityPolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The allow_protected_append_writes attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowProtectedAppendWrites is required")]
-    [TerraformPropertyName("allow_protected_append_writes")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("allow_protected_append_writes")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> AllowProtectedAppendWrites { get; set; }
 
     /// <summary>
     /// The period_since_creation_in_days attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PeriodSinceCreationInDays is required")]
-    [TerraformPropertyName("period_since_creation_in_days")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("period_since_creation_in_days")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> PeriodSinceCreationInDays { get; set; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "State is required")]
-    [TerraformPropertyName("state")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("state")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> State { get; set; }
 
 }
@@ -182,36 +182,36 @@ public class AzurermStorageAccountImmutabilityPolicyBlock
 /// Block type for network_rules in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountNetworkRulesBlock
+public partial class AzurermStorageAccountNetworkRulesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The bypass attribute.
     /// </summary>
-    [TerraformPropertyName("bypass")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> Bypass { get; set; } = default!;
+    [TerraformProperty("bypass")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> Bypass { get; set; }
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DefaultAction is required")]
-    [TerraformPropertyName("default_action")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("default_action")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DefaultAction { get; set; }
 
     /// <summary>
     /// The ip_rules attribute.
     /// </summary>
-    [TerraformPropertyName("ip_rules")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> IpRules { get; set; } = default!;
+    [TerraformProperty("ip_rules")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> IpRules { get; set; }
 
     /// <summary>
     /// The virtual_network_subnet_ids attribute.
     /// </summary>
-    [TerraformPropertyName("virtual_network_subnet_ids")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> VirtualNetworkSubnetIds { get; set; } = default!;
+    [TerraformProperty("virtual_network_subnet_ids")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> VirtualNetworkSubnetIds { get; set; }
 
 }
 
@@ -220,7 +220,7 @@ public class AzurermStorageAccountNetworkRulesBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AzurermStorageAccountQueuePropertiesBlock
+public partial class AzurermStorageAccountQueuePropertiesBlock : TerraformBlockBase
 {
 }
 
@@ -228,27 +228,27 @@ public class AzurermStorageAccountQueuePropertiesBlock
 /// Block type for routing in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountRoutingBlock
+public partial class AzurermStorageAccountRoutingBlock : TerraformBlockBase
 {
     /// <summary>
     /// The choice attribute.
     /// </summary>
-    [TerraformPropertyName("choice")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("choice")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Choice { get; set; }
 
     /// <summary>
     /// The publish_internet_endpoints attribute.
     /// </summary>
-    [TerraformPropertyName("publish_internet_endpoints")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("publish_internet_endpoints")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PublishInternetEndpoints { get; set; }
 
     /// <summary>
     /// The publish_microsoft_endpoints attribute.
     /// </summary>
-    [TerraformPropertyName("publish_microsoft_endpoints")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("publish_microsoft_endpoints")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PublishMicrosoftEndpoints { get; set; }
 
 }
@@ -257,21 +257,21 @@ public class AzurermStorageAccountRoutingBlock
 /// Block type for sas_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountSasPolicyBlock
+public partial class AzurermStorageAccountSasPolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The expiration_action attribute.
     /// </summary>
-    [TerraformPropertyName("expiration_action")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expiration_action")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ExpirationAction { get; set; }
 
     /// <summary>
     /// The expiration_period attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpirationPeriod is required")]
-    [TerraformPropertyName("expiration_period")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("expiration_period")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ExpirationPeriod { get; set; }
 
 }
@@ -280,7 +280,7 @@ public class AzurermStorageAccountSasPolicyBlock
 /// Block type for share_properties in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStorageAccountSharePropertiesBlock
+public partial class AzurermStorageAccountSharePropertiesBlock : TerraformBlockBase
 {
 }
 
@@ -289,20 +289,20 @@ public class AzurermStorageAccountSharePropertiesBlock
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class AzurermStorageAccountStaticWebsiteBlock
+public partial class AzurermStorageAccountStaticWebsiteBlock : TerraformBlockBase
 {
     /// <summary>
     /// The error_404_document attribute.
     /// </summary>
-    [TerraformPropertyName("error_404_document")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("error_404_document")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Error404Document { get; set; }
 
     /// <summary>
     /// The index_document attribute.
     /// </summary>
-    [TerraformPropertyName("index_document")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("index_document")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IndexDocument { get; set; }
 
 }
@@ -311,34 +311,34 @@ public class AzurermStorageAccountStaticWebsiteBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStorageAccountTimeoutsBlock
+public partial class AzurermStorageAccountTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -347,7 +347,7 @@ public class AzurermStorageAccountTimeoutsBlock
 /// Manages a azurerm_storage_account resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermStorageAccount : TerraformResource
+public partial class AzurermStorageAccount : TerraformResource
 {
     public AzurermStorageAccount(string name) : base("azurerm_storage_account", name)
     {
@@ -356,202 +356,202 @@ public class AzurermStorageAccount : TerraformResource
     /// <summary>
     /// The access_tier attribute.
     /// </summary>
-    [TerraformPropertyName("access_tier")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AccessTier { get; set; } = default!;
+    [TerraformProperty("access_tier")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AccessTier { get; set; }
 
     /// <summary>
     /// The account_kind attribute.
     /// </summary>
-    [TerraformPropertyName("account_kind")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("account_kind")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AccountKind { get; set; }
 
     /// <summary>
     /// The account_replication_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountReplicationType is required")]
-    [TerraformPropertyName("account_replication_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("account_replication_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AccountReplicationType { get; set; }
 
     /// <summary>
     /// The account_tier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccountTier is required")]
-    [TerraformPropertyName("account_tier")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("account_tier")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AccountTier { get; set; }
 
     /// <summary>
     /// The allow_nested_items_to_be_public attribute.
     /// </summary>
-    [TerraformPropertyName("allow_nested_items_to_be_public")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allow_nested_items_to_be_public")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AllowNestedItemsToBePublic { get; set; }
 
     /// <summary>
     /// The allowed_copy_scope attribute.
     /// </summary>
-    [TerraformPropertyName("allowed_copy_scope")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allowed_copy_scope")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AllowedCopyScope { get; set; }
 
     /// <summary>
     /// The cross_tenant_replication_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("cross_tenant_replication_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cross_tenant_replication_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? CrossTenantReplicationEnabled { get; set; }
 
     /// <summary>
     /// The default_to_oauth_authentication attribute.
     /// </summary>
-    [TerraformPropertyName("default_to_oauth_authentication")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_to_oauth_authentication")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DefaultToOauthAuthentication { get; set; }
 
     /// <summary>
     /// The dns_endpoint_type attribute.
     /// </summary>
-    [TerraformPropertyName("dns_endpoint_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dns_endpoint_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DnsEndpointType { get; set; }
 
     /// <summary>
     /// The edge_zone attribute.
     /// </summary>
-    [TerraformPropertyName("edge_zone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("edge_zone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EdgeZone { get; set; }
 
     /// <summary>
     /// The https_traffic_only_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("https_traffic_only_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("https_traffic_only_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? HttpsTrafficOnlyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The infrastructure_encryption_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("infrastructure_encryption_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("infrastructure_encryption_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? InfrastructureEncryptionEnabled { get; set; }
 
     /// <summary>
     /// The is_hns_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("is_hns_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("is_hns_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IsHnsEnabled { get; set; }
 
     /// <summary>
     /// The large_file_share_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("large_file_share_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> LargeFileShareEnabled { get; set; } = default!;
+    [TerraformProperty("large_file_share_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> LargeFileShareEnabled { get; set; }
 
     /// <summary>
     /// The local_user_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("local_user_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("local_user_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LocalUserEnabled { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The min_tls_version attribute.
     /// </summary>
-    [TerraformPropertyName("min_tls_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("min_tls_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MinTlsVersion { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The nfsv3_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("nfsv3_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("nfsv3_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Nfsv3Enabled { get; set; }
 
     /// <summary>
     /// The provisioned_billing_model_version attribute.
     /// </summary>
-    [TerraformPropertyName("provisioned_billing_model_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("provisioned_billing_model_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ProvisionedBillingModelVersion { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("public_network_access_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("public_network_access_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The queue_encryption_key_type attribute.
     /// </summary>
-    [TerraformPropertyName("queue_encryption_key_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("queue_encryption_key_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? QueueEncryptionKeyType { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sftp_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("sftp_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sftp_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SftpEnabled { get; set; }
 
     /// <summary>
     /// The shared_access_key_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("shared_access_key_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("shared_access_key_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SharedAccessKeyEnabled { get; set; }
 
     /// <summary>
     /// The table_encryption_key_type attribute.
     /// </summary>
-    [TerraformPropertyName("table_encryption_key_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("table_encryption_key_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TableEncryptionKeyType { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -559,7 +559,7 @@ public class AzurermStorageAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AzureFilesAuthentication block(s) allowed")]
-    [TerraformPropertyName("azure_files_authentication")]
+    [TerraformProperty("azure_files_authentication")]
     public TerraformList<TerraformBlock<AzurermStorageAccountAzureFilesAuthenticationBlock>>? AzureFilesAuthentication { get; set; }
 
     /// <summary>
@@ -567,7 +567,7 @@ public class AzurermStorageAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BlobProperties block(s) allowed")]
-    [TerraformPropertyName("blob_properties")]
+    [TerraformProperty("blob_properties")]
     public TerraformList<TerraformBlock<AzurermStorageAccountBlobPropertiesBlock>>? BlobProperties { get; set; }
 
     /// <summary>
@@ -575,7 +575,7 @@ public class AzurermStorageAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomDomain block(s) allowed")]
-    [TerraformPropertyName("custom_domain")]
+    [TerraformProperty("custom_domain")]
     public TerraformList<TerraformBlock<AzurermStorageAccountCustomDomainBlock>>? CustomDomain { get; set; }
 
     /// <summary>
@@ -583,7 +583,7 @@ public class AzurermStorageAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CustomerManagedKey block(s) allowed")]
-    [TerraformPropertyName("customer_managed_key")]
+    [TerraformProperty("customer_managed_key")]
     public TerraformList<TerraformBlock<AzurermStorageAccountCustomerManagedKeyBlock>>? CustomerManagedKey { get; set; }
 
     /// <summary>
@@ -591,7 +591,7 @@ public class AzurermStorageAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermStorageAccountIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
@@ -599,7 +599,7 @@ public class AzurermStorageAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImmutabilityPolicy block(s) allowed")]
-    [TerraformPropertyName("immutability_policy")]
+    [TerraformProperty("immutability_policy")]
     public TerraformList<TerraformBlock<AzurermStorageAccountImmutabilityPolicyBlock>>? ImmutabilityPolicy { get; set; }
 
     /// <summary>
@@ -607,7 +607,7 @@ public class AzurermStorageAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkRules block(s) allowed")]
-    [TerraformPropertyName("network_rules")]
+    [TerraformProperty("network_rules")]
     public TerraformList<TerraformBlock<AzurermStorageAccountNetworkRulesBlock>>? NetworkRules { get; set; }
 
     /// <summary>
@@ -616,7 +616,7 @@ public class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 QueueProperties block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    [TerraformPropertyName("queue_properties")]
+    [TerraformProperty("queue_properties")]
     public TerraformList<TerraformBlock<AzurermStorageAccountQueuePropertiesBlock>>? QueueProperties { get; set; }
 
     /// <summary>
@@ -624,7 +624,7 @@ public class AzurermStorageAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Routing block(s) allowed")]
-    [TerraformPropertyName("routing")]
+    [TerraformProperty("routing")]
     public TerraformList<TerraformBlock<AzurermStorageAccountRoutingBlock>>? Routing { get; set; }
 
     /// <summary>
@@ -632,7 +632,7 @@ public class AzurermStorageAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SasPolicy block(s) allowed")]
-    [TerraformPropertyName("sas_policy")]
+    [TerraformProperty("sas_policy")]
     public TerraformList<TerraformBlock<AzurermStorageAccountSasPolicyBlock>>? SasPolicy { get; set; }
 
     /// <summary>
@@ -640,7 +640,7 @@ public class AzurermStorageAccount : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ShareProperties block(s) allowed")]
-    [TerraformPropertyName("share_properties")]
+    [TerraformProperty("share_properties")]
     public TerraformList<TerraformBlock<AzurermStorageAccountSharePropertiesBlock>>? ShareProperties { get; set; }
 
     /// <summary>
@@ -649,518 +649,518 @@ public class AzurermStorageAccount : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 StaticWebsite block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    [TerraformPropertyName("static_website")]
+    [TerraformProperty("static_website")]
     public TerraformList<TerraformBlock<AzurermStorageAccountStaticWebsiteBlock>>? StaticWebsite { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermStorageAccountTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The primary_access_key attribute.
     /// </summary>
-    [TerraformPropertyName("primary_access_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryAccessKey => new TerraformReference(this, "primary_access_key");
+    [TerraformProperty("primary_access_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryAccessKey { get; }
 
     /// <summary>
     /// The primary_blob_connection_string attribute.
     /// </summary>
-    [TerraformPropertyName("primary_blob_connection_string")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryBlobConnectionString => new TerraformReference(this, "primary_blob_connection_string");
+    [TerraformProperty("primary_blob_connection_string")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryBlobConnectionString { get; }
 
     /// <summary>
     /// The primary_blob_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_blob_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryBlobEndpoint => new TerraformReference(this, "primary_blob_endpoint");
+    [TerraformProperty("primary_blob_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryBlobEndpoint { get; }
 
     /// <summary>
     /// The primary_blob_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_blob_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryBlobHost => new TerraformReference(this, "primary_blob_host");
+    [TerraformProperty("primary_blob_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryBlobHost { get; }
 
     /// <summary>
     /// The primary_blob_internet_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_blob_internet_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryBlobInternetEndpoint => new TerraformReference(this, "primary_blob_internet_endpoint");
+    [TerraformProperty("primary_blob_internet_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryBlobInternetEndpoint { get; }
 
     /// <summary>
     /// The primary_blob_internet_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_blob_internet_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryBlobInternetHost => new TerraformReference(this, "primary_blob_internet_host");
+    [TerraformProperty("primary_blob_internet_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryBlobInternetHost { get; }
 
     /// <summary>
     /// The primary_blob_microsoft_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_blob_microsoft_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryBlobMicrosoftEndpoint => new TerraformReference(this, "primary_blob_microsoft_endpoint");
+    [TerraformProperty("primary_blob_microsoft_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryBlobMicrosoftEndpoint { get; }
 
     /// <summary>
     /// The primary_blob_microsoft_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_blob_microsoft_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryBlobMicrosoftHost => new TerraformReference(this, "primary_blob_microsoft_host");
+    [TerraformProperty("primary_blob_microsoft_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryBlobMicrosoftHost { get; }
 
     /// <summary>
     /// The primary_connection_string attribute.
     /// </summary>
-    [TerraformPropertyName("primary_connection_string")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryConnectionString => new TerraformReference(this, "primary_connection_string");
+    [TerraformProperty("primary_connection_string")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryConnectionString { get; }
 
     /// <summary>
     /// The primary_dfs_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_dfs_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryDfsEndpoint => new TerraformReference(this, "primary_dfs_endpoint");
+    [TerraformProperty("primary_dfs_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryDfsEndpoint { get; }
 
     /// <summary>
     /// The primary_dfs_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_dfs_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryDfsHost => new TerraformReference(this, "primary_dfs_host");
+    [TerraformProperty("primary_dfs_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryDfsHost { get; }
 
     /// <summary>
     /// The primary_dfs_internet_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_dfs_internet_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryDfsInternetEndpoint => new TerraformReference(this, "primary_dfs_internet_endpoint");
+    [TerraformProperty("primary_dfs_internet_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryDfsInternetEndpoint { get; }
 
     /// <summary>
     /// The primary_dfs_internet_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_dfs_internet_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryDfsInternetHost => new TerraformReference(this, "primary_dfs_internet_host");
+    [TerraformProperty("primary_dfs_internet_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryDfsInternetHost { get; }
 
     /// <summary>
     /// The primary_dfs_microsoft_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_dfs_microsoft_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryDfsMicrosoftEndpoint => new TerraformReference(this, "primary_dfs_microsoft_endpoint");
+    [TerraformProperty("primary_dfs_microsoft_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryDfsMicrosoftEndpoint { get; }
 
     /// <summary>
     /// The primary_dfs_microsoft_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_dfs_microsoft_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryDfsMicrosoftHost => new TerraformReference(this, "primary_dfs_microsoft_host");
+    [TerraformProperty("primary_dfs_microsoft_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryDfsMicrosoftHost { get; }
 
     /// <summary>
     /// The primary_file_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_file_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryFileEndpoint => new TerraformReference(this, "primary_file_endpoint");
+    [TerraformProperty("primary_file_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryFileEndpoint { get; }
 
     /// <summary>
     /// The primary_file_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_file_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryFileHost => new TerraformReference(this, "primary_file_host");
+    [TerraformProperty("primary_file_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryFileHost { get; }
 
     /// <summary>
     /// The primary_file_internet_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_file_internet_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryFileInternetEndpoint => new TerraformReference(this, "primary_file_internet_endpoint");
+    [TerraformProperty("primary_file_internet_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryFileInternetEndpoint { get; }
 
     /// <summary>
     /// The primary_file_internet_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_file_internet_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryFileInternetHost => new TerraformReference(this, "primary_file_internet_host");
+    [TerraformProperty("primary_file_internet_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryFileInternetHost { get; }
 
     /// <summary>
     /// The primary_file_microsoft_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_file_microsoft_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryFileMicrosoftEndpoint => new TerraformReference(this, "primary_file_microsoft_endpoint");
+    [TerraformProperty("primary_file_microsoft_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryFileMicrosoftEndpoint { get; }
 
     /// <summary>
     /// The primary_file_microsoft_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_file_microsoft_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryFileMicrosoftHost => new TerraformReference(this, "primary_file_microsoft_host");
+    [TerraformProperty("primary_file_microsoft_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryFileMicrosoftHost { get; }
 
     /// <summary>
     /// The primary_location attribute.
     /// </summary>
-    [TerraformPropertyName("primary_location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryLocation => new TerraformReference(this, "primary_location");
+    [TerraformProperty("primary_location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryLocation { get; }
 
     /// <summary>
     /// The primary_queue_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_queue_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryQueueEndpoint => new TerraformReference(this, "primary_queue_endpoint");
+    [TerraformProperty("primary_queue_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryQueueEndpoint { get; }
 
     /// <summary>
     /// The primary_queue_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_queue_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryQueueHost => new TerraformReference(this, "primary_queue_host");
+    [TerraformProperty("primary_queue_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryQueueHost { get; }
 
     /// <summary>
     /// The primary_queue_microsoft_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_queue_microsoft_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryQueueMicrosoftEndpoint => new TerraformReference(this, "primary_queue_microsoft_endpoint");
+    [TerraformProperty("primary_queue_microsoft_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryQueueMicrosoftEndpoint { get; }
 
     /// <summary>
     /// The primary_queue_microsoft_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_queue_microsoft_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryQueueMicrosoftHost => new TerraformReference(this, "primary_queue_microsoft_host");
+    [TerraformProperty("primary_queue_microsoft_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryQueueMicrosoftHost { get; }
 
     /// <summary>
     /// The primary_table_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_table_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryTableEndpoint => new TerraformReference(this, "primary_table_endpoint");
+    [TerraformProperty("primary_table_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryTableEndpoint { get; }
 
     /// <summary>
     /// The primary_table_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_table_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryTableHost => new TerraformReference(this, "primary_table_host");
+    [TerraformProperty("primary_table_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryTableHost { get; }
 
     /// <summary>
     /// The primary_table_microsoft_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_table_microsoft_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryTableMicrosoftEndpoint => new TerraformReference(this, "primary_table_microsoft_endpoint");
+    [TerraformProperty("primary_table_microsoft_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryTableMicrosoftEndpoint { get; }
 
     /// <summary>
     /// The primary_table_microsoft_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_table_microsoft_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryTableMicrosoftHost => new TerraformReference(this, "primary_table_microsoft_host");
+    [TerraformProperty("primary_table_microsoft_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryTableMicrosoftHost { get; }
 
     /// <summary>
     /// The primary_web_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_web_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryWebEndpoint => new TerraformReference(this, "primary_web_endpoint");
+    [TerraformProperty("primary_web_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryWebEndpoint { get; }
 
     /// <summary>
     /// The primary_web_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_web_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryWebHost => new TerraformReference(this, "primary_web_host");
+    [TerraformProperty("primary_web_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryWebHost { get; }
 
     /// <summary>
     /// The primary_web_internet_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_web_internet_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryWebInternetEndpoint => new TerraformReference(this, "primary_web_internet_endpoint");
+    [TerraformProperty("primary_web_internet_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryWebInternetEndpoint { get; }
 
     /// <summary>
     /// The primary_web_internet_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_web_internet_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryWebInternetHost => new TerraformReference(this, "primary_web_internet_host");
+    [TerraformProperty("primary_web_internet_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryWebInternetHost { get; }
 
     /// <summary>
     /// The primary_web_microsoft_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("primary_web_microsoft_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryWebMicrosoftEndpoint => new TerraformReference(this, "primary_web_microsoft_endpoint");
+    [TerraformProperty("primary_web_microsoft_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryWebMicrosoftEndpoint { get; }
 
     /// <summary>
     /// The primary_web_microsoft_host attribute.
     /// </summary>
-    [TerraformPropertyName("primary_web_microsoft_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PrimaryWebMicrosoftHost => new TerraformReference(this, "primary_web_microsoft_host");
+    [TerraformProperty("primary_web_microsoft_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PrimaryWebMicrosoftHost { get; }
 
     /// <summary>
     /// The secondary_access_key attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_access_key")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryAccessKey => new TerraformReference(this, "secondary_access_key");
+    [TerraformProperty("secondary_access_key")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryAccessKey { get; }
 
     /// <summary>
     /// The secondary_blob_connection_string attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_blob_connection_string")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryBlobConnectionString => new TerraformReference(this, "secondary_blob_connection_string");
+    [TerraformProperty("secondary_blob_connection_string")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryBlobConnectionString { get; }
 
     /// <summary>
     /// The secondary_blob_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_blob_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryBlobEndpoint => new TerraformReference(this, "secondary_blob_endpoint");
+    [TerraformProperty("secondary_blob_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryBlobEndpoint { get; }
 
     /// <summary>
     /// The secondary_blob_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_blob_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryBlobHost => new TerraformReference(this, "secondary_blob_host");
+    [TerraformProperty("secondary_blob_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryBlobHost { get; }
 
     /// <summary>
     /// The secondary_blob_internet_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_blob_internet_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryBlobInternetEndpoint => new TerraformReference(this, "secondary_blob_internet_endpoint");
+    [TerraformProperty("secondary_blob_internet_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryBlobInternetEndpoint { get; }
 
     /// <summary>
     /// The secondary_blob_internet_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_blob_internet_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryBlobInternetHost => new TerraformReference(this, "secondary_blob_internet_host");
+    [TerraformProperty("secondary_blob_internet_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryBlobInternetHost { get; }
 
     /// <summary>
     /// The secondary_blob_microsoft_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_blob_microsoft_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryBlobMicrosoftEndpoint => new TerraformReference(this, "secondary_blob_microsoft_endpoint");
+    [TerraformProperty("secondary_blob_microsoft_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryBlobMicrosoftEndpoint { get; }
 
     /// <summary>
     /// The secondary_blob_microsoft_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_blob_microsoft_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryBlobMicrosoftHost => new TerraformReference(this, "secondary_blob_microsoft_host");
+    [TerraformProperty("secondary_blob_microsoft_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryBlobMicrosoftHost { get; }
 
     /// <summary>
     /// The secondary_connection_string attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_connection_string")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryConnectionString => new TerraformReference(this, "secondary_connection_string");
+    [TerraformProperty("secondary_connection_string")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryConnectionString { get; }
 
     /// <summary>
     /// The secondary_dfs_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_dfs_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryDfsEndpoint => new TerraformReference(this, "secondary_dfs_endpoint");
+    [TerraformProperty("secondary_dfs_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryDfsEndpoint { get; }
 
     /// <summary>
     /// The secondary_dfs_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_dfs_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryDfsHost => new TerraformReference(this, "secondary_dfs_host");
+    [TerraformProperty("secondary_dfs_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryDfsHost { get; }
 
     /// <summary>
     /// The secondary_dfs_internet_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_dfs_internet_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryDfsInternetEndpoint => new TerraformReference(this, "secondary_dfs_internet_endpoint");
+    [TerraformProperty("secondary_dfs_internet_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryDfsInternetEndpoint { get; }
 
     /// <summary>
     /// The secondary_dfs_internet_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_dfs_internet_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryDfsInternetHost => new TerraformReference(this, "secondary_dfs_internet_host");
+    [TerraformProperty("secondary_dfs_internet_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryDfsInternetHost { get; }
 
     /// <summary>
     /// The secondary_dfs_microsoft_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_dfs_microsoft_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryDfsMicrosoftEndpoint => new TerraformReference(this, "secondary_dfs_microsoft_endpoint");
+    [TerraformProperty("secondary_dfs_microsoft_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryDfsMicrosoftEndpoint { get; }
 
     /// <summary>
     /// The secondary_dfs_microsoft_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_dfs_microsoft_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryDfsMicrosoftHost => new TerraformReference(this, "secondary_dfs_microsoft_host");
+    [TerraformProperty("secondary_dfs_microsoft_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryDfsMicrosoftHost { get; }
 
     /// <summary>
     /// The secondary_file_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_file_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryFileEndpoint => new TerraformReference(this, "secondary_file_endpoint");
+    [TerraformProperty("secondary_file_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryFileEndpoint { get; }
 
     /// <summary>
     /// The secondary_file_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_file_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryFileHost => new TerraformReference(this, "secondary_file_host");
+    [TerraformProperty("secondary_file_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryFileHost { get; }
 
     /// <summary>
     /// The secondary_file_internet_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_file_internet_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryFileInternetEndpoint => new TerraformReference(this, "secondary_file_internet_endpoint");
+    [TerraformProperty("secondary_file_internet_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryFileInternetEndpoint { get; }
 
     /// <summary>
     /// The secondary_file_internet_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_file_internet_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryFileInternetHost => new TerraformReference(this, "secondary_file_internet_host");
+    [TerraformProperty("secondary_file_internet_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryFileInternetHost { get; }
 
     /// <summary>
     /// The secondary_file_microsoft_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_file_microsoft_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryFileMicrosoftEndpoint => new TerraformReference(this, "secondary_file_microsoft_endpoint");
+    [TerraformProperty("secondary_file_microsoft_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryFileMicrosoftEndpoint { get; }
 
     /// <summary>
     /// The secondary_file_microsoft_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_file_microsoft_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryFileMicrosoftHost => new TerraformReference(this, "secondary_file_microsoft_host");
+    [TerraformProperty("secondary_file_microsoft_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryFileMicrosoftHost { get; }
 
     /// <summary>
     /// The secondary_location attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryLocation => new TerraformReference(this, "secondary_location");
+    [TerraformProperty("secondary_location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryLocation { get; }
 
     /// <summary>
     /// The secondary_queue_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_queue_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryQueueEndpoint => new TerraformReference(this, "secondary_queue_endpoint");
+    [TerraformProperty("secondary_queue_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryQueueEndpoint { get; }
 
     /// <summary>
     /// The secondary_queue_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_queue_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryQueueHost => new TerraformReference(this, "secondary_queue_host");
+    [TerraformProperty("secondary_queue_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryQueueHost { get; }
 
     /// <summary>
     /// The secondary_queue_microsoft_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_queue_microsoft_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryQueueMicrosoftEndpoint => new TerraformReference(this, "secondary_queue_microsoft_endpoint");
+    [TerraformProperty("secondary_queue_microsoft_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryQueueMicrosoftEndpoint { get; }
 
     /// <summary>
     /// The secondary_queue_microsoft_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_queue_microsoft_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryQueueMicrosoftHost => new TerraformReference(this, "secondary_queue_microsoft_host");
+    [TerraformProperty("secondary_queue_microsoft_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryQueueMicrosoftHost { get; }
 
     /// <summary>
     /// The secondary_table_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_table_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryTableEndpoint => new TerraformReference(this, "secondary_table_endpoint");
+    [TerraformProperty("secondary_table_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryTableEndpoint { get; }
 
     /// <summary>
     /// The secondary_table_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_table_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryTableHost => new TerraformReference(this, "secondary_table_host");
+    [TerraformProperty("secondary_table_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryTableHost { get; }
 
     /// <summary>
     /// The secondary_table_microsoft_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_table_microsoft_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryTableMicrosoftEndpoint => new TerraformReference(this, "secondary_table_microsoft_endpoint");
+    [TerraformProperty("secondary_table_microsoft_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryTableMicrosoftEndpoint { get; }
 
     /// <summary>
     /// The secondary_table_microsoft_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_table_microsoft_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryTableMicrosoftHost => new TerraformReference(this, "secondary_table_microsoft_host");
+    [TerraformProperty("secondary_table_microsoft_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryTableMicrosoftHost { get; }
 
     /// <summary>
     /// The secondary_web_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_web_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryWebEndpoint => new TerraformReference(this, "secondary_web_endpoint");
+    [TerraformProperty("secondary_web_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryWebEndpoint { get; }
 
     /// <summary>
     /// The secondary_web_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_web_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryWebHost => new TerraformReference(this, "secondary_web_host");
+    [TerraformProperty("secondary_web_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryWebHost { get; }
 
     /// <summary>
     /// The secondary_web_internet_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_web_internet_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryWebInternetEndpoint => new TerraformReference(this, "secondary_web_internet_endpoint");
+    [TerraformProperty("secondary_web_internet_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryWebInternetEndpoint { get; }
 
     /// <summary>
     /// The secondary_web_internet_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_web_internet_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryWebInternetHost => new TerraformReference(this, "secondary_web_internet_host");
+    [TerraformProperty("secondary_web_internet_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryWebInternetHost { get; }
 
     /// <summary>
     /// The secondary_web_microsoft_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_web_microsoft_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryWebMicrosoftEndpoint => new TerraformReference(this, "secondary_web_microsoft_endpoint");
+    [TerraformProperty("secondary_web_microsoft_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryWebMicrosoftEndpoint { get; }
 
     /// <summary>
     /// The secondary_web_microsoft_host attribute.
     /// </summary>
-    [TerraformPropertyName("secondary_web_microsoft_host")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SecondaryWebMicrosoftHost => new TerraformReference(this, "secondary_web_microsoft_host");
+    [TerraformProperty("secondary_web_microsoft_host")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SecondaryWebMicrosoftHost { get; }
 
 }

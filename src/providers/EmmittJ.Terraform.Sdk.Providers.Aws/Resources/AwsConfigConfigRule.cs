@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for evaluation_mode in .
 /// Nesting mode: set
 /// </summary>
-public class AwsConfigConfigRuleEvaluationModeBlock
+public partial class AwsConfigConfigRuleEvaluationModeBlock : TerraformBlockBase
 {
     /// <summary>
     /// The mode attribute.
     /// </summary>
-    [TerraformPropertyName("mode")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Mode { get; set; } = default!;
+    [TerraformProperty("mode")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Mode { get; set; }
 
 }
 
@@ -21,34 +21,34 @@ public class AwsConfigConfigRuleEvaluationModeBlock
 /// Block type for scope in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConfigConfigRuleScopeBlock
+public partial class AwsConfigConfigRuleScopeBlock : TerraformBlockBase
 {
     /// <summary>
     /// The compliance_resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("compliance_resource_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("compliance_resource_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ComplianceResourceId { get; set; }
 
     /// <summary>
     /// The compliance_resource_types attribute.
     /// </summary>
-    [TerraformPropertyName("compliance_resource_types")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("compliance_resource_types")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? ComplianceResourceTypes { get; set; }
 
     /// <summary>
     /// The tag_key attribute.
     /// </summary>
-    [TerraformPropertyName("tag_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tag_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TagKey { get; set; }
 
     /// <summary>
     /// The tag_value attribute.
     /// </summary>
-    [TerraformPropertyName("tag_value")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tag_value")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TagValue { get; set; }
 
 }
@@ -57,21 +57,21 @@ public class AwsConfigConfigRuleScopeBlock
 /// Block type for source in .
 /// Nesting mode: list
 /// </summary>
-public class AwsConfigConfigRuleSourceBlock
+public partial class AwsConfigConfigRuleSourceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
-    [TerraformPropertyName("owner")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("owner")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Owner { get; set; }
 
     /// <summary>
     /// The source_identifier attribute.
     /// </summary>
-    [TerraformPropertyName("source_identifier")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_identifier")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceIdentifier { get; set; }
 
 }
@@ -80,7 +80,7 @@ public class AwsConfigConfigRuleSourceBlock
 /// Manages a aws_config_config_rule resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsConfigConfigRule : TerraformResource
+public partial class AwsConfigConfigRule : TerraformResource
 {
     public AwsConfigConfigRule(string name) : base("aws_config_config_rule", name)
     {
@@ -89,65 +89,65 @@ public class AwsConfigConfigRule : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The input_parameters attribute.
     /// </summary>
-    [TerraformPropertyName("input_parameters")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("input_parameters")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? InputParameters { get; set; }
 
     /// <summary>
     /// The maximum_execution_frequency attribute.
     /// </summary>
-    [TerraformPropertyName("maximum_execution_frequency")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("maximum_execution_frequency")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MaximumExecutionFrequency { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for evaluation_mode.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("evaluation_mode")]
+    [TerraformProperty("evaluation_mode")]
     public TerraformSet<TerraformBlock<AwsConfigConfigRuleEvaluationModeBlock>>? EvaluationMode { get; set; }
 
     /// <summary>
@@ -155,7 +155,7 @@ public class AwsConfigConfigRule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Scope block(s) allowed")]
-    [TerraformPropertyName("scope")]
+    [TerraformProperty("scope")]
     public TerraformList<TerraformBlock<AwsConfigConfigRuleScopeBlock>>? Scope { get; set; }
 
     /// <summary>
@@ -165,21 +165,21 @@ public class AwsConfigConfigRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Source is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Source block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Source block(s) allowed")]
-    [TerraformPropertyName("source")]
+    [TerraformProperty("source")]
     public TerraformList<TerraformBlock<AwsConfigConfigRuleSourceBlock>>? Source { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The rule_id attribute.
     /// </summary>
-    [TerraformPropertyName("rule_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RuleId => new TerraformReference(this, "rule_id");
+    [TerraformProperty("rule_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RuleId { get; }
 
 }

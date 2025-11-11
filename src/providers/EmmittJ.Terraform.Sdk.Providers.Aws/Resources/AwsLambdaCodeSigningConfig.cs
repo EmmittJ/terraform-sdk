@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for allowed_publishers in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaCodeSigningConfigAllowedPublishersBlock
+public partial class AwsLambdaCodeSigningConfigAllowedPublishersBlock : TerraformBlockBase
 {
     /// <summary>
     /// The signing_profile_version_arns attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SigningProfileVersionArns is required")]
-    [TerraformPropertyName("signing_profile_version_arns")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("signing_profile_version_arns")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> SigningProfileVersionArns { get; set; }
 
 }
@@ -22,14 +22,14 @@ public class AwsLambdaCodeSigningConfigAllowedPublishersBlock
 /// Block type for policies in .
 /// Nesting mode: list
 /// </summary>
-public class AwsLambdaCodeSigningConfigPoliciesBlock
+public partial class AwsLambdaCodeSigningConfigPoliciesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The untrusted_artifact_on_deployment attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UntrustedArtifactOnDeployment is required")]
-    [TerraformPropertyName("untrusted_artifact_on_deployment")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("untrusted_artifact_on_deployment")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UntrustedArtifactOnDeployment { get; set; }
 
 }
@@ -38,7 +38,7 @@ public class AwsLambdaCodeSigningConfigPoliciesBlock
 /// Manages a aws_lambda_code_signing_config resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsLambdaCodeSigningConfig : TerraformResource
+public partial class AwsLambdaCodeSigningConfig : TerraformResource
 {
     public AwsLambdaCodeSigningConfig(string name) : base("aws_lambda_code_signing_config", name)
     {
@@ -47,37 +47,37 @@ public class AwsLambdaCodeSigningConfig : TerraformResource
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for allowed_publishers.
@@ -86,7 +86,7 @@ public class AwsLambdaCodeSigningConfig : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AllowedPublishers is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AllowedPublishers block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AllowedPublishers block(s) allowed")]
-    [TerraformPropertyName("allowed_publishers")]
+    [TerraformProperty("allowed_publishers")]
     public TerraformList<TerraformBlock<AwsLambdaCodeSigningConfigAllowedPublishersBlock>>? AllowedPublishers { get; set; }
 
     /// <summary>
@@ -94,28 +94,28 @@ public class AwsLambdaCodeSigningConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Policies block(s) allowed")]
-    [TerraformPropertyName("policies")]
+    [TerraformProperty("policies")]
     public TerraformList<TerraformBlock<AwsLambdaCodeSigningConfigPoliciesBlock>>? Policies { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The config_id attribute.
     /// </summary>
-    [TerraformPropertyName("config_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ConfigId => new TerraformReference(this, "config_id");
+    [TerraformProperty("config_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ConfigId { get; }
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModified => new TerraformReference(this, "last_modified");
+    [TerraformProperty("last_modified")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModified { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_kms_key_rings.
 /// </summary>
-public class GoogleKmsKeyRingsDataSource : TerraformDataSource
+public partial class GoogleKmsKeyRingsDataSource : TerraformDataSource
 {
     public GoogleKmsKeyRingsDataSource(string name) : base("google_kms_key_rings", name)
     {
@@ -22,37 +22,37 @@ public class GoogleKmsKeyRingsDataSource : TerraformDataSource
     /// 					[See the documentation about using filters](https://cloud.google.com/kms/docs/sorting-and-filtering)
     /// 				
     /// </summary>
-    [TerraformPropertyName("filter")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filter")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The canonical id for the location. For example: &amp;quot;us-east1&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Project ID of the project.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
     /// A list of all the retrieved key rings
     /// </summary>
-    [TerraformPropertyName("key_rings")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> KeyRings => new TerraformReference(this, "key_rings");
+    [TerraformProperty("key_rings")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> KeyRings { get; }
 
 }

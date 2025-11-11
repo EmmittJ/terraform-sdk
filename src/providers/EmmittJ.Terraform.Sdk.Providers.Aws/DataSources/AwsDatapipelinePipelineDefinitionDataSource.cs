@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for parameter_value in .
 /// Nesting mode: set
 /// </summary>
-public class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock
+public partial class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock : TerraformBlockBase
 {
 
 
@@ -15,7 +15,7 @@ public class AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock
 /// <summary>
 /// Retrieves information about a aws_datapipeline_pipeline_definition.
 /// </summary>
-public class AwsDatapipelinePipelineDefinitionDataSource : TerraformDataSource
+public partial class AwsDatapipelinePipelineDefinitionDataSource : TerraformDataSource
 {
     public AwsDatapipelinePipelineDefinitionDataSource(string name) : base("aws_datapipeline_pipeline_definition", name)
     {
@@ -24,44 +24,44 @@ public class AwsDatapipelinePipelineDefinitionDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The pipeline_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PipelineId is required")]
-    [TerraformPropertyName("pipeline_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("pipeline_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PipelineId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for parameter_value.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("parameter_value")]
+    [TerraformProperty("parameter_value")]
     public TerraformSet<TerraformBlock<AwsDatapipelinePipelineDefinitionDataSourceParameterValueBlock>>? ParameterValue { get; set; }
 
     /// <summary>
     /// The parameter_object attribute.
     /// </summary>
-    [TerraformPropertyName("parameter_object")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> ParameterObject => new TerraformReference(this, "parameter_object");
+    [TerraformProperty("parameter_object")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> ParameterObject { get; }
 
     /// <summary>
     /// The pipeline_object attribute.
     /// </summary>
-    [TerraformPropertyName("pipeline_object")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> PipelineObject => new TerraformReference(this, "pipeline_object");
+    [TerraformProperty("pipeline_object")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> PipelineObject { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_parameter_manager_regional_parameter_version.
 /// </summary>
-public class GoogleParameterManagerRegionalParameterVersionDataSource : TerraformDataSource
+public partial class GoogleParameterManagerRegionalParameterVersionDataSource : TerraformDataSource
 {
     public GoogleParameterManagerRegionalParameterVersionDataSource(string name) : base("google_parameter_manager_regional_parameter_version", name)
     {
@@ -14,80 +14,80 @@ public class GoogleParameterManagerRegionalParameterVersionDataSource : Terrafor
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Location { get; set; } = default!;
+    [TerraformProperty("location")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The parameter attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
-    [TerraformPropertyName("parameter")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parameter")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Parameter { get; set; }
 
     /// <summary>
     /// The parameter_version_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterVersionId is required")]
-    [TerraformPropertyName("parameter_version_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parameter_version_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ParameterVersionId { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The create_time attribute.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Disabled => new TerraformReference(this, "disabled");
+    [TerraformProperty("disabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Disabled { get; }
 
     /// <summary>
     /// The kms_key_version attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KmsKeyVersion => new TerraformReference(this, "kms_key_version");
+    [TerraformProperty("kms_key_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KmsKeyVersion { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The parameter_data attribute.
     /// </summary>
-    [TerraformPropertyName("parameter_data")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ParameterData => new TerraformReference(this, "parameter_data");
+    [TerraformProperty("parameter_data")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ParameterData { get; }
 
     /// <summary>
     /// The update_time attribute.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

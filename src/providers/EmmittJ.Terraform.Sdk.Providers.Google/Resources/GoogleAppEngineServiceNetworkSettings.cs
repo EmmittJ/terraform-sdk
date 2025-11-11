@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for network_settings in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineServiceNetworkSettingsNetworkSettingsBlock
+public partial class GoogleAppEngineServiceNetworkSettingsNetworkSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The ingress settings for version or service. Default value: &amp;quot;INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED&amp;quot; Possible values: [&amp;quot;INGRESS_TRAFFIC_ALLOWED_UNSPECIFIED&amp;quot;, &amp;quot;INGRESS_TRAFFIC_ALLOWED_ALL&amp;quot;, &amp;quot;INGRESS_TRAFFIC_ALLOWED_INTERNAL_ONLY&amp;quot;, &amp;quot;INGRESS_TRAFFIC_ALLOWED_INTERNAL_AND_LB&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("ingress_traffic_allowed")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ingress_traffic_allowed")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IngressTrafficAllowed { get; set; }
 
 }
@@ -21,27 +21,27 @@ public class GoogleAppEngineServiceNetworkSettingsNetworkSettingsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAppEngineServiceNetworkSettingsTimeoutsBlock
+public partial class GoogleAppEngineServiceNetworkSettingsTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -50,7 +50,7 @@ public class GoogleAppEngineServiceNetworkSettingsTimeoutsBlock
 /// Manages a google_app_engine_service_network_settings resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleAppEngineServiceNetworkSettings : TerraformResource
+public partial class GoogleAppEngineServiceNetworkSettings : TerraformResource
 {
     public GoogleAppEngineServiceNetworkSettings(string name) : base("google_app_engine_service_network_settings", name)
     {
@@ -59,23 +59,23 @@ public class GoogleAppEngineServiceNetworkSettings : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The name of the service these settings apply to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
-    [TerraformPropertyName("service")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Service { get; set; }
 
     /// <summary>
@@ -85,14 +85,14 @@ public class GoogleAppEngineServiceNetworkSettings : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkSettings block(s) allowed")]
-    [TerraformPropertyName("network_settings")]
+    [TerraformProperty("network_settings")]
     public TerraformList<TerraformBlock<GoogleAppEngineServiceNetworkSettingsNetworkSettingsBlock>>? NetworkSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleAppEngineServiceNetworkSettingsTimeoutsBlock>? Timeouts { get; set; }
 
 }

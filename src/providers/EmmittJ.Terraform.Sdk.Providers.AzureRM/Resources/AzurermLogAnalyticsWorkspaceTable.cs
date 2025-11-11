@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogAnalyticsWorkspaceTableTimeoutsBlock
+public partial class AzurermLogAnalyticsWorkspaceTableTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermLogAnalyticsWorkspaceTableTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_log_analytics_workspace_table resource.
 /// </summary>
-public class AzurermLogAnalyticsWorkspaceTable : TerraformResource
+public partial class AzurermLogAnalyticsWorkspaceTable : TerraformResource
 {
     public AzurermLogAnalyticsWorkspaceTable(string name) : base("azurerm_log_analytics_workspace_table", name)
     {
@@ -50,52 +50,52 @@ public class AzurermLogAnalyticsWorkspaceTable : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The plan attribute.
     /// </summary>
-    [TerraformPropertyName("plan")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("plan")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Plan { get; set; }
 
     /// <summary>
     /// The retention_in_days attribute.
     /// </summary>
-    [TerraformPropertyName("retention_in_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("retention_in_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? RetentionInDays { get; set; }
 
     /// <summary>
     /// The total_retention_in_days attribute.
     /// </summary>
-    [TerraformPropertyName("total_retention_in_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("total_retention_in_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? TotalRetentionInDays { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformPropertyName("workspace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("workspace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermLogAnalyticsWorkspaceTableTimeoutsBlock>? Timeouts { get; set; }
 
 }

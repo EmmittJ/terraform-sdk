@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_cognito_user_pool_ui_customization resource.
 /// </summary>
-public class AwsCognitoUserPoolUiCustomization : TerraformResource
+public partial class AwsCognitoUserPoolUiCustomization : TerraformResource
 {
     public AwsCognitoUserPoolUiCustomization(string name) : base("aws_cognito_user_pool_ui_customization", name)
     {
@@ -14,72 +14,72 @@ public class AwsCognitoUserPoolUiCustomization : TerraformResource
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    [TerraformPropertyName("client_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("client_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The css attribute.
     /// </summary>
-    [TerraformPropertyName("css")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("css")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Css { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The image_file attribute.
     /// </summary>
-    [TerraformPropertyName("image_file")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("image_file")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ImageFile { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The user_pool_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UserPoolId is required")]
-    [TerraformPropertyName("user_pool_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("user_pool_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UserPoolId { get; set; }
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
-    [TerraformPropertyName("creation_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationDate => new TerraformReference(this, "creation_date");
+    [TerraformProperty("creation_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationDate { get; }
 
     /// <summary>
     /// The css_version attribute.
     /// </summary>
-    [TerraformPropertyName("css_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CssVersion => new TerraformReference(this, "css_version");
+    [TerraformProperty("css_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CssVersion { get; }
 
     /// <summary>
     /// The image_url attribute.
     /// </summary>
-    [TerraformPropertyName("image_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ImageUrl => new TerraformReference(this, "image_url");
+    [TerraformProperty("image_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ImageUrl { get; }
 
     /// <summary>
     /// The last_modified_date attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModifiedDate => new TerraformReference(this, "last_modified_date");
+    [TerraformProperty("last_modified_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModifiedDate { get; }
 
 }

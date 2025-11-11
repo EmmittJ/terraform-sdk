@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for bucket_options in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleLoggingMetricBucketOptionsBlock
+public partial class GoogleLoggingMetricBucketOptionsBlock : TerraformBlockBase
 {
 }
 
@@ -14,15 +14,15 @@ public class GoogleLoggingMetricBucketOptionsBlock
 /// Block type for metric_descriptor in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleLoggingMetricMetricDescriptorBlock
+public partial class GoogleLoggingMetricMetricDescriptorBlock : TerraformBlockBase
 {
     /// <summary>
     /// A concise name for the metric, which can be displayed in user interfaces. Use sentence case
     /// without an ending period, for example &amp;quot;Request count&amp;quot;. This field is optional but it is
     /// recommended to be set for any metrics associated with user-visible concepts, such as Quota.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
@@ -31,8 +31,8 @@ public class GoogleLoggingMetricMetricDescriptorBlock
     /// For counter metrics, set this to DELTA. Possible values: [&amp;quot;DELTA&amp;quot;, &amp;quot;GAUGE&amp;quot;, &amp;quot;CUMULATIVE&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MetricKind is required")]
-    [TerraformPropertyName("metric_kind")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("metric_kind")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MetricKind { get; set; }
 
     /// <summary>
@@ -40,8 +40,8 @@ public class GoogleLoggingMetricMetricDescriptorBlock
     /// &#39;INT64&#39;, &#39;DOUBLE&#39;, or &#39;DISTRIBUTION&#39;. The supported units are a subset of
     /// [The Unified Code for Units of Measure](http://unitsofmeasure.org/ucum.html) standard
     /// </summary>
-    [TerraformPropertyName("unit")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("unit")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Unit { get; set; }
 
     /// <summary>
@@ -50,8 +50,8 @@ public class GoogleLoggingMetricMetricDescriptorBlock
     /// For counter metrics, set this to INT64. Possible values: [&amp;quot;BOOL&amp;quot;, &amp;quot;INT64&amp;quot;, &amp;quot;DOUBLE&amp;quot;, &amp;quot;STRING&amp;quot;, &amp;quot;DISTRIBUTION&amp;quot;, &amp;quot;MONEY&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ValueType is required")]
-    [TerraformPropertyName("value_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ValueType { get; set; }
 
 }
@@ -60,27 +60,27 @@ public class GoogleLoggingMetricMetricDescriptorBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleLoggingMetricTimeoutsBlock
+public partial class GoogleLoggingMetricTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -89,7 +89,7 @@ public class GoogleLoggingMetricTimeoutsBlock
 /// Manages a google_logging_metric resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleLoggingMetric : TerraformResource
+public partial class GoogleLoggingMetric : TerraformResource
 {
     public GoogleLoggingMetric(string name) : base("google_logging_metric", name)
     {
@@ -99,23 +99,23 @@ public class GoogleLoggingMetric : TerraformResource
     /// The resource name of the Log Bucket that owns the Log Metric. Only Log Buckets in projects
     /// are supported. The bucket has to be in the same project as the metric.
     /// </summary>
-    [TerraformPropertyName("bucket_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bucket_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BucketName { get; set; }
 
     /// <summary>
     /// A description of this metric, which is used in documentation. The maximum length of the
     /// description is 8000 characters.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// If set to True, then this metric is disabled and it does not generate any points.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
@@ -123,16 +123,16 @@ public class GoogleLoggingMetric : TerraformResource
     /// is used to match log entries.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
-    [TerraformPropertyName("filter")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("filter")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A map from a label key string to an extractor expression which is used to extract data from a log
@@ -140,8 +140,8 @@ public class GoogleLoggingMetric : TerraformResource
     /// have an associated extractor expression in this map. The syntax of the extractor expression is
     /// the same as for the valueExtractor field.
     /// </summary>
-    [TerraformPropertyName("label_extractors")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("label_extractors")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? LabelExtractors { get; set; }
 
     /// <summary>
@@ -152,16 +152,16 @@ public class GoogleLoggingMetric : TerraformResource
     /// of the name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// A valueExtractor is required when using a distribution logs-based metric to extract the values to
@@ -172,8 +172,8 @@ public class GoogleLoggingMetric : TerraformResource
     /// log entry field. The value of the field is converted to a string before applying the regex. It is an
     /// error to specify a regex that does not include exactly one capture group.
     /// </summary>
-    [TerraformPropertyName("value_extractor")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("value_extractor")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ValueExtractor { get; set; }
 
     /// <summary>
@@ -181,7 +181,7 @@ public class GoogleLoggingMetric : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BucketOptions block(s) allowed")]
-    [TerraformPropertyName("bucket_options")]
+    [TerraformProperty("bucket_options")]
     public TerraformList<TerraformBlock<GoogleLoggingMetricBucketOptionsBlock>>? BucketOptions { get; set; }
 
     /// <summary>
@@ -189,14 +189,14 @@ public class GoogleLoggingMetric : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MetricDescriptor block(s) allowed")]
-    [TerraformPropertyName("metric_descriptor")]
+    [TerraformProperty("metric_descriptor")]
     public TerraformList<TerraformBlock<GoogleLoggingMetricMetricDescriptorBlock>>? MetricDescriptor { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleLoggingMetricTimeoutsBlock>? Timeouts { get; set; }
 
 }

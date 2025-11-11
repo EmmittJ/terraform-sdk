@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRegionTargetHttpProxyTimeoutsBlock
+public partial class GoogleComputeRegionTargetHttpProxyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleComputeRegionTargetHttpProxyTimeoutsBlock
 /// <summary>
 /// Manages a google_compute_region_target_http_proxy resource.
 /// </summary>
-public class GoogleComputeRegionTargetHttpProxy : TerraformResource
+public partial class GoogleComputeRegionTargetHttpProxy : TerraformResource
 {
     public GoogleComputeRegionTargetHttpProxy(string name) : base("google_compute_region_target_http_proxy", name)
     {
@@ -43,8 +43,8 @@ public class GoogleComputeRegionTargetHttpProxy : TerraformResource
     /// <summary>
     /// An optional description of this resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
@@ -54,16 +54,16 @@ public class GoogleComputeRegionTargetHttpProxy : TerraformResource
     /// HTTP(S) load balancer, the minimum allowed value is 5 seconds and the
     /// maximum allowed value is 600 seconds.
     /// </summary>
-    [TerraformPropertyName("http_keep_alive_timeout_sec")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("http_keep_alive_timeout_sec")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? HttpKeepAliveTimeoutSec { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource. Provided by the client when the resource is
@@ -75,60 +75,60 @@ public class GoogleComputeRegionTargetHttpProxy : TerraformResource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The Region in which the created target https proxy should reside.
     /// If it is not provided, the provider region is used.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// A reference to the RegionUrlMap resource that defines the mapping from URL
     /// to the BackendService.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UrlMap is required")]
-    [TerraformPropertyName("url_map")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("url_map")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UrlMap { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeRegionTargetHttpProxyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// The unique identifier for the resource.
     /// </summary>
-    [TerraformPropertyName("proxy_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ProxyId => new TerraformReference(this, "proxy_id");
+    [TerraformProperty("proxy_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ProxyId { get; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
 }

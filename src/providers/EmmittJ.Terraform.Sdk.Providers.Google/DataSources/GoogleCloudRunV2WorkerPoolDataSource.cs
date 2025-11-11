@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_cloud_run_v2_worker_pool.
 /// </summary>
-public class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
+public partial class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
 {
     public GoogleCloudRunV2WorkerPoolDataSource(string name) : base("google_cloud_run_v2_worker_pool", name)
     {
@@ -14,30 +14,30 @@ public class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the cloud run worker pool
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Name of the WorkerPool.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("project")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Project { get; set; }
 
     /// <summary>
@@ -51,66 +51,66 @@ public class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    [TerraformPropertyName("annotations")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Annotations => new TerraformReference(this, "annotations");
+    [TerraformProperty("annotations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Annotations { get; }
 
     /// <summary>
     /// Settings for the Binary Authorization feature.
     /// </summary>
-    [TerraformPropertyName("binary_authorization")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> BinaryAuthorization => new TerraformReference(this, "binary_authorization");
+    [TerraformProperty("binary_authorization")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> BinaryAuthorization { get; }
 
     /// <summary>
     /// Arbitrary identifier for the API client.
     /// </summary>
-    [TerraformPropertyName("client")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Client => new TerraformReference(this, "client");
+    [TerraformProperty("client")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Client { get; }
 
     /// <summary>
     /// Arbitrary version identifier for the API client.
     /// </summary>
-    [TerraformPropertyName("client_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ClientVersion => new TerraformReference(this, "client_version");
+    [TerraformProperty("client_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ClientVersion { get; }
 
     /// <summary>
     /// The Conditions of all other associated sub-resources. They contain additional diagnostics information in case the WorkerPool does not reach its Serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
-    [TerraformPropertyName("conditions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Conditions => new TerraformReference(this, "conditions");
+    [TerraformProperty("conditions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Conditions { get; }
 
     /// <summary>
     /// The creation time.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// Email address of the authenticated creator.
     /// </summary>
-    [TerraformPropertyName("creator")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Creator => new TerraformReference(this, "creator");
+    [TerraformProperty("creator")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Creator { get; }
 
     /// <summary>
     /// One or more custom audiences that you want this worker pool to support. Specify each custom audience as the full URL in a string. The custom audiences are encoded in the token and used to authenticate requests.
     /// For more information, see https://cloud.google.com/run/docs/configuring/custom-audiences.
     /// </summary>
-    [TerraformPropertyName("custom_audiences")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> CustomAudiences => new TerraformReference(this, "custom_audiences");
+    [TerraformProperty("custom_audiences")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> CustomAudiences { get; }
 
     /// <summary>
     /// The deletion time.
     /// </summary>
-    [TerraformPropertyName("delete_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeleteTime => new TerraformReference(this, "delete_time");
+    [TerraformProperty("delete_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// Whether Terraform will be prevented from destroying the service. Defaults to true.
@@ -120,65 +120,65 @@ public class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// or &#39;terraform destroy&#39; that would delete the WorkerPool will fail.
     /// When the field is set to false, deleting the WorkerPool is allowed.
     /// </summary>
-    [TerraformPropertyName("deletion_protection")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> DeletionProtection => new TerraformReference(this, "deletion_protection");
+    [TerraformProperty("deletion_protection")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> DeletionProtection { get; }
 
     /// <summary>
     /// User-provided description of the WorkerPool. This field currently has a 512-character limit.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_annotations")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
+    [TerraformProperty("effective_annotations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// A system-generated fingerprint for this version of the resource. May be used to detect modification conflict during updates.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// For a deleted resource, the time after which it will be permanently deleted.
     /// </summary>
-    [TerraformPropertyName("expire_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExpireTime => new TerraformReference(this, "expire_time");
+    [TerraformProperty("expire_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExpireTime { get; }
 
     /// <summary>
     /// A number that monotonically increases every time the user modifies the desired state. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
-    [TerraformPropertyName("generation")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Generation => new TerraformReference(this, "generation");
+    [TerraformProperty("generation")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Generation { get; }
 
     /// <summary>
     /// Detailed status information for corresponding instance splits. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
-    [TerraformPropertyName("instance_split_statuses")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> InstanceSplitStatuses => new TerraformReference(this, "instance_split_statuses");
+    [TerraformProperty("instance_split_statuses")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> InstanceSplitStatuses { get; }
 
     /// <summary>
     /// Specifies how to distribute instances over a collection of Revisions belonging to the WorkerPool. If instance split is empty or not provided, defaults to 100% instances assigned to the latest Ready Revision.
     /// </summary>
-    [TerraformPropertyName("instance_splits")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> InstanceSplits => new TerraformReference(this, "instance_splits");
+    [TerraformProperty("instance_splits")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> InstanceSplits { get; }
 
     /// <summary>
     /// Unstructured key value map that can be used to organize and categorize objects. User-provided labels are shared with Google&#39;s billing system, so they can be used to filter, or break down billing charges by team, component,
@@ -190,30 +190,30 @@ public class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Labels => new TerraformReference(this, "labels");
+    [TerraformProperty("labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Labels { get; }
 
     /// <summary>
     /// Email address of the last authenticated modifier.
     /// </summary>
-    [TerraformPropertyName("last_modifier")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModifier => new TerraformReference(this, "last_modifier");
+    [TerraformProperty("last_modifier")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModifier { get; }
 
     /// <summary>
     /// Name of the last created revision. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
-    [TerraformPropertyName("latest_created_revision")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LatestCreatedRevision => new TerraformReference(this, "latest_created_revision");
+    [TerraformProperty("latest_created_revision")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LatestCreatedRevision { get; }
 
     /// <summary>
     /// Name of the latest revision that is serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
-    [TerraformPropertyName("latest_ready_revision")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LatestReadyRevision => new TerraformReference(this, "latest_ready_revision");
+    [TerraformProperty("latest_ready_revision")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LatestReadyRevision { get; }
 
     /// <summary>
     /// The launch stage as defined by [Google Cloud Platform Launch Stages](https://cloud.google.com/products#product-launch-stages). Cloud Run supports ALPHA, BETA, and GA.
@@ -221,16 +221,16 @@ public class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// 
     /// For example, if ALPHA is provided as input, but only BETA and GA-level features are used, this field will be BETA on output. Possible values: [&amp;quot;UNIMPLEMENTED&amp;quot;, &amp;quot;PRELAUNCH&amp;quot;, &amp;quot;EARLY_ACCESS&amp;quot;, &amp;quot;ALPHA&amp;quot;, &amp;quot;BETA&amp;quot;, &amp;quot;GA&amp;quot;, &amp;quot;DEPRECATED&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("launch_stage")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LaunchStage => new TerraformReference(this, "launch_stage");
+    [TerraformProperty("launch_stage")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LaunchStage { get; }
 
     /// <summary>
     /// The generation of this WorkerPool currently serving traffic. See comments in reconciling for additional information on reconciliation process in Cloud Run. Please note that unlike v1, this is an int64 value. As with most Google APIs, its JSON representation will be a string instead of an integer.
     /// </summary>
-    [TerraformPropertyName("observed_generation")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ObservedGeneration => new TerraformReference(this, "observed_generation");
+    [TerraformProperty("observed_generation")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ObservedGeneration { get; }
 
     /// <summary>
     /// Returns true if the WorkerPool is currently being acted upon by the system to bring it into the desired state.
@@ -241,51 +241,51 @@ public class GoogleCloudRunV2WorkerPoolDataSource : TerraformDataSource
     /// 
     /// If reconciliation failed, trafficStatuses, observedGeneration, and latestReadyRevision will have the state of the last serving revision, or empty for newly created WorkerPools. Additional information on the failure can be found in terminalCondition and conditions.
     /// </summary>
-    [TerraformPropertyName("reconciling")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Reconciling => new TerraformReference(this, "reconciling");
+    [TerraformProperty("reconciling")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// Scaling settings that apply to the worker pool.
     /// </summary>
-    [TerraformPropertyName("scaling")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Scaling => new TerraformReference(this, "scaling");
+    [TerraformProperty("scaling")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Scaling { get; }
 
     /// <summary>
     /// The template used to create revisions for this WorkerPool.
     /// </summary>
-    [TerraformPropertyName("template")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Template => new TerraformReference(this, "template");
+    [TerraformProperty("template")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Template { get; }
 
     /// <summary>
     /// The Condition of this WorkerPool, containing its readiness status, and detailed error information in case it did not reach a serving state. See comments in reconciling for additional information on reconciliation process in Cloud Run.
     /// </summary>
-    [TerraformPropertyName("terminal_condition")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> TerminalCondition => new TerraformReference(this, "terminal_condition");
+    [TerraformProperty("terminal_condition")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> TerminalCondition { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// Server assigned unique identifier for the trigger. The value is a UUID4 string and guaranteed to remain unchanged until the resource is deleted.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The last-modified time.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock
+public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock : TerraformBlockBase
 {
 }
 
@@ -14,21 +14,21 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfiguration
 /// Block type for statement in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock
+public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock : TerraformBlockBase
 {
     /// <summary>
     /// The data_identifiers attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DataIdentifiers is required")]
-    [TerraformPropertyName("data_identifiers")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("data_identifiers")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> DataIdentifiers { get; set; }
 
     /// <summary>
     /// The sid attribute.
     /// </summary>
-    [TerraformPropertyName("sid")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("sid")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Sid { get; set; }
 
 }
@@ -37,7 +37,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBloc
 /// Retrieves information about a aws_cloudwatch_log_data_protection_policy_document.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : TerraformDataSource
+public partial class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : TerraformDataSource
 {
     public AwsCloudwatchLogDataProtectionPolicyDocumentDataSource(string name) : base("aws_cloudwatch_log_data_protection_policy_document", name)
     {
@@ -46,30 +46,30 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : TerraformD
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Version { get; set; }
 
     /// <summary>
@@ -77,7 +77,7 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : TerraformD
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Configuration block(s) allowed")]
-    [TerraformPropertyName("configuration")]
+    [TerraformProperty("configuration")]
     public TerraformList<TerraformBlock<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceConfigurationBlock>>? Configuration { get; set; }
 
     /// <summary>
@@ -86,14 +86,14 @@ public class AwsCloudwatchLogDataProtectionPolicyDocumentDataSource : TerraformD
     /// </summary>
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 Statement block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(2, ErrorMessage = "Maximum 2 Statement block(s) allowed")]
-    [TerraformPropertyName("statement")]
+    [TerraformProperty("statement")]
     public TerraformList<TerraformBlock<AwsCloudwatchLogDataProtectionPolicyDocumentDataSourceStatementBlock>>? Statement { get; set; }
 
     /// <summary>
     /// The json attribute.
     /// </summary>
-    [TerraformPropertyName("json")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Json => new TerraformReference(this, "json");
+    [TerraformProperty("json")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Json { get; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for attributes in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGlobalacceleratorAcceleratorAttributesBlock
+public partial class AwsGlobalacceleratorAcceleratorAttributesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The flow_logs_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("flow_logs_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("flow_logs_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? FlowLogsEnabled { get; set; }
 
     /// <summary>
     /// The flow_logs_s3_bucket attribute.
     /// </summary>
-    [TerraformPropertyName("flow_logs_s3_bucket")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("flow_logs_s3_bucket")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? FlowLogsS3Bucket { get; set; }
 
     /// <summary>
     /// The flow_logs_s3_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("flow_logs_s3_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("flow_logs_s3_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? FlowLogsS3Prefix { get; set; }
 
 }
@@ -35,20 +35,20 @@ public class AwsGlobalacceleratorAcceleratorAttributesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsGlobalacceleratorAcceleratorTimeoutsBlock
+public partial class AwsGlobalacceleratorAcceleratorTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -57,7 +57,7 @@ public class AwsGlobalacceleratorAcceleratorTimeoutsBlock
 /// Manages a aws_globalaccelerator_accelerator resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsGlobalacceleratorAccelerator : TerraformResource
+public partial class AwsGlobalacceleratorAccelerator : TerraformResource
 {
     public AwsGlobalacceleratorAccelerator(string name) : base("aws_globalaccelerator_accelerator", name)
     {
@@ -66,101 +66,101 @@ public class AwsGlobalacceleratorAccelerator : TerraformResource
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    [TerraformPropertyName("ip_address_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_address_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IpAddressType { get; set; }
 
     /// <summary>
     /// The ip_addresses attribute.
     /// </summary>
-    [TerraformPropertyName("ip_addresses")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ip_addresses")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? IpAddresses { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for attributes.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Attributes block(s) allowed")]
-    [TerraformPropertyName("attributes")]
+    [TerraformProperty("attributes")]
     public TerraformList<TerraformBlock<AwsGlobalacceleratorAcceleratorAttributesBlock>>? Attributes { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsGlobalacceleratorAcceleratorTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    [TerraformPropertyName("dns_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DnsName => new TerraformReference(this, "dns_name");
+    [TerraformProperty("dns_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DnsName { get; }
 
     /// <summary>
     /// The dual_stack_dns_name attribute.
     /// </summary>
-    [TerraformPropertyName("dual_stack_dns_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DualStackDnsName => new TerraformReference(this, "dual_stack_dns_name");
+    [TerraformProperty("dual_stack_dns_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DualStackDnsName { get; }
 
     /// <summary>
     /// The hosted_zone_id attribute.
     /// </summary>
-    [TerraformPropertyName("hosted_zone_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> HostedZoneId => new TerraformReference(this, "hosted_zone_id");
+    [TerraformProperty("hosted_zone_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> HostedZoneId { get; }
 
     /// <summary>
     /// The ip_sets attribute.
     /// </summary>
-    [TerraformPropertyName("ip_sets")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> IpSets => new TerraformReference(this, "ip_sets");
+    [TerraformProperty("ip_sets")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> IpSets { get; }
 
 }

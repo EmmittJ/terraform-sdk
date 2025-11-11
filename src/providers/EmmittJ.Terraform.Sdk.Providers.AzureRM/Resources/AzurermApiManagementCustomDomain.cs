@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for developer_portal in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementCustomDomainDeveloperPortalBlock
+public partial class AzurermApiManagementCustomDomainDeveloperPortalBlock : TerraformBlockBase
 {
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    [TerraformPropertyName("certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Certificate { get; set; }
 
     /// <summary>
     /// The certificate_password attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate_password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CertificatePassword { get; set; }
 
 
@@ -29,37 +29,37 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    [TerraformPropertyName("host_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("host_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HostName { get; set; }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    [TerraformPropertyName("key_vault_certificate_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KeyVaultCertificateId { get; set; } = default!;
+    [TerraformProperty("key_vault_certificate_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KeyVaultCertificateId { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("key_vault_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KeyVaultId { get; set; } = default!;
+    [TerraformProperty("key_vault_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The negotiate_client_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("negotiate_client_certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("negotiate_client_certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? NegotiateClientCertificate { get; set; }
 
     /// <summary>
     /// The ssl_keyvault_identity_client_id attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_keyvault_identity_client_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_keyvault_identity_client_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SslKeyvaultIdentityClientId { get; set; }
 
 
@@ -70,20 +70,20 @@ public class AzurermApiManagementCustomDomainDeveloperPortalBlock
 /// Block type for gateway in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementCustomDomainGatewayBlock
+public partial class AzurermApiManagementCustomDomainGatewayBlock : TerraformBlockBase
 {
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    [TerraformPropertyName("certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Certificate { get; set; }
 
     /// <summary>
     /// The certificate_password attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate_password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CertificatePassword { get; set; }
 
 
@@ -91,46 +91,46 @@ public class AzurermApiManagementCustomDomainGatewayBlock
     /// <summary>
     /// The default_ssl_binding attribute.
     /// </summary>
-    [TerraformPropertyName("default_ssl_binding")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> DefaultSslBinding { get; set; } = default!;
+    [TerraformProperty("default_ssl_binding")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> DefaultSslBinding { get; set; }
 
 
     /// <summary>
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    [TerraformPropertyName("host_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("host_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HostName { get; set; }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    [TerraformPropertyName("key_vault_certificate_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KeyVaultCertificateId { get; set; } = default!;
+    [TerraformProperty("key_vault_certificate_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KeyVaultCertificateId { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("key_vault_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KeyVaultId { get; set; } = default!;
+    [TerraformProperty("key_vault_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The negotiate_client_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("negotiate_client_certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("negotiate_client_certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? NegotiateClientCertificate { get; set; }
 
     /// <summary>
     /// The ssl_keyvault_identity_client_id attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_keyvault_identity_client_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_keyvault_identity_client_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SslKeyvaultIdentityClientId { get; set; }
 
 
@@ -141,20 +141,20 @@ public class AzurermApiManagementCustomDomainGatewayBlock
 /// Block type for management in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementCustomDomainManagementBlock
+public partial class AzurermApiManagementCustomDomainManagementBlock : TerraformBlockBase
 {
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    [TerraformPropertyName("certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Certificate { get; set; }
 
     /// <summary>
     /// The certificate_password attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate_password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CertificatePassword { get; set; }
 
 
@@ -164,37 +164,37 @@ public class AzurermApiManagementCustomDomainManagementBlock
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    [TerraformPropertyName("host_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("host_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HostName { get; set; }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    [TerraformPropertyName("key_vault_certificate_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KeyVaultCertificateId { get; set; } = default!;
+    [TerraformProperty("key_vault_certificate_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KeyVaultCertificateId { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("key_vault_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KeyVaultId { get; set; } = default!;
+    [TerraformProperty("key_vault_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The negotiate_client_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("negotiate_client_certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("negotiate_client_certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? NegotiateClientCertificate { get; set; }
 
     /// <summary>
     /// The ssl_keyvault_identity_client_id attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_keyvault_identity_client_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_keyvault_identity_client_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SslKeyvaultIdentityClientId { get; set; }
 
 
@@ -205,20 +205,20 @@ public class AzurermApiManagementCustomDomainManagementBlock
 /// Block type for portal in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementCustomDomainPortalBlock
+public partial class AzurermApiManagementCustomDomainPortalBlock : TerraformBlockBase
 {
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    [TerraformPropertyName("certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Certificate { get; set; }
 
     /// <summary>
     /// The certificate_password attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate_password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CertificatePassword { get; set; }
 
 
@@ -228,37 +228,37 @@ public class AzurermApiManagementCustomDomainPortalBlock
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    [TerraformPropertyName("host_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("host_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HostName { get; set; }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    [TerraformPropertyName("key_vault_certificate_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KeyVaultCertificateId { get; set; } = default!;
+    [TerraformProperty("key_vault_certificate_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KeyVaultCertificateId { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("key_vault_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KeyVaultId { get; set; } = default!;
+    [TerraformProperty("key_vault_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The negotiate_client_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("negotiate_client_certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("negotiate_client_certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? NegotiateClientCertificate { get; set; }
 
     /// <summary>
     /// The ssl_keyvault_identity_client_id attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_keyvault_identity_client_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_keyvault_identity_client_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SslKeyvaultIdentityClientId { get; set; }
 
 
@@ -269,20 +269,20 @@ public class AzurermApiManagementCustomDomainPortalBlock
 /// Block type for scm in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementCustomDomainScmBlock
+public partial class AzurermApiManagementCustomDomainScmBlock : TerraformBlockBase
 {
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    [TerraformPropertyName("certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Certificate { get; set; }
 
     /// <summary>
     /// The certificate_password attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate_password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CertificatePassword { get; set; }
 
 
@@ -292,37 +292,37 @@ public class AzurermApiManagementCustomDomainScmBlock
     /// The host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HostName is required")]
-    [TerraformPropertyName("host_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("host_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HostName { get; set; }
 
     /// <summary>
     /// The key_vault_certificate_id attribute.
     /// </summary>
-    [TerraformPropertyName("key_vault_certificate_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KeyVaultCertificateId { get; set; } = default!;
+    [TerraformProperty("key_vault_certificate_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KeyVaultCertificateId { get; set; }
 
     /// <summary>
     /// The key_vault_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("key_vault_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> KeyVaultId { get; set; } = default!;
+    [TerraformProperty("key_vault_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> KeyVaultId { get; set; }
 
     /// <summary>
     /// The negotiate_client_certificate attribute.
     /// </summary>
-    [TerraformPropertyName("negotiate_client_certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("negotiate_client_certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? NegotiateClientCertificate { get; set; }
 
     /// <summary>
     /// The ssl_keyvault_identity_client_id attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_keyvault_identity_client_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ssl_keyvault_identity_client_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SslKeyvaultIdentityClientId { get; set; }
 
 
@@ -333,34 +333,34 @@ public class AzurermApiManagementCustomDomainScmBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementCustomDomainTimeoutsBlock
+public partial class AzurermApiManagementCustomDomainTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -368,7 +368,7 @@ public class AzurermApiManagementCustomDomainTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_api_management_custom_domain resource.
 /// </summary>
-public class AzurermApiManagementCustomDomain : TerraformResource
+public partial class AzurermApiManagementCustomDomain : TerraformResource
 {
     public AzurermApiManagementCustomDomain(string name) : base("azurerm_api_management_custom_domain", name)
     {
@@ -378,57 +378,57 @@ public class AzurermApiManagementCustomDomain : TerraformResource
     /// The api_management_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementId is required")]
-    [TerraformPropertyName("api_management_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("api_management_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApiManagementId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for developer_portal.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("developer_portal")]
+    [TerraformProperty("developer_portal")]
     public TerraformList<TerraformBlock<AzurermApiManagementCustomDomainDeveloperPortalBlock>>? DeveloperPortal { get; set; }
 
     /// <summary>
     /// Block for gateway.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("gateway")]
+    [TerraformProperty("gateway")]
     public TerraformList<TerraformBlock<AzurermApiManagementCustomDomainGatewayBlock>>? Gateway { get; set; }
 
     /// <summary>
     /// Block for management.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("management")]
+    [TerraformProperty("management")]
     public TerraformList<TerraformBlock<AzurermApiManagementCustomDomainManagementBlock>>? Management { get; set; }
 
     /// <summary>
     /// Block for portal.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("portal")]
+    [TerraformProperty("portal")]
     public TerraformList<TerraformBlock<AzurermApiManagementCustomDomainPortalBlock>>? Portal { get; set; }
 
     /// <summary>
     /// Block for scm.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("scm")]
+    [TerraformProperty("scm")]
     public TerraformList<TerraformBlock<AzurermApiManagementCustomDomainScmBlock>>? Scm { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermApiManagementCustomDomainTimeoutsBlock>? Timeouts { get; set; }
 
 }

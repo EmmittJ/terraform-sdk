@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for auto_scaling_policy in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGameliftGameServerGroupAutoScalingPolicyBlock
+public partial class AwsGameliftGameServerGroupAutoScalingPolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// The estimated_instance_warmup attribute.
     /// </summary>
-    [TerraformPropertyName("estimated_instance_warmup")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> EstimatedInstanceWarmup { get; set; } = default!;
+    [TerraformProperty("estimated_instance_warmup")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> EstimatedInstanceWarmup { get; set; }
 
 }
 
@@ -21,21 +21,21 @@ public class AwsGameliftGameServerGroupAutoScalingPolicyBlock
 /// Block type for instance_definition in .
 /// Nesting mode: set
 /// </summary>
-public class AwsGameliftGameServerGroupInstanceDefinitionBlock
+public partial class AwsGameliftGameServerGroupInstanceDefinitionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceType is required")]
-    [TerraformPropertyName("instance_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// The weighted_capacity attribute.
     /// </summary>
-    [TerraformPropertyName("weighted_capacity")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("weighted_capacity")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? WeightedCapacity { get; set; }
 
 }
@@ -44,27 +44,27 @@ public class AwsGameliftGameServerGroupInstanceDefinitionBlock
 /// Block type for launch_template in .
 /// Nesting mode: list
 /// </summary>
-public class AwsGameliftGameServerGroupLaunchTemplateBlock
+public partial class AwsGameliftGameServerGroupLaunchTemplateBlock : TerraformBlockBase
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Version { get; set; }
 
 }
@@ -73,20 +73,20 @@ public class AwsGameliftGameServerGroupLaunchTemplateBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsGameliftGameServerGroupTimeoutsBlock
+public partial class AwsGameliftGameServerGroupTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -95,7 +95,7 @@ public class AwsGameliftGameServerGroupTimeoutsBlock
 /// Manages a aws_gamelift_game_server_group resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsGameliftGameServerGroup : TerraformResource
+public partial class AwsGameliftGameServerGroup : TerraformResource
 {
     public AwsGameliftGameServerGroup(string name) : base("aws_gamelift_game_server_group", name)
     {
@@ -104,82 +104,82 @@ public class AwsGameliftGameServerGroup : TerraformResource
     /// <summary>
     /// The balancing_strategy attribute.
     /// </summary>
-    [TerraformPropertyName("balancing_strategy")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> BalancingStrategy { get; set; } = default!;
+    [TerraformProperty("balancing_strategy")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> BalancingStrategy { get; set; }
 
     /// <summary>
     /// The game_server_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GameServerGroupName is required")]
-    [TerraformPropertyName("game_server_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("game_server_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GameServerGroupName { get; set; }
 
     /// <summary>
     /// The game_server_protection_policy attribute.
     /// </summary>
-    [TerraformPropertyName("game_server_protection_policy")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> GameServerProtectionPolicy { get; set; } = default!;
+    [TerraformProperty("game_server_protection_policy")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> GameServerProtectionPolicy { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The max_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxSize is required")]
-    [TerraformPropertyName("max_size")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("max_size")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MaxSize { get; set; }
 
     /// <summary>
     /// The min_size attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MinSize is required")]
-    [TerraformPropertyName("min_size")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("min_size")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MinSize { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleArn is required")]
-    [TerraformPropertyName("role_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The vpc_subnets attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_subnets")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vpc_subnets")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? VpcSubnets { get; set; }
 
     /// <summary>
@@ -187,7 +187,7 @@ public class AwsGameliftGameServerGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutoScalingPolicy block(s) allowed")]
-    [TerraformPropertyName("auto_scaling_policy")]
+    [TerraformProperty("auto_scaling_policy")]
     public TerraformList<TerraformBlock<AwsGameliftGameServerGroupAutoScalingPolicyBlock>>? AutoScalingPolicy { get; set; }
 
     /// <summary>
@@ -196,7 +196,7 @@ public class AwsGameliftGameServerGroup : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MinLength(2, ErrorMessage = "At least 2 InstanceDefinition block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(20, ErrorMessage = "Maximum 20 InstanceDefinition block(s) allowed")]
-    [TerraformPropertyName("instance_definition")]
+    [TerraformProperty("instance_definition")]
     public TerraformSet<TerraformBlock<AwsGameliftGameServerGroupInstanceDefinitionBlock>>? InstanceDefinition { get; set; }
 
     /// <summary>
@@ -206,28 +206,28 @@ public class AwsGameliftGameServerGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LaunchTemplate is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LaunchTemplate block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LaunchTemplate block(s) allowed")]
-    [TerraformPropertyName("launch_template")]
+    [TerraformProperty("launch_template")]
     public TerraformList<TerraformBlock<AwsGameliftGameServerGroupLaunchTemplateBlock>>? LaunchTemplate { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsGameliftGameServerGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The auto_scaling_group_arn attribute.
     /// </summary>
-    [TerraformPropertyName("auto_scaling_group_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AutoScalingGroupArn => new TerraformReference(this, "auto_scaling_group_arn");
+    [TerraformProperty("auto_scaling_group_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AutoScalingGroupArn { get; }
 
 }

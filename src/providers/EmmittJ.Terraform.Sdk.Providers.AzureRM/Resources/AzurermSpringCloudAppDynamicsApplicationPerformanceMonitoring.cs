@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeoutsBlock
+public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeou
 /// <summary>
 /// Manages a azurerm_spring_cloud_app_dynamics_application_performance_monitoring resource.
 /// </summary>
-public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : TerraformResource
+public partial class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : TerraformResource
 {
     public AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring(string name) : base("azurerm_spring_cloud_app_dynamics_application_performance_monitoring", name)
     {
@@ -51,103 +51,103 @@ public class AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoring : Ter
     /// The agent_account_access_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAccountAccessKey is required")]
-    [TerraformPropertyName("agent_account_access_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("agent_account_access_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AgentAccountAccessKey { get; set; }
 
     /// <summary>
     /// The agent_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AgentAccountName is required")]
-    [TerraformPropertyName("agent_account_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("agent_account_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AgentAccountName { get; set; }
 
     /// <summary>
     /// The agent_application_name attribute.
     /// </summary>
-    [TerraformPropertyName("agent_application_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("agent_application_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AgentApplicationName { get; set; }
 
     /// <summary>
     /// The agent_node_name attribute.
     /// </summary>
-    [TerraformPropertyName("agent_node_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("agent_node_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AgentNodeName { get; set; }
 
     /// <summary>
     /// The agent_tier_name attribute.
     /// </summary>
-    [TerraformPropertyName("agent_tier_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("agent_tier_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AgentTierName { get; set; }
 
     /// <summary>
     /// The agent_unique_host_id attribute.
     /// </summary>
-    [TerraformPropertyName("agent_unique_host_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("agent_unique_host_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AgentUniqueHostId { get; set; }
 
     /// <summary>
     /// The controller_host_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControllerHostName is required")]
-    [TerraformPropertyName("controller_host_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("controller_host_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ControllerHostName { get; set; }
 
     /// <summary>
     /// The controller_port attribute.
     /// </summary>
-    [TerraformPropertyName("controller_port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("controller_port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ControllerPort { get; set; }
 
     /// <summary>
     /// The controller_ssl_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("controller_ssl_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("controller_ssl_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ControllerSslEnabled { get; set; }
 
     /// <summary>
     /// The globally_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("globally_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("globally_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? GloballyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The spring_cloud_service_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpringCloudServiceId is required")]
-    [TerraformPropertyName("spring_cloud_service_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("spring_cloud_service_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SpringCloudServiceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSpringCloudAppDynamicsApplicationPerformanceMonitoringTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermEventgridSystemTopicDataSourceTimeoutsBlock
+public partial class AzurermEventgridSystemTopicDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermEventgridSystemTopicDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_eventgrid_system_topic.
 /// </summary>
-public class AzurermEventgridSystemTopicDataSource : TerraformDataSource
+public partial class AzurermEventgridSystemTopicDataSource : TerraformDataSource
 {
     public AzurermEventgridSystemTopicDataSource(string name) : base("azurerm_eventgrid_system_topic", name)
     {
@@ -29,87 +29,87 @@ public class AzurermEventgridSystemTopicDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermEventgridSystemTopicDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    [TerraformPropertyName("identity")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Identity => new TerraformReference(this, "identity");
+    [TerraformProperty("identity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The metric_arm_resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("metric_arm_resource_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> MetricArmResourceId => new TerraformReference(this, "metric_arm_resource_id");
+    [TerraformProperty("metric_arm_resource_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> MetricArmResourceId { get; }
 
     /// <summary>
     /// The metric_resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("metric_resource_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> MetricResourceId => new TerraformReference(this, "metric_resource_id");
+    [TerraformProperty("metric_resource_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> MetricResourceId { get; }
 
     /// <summary>
     /// The source_arm_resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_arm_resource_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceArmResourceId => new TerraformReference(this, "source_arm_resource_id");
+    [TerraformProperty("source_arm_resource_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceArmResourceId { get; }
 
     /// <summary>
     /// The source_resource_id attribute.
     /// </summary>
-    [TerraformPropertyName("source_resource_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SourceResourceId => new TerraformReference(this, "source_resource_id");
+    [TerraformProperty("source_resource_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SourceResourceId { get; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> Tags => new TerraformReference(this, "tags");
+    [TerraformProperty("tags")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> Tags { get; }
 
     /// <summary>
     /// The topic_type attribute.
     /// </summary>
-    [TerraformPropertyName("topic_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TopicType => new TerraformReference(this, "topic_type");
+    [TerraformProperty("topic_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TopicType { get; }
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for properties in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleOracleDatabaseDbSystemPropertiesBlock
+public partial class GoogleOracleDatabaseDbSystemPropertiesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The number of CPU cores to enable for the DbSystem.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeCount is required")]
-    [TerraformPropertyName("compute_count")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("compute_count")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> ComputeCount { get; set; }
 
     /// <summary>
@@ -22,16 +22,16 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock
     /// ECPU
     /// OCPU
     /// </summary>
-    [TerraformPropertyName("compute_model")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ComputeModel { get; set; } = default!;
+    [TerraformProperty("compute_model")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ComputeModel { get; set; }
 
     /// <summary>
     /// The data storage size in GB that is currently available to DbSystems.
     /// </summary>
-    [TerraformPropertyName("data_storage_size_gb")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> DataStorageSizeGb { get; set; } = default!;
+    [TerraformProperty("data_storage_size_gb")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> DataStorageSizeGb { get; set; }
 
     /// <summary>
     /// The database edition of the DbSystem.
@@ -41,31 +41,31 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock
     /// ENTERPRISE_EDITION_HIGH_PERFORMANCE
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseEdition is required")]
-    [TerraformPropertyName("database_edition")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("database_edition")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DatabaseEdition { get; set; }
 
     /// <summary>
     /// The host domain name of the DbSystem.
     /// </summary>
-    [TerraformPropertyName("domain")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Domain { get; set; } = default!;
+    [TerraformProperty("domain")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Domain { get; set; }
 
 
     /// <summary>
     /// Prefix for DB System host names.
     /// </summary>
-    [TerraformPropertyName("hostname_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("hostname_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HostnamePrefix { get; set; }
 
     /// <summary>
     /// The initial data storage size in GB.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InitialDataStorageSizeGb is required")]
-    [TerraformPropertyName("initial_data_storage_size_gb")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("initial_data_storage_size_gb")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> InitialDataStorageSizeGb { get; set; }
 
     /// <summary>
@@ -75,54 +75,54 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock
     /// BRING_YOUR_OWN_LICENSE
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LicenseModel is required")]
-    [TerraformPropertyName("license_model")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("license_model")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LicenseModel { get; set; }
 
 
     /// <summary>
     /// The memory size in GB.
     /// </summary>
-    [TerraformPropertyName("memory_size_gb")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MemorySizeGb { get; set; } = default!;
+    [TerraformProperty("memory_size_gb")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MemorySizeGb { get; set; }
 
     /// <summary>
     /// The number of nodes in the DbSystem.
     /// </summary>
-    [TerraformPropertyName("node_count")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> NodeCount { get; set; } = default!;
+    [TerraformProperty("node_count")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> NodeCount { get; set; }
 
 
     /// <summary>
     /// The private IP address of the DbSystem.
     /// </summary>
-    [TerraformPropertyName("private_ip")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PrivateIp { get; set; } = default!;
+    [TerraformProperty("private_ip")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PrivateIp { get; set; }
 
     /// <summary>
     /// The reco/redo storage size in GB.
     /// </summary>
-    [TerraformPropertyName("reco_storage_size_gb")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> RecoStorageSizeGb { get; set; } = default!;
+    [TerraformProperty("reco_storage_size_gb")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> RecoStorageSizeGb { get; set; }
 
     /// <summary>
     /// Shape of DB System.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shape is required")]
-    [TerraformPropertyName("shape")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("shape")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Shape { get; set; }
 
     /// <summary>
     /// SSH public keys to be stored with the DbSystem.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SshPublicKeys is required")]
-    [TerraformPropertyName("ssh_public_keys")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("ssh_public_keys")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? SshPublicKeys { get; set; }
 
 }
@@ -131,27 +131,27 @@ public class GoogleOracleDatabaseDbSystemPropertiesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleOracleDatabaseDbSystemTimeoutsBlock
+public partial class GoogleOracleDatabaseDbSystemTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -160,7 +160,7 @@ public class GoogleOracleDatabaseDbSystemTimeoutsBlock
 /// Manages a google_oracle_database_db_system resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleOracleDatabaseDbSystem : TerraformResource
+public partial class GoogleOracleDatabaseDbSystem : TerraformResource
 {
     public GoogleOracleDatabaseDbSystem(string name) : base("google_oracle_database_db_system", name)
     {
@@ -173,15 +173,15 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     /// letter or a number.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DbSystemId is required")]
-    [TerraformPropertyName("db_system_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("db_system_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DbSystemId { get; set; }
 
     /// <summary>
     /// Whether or not to allow Terraform to destroy the instance. Unless this field is set to false in Terraform state, a terraform destroy or terraform apply that would delete the instance will fail.
     /// </summary>
-    [TerraformPropertyName("deletion_protection")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deletion_protection")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DeletionProtection { get; set; }
 
     /// <summary>
@@ -189,8 +189,8 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     /// be unique within your project.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
@@ -198,16 +198,16 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     /// Example: us-east4-b-r2.
     /// If not specified, the system will pick a zone based on availability.
     /// </summary>
-    [TerraformPropertyName("gcp_oracle_zone")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> GcpOracleZone { get; set; } = default!;
+    [TerraformProperty("gcp_oracle_zone")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> GcpOracleZone { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The labels or tags associated with the DbSystem.
@@ -215,16 +215,16 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// Resource ID segment making up resource &#39;name&#39;. It identifies the resource within its parent collection as described in https://google.aip.dev/122.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
@@ -233,8 +233,8 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     /// It is optional but if specified, this should match the parent ODBNetwork of
     /// the OdbSubnet.
     /// </summary>
-    [TerraformPropertyName("odb_network")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("odb_network")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OdbNetwork { get; set; }
 
     /// <summary>
@@ -243,74 +243,74 @@ public class GoogleOracleDatabaseDbSystem : TerraformResource
     /// projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OdbSubnet is required")]
-    [TerraformPropertyName("odb_subnet")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("odb_subnet")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OdbSubnet { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for properties.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Properties block(s) allowed")]
-    [TerraformPropertyName("properties")]
+    [TerraformProperty("properties")]
     public TerraformList<TerraformBlock<GoogleOracleDatabaseDbSystemPropertiesBlock>>? Properties { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleOracleDatabaseDbSystemTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The date and time that the DbSystem was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The ID of the subscription entitlement associated with the DbSystem
     /// </summary>
-    [TerraformPropertyName("entitlement_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> EntitlementId => new TerraformReference(this, "entitlement_id");
+    [TerraformProperty("entitlement_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> EntitlementId { get; }
 
     /// <summary>
     /// Identifier. The name of the DbSystem resource in the following format:
     /// projects/{project}/locations/{region}/dbSystems/{db_system}
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// HTTPS link to OCI resources exposed to Customer via UI Interface.
     /// </summary>
-    [TerraformPropertyName("oci_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OciUrl => new TerraformReference(this, "oci_url");
+    [TerraformProperty("oci_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OciUrl { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

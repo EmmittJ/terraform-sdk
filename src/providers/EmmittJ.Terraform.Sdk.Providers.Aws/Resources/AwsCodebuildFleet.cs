@@ -6,42 +6,42 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for compute_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodebuildFleetComputeConfigurationBlock
+public partial class AwsCodebuildFleetComputeConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The disk attribute.
     /// </summary>
-    [TerraformPropertyName("disk")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Disk { get; set; } = default!;
+    [TerraformProperty("disk")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Disk { get; set; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    [TerraformPropertyName("instance_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> InstanceType { get; set; } = default!;
+    [TerraformProperty("instance_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> InstanceType { get; set; }
 
     /// <summary>
     /// The machine_type attribute.
     /// </summary>
-    [TerraformPropertyName("machine_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MachineType { get; set; } = default!;
+    [TerraformProperty("machine_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MachineType { get; set; }
 
     /// <summary>
     /// The memory attribute.
     /// </summary>
-    [TerraformPropertyName("memory")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Memory { get; set; } = default!;
+    [TerraformProperty("memory")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Memory { get; set; }
 
     /// <summary>
     /// The vcpu attribute.
     /// </summary>
-    [TerraformPropertyName("vcpu")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Vcpu { get; set; } = default!;
+    [TerraformProperty("vcpu")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Vcpu { get; set; }
 
 }
 
@@ -49,21 +49,21 @@ public class AwsCodebuildFleetComputeConfigurationBlock
 /// Block type for scaling_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodebuildFleetScalingConfigurationBlock
+public partial class AwsCodebuildFleetScalingConfigurationBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// The max_capacity attribute.
     /// </summary>
-    [TerraformPropertyName("max_capacity")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_capacity")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxCapacity { get; set; }
 
     /// <summary>
     /// The scaling_type attribute.
     /// </summary>
-    [TerraformPropertyName("scaling_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("scaling_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ScalingType { get; set; }
 
 }
@@ -72,30 +72,30 @@ public class AwsCodebuildFleetScalingConfigurationBlock
 /// Block type for vpc_config in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodebuildFleetVpcConfigBlock
+public partial class AwsCodebuildFleetVpcConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SecurityGroupIds is required")]
-    [TerraformPropertyName("security_group_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("security_group_ids")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnets attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Subnets is required")]
-    [TerraformPropertyName("subnets")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnets")]
+    // Required argument - source generator will implement get/set
     public required TerraformSet<string> Subnets { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VpcId is required")]
-    [TerraformPropertyName("vpc_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vpc_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VpcId { get; set; }
 
 }
@@ -104,7 +104,7 @@ public class AwsCodebuildFleetVpcConfigBlock
 /// Manages a aws_codebuild_fleet resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsCodebuildFleet : TerraformResource
+public partial class AwsCodebuildFleet : TerraformResource
 {
     public AwsCodebuildFleet(string name) : base("aws_codebuild_fleet", name)
     {
@@ -114,82 +114,82 @@ public class AwsCodebuildFleet : TerraformResource
     /// The base_capacity attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BaseCapacity is required")]
-    [TerraformPropertyName("base_capacity")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("base_capacity")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> BaseCapacity { get; set; }
 
     /// <summary>
     /// The compute_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ComputeType is required")]
-    [TerraformPropertyName("compute_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("compute_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ComputeType { get; set; }
 
     /// <summary>
     /// The environment_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvironmentType is required")]
-    [TerraformPropertyName("environment_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("environment_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EnvironmentType { get; set; }
 
     /// <summary>
     /// The fleet_service_role attribute.
     /// </summary>
-    [TerraformPropertyName("fleet_service_role")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("fleet_service_role")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? FleetServiceRole { get; set; }
 
     /// <summary>
     /// The image_id attribute.
     /// </summary>
-    [TerraformPropertyName("image_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("image_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ImageId { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The overflow_behavior attribute.
     /// </summary>
-    [TerraformPropertyName("overflow_behavior")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> OverflowBehavior { get; set; } = default!;
+    [TerraformProperty("overflow_behavior")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> OverflowBehavior { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for compute_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ComputeConfiguration block(s) allowed")]
-    [TerraformPropertyName("compute_configuration")]
+    [TerraformProperty("compute_configuration")]
     public TerraformList<TerraformBlock<AwsCodebuildFleetComputeConfigurationBlock>>? ComputeConfiguration { get; set; }
 
     /// <summary>
@@ -197,49 +197,49 @@ public class AwsCodebuildFleet : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ScalingConfiguration block(s) allowed")]
-    [TerraformPropertyName("scaling_configuration")]
+    [TerraformProperty("scaling_configuration")]
     public TerraformList<TerraformBlock<AwsCodebuildFleetScalingConfigurationBlock>>? ScalingConfiguration { get; set; }
 
     /// <summary>
     /// Block for vpc_config.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("vpc_config")]
+    [TerraformProperty("vpc_config")]
     public TerraformList<TerraformBlock<AwsCodebuildFleetVpcConfigBlock>>? VpcConfig { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created attribute.
     /// </summary>
-    [TerraformPropertyName("created")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Created => new TerraformReference(this, "created");
+    [TerraformProperty("created")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Created { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The last_modified attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModified => new TerraformReference(this, "last_modified");
+    [TerraformProperty("last_modified")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModified { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Status { get; }
 
 }

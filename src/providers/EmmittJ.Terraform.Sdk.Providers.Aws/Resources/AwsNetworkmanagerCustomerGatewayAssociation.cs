@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsNetworkmanagerCustomerGatewayAssociationTimeoutsBlock
+public partial class AwsNetworkmanagerCustomerGatewayAssociationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class AwsNetworkmanagerCustomerGatewayAssociationTimeoutsBlock
 /// <summary>
 /// Manages a aws_networkmanager_customer_gateway_association resource.
 /// </summary>
-public class AwsNetworkmanagerCustomerGatewayAssociation : TerraformResource
+public partial class AwsNetworkmanagerCustomerGatewayAssociation : TerraformResource
 {
     public AwsNetworkmanagerCustomerGatewayAssociation(string name) : base("aws_networkmanager_customer_gateway_association", name)
     {
@@ -37,45 +37,45 @@ public class AwsNetworkmanagerCustomerGatewayAssociation : TerraformResource
     /// The customer_gateway_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CustomerGatewayArn is required")]
-    [TerraformPropertyName("customer_gateway_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("customer_gateway_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CustomerGatewayArn { get; set; }
 
     /// <summary>
     /// The device_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
-    [TerraformPropertyName("device_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("device_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DeviceId { get; set; }
 
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
-    [TerraformPropertyName("global_network_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("global_network_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GlobalNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The link_id attribute.
     /// </summary>
-    [TerraformPropertyName("link_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("link_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LinkId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsNetworkmanagerCustomerGatewayAssociationTimeoutsBlock>? Timeouts { get; set; }
 
 }

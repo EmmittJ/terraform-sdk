@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_msk_cluster.
 /// </summary>
-public class AwsMskClusterDataSource : TerraformDataSource
+public partial class AwsMskClusterDataSource : TerraformDataSource
 {
     public AwsMskClusterDataSource(string name) : base("aws_msk_cluster", name)
     {
@@ -15,127 +15,127 @@ public class AwsMskClusterDataSource : TerraformDataSource
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    [TerraformPropertyName("cluster_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The bootstrap_brokers attribute.
     /// </summary>
-    [TerraformPropertyName("bootstrap_brokers")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BootstrapBrokers => new TerraformReference(this, "bootstrap_brokers");
+    [TerraformProperty("bootstrap_brokers")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BootstrapBrokers { get; }
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_iam attribute.
     /// </summary>
-    [TerraformPropertyName("bootstrap_brokers_public_sasl_iam")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BootstrapBrokersPublicSaslIam => new TerraformReference(this, "bootstrap_brokers_public_sasl_iam");
+    [TerraformProperty("bootstrap_brokers_public_sasl_iam")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BootstrapBrokersPublicSaslIam { get; }
 
     /// <summary>
     /// The bootstrap_brokers_public_sasl_scram attribute.
     /// </summary>
-    [TerraformPropertyName("bootstrap_brokers_public_sasl_scram")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BootstrapBrokersPublicSaslScram => new TerraformReference(this, "bootstrap_brokers_public_sasl_scram");
+    [TerraformProperty("bootstrap_brokers_public_sasl_scram")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BootstrapBrokersPublicSaslScram { get; }
 
     /// <summary>
     /// The bootstrap_brokers_public_tls attribute.
     /// </summary>
-    [TerraformPropertyName("bootstrap_brokers_public_tls")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BootstrapBrokersPublicTls => new TerraformReference(this, "bootstrap_brokers_public_tls");
+    [TerraformProperty("bootstrap_brokers_public_tls")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BootstrapBrokersPublicTls { get; }
 
     /// <summary>
     /// The bootstrap_brokers_sasl_iam attribute.
     /// </summary>
-    [TerraformPropertyName("bootstrap_brokers_sasl_iam")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BootstrapBrokersSaslIam => new TerraformReference(this, "bootstrap_brokers_sasl_iam");
+    [TerraformProperty("bootstrap_brokers_sasl_iam")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BootstrapBrokersSaslIam { get; }
 
     /// <summary>
     /// The bootstrap_brokers_sasl_scram attribute.
     /// </summary>
-    [TerraformPropertyName("bootstrap_brokers_sasl_scram")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BootstrapBrokersSaslScram => new TerraformReference(this, "bootstrap_brokers_sasl_scram");
+    [TerraformProperty("bootstrap_brokers_sasl_scram")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BootstrapBrokersSaslScram { get; }
 
     /// <summary>
     /// The bootstrap_brokers_tls attribute.
     /// </summary>
-    [TerraformPropertyName("bootstrap_brokers_tls")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BootstrapBrokersTls => new TerraformReference(this, "bootstrap_brokers_tls");
+    [TerraformProperty("bootstrap_brokers_tls")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BootstrapBrokersTls { get; }
 
     /// <summary>
     /// The broker_node_group_info attribute.
     /// </summary>
-    [TerraformPropertyName("broker_node_group_info")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> BrokerNodeGroupInfo => new TerraformReference(this, "broker_node_group_info");
+    [TerraformProperty("broker_node_group_info")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> BrokerNodeGroupInfo { get; }
 
     /// <summary>
     /// The cluster_uuid attribute.
     /// </summary>
-    [TerraformPropertyName("cluster_uuid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ClusterUuid => new TerraformReference(this, "cluster_uuid");
+    [TerraformProperty("cluster_uuid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ClusterUuid { get; }
 
     /// <summary>
     /// The kafka_version attribute.
     /// </summary>
-    [TerraformPropertyName("kafka_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KafkaVersion => new TerraformReference(this, "kafka_version");
+    [TerraformProperty("kafka_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KafkaVersion { get; }
 
     /// <summary>
     /// The number_of_broker_nodes attribute.
     /// </summary>
-    [TerraformPropertyName("number_of_broker_nodes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> NumberOfBrokerNodes => new TerraformReference(this, "number_of_broker_nodes");
+    [TerraformProperty("number_of_broker_nodes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> NumberOfBrokerNodes { get; }
 
     /// <summary>
     /// The zookeeper_connect_string attribute.
     /// </summary>
-    [TerraformPropertyName("zookeeper_connect_string")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ZookeeperConnectString => new TerraformReference(this, "zookeeper_connect_string");
+    [TerraformProperty("zookeeper_connect_string")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ZookeeperConnectString { get; }
 
     /// <summary>
     /// The zookeeper_connect_string_tls attribute.
     /// </summary>
-    [TerraformPropertyName("zookeeper_connect_string_tls")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ZookeeperConnectStringTls => new TerraformReference(this, "zookeeper_connect_string_tls");
+    [TerraformProperty("zookeeper_connect_string_tls")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ZookeeperConnectStringTls { get; }
 
 }

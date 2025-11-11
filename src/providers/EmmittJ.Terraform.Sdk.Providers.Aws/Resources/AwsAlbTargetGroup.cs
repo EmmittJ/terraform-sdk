@@ -6,69 +6,69 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for health_check in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbTargetGroupHealthCheckBlock
+public partial class AwsAlbTargetGroupHealthCheckBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The healthy_threshold attribute.
     /// </summary>
-    [TerraformPropertyName("healthy_threshold")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("healthy_threshold")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? HealthyThreshold { get; set; }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    [TerraformPropertyName("interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Interval { get; set; }
 
     /// <summary>
     /// The matcher attribute.
     /// </summary>
-    [TerraformPropertyName("matcher")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Matcher { get; set; } = default!;
+    [TerraformProperty("matcher")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Matcher { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformPropertyName("path")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Path { get; set; } = default!;
+    [TerraformProperty("path")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Path { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    [TerraformPropertyName("port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Port { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    [TerraformPropertyName("protocol")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("protocol")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Protocol { get; set; }
 
     /// <summary>
     /// The timeout attribute.
     /// </summary>
-    [TerraformPropertyName("timeout")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Timeout { get; set; } = default!;
+    [TerraformProperty("timeout")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Timeout { get; set; }
 
     /// <summary>
     /// The unhealthy_threshold attribute.
     /// </summary>
-    [TerraformPropertyName("unhealthy_threshold")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("unhealthy_threshold")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? UnhealthyThreshold { get; set; }
 
 }
@@ -77,35 +77,35 @@ public class AwsAlbTargetGroupHealthCheckBlock
 /// Block type for stickiness in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbTargetGroupStickinessBlock
+public partial class AwsAlbTargetGroupStickinessBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cookie_duration attribute.
     /// </summary>
-    [TerraformPropertyName("cookie_duration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cookie_duration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? CookieDuration { get; set; }
 
     /// <summary>
     /// The cookie_name attribute.
     /// </summary>
-    [TerraformPropertyName("cookie_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cookie_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CookieName { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -114,22 +114,22 @@ public class AwsAlbTargetGroupStickinessBlock
 /// Block type for target_failover in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbTargetGroupTargetFailoverBlock
+public partial class AwsAlbTargetGroupTargetFailoverBlock : TerraformBlockBase
 {
     /// <summary>
     /// The on_deregistration attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnDeregistration is required")]
-    [TerraformPropertyName("on_deregistration")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("on_deregistration")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OnDeregistration { get; set; }
 
     /// <summary>
     /// The on_unhealthy attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "OnUnhealthy is required")]
-    [TerraformPropertyName("on_unhealthy")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("on_unhealthy")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> OnUnhealthy { get; set; }
 
 }
@@ -138,7 +138,7 @@ public class AwsAlbTargetGroupTargetFailoverBlock
 /// Block type for target_group_health in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbTargetGroupTargetGroupHealthBlock
+public partial class AwsAlbTargetGroupTargetGroupHealthBlock : TerraformBlockBase
 {
 }
 
@@ -146,21 +146,21 @@ public class AwsAlbTargetGroupTargetGroupHealthBlock
 /// Block type for target_health_state in .
 /// Nesting mode: list
 /// </summary>
-public class AwsAlbTargetGroupTargetHealthStateBlock
+public partial class AwsAlbTargetGroupTargetHealthStateBlock : TerraformBlockBase
 {
     /// <summary>
     /// The enable_unhealthy_connection_termination attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnableUnhealthyConnectionTermination is required")]
-    [TerraformPropertyName("enable_unhealthy_connection_termination")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("enable_unhealthy_connection_termination")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> EnableUnhealthyConnectionTermination { get; set; }
 
     /// <summary>
     /// The unhealthy_draining_interval attribute.
     /// </summary>
-    [TerraformPropertyName("unhealthy_draining_interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("unhealthy_draining_interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? UnhealthyDrainingInterval { get; set; }
 
 }
@@ -169,7 +169,7 @@ public class AwsAlbTargetGroupTargetHealthStateBlock
 /// Manages a aws_alb_target_group resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsAlbTargetGroup : TerraformResource
+public partial class AwsAlbTargetGroup : TerraformResource
 {
     public AwsAlbTargetGroup(string name) : base("aws_alb_target_group", name)
     {
@@ -178,148 +178,148 @@ public class AwsAlbTargetGroup : TerraformResource
     /// <summary>
     /// The connection_termination attribute.
     /// </summary>
-    [TerraformPropertyName("connection_termination")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> ConnectionTermination { get; set; } = default!;
+    [TerraformProperty("connection_termination")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> ConnectionTermination { get; set; }
 
     /// <summary>
     /// The deregistration_delay attribute.
     /// </summary>
-    [TerraformPropertyName("deregistration_delay")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deregistration_delay")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeregistrationDelay { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The ip_address_type attribute.
     /// </summary>
-    [TerraformPropertyName("ip_address_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> IpAddressType { get; set; } = default!;
+    [TerraformProperty("ip_address_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> IpAddressType { get; set; }
 
     /// <summary>
     /// The lambda_multi_value_headers_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("lambda_multi_value_headers_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("lambda_multi_value_headers_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LambdaMultiValueHeadersEnabled { get; set; }
 
     /// <summary>
     /// The load_balancing_algorithm_type attribute.
     /// </summary>
-    [TerraformPropertyName("load_balancing_algorithm_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LoadBalancingAlgorithmType { get; set; } = default!;
+    [TerraformProperty("load_balancing_algorithm_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LoadBalancingAlgorithmType { get; set; }
 
     /// <summary>
     /// The load_balancing_anomaly_mitigation attribute.
     /// </summary>
-    [TerraformPropertyName("load_balancing_anomaly_mitigation")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LoadBalancingAnomalyMitigation { get; set; } = default!;
+    [TerraformProperty("load_balancing_anomaly_mitigation")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LoadBalancingAnomalyMitigation { get; set; }
 
     /// <summary>
     /// The load_balancing_cross_zone_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("load_balancing_cross_zone_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LoadBalancingCrossZoneEnabled { get; set; } = default!;
+    [TerraformProperty("load_balancing_cross_zone_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LoadBalancingCrossZoneEnabled { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NamePrefix { get; set; } = default!;
+    [TerraformProperty("name_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    [TerraformPropertyName("port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// The preserve_client_ip attribute.
     /// </summary>
-    [TerraformPropertyName("preserve_client_ip")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PreserveClientIp { get; set; } = default!;
+    [TerraformProperty("preserve_client_ip")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PreserveClientIp { get; set; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    [TerraformPropertyName("protocol")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("protocol")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Protocol { get; set; }
 
     /// <summary>
     /// The protocol_version attribute.
     /// </summary>
-    [TerraformPropertyName("protocol_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ProtocolVersion { get; set; } = default!;
+    [TerraformProperty("protocol_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ProtocolVersion { get; set; }
 
     /// <summary>
     /// The proxy_protocol_v2 attribute.
     /// </summary>
-    [TerraformPropertyName("proxy_protocol_v2")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("proxy_protocol_v2")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ProxyProtocolV2 { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The slow_start attribute.
     /// </summary>
-    [TerraformPropertyName("slow_start")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("slow_start")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? SlowStart { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The target_type attribute.
     /// </summary>
-    [TerraformPropertyName("target_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("target_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TargetType { get; set; }
 
     /// <summary>
     /// The vpc_id attribute.
     /// </summary>
-    [TerraformPropertyName("vpc_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vpc_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VpcId { get; set; }
 
     /// <summary>
@@ -327,7 +327,7 @@ public class AwsAlbTargetGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HealthCheck block(s) allowed")]
-    [TerraformPropertyName("health_check")]
+    [TerraformProperty("health_check")]
     public TerraformList<TerraformBlock<AwsAlbTargetGroupHealthCheckBlock>>? HealthCheck { get; set; }
 
     /// <summary>
@@ -335,14 +335,14 @@ public class AwsAlbTargetGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Stickiness block(s) allowed")]
-    [TerraformPropertyName("stickiness")]
+    [TerraformProperty("stickiness")]
     public TerraformList<TerraformBlock<AwsAlbTargetGroupStickinessBlock>>? Stickiness { get; set; }
 
     /// <summary>
     /// Block for target_failover.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("target_failover")]
+    [TerraformProperty("target_failover")]
     public TerraformList<TerraformBlock<AwsAlbTargetGroupTargetFailoverBlock>>? TargetFailover { get; set; }
 
     /// <summary>
@@ -350,35 +350,35 @@ public class AwsAlbTargetGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TargetGroupHealth block(s) allowed")]
-    [TerraformPropertyName("target_group_health")]
+    [TerraformProperty("target_group_health")]
     public TerraformList<TerraformBlock<AwsAlbTargetGroupTargetGroupHealthBlock>>? TargetGroupHealth { get; set; }
 
     /// <summary>
     /// Block for target_health_state.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("target_health_state")]
+    [TerraformProperty("target_health_state")]
     public TerraformList<TerraformBlock<AwsAlbTargetGroupTargetHealthStateBlock>>? TargetHealthState { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The arn_suffix attribute.
     /// </summary>
-    [TerraformPropertyName("arn_suffix")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ArnSuffix => new TerraformReference(this, "arn_suffix");
+    [TerraformProperty("arn_suffix")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ArnSuffix { get; }
 
     /// <summary>
     /// The load_balancer_arns attribute.
     /// </summary>
-    [TerraformPropertyName("load_balancer_arns")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> LoadBalancerArns => new TerraformReference(this, "load_balancer_arns");
+    [TerraformProperty("load_balancer_arns")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> LoadBalancerArns { get; }
 
 }

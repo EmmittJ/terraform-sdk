@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for backup_rules in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleBackupDrBackupPlanBackupRulesBlock
+public partial class GoogleBackupDrBackupPlanBackupRulesBlock : TerraformBlockBase
 {
     /// <summary>
     /// Configures the duration for which backup data will be kept. The value should be greater than or equal to minimum enforced retention of the backup vault.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRetentionDays is required")]
-    [TerraformPropertyName("backup_retention_days")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("backup_retention_days")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> BackupRetentionDays { get; set; }
 
     /// <summary>
     /// The unique ID of this &#39;BackupRule&#39;. The &#39;rule_id&#39; is unique per &#39;BackupPlan&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RuleId is required")]
-    [TerraformPropertyName("rule_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("rule_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RuleId { get; set; }
 
 }
@@ -30,27 +30,27 @@ public class GoogleBackupDrBackupPlanBackupRulesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleBackupDrBackupPlanTimeoutsBlock
+public partial class GoogleBackupDrBackupPlanTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -59,7 +59,7 @@ public class GoogleBackupDrBackupPlanTimeoutsBlock
 /// Manages a google_backup_dr_backup_plan resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleBackupDrBackupPlan : TerraformResource
+public partial class GoogleBackupDrBackupPlan : TerraformResource
 {
     public GoogleBackupDrBackupPlan(string name) : base("google_backup_dr_backup_plan", name)
     {
@@ -69,61 +69,61 @@ public class GoogleBackupDrBackupPlan : TerraformResource
     /// The ID of the backup plan
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupPlanId is required")]
-    [TerraformPropertyName("backup_plan_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("backup_plan_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BackupPlanId { get; set; }
 
     /// <summary>
     /// Backup vault where the backups gets stored using this Backup plan.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupVault is required")]
-    [TerraformPropertyName("backup_vault")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("backup_vault")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BackupVault { get; set; }
 
     /// <summary>
     /// The description allows for additional details about &#39;BackupPlan&#39; and its use cases to be provided.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the backup plan
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// This is only applicable for CloudSql resource. Days for which logs will be stored. This value should be greater than or equal to minimum enforced log retention duration of the backup vault.
     /// </summary>
-    [TerraformPropertyName("log_retention_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("log_retention_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? LogRetentionDays { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The resource type to which the &#39;BackupPlan&#39; will be applied.
     /// Examples include, &amp;quot;compute.googleapis.com/Instance&amp;quot;, &amp;quot;compute.googleapis.com/Disk&amp;quot;, &amp;quot;sqladmin.googleapis.com/Instance&amp;quot; and &amp;quot;storage.googleapis.com/Bucket&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceType is required")]
-    [TerraformPropertyName("resource_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceType { get; set; }
 
     /// <summary>
@@ -132,49 +132,49 @@ public class GoogleBackupDrBackupPlan : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BackupRules is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 BackupRules block(s) required")]
-    [TerraformPropertyName("backup_rules")]
+    [TerraformProperty("backup_rules")]
     public TerraformList<TerraformBlock<GoogleBackupDrBackupPlanBackupRulesBlock>>? BackupRules { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleBackupDrBackupPlanTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The Google Cloud Platform Service Account to be used by the BackupVault for taking backups.
     /// </summary>
-    [TerraformPropertyName("backup_vault_service_account")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> BackupVaultServiceAccount => new TerraformReference(this, "backup_vault_service_account");
+    [TerraformProperty("backup_vault_service_account")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> BackupVaultServiceAccount { get; }
 
     /// <summary>
     /// When the &#39;BackupPlan&#39; was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The name of backup plan resource created
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The list of all resource types to which the &#39;BackupPlan&#39; can be applied.
     /// </summary>
-    [TerraformPropertyName("supported_resource_types")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SupportedResourceTypes => new TerraformReference(this, "supported_resource_types");
+    [TerraformProperty("supported_resource_types")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SupportedResourceTypes { get; }
 
     /// <summary>
     /// When the &#39;BackupPlan&#39; was last updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for resource in .
 /// Nesting mode: set
 /// </summary>
-public class AwsGlobalacceleratorCrossAccountAttachmentResourceBlock
+public partial class AwsGlobalacceleratorCrossAccountAttachmentResourceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The cidr_block attribute.
     /// </summary>
-    [TerraformPropertyName("cidr_block")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cidr_block")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CidrBlock { get; set; }
 
     /// <summary>
     /// The endpoint_id attribute.
     /// </summary>
-    [TerraformPropertyName("endpoint_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("endpoint_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EndpointId { get; set; }
 
     /// <summary>
     /// The region attribute.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsGlobalacceleratorCrossAccountAttachmentResourceBlock
 /// <summary>
 /// Manages a aws_globalaccelerator_cross_account_attachment resource.
 /// </summary>
-public class AwsGlobalacceleratorCrossAccountAttachment : TerraformResource
+public partial class AwsGlobalacceleratorCrossAccountAttachment : TerraformResource
 {
     public AwsGlobalacceleratorCrossAccountAttachment(string name) : base("aws_globalaccelerator_cross_account_attachment", name)
     {
@@ -44,64 +44,64 @@ public class AwsGlobalacceleratorCrossAccountAttachment : TerraformResource
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The principals attribute.
     /// </summary>
-    [TerraformPropertyName("principals")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("principals")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Principals { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for resource.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("resource")]
+    [TerraformProperty("resource")]
     public TerraformSet<TerraformBlock<AwsGlobalacceleratorCrossAccountAttachmentResourceBlock>>? Resource { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The created_time attribute.
     /// </summary>
-    [TerraformPropertyName("created_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedTime => new TerraformReference(this, "created_time");
+    [TerraformProperty("created_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedTime { get; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModifiedTime => new TerraformReference(this, "last_modified_time");
+    [TerraformProperty("last_modified_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModifiedTime { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
 }

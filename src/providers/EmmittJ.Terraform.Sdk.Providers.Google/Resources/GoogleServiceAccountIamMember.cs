@@ -6,29 +6,29 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for condition in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleServiceAccountIamMemberConditionBlock
+public partial class GoogleServiceAccountIamMemberConditionBlock : TerraformBlockBase
 {
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The expression attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Expression is required")]
-    [TerraformPropertyName("expression")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("expression")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Expression { get; set; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Title is required")]
-    [TerraformPropertyName("title")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("title")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Title { get; set; }
 
 }
@@ -37,7 +37,7 @@ public class GoogleServiceAccountIamMemberConditionBlock
 /// Manages a google_service_account_iam_member resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleServiceAccountIamMember : TerraformResource
+public partial class GoogleServiceAccountIamMember : TerraformResource
 {
     public GoogleServiceAccountIamMember(string name) : base("google_service_account_iam_member", name)
     {
@@ -46,32 +46,32 @@ public class GoogleServiceAccountIamMember : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The member attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Member is required")]
-    [TerraformPropertyName("member")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("member")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Member { get; set; }
 
     /// <summary>
     /// The role attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Role is required")]
-    [TerraformPropertyName("role")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Role { get; set; }
 
     /// <summary>
     /// The service_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceAccountId is required")]
-    [TerraformPropertyName("service_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceAccountId { get; set; }
 
     /// <summary>
@@ -79,14 +79,14 @@ public class GoogleServiceAccountIamMember : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Condition block(s) allowed")]
-    [TerraformPropertyName("condition")]
+    [TerraformProperty("condition")]
     public TerraformList<TerraformBlock<GoogleServiceAccountIamMemberConditionBlock>>? Condition { get; set; }
 
     /// <summary>
     /// The etag attribute.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
 }

@@ -6,35 +6,35 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for linux in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock
+public partial class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock : TerraformBlockBase
 {
     /// <summary>
     /// The classifications_included attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassificationsIncluded is required")]
-    [TerraformPropertyName("classifications_included")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("classifications_included")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? ClassificationsIncluded { get; set; }
 
     /// <summary>
     /// The excluded_packages attribute.
     /// </summary>
-    [TerraformPropertyName("excluded_packages")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("excluded_packages")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ExcludedPackages { get; set; }
 
     /// <summary>
     /// The included_packages attribute.
     /// </summary>
-    [TerraformPropertyName("included_packages")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("included_packages")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? IncludedPackages { get; set; }
 
     /// <summary>
     /// The reboot attribute.
     /// </summary>
-    [TerraformPropertyName("reboot")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("reboot")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Reboot { get; set; }
 
 }
@@ -43,20 +43,20 @@ public class AzurermAutomationSoftwareUpdateConfigurationLinuxBlock
 /// Block type for post_task in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock
+public partial class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock : TerraformBlockBase
 {
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformPropertyName("parameters")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parameters")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    [TerraformPropertyName("source")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Source { get; set; }
 
 }
@@ -65,20 +65,20 @@ public class AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock
 /// Block type for pre_task in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock
+public partial class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock : TerraformBlockBase
 {
     /// <summary>
     /// The parameters attribute.
     /// </summary>
-    [TerraformPropertyName("parameters")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parameters")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Parameters { get; set; }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    [TerraformPropertyName("source")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Source { get; set; }
 
 }
@@ -87,100 +87,100 @@ public class AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock
 /// Block type for schedule in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock
+public partial class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The advanced_month_days attribute.
     /// </summary>
-    [TerraformPropertyName("advanced_month_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("advanced_month_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<double>? AdvancedMonthDays { get; set; }
 
     /// <summary>
     /// The advanced_week_days attribute.
     /// </summary>
-    [TerraformPropertyName("advanced_week_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("advanced_week_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? AdvancedWeekDays { get; set; }
 
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The expiry_time attribute.
     /// </summary>
-    [TerraformPropertyName("expiry_time")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ExpiryTime { get; set; } = default!;
+    [TerraformProperty("expiry_time")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ExpiryTime { get; set; }
 
     /// <summary>
     /// The expiry_time_offset_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("expiry_time_offset_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("expiry_time_offset_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ExpiryTimeOffsetMinutes { get; set; }
 
     /// <summary>
     /// The frequency attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Frequency is required")]
-    [TerraformPropertyName("frequency")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("frequency")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Frequency { get; set; }
 
     /// <summary>
     /// The interval attribute.
     /// </summary>
-    [TerraformPropertyName("interval")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("interval")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Interval { get; set; }
 
     /// <summary>
     /// The is_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("is_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("is_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IsEnabled { get; set; }
 
 
     /// <summary>
     /// The next_run attribute.
     /// </summary>
-    [TerraformPropertyName("next_run")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NextRun { get; set; } = default!;
+    [TerraformProperty("next_run")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NextRun { get; set; }
 
     /// <summary>
     /// The next_run_offset_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("next_run_offset_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("next_run_offset_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? NextRunOffsetMinutes { get; set; }
 
     /// <summary>
     /// The start_time attribute.
     /// </summary>
-    [TerraformPropertyName("start_time")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> StartTime { get; set; } = default!;
+    [TerraformProperty("start_time")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> StartTime { get; set; }
 
     /// <summary>
     /// The start_time_offset_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("start_time_offset_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("start_time_offset_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? StartTimeOffsetMinutes { get; set; }
 
     /// <summary>
     /// The time_zone attribute.
     /// </summary>
-    [TerraformPropertyName("time_zone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("time_zone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TimeZone { get; set; }
 
 }
@@ -189,7 +189,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationScheduleBlock
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationTargetBlock
+public partial class AzurermAutomationSoftwareUpdateConfigurationTargetBlock : TerraformBlockBase
 {
 }
 
@@ -197,34 +197,34 @@ public class AzurermAutomationSoftwareUpdateConfigurationTargetBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock
+public partial class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -233,35 +233,35 @@ public class AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock
 /// Block type for windows in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock
+public partial class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The classifications_included attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClassificationsIncluded is required")]
-    [TerraformPropertyName("classifications_included")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("classifications_included")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? ClassificationsIncluded { get; set; }
 
     /// <summary>
     /// The excluded_knowledge_base_numbers attribute.
     /// </summary>
-    [TerraformPropertyName("excluded_knowledge_base_numbers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("excluded_knowledge_base_numbers")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ExcludedKnowledgeBaseNumbers { get; set; }
 
     /// <summary>
     /// The included_knowledge_base_numbers attribute.
     /// </summary>
-    [TerraformPropertyName("included_knowledge_base_numbers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("included_knowledge_base_numbers")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? IncludedKnowledgeBaseNumbers { get; set; }
 
     /// <summary>
     /// The reboot attribute.
     /// </summary>
-    [TerraformPropertyName("reboot")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("reboot")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Reboot { get; set; }
 
 }
@@ -271,7 +271,7 @@ public class AzurermAutomationSoftwareUpdateConfigurationWindowsBlock
 /// </summary>
 [Obsolete("This resource is deprecated.")]
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
+public partial class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
 {
     public AzurermAutomationSoftwareUpdateConfiguration(string name) : base("azurerm_automation_software_update_configuration", name)
     {
@@ -281,44 +281,44 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// The automation_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AutomationAccountId is required")]
-    [TerraformPropertyName("automation_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("automation_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AutomationAccountId { get; set; }
 
     /// <summary>
     /// The duration attribute.
     /// </summary>
-    [TerraformPropertyName("duration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("duration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Duration { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The non_azure_computer_names attribute.
     /// </summary>
-    [TerraformPropertyName("non_azure_computer_names")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("non_azure_computer_names")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? NonAzureComputerNames { get; set; }
 
     /// <summary>
     /// The virtual_machine_ids attribute.
     /// </summary>
-    [TerraformPropertyName("virtual_machine_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("virtual_machine_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? VirtualMachineIds { get; set; }
 
     /// <summary>
@@ -326,7 +326,7 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Linux block(s) allowed")]
-    [TerraformPropertyName("linux")]
+    [TerraformProperty("linux")]
     public TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationLinuxBlock>>? Linux { get; set; }
 
     /// <summary>
@@ -334,7 +334,7 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PostTask block(s) allowed")]
-    [TerraformPropertyName("post_task")]
+    [TerraformProperty("post_task")]
     public TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationPostTaskBlock>>? PostTask { get; set; }
 
     /// <summary>
@@ -342,7 +342,7 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PreTask block(s) allowed")]
-    [TerraformPropertyName("pre_task")]
+    [TerraformProperty("pre_task")]
     public TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationPreTaskBlock>>? PreTask { get; set; }
 
     /// <summary>
@@ -352,7 +352,7 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Schedule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Schedule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Schedule block(s) allowed")]
-    [TerraformPropertyName("schedule")]
+    [TerraformProperty("schedule")]
     public TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationScheduleBlock>>? Schedule { get; set; }
 
     /// <summary>
@@ -360,14 +360,14 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
-    [TerraformPropertyName("target")]
+    [TerraformProperty("target")]
     public TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationTargetBlock>>? Target { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -375,21 +375,21 @@ public class AzurermAutomationSoftwareUpdateConfiguration : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Windows block(s) allowed")]
-    [TerraformPropertyName("windows")]
+    [TerraformProperty("windows")]
     public TerraformList<TerraformBlock<AzurermAutomationSoftwareUpdateConfigurationWindowsBlock>>? Windows { get; set; }
 
     /// <summary>
     /// The error_code attribute.
     /// </summary>
-    [TerraformPropertyName("error_code")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ErrorCode => new TerraformReference(this, "error_code");
+    [TerraformProperty("error_code")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ErrorCode { get; }
 
     /// <summary>
     /// The error_message attribute.
     /// </summary>
-    [TerraformPropertyName("error_message")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ErrorMessage => new TerraformReference(this, "error_message");
+    [TerraformProperty("error_message")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ErrorMessage { get; }
 
 }

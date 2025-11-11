@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for metadata in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunServiceMetadataBlock
+public partial class GoogleCloudRunServiceMetadataBlock : TerraformBlockBase
 {
     /// <summary>
     /// Annotations is a key value map stored with a resource that
@@ -37,8 +37,8 @@ public class GoogleCloudRunServiceMetadataBlock
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    [TerraformPropertyName("annotations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("annotations")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Annotations { get; set; }
 
 
@@ -52,17 +52,17 @@ public class GoogleCloudRunServiceMetadataBlock
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// In Cloud Run the namespace must be equal to either the
     /// project ID or project number.
     /// </summary>
-    [TerraformPropertyName("namespace")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Namespace { get; set; } = default!;
+    [TerraformProperty("namespace")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Namespace { get; set; }
 
 
 
@@ -74,7 +74,7 @@ public class GoogleCloudRunServiceMetadataBlock
 /// Block type for template in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunServiceTemplateBlock
+public partial class GoogleCloudRunServiceTemplateBlock : TerraformBlockBase
 {
 }
 
@@ -82,27 +82,27 @@ public class GoogleCloudRunServiceTemplateBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCloudRunServiceTimeoutsBlock
+public partial class GoogleCloudRunServiceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -111,7 +111,7 @@ public class GoogleCloudRunServiceTimeoutsBlock
 /// Block type for traffic in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudRunServiceTrafficBlock
+public partial class GoogleCloudRunServiceTrafficBlock : TerraformBlockBase
 {
     /// <summary>
     /// LatestRevision may be optionally provided to indicate that the latest ready
@@ -119,30 +119,30 @@ public class GoogleCloudRunServiceTrafficBlock
     /// provided LatestRevision must be true if RevisionName is empty; it must be
     /// false when RevisionName is non-empty.
     /// </summary>
-    [TerraformPropertyName("latest_revision")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("latest_revision")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? LatestRevision { get; set; }
 
     /// <summary>
     /// Percent specifies percent of the traffic to this Revision or Configuration.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Percent is required")]
-    [TerraformPropertyName("percent")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("percent")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Percent { get; set; }
 
     /// <summary>
     /// RevisionName of a specific revision to which to send this portion of traffic.
     /// </summary>
-    [TerraformPropertyName("revision_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("revision_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RevisionName { get; set; }
 
     /// <summary>
     /// Tag is optionally used to expose a dedicated url for referencing this target exclusively.
     /// </summary>
-    [TerraformPropertyName("tag")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tag")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Tag { get; set; }
 
 
@@ -152,7 +152,7 @@ public class GoogleCloudRunServiceTrafficBlock
 /// Manages a google_cloud_run_service resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleCloudRunService : TerraformResource
+public partial class GoogleCloudRunService : TerraformResource
 {
     public GoogleCloudRunService(string name) : base("google_cloud_run_service", name)
     {
@@ -165,23 +165,23 @@ public class GoogleCloudRunService : TerraformResource
     /// (For legacy support, if &#39;template.metadata.name&#39; is unset in state while
     /// this field is set to false, the revision name will still autogenerate.)
     /// </summary>
-    [TerraformPropertyName("autogenerate_revision_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("autogenerate_revision_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AutogenerateRevisionName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the cloud run instance. eg us-central1
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
@@ -191,23 +191,23 @@ public class GoogleCloudRunService : TerraformResource
     /// More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for metadata.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Metadata block(s) allowed")]
-    [TerraformPropertyName("metadata")]
+    [TerraformProperty("metadata")]
     public TerraformList<TerraformBlock<GoogleCloudRunServiceMetadataBlock>>? Metadata { get; set; }
 
     /// <summary>
@@ -215,28 +215,28 @@ public class GoogleCloudRunService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Template block(s) allowed")]
-    [TerraformPropertyName("template")]
+    [TerraformProperty("template")]
     public TerraformList<TerraformBlock<GoogleCloudRunServiceTemplateBlock>>? Template { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleCloudRunServiceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for traffic.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("traffic")]
+    [TerraformProperty("traffic")]
     public TerraformList<TerraformBlock<GoogleCloudRunServiceTrafficBlock>>? Traffic { get; set; }
 
     /// <summary>
     /// The current status of the Service.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Status { get; }
 
 }

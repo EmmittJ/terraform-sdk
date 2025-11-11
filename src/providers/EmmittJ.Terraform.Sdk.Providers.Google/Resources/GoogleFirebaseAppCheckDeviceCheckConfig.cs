@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock
+public partial class GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock
 /// <summary>
 /// Manages a google_firebase_app_check_device_check_config resource.
 /// </summary>
-public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
+public partial class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
 {
     public GoogleFirebaseAppCheckDeviceCheckConfig(string name) : base("google_firebase_app_check_device_check_config", name)
     {
@@ -45,39 +45,39 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     /// [Apple App](https://firebase.google.com/docs/reference/firebase-management/rest/v1beta1/projects.iosApps#IosApp.FIELDS.app_id).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppId is required")]
-    [TerraformPropertyName("app_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("app_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AppId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key identifier of a private key enabled with DeviceCheck, created in your Apple Developer account.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
-    [TerraformPropertyName("key_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyId { get; set; }
 
     /// <summary>
     /// The contents of the private key (.p8) file associated with the key specified by keyId.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
-    [TerraformPropertyName("private_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("private_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrivateKey { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Specifies the duration for which App Check tokens exchanged from DeviceCheck artifacts will be valid.
@@ -85,30 +85,30 @@ public class GoogleFirebaseAppCheckDeviceCheckConfig : TerraformResource
     /// 
     /// A duration in seconds with up to nine fractional digits, ending with &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("token_ttl")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> TokenTtl { get; set; } = default!;
+    [TerraformProperty("token_ttl")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> TokenTtl { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleFirebaseAppCheckDeviceCheckConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The relative resource name of the DeviceCheck configuration object
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Whether the privateKey field was previously set. Since App Check will never return the
     /// privateKey field, this field is the only way to find out whether it was previously set.
     /// </summary>
-    [TerraformPropertyName("private_key_set")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> PrivateKeySet => new TerraformReference(this, "private_key_set");
+    [TerraformProperty("private_key_set")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> PrivateKeySet { get; }
 
 }

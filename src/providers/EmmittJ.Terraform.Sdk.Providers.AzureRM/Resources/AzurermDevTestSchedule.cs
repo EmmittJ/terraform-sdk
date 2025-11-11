@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for daily_recurrence in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDevTestScheduleDailyRecurrenceBlock
+public partial class AzurermDevTestScheduleDailyRecurrenceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The time attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
-    [TerraformPropertyName("time")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("time")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Time { get; set; }
 
 }
@@ -22,14 +22,14 @@ public class AzurermDevTestScheduleDailyRecurrenceBlock
 /// Block type for hourly_recurrence in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDevTestScheduleHourlyRecurrenceBlock
+public partial class AzurermDevTestScheduleHourlyRecurrenceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The minute attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Minute is required")]
-    [TerraformPropertyName("minute")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("minute")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Minute { get; set; }
 
 }
@@ -38,27 +38,27 @@ public class AzurermDevTestScheduleHourlyRecurrenceBlock
 /// Block type for notification_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDevTestScheduleNotificationSettingsBlock
+public partial class AzurermDevTestScheduleNotificationSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("status")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The time_in_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("time_in_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("time_in_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? TimeInMinutes { get; set; }
 
     /// <summary>
     /// The webhook_url attribute.
     /// </summary>
-    [TerraformPropertyName("webhook_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("webhook_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? WebhookUrl { get; set; }
 
 }
@@ -67,34 +67,34 @@ public class AzurermDevTestScheduleNotificationSettingsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermDevTestScheduleTimeoutsBlock
+public partial class AzurermDevTestScheduleTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -103,21 +103,21 @@ public class AzurermDevTestScheduleTimeoutsBlock
 /// Block type for weekly_recurrence in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermDevTestScheduleWeeklyRecurrenceBlock
+public partial class AzurermDevTestScheduleWeeklyRecurrenceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The time attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Time is required")]
-    [TerraformPropertyName("time")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("time")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Time { get; set; }
 
     /// <summary>
     /// The week_days attribute.
     /// </summary>
-    [TerraformPropertyName("week_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("week_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? WeekDays { get; set; }
 
 }
@@ -126,7 +126,7 @@ public class AzurermDevTestScheduleWeeklyRecurrenceBlock
 /// Manages a azurerm_dev_test_schedule resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermDevTestSchedule : TerraformResource
+public partial class AzurermDevTestSchedule : TerraformResource
 {
     public AzurermDevTestSchedule(string name) : base("azurerm_dev_test_schedule", name)
     {
@@ -135,70 +135,70 @@ public class AzurermDevTestSchedule : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The lab_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LabName is required")]
-    [TerraformPropertyName("lab_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("lab_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LabName { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("status")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Status { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The task_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TaskType is required")]
-    [TerraformPropertyName("task_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("task_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TaskType { get; set; }
 
     /// <summary>
     /// The time_zone_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TimeZoneId is required")]
-    [TerraformPropertyName("time_zone_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("time_zone_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TimeZoneId { get; set; }
 
     /// <summary>
@@ -206,7 +206,7 @@ public class AzurermDevTestSchedule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DailyRecurrence block(s) allowed")]
-    [TerraformPropertyName("daily_recurrence")]
+    [TerraformProperty("daily_recurrence")]
     public TerraformList<TerraformBlock<AzurermDevTestScheduleDailyRecurrenceBlock>>? DailyRecurrence { get; set; }
 
     /// <summary>
@@ -214,7 +214,7 @@ public class AzurermDevTestSchedule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HourlyRecurrence block(s) allowed")]
-    [TerraformPropertyName("hourly_recurrence")]
+    [TerraformProperty("hourly_recurrence")]
     public TerraformList<TerraformBlock<AzurermDevTestScheduleHourlyRecurrenceBlock>>? HourlyRecurrence { get; set; }
 
     /// <summary>
@@ -224,14 +224,14 @@ public class AzurermDevTestSchedule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NotificationSettings is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NotificationSettings block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationSettings block(s) allowed")]
-    [TerraformPropertyName("notification_settings")]
+    [TerraformProperty("notification_settings")]
     public TerraformList<TerraformBlock<AzurermDevTestScheduleNotificationSettingsBlock>>? NotificationSettings { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermDevTestScheduleTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -239,7 +239,7 @@ public class AzurermDevTestSchedule : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WeeklyRecurrence block(s) allowed")]
-    [TerraformPropertyName("weekly_recurrence")]
+    [TerraformProperty("weekly_recurrence")]
     public TerraformList<TerraformBlock<AzurermDevTestScheduleWeeklyRecurrenceBlock>>? WeeklyRecurrence { get; set; }
 
 }

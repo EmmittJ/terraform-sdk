@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSubscriptionsDataSourceTimeoutsBlock
+public partial class AzurermSubscriptionsDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermSubscriptionsDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_subscriptions.
 /// </summary>
-public class AzurermSubscriptionsDataSource : TerraformDataSource
+public partial class AzurermSubscriptionsDataSource : TerraformDataSource
 {
     public AzurermSubscriptionsDataSource(string name) : base("azurerm_subscriptions", name)
     {
@@ -29,36 +29,36 @@ public class AzurermSubscriptionsDataSource : TerraformDataSource
     /// <summary>
     /// The display_name_contains attribute.
     /// </summary>
-    [TerraformPropertyName("display_name_contains")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name_contains")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayNameContains { get; set; }
 
     /// <summary>
     /// The display_name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("display_name_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayNamePrefix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSubscriptionsDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The subscriptions attribute.
     /// </summary>
-    [TerraformPropertyName("subscriptions")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Subscriptions => new TerraformReference(this, "subscriptions");
+    [TerraformProperty("subscriptions")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Subscriptions { get; }
 
 }

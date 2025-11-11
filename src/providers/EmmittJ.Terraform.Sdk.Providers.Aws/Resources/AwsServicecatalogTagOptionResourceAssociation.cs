@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsServicecatalogTagOptionResourceAssociationTimeoutsBlock
+public partial class AwsServicecatalogTagOptionResourceAssociationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsServicecatalogTagOptionResourceAssociationTimeoutsBlock
 /// <summary>
 /// Manages a aws_servicecatalog_tag_option_resource_association resource.
 /// </summary>
-public class AwsServicecatalogTagOptionResourceAssociation : TerraformResource
+public partial class AwsServicecatalogTagOptionResourceAssociation : TerraformResource
 {
     public AwsServicecatalogTagOptionResourceAssociation(string name) : base("aws_servicecatalog_tag_option_resource_association", name)
     {
@@ -43,66 +43,66 @@ public class AwsServicecatalogTagOptionResourceAssociation : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
-    [TerraformPropertyName("resource_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// The tag_option_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TagOptionId is required")]
-    [TerraformPropertyName("tag_option_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("tag_option_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TagOptionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsServicecatalogTagOptionResourceAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The resource_arn attribute.
     /// </summary>
-    [TerraformPropertyName("resource_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceArn => new TerraformReference(this, "resource_arn");
+    [TerraformProperty("resource_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceArn { get; }
 
     /// <summary>
     /// The resource_created_time attribute.
     /// </summary>
-    [TerraformPropertyName("resource_created_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceCreatedTime => new TerraformReference(this, "resource_created_time");
+    [TerraformProperty("resource_created_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceCreatedTime { get; }
 
     /// <summary>
     /// The resource_description attribute.
     /// </summary>
-    [TerraformPropertyName("resource_description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceDescription => new TerraformReference(this, "resource_description");
+    [TerraformProperty("resource_description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceDescription { get; }
 
     /// <summary>
     /// The resource_name attribute.
     /// </summary>
-    [TerraformPropertyName("resource_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceName => new TerraformReference(this, "resource_name");
+    [TerraformProperty("resource_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceName { get; }
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for filter in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleStorageControlFolderIntelligenceConfigFilterBlock
+public partial class GoogleStorageControlFolderIntelligenceConfigFilterBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class GoogleStorageControlFolderIntelligenceConfigFilterBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleStorageControlFolderIntelligenceConfigTimeoutsBlock
+public partial class GoogleStorageControlFolderIntelligenceConfigTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class GoogleStorageControlFolderIntelligenceConfigTimeoutsBlock
 /// Manages a google_storage_control_folder_intelligence_config resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleStorageControlFolderIntelligenceConfig : TerraformResource
+public partial class GoogleStorageControlFolderIntelligenceConfig : TerraformResource
 {
     public GoogleStorageControlFolderIntelligenceConfig(string name) : base("google_storage_control_folder_intelligence_config", name)
     {
@@ -52,23 +52,23 @@ public class GoogleStorageControlFolderIntelligenceConfig : TerraformResource
     /// <summary>
     /// Edition configuration of the Storage Intelligence resource. Valid values are INHERIT, TRIAL, DISABLED and STANDARD.
     /// </summary>
-    [TerraformPropertyName("edition_config")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EditionConfig { get; set; } = default!;
+    [TerraformProperty("edition_config")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EditionConfig { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Identifier of the GCP Folder. For GCP Folder, this field can be folder number.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
@@ -76,35 +76,35 @@ public class GoogleStorageControlFolderIntelligenceConfig : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Filter block(s) allowed")]
-    [TerraformPropertyName("filter")]
+    [TerraformProperty("filter")]
     public TerraformList<TerraformBlock<GoogleStorageControlFolderIntelligenceConfigFilterBlock>>? Filter { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleStorageControlFolderIntelligenceConfigTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The Intelligence config that is effective for the resource.
     /// </summary>
-    [TerraformPropertyName("effective_intelligence_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> EffectiveIntelligenceConfig => new TerraformReference(this, "effective_intelligence_config");
+    [TerraformProperty("effective_intelligence_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> EffectiveIntelligenceConfig { get; }
 
     /// <summary>
     /// The trial configuration of the Storage Intelligence resource.
     /// </summary>
-    [TerraformPropertyName("trial_config")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> TrialConfig => new TerraformReference(this, "trial_config");
+    [TerraformProperty("trial_config")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> TrialConfig { get; }
 
     /// <summary>
     /// The time at which the Storage Intelligence Config resource is last updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

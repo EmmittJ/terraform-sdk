@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for encryption_spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiReasoningEngineEncryptionSpecBlock
+public partial class GoogleVertexAiReasoningEngineEncryptionSpecBlock : TerraformBlockBase
 {
     /// <summary>
     /// Required. The Cloud KMS resource identifier of the customer managed encryption key used to protect a resource.
@@ -14,8 +14,8 @@ public class GoogleVertexAiReasoningEngineEncryptionSpecBlock
     /// The key needs to be in the same region as where the compute resource is created.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KmsKeyName is required")]
-    [TerraformPropertyName("kms_key_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("kms_key_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KmsKeyName { get; set; }
 
 }
@@ -24,20 +24,20 @@ public class GoogleVertexAiReasoningEngineEncryptionSpecBlock
 /// Block type for spec in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleVertexAiReasoningEngineSpecBlock
+public partial class GoogleVertexAiReasoningEngineSpecBlock : TerraformBlockBase
 {
     /// <summary>
     /// Optional. The OSS agent framework used to develop the agent.
     /// </summary>
-    [TerraformPropertyName("agent_framework")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("agent_framework")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AgentFramework { get; set; }
 
     /// <summary>
     /// Optional. Declarations for object class methods in OpenAPI specification format.
     /// </summary>
-    [TerraformPropertyName("class_methods")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("class_methods")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClassMethods { get; set; }
 
     /// <summary>
@@ -46,8 +46,8 @@ public class GoogleVertexAiReasoningEngineSpecBlock
     /// Cloud Storage and &amp;quot;roles/aiplatform.user&amp;quot; for using Vertex extensions.
     /// If not specified, the Vertex AI Reasoning Engine service Agent in the project will be used.
     /// </summary>
-    [TerraformPropertyName("service_account")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_account")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServiceAccount { get; set; }
 
 }
@@ -56,27 +56,27 @@ public class GoogleVertexAiReasoningEngineSpecBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleVertexAiReasoningEngineTimeoutsBlock
+public partial class GoogleVertexAiReasoningEngineTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -85,7 +85,7 @@ public class GoogleVertexAiReasoningEngineTimeoutsBlock
 /// Manages a google_vertex_ai_reasoning_engine resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleVertexAiReasoningEngine : TerraformResource
+public partial class GoogleVertexAiReasoningEngine : TerraformResource
 {
     public GoogleVertexAiReasoningEngine(string name) : base("google_vertex_ai_reasoning_engine", name)
     {
@@ -94,37 +94,37 @@ public class GoogleVertexAiReasoningEngine : TerraformResource
     /// <summary>
     /// The description of the ReasoningEngine.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display name of the ReasoningEngine.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The region of the reasoning engine. eg us-central1
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("region")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Region { get; set; }
 
     /// <summary>
@@ -132,7 +132,7 @@ public class GoogleVertexAiReasoningEngine : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 EncryptionSpec block(s) allowed")]
-    [TerraformPropertyName("encryption_spec")]
+    [TerraformProperty("encryption_spec")]
     public TerraformList<TerraformBlock<GoogleVertexAiReasoningEngineEncryptionSpecBlock>>? EncryptionSpec { get; set; }
 
     /// <summary>
@@ -140,38 +140,38 @@ public class GoogleVertexAiReasoningEngine : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Spec block(s) allowed")]
-    [TerraformPropertyName("spec")]
+    [TerraformProperty("spec")]
     public TerraformList<TerraformBlock<GoogleVertexAiReasoningEngineSpecBlock>>? Spec { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleVertexAiReasoningEngineTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp of when the Index was created in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
     /// with nanosecond resolution and up to nine fractional digits.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The generated name of the ReasoningEngine, in the format
     /// &#39;projects/{project}/locations/{location}/reasoningEngines/{reasoningEngine}&#39;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The timestamp of when the Index was last updated in RFC3339 UTC &amp;quot;Zulu&amp;quot; format,
     /// with nanosecond resolution and up to nine fractional digits.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

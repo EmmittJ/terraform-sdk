@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for backend_request in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementApiDiagnosticBackendRequestBlock
+public partial class AzurermApiManagementApiDiagnosticBackendRequestBlock : TerraformBlockBase
 {
     /// <summary>
     /// The body_bytes attribute.
     /// </summary>
-    [TerraformPropertyName("body_bytes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("body_bytes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BodyBytes { get; set; }
 
     /// <summary>
     /// The headers_to_log attribute.
     /// </summary>
-    [TerraformPropertyName("headers_to_log")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("headers_to_log")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? HeadersToLog { get; set; }
 
 }
@@ -28,20 +28,20 @@ public class AzurermApiManagementApiDiagnosticBackendRequestBlock
 /// Block type for backend_response in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementApiDiagnosticBackendResponseBlock
+public partial class AzurermApiManagementApiDiagnosticBackendResponseBlock : TerraformBlockBase
 {
     /// <summary>
     /// The body_bytes attribute.
     /// </summary>
-    [TerraformPropertyName("body_bytes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("body_bytes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BodyBytes { get; set; }
 
     /// <summary>
     /// The headers_to_log attribute.
     /// </summary>
-    [TerraformPropertyName("headers_to_log")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("headers_to_log")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? HeadersToLog { get; set; }
 
 }
@@ -50,20 +50,20 @@ public class AzurermApiManagementApiDiagnosticBackendResponseBlock
 /// Block type for frontend_request in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementApiDiagnosticFrontendRequestBlock
+public partial class AzurermApiManagementApiDiagnosticFrontendRequestBlock : TerraformBlockBase
 {
     /// <summary>
     /// The body_bytes attribute.
     /// </summary>
-    [TerraformPropertyName("body_bytes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("body_bytes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BodyBytes { get; set; }
 
     /// <summary>
     /// The headers_to_log attribute.
     /// </summary>
-    [TerraformPropertyName("headers_to_log")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("headers_to_log")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? HeadersToLog { get; set; }
 
 }
@@ -72,20 +72,20 @@ public class AzurermApiManagementApiDiagnosticFrontendRequestBlock
 /// Block type for frontend_response in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApiManagementApiDiagnosticFrontendResponseBlock
+public partial class AzurermApiManagementApiDiagnosticFrontendResponseBlock : TerraformBlockBase
 {
     /// <summary>
     /// The body_bytes attribute.
     /// </summary>
-    [TerraformPropertyName("body_bytes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("body_bytes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? BodyBytes { get; set; }
 
     /// <summary>
     /// The headers_to_log attribute.
     /// </summary>
-    [TerraformPropertyName("headers_to_log")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("headers_to_log")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? HeadersToLog { get; set; }
 
 }
@@ -94,34 +94,34 @@ public class AzurermApiManagementApiDiagnosticFrontendResponseBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApiManagementApiDiagnosticTimeoutsBlock
+public partial class AzurermApiManagementApiDiagnosticTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -130,7 +130,7 @@ public class AzurermApiManagementApiDiagnosticTimeoutsBlock
 /// Manages a azurerm_api_management_api_diagnostic resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermApiManagementApiDiagnostic : TerraformResource
+public partial class AzurermApiManagementApiDiagnostic : TerraformResource
 {
     public AzurermApiManagementApiDiagnostic(string name) : base("azurerm_api_management_api_diagnostic", name)
     {
@@ -139,98 +139,98 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     /// <summary>
     /// The always_log_errors attribute.
     /// </summary>
-    [TerraformPropertyName("always_log_errors")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> AlwaysLogErrors { get; set; } = default!;
+    [TerraformProperty("always_log_errors")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> AlwaysLogErrors { get; set; }
 
     /// <summary>
     /// The api_management_logger_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementLoggerId is required")]
-    [TerraformPropertyName("api_management_logger_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("api_management_logger_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApiManagementLoggerId { get; set; }
 
     /// <summary>
     /// The api_management_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiManagementName is required")]
-    [TerraformPropertyName("api_management_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("api_management_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApiManagementName { get; set; }
 
     /// <summary>
     /// The api_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApiName is required")]
-    [TerraformPropertyName("api_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("api_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApiName { get; set; }
 
     /// <summary>
     /// The http_correlation_protocol attribute.
     /// </summary>
-    [TerraformPropertyName("http_correlation_protocol")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> HttpCorrelationProtocol { get; set; } = default!;
+    [TerraformProperty("http_correlation_protocol")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> HttpCorrelationProtocol { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The identifier attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Identifier is required")]
-    [TerraformPropertyName("identifier")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("identifier")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Identifier { get; set; }
 
     /// <summary>
     /// The log_client_ip attribute.
     /// </summary>
-    [TerraformPropertyName("log_client_ip")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> LogClientIp { get; set; } = default!;
+    [TerraformProperty("log_client_ip")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> LogClientIp { get; set; }
 
     /// <summary>
     /// The operation_name_format attribute.
     /// </summary>
-    [TerraformPropertyName("operation_name_format")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("operation_name_format")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OperationNameFormat { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The sampling_percentage attribute.
     /// </summary>
-    [TerraformPropertyName("sampling_percentage")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> SamplingPercentage { get; set; } = default!;
+    [TerraformProperty("sampling_percentage")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> SamplingPercentage { get; set; }
 
     /// <summary>
     /// The verbosity attribute.
     /// </summary>
-    [TerraformPropertyName("verbosity")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Verbosity { get; set; } = default!;
+    [TerraformProperty("verbosity")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Verbosity { get; set; }
 
     /// <summary>
     /// Block for backend_request.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackendRequest block(s) allowed")]
-    [TerraformPropertyName("backend_request")]
+    [TerraformProperty("backend_request")]
     public TerraformList<TerraformBlock<AzurermApiManagementApiDiagnosticBackendRequestBlock>>? BackendRequest { get; set; }
 
     /// <summary>
@@ -238,7 +238,7 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BackendResponse block(s) allowed")]
-    [TerraformPropertyName("backend_response")]
+    [TerraformProperty("backend_response")]
     public TerraformList<TerraformBlock<AzurermApiManagementApiDiagnosticBackendResponseBlock>>? BackendResponse { get; set; }
 
     /// <summary>
@@ -246,7 +246,7 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendRequest block(s) allowed")]
-    [TerraformPropertyName("frontend_request")]
+    [TerraformProperty("frontend_request")]
     public TerraformList<TerraformBlock<AzurermApiManagementApiDiagnosticFrontendRequestBlock>>? FrontendRequest { get; set; }
 
     /// <summary>
@@ -254,14 +254,14 @@ public class AzurermApiManagementApiDiagnostic : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FrontendResponse block(s) allowed")]
-    [TerraformPropertyName("frontend_response")]
+    [TerraformProperty("frontend_response")]
     public TerraformList<TerraformBlock<AzurermApiManagementApiDiagnosticFrontendResponseBlock>>? FrontendResponse { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermApiManagementApiDiagnosticTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for app_engine_http_target in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock
+public partial class GoogleCloudSchedulerJobAppEngineHttpTargetBlock : TerraformBlockBase
 {
     /// <summary>
     /// HTTP request body.
@@ -15,8 +15,8 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock
     /// 
     /// A base64-encoded string.
     /// </summary>
-    [TerraformPropertyName("body")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("body")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Body { get; set; }
 
     /// <summary>
@@ -24,15 +24,15 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock
     /// This map contains the header field names and values.
     /// Headers can be set when the job is created.
     /// </summary>
-    [TerraformPropertyName("headers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("headers")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Headers { get; set; }
 
     /// <summary>
     /// Which HTTP method to use for the request.
     /// </summary>
-    [TerraformPropertyName("http_method")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("http_method")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HttpMethod { get; set; }
 
     /// <summary>
@@ -43,8 +43,8 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock
     /// No spaces are allowed, and the maximum length allowed is 2083 characters
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RelativeUri is required")]
-    [TerraformPropertyName("relative_uri")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("relative_uri")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RelativeUri { get; set; }
 
 }
@@ -53,7 +53,7 @@ public class GoogleCloudSchedulerJobAppEngineHttpTargetBlock
 /// Block type for http_target in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudSchedulerJobHttpTargetBlock
+public partial class GoogleCloudSchedulerJobHttpTargetBlock : TerraformBlockBase
 {
     /// <summary>
     /// HTTP request body.
@@ -62,31 +62,31 @@ public class GoogleCloudSchedulerJobHttpTargetBlock
     /// 
     /// A base64-encoded string.
     /// </summary>
-    [TerraformPropertyName("body")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("body")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Body { get; set; }
 
     /// <summary>
     /// This map contains the header field names and values.
     /// Repeated headers are not supported, but a header value can contain commas.
     /// </summary>
-    [TerraformPropertyName("headers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("headers")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Headers { get; set; }
 
     /// <summary>
     /// Which HTTP method to use for the request.
     /// </summary>
-    [TerraformPropertyName("http_method")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("http_method")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HttpMethod { get; set; }
 
     /// <summary>
     /// The full URI path that the request will be sent to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    [TerraformPropertyName("uri")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("uri")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Uri { get; set; }
 
 }
@@ -95,14 +95,14 @@ public class GoogleCloudSchedulerJobHttpTargetBlock
 /// Block type for pubsub_target in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudSchedulerJobPubsubTargetBlock
+public partial class GoogleCloudSchedulerJobPubsubTargetBlock : TerraformBlockBase
 {
     /// <summary>
     /// Attributes for PubsubMessage.
     /// Pubsub message must contain either non-empty data, or at least one attribute.
     /// </summary>
-    [TerraformPropertyName("attributes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("attributes")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Attributes { get; set; }
 
     /// <summary>
@@ -111,8 +111,8 @@ public class GoogleCloudSchedulerJobPubsubTargetBlock
     /// 
     ///  A base64-encoded string.
     /// </summary>
-    [TerraformPropertyName("data")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("data")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Data { get; set; }
 
     /// <summary>
@@ -122,8 +122,8 @@ public class GoogleCloudSchedulerJobPubsubTargetBlock
     /// PublishRequest.name, e.g. &#39;projects/my-project/topics/my-topic&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TopicName is required")]
-    [TerraformPropertyName("topic_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("topic_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TopicName { get; set; }
 
 }
@@ -132,15 +132,15 @@ public class GoogleCloudSchedulerJobPubsubTargetBlock
 /// Block type for retry_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudSchedulerJobRetryConfigBlock
+public partial class GoogleCloudSchedulerJobRetryConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The maximum amount of time to wait before retrying a job after it fails.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;.
     /// </summary>
-    [TerraformPropertyName("max_backoff_duration")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MaxBackoffDuration { get; set; } = default!;
+    [TerraformProperty("max_backoff_duration")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MaxBackoffDuration { get; set; }
 
     /// <summary>
     /// The time between retries will double maxDoublings times.
@@ -148,35 +148,35 @@ public class GoogleCloudSchedulerJobRetryConfigBlock
     /// then doubles maxDoublings times, then increases linearly,
     /// and finally retries retries at intervals of maxBackoffDuration up to retryCount times.
     /// </summary>
-    [TerraformPropertyName("max_doublings")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxDoublings { get; set; } = default!;
+    [TerraformProperty("max_doublings")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxDoublings { get; set; }
 
     /// <summary>
     /// The time limit for retrying a failed job, measured from time when an execution was first attempted.
     /// If specified with retryCount, the job will be retried until both limits are reached.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;.
     /// </summary>
-    [TerraformPropertyName("max_retry_duration")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MaxRetryDuration { get; set; } = default!;
+    [TerraformProperty("max_retry_duration")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MaxRetryDuration { get; set; }
 
     /// <summary>
     /// The minimum amount of time to wait before retrying a job after it fails.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;.
     /// </summary>
-    [TerraformPropertyName("min_backoff_duration")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MinBackoffDuration { get; set; } = default!;
+    [TerraformProperty("min_backoff_duration")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MinBackoffDuration { get; set; }
 
     /// <summary>
     /// The number of attempts that the system will make to run a
     /// job using the exponential backoff procedure described by maxDoublings.
     /// Values greater than 5 and negative values are not allowed.
     /// </summary>
-    [TerraformPropertyName("retry_count")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> RetryCount { get; set; } = default!;
+    [TerraformProperty("retry_count")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> RetryCount { get; set; }
 
 }
 
@@ -184,27 +184,27 @@ public class GoogleCloudSchedulerJobRetryConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCloudSchedulerJobTimeoutsBlock
+public partial class GoogleCloudSchedulerJobTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -213,7 +213,7 @@ public class GoogleCloudSchedulerJobTimeoutsBlock
 /// Manages a google_cloud_scheduler_job resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleCloudSchedulerJob : TerraformResource
+public partial class GoogleCloudSchedulerJob : TerraformResource
 {
     public GoogleCloudSchedulerJob(string name) : base("google_cloud_scheduler_job", name)
     {
@@ -229,67 +229,67 @@ public class GoogleCloudSchedulerJob : TerraformResource
     /// * **Note**: For PubSub targets, this field is ignored - setting it will introduce an unresolvable diff.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;
     /// </summary>
-    [TerraformPropertyName("attempt_deadline")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("attempt_deadline")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AttemptDeadline { get; set; }
 
     /// <summary>
     /// A human-readable description for the job.
     /// This string must not contain more than 500 characters.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the job.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Sets the job to a paused state. Jobs default to being enabled when this property is not set.
     /// </summary>
-    [TerraformPropertyName("paused")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> Paused { get; set; } = default!;
+    [TerraformProperty("paused")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> Paused { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Region where the scheduler job resides. If it is not provided, Terraform will use the provider default.
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Describes the schedule on which the job will be executed.
     /// </summary>
-    [TerraformPropertyName("schedule")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("schedule")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Schedule { get; set; }
 
     /// <summary>
     /// Specifies the time zone to be used in interpreting schedule.
     /// The value of this field must be a time zone name from the tz database.
     /// </summary>
-    [TerraformPropertyName("time_zone")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("time_zone")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TimeZone { get; set; }
 
     /// <summary>
@@ -297,7 +297,7 @@ public class GoogleCloudSchedulerJob : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppEngineHttpTarget block(s) allowed")]
-    [TerraformPropertyName("app_engine_http_target")]
+    [TerraformProperty("app_engine_http_target")]
     public TerraformList<TerraformBlock<GoogleCloudSchedulerJobAppEngineHttpTargetBlock>>? AppEngineHttpTarget { get; set; }
 
     /// <summary>
@@ -305,7 +305,7 @@ public class GoogleCloudSchedulerJob : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 HttpTarget block(s) allowed")]
-    [TerraformPropertyName("http_target")]
+    [TerraformProperty("http_target")]
     public TerraformList<TerraformBlock<GoogleCloudSchedulerJobHttpTargetBlock>>? HttpTarget { get; set; }
 
     /// <summary>
@@ -313,7 +313,7 @@ public class GoogleCloudSchedulerJob : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PubsubTarget block(s) allowed")]
-    [TerraformPropertyName("pubsub_target")]
+    [TerraformProperty("pubsub_target")]
     public TerraformList<TerraformBlock<GoogleCloudSchedulerJobPubsubTargetBlock>>? PubsubTarget { get; set; }
 
     /// <summary>
@@ -321,21 +321,21 @@ public class GoogleCloudSchedulerJob : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RetryConfig block(s) allowed")]
-    [TerraformPropertyName("retry_config")]
+    [TerraformProperty("retry_config")]
     public TerraformList<TerraformBlock<GoogleCloudSchedulerJobRetryConfigBlock>>? RetryConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleCloudSchedulerJobTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// State of the job.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
 }

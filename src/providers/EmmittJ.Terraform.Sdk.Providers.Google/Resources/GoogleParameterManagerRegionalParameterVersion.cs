@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleParameterManagerRegionalParameterVersionTimeoutsBlock
+public partial class GoogleParameterManagerRegionalParameterVersionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleParameterManagerRegionalParameterVersionTimeoutsBlock
 /// <summary>
 /// Manages a google_parameter_manager_regional_parameter_version resource.
 /// </summary>
-public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
+public partial class GoogleParameterManagerRegionalParameterVersion : TerraformResource
 {
     public GoogleParameterManagerRegionalParameterVersion(string name) : base("google_parameter_manager_regional_parameter_version", name)
     {
@@ -43,83 +43,83 @@ public class GoogleParameterManagerRegionalParameterVersion : TerraformResource
     /// <summary>
     /// The current state of Regional Parameter Version. This field is only applicable for updating Regional Parameter Version.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Parameter Manager Regional Parameter resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parameter is required")]
-    [TerraformPropertyName("parameter")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parameter")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Parameter { get; set; }
 
     /// <summary>
     /// The Regional Parameter data.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterData is required")]
-    [TerraformPropertyName("parameter_data")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parameter_data")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ParameterData { get; set; }
 
     /// <summary>
     /// Version ID of the Regional Parameter Version Resource. This must be unique within the Regional Parameter.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ParameterVersionId is required")]
-    [TerraformPropertyName("parameter_version_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parameter_version_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ParameterVersionId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleParameterManagerRegionalParameterVersionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The time at which the Regional Parameter Version was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The resource name of the Cloud KMS CryptoKeyVersion used to decrypt regional parameter version payload. Format
     /// &#39;projects/{{project}}/locations/{{location}}/keyRings/{{key_ring}}/cryptoKeys/{{crypto_key}}/cryptoKeyVersions/{{crypto_key_version}}&#39;
     /// </summary>
-    [TerraformPropertyName("kms_key_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KmsKeyVersion => new TerraformReference(this, "kms_key_version");
+    [TerraformProperty("kms_key_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KmsKeyVersion { get; }
 
     /// <summary>
     /// Location of Parameter Manager Regional parameter resource.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Location { get; }
 
     /// <summary>
     /// The resource name of the Regional Parameter Version. Format:
     /// &#39;projects/{{project}}/locations/{{location}}/parameters/{{parameter_id}}/versions/{{parameter_version_id}}&#39;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The time at which the Regional Parameter Version was updated.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

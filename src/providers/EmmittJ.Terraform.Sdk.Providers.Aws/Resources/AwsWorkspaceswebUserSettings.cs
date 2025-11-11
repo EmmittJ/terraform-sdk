@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for cookie_synchronization_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock
+public partial class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock : TerraformBlockBase
 {
 }
 
@@ -14,34 +14,34 @@ public class AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock
 /// Block type for toolbar_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsWorkspaceswebUserSettingsToolbarConfigurationBlock
+public partial class AwsWorkspaceswebUserSettingsToolbarConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The hidden_toolbar_items attribute.
     /// </summary>
-    [TerraformPropertyName("hidden_toolbar_items")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("hidden_toolbar_items")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? HiddenToolbarItems { get; set; }
 
     /// <summary>
     /// The max_display_resolution attribute.
     /// </summary>
-    [TerraformPropertyName("max_display_resolution")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_display_resolution")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MaxDisplayResolution { get; set; }
 
     /// <summary>
     /// The toolbar_type attribute.
     /// </summary>
-    [TerraformPropertyName("toolbar_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("toolbar_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ToolbarType { get; set; }
 
     /// <summary>
     /// The visual_mode attribute.
     /// </summary>
-    [TerraformPropertyName("visual_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("visual_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VisualMode { get; set; }
 
 }
@@ -49,7 +49,7 @@ public class AwsWorkspaceswebUserSettingsToolbarConfigurationBlock
 /// <summary>
 /// Manages a aws_workspacesweb_user_settings resource.
 /// </summary>
-public class AwsWorkspaceswebUserSettings : TerraformResource
+public partial class AwsWorkspaceswebUserSettings : TerraformResource
 {
     public AwsWorkspaceswebUserSettings(string name) : base("aws_workspacesweb_user_settings", name)
     {
@@ -58,125 +58,125 @@ public class AwsWorkspaceswebUserSettings : TerraformResource
     /// <summary>
     /// The additional_encryption_context attribute.
     /// </summary>
-    [TerraformPropertyName("additional_encryption_context")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("additional_encryption_context")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? AdditionalEncryptionContext { get; set; }
 
     /// <summary>
     /// The copy_allowed attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CopyAllowed is required")]
-    [TerraformPropertyName("copy_allowed")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("copy_allowed")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CopyAllowed { get; set; }
 
     /// <summary>
     /// The customer_managed_key attribute.
     /// </summary>
-    [TerraformPropertyName("customer_managed_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("customer_managed_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CustomerManagedKey { get; set; }
 
     /// <summary>
     /// The deep_link_allowed attribute.
     /// </summary>
-    [TerraformPropertyName("deep_link_allowed")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DeepLinkAllowed { get; set; } = default!;
+    [TerraformProperty("deep_link_allowed")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DeepLinkAllowed { get; set; }
 
     /// <summary>
     /// The disconnect_timeout_in_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("disconnect_timeout_in_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disconnect_timeout_in_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? DisconnectTimeoutInMinutes { get; set; }
 
     /// <summary>
     /// The download_allowed attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DownloadAllowed is required")]
-    [TerraformPropertyName("download_allowed")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("download_allowed")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DownloadAllowed { get; set; }
 
     /// <summary>
     /// The idle_disconnect_timeout_in_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("idle_disconnect_timeout_in_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("idle_disconnect_timeout_in_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? IdleDisconnectTimeoutInMinutes { get; set; }
 
     /// <summary>
     /// The paste_allowed attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasteAllowed is required")]
-    [TerraformPropertyName("paste_allowed")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("paste_allowed")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PasteAllowed { get; set; }
 
     /// <summary>
     /// The print_allowed attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrintAllowed is required")]
-    [TerraformPropertyName("print_allowed")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("print_allowed")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrintAllowed { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The upload_allowed attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "UploadAllowed is required")]
-    [TerraformPropertyName("upload_allowed")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("upload_allowed")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> UploadAllowed { get; set; }
 
     /// <summary>
     /// Block for cookie_synchronization_configuration.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("cookie_synchronization_configuration")]
+    [TerraformProperty("cookie_synchronization_configuration")]
     public TerraformList<TerraformBlock<AwsWorkspaceswebUserSettingsCookieSynchronizationConfigurationBlock>>? CookieSynchronizationConfiguration { get; set; }
 
     /// <summary>
     /// Block for toolbar_configuration.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("toolbar_configuration")]
+    [TerraformProperty("toolbar_configuration")]
     public TerraformList<TerraformBlock<AwsWorkspaceswebUserSettingsToolbarConfigurationBlock>>? ToolbarConfiguration { get; set; }
 
     /// <summary>
     /// The associated_portal_arns attribute.
     /// </summary>
-    [TerraformPropertyName("associated_portal_arns")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AssociatedPortalArns => new TerraformReference(this, "associated_portal_arns");
+    [TerraformProperty("associated_portal_arns")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AssociatedPortalArns { get; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TagsAll => new TerraformReference(this, "tags_all");
+    [TerraformProperty("tags_all")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TagsAll { get; }
 
     /// <summary>
     /// The user_settings_arn attribute.
     /// </summary>
-    [TerraformPropertyName("user_settings_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UserSettingsArn => new TerraformReference(this, "user_settings_arn");
+    [TerraformProperty("user_settings_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UserSettingsArn { get; }
 
 }

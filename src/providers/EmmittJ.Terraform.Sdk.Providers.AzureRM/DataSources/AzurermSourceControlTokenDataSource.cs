@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSourceControlTokenDataSourceTimeoutsBlock
+public partial class AzurermSourceControlTokenDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermSourceControlTokenDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_source_control_token.
 /// </summary>
-public class AzurermSourceControlTokenDataSource : TerraformDataSource
+public partial class AzurermSourceControlTokenDataSource : TerraformDataSource
 {
     public AzurermSourceControlTokenDataSource(string name) : base("azurerm_source_control_token", name)
     {
@@ -29,37 +29,37 @@ public class AzurermSourceControlTokenDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSourceControlTokenDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The token attribute.
     /// </summary>
-    [TerraformPropertyName("token")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Token => new TerraformReference(this, "token");
+    [TerraformProperty("token")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Token { get; }
 
     /// <summary>
     /// The token_secret attribute.
     /// </summary>
-    [TerraformPropertyName("token_secret")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TokenSecret => new TerraformReference(this, "token_secret");
+    [TerraformProperty("token_secret")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TokenSecret { get; }
 
 }

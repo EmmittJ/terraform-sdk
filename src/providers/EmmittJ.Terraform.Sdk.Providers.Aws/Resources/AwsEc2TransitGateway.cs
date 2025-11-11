@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEc2TransitGatewayTimeoutsBlock
+public partial class AwsEc2TransitGatewayTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsEc2TransitGatewayTimeoutsBlock
 /// <summary>
 /// Manages a aws_ec2_transit_gateway resource.
 /// </summary>
-public class AwsEc2TransitGateway : TerraformResource
+public partial class AwsEc2TransitGateway : TerraformResource
 {
     public AwsEc2TransitGateway(string name) : base("aws_ec2_transit_gateway", name)
     {
@@ -43,134 +43,134 @@ public class AwsEc2TransitGateway : TerraformResource
     /// <summary>
     /// The amazon_side_asn attribute.
     /// </summary>
-    [TerraformPropertyName("amazon_side_asn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("amazon_side_asn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? AmazonSideAsn { get; set; }
 
     /// <summary>
     /// The auto_accept_shared_attachments attribute.
     /// </summary>
-    [TerraformPropertyName("auto_accept_shared_attachments")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auto_accept_shared_attachments")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AutoAcceptSharedAttachments { get; set; }
 
     /// <summary>
     /// The default_route_table_association attribute.
     /// </summary>
-    [TerraformPropertyName("default_route_table_association")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_route_table_association")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DefaultRouteTableAssociation { get; set; }
 
     /// <summary>
     /// The default_route_table_propagation attribute.
     /// </summary>
-    [TerraformPropertyName("default_route_table_propagation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_route_table_propagation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DefaultRouteTablePropagation { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The dns_support attribute.
     /// </summary>
-    [TerraformPropertyName("dns_support")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dns_support")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DnsSupport { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The multicast_support attribute.
     /// </summary>
-    [TerraformPropertyName("multicast_support")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("multicast_support")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MulticastSupport { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The security_group_referencing_support attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_referencing_support")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_group_referencing_support")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SecurityGroupReferencingSupport { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The transit_gateway_cidr_blocks attribute.
     /// </summary>
-    [TerraformPropertyName("transit_gateway_cidr_blocks")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("transit_gateway_cidr_blocks")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? TransitGatewayCidrBlocks { get; set; }
 
     /// <summary>
     /// The vpn_ecmp_support attribute.
     /// </summary>
-    [TerraformPropertyName("vpn_ecmp_support")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vpn_ecmp_support")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VpnEcmpSupport { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsEc2TransitGatewayTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The association_default_route_table_id attribute.
     /// </summary>
-    [TerraformPropertyName("association_default_route_table_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AssociationDefaultRouteTableId => new TerraformReference(this, "association_default_route_table_id");
+    [TerraformProperty("association_default_route_table_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AssociationDefaultRouteTableId { get; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerId => new TerraformReference(this, "owner_id");
+    [TerraformProperty("owner_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerId { get; }
 
     /// <summary>
     /// The propagation_default_route_table_id attribute.
     /// </summary>
-    [TerraformPropertyName("propagation_default_route_table_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PropagationDefaultRouteTableId => new TerraformReference(this, "propagation_default_route_table_id");
+    [TerraformProperty("propagation_default_route_table_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PropagationDefaultRouteTableId { get; }
 
 }

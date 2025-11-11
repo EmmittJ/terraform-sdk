@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEbsDefaultKmsKeyDataSourceTimeoutsBlock
+public partial class AwsEbsDefaultKmsKeyDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsEbsDefaultKmsKeyDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a aws_ebs_default_kms_key.
 /// </summary>
-public class AwsEbsDefaultKmsKeyDataSource : TerraformDataSource
+public partial class AwsEbsDefaultKmsKeyDataSource : TerraformDataSource
 {
     public AwsEbsDefaultKmsKeyDataSource(string name) : base("aws_ebs_default_kms_key", name)
     {
@@ -29,29 +29,29 @@ public class AwsEbsDefaultKmsKeyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsEbsDefaultKmsKeyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The key_arn attribute.
     /// </summary>
-    [TerraformPropertyName("key_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KeyArn => new TerraformReference(this, "key_arn");
+    [TerraformProperty("key_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KeyArn { get; }
 
 }

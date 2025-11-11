@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_iam_policy.
 /// </summary>
-public class AwsIamPolicyDataSource : TerraformDataSource
+public partial class AwsIamPolicyDataSource : TerraformDataSource
 {
     public AwsIamPolicyDataSource(string name) : base("aws_iam_policy", name)
     {
@@ -14,71 +14,71 @@ public class AwsIamPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Arn { get; set; } = default!;
+    [TerraformProperty("arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The path_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("path_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("path_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PathPrefix { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The attachment_count attribute.
     /// </summary>
-    [TerraformPropertyName("attachment_count")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> AttachmentCount => new TerraformReference(this, "attachment_count");
+    [TerraformProperty("attachment_count")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> AttachmentCount { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformPropertyName("path")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Path => new TerraformReference(this, "path");
+    [TerraformProperty("path")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Path { get; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    [TerraformPropertyName("policy")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Policy => new TerraformReference(this, "policy");
+    [TerraformProperty("policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Policy { get; }
 
     /// <summary>
     /// The policy_id attribute.
     /// </summary>
-    [TerraformPropertyName("policy_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PolicyId => new TerraformReference(this, "policy_id");
+    [TerraformProperty("policy_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PolicyId { get; }
 
 }

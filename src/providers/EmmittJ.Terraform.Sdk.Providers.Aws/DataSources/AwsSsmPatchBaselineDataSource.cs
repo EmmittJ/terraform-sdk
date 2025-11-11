@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_ssm_patch_baseline.
 /// </summary>
-public class AwsSsmPatchBaselineDataSource : TerraformDataSource
+public partial class AwsSsmPatchBaselineDataSource : TerraformDataSource
 {
     public AwsSsmPatchBaselineDataSource(string name) : base("aws_ssm_patch_baseline", name)
     {
@@ -14,128 +14,128 @@ public class AwsSsmPatchBaselineDataSource : TerraformDataSource
     /// <summary>
     /// The default_baseline attribute.
     /// </summary>
-    [TerraformPropertyName("default_baseline")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_baseline")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DefaultBaseline { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name_prefix")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NamePrefix { get; set; }
 
     /// <summary>
     /// The operating_system attribute.
     /// </summary>
-    [TerraformPropertyName("operating_system")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("operating_system")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OperatingSystem { get; set; }
 
     /// <summary>
     /// The owner attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Owner is required")]
-    [TerraformPropertyName("owner")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("owner")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Owner { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The approval_rule attribute.
     /// </summary>
-    [TerraformPropertyName("approval_rule")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ApprovalRule => new TerraformReference(this, "approval_rule");
+    [TerraformProperty("approval_rule")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ApprovalRule { get; }
 
     /// <summary>
     /// The approved_patches attribute.
     /// </summary>
-    [TerraformPropertyName("approved_patches")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ApprovedPatches => new TerraformReference(this, "approved_patches");
+    [TerraformProperty("approved_patches")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ApprovedPatches { get; }
 
     /// <summary>
     /// The approved_patches_compliance_level attribute.
     /// </summary>
-    [TerraformPropertyName("approved_patches_compliance_level")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ApprovedPatchesComplianceLevel => new TerraformReference(this, "approved_patches_compliance_level");
+    [TerraformProperty("approved_patches_compliance_level")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ApprovedPatchesComplianceLevel { get; }
 
     /// <summary>
     /// The approved_patches_enable_non_security attribute.
     /// </summary>
-    [TerraformPropertyName("approved_patches_enable_non_security")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ApprovedPatchesEnableNonSecurity => new TerraformReference(this, "approved_patches_enable_non_security");
+    [TerraformProperty("approved_patches_enable_non_security")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ApprovedPatchesEnableNonSecurity { get; }
 
     /// <summary>
     /// The available_security_updates_compliance_status attribute.
     /// </summary>
-    [TerraformPropertyName("available_security_updates_compliance_status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AvailableSecurityUpdatesComplianceStatus => new TerraformReference(this, "available_security_updates_compliance_status");
+    [TerraformProperty("available_security_updates_compliance_status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AvailableSecurityUpdatesComplianceStatus { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The global_filter attribute.
     /// </summary>
-    [TerraformPropertyName("global_filter")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> GlobalFilter => new TerraformReference(this, "global_filter");
+    [TerraformProperty("global_filter")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> GlobalFilter { get; }
 
     /// <summary>
     /// The json attribute.
     /// </summary>
-    [TerraformPropertyName("json")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Json => new TerraformReference(this, "json");
+    [TerraformProperty("json")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Json { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The rejected_patches attribute.
     /// </summary>
-    [TerraformPropertyName("rejected_patches")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> RejectedPatches => new TerraformReference(this, "rejected_patches");
+    [TerraformProperty("rejected_patches")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> RejectedPatches { get; }
 
     /// <summary>
     /// The rejected_patches_action attribute.
     /// </summary>
-    [TerraformPropertyName("rejected_patches_action")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RejectedPatchesAction => new TerraformReference(this, "rejected_patches_action");
+    [TerraformProperty("rejected_patches_action")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RejectedPatchesAction { get; }
 
     /// <summary>
     /// The source attribute.
     /// </summary>
-    [TerraformPropertyName("source")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Source => new TerraformReference(this, "source");
+    [TerraformProperty("source")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Source { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Manages a aws_pinpoint_apns_voip_channel resource.
 /// </summary>
-public class AwsPinpointApnsVoipChannel : TerraformResource
+public partial class AwsPinpointApnsVoipChannel : TerraformResource
 {
     public AwsPinpointApnsVoipChannel(string name) : base("aws_pinpoint_apns_voip_channel", name)
     {
@@ -15,78 +15,78 @@ public class AwsPinpointApnsVoipChannel : TerraformResource
     /// The application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ApplicationId is required")]
-    [TerraformPropertyName("application_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("application_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ApplicationId { get; set; }
 
     /// <summary>
     /// The bundle_id attribute.
     /// </summary>
-    [TerraformPropertyName("bundle_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bundle_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BundleId { get; set; }
 
     /// <summary>
     /// The certificate attribute.
     /// </summary>
-    [TerraformPropertyName("certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Certificate { get; set; }
 
     /// <summary>
     /// The default_authentication_method attribute.
     /// </summary>
-    [TerraformPropertyName("default_authentication_method")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_authentication_method")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DefaultAuthenticationMethod { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
-    [TerraformPropertyName("private_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrivateKey { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The team_id attribute.
     /// </summary>
-    [TerraformPropertyName("team_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("team_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TeamId { get; set; }
 
     /// <summary>
     /// The token_key attribute.
     /// </summary>
-    [TerraformPropertyName("token_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("token_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TokenKey { get; set; }
 
     /// <summary>
     /// The token_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("token_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("token_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TokenKeyId { get; set; }
 
 }

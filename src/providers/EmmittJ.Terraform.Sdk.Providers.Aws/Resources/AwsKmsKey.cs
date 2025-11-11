@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsKmsKeyTimeoutsBlock
+public partial class AwsKmsKeyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsKmsKeyTimeoutsBlock
 /// <summary>
 /// Manages a aws_kms_key resource.
 /// </summary>
-public class AwsKmsKey : TerraformResource
+public partial class AwsKmsKey : TerraformResource
 {
     public AwsKmsKey(string name) : base("aws_kms_key", name)
     {
@@ -29,134 +29,134 @@ public class AwsKmsKey : TerraformResource
     /// <summary>
     /// The bypass_policy_lockout_safety_check attribute.
     /// </summary>
-    [TerraformPropertyName("bypass_policy_lockout_safety_check")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bypass_policy_lockout_safety_check")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
 
     /// <summary>
     /// The custom_key_store_id attribute.
     /// </summary>
-    [TerraformPropertyName("custom_key_store_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("custom_key_store_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CustomKeyStoreId { get; set; }
 
     /// <summary>
     /// The customer_master_key_spec attribute.
     /// </summary>
-    [TerraformPropertyName("customer_master_key_spec")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("customer_master_key_spec")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CustomerMasterKeySpec { get; set; }
 
     /// <summary>
     /// The deletion_window_in_days attribute.
     /// </summary>
-    [TerraformPropertyName("deletion_window_in_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deletion_window_in_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? DeletionWindowInDays { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Description { get; set; } = default!;
+    [TerraformProperty("description")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Description { get; set; }
 
     /// <summary>
     /// The enable_key_rotation attribute.
     /// </summary>
-    [TerraformPropertyName("enable_key_rotation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_key_rotation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableKeyRotation { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The is_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("is_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("is_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IsEnabled { get; set; }
 
     /// <summary>
     /// The key_usage attribute.
     /// </summary>
-    [TerraformPropertyName("key_usage")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("key_usage")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KeyUsage { get; set; }
 
     /// <summary>
     /// The multi_region attribute.
     /// </summary>
-    [TerraformPropertyName("multi_region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> MultiRegion { get; set; } = default!;
+    [TerraformProperty("multi_region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> MultiRegion { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    [TerraformPropertyName("policy")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Policy { get; set; } = default!;
+    [TerraformProperty("policy")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Policy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The rotation_period_in_days attribute.
     /// </summary>
-    [TerraformPropertyName("rotation_period_in_days")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> RotationPeriodInDays { get; set; } = default!;
+    [TerraformProperty("rotation_period_in_days")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> RotationPeriodInDays { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The xks_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("xks_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("xks_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? XksKeyId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsKmsKeyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
-    [TerraformPropertyName("key_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KeyId => new TerraformReference(this, "key_id");
+    [TerraformProperty("key_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KeyId { get; }
 
 }

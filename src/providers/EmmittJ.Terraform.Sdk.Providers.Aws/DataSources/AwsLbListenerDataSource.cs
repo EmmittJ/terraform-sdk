@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLbListenerDataSourceTimeoutsBlock
+public partial class AwsLbListenerDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsLbListenerDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a aws_lb_listener.
 /// </summary>
-public class AwsLbListenerDataSource : TerraformDataSource
+public partial class AwsLbListenerDataSource : TerraformDataSource
 {
     public AwsLbListenerDataSource(string name) : base("aws_lb_listener", name)
     {
@@ -29,92 +29,92 @@ public class AwsLbListenerDataSource : TerraformDataSource
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Arn { get; set; } = default!;
+    [TerraformProperty("arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Arn { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The load_balancer_arn attribute.
     /// </summary>
-    [TerraformPropertyName("load_balancer_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LoadBalancerArn { get; set; } = default!;
+    [TerraformProperty("load_balancer_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LoadBalancerArn { get; set; }
 
     /// <summary>
     /// The port attribute.
     /// </summary>
-    [TerraformPropertyName("port")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> Port { get; set; } = default!;
+    [TerraformProperty("port")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsLbListenerDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The alpn_policy attribute.
     /// </summary>
-    [TerraformPropertyName("alpn_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AlpnPolicy => new TerraformReference(this, "alpn_policy");
+    [TerraformProperty("alpn_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AlpnPolicy { get; }
 
     /// <summary>
     /// The certificate_arn attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CertificateArn => new TerraformReference(this, "certificate_arn");
+    [TerraformProperty("certificate_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CertificateArn { get; }
 
     /// <summary>
     /// The default_action attribute.
     /// </summary>
-    [TerraformPropertyName("default_action")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> DefaultAction => new TerraformReference(this, "default_action");
+    [TerraformProperty("default_action")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> DefaultAction { get; }
 
     /// <summary>
     /// The mutual_authentication attribute.
     /// </summary>
-    [TerraformPropertyName("mutual_authentication")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> MutualAuthentication => new TerraformReference(this, "mutual_authentication");
+    [TerraformProperty("mutual_authentication")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> MutualAuthentication { get; }
 
     /// <summary>
     /// The protocol attribute.
     /// </summary>
-    [TerraformPropertyName("protocol")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Protocol => new TerraformReference(this, "protocol");
+    [TerraformProperty("protocol")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Protocol { get; }
 
     /// <summary>
     /// The ssl_policy attribute.
     /// </summary>
-    [TerraformPropertyName("ssl_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SslPolicy => new TerraformReference(this, "ssl_policy");
+    [TerraformProperty("ssl_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SslPolicy { get; }
 
 }

@@ -6,44 +6,44 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for custom_persistent_disk in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudAppCustomPersistentDiskBlock
+public partial class AzurermSpringCloudAppCustomPersistentDiskBlock : TerraformBlockBase
 {
     /// <summary>
     /// The mount_options attribute.
     /// </summary>
-    [TerraformPropertyName("mount_options")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("mount_options")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? MountOptions { get; set; }
 
     /// <summary>
     /// The mount_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MountPath is required")]
-    [TerraformPropertyName("mount_path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("mount_path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MountPath { get; set; }
 
     /// <summary>
     /// The read_only_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("read_only_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read_only_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ReadOnlyEnabled { get; set; }
 
     /// <summary>
     /// The share_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareName is required")]
-    [TerraformPropertyName("share_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("share_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ShareName { get; set; }
 
     /// <summary>
     /// The storage_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageName is required")]
-    [TerraformPropertyName("storage_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageName { get; set; }
 
 }
@@ -52,13 +52,13 @@ public class AzurermSpringCloudAppCustomPersistentDiskBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudAppIdentityBlock
+public partial class AzurermSpringCloudAppIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformPropertyName("identity_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IdentityIds { get; set; }
 
 
@@ -67,8 +67,8 @@ public class AzurermSpringCloudAppIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -77,41 +77,41 @@ public class AzurermSpringCloudAppIdentityBlock
 /// Block type for ingress_settings in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudAppIngressSettingsBlock
+public partial class AzurermSpringCloudAppIngressSettingsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The backend_protocol attribute.
     /// </summary>
-    [TerraformPropertyName("backend_protocol")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("backend_protocol")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BackendProtocol { get; set; }
 
     /// <summary>
     /// The read_timeout_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("read_timeout_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read_timeout_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ReadTimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The send_timeout_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("send_timeout_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("send_timeout_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? SendTimeoutInSeconds { get; set; }
 
     /// <summary>
     /// The session_affinity attribute.
     /// </summary>
-    [TerraformPropertyName("session_affinity")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("session_affinity")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SessionAffinity { get; set; }
 
     /// <summary>
     /// The session_cookie_max_age attribute.
     /// </summary>
-    [TerraformPropertyName("session_cookie_max_age")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("session_cookie_max_age")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? SessionCookieMaxAge { get; set; }
 
 }
@@ -120,21 +120,21 @@ public class AzurermSpringCloudAppIngressSettingsBlock
 /// Block type for persistent_disk in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermSpringCloudAppPersistentDiskBlock
+public partial class AzurermSpringCloudAppPersistentDiskBlock : TerraformBlockBase
 {
     /// <summary>
     /// The mount_path attribute.
     /// </summary>
-    [TerraformPropertyName("mount_path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("mount_path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MountPath { get; set; }
 
     /// <summary>
     /// The size_in_gb attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SizeInGb is required")]
-    [TerraformPropertyName("size_in_gb")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("size_in_gb")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> SizeInGb { get; set; }
 
 }
@@ -143,34 +143,34 @@ public class AzurermSpringCloudAppPersistentDiskBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudAppTimeoutsBlock
+public partial class AzurermSpringCloudAppTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -179,7 +179,7 @@ public class AzurermSpringCloudAppTimeoutsBlock
 /// Manages a azurerm_spring_cloud_app resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermSpringCloudApp : TerraformResource
+public partial class AzurermSpringCloudApp : TerraformResource
 {
     public AzurermSpringCloudApp(string name) : base("azurerm_spring_cloud_app", name)
     {
@@ -188,74 +188,74 @@ public class AzurermSpringCloudApp : TerraformResource
     /// <summary>
     /// The addon_json attribute.
     /// </summary>
-    [TerraformPropertyName("addon_json")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> AddonJson { get; set; } = default!;
+    [TerraformProperty("addon_json")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> AddonJson { get; set; }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    [TerraformPropertyName("https_only")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("https_only")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? HttpsOnly { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The is_public attribute.
     /// </summary>
-    [TerraformPropertyName("is_public")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("is_public")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? IsPublic { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_endpoint_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("public_endpoint_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("public_endpoint_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PublicEndpointEnabled { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
-    [TerraformPropertyName("service_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("tls_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tls_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? TlsEnabled { get; set; }
 
     /// <summary>
     /// Block for custom_persistent_disk.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("custom_persistent_disk")]
+    [TerraformProperty("custom_persistent_disk")]
     public TerraformList<TerraformBlock<AzurermSpringCloudAppCustomPersistentDiskBlock>>? CustomPersistentDisk { get; set; }
 
     /// <summary>
@@ -263,7 +263,7 @@ public class AzurermSpringCloudApp : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermSpringCloudAppIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
@@ -271,7 +271,7 @@ public class AzurermSpringCloudApp : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IngressSettings block(s) allowed")]
-    [TerraformPropertyName("ingress_settings")]
+    [TerraformProperty("ingress_settings")]
     public TerraformList<TerraformBlock<AzurermSpringCloudAppIngressSettingsBlock>>? IngressSettings { get; set; }
 
     /// <summary>
@@ -279,28 +279,28 @@ public class AzurermSpringCloudApp : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PersistentDisk block(s) allowed")]
-    [TerraformPropertyName("persistent_disk")]
+    [TerraformProperty("persistent_disk")]
     public TerraformList<TerraformBlock<AzurermSpringCloudAppPersistentDiskBlock>>? PersistentDisk { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSpringCloudAppTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    [TerraformPropertyName("fqdn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fqdn => new TerraformReference(this, "fqdn");
+    [TerraformProperty("fqdn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fqdn { get; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    [TerraformPropertyName("url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Url => new TerraformReference(this, "url");
+    [TerraformProperty("url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Url { get; }
 
 }

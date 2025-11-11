@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStackHciClusterIdentityBlock
+public partial class AzurermStackHciClusterIdentityBlock : TerraformBlockBase
 {
 
 
@@ -14,8 +14,8 @@ public class AzurermStackHciClusterIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -24,34 +24,34 @@ public class AzurermStackHciClusterIdentityBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStackHciClusterTimeoutsBlock
+public partial class AzurermStackHciClusterTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -60,7 +60,7 @@ public class AzurermStackHciClusterTimeoutsBlock
 /// Manages a azurerm_stack_hci_cluster resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermStackHciCluster : TerraformResource
+public partial class AzurermStackHciCluster : TerraformResource
 {
     public AzurermStackHciCluster(string name) : base("azurerm_stack_hci_cluster", name)
     {
@@ -69,96 +69,96 @@ public class AzurermStackHciCluster : TerraformResource
     /// <summary>
     /// The automanage_configuration_id attribute.
     /// </summary>
-    [TerraformPropertyName("automanage_configuration_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("automanage_configuration_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AutomanageConfigurationId { get; set; }
 
     /// <summary>
     /// The client_id attribute.
     /// </summary>
-    [TerraformPropertyName("client_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("client_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClientId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tenant_id attribute.
     /// </summary>
-    [TerraformPropertyName("tenant_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> TenantId { get; set; } = default!;
+    [TerraformProperty("tenant_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> TenantId { get; set; }
 
     /// <summary>
     /// Block for identity.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermStackHciClusterIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermStackHciClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The cloud_id attribute.
     /// </summary>
-    [TerraformPropertyName("cloud_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CloudId => new TerraformReference(this, "cloud_id");
+    [TerraformProperty("cloud_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CloudId { get; }
 
     /// <summary>
     /// The resource_provider_object_id attribute.
     /// </summary>
-    [TerraformPropertyName("resource_provider_object_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ResourceProviderObjectId => new TerraformReference(this, "resource_provider_object_id");
+    [TerraformProperty("resource_provider_object_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ResourceProviderObjectId { get; }
 
     /// <summary>
     /// The service_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("service_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServiceEndpoint => new TerraformReference(this, "service_endpoint");
+    [TerraformProperty("service_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServiceEndpoint { get; }
 
 }

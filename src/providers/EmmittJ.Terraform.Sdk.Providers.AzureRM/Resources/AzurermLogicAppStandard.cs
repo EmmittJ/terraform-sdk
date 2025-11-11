@@ -6,30 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for connection_string in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermLogicAppStandardConnectionStringBlock
+public partial class AzurermLogicAppStandardConnectionStringBlock : TerraformBlockBase
 {
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -38,13 +38,13 @@ public class AzurermLogicAppStandardConnectionStringBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLogicAppStandardIdentityBlock
+public partial class AzurermLogicAppStandardIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformPropertyName("identity_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IdentityIds { get; set; }
 
 
@@ -53,8 +53,8 @@ public class AzurermLogicAppStandardIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -63,134 +63,134 @@ public class AzurermLogicAppStandardIdentityBlock
 /// Block type for site_config in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermLogicAppStandardSiteConfigBlock
+public partial class AzurermLogicAppStandardSiteConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The always_on attribute.
     /// </summary>
-    [TerraformPropertyName("always_on")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("always_on")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AlwaysOn { get; set; }
 
     /// <summary>
     /// The app_scale_limit attribute.
     /// </summary>
-    [TerraformPropertyName("app_scale_limit")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> AppScaleLimit { get; set; } = default!;
+    [TerraformProperty("app_scale_limit")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> AppScaleLimit { get; set; }
 
 
     /// <summary>
     /// The dotnet_framework_version attribute.
     /// </summary>
-    [TerraformPropertyName("dotnet_framework_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dotnet_framework_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DotnetFrameworkVersion { get; set; }
 
     /// <summary>
     /// The elastic_instance_minimum attribute.
     /// </summary>
-    [TerraformPropertyName("elastic_instance_minimum")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> ElasticInstanceMinimum { get; set; } = default!;
+    [TerraformProperty("elastic_instance_minimum")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> ElasticInstanceMinimum { get; set; }
 
     /// <summary>
     /// The ftps_state attribute.
     /// </summary>
-    [TerraformPropertyName("ftps_state")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> FtpsState { get; set; } = default!;
+    [TerraformProperty("ftps_state")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> FtpsState { get; set; }
 
     /// <summary>
     /// The health_check_path attribute.
     /// </summary>
-    [TerraformPropertyName("health_check_path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("health_check_path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? HealthCheckPath { get; set; }
 
     /// <summary>
     /// The http2_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("http2_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("http2_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Http2Enabled { get; set; }
 
     /// <summary>
     /// The linux_fx_version attribute.
     /// </summary>
-    [TerraformPropertyName("linux_fx_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LinuxFxVersion { get; set; } = default!;
+    [TerraformProperty("linux_fx_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LinuxFxVersion { get; set; }
 
     /// <summary>
     /// The min_tls_version attribute.
     /// </summary>
-    [TerraformPropertyName("min_tls_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> MinTlsVersion { get; set; } = default!;
+    [TerraformProperty("min_tls_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> MinTlsVersion { get; set; }
 
     /// <summary>
     /// The pre_warmed_instance_count attribute.
     /// </summary>
-    [TerraformPropertyName("pre_warmed_instance_count")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> PreWarmedInstanceCount { get; set; } = default!;
+    [TerraformProperty("pre_warmed_instance_count")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> PreWarmedInstanceCount { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("public_network_access_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> PublicNetworkAccessEnabled { get; set; } = default!;
+    [TerraformProperty("public_network_access_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The runtime_scale_monitoring_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("runtime_scale_monitoring_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("runtime_scale_monitoring_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? RuntimeScaleMonitoringEnabled { get; set; }
 
     /// <summary>
     /// The scm_min_tls_version attribute.
     /// </summary>
-    [TerraformPropertyName("scm_min_tls_version")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ScmMinTlsVersion { get; set; } = default!;
+    [TerraformProperty("scm_min_tls_version")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ScmMinTlsVersion { get; set; }
 
     /// <summary>
     /// The scm_type attribute.
     /// </summary>
-    [TerraformPropertyName("scm_type")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ScmType { get; set; } = default!;
+    [TerraformProperty("scm_type")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ScmType { get; set; }
 
     /// <summary>
     /// The scm_use_main_ip_restriction attribute.
     /// </summary>
-    [TerraformPropertyName("scm_use_main_ip_restriction")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("scm_use_main_ip_restriction")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ScmUseMainIpRestriction { get; set; }
 
     /// <summary>
     /// The use_32_bit_worker_process attribute.
     /// </summary>
-    [TerraformPropertyName("use_32_bit_worker_process")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("use_32_bit_worker_process")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Use32BitWorkerProcess { get; set; }
 
     /// <summary>
     /// The vnet_route_all_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("vnet_route_all_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> VnetRouteAllEnabled { get; set; } = default!;
+    [TerraformProperty("vnet_route_all_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> VnetRouteAllEnabled { get; set; }
 
     /// <summary>
     /// The websockets_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("websockets_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("websockets_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? WebsocketsEnabled { get; set; }
 
 }
@@ -199,34 +199,34 @@ public class AzurermLogicAppStandardSiteConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermLogicAppStandardTimeoutsBlock
+public partial class AzurermLogicAppStandardTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -235,7 +235,7 @@ public class AzurermLogicAppStandardTimeoutsBlock
 /// Manages a azurerm_logic_app_standard resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermLogicAppStandard : TerraformResource
+public partial class AzurermLogicAppStandard : TerraformResource
 {
     public AzurermLogicAppStandard(string name) : base("azurerm_logic_app_standard", name)
     {
@@ -245,167 +245,167 @@ public class AzurermLogicAppStandard : TerraformResource
     /// The app_service_plan_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AppServicePlanId is required")]
-    [TerraformPropertyName("app_service_plan_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("app_service_plan_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AppServicePlanId { get; set; }
 
     /// <summary>
     /// The app_settings attribute.
     /// </summary>
-    [TerraformPropertyName("app_settings")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> AppSettings { get; set; } = default!;
+    [TerraformProperty("app_settings")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> AppSettings { get; set; }
 
     /// <summary>
     /// The bundle_version attribute.
     /// </summary>
-    [TerraformPropertyName("bundle_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bundle_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BundleVersion { get; set; }
 
     /// <summary>
     /// The client_affinity_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("client_affinity_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> ClientAffinityEnabled { get; set; } = default!;
+    [TerraformProperty("client_affinity_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> ClientAffinityEnabled { get; set; }
 
     /// <summary>
     /// The client_certificate_mode attribute.
     /// </summary>
-    [TerraformPropertyName("client_certificate_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("client_certificate_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ClientCertificateMode { get; set; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Enabled { get; set; }
 
     /// <summary>
     /// The ftp_publish_basic_authentication_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("ftp_publish_basic_authentication_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ftp_publish_basic_authentication_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? FtpPublishBasicAuthenticationEnabled { get; set; }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    [TerraformPropertyName("https_only")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("https_only")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? HttpsOnly { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_access attribute.
     /// </summary>
-    [TerraformPropertyName("public_network_access")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> PublicNetworkAccess { get; set; } = default!;
+    [TerraformProperty("public_network_access")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> PublicNetworkAccess { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The scm_publish_basic_authentication_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("scm_publish_basic_authentication_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("scm_publish_basic_authentication_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ScmPublishBasicAuthenticationEnabled { get; set; }
 
     /// <summary>
     /// The storage_account_access_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountAccessKey is required")]
-    [TerraformPropertyName("storage_account_access_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_account_access_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageAccountAccessKey { get; set; }
 
     /// <summary>
     /// The storage_account_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountName is required")]
-    [TerraformPropertyName("storage_account_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_account_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageAccountName { get; set; }
 
     /// <summary>
     /// The storage_account_share_name attribute.
     /// </summary>
-    [TerraformPropertyName("storage_account_share_name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> StorageAccountShareName { get; set; } = default!;
+    [TerraformProperty("storage_account_share_name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> StorageAccountShareName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The use_extension_bundle attribute.
     /// </summary>
-    [TerraformPropertyName("use_extension_bundle")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("use_extension_bundle")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? UseExtensionBundle { get; set; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Version { get; set; }
 
     /// <summary>
     /// The virtual_network_subnet_id attribute.
     /// </summary>
-    [TerraformPropertyName("virtual_network_subnet_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("virtual_network_subnet_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VirtualNetworkSubnetId { get; set; }
 
     /// <summary>
     /// The vnet_content_share_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("vnet_content_share_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("vnet_content_share_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? VnetContentShareEnabled { get; set; }
 
     /// <summary>
     /// Block for connection_string.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("connection_string")]
+    [TerraformProperty("connection_string")]
     public TerraformSet<TerraformBlock<AzurermLogicAppStandardConnectionStringBlock>>? ConnectionString { get; set; }
 
     /// <summary>
@@ -413,7 +413,7 @@ public class AzurermLogicAppStandard : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermLogicAppStandardIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
@@ -421,56 +421,56 @@ public class AzurermLogicAppStandard : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SiteConfig block(s) allowed")]
-    [TerraformPropertyName("site_config")]
+    [TerraformProperty("site_config")]
     public TerraformList<TerraformBlock<AzurermLogicAppStandardSiteConfigBlock>>? SiteConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermLogicAppStandardTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The custom_domain_verification_id attribute.
     /// </summary>
-    [TerraformPropertyName("custom_domain_verification_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CustomDomainVerificationId => new TerraformReference(this, "custom_domain_verification_id");
+    [TerraformProperty("custom_domain_verification_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CustomDomainVerificationId { get; }
 
     /// <summary>
     /// The default_hostname attribute.
     /// </summary>
-    [TerraformPropertyName("default_hostname")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DefaultHostname => new TerraformReference(this, "default_hostname");
+    [TerraformProperty("default_hostname")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DefaultHostname { get; }
 
     /// <summary>
     /// The kind attribute.
     /// </summary>
-    [TerraformPropertyName("kind")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Kind => new TerraformReference(this, "kind");
+    [TerraformProperty("kind")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Kind { get; }
 
     /// <summary>
     /// The outbound_ip_addresses attribute.
     /// </summary>
-    [TerraformPropertyName("outbound_ip_addresses")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OutboundIpAddresses => new TerraformReference(this, "outbound_ip_addresses");
+    [TerraformProperty("outbound_ip_addresses")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OutboundIpAddresses { get; }
 
     /// <summary>
     /// The possible_outbound_ip_addresses attribute.
     /// </summary>
-    [TerraformPropertyName("possible_outbound_ip_addresses")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PossibleOutboundIpAddresses => new TerraformReference(this, "possible_outbound_ip_addresses");
+    [TerraformProperty("possible_outbound_ip_addresses")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PossibleOutboundIpAddresses { get; }
 
     /// <summary>
     /// The site_credential attribute.
     /// </summary>
-    [TerraformPropertyName("site_credential")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> SiteCredential => new TerraformReference(this, "site_credential");
+    [TerraformProperty("site_credential")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> SiteCredential { get; }
 
 }

@@ -7,7 +7,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Nesting mode: list
 /// </summary>
 [Obsolete("This block is deprecated.")]
-public class GoogleHealthcareFhirStoreNotificationConfigBlock
+public partial class GoogleHealthcareFhirStoreNotificationConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The Cloud Pub/Sub topic that notifications of changes are published on. Supplied by the client.
@@ -18,8 +18,8 @@ public class GoogleHealthcareFhirStoreNotificationConfigBlock
     /// Cloud Pub/Sub topic. Not having adequate permissions will cause the calls that send notifications to fail.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
-    [TerraformPropertyName("pubsub_topic")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("pubsub_topic")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PubsubTopic { get; set; }
 
 }
@@ -28,7 +28,7 @@ public class GoogleHealthcareFhirStoreNotificationConfigBlock
 /// Block type for notification_configs in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleHealthcareFhirStoreNotificationConfigsBlock
+public partial class GoogleHealthcareFhirStoreNotificationConfigsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The Cloud Pub/Sub topic that notifications of changes are published on. Supplied by the client.
@@ -39,8 +39,8 @@ public class GoogleHealthcareFhirStoreNotificationConfigsBlock
     /// Cloud Pub/Sub topic. Not having adequate permissions will cause the calls that send notifications to fail.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PubsubTopic is required")]
-    [TerraformPropertyName("pubsub_topic")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("pubsub_topic")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PubsubTopic { get; set; }
 
     /// <summary>
@@ -50,8 +50,8 @@ public class GoogleHealthcareFhirStoreNotificationConfigsBlock
     /// sent. Clients should always check the &amp;quot;payloadType&amp;quot; label from a Pub/Sub message to determine whether
     /// it needs to fetch the full resource as a separate operation.
     /// </summary>
-    [TerraformPropertyName("send_full_resource")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("send_full_resource")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SendFullResource { get; set; }
 
     /// <summary>
@@ -61,8 +61,8 @@ public class GoogleHealthcareFhirStoreNotificationConfigsBlock
     /// check the &amp;quot;payloadType&amp;quot; label from a Pub/Sub message to determine whether it needs to fetch the full previous
     /// resource as a separate operation.
     /// </summary>
-    [TerraformPropertyName("send_previous_resource_on_delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("send_previous_resource_on_delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SendPreviousResourceOnDelete { get; set; }
 
 }
@@ -71,15 +71,15 @@ public class GoogleHealthcareFhirStoreNotificationConfigsBlock
 /// Block type for stream_configs in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleHealthcareFhirStoreStreamConfigsBlock
+public partial class GoogleHealthcareFhirStoreStreamConfigsBlock : TerraformBlockBase
 {
     /// <summary>
     /// Supply a FHIR resource type (such as &amp;quot;Patient&amp;quot; or &amp;quot;Observation&amp;quot;). See
     /// https://www.hl7.org/fhir/valueset-resource-types.html for a list of all FHIR resource types. The server treats
     /// an empty list as an intent to stream all the supported resource types in this FHIR store.
     /// </summary>
-    [TerraformPropertyName("resource_types")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("resource_types")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? ResourceTypes { get; set; }
 
 }
@@ -88,27 +88,27 @@ public class GoogleHealthcareFhirStoreStreamConfigsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleHealthcareFhirStoreTimeoutsBlock
+public partial class GoogleHealthcareFhirStoreTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -117,34 +117,34 @@ public class GoogleHealthcareFhirStoreTimeoutsBlock
 /// Block type for validation_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleHealthcareFhirStoreValidationConfigBlock
+public partial class GoogleHealthcareFhirStoreValidationConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Whether to disable FHIRPath validation for incoming resources. The default value is false. Set this to true to disable checking incoming resources for conformance against FHIRPath requirement defined in the FHIR specification. This property only affects resource types that do not have profiles configured for them, any rules in enabled implementation guides will still be enforced.
     /// </summary>
-    [TerraformPropertyName("disable_fhirpath_validation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disable_fhirpath_validation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DisableFhirpathValidation { get; set; }
 
     /// <summary>
     /// Whether to disable profile validation for this FHIR store. The default value is false. Set this to true to disable checking incoming resources for conformance against structure definitions in this FHIR store.
     /// </summary>
-    [TerraformPropertyName("disable_profile_validation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disable_profile_validation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DisableProfileValidation { get; set; }
 
     /// <summary>
     /// Whether to disable reference type validation for incoming resources. The default value is false. Set this to true to disable checking incoming resources for conformance against reference type requirement defined in the FHIR specification. This property only affects resource types that do not have profiles configured for them, any rules in enabled implementation guides will still be enforced.
     /// </summary>
-    [TerraformPropertyName("disable_reference_type_validation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disable_reference_type_validation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DisableReferenceTypeValidation { get; set; }
 
     /// <summary>
     /// Whether to disable required fields validation for incoming resources. The default value is false. Set this to true to disable checking incoming resources for conformance against required fields requirement defined in the FHIR specification. This property only affects resource types that do not have profiles configured for them, any rules in enabled implementation guides will still be enforced.
     /// </summary>
-    [TerraformPropertyName("disable_required_field_validation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disable_required_field_validation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DisableRequiredFieldValidation { get; set; }
 
     /// <summary>
@@ -160,8 +160,8 @@ public class GoogleHealthcareFhirStoreValidationConfigBlock
     /// - pattern[x] on simple types
     /// - slicing, when using &amp;quot;value&amp;quot; as the discriminator type
     /// </summary>
-    [TerraformPropertyName("enabled_implementation_guides")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enabled_implementation_guides")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? EnabledImplementationGuides { get; set; }
 
 }
@@ -170,7 +170,7 @@ public class GoogleHealthcareFhirStoreValidationConfigBlock
 /// Manages a google_healthcare_fhir_store resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleHealthcareFhirStore : TerraformResource
+public partial class GoogleHealthcareFhirStore : TerraformResource
 {
     public GoogleHealthcareFhirStore(string name) : base("google_healthcare_fhir_store", name)
     {
@@ -179,17 +179,17 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// <summary>
     /// Enable parsing of references within complex FHIR data types such as Extensions. If this value is set to ENABLED, then features like referential integrity and Bundle reference rewriting apply to all references. If this flag has not been specified the behavior of the FHIR store will not change, references in complex data types will not be parsed. New stores will have this value set to ENABLED by default after a notification period. Warning: turning on this flag causes processing existing resources to fail if they contain references to non-existent resources. Possible values: [&amp;quot;COMPLEX_DATA_TYPE_REFERENCE_PARSING_UNSPECIFIED&amp;quot;, &amp;quot;DISABLED&amp;quot;, &amp;quot;ENABLED&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("complex_data_type_reference_parsing")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ComplexDataTypeReferenceParsing { get; set; } = default!;
+    [TerraformProperty("complex_data_type_reference_parsing")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ComplexDataTypeReferenceParsing { get; set; }
 
     /// <summary>
     /// Identifies the dataset addressed by this request. Must be in the format
     /// &#39;projects/{project}/locations/{location}/datasets/{dataset}&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Dataset is required")]
-    [TerraformPropertyName("dataset")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("dataset")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Dataset { get; set; }
 
     /// <summary>
@@ -197,8 +197,8 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// If false, uses the FHIR specification default handling=lenient which ignores unrecognized search parameters.
     /// The handling can always be changed from the default on an individual API call by setting the HTTP header Prefer: handling=strict or Prefer: handling=lenient.
     /// </summary>
-    [TerraformPropertyName("default_search_handling_strict")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("default_search_handling_strict")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DefaultSearchHandlingStrict { get; set; }
 
     /// <summary>
@@ -210,8 +210,8 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// 
     /// ** Changing this property may recreate the FHIR store (removing all data) **
     /// </summary>
-    [TerraformPropertyName("disable_referential_integrity")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disable_referential_integrity")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DisableReferentialIntegrity { get; set; }
 
     /// <summary>
@@ -223,8 +223,8 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// 
     /// ** Changing this property may recreate the FHIR store (removing all data) **
     /// </summary>
-    [TerraformPropertyName("disable_resource_versioning")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disable_resource_versioning")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DisableResourceVersioning { get; set; }
 
     /// <summary>
@@ -237,8 +237,8 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// 
     /// ** This property can be changed manually in the Google Cloud Healthcare admin console without recreating the FHIR store **
     /// </summary>
-    [TerraformPropertyName("enable_history_import")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_history_import")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableHistoryImport { get; set; }
 
     /// <summary>
@@ -249,16 +249,16 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// identifiers, those IDs will be part of the FHIR resource path recorded in Cloud audit logs and Cloud Pub/Sub
     /// notifications.
     /// </summary>
-    [TerraformPropertyName("enable_update_create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_update_create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableUpdateCreate { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// User-supplied key-value pairs used to organize FHIR stores.
@@ -278,8 +278,8 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
@@ -288,16 +288,16 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// ** Changing this property may recreate the FHIR store (removing all data) **
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The FHIR specification version. Possible values: [&amp;quot;DSTU2&amp;quot;, &amp;quot;STU3&amp;quot;, &amp;quot;R4&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Version is required")]
-    [TerraformPropertyName("version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Version { get; set; }
 
     /// <summary>
@@ -306,28 +306,28 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NotificationConfig block(s) allowed")]
     [Obsolete("This block is deprecated.")]
-    [TerraformPropertyName("notification_config")]
+    [TerraformProperty("notification_config")]
     public TerraformList<TerraformBlock<GoogleHealthcareFhirStoreNotificationConfigBlock>>? NotificationConfig { get; set; }
 
     /// <summary>
     /// Block for notification_configs.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("notification_configs")]
+    [TerraformProperty("notification_configs")]
     public TerraformList<TerraformBlock<GoogleHealthcareFhirStoreNotificationConfigsBlock>>? NotificationConfigs { get; set; }
 
     /// <summary>
     /// Block for stream_configs.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("stream_configs")]
+    [TerraformProperty("stream_configs")]
     public TerraformList<TerraformBlock<GoogleHealthcareFhirStoreStreamConfigsBlock>>? StreamConfigs { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleHealthcareFhirStoreTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -335,29 +335,29 @@ public class GoogleHealthcareFhirStore : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ValidationConfig block(s) allowed")]
-    [TerraformPropertyName("validation_config")]
+    [TerraformProperty("validation_config")]
     public TerraformList<TerraformBlock<GoogleHealthcareFhirStoreValidationConfigBlock>>? ValidationConfig { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The fully qualified name of this dataset
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

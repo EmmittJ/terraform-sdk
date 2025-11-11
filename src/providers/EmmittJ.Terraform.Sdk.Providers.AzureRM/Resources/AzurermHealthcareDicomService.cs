@@ -6,41 +6,41 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for cors in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHealthcareDicomServiceCorsBlock
+public partial class AzurermHealthcareDicomServiceCorsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The allow_credentials attribute.
     /// </summary>
-    [TerraformPropertyName("allow_credentials")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allow_credentials")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AllowCredentials { get; set; }
 
     /// <summary>
     /// The allowed_headers attribute.
     /// </summary>
-    [TerraformPropertyName("allowed_headers")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allowed_headers")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? AllowedHeaders { get; set; }
 
     /// <summary>
     /// The allowed_methods attribute.
     /// </summary>
-    [TerraformPropertyName("allowed_methods")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allowed_methods")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? AllowedMethods { get; set; }
 
     /// <summary>
     /// The allowed_origins attribute.
     /// </summary>
-    [TerraformPropertyName("allowed_origins")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("allowed_origins")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? AllowedOrigins { get; set; }
 
     /// <summary>
     /// The max_age_in_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("max_age_in_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_age_in_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxAgeInSeconds { get; set; }
 
 }
@@ -49,13 +49,13 @@ public class AzurermHealthcareDicomServiceCorsBlock
 /// Block type for identity in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHealthcareDicomServiceIdentityBlock
+public partial class AzurermHealthcareDicomServiceIdentityBlock : TerraformBlockBase
 {
     /// <summary>
     /// The identity_ids attribute.
     /// </summary>
-    [TerraformPropertyName("identity_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("identity_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? IdentityIds { get; set; }
 
 
@@ -64,8 +64,8 @@ public class AzurermHealthcareDicomServiceIdentityBlock
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -74,22 +74,22 @@ public class AzurermHealthcareDicomServiceIdentityBlock
 /// Block type for storage in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermHealthcareDicomServiceStorageBlock
+public partial class AzurermHealthcareDicomServiceStorageBlock : TerraformBlockBase
 {
     /// <summary>
     /// The file_system_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileSystemName is required")]
-    [TerraformPropertyName("file_system_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("file_system_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FileSystemName { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformPropertyName("storage_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageAccountId { get; set; }
 
 }
@@ -98,34 +98,34 @@ public class AzurermHealthcareDicomServiceStorageBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermHealthcareDicomServiceTimeoutsBlock
+public partial class AzurermHealthcareDicomServiceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -134,7 +134,7 @@ public class AzurermHealthcareDicomServiceTimeoutsBlock
 /// Manages a azurerm_healthcare_dicom_service resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermHealthcareDicomService : TerraformResource
+public partial class AzurermHealthcareDicomService : TerraformResource
 {
     public AzurermHealthcareDicomService(string name) : base("azurerm_healthcare_dicom_service", name)
     {
@@ -143,60 +143,60 @@ public class AzurermHealthcareDicomService : TerraformResource
     /// <summary>
     /// The data_partitions_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("data_partitions_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("data_partitions_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DataPartitionsEnabled { get; set; }
 
     /// <summary>
     /// The encryption_key_url attribute.
     /// </summary>
-    [TerraformPropertyName("encryption_key_url")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("encryption_key_url")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EncryptionKeyUrl { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The public_network_access_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("public_network_access_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("public_network_access_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PublicNetworkAccessEnabled { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformPropertyName("workspace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("workspace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
@@ -204,7 +204,7 @@ public class AzurermHealthcareDicomService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cors block(s) allowed")]
-    [TerraformPropertyName("cors")]
+    [TerraformProperty("cors")]
     public TerraformList<TerraformBlock<AzurermHealthcareDicomServiceCorsBlock>>? Cors { get; set; }
 
     /// <summary>
@@ -212,7 +212,7 @@ public class AzurermHealthcareDicomService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Identity block(s) allowed")]
-    [TerraformPropertyName("identity")]
+    [TerraformProperty("identity")]
     public TerraformList<TerraformBlock<AzurermHealthcareDicomServiceIdentityBlock>>? Identity { get; set; }
 
     /// <summary>
@@ -220,35 +220,35 @@ public class AzurermHealthcareDicomService : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
-    [TerraformPropertyName("storage")]
+    [TerraformProperty("storage")]
     public TerraformList<TerraformBlock<AzurermHealthcareDicomServiceStorageBlock>>? Storage { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermHealthcareDicomServiceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The authentication attribute.
     /// </summary>
-    [TerraformPropertyName("authentication")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Authentication => new TerraformReference(this, "authentication");
+    [TerraformProperty("authentication")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Authentication { get; }
 
     /// <summary>
     /// The private_endpoint attribute.
     /// </summary>
-    [TerraformPropertyName("private_endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> PrivateEndpoint => new TerraformReference(this, "private_endpoint");
+    [TerraformProperty("private_endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> PrivateEndpoint { get; }
 
     /// <summary>
     /// The service_url attribute.
     /// </summary>
-    [TerraformPropertyName("service_url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ServiceUrl => new TerraformReference(this, "service_url");
+    [TerraformProperty("service_url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ServiceUrl { get; }
 
 }

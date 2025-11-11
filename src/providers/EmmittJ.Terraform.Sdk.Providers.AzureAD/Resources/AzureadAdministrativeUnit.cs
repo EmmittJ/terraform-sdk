@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadAdministrativeUnitTimeoutsBlock
+public partial class AzureadAdministrativeUnitTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzureadAdministrativeUnitTimeoutsBlock
 /// <summary>
 /// Manages a azuread_administrative_unit resource.
 /// </summary>
-public class AzureadAdministrativeUnit : TerraformResource
+public partial class AzureadAdministrativeUnit : TerraformResource
 {
     public AzureadAdministrativeUnit(string name) : base("azuread_administrative_unit", name)
     {
@@ -50,58 +50,58 @@ public class AzureadAdministrativeUnit : TerraformResource
     /// <summary>
     /// The description for the administrative unit
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The display name for the administrative unit
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// Whether the administrative unit and its members are hidden or publicly viewable in the directory
     /// </summary>
-    [TerraformPropertyName("hidden_membership_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("hidden_membership_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? HiddenMembershipEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A set of object IDs of members who should be present in this administrative unit. Supported object types are Users or Groups
     /// </summary>
-    [TerraformPropertyName("members")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformSet<string> Members { get; set; } = default!;
+    [TerraformProperty("members")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformSet<string> Members { get; set; }
 
     /// <summary>
     /// If `true`, will return an error if an existing administrative unit is found with the same name
     /// </summary>
-    [TerraformPropertyName("prevent_duplicate_names")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("prevent_duplicate_names")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PreventDuplicateNames { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadAdministrativeUnitTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The object ID of the administrative unit
     /// </summary>
-    [TerraformPropertyName("object_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ObjectId => new TerraformReference(this, "object_id");
+    [TerraformProperty("object_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ObjectId { get; }
 
 }

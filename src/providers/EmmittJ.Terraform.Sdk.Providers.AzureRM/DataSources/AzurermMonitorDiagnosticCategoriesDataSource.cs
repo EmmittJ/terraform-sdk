@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermMonitorDiagnosticCategoriesDataSourceTimeoutsBlock
+public partial class AzurermMonitorDiagnosticCategoriesDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermMonitorDiagnosticCategoriesDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_monitor_diagnostic_categories.
 /// </summary>
-public class AzurermMonitorDiagnosticCategoriesDataSource : TerraformDataSource
+public partial class AzurermMonitorDiagnosticCategoriesDataSource : TerraformDataSource
 {
     public AzurermMonitorDiagnosticCategoriesDataSource(string name) : base("azurerm_monitor_diagnostic_categories", name)
     {
@@ -29,44 +29,44 @@ public class AzurermMonitorDiagnosticCategoriesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceId is required")]
-    [TerraformPropertyName("resource_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermMonitorDiagnosticCategoriesDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The log_category_groups attribute.
     /// </summary>
-    [TerraformPropertyName("log_category_groups")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> LogCategoryGroups => new TerraformReference(this, "log_category_groups");
+    [TerraformProperty("log_category_groups")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> LogCategoryGroups { get; }
 
     /// <summary>
     /// The log_category_types attribute.
     /// </summary>
-    [TerraformPropertyName("log_category_types")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> LogCategoryTypes => new TerraformReference(this, "log_category_types");
+    [TerraformProperty("log_category_types")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> LogCategoryTypes { get; }
 
     /// <summary>
     /// The metrics attribute.
     /// </summary>
-    [TerraformPropertyName("metrics")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> Metrics => new TerraformReference(this, "metrics");
+    [TerraformProperty("metrics")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> Metrics { get; }
 
 }

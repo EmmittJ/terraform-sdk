@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSpringCloudAppDataSourceTimeoutsBlock
+public partial class AzurermSpringCloudAppDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermSpringCloudAppDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_spring_cloud_app.
 /// </summary>
-public class AzurermSpringCloudAppDataSource : TerraformDataSource
+public partial class AzurermSpringCloudAppDataSource : TerraformDataSource
 {
     public AzurermSpringCloudAppDataSource(string name) : base("azurerm_spring_cloud_app", name)
     {
@@ -29,88 +29,88 @@ public class AzurermSpringCloudAppDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The service_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ServiceName is required")]
-    [TerraformPropertyName("service_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ServiceName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSpringCloudAppDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The fqdn attribute.
     /// </summary>
-    [TerraformPropertyName("fqdn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Fqdn => new TerraformReference(this, "fqdn");
+    [TerraformProperty("fqdn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Fqdn { get; }
 
     /// <summary>
     /// The https_only attribute.
     /// </summary>
-    [TerraformPropertyName("https_only")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> HttpsOnly => new TerraformReference(this, "https_only");
+    [TerraformProperty("https_only")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> HttpsOnly { get; }
 
     /// <summary>
     /// The identity attribute.
     /// </summary>
-    [TerraformPropertyName("identity")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Identity => new TerraformReference(this, "identity");
+    [TerraformProperty("identity")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Identity { get; }
 
     /// <summary>
     /// The is_public attribute.
     /// </summary>
-    [TerraformPropertyName("is_public")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> IsPublic => new TerraformReference(this, "is_public");
+    [TerraformProperty("is_public")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> IsPublic { get; }
 
     /// <summary>
     /// The persistent_disk attribute.
     /// </summary>
-    [TerraformPropertyName("persistent_disk")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PersistentDisk => new TerraformReference(this, "persistent_disk");
+    [TerraformProperty("persistent_disk")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PersistentDisk { get; }
 
     /// <summary>
     /// The tls_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("tls_enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> TlsEnabled => new TerraformReference(this, "tls_enabled");
+    [TerraformProperty("tls_enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> TlsEnabled { get; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    [TerraformPropertyName("url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Url => new TerraformReference(this, "url");
+    [TerraformProperty("url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Url { get; }
 
 }

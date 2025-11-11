@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsConnectVocabularyTimeoutsBlock
+public partial class AwsConnectVocabularyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class AwsConnectVocabularyTimeoutsBlock
 /// <summary>
 /// Manages a aws_connect_vocabulary resource.
 /// </summary>
-public class AwsConnectVocabulary : TerraformResource
+public partial class AwsConnectVocabulary : TerraformResource
 {
     public AwsConnectVocabulary(string name) : base("aws_connect_vocabulary", name)
     {
@@ -37,102 +37,102 @@ public class AwsConnectVocabulary : TerraformResource
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    [TerraformPropertyName("content")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("content")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Content { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InstanceId is required")]
-    [TerraformPropertyName("instance_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InstanceId { get; set; }
 
     /// <summary>
     /// The language_code attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LanguageCode is required")]
-    [TerraformPropertyName("language_code")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("language_code")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> LanguageCode { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsConnectVocabularyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The failure_reason attribute.
     /// </summary>
-    [TerraformPropertyName("failure_reason")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> FailureReason => new TerraformReference(this, "failure_reason");
+    [TerraformProperty("failure_reason")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> FailureReason { get; }
 
     /// <summary>
     /// The last_modified_time attribute.
     /// </summary>
-    [TerraformPropertyName("last_modified_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastModifiedTime => new TerraformReference(this, "last_modified_time");
+    [TerraformProperty("last_modified_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastModifiedTime { get; }
 
     /// <summary>
     /// The state attribute.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The vocabulary_id attribute.
     /// </summary>
-    [TerraformPropertyName("vocabulary_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VocabularyId => new TerraformReference(this, "vocabulary_id");
+    [TerraformProperty("vocabulary_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VocabularyId { get; }
 
 }

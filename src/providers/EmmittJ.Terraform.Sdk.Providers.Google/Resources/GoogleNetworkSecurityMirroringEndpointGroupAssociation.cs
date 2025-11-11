@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleNetworkSecurityMirroringEndpointGroupAssociationTimeoutsBlock
+public partial class GoogleNetworkSecurityMirroringEndpointGroupAssociationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleNetworkSecurityMirroringEndpointGroupAssociationTimeoutsBlock
 /// <summary>
 /// Manages a google_network_security_mirroring_endpoint_group_association resource.
 /// </summary>
-public class GoogleNetworkSecurityMirroringEndpointGroupAssociation : TerraformResource
+public partial class GoogleNetworkSecurityMirroringEndpointGroupAssociation : TerraformResource
 {
     public GoogleNetworkSecurityMirroringEndpointGroupAssociation(string name) : base("google_network_security_mirroring_endpoint_group_association", name)
     {
@@ -43,9 +43,9 @@ public class GoogleNetworkSecurityMirroringEndpointGroupAssociation : TerraformR
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Labels are key/value pairs that help to organize and filter resources.
@@ -53,16 +53,16 @@ public class GoogleNetworkSecurityMirroringEndpointGroupAssociation : TerraformR
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The cloud location of the association, currently restricted to &#39;global&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
@@ -71,8 +71,8 @@ public class GoogleNetworkSecurityMirroringEndpointGroupAssociation : TerraformR
     /// See https://google.aip.dev/124.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MirroringEndpointGroup is required")]
-    [TerraformPropertyName("mirroring_endpoint_group")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("mirroring_endpoint_group")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> MirroringEndpointGroup { get; set; }
 
     /// <summary>
@@ -80,8 +80,8 @@ public class GoogleNetworkSecurityMirroringEndpointGroupAssociation : TerraformR
     /// component of the endpoint group&#39;s resource name. If not provided, the
     /// server will generate a unique ID.
     /// </summary>
-    [TerraformPropertyName("mirroring_endpoint_group_association_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("mirroring_endpoint_group_association_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MirroringEndpointGroupAssociationId { get; set; }
 
     /// <summary>
@@ -90,64 +90,64 @@ public class GoogleNetworkSecurityMirroringEndpointGroupAssociation : TerraformR
     /// See https://google.aip.dev/124.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
-    [TerraformPropertyName("network")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleNetworkSecurityMirroringEndpointGroupAssociationTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The timestamp when the resource was created.
     /// See https://google.aip.dev/148#timestamps.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The list of locations where the association is configured. This information
     /// is retrieved from the linked endpoint group.
     /// </summary>
-    [TerraformPropertyName("locations")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<object> Locations => new TerraformReference(this, "locations");
+    [TerraformProperty("locations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<object> Locations { get; }
 
     /// <summary>
     /// The list of locations where the association is present. This information
     /// is retrieved from the linked endpoint group, and not configured as part
     /// of the association itself.
     /// </summary>
-    [TerraformPropertyName("locations_details")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> LocationsDetails => new TerraformReference(this, "locations_details");
+    [TerraformProperty("locations_details")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> LocationsDetails { get; }
 
     /// <summary>
     /// The resource name of this endpoint group association, for example:
     /// &#39;projects/123456789/locations/global/mirroringEndpointGroupAssociations/my-eg-association&#39;.
     /// See https://google.aip.dev/122 for more details.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The current state of the resource does not match the user&#39;s intended state,
@@ -155,9 +155,9 @@ public class GoogleNetworkSecurityMirroringEndpointGroupAssociation : TerraformR
     /// operation (e.g. adding a new location to the target deployment group).
     /// See https://google.aip.dev/128.
     /// </summary>
-    [TerraformPropertyName("reconciling")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Reconciling => new TerraformReference(this, "reconciling");
+    [TerraformProperty("reconciling")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// Current state of the endpoint group association.
@@ -170,24 +170,24 @@ public class GoogleNetworkSecurityMirroringEndpointGroupAssociation : TerraformR
     /// OUT_OF_SYNC
     /// DELETE_FAILED
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
     /// <summary>
     /// The timestamp when the resource was most recently updated.
     /// See https://google.aip.dev/148#timestamps.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

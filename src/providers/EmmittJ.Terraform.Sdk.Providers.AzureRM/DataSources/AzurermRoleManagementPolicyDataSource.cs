@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermRoleManagementPolicyDataSourceTimeoutsBlock
+public partial class AzurermRoleManagementPolicyDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzurermRoleManagementPolicyDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azurerm_role_management_policy.
 /// </summary>
-public class AzurermRoleManagementPolicyDataSource : TerraformDataSource
+public partial class AzurermRoleManagementPolicyDataSource : TerraformDataSource
 {
     public AzurermRoleManagementPolicyDataSource(string name) : base("azurerm_role_management_policy", name)
     {
@@ -29,73 +29,73 @@ public class AzurermRoleManagementPolicyDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// ID of the Azure Role to which this policy is assigned
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleDefinitionId is required")]
-    [TerraformPropertyName("role_definition_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_definition_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleDefinitionId { get; set; }
 
     /// <summary>
     /// The scope of the role to which this policy will apply
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
-    [TerraformPropertyName("scope")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("scope")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermRoleManagementPolicyDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The activation rules of the policy
     /// </summary>
-    [TerraformPropertyName("activation_rules")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ActivationRules => new TerraformReference(this, "activation_rules");
+    [TerraformProperty("activation_rules")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ActivationRules { get; }
 
     /// <summary>
     /// The rules for active assignment of the policy
     /// </summary>
-    [TerraformPropertyName("active_assignment_rules")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ActiveAssignmentRules => new TerraformReference(this, "active_assignment_rules");
+    [TerraformProperty("active_assignment_rules")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ActiveAssignmentRules { get; }
 
     /// <summary>
     /// The Description of the policy
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The rules for eligible assignment of the policy
     /// </summary>
-    [TerraformPropertyName("eligible_assignment_rules")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> EligibleAssignmentRules => new TerraformReference(this, "eligible_assignment_rules");
+    [TerraformProperty("eligible_assignment_rules")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> EligibleAssignmentRules { get; }
 
     /// <summary>
     /// The name of the policy
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The notification rules of the policy
     /// </summary>
-    [TerraformPropertyName("notification_rules")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> NotificationRules => new TerraformReference(this, "notification_rules");
+    [TerraformProperty("notification_rules")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> NotificationRules { get; }
 
 }

@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_kms_key.
 /// </summary>
-public class AwsKmsKeyDataSource : TerraformDataSource
+public partial class AwsKmsKeyDataSource : TerraformDataSource
 {
     public AwsKmsKeyDataSource(string name) : base("aws_kms_key", name)
     {
@@ -14,170 +14,170 @@ public class AwsKmsKeyDataSource : TerraformDataSource
     /// <summary>
     /// The grant_tokens attribute.
     /// </summary>
-    [TerraformPropertyName("grant_tokens")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("grant_tokens")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? GrantTokens { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "KeyId is required")]
-    [TerraformPropertyName("key_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("key_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> KeyId { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The aws_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("aws_account_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AwsAccountId => new TerraformReference(this, "aws_account_id");
+    [TerraformProperty("aws_account_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AwsAccountId { get; }
 
     /// <summary>
     /// The cloud_hsm_cluster_id attribute.
     /// </summary>
-    [TerraformPropertyName("cloud_hsm_cluster_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CloudHsmClusterId => new TerraformReference(this, "cloud_hsm_cluster_id");
+    [TerraformProperty("cloud_hsm_cluster_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CloudHsmClusterId { get; }
 
     /// <summary>
     /// The creation_date attribute.
     /// </summary>
-    [TerraformPropertyName("creation_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationDate => new TerraformReference(this, "creation_date");
+    [TerraformProperty("creation_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationDate { get; }
 
     /// <summary>
     /// The custom_key_store_id attribute.
     /// </summary>
-    [TerraformPropertyName("custom_key_store_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CustomKeyStoreId => new TerraformReference(this, "custom_key_store_id");
+    [TerraformProperty("custom_key_store_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CustomKeyStoreId { get; }
 
     /// <summary>
     /// The customer_master_key_spec attribute.
     /// </summary>
-    [TerraformPropertyName("customer_master_key_spec")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CustomerMasterKeySpec => new TerraformReference(this, "customer_master_key_spec");
+    [TerraformProperty("customer_master_key_spec")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CustomerMasterKeySpec { get; }
 
     /// <summary>
     /// The deletion_date attribute.
     /// </summary>
-    [TerraformPropertyName("deletion_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeletionDate => new TerraformReference(this, "deletion_date");
+    [TerraformProperty("deletion_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeletionDate { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enabled")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Enabled => new TerraformReference(this, "enabled");
+    [TerraformProperty("enabled")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Enabled { get; }
 
     /// <summary>
     /// The expiration_model attribute.
     /// </summary>
-    [TerraformPropertyName("expiration_model")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExpirationModel => new TerraformReference(this, "expiration_model");
+    [TerraformProperty("expiration_model")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExpirationModel { get; }
 
     /// <summary>
     /// The key_manager attribute.
     /// </summary>
-    [TerraformPropertyName("key_manager")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KeyManager => new TerraformReference(this, "key_manager");
+    [TerraformProperty("key_manager")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KeyManager { get; }
 
     /// <summary>
     /// The key_spec attribute.
     /// </summary>
-    [TerraformPropertyName("key_spec")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KeySpec => new TerraformReference(this, "key_spec");
+    [TerraformProperty("key_spec")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KeySpec { get; }
 
     /// <summary>
     /// The key_state attribute.
     /// </summary>
-    [TerraformPropertyName("key_state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KeyState => new TerraformReference(this, "key_state");
+    [TerraformProperty("key_state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KeyState { get; }
 
     /// <summary>
     /// The key_usage attribute.
     /// </summary>
-    [TerraformPropertyName("key_usage")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KeyUsage => new TerraformReference(this, "key_usage");
+    [TerraformProperty("key_usage")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KeyUsage { get; }
 
     /// <summary>
     /// The multi_region attribute.
     /// </summary>
-    [TerraformPropertyName("multi_region")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> MultiRegion => new TerraformReference(this, "multi_region");
+    [TerraformProperty("multi_region")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> MultiRegion { get; }
 
     /// <summary>
     /// The multi_region_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("multi_region_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> MultiRegionConfiguration => new TerraformReference(this, "multi_region_configuration");
+    [TerraformProperty("multi_region_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> MultiRegionConfiguration { get; }
 
     /// <summary>
     /// The origin attribute.
     /// </summary>
-    [TerraformPropertyName("origin")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Origin => new TerraformReference(this, "origin");
+    [TerraformProperty("origin")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Origin { get; }
 
     /// <summary>
     /// The pending_deletion_window_in_days attribute.
     /// </summary>
-    [TerraformPropertyName("pending_deletion_window_in_days")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> PendingDeletionWindowInDays => new TerraformReference(this, "pending_deletion_window_in_days");
+    [TerraformProperty("pending_deletion_window_in_days")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> PendingDeletionWindowInDays { get; }
 
     /// <summary>
     /// The valid_to attribute.
     /// </summary>
-    [TerraformPropertyName("valid_to")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ValidTo => new TerraformReference(this, "valid_to");
+    [TerraformProperty("valid_to")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ValidTo { get; }
 
     /// <summary>
     /// The xks_key_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("xks_key_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> XksKeyConfiguration => new TerraformReference(this, "xks_key_configuration");
+    [TerraformProperty("xks_key_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> XksKeyConfiguration { get; }
 
 }

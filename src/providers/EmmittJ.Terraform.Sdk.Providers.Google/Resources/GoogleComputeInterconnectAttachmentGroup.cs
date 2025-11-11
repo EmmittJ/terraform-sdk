@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for attachments in .
 /// Nesting mode: set
 /// </summary>
-public class GoogleComputeInterconnectAttachmentGroupAttachmentsBlock
+public partial class GoogleComputeInterconnectAttachmentGroupAttachmentsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The attachment attribute.
     /// </summary>
-    [TerraformPropertyName("attachment")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("attachment")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Attachment { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -29,13 +29,13 @@ public class GoogleComputeInterconnectAttachmentGroupAttachmentsBlock
 /// Block type for intent in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeInterconnectAttachmentGroupIntentBlock
+public partial class GoogleComputeInterconnectAttachmentGroupIntentBlock : TerraformBlockBase
 {
     /// <summary>
     /// Which SLA the user intends this group to support. Possible values: [&amp;quot;PRODUCTION_NON_CRITICAL&amp;quot;, &amp;quot;PRODUCTION_CRITICAL&amp;quot;, &amp;quot;NO_SLA&amp;quot;, &amp;quot;AVAILABILITY_SLA_UNSPECIFIED&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("availability_sla")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("availability_sla")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AvailabilitySla { get; set; }
 
 }
@@ -44,27 +44,27 @@ public class GoogleComputeInterconnectAttachmentGroupIntentBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeInterconnectAttachmentGroupTimeoutsBlock
+public partial class GoogleComputeInterconnectAttachmentGroupTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -73,7 +73,7 @@ public class GoogleComputeInterconnectAttachmentGroupTimeoutsBlock
 /// Manages a google_compute_interconnect_attachment_group resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputeInterconnectAttachmentGroup : TerraformResource
+public partial class GoogleComputeInterconnectAttachmentGroup : TerraformResource
 {
     public GoogleComputeInterconnectAttachmentGroup(string name) : base("google_compute_interconnect_attachment_group", name)
     {
@@ -82,24 +82,24 @@ public class GoogleComputeInterconnectAttachmentGroup : TerraformResource
     /// <summary>
     /// An optional description of this resource. Provide this property when you create the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The URL of an InterconnectGroup that groups these Attachments&#39;
     /// Interconnects. Customers do not need to set this unless directed by
     /// Google Support.
     /// </summary>
-    [TerraformPropertyName("interconnect_group")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("interconnect_group")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? InterconnectGroup { get; set; }
 
     /// <summary>
@@ -110,22 +110,22 @@ public class GoogleComputeInterconnectAttachmentGroup : TerraformResource
     /// lowercase letter, or digit, except the last character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for attachments.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("attachments")]
+    [TerraformProperty("attachments")]
     public TerraformSet<TerraformBlock<GoogleComputeInterconnectAttachmentGroupAttachmentsBlock>>? Attachments { get; set; }
 
     /// <summary>
@@ -135,14 +135,14 @@ public class GoogleComputeInterconnectAttachmentGroup : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Intent is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Intent block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Intent block(s) allowed")]
-    [TerraformPropertyName("intent")]
+    [TerraformProperty("intent")]
     public TerraformList<TerraformBlock<GoogleComputeInterconnectAttachmentGroupIntentBlock>>? Intent { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeInterconnectAttachmentGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -150,23 +150,23 @@ public class GoogleComputeInterconnectAttachmentGroup : TerraformResource
     /// user queries what SLA their Attachment gets is by looking at this field of
     /// the Attachment&#39;s AttachmentGroup.
     /// </summary>
-    [TerraformPropertyName("configured")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Configured => new TerraformReference(this, "configured");
+    [TerraformProperty("configured")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Configured { get; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("creation_timestamp")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreationTimestamp => new TerraformReference(this, "creation_timestamp");
+    [TerraformProperty("creation_timestamp")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreationTimestamp { get; }
 
     /// <summary>
     /// An analysis of the logical layout of Attachments in this
     /// group. Every Attachment in the group is shown once in this structure.
     /// </summary>
-    [TerraformPropertyName("logical_structure")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> LogicalStructure => new TerraformReference(this, "logical_structure");
+    [TerraformProperty("logical_structure")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> LogicalStructure { get; }
 
 }

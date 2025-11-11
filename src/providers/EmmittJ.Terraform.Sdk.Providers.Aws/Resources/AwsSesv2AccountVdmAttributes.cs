@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for dashboard_attributes in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSesv2AccountVdmAttributesDashboardAttributesBlock
+public partial class AwsSesv2AccountVdmAttributesDashboardAttributesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The engagement_metrics attribute.
     /// </summary>
-    [TerraformPropertyName("engagement_metrics")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("engagement_metrics")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EngagementMetrics { get; set; }
 
 }
@@ -21,13 +21,13 @@ public class AwsSesv2AccountVdmAttributesDashboardAttributesBlock
 /// Block type for guardian_attributes in .
 /// Nesting mode: list
 /// </summary>
-public class AwsSesv2AccountVdmAttributesGuardianAttributesBlock
+public partial class AwsSesv2AccountVdmAttributesGuardianAttributesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The optimized_shared_delivery attribute.
     /// </summary>
-    [TerraformPropertyName("optimized_shared_delivery")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("optimized_shared_delivery")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OptimizedSharedDelivery { get; set; }
 
 }
@@ -36,7 +36,7 @@ public class AwsSesv2AccountVdmAttributesGuardianAttributesBlock
 /// Manages a aws_sesv2_account_vdm_attributes resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsSesv2AccountVdmAttributes : TerraformResource
+public partial class AwsSesv2AccountVdmAttributes : TerraformResource
 {
     public AwsSesv2AccountVdmAttributes(string name) : base("aws_sesv2_account_vdm_attributes", name)
     {
@@ -45,23 +45,23 @@ public class AwsSesv2AccountVdmAttributes : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The vdm_enabled attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VdmEnabled is required")]
-    [TerraformPropertyName("vdm_enabled")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("vdm_enabled")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VdmEnabled { get; set; }
 
     /// <summary>
@@ -69,7 +69,7 @@ public class AwsSesv2AccountVdmAttributes : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DashboardAttributes block(s) allowed")]
-    [TerraformPropertyName("dashboard_attributes")]
+    [TerraformProperty("dashboard_attributes")]
     public TerraformList<TerraformBlock<AwsSesv2AccountVdmAttributesDashboardAttributesBlock>>? DashboardAttributes { get; set; }
 
     /// <summary>
@@ -77,7 +77,7 @@ public class AwsSesv2AccountVdmAttributes : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GuardianAttributes block(s) allowed")]
-    [TerraformPropertyName("guardian_attributes")]
+    [TerraformProperty("guardian_attributes")]
     public TerraformList<TerraformBlock<AwsSesv2AccountVdmAttributesGuardianAttributesBlock>>? GuardianAttributes { get; set; }
 
 }

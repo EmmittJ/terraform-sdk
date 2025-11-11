@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadDirectoryRoleMemberTimeoutsBlock
+public partial class AzureadDirectoryRoleMemberTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -35,7 +35,7 @@ public class AzureadDirectoryRoleMemberTimeoutsBlock
 /// Manages a azuread_directory_role_member resource.
 /// </summary>
 [Obsolete("This resource is deprecated.")]
-public class AzureadDirectoryRoleMember : TerraformResource
+public partial class AzureadDirectoryRoleMember : TerraformResource
 {
     public AzureadDirectoryRoleMember(string name) : base("azuread_directory_role_member", name)
     {
@@ -44,29 +44,29 @@ public class AzureadDirectoryRoleMember : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The object ID of the member
     /// </summary>
-    [TerraformPropertyName("member_object_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("member_object_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MemberObjectId { get; set; }
 
     /// <summary>
     /// The object ID of the directory role
     /// </summary>
-    [TerraformPropertyName("role_object_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("role_object_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RoleObjectId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadDirectoryRoleMemberTimeoutsBlock>? Timeouts { get; set; }
 
 }

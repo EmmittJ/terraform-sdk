@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for managed in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCertificateManagerCertificateManagedBlock
+public partial class GoogleCertificateManagerCertificateManagedBlock : TerraformBlockBase
 {
 
     /// <summary>
     /// Authorizations that will be used for performing domain authorization. Either issuanceConfig or dnsAuthorizations should be specificed, but not both.
     /// </summary>
-    [TerraformPropertyName("dns_authorizations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dns_authorizations")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? DnsAuthorizations { get; set; }
 
     /// <summary>
     /// The domains for which a managed SSL certificate will be generated.
     /// Wildcard domains are only supported with DNS challenge resolution
     /// </summary>
-    [TerraformPropertyName("domains")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("domains")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Domains { get; set; }
 
     /// <summary>
@@ -29,8 +29,8 @@ public class GoogleCertificateManagerCertificateManagedBlock
     /// If this field is not set, the certificates will instead be publicly signed as documented at https://cloud.google.com/load-balancing/docs/ssl-certificates/google-managed-certs#caa.
     /// Either issuanceConfig or dnsAuthorizations should be specificed, but not both.
     /// </summary>
-    [TerraformPropertyName("issuance_config")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("issuance_config")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IssuanceConfig { get; set; }
 
 
@@ -41,7 +41,7 @@ public class GoogleCertificateManagerCertificateManagedBlock
 /// Block type for self_managed in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCertificateManagerCertificateSelfManagedBlock
+public partial class GoogleCertificateManagerCertificateSelfManagedBlock : TerraformBlockBase
 {
     /// <summary>
     /// The certificate chain in PEM-encoded form.
@@ -49,8 +49,8 @@ public class GoogleCertificateManagerCertificateSelfManagedBlock
     /// Leaf certificate comes first, followed by intermediate ones if any.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("certificate_pem")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate_pem")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CertificatePem { get; set; }
 
     /// <summary>
@@ -58,23 +58,23 @@ public class GoogleCertificateManagerCertificateSelfManagedBlock
     /// 
     /// Leaf certificate comes first, followed by intermediate ones if any.
     /// </summary>
-    [TerraformPropertyName("pem_certificate")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("pem_certificate")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PemCertificate { get; set; }
 
     /// <summary>
     /// The private key of the leaf certificate in PEM-encoded form.
     /// </summary>
-    [TerraformPropertyName("pem_private_key")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("pem_private_key")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PemPrivateKey { get; set; }
 
     /// <summary>
     /// The private key of the leaf certificate in PEM-encoded form.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("private_key_pem")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("private_key_pem")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrivateKeyPem { get; set; }
 
 }
@@ -83,27 +83,27 @@ public class GoogleCertificateManagerCertificateSelfManagedBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCertificateManagerCertificateTimeoutsBlock
+public partial class GoogleCertificateManagerCertificateTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -112,7 +112,7 @@ public class GoogleCertificateManagerCertificateTimeoutsBlock
 /// Manages a google_certificate_manager_certificate resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleCertificateManagerCertificate : TerraformResource
+public partial class GoogleCertificateManagerCertificate : TerraformResource
 {
     public GoogleCertificateManagerCertificate(string name) : base("google_certificate_manager_certificate", name)
     {
@@ -121,16 +121,16 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     /// <summary>
     /// A human-readable description of the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Set of label tags associated with the Certificate resource.
@@ -138,15 +138,15 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The Certificate Manager location. If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
@@ -155,16 +155,16 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     /// and all following characters must be a dash, underscore, letter or digit.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The scope of the certificate.
@@ -181,8 +181,8 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     /// CLIENT_AUTH: Certificates with CLIENT_AUTH scope are used by a load balancer (TLS client) to be presented to the backend (TLS server) when backend mTLS is configured.
     /// See https://cloud.google.com/load-balancing/docs/backend-authenticated-tls-backend-mtls#client-certificate.
     /// </summary>
-    [TerraformPropertyName("scope")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("scope")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Scope { get; set; }
 
     /// <summary>
@@ -190,7 +190,7 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Managed block(s) allowed")]
-    [TerraformPropertyName("managed")]
+    [TerraformProperty("managed")]
     public TerraformList<TerraformBlock<GoogleCertificateManagerCertificateManagedBlock>>? Managed { get; set; }
 
     /// <summary>
@@ -198,36 +198,36 @@ public class GoogleCertificateManagerCertificate : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SelfManaged block(s) allowed")]
-    [TerraformPropertyName("self_managed")]
+    [TerraformProperty("self_managed")]
     public TerraformList<TerraformBlock<GoogleCertificateManagerCertificateSelfManagedBlock>>? SelfManaged { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleCertificateManagerCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// The list of Subject Alternative Names of dnsName type defined in the certificate (see RFC 5280 4.2.1.6)
     /// </summary>
-    [TerraformPropertyName("san_dnsnames")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> SanDnsnames => new TerraformReference(this, "san_dnsnames");
+    [TerraformProperty("san_dnsnames")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> SanDnsnames { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

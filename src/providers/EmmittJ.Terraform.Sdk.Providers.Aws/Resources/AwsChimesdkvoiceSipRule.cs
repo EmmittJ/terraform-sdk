@@ -6,30 +6,30 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target_applications in .
 /// Nesting mode: set
 /// </summary>
-public class AwsChimesdkvoiceSipRuleTargetApplicationsBlock
+public partial class AwsChimesdkvoiceSipRuleTargetApplicationsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The aws_region attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AwsRegion is required")]
-    [TerraformPropertyName("aws_region")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("aws_region")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AwsRegion { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Priority is required")]
-    [TerraformPropertyName("priority")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("priority")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Priority { get; set; }
 
     /// <summary>
     /// The sip_media_application_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SipMediaApplicationId is required")]
-    [TerraformPropertyName("sip_media_application_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("sip_media_application_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SipMediaApplicationId { get; set; }
 
 }
@@ -38,7 +38,7 @@ public class AwsChimesdkvoiceSipRuleTargetApplicationsBlock
 /// Manages a aws_chimesdkvoice_sip_rule resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsChimesdkvoiceSipRule : TerraformResource
+public partial class AwsChimesdkvoiceSipRule : TerraformResource
 {
     public AwsChimesdkvoiceSipRule(string name) : base("aws_chimesdkvoice_sip_rule", name)
     {
@@ -47,46 +47,46 @@ public class AwsChimesdkvoiceSipRule : TerraformResource
     /// <summary>
     /// The disabled attribute.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The trigger_type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerType is required")]
-    [TerraformPropertyName("trigger_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("trigger_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TriggerType { get; set; }
 
     /// <summary>
     /// The trigger_value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TriggerValue is required")]
-    [TerraformPropertyName("trigger_value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("trigger_value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TriggerValue { get; set; }
 
     /// <summary>
@@ -96,7 +96,7 @@ public class AwsChimesdkvoiceSipRule : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetApplications is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 TargetApplications block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(25, ErrorMessage = "Maximum 25 TargetApplications block(s) allowed")]
-    [TerraformPropertyName("target_applications")]
+    [TerraformProperty("target_applications")]
     public TerraformSet<TerraformBlock<AwsChimesdkvoiceSipRuleTargetApplicationsBlock>>? TargetApplications { get; set; }
 
 }

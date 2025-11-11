@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsIamServerCertificateTimeoutsBlock
+public partial class AwsIamServerCertificateTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AwsIamServerCertificateTimeoutsBlock
 /// <summary>
 /// Manages a aws_iam_server_certificate resource.
 /// </summary>
-public class AwsIamServerCertificate : TerraformResource
+public partial class AwsIamServerCertificate : TerraformResource
 {
     public AwsIamServerCertificate(string name) : base("aws_iam_server_certificate", name)
     {
@@ -30,93 +30,93 @@ public class AwsIamServerCertificate : TerraformResource
     /// The certificate_body attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBody is required")]
-    [TerraformPropertyName("certificate_body")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("certificate_body")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CertificateBody { get; set; }
 
     /// <summary>
     /// The certificate_chain attribute.
     /// </summary>
-    [TerraformPropertyName("certificate_chain")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("certificate_chain")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CertificateChain { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NamePrefix { get; set; } = default!;
+    [TerraformProperty("name_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The path attribute.
     /// </summary>
-    [TerraformPropertyName("path")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("path")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Path { get; set; }
 
     /// <summary>
     /// The private_key attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrivateKey is required")]
-    [TerraformPropertyName("private_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("private_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrivateKey { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsIamServerCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The expiration attribute.
     /// </summary>
-    [TerraformPropertyName("expiration")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Expiration => new TerraformReference(this, "expiration");
+    [TerraformProperty("expiration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Expiration { get; }
 
     /// <summary>
     /// The upload_date attribute.
     /// </summary>
-    [TerraformPropertyName("upload_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UploadDate => new TerraformReference(this, "upload_date");
+    [TerraformProperty("upload_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UploadDate { get; }
 
 }

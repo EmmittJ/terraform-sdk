@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeoutsBlock
+public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeou
 /// <summary>
 /// Manages a azurerm_key_vault_managed_hardware_security_module_key_rotation_policy resource.
 /// </summary>
-public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy : TerraformResource
+public partial class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy : TerraformResource
 {
     public AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy(string name) : base("azurerm_key_vault_managed_hardware_security_module_key_rotation_policy", name)
     {
@@ -51,44 +51,44 @@ public class AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicy : Ter
     /// The expire_after attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ExpireAfter is required")]
-    [TerraformPropertyName("expire_after")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("expire_after")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ExpireAfter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The managed_hsm_key_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ManagedHsmKeyId is required")]
-    [TerraformPropertyName("managed_hsm_key_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("managed_hsm_key_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ManagedHsmKeyId { get; set; }
 
     /// <summary>
     /// The time_after_creation attribute.
     /// </summary>
-    [TerraformPropertyName("time_after_creation")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("time_after_creation")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TimeAfterCreation { get; set; }
 
     /// <summary>
     /// The time_before_expiry attribute.
     /// </summary>
-    [TerraformPropertyName("time_before_expiry")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("time_before_expiry")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TimeBeforeExpiry { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermKeyVaultManagedHardwareSecurityModuleKeyRotationPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

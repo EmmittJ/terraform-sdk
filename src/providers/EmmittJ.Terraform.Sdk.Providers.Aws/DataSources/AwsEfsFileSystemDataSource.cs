@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_efs_file_system.
 /// </summary>
-public class AwsEfsFileSystemDataSource : TerraformDataSource
+public partial class AwsEfsFileSystemDataSource : TerraformDataSource
 {
     public AwsEfsFileSystemDataSource(string name) : base("aws_efs_file_system", name)
     {
@@ -14,127 +14,127 @@ public class AwsEfsFileSystemDataSource : TerraformDataSource
     /// <summary>
     /// The creation_token attribute.
     /// </summary>
-    [TerraformPropertyName("creation_token")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> CreationToken { get; set; } = default!;
+    [TerraformProperty("creation_token")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> CreationToken { get; set; }
 
     /// <summary>
     /// The file_system_id attribute.
     /// </summary>
-    [TerraformPropertyName("file_system_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> FileSystemId { get; set; } = default!;
+    [TerraformProperty("file_system_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> FileSystemId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The availability_zone_id attribute.
     /// </summary>
-    [TerraformPropertyName("availability_zone_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AvailabilityZoneId => new TerraformReference(this, "availability_zone_id");
+    [TerraformProperty("availability_zone_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AvailabilityZoneId { get; }
 
     /// <summary>
     /// The availability_zone_name attribute.
     /// </summary>
-    [TerraformPropertyName("availability_zone_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AvailabilityZoneName => new TerraformReference(this, "availability_zone_name");
+    [TerraformProperty("availability_zone_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AvailabilityZoneName { get; }
 
     /// <summary>
     /// The dns_name attribute.
     /// </summary>
-    [TerraformPropertyName("dns_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DnsName => new TerraformReference(this, "dns_name");
+    [TerraformProperty("dns_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DnsName { get; }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    [TerraformPropertyName("encrypted")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Encrypted => new TerraformReference(this, "encrypted");
+    [TerraformProperty("encrypted")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Encrypted { get; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> KmsKeyId => new TerraformReference(this, "kms_key_id");
+    [TerraformProperty("kms_key_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> KmsKeyId { get; }
 
     /// <summary>
     /// The lifecycle_policy attribute.
     /// </summary>
-    [TerraformPropertyName("lifecycle_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> LifecyclePolicy => new TerraformReference(this, "lifecycle_policy");
+    [TerraformProperty("lifecycle_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> LifecyclePolicy { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The performance_mode attribute.
     /// </summary>
-    [TerraformPropertyName("performance_mode")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PerformanceMode => new TerraformReference(this, "performance_mode");
+    [TerraformProperty("performance_mode")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PerformanceMode { get; }
 
     /// <summary>
     /// The protection attribute.
     /// </summary>
-    [TerraformPropertyName("protection")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Protection => new TerraformReference(this, "protection");
+    [TerraformProperty("protection")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Protection { get; }
 
     /// <summary>
     /// The provisioned_throughput_in_mibps attribute.
     /// </summary>
-    [TerraformPropertyName("provisioned_throughput_in_mibps")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> ProvisionedThroughputInMibps => new TerraformReference(this, "provisioned_throughput_in_mibps");
+    [TerraformProperty("provisioned_throughput_in_mibps")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> ProvisionedThroughputInMibps { get; }
 
     /// <summary>
     /// The size_in_bytes attribute.
     /// </summary>
-    [TerraformPropertyName("size_in_bytes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> SizeInBytes => new TerraformReference(this, "size_in_bytes");
+    [TerraformProperty("size_in_bytes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> SizeInBytes { get; }
 
     /// <summary>
     /// The throughput_mode attribute.
     /// </summary>
-    [TerraformPropertyName("throughput_mode")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ThroughputMode => new TerraformReference(this, "throughput_mode");
+    [TerraformProperty("throughput_mode")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ThroughputMode { get; }
 
 }

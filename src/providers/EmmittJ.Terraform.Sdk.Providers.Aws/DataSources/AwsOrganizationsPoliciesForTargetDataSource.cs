@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_organizations_policies_for_target.
 /// </summary>
-public class AwsOrganizationsPoliciesForTargetDataSource : TerraformDataSource
+public partial class AwsOrganizationsPoliciesForTargetDataSource : TerraformDataSource
 {
     public AwsOrganizationsPoliciesForTargetDataSource(string name) : base("aws_organizations_policies_for_target", name)
     {
@@ -15,30 +15,30 @@ public class AwsOrganizationsPoliciesForTargetDataSource : TerraformDataSource
     /// The filter attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Filter is required")]
-    [TerraformPropertyName("filter")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("filter")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The target_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TargetId is required")]
-    [TerraformPropertyName("target_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("target_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TargetId { get; set; }
 
     /// <summary>
     /// The ids attribute.
     /// </summary>
-    [TerraformPropertyName("ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Ids => new TerraformReference(this, "ids");
+    [TerraformProperty("ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Ids { get; }
 
 }

@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermContainerAppEnvironmentCertificateTimeoutsBlock
+public partial class AzurermContainerAppEnvironmentCertificateTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermContainerAppEnvironmentCertificateTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_container_app_environment_certificate resource.
 /// </summary>
-public class AzurermContainerAppEnvironmentCertificate : TerraformResource
+public partial class AzurermContainerAppEnvironmentCertificate : TerraformResource
 {
     public AzurermContainerAppEnvironmentCertificate(string name) : base("azurerm_container_app_environment_certificate", name)
     {
@@ -51,88 +51,88 @@ public class AzurermContainerAppEnvironmentCertificate : TerraformResource
     /// The Certificate Private Key as a base64 encoded PFX or PEM.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificateBlobBase64 is required")]
-    [TerraformPropertyName("certificate_blob_base64")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("certificate_blob_base64")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CertificateBlobBase64 { get; set; }
 
     /// <summary>
     /// The password for the Certificate.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CertificatePassword is required")]
-    [TerraformPropertyName("certificate_password")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("certificate_password")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> CertificatePassword { get; set; }
 
     /// <summary>
     /// The Container App Managed Environment ID to configure this Certificate on.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ContainerAppEnvironmentId is required")]
-    [TerraformPropertyName("container_app_environment_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("container_app_environment_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ContainerAppEnvironmentId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name of the Container Apps Environment Certificate.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermContainerAppEnvironmentCertificateTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The expiration date for the Certificate.
     /// </summary>
-    [TerraformPropertyName("expiration_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ExpirationDate => new TerraformReference(this, "expiration_date");
+    [TerraformProperty("expiration_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ExpirationDate { get; }
 
     /// <summary>
     /// The date of issue for the Certificate.
     /// </summary>
-    [TerraformPropertyName("issue_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> IssueDate => new TerraformReference(this, "issue_date");
+    [TerraformProperty("issue_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> IssueDate { get; }
 
     /// <summary>
     /// The Certificate Issuer.
     /// </summary>
-    [TerraformPropertyName("issuer")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Issuer => new TerraformReference(this, "issuer");
+    [TerraformProperty("issuer")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Issuer { get; }
 
     /// <summary>
     /// The Subject Name for the Certificate.
     /// </summary>
-    [TerraformPropertyName("subject_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SubjectName => new TerraformReference(this, "subject_name");
+    [TerraformProperty("subject_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SubjectName { get; }
 
     /// <summary>
     /// The Thumbprint of the Certificate.
     /// </summary>
-    [TerraformPropertyName("thumbprint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Thumbprint => new TerraformReference(this, "thumbprint");
+    [TerraformProperty("thumbprint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Thumbprint { get; }
 
 }

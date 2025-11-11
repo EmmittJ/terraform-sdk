@@ -6,34 +6,34 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermKustoEventgridDataConnectionTimeoutsBlock
+public partial class AzurermKustoEventgridDataConnectionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -41,7 +41,7 @@ public class AzurermKustoEventgridDataConnectionTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_kusto_eventgrid_data_connection resource.
 /// </summary>
-public class AzurermKustoEventgridDataConnection : TerraformResource
+public partial class AzurermKustoEventgridDataConnection : TerraformResource
 {
     public AzurermKustoEventgridDataConnection(string name) : base("azurerm_kusto_eventgrid_data_connection", name)
     {
@@ -50,151 +50,151 @@ public class AzurermKustoEventgridDataConnection : TerraformResource
     /// <summary>
     /// The blob_storage_event_type attribute.
     /// </summary>
-    [TerraformPropertyName("blob_storage_event_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("blob_storage_event_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BlobStorageEventType { get; set; }
 
     /// <summary>
     /// The cluster_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterName is required")]
-    [TerraformPropertyName("cluster_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterName { get; set; }
 
     /// <summary>
     /// The data_format attribute.
     /// </summary>
-    [TerraformPropertyName("data_format")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("data_format")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DataFormat { get; set; }
 
     /// <summary>
     /// The database_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseName is required")]
-    [TerraformPropertyName("database_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("database_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DatabaseName { get; set; }
 
     /// <summary>
     /// The database_routing_type attribute.
     /// </summary>
-    [TerraformPropertyName("database_routing_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("database_routing_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DatabaseRoutingType { get; set; }
 
     /// <summary>
     /// The eventgrid_event_subscription_id attribute.
     /// </summary>
-    [TerraformPropertyName("eventgrid_event_subscription_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EventgridEventSubscriptionId { get; set; } = default!;
+    [TerraformProperty("eventgrid_event_subscription_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EventgridEventSubscriptionId { get; set; }
 
     /// <summary>
     /// The eventgrid_resource_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("eventgrid_resource_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> EventgridResourceId { get; set; } = default!;
+    [TerraformProperty("eventgrid_resource_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> EventgridResourceId { get; set; }
 
     /// <summary>
     /// The eventhub_consumer_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubConsumerGroupName is required")]
-    [TerraformPropertyName("eventhub_consumer_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("eventhub_consumer_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EventhubConsumerGroupName { get; set; }
 
     /// <summary>
     /// The eventhub_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EventhubId is required")]
-    [TerraformPropertyName("eventhub_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("eventhub_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EventhubId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The managed_identity_id attribute.
     /// </summary>
-    [TerraformPropertyName("managed_identity_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ManagedIdentityId { get; set; } = default!;
+    [TerraformProperty("managed_identity_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ManagedIdentityId { get; set; }
 
     /// <summary>
     /// The managed_identity_resource_id attribute.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("managed_identity_resource_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ManagedIdentityResourceId { get; set; } = default!;
+    [TerraformProperty("managed_identity_resource_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ManagedIdentityResourceId { get; set; }
 
     /// <summary>
     /// The mapping_rule_name attribute.
     /// </summary>
-    [TerraformPropertyName("mapping_rule_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("mapping_rule_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MappingRuleName { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The skip_first_record attribute.
     /// </summary>
-    [TerraformPropertyName("skip_first_record")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("skip_first_record")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SkipFirstRecord { get; set; }
 
     /// <summary>
     /// The storage_account_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StorageAccountId is required")]
-    [TerraformPropertyName("storage_account_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("storage_account_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StorageAccountId { get; set; }
 
     /// <summary>
     /// The table_name attribute.
     /// </summary>
-    [TerraformPropertyName("table_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("table_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TableName { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermKustoEventgridDataConnectionTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleSpannerInstancePartitionTimeoutsBlock
+public partial class GoogleSpannerInstancePartitionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleSpannerInstancePartitionTimeoutsBlock
 /// <summary>
 /// Manages a google_spanner_instance_partition resource.
 /// </summary>
-public class GoogleSpannerInstancePartition : TerraformResource
+public partial class GoogleSpannerInstancePartition : TerraformResource
 {
     public GoogleSpannerInstancePartition(string name) : base("google_spanner_instance_partition", name)
     {
@@ -45,8 +45,8 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// defines the geographic placement and replication of data in this instance partition.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Config is required")]
-    [TerraformPropertyName("config")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("config")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Config { get; set; }
 
     /// <summary>
@@ -54,23 +54,23 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// Must be unique per project and between 4 and 30 characters in length.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DisplayName is required")]
-    [TerraformPropertyName("display_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("display_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The instance to create the instance partition in.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instance is required")]
-    [TerraformPropertyName("instance")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instance")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Instance { get; set; }
 
     /// <summary>
@@ -79,8 +79,8 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// and match the regular expression [a-z][a-z0-9\\-]{0,61}[a-z0-9].
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
@@ -88,30 +88,30 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// 1000 processing units. Exactly one of either node_count or processing_units
     /// must be present.
     /// </summary>
-    [TerraformPropertyName("node_count")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("node_count")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? NodeCount { get; set; }
 
     /// <summary>
     /// The number of processing units allocated to this instance partition.
     /// Exactly one of either node_count or processing_units must be present.
     /// </summary>
-    [TerraformPropertyName("processing_units")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("processing_units")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ProcessingUnits { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleSpannerInstancePartitionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -120,8 +120,8 @@ public class GoogleSpannerInstancePartition : TerraformResource
     /// allocated for the instance partition.
     /// READY: The instance partition has been allocated resources and is ready for use.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
 }

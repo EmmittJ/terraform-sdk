@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeNetworkPeeringDataSourceTimeoutsBlock
+public partial class GoogleComputeNetworkPeeringDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class GoogleComputeNetworkPeeringDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a google_compute_network_peering.
 /// </summary>
-public class GoogleComputeNetworkPeeringDataSource : TerraformDataSource
+public partial class GoogleComputeNetworkPeeringDataSource : TerraformDataSource
 {
     public GoogleComputeNetworkPeeringDataSource(string name) : base("google_compute_network_peering", name)
     {
@@ -29,94 +29,94 @@ public class GoogleComputeNetworkPeeringDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the peering.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The primary network of the peering.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
-    [TerraformPropertyName("network")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeNetworkPeeringDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Whether to export the custom routes to the peer network. Defaults to false.
     /// </summary>
-    [TerraformPropertyName("export_custom_routes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ExportCustomRoutes => new TerraformReference(this, "export_custom_routes");
+    [TerraformProperty("export_custom_routes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ExportCustomRoutes { get; }
 
     /// <summary>
     /// The export_subnet_routes_with_public_ip attribute.
     /// </summary>
-    [TerraformPropertyName("export_subnet_routes_with_public_ip")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ExportSubnetRoutesWithPublicIp => new TerraformReference(this, "export_subnet_routes_with_public_ip");
+    [TerraformProperty("export_subnet_routes_with_public_ip")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ExportSubnetRoutesWithPublicIp { get; }
 
     /// <summary>
     /// Whether to export the custom routes from the peer network. Defaults to false.
     /// </summary>
-    [TerraformPropertyName("import_custom_routes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ImportCustomRoutes => new TerraformReference(this, "import_custom_routes");
+    [TerraformProperty("import_custom_routes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ImportCustomRoutes { get; }
 
     /// <summary>
     /// The import_subnet_routes_with_public_ip attribute.
     /// </summary>
-    [TerraformPropertyName("import_subnet_routes_with_public_ip")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> ImportSubnetRoutesWithPublicIp => new TerraformReference(this, "import_subnet_routes_with_public_ip");
+    [TerraformProperty("import_subnet_routes_with_public_ip")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> ImportSubnetRoutesWithPublicIp { get; }
 
     /// <summary>
     /// The peer network in the peering. The peer network may belong to a different project.
     /// </summary>
-    [TerraformPropertyName("peer_network")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> PeerNetwork => new TerraformReference(this, "peer_network");
+    [TerraformProperty("peer_network")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> PeerNetwork { get; }
 
     /// <summary>
     /// Which IP version(s) of traffic and routes are allowed to be imported or exported between peer networks. The default value is IPV4_ONLY. Possible values: [&amp;quot;IPV4_ONLY&amp;quot;, &amp;quot;IPV4_IPV6&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("stack_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StackType => new TerraformReference(this, "stack_type");
+    [TerraformProperty("stack_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StackType { get; }
 
     /// <summary>
     /// State for the peering, either ACTIVE or INACTIVE. The peering is ACTIVE when there&#39;s a matching configuration in the peer network.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// Details about the current state of the peering.
     /// </summary>
-    [TerraformPropertyName("state_details")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StateDetails => new TerraformReference(this, "state_details");
+    [TerraformProperty("state_details")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StateDetails { get; }
 
     /// <summary>
     /// The update strategy determines the semantics for updates and deletes to the peering connection configuration. The default value is INDEPENDENT. Possible values: [&amp;quot;INDEPENDENT&amp;quot;, &amp;quot;CONSENSUS&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("update_strategy")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateStrategy => new TerraformReference(this, "update_strategy");
+    [TerraformProperty("update_strategy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateStrategy { get; }
 
 }

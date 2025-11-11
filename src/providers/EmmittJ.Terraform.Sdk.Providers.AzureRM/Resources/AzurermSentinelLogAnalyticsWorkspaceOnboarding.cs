@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock
+public partial class AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_sentinel_log_analytics_workspace_onboarding resource.
 /// </summary>
-public class AzurermSentinelLogAnalyticsWorkspaceOnboarding : TerraformResource
+public partial class AzurermSentinelLogAnalyticsWorkspaceOnboarding : TerraformResource
 {
     public AzurermSentinelLogAnalyticsWorkspaceOnboarding(string name) : base("azurerm_sentinel_log_analytics_workspace_onboarding", name)
     {
@@ -43,30 +43,30 @@ public class AzurermSentinelLogAnalyticsWorkspaceOnboarding : TerraformResource
     /// <summary>
     /// The customer_managed_key_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("customer_managed_key_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("customer_managed_key_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? CustomerManagedKeyEnabled { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The workspace_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkspaceId is required")]
-    [TerraformPropertyName("workspace_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("workspace_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSentinelLogAnalyticsWorkspaceOnboardingTimeoutsBlock>? Timeouts { get; set; }
 
 }

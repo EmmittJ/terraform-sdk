@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsRamResourceShareAccepterTimeoutsBlock
+public partial class AwsRamResourceShareAccepterTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class AwsRamResourceShareAccepterTimeoutsBlock
 /// <summary>
 /// Manages a aws_ram_resource_share_accepter resource.
 /// </summary>
-public class AwsRamResourceShareAccepter : TerraformResource
+public partial class AwsRamResourceShareAccepter : TerraformResource
 {
     public AwsRamResourceShareAccepter(string name) : base("aws_ram_resource_share_accepter", name)
     {
@@ -36,79 +36,79 @@ public class AwsRamResourceShareAccepter : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The share_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ShareArn is required")]
-    [TerraformPropertyName("share_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("share_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ShareArn { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsRamResourceShareAccepterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The invitation_arn attribute.
     /// </summary>
-    [TerraformPropertyName("invitation_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> InvitationArn => new TerraformReference(this, "invitation_arn");
+    [TerraformProperty("invitation_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> InvitationArn { get; }
 
     /// <summary>
     /// The receiver_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("receiver_account_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ReceiverAccountId => new TerraformReference(this, "receiver_account_id");
+    [TerraformProperty("receiver_account_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ReceiverAccountId { get; }
 
     /// <summary>
     /// The resources attribute.
     /// </summary>
-    [TerraformPropertyName("resources")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> Resources => new TerraformReference(this, "resources");
+    [TerraformProperty("resources")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> Resources { get; }
 
     /// <summary>
     /// The sender_account_id attribute.
     /// </summary>
-    [TerraformPropertyName("sender_account_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SenderAccountId => new TerraformReference(this, "sender_account_id");
+    [TerraformProperty("sender_account_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SenderAccountId { get; }
 
     /// <summary>
     /// The share_id attribute.
     /// </summary>
-    [TerraformPropertyName("share_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ShareId => new TerraformReference(this, "share_id");
+    [TerraformProperty("share_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ShareId { get; }
 
     /// <summary>
     /// The share_name attribute.
     /// </summary>
-    [TerraformPropertyName("share_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ShareName => new TerraformReference(this, "share_name");
+    [TerraformProperty("share_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ShareName { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
 }

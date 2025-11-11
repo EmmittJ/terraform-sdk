@@ -6,22 +6,22 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for config_file in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermNginxConfigurationConfigFileBlock
+public partial class AzurermNginxConfigurationConfigFileBlock : TerraformBlockBase
 {
     /// <summary>
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    [TerraformPropertyName("content")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("content")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Content { get; set; }
 
     /// <summary>
     /// The virtual_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
-    [TerraformPropertyName("virtual_path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("virtual_path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VirtualPath { get; set; }
 
 }
@@ -30,14 +30,14 @@ public class AzurermNginxConfigurationConfigFileBlock
 /// Block type for protected_file in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermNginxConfigurationProtectedFileBlock
+public partial class AzurermNginxConfigurationProtectedFileBlock : TerraformBlockBase
 {
     /// <summary>
     /// The content attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Content is required")]
-    [TerraformPropertyName("content")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("content")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Content { get; set; }
 
 
@@ -45,8 +45,8 @@ public class AzurermNginxConfigurationProtectedFileBlock
     /// The virtual_path attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "VirtualPath is required")]
-    [TerraformPropertyName("virtual_path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("virtual_path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> VirtualPath { get; set; }
 
 }
@@ -55,34 +55,34 @@ public class AzurermNginxConfigurationProtectedFileBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermNginxConfigurationTimeoutsBlock
+public partial class AzurermNginxConfigurationTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -90,7 +90,7 @@ public class AzurermNginxConfigurationTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_nginx_configuration resource.
 /// </summary>
-public class AzurermNginxConfiguration : TerraformResource
+public partial class AzurermNginxConfiguration : TerraformResource
 {
     public AzurermNginxConfiguration(string name) : base("azurerm_nginx_configuration", name)
     {
@@ -99,52 +99,52 @@ public class AzurermNginxConfiguration : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The nginx_deployment_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NginxDeploymentId is required")]
-    [TerraformPropertyName("nginx_deployment_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("nginx_deployment_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NginxDeploymentId { get; set; }
 
     /// <summary>
     /// The package_data attribute.
     /// </summary>
-    [TerraformPropertyName("package_data")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("package_data")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PackageData { get; set; }
 
     /// <summary>
     /// The root_file attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RootFile is required")]
-    [TerraformPropertyName("root_file")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("root_file")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RootFile { get; set; }
 
     /// <summary>
     /// Block for config_file.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("config_file")]
+    [TerraformProperty("config_file")]
     public TerraformSet<TerraformBlock<AzurermNginxConfigurationConfigFileBlock>>? ConfigFile { get; set; }
 
     /// <summary>
     /// Block for protected_file.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("protected_file")]
+    [TerraformProperty("protected_file")]
     public TerraformSet<TerraformBlock<AzurermNginxConfigurationProtectedFileBlock>>? ProtectedFile { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermNginxConfigurationTimeoutsBlock>? Timeouts { get; set; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleStorageAnywhereCacheTimeoutsBlock
+public partial class GoogleStorageAnywhereCacheTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleStorageAnywhereCacheTimeoutsBlock
 /// <summary>
 /// Manages a google_storage_anywhere_cache resource.
 /// </summary>
-public class GoogleStorageAnywhereCache : TerraformResource
+public partial class GoogleStorageAnywhereCache : TerraformResource
 {
     public GoogleStorageAnywhereCache(string name) : base("google_storage_anywhere_cache", name)
     {
@@ -43,80 +43,80 @@ public class GoogleStorageAnywhereCache : TerraformResource
     /// <summary>
     /// The cache admission policy dictates whether a block should be inserted upon a cache miss. Default value: &amp;quot;admit-on-first-miss&amp;quot; Possible values: [&amp;quot;admit-on-first-miss&amp;quot;, &amp;quot;admit-on-second-miss&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("admission_policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("admission_policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AdmissionPolicy { get; set; }
 
     /// <summary>
     /// A reference to Bucket resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Bucket is required")]
-    [TerraformPropertyName("bucket")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bucket")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Bucket { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The TTL of all cache entries in whole seconds. e.g., &amp;quot;7200s&amp;quot;. It defaults to &#39;86400s&#39;
     /// </summary>
-    [TerraformPropertyName("ttl")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ttl")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Ttl { get; set; }
 
     /// <summary>
     /// The zone in which the cache instance needs to be created. For example, &#39;us-central1-a.&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Zone is required")]
-    [TerraformPropertyName("zone")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("zone")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleStorageAnywhereCacheTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The ID of the Anywhere cache instance.
     /// </summary>
-    [TerraformPropertyName("anywhere_cache_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> AnywhereCacheId => new TerraformReference(this, "anywhere_cache_id");
+    [TerraformProperty("anywhere_cache_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> AnywhereCacheId { get; }
 
     /// <summary>
     /// The creation time of the cache instance in RFC 3339 format.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// True if the cache instance has an active Update long-running operation.
     /// </summary>
-    [TerraformPropertyName("pending_update")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> PendingUpdate => new TerraformReference(this, "pending_update");
+    [TerraformProperty("pending_update")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> PendingUpdate { get; }
 
     /// <summary>
     /// The current state of the cache instance.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The modification time of the cache instance metadata in RFC 3339 format.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
 }

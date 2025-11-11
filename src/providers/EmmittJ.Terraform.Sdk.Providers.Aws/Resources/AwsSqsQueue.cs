@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsSqsQueueTimeoutsBlock
+public partial class AwsSqsQueueTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AwsSqsQueueTimeoutsBlock
 /// <summary>
 /// Manages a aws_sqs_queue resource.
 /// </summary>
-public class AwsSqsQueue : TerraformResource
+public partial class AwsSqsQueue : TerraformResource
 {
     public AwsSqsQueue(string name) : base("aws_sqs_queue", name)
     {
@@ -43,169 +43,169 @@ public class AwsSqsQueue : TerraformResource
     /// <summary>
     /// The content_based_deduplication attribute.
     /// </summary>
-    [TerraformPropertyName("content_based_deduplication")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("content_based_deduplication")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ContentBasedDeduplication { get; set; }
 
     /// <summary>
     /// The deduplication_scope attribute.
     /// </summary>
-    [TerraformPropertyName("deduplication_scope")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> DeduplicationScope { get; set; } = default!;
+    [TerraformProperty("deduplication_scope")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> DeduplicationScope { get; set; }
 
     /// <summary>
     /// The delay_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("delay_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delay_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? DelaySeconds { get; set; }
 
     /// <summary>
     /// The fifo_queue attribute.
     /// </summary>
-    [TerraformPropertyName("fifo_queue")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("fifo_queue")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? FifoQueue { get; set; }
 
     /// <summary>
     /// The fifo_throughput_limit attribute.
     /// </summary>
-    [TerraformPropertyName("fifo_throughput_limit")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> FifoThroughputLimit { get; set; } = default!;
+    [TerraformProperty("fifo_throughput_limit")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> FifoThroughputLimit { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_data_key_reuse_period_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("kms_data_key_reuse_period_seconds")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> KmsDataKeyReusePeriodSeconds { get; set; } = default!;
+    [TerraformProperty("kms_data_key_reuse_period_seconds")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> KmsDataKeyReusePeriodSeconds { get; set; }
 
     /// <summary>
     /// The kms_master_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_master_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_master_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsMasterKeyId { get; set; }
 
     /// <summary>
     /// The max_message_size attribute.
     /// </summary>
-    [TerraformPropertyName("max_message_size")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_message_size")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxMessageSize { get; set; }
 
     /// <summary>
     /// The message_retention_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("message_retention_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("message_retention_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MessageRetentionSeconds { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The name_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("name_prefix")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> NamePrefix { get; set; } = default!;
+    [TerraformProperty("name_prefix")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> NamePrefix { get; set; }
 
     /// <summary>
     /// The policy attribute.
     /// </summary>
-    [TerraformPropertyName("policy")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Policy { get; set; } = default!;
+    [TerraformProperty("policy")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Policy { get; set; }
 
     /// <summary>
     /// The receive_wait_time_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("receive_wait_time_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("receive_wait_time_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? ReceiveWaitTimeSeconds { get; set; }
 
     /// <summary>
     /// The redrive_allow_policy attribute.
     /// </summary>
-    [TerraformPropertyName("redrive_allow_policy")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> RedriveAllowPolicy { get; set; } = default!;
+    [TerraformProperty("redrive_allow_policy")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> RedriveAllowPolicy { get; set; }
 
     /// <summary>
     /// The redrive_policy attribute.
     /// </summary>
-    [TerraformPropertyName("redrive_policy")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> RedrivePolicy { get; set; } = default!;
+    [TerraformProperty("redrive_policy")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> RedrivePolicy { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The sqs_managed_sse_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("sqs_managed_sse_enabled")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<bool> SqsManagedSseEnabled { get; set; } = default!;
+    [TerraformProperty("sqs_managed_sse_enabled")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<bool> SqsManagedSseEnabled { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The visibility_timeout_seconds attribute.
     /// </summary>
-    [TerraformPropertyName("visibility_timeout_seconds")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("visibility_timeout_seconds")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? VisibilityTimeoutSeconds { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsSqsQueueTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
-    [TerraformPropertyName("url")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Url => new TerraformReference(this, "url");
+    [TerraformProperty("url")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Url { get; }
 
 }

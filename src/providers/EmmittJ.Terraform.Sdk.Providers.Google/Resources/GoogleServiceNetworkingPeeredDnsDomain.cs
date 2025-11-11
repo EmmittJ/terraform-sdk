@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock
+public partial class GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock
 /// <summary>
 /// Manages a google_service_networking_peered_dns_domain resource.
 /// </summary>
-public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
+public partial class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
 {
     public GoogleServiceNetworkingPeeredDnsDomain(string name) : base("google_service_networking_peered_dns_domain", name)
     {
@@ -44,59 +44,59 @@ public class GoogleServiceNetworkingPeeredDnsDomain : TerraformResource
     /// The DNS domain name suffix of the peered DNS domain.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DnsSuffix is required")]
-    [TerraformPropertyName("dns_suffix")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("dns_suffix")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DnsSuffix { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the peered DNS domain.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Network in the consumer project to peer with.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
-    [TerraformPropertyName("network")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// The ID of the project that the service account will be created in. Defaults to the provider project configuration.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The name of the service to create a peered DNS domain for, e.g. servicenetworking.googleapis.com
     /// </summary>
-    [TerraformPropertyName("service")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Service { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleServiceNetworkingPeeredDnsDomainTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The parent attribute.
     /// </summary>
-    [TerraformPropertyName("parent")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Parent => new TerraformReference(this, "parent");
+    [TerraformProperty("parent")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Parent { get; }
 
 }

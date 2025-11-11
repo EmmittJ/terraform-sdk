@@ -6,20 +6,20 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsEbsSnapshotCopyTimeoutsBlock
+public partial class AwsEbsSnapshotCopyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -27,7 +27,7 @@ public class AwsEbsSnapshotCopyTimeoutsBlock
 /// <summary>
 /// Manages a aws_ebs_snapshot_copy resource.
 /// </summary>
-public class AwsEbsSnapshotCopy : TerraformResource
+public partial class AwsEbsSnapshotCopy : TerraformResource
 {
     public AwsEbsSnapshotCopy(string name) : base("aws_ebs_snapshot_copy", name)
     {
@@ -36,150 +36,150 @@ public class AwsEbsSnapshotCopy : TerraformResource
     /// <summary>
     /// The completion_duration_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("completion_duration_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("completion_duration_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? CompletionDurationMinutes { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The encrypted attribute.
     /// </summary>
-    [TerraformPropertyName("encrypted")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("encrypted")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Encrypted { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The kms_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("kms_key_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyId { get; set; }
 
     /// <summary>
     /// The permanent_restore attribute.
     /// </summary>
-    [TerraformPropertyName("permanent_restore")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("permanent_restore")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? PermanentRestore { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The source_region attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceRegion is required")]
-    [TerraformPropertyName("source_region")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source_region")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SourceRegion { get; set; }
 
     /// <summary>
     /// The source_snapshot_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SourceSnapshotId is required")]
-    [TerraformPropertyName("source_snapshot_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("source_snapshot_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SourceSnapshotId { get; set; }
 
     /// <summary>
     /// The storage_tier attribute.
     /// </summary>
-    [TerraformPropertyName("storage_tier")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> StorageTier { get; set; } = default!;
+    [TerraformProperty("storage_tier")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> StorageTier { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The temporary_restore_days attribute.
     /// </summary>
-    [TerraformPropertyName("temporary_restore_days")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("temporary_restore_days")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? TemporaryRestoreDays { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsEbsSnapshotCopyTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The data_encryption_key_id attribute.
     /// </summary>
-    [TerraformPropertyName("data_encryption_key_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DataEncryptionKeyId => new TerraformReference(this, "data_encryption_key_id");
+    [TerraformProperty("data_encryption_key_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DataEncryptionKeyId { get; }
 
     /// <summary>
     /// The outpost_arn attribute.
     /// </summary>
-    [TerraformPropertyName("outpost_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OutpostArn => new TerraformReference(this, "outpost_arn");
+    [TerraformProperty("outpost_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OutpostArn { get; }
 
     /// <summary>
     /// The owner_alias attribute.
     /// </summary>
-    [TerraformPropertyName("owner_alias")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerAlias => new TerraformReference(this, "owner_alias");
+    [TerraformProperty("owner_alias")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerAlias { get; }
 
     /// <summary>
     /// The owner_id attribute.
     /// </summary>
-    [TerraformPropertyName("owner_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OwnerId => new TerraformReference(this, "owner_id");
+    [TerraformProperty("owner_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OwnerId { get; }
 
     /// <summary>
     /// The volume_id attribute.
     /// </summary>
-    [TerraformPropertyName("volume_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> VolumeId => new TerraformReference(this, "volume_id");
+    [TerraformProperty("volume_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> VolumeId { get; }
 
     /// <summary>
     /// The volume_size attribute.
     /// </summary>
-    [TerraformPropertyName("volume_size")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> VolumeSize => new TerraformReference(this, "volume_size");
+    [TerraformProperty("volume_size")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> VolumeSize { get; }
 
 }

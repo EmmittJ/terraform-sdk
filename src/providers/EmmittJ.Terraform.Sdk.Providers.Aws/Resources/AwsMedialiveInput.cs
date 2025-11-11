@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for destinations in .
 /// Nesting mode: set
 /// </summary>
-public class AwsMedialiveInputDestinationsBlock
+public partial class AwsMedialiveInputDestinationsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The stream_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamName is required")]
-    [TerraformPropertyName("stream_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("stream_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StreamName { get; set; }
 
 }
@@ -22,14 +22,14 @@ public class AwsMedialiveInputDestinationsBlock
 /// Block type for input_devices in .
 /// Nesting mode: set
 /// </summary>
-public class AwsMedialiveInputInputDevicesBlock
+public partial class AwsMedialiveInputInputDevicesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
 }
@@ -38,14 +38,14 @@ public class AwsMedialiveInputInputDevicesBlock
 /// Block type for media_connect_flows in .
 /// Nesting mode: set
 /// </summary>
-public class AwsMedialiveInputMediaConnectFlowsBlock
+public partial class AwsMedialiveInputMediaConnectFlowsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The flow_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FlowArn is required")]
-    [TerraformPropertyName("flow_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("flow_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> FlowArn { get; set; }
 
 }
@@ -54,30 +54,30 @@ public class AwsMedialiveInputMediaConnectFlowsBlock
 /// Block type for sources in .
 /// Nesting mode: set
 /// </summary>
-public class AwsMedialiveInputSourcesBlock
+public partial class AwsMedialiveInputSourcesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The password_param attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PasswordParam is required")]
-    [TerraformPropertyName("password_param")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("password_param")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PasswordParam { get; set; }
 
     /// <summary>
     /// The url attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Url is required")]
-    [TerraformPropertyName("url")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("url")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Url { get; set; }
 
     /// <summary>
     /// The username attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    [TerraformPropertyName("username")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("username")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Username { get; set; }
 
 }
@@ -86,27 +86,27 @@ public class AwsMedialiveInputSourcesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsMedialiveInputTimeoutsBlock
+public partial class AwsMedialiveInputTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -115,21 +115,21 @@ public class AwsMedialiveInputTimeoutsBlock
 /// Block type for vpc in .
 /// Nesting mode: list
 /// </summary>
-public class AwsMedialiveInputVpcBlock
+public partial class AwsMedialiveInputVpcBlock : TerraformBlockBase
 {
     /// <summary>
     /// The security_group_ids attribute.
     /// </summary>
-    [TerraformPropertyName("security_group_ids")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_group_ids")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? SecurityGroupIds { get; set; }
 
     /// <summary>
     /// The subnet_ids attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SubnetIds is required")]
-    [TerraformPropertyName("subnet_ids")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("subnet_ids")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? SubnetIds { get; set; }
 
 }
@@ -138,7 +138,7 @@ public class AwsMedialiveInputVpcBlock
 /// Manages a aws_medialive_input resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsMedialiveInput : TerraformResource
+public partial class AwsMedialiveInput : TerraformResource
 {
     public AwsMedialiveInput(string name) : base("aws_medialive_input", name)
     {
@@ -147,94 +147,94 @@ public class AwsMedialiveInput : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The input_security_groups attribute.
     /// </summary>
-    [TerraformPropertyName("input_security_groups")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("input_security_groups")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? InputSecurityGroups { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("role_arn")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> RoleArn { get; set; } = default!;
+    [TerraformProperty("role_arn")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> RoleArn { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
     /// <summary>
     /// Block for destinations.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("destinations")]
+    [TerraformProperty("destinations")]
     public TerraformSet<TerraformBlock<AwsMedialiveInputDestinationsBlock>>? Destinations { get; set; }
 
     /// <summary>
     /// Block for input_devices.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("input_devices")]
+    [TerraformProperty("input_devices")]
     public TerraformSet<TerraformBlock<AwsMedialiveInputInputDevicesBlock>>? InputDevices { get; set; }
 
     /// <summary>
     /// Block for media_connect_flows.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("media_connect_flows")]
+    [TerraformProperty("media_connect_flows")]
     public TerraformSet<TerraformBlock<AwsMedialiveInputMediaConnectFlowsBlock>>? MediaConnectFlows { get; set; }
 
     /// <summary>
     /// Block for sources.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("sources")]
+    [TerraformProperty("sources")]
     public TerraformSet<TerraformBlock<AwsMedialiveInputSourcesBlock>>? Sources { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsMedialiveInputTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -242,42 +242,42 @@ public class AwsMedialiveInput : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Vpc block(s) allowed")]
-    [TerraformPropertyName("vpc")]
+    [TerraformProperty("vpc")]
     public TerraformList<TerraformBlock<AwsMedialiveInputVpcBlock>>? Vpc { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The attached_channels attribute.
     /// </summary>
-    [TerraformPropertyName("attached_channels")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> AttachedChannels => new TerraformReference(this, "attached_channels");
+    [TerraformProperty("attached_channels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> AttachedChannels { get; }
 
     /// <summary>
     /// The input_class attribute.
     /// </summary>
-    [TerraformPropertyName("input_class")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> InputClass => new TerraformReference(this, "input_class");
+    [TerraformProperty("input_class")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> InputClass { get; }
 
     /// <summary>
     /// The input_partner_ids attribute.
     /// </summary>
-    [TerraformPropertyName("input_partner_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> InputPartnerIds => new TerraformReference(this, "input_partner_ids");
+    [TerraformProperty("input_partner_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> InputPartnerIds { get; }
 
     /// <summary>
     /// The input_source_type attribute.
     /// </summary>
-    [TerraformPropertyName("input_source_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> InputSourceType => new TerraformReference(this, "input_source_type");
+    [TerraformProperty("input_source_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> InputSourceType { get; }
 
 }

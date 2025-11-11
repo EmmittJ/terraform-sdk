@@ -6,43 +6,43 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for galleries in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock
+public partial class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock : TerraformBlockBase
 {
     /// <summary>
     /// The category attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Category is required")]
-    [TerraformPropertyName("category")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("category")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Category { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The order attribute.
     /// </summary>
-    [TerraformPropertyName("order")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("order")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Order { get; set; }
 
     /// <summary>
     /// The resource_type attribute.
     /// </summary>
-    [TerraformPropertyName("resource_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("resource_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ResourceType { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
 }
@@ -51,34 +51,34 @@ public class AzurermApplicationInsightsWorkbookTemplateGalleriesBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock
+public partial class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -87,7 +87,7 @@ public class AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock
 /// Manages a azurerm_application_insights_workbook_template resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
+public partial class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
 {
     public AzurermApplicationInsightsWorkbookTemplate(string name) : base("azurerm_application_insights_workbook_template", name)
     {
@@ -96,68 +96,68 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     /// <summary>
     /// The author attribute.
     /// </summary>
-    [TerraformPropertyName("author")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("author")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Author { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The localized attribute.
     /// </summary>
-    [TerraformPropertyName("localized")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("localized")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Localized { get; set; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The priority attribute.
     /// </summary>
-    [TerraformPropertyName("priority")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("priority")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Priority { get; set; }
 
     /// <summary>
     /// The resource_group_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResourceGroupName is required")]
-    [TerraformPropertyName("resource_group_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("resource_group_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResourceGroupName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The template_data attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "TemplateData is required")]
-    [TerraformPropertyName("template_data")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("template_data")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> TemplateData { get; set; }
 
     /// <summary>
@@ -166,14 +166,14 @@ public class AzurermApplicationInsightsWorkbookTemplate : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Galleries is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Galleries block(s) required")]
-    [TerraformPropertyName("galleries")]
+    [TerraformProperty("galleries")]
     public TerraformList<TerraformBlock<AzurermApplicationInsightsWorkbookTemplateGalleriesBlock>>? Galleries { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermApplicationInsightsWorkbookTemplateTimeoutsBlock>? Timeouts { get; set; }
 
 }

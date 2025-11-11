@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for input in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock
+public partial class AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock : TerraformBlockBase
 {
     /// <summary>
     /// The configuration_parameter attribute.
     /// </summary>
-    [TerraformPropertyName("configuration_parameter")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("configuration_parameter")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ConfigurationParameter { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -29,14 +29,14 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock
 /// Block type for output in .
 /// Nesting mode: list
 /// </summary>
-public class AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock
+public partial class AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock : TerraformBlockBase
 {
     /// <summary>
     /// The type attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Type is required")]
-    [TerraformPropertyName("type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Type { get; set; }
 
 }
@@ -45,34 +45,34 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock
+public partial class AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -81,7 +81,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock
 /// Manages a azurerm_stream_analytics_function_javascript_uda resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermStreamAnalyticsFunctionJavascriptUda : TerraformResource
+public partial class AzurermStreamAnalyticsFunctionJavascriptUda : TerraformResource
 {
     public AzurermStreamAnalyticsFunctionJavascriptUda(string name) : base("azurerm_stream_analytics_function_javascript_uda", name)
     {
@@ -90,32 +90,32 @@ public class AzurermStreamAnalyticsFunctionJavascriptUda : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The script attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Script is required")]
-    [TerraformPropertyName("script")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("script")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Script { get; set; }
 
     /// <summary>
     /// The stream_analytics_job_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "StreamAnalyticsJobId is required")]
-    [TerraformPropertyName("stream_analytics_job_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("stream_analytics_job_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> StreamAnalyticsJobId { get; set; }
 
     /// <summary>
@@ -124,7 +124,7 @@ public class AzurermStreamAnalyticsFunctionJavascriptUda : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Input is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Input block(s) required")]
-    [TerraformPropertyName("input")]
+    [TerraformProperty("input")]
     public TerraformList<TerraformBlock<AzurermStreamAnalyticsFunctionJavascriptUdaInputBlock>>? Input { get; set; }
 
     /// <summary>
@@ -134,14 +134,14 @@ public class AzurermStreamAnalyticsFunctionJavascriptUda : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Output is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Output block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Output block(s) allowed")]
-    [TerraformPropertyName("output")]
+    [TerraformProperty("output")]
     public TerraformList<TerraformBlock<AzurermStreamAnalyticsFunctionJavascriptUdaOutputBlock>>? Output { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermStreamAnalyticsFunctionJavascriptUdaTimeoutsBlock>? Timeouts { get; set; }
 
 }

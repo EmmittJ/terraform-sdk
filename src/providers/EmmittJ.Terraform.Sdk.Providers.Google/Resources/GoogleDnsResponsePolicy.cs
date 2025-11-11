@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for gke_clusters in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDnsResponsePolicyGkeClustersBlock
+public partial class GoogleDnsResponsePolicyGkeClustersBlock : TerraformBlockBase
 {
     /// <summary>
     /// The resource name of the cluster to bind this ManagedZone to.
@@ -14,8 +14,8 @@ public class GoogleDnsResponsePolicyGkeClustersBlock
     /// &#39;projects/*/locations/*/clusters/*&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GkeClusterName is required")]
-    [TerraformPropertyName("gke_cluster_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("gke_cluster_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GkeClusterName { get; set; }
 
 }
@@ -24,7 +24,7 @@ public class GoogleDnsResponsePolicyGkeClustersBlock
 /// Block type for networks in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDnsResponsePolicyNetworksBlock
+public partial class GoogleDnsResponsePolicyNetworksBlock : TerraformBlockBase
 {
     /// <summary>
     /// The fully qualified URL of the VPC network to bind to.
@@ -32,8 +32,8 @@ public class GoogleDnsResponsePolicyNetworksBlock
     /// &#39;https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}&#39;
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkUrl is required")]
-    [TerraformPropertyName("network_url")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network_url")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> NetworkUrl { get; set; }
 
 }
@@ -42,27 +42,27 @@ public class GoogleDnsResponsePolicyNetworksBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDnsResponsePolicyTimeoutsBlock
+public partial class GoogleDnsResponsePolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -70,7 +70,7 @@ public class GoogleDnsResponsePolicyTimeoutsBlock
 /// <summary>
 /// Manages a google_dns_response_policy resource.
 /// </summary>
-public class GoogleDnsResponsePolicy : TerraformResource
+public partial class GoogleDnsResponsePolicy : TerraformResource
 {
     public GoogleDnsResponsePolicy(string name) : base("google_dns_response_policy", name)
     {
@@ -79,51 +79,51 @@ public class GoogleDnsResponsePolicy : TerraformResource
     /// <summary>
     /// The description of the response policy, such as &#39;My new response policy&#39;.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The user assigned name for this Response Policy, such as &#39;myresponsepolicy&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ResponsePolicyName is required")]
-    [TerraformPropertyName("response_policy_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("response_policy_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ResponsePolicyName { get; set; }
 
     /// <summary>
     /// Block for gke_clusters.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("gke_clusters")]
+    [TerraformProperty("gke_clusters")]
     public TerraformList<TerraformBlock<GoogleDnsResponsePolicyGkeClustersBlock>>? GkeClusters { get; set; }
 
     /// <summary>
     /// Block for networks.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("networks")]
+    [TerraformProperty("networks")]
     public TerraformList<TerraformBlock<GoogleDnsResponsePolicyNetworksBlock>>? Networks { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDnsResponsePolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

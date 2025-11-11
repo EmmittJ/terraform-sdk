@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for enumeration_value in .
 /// Nesting mode: set
 /// </summary>
-public class AwsLexSlotTypeEnumerationValueBlock
+public partial class AwsLexSlotTypeEnumerationValueBlock : TerraformBlockBase
 {
     /// <summary>
     /// The synonyms attribute.
     /// </summary>
-    [TerraformPropertyName("synonyms")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("synonyms")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? Synonyms { get; set; }
 
     /// <summary>
     /// The value attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Value is required")]
-    [TerraformPropertyName("value")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("value")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Value { get; set; }
 
 }
@@ -29,27 +29,27 @@ public class AwsLexSlotTypeEnumerationValueBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsLexSlotTypeTimeoutsBlock
+public partial class AwsLexSlotTypeTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -58,7 +58,7 @@ public class AwsLexSlotTypeTimeoutsBlock
 /// Manages a aws_lex_slot_type resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsLexSlotType : TerraformResource
+public partial class AwsLexSlotType : TerraformResource
 {
     public AwsLexSlotType(string name) : base("aws_lex_slot_type", name)
     {
@@ -67,44 +67,44 @@ public class AwsLexSlotType : TerraformResource
     /// <summary>
     /// The create_version attribute.
     /// </summary>
-    [TerraformPropertyName("create_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? CreateVersion { get; set; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The value_selection_strategy attribute.
     /// </summary>
-    [TerraformPropertyName("value_selection_strategy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("value_selection_strategy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ValueSelectionStrategy { get; set; }
 
     /// <summary>
@@ -114,42 +114,42 @@ public class AwsLexSlotType : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnumerationValue is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 EnumerationValue block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(10000, ErrorMessage = "Maximum 10000 EnumerationValue block(s) allowed")]
-    [TerraformPropertyName("enumeration_value")]
+    [TerraformProperty("enumeration_value")]
     public TerraformSet<TerraformBlock<AwsLexSlotTypeEnumerationValueBlock>>? EnumerationValue { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsLexSlotTypeTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The checksum attribute.
     /// </summary>
-    [TerraformPropertyName("checksum")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Checksum => new TerraformReference(this, "checksum");
+    [TerraformProperty("checksum")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Checksum { get; }
 
     /// <summary>
     /// The created_date attribute.
     /// </summary>
-    [TerraformPropertyName("created_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreatedDate => new TerraformReference(this, "created_date");
+    [TerraformProperty("created_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreatedDate { get; }
 
     /// <summary>
     /// The last_updated_date attribute.
     /// </summary>
-    [TerraformPropertyName("last_updated_date")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastUpdatedDate => new TerraformReference(this, "last_updated_date");
+    [TerraformProperty("last_updated_date")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastUpdatedDate { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Version => new TerraformReference(this, "version");
+    [TerraformProperty("version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Version { get; }
 
 }

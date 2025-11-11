@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for index_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFirestoreFieldIndexConfigBlock
+public partial class GoogleFirestoreFieldIndexConfigBlock : TerraformBlockBase
 {
 }
 
@@ -14,27 +14,27 @@ public class GoogleFirestoreFieldIndexConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFirestoreFieldTimeoutsBlock
+public partial class GoogleFirestoreFieldTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -43,7 +43,7 @@ public class GoogleFirestoreFieldTimeoutsBlock
 /// Block type for ttl_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFirestoreFieldTtlConfigBlock
+public partial class GoogleFirestoreFieldTtlConfigBlock : TerraformBlockBase
 {
 
 }
@@ -52,7 +52,7 @@ public class GoogleFirestoreFieldTtlConfigBlock
 /// Manages a google_firestore_field resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleFirestoreField : TerraformResource
+public partial class GoogleFirestoreField : TerraformResource
 {
     public GoogleFirestoreField(string name) : base("google_firestore_field", name)
     {
@@ -62,52 +62,52 @@ public class GoogleFirestoreField : TerraformResource
     /// The id of the collection group to configure.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Collection is required")]
-    [TerraformPropertyName("collection")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("collection")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Collection { get; set; }
 
     /// <summary>
     /// The Firestore database id. Defaults to &#39;&amp;quot;(default)&amp;quot;&#39;.
     /// </summary>
-    [TerraformPropertyName("database")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("database")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Database { get; set; }
 
     /// <summary>
     /// The id of the field to configure.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Field is required")]
-    [TerraformPropertyName("field")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("field")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Field { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for index_config.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 IndexConfig block(s) allowed")]
-    [TerraformPropertyName("index_config")]
+    [TerraformProperty("index_config")]
     public TerraformList<TerraformBlock<GoogleFirestoreFieldIndexConfigBlock>>? IndexConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleFirestoreFieldTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -115,15 +115,15 @@ public class GoogleFirestoreField : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TtlConfig block(s) allowed")]
-    [TerraformPropertyName("ttl_config")]
+    [TerraformProperty("ttl_config")]
     public TerraformList<TerraformBlock<GoogleFirestoreFieldTtlConfigBlock>>? TtlConfig { get; set; }
 
     /// <summary>
     /// The name of this field. Format:
     /// &#39;projects/{{project}}/databases/{{database}}/collectionGroups/{{collection}}/fields/{{field}}&#39;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for access_restrictions in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleIamWorkforcePoolAccessRestrictionsBlock
+public partial class GoogleIamWorkforcePoolAccessRestrictionsBlock : TerraformBlockBase
 {
     /// <summary>
     /// Disable programmatic sign-in by disabling token issue via the Security Token API endpoint.
     /// See [Security Token Service API](https://cloud.google.com/iam/docs/reference/sts/rest).
     /// </summary>
-    [TerraformPropertyName("disable_programmatic_signin")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disable_programmatic_signin")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DisableProgrammaticSignin { get; set; }
 
 }
@@ -22,27 +22,27 @@ public class GoogleIamWorkforcePoolAccessRestrictionsBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleIamWorkforcePoolTimeoutsBlock
+public partial class GoogleIamWorkforcePoolTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -51,7 +51,7 @@ public class GoogleIamWorkforcePoolTimeoutsBlock
 /// Manages a google_iam_workforce_pool resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleIamWorkforcePool : TerraformResource
+public partial class GoogleIamWorkforcePool : TerraformResource
 {
     public GoogleIamWorkforcePool(string name) : base("google_iam_workforce_pool", name)
     {
@@ -60,46 +60,46 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// <summary>
     /// A user-specified description of the pool. Cannot exceed 256 characters.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Whether the pool is disabled. You cannot use a disabled pool to exchange tokens,
     /// or use existing tokens to access resources. If the pool is re-enabled, existing tokens grant access again.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
     /// A user-specified display name of the pool in Google Cloud Console. Cannot exceed 32 characters.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location for the resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// Immutable. The resource name of the parent. Format: &#39;organizations/{org-id}&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    [TerraformPropertyName("parent")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parent")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
@@ -109,8 +109,8 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// If &#39;sessionDuration&#39; is not configured, minted credentials have a default duration of one hour (3600s).
     /// A duration in seconds with up to nine fractional digits, ending with &#39;&#39;s&#39;&#39;. Example: &amp;quot;&#39;3.5s&#39;&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("session_duration")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("session_duration")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SessionDuration { get; set; }
 
     /// <summary>
@@ -119,8 +119,8 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// The prefix &#39;gcp-&#39; is reserved for use by Google, and may not be specified.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkforcePoolId is required")]
-    [TerraformPropertyName("workforce_pool_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("workforce_pool_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WorkforcePoolId { get; set; }
 
     /// <summary>
@@ -128,23 +128,23 @@ public class GoogleIamWorkforcePool : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AccessRestrictions block(s) allowed")]
-    [TerraformPropertyName("access_restrictions")]
+    [TerraformProperty("access_restrictions")]
     public TerraformList<TerraformBlock<GoogleIamWorkforcePoolAccessRestrictionsBlock>>? AccessRestrictions { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleIamWorkforcePoolTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The resource name of the pool.
     /// Format: &#39;locations/{location}/workforcePools/{workforcePoolId}&#39;
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// Output only. The state of the pool.
@@ -158,8 +158,8 @@ public class GoogleIamWorkforcePool : TerraformResource
     ///    existing tokens to access resources. If the pool is undeleted, existing
     ///    tokens grant access again.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
 }

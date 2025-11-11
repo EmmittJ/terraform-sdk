@@ -6,45 +6,45 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for automatic_scaling in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineStandardAppVersionAutomaticScalingBlock
+public partial class GoogleAppEngineStandardAppVersionAutomaticScalingBlock : TerraformBlockBase
 {
     /// <summary>
     /// Number of concurrent requests an automatic scaling instance can accept before the scheduler spawns a new instance.
     /// 
     /// Defaults to a runtime-specific value.
     /// </summary>
-    [TerraformPropertyName("max_concurrent_requests")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_concurrent_requests")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxConcurrentRequests { get; set; }
 
     /// <summary>
     /// Maximum number of idle instances that should be maintained for this version.
     /// </summary>
-    [TerraformPropertyName("max_idle_instances")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_idle_instances")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MaxIdleInstances { get; set; }
 
     /// <summary>
     /// Maximum amount of time that a request should wait in the pending queue before starting a new instance to handle it.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("max_pending_latency")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("max_pending_latency")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MaxPendingLatency { get; set; }
 
     /// <summary>
     /// Minimum number of idle instances that should be maintained for this version. Only applicable for the default version of a service.
     /// </summary>
-    [TerraformPropertyName("min_idle_instances")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("min_idle_instances")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? MinIdleInstances { get; set; }
 
     /// <summary>
     /// Minimum amount of time a request should wait in the pending queue before starting a new instance to handle it.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("min_pending_latency")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("min_pending_latency")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? MinPendingLatency { get; set; }
 
 }
@@ -53,22 +53,22 @@ public class GoogleAppEngineStandardAppVersionAutomaticScalingBlock
 /// Block type for basic_scaling in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineStandardAppVersionBasicScalingBlock
+public partial class GoogleAppEngineStandardAppVersionBasicScalingBlock : TerraformBlockBase
 {
     /// <summary>
     /// Duration of time after the last request that an instance must wait before the instance is shut down.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;. Defaults to 900s.
     /// </summary>
-    [TerraformPropertyName("idle_timeout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("idle_timeout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IdleTimeout { get; set; }
 
     /// <summary>
     /// Maximum number of instances to create for this version. Must be in the range [1.0, 200.0].
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaxInstances is required")]
-    [TerraformPropertyName("max_instances")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("max_instances")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> MaxInstances { get; set; }
 
 }
@@ -77,7 +77,7 @@ public class GoogleAppEngineStandardAppVersionBasicScalingBlock
 /// Block type for deployment in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineStandardAppVersionDeploymentBlock
+public partial class GoogleAppEngineStandardAppVersionDeploymentBlock : TerraformBlockBase
 {
 }
 
@@ -85,14 +85,14 @@ public class GoogleAppEngineStandardAppVersionDeploymentBlock
 /// Block type for entrypoint in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineStandardAppVersionEntrypointBlock
+public partial class GoogleAppEngineStandardAppVersionEntrypointBlock : TerraformBlockBase
 {
     /// <summary>
     /// The format should be a shell command that can be fed to bash -c.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Shell is required")]
-    [TerraformPropertyName("shell")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("shell")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Shell { get; set; }
 
 }
@@ -101,42 +101,42 @@ public class GoogleAppEngineStandardAppVersionEntrypointBlock
 /// Block type for handlers in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineStandardAppVersionHandlersBlock
+public partial class GoogleAppEngineStandardAppVersionHandlersBlock : TerraformBlockBase
 {
     /// <summary>
     /// Actions to take when the user is not logged in. Possible values: [&amp;quot;AUTH_FAIL_ACTION_REDIRECT&amp;quot;, &amp;quot;AUTH_FAIL_ACTION_UNAUTHORIZED&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("auth_fail_action")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("auth_fail_action")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AuthFailAction { get; set; }
 
     /// <summary>
     /// Methods to restrict access to a URL based on login status. Possible values: [&amp;quot;LOGIN_OPTIONAL&amp;quot;, &amp;quot;LOGIN_ADMIN&amp;quot;, &amp;quot;LOGIN_REQUIRED&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("login")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("login")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Login { get; set; }
 
     /// <summary>
     /// 30x code to use when performing redirects for the secure field. Possible values: [&amp;quot;REDIRECT_HTTP_RESPONSE_CODE_301&amp;quot;, &amp;quot;REDIRECT_HTTP_RESPONSE_CODE_302&amp;quot;, &amp;quot;REDIRECT_HTTP_RESPONSE_CODE_303&amp;quot;, &amp;quot;REDIRECT_HTTP_RESPONSE_CODE_307&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("redirect_http_response_code")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("redirect_http_response_code")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RedirectHttpResponseCode { get; set; }
 
     /// <summary>
     /// Security (HTTPS) enforcement for this URL. Possible values: [&amp;quot;SECURE_DEFAULT&amp;quot;, &amp;quot;SECURE_NEVER&amp;quot;, &amp;quot;SECURE_OPTIONAL&amp;quot;, &amp;quot;SECURE_ALWAYS&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("security_level")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("security_level")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SecurityLevel { get; set; }
 
     /// <summary>
     /// URL prefix. Uses regular expression syntax, which means regexp special characters must be escaped, but should not contain groupings.
     /// All URLs that begin with this prefix are handled by this handler, using the portion of the URL after the prefix as part of the file path.
     /// </summary>
-    [TerraformPropertyName("url_regex")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("url_regex")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? UrlRegex { get; set; }
 
 }
@@ -145,20 +145,20 @@ public class GoogleAppEngineStandardAppVersionHandlersBlock
 /// Block type for libraries in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineStandardAppVersionLibrariesBlock
+public partial class GoogleAppEngineStandardAppVersionLibrariesBlock : TerraformBlockBase
 {
     /// <summary>
     /// Name of the library. Example &amp;quot;django&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Version of the library to select, or &amp;quot;latest&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Version { get; set; }
 
 }
@@ -167,7 +167,7 @@ public class GoogleAppEngineStandardAppVersionLibrariesBlock
 /// Block type for manual_scaling in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineStandardAppVersionManualScalingBlock
+public partial class GoogleAppEngineStandardAppVersionManualScalingBlock : TerraformBlockBase
 {
     /// <summary>
     /// Number of instances to assign to the service at the start.
@@ -176,8 +176,8 @@ public class GoogleAppEngineStandardAppVersionManualScalingBlock
     /// Modules API set_num_instances() you must use &#39;lifecycle.ignore_changes = [&amp;quot;manual_scaling&amp;quot;[0].instances]&#39; to prevent drift detection.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Instances is required")]
-    [TerraformPropertyName("instances")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("instances")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Instances { get; set; }
 
 }
@@ -186,27 +186,27 @@ public class GoogleAppEngineStandardAppVersionManualScalingBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleAppEngineStandardAppVersionTimeoutsBlock
+public partial class GoogleAppEngineStandardAppVersionTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -215,21 +215,21 @@ public class GoogleAppEngineStandardAppVersionTimeoutsBlock
 /// Block type for vpc_access_connector in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock
+public partial class GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock : TerraformBlockBase
 {
     /// <summary>
     /// The egress setting for the connector, controlling what traffic is diverted through it.
     /// </summary>
-    [TerraformPropertyName("egress_setting")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("egress_setting")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EgressSetting { get; set; }
 
     /// <summary>
     /// Full Serverless VPC Access Connector name e.g. /projects/my-project/locations/us-central1/connectors/c1.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
 }
@@ -238,7 +238,7 @@ public class GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock
 /// Manages a google_app_engine_standard_app_version resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleAppEngineStandardAppVersion : TerraformResource
+public partial class GoogleAppEngineStandardAppVersion : TerraformResource
 {
     public GoogleAppEngineStandardAppVersion(string name) : base("google_app_engine_standard_app_version", name)
     {
@@ -247,36 +247,36 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// <summary>
     /// Allows App Engine second generation runtimes to access the legacy bundled services.
     /// </summary>
-    [TerraformPropertyName("app_engine_apis")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("app_engine_apis")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AppEngineApis { get; set; }
 
     /// <summary>
     /// If set to &#39;true&#39;, the service will be deleted if it is the last version.
     /// </summary>
-    [TerraformPropertyName("delete_service_on_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete_service_on_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DeleteServiceOnDestroy { get; set; }
 
     /// <summary>
     /// Environment variables available to the application.
     /// </summary>
-    [TerraformPropertyName("env_variables")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("env_variables")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? EnvVariables { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// A list of the types of messages that this application is able to receive. Possible values: [&amp;quot;INBOUND_SERVICE_MAIL&amp;quot;, &amp;quot;INBOUND_SERVICE_MAIL_BOUNCE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_ERROR&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_MESSAGE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_SUBSCRIBE&amp;quot;, &amp;quot;INBOUND_SERVICE_XMPP_PRESENCE&amp;quot;, &amp;quot;INBOUND_SERVICE_CHANNEL_PRESENCE&amp;quot;, &amp;quot;INBOUND_SERVICE_WARMUP&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("inbound_services")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("inbound_services")]
+    // Optional argument - source generator will implement get/set
     public TerraformSet<string>? InboundServices { get; set; }
 
     /// <summary>
@@ -285,30 +285,30 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// BasicScaling or ManualScaling: B1, B2, B4, B4_1G, B8
     /// Defaults to F1 for AutomaticScaling and B2 for ManualScaling and BasicScaling. If no scaling is specified, AutomaticScaling is chosen.
     /// </summary>
-    [TerraformPropertyName("instance_class")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> InstanceClass { get; set; } = default!;
+    [TerraformProperty("instance_class")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> InstanceClass { get; set; }
 
     /// <summary>
     /// If set to &#39;true&#39;, the application version will not be deleted.
     /// </summary>
-    [TerraformPropertyName("noop_on_destroy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("noop_on_destroy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? NoopOnDestroy { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Desired runtime. Example python27.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Runtime is required")]
-    [TerraformPropertyName("runtime")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("runtime")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Runtime { get; set; }
 
     /// <summary>
@@ -316,37 +316,37 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// Please see the app.yaml reference for valid values at &#39;https://cloud.google.com/appengine/docs/standard/&amp;lt;language&amp;gt;/config/appref&#39;\
     /// Substitute &#39;&amp;lt;language&amp;gt;&#39; with &#39;python&#39;, &#39;java&#39;, &#39;php&#39;, &#39;ruby&#39;, &#39;go&#39; or &#39;nodejs&#39;.
     /// </summary>
-    [TerraformPropertyName("runtime_api_version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("runtime_api_version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RuntimeApiVersion { get; set; }
 
     /// <summary>
     /// AppEngine service resource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Service is required")]
-    [TerraformPropertyName("service")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("service")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Service { get; set; }
 
     /// <summary>
     /// The identity that the deployed version will run as. Admin API will use the App Engine Appspot service account as default if this field is neither provided in app.yaml file nor through CLI flag.
     /// </summary>
-    [TerraformPropertyName("service_account")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ServiceAccount { get; set; } = default!;
+    [TerraformProperty("service_account")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ServiceAccount { get; set; }
 
     /// <summary>
     /// Whether multiple requests can be dispatched to this version at once.
     /// </summary>
-    [TerraformPropertyName("threadsafe")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("threadsafe")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Threadsafe { get; set; }
 
     /// <summary>
     /// Relative name of the version within the service. For example, &#39;v1&#39;. Version names can contain only lowercase letters, numbers, or hyphens. Reserved names,&amp;quot;default&amp;quot;, &amp;quot;latest&amp;quot;, and any name with the prefix &amp;quot;ah-&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("version_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? VersionId { get; set; }
 
     /// <summary>
@@ -354,7 +354,7 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AutomaticScaling block(s) allowed")]
-    [TerraformPropertyName("automatic_scaling")]
+    [TerraformProperty("automatic_scaling")]
     public TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionAutomaticScalingBlock>>? AutomaticScaling { get; set; }
 
     /// <summary>
@@ -362,7 +362,7 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BasicScaling block(s) allowed")]
-    [TerraformPropertyName("basic_scaling")]
+    [TerraformProperty("basic_scaling")]
     public TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionBasicScalingBlock>>? BasicScaling { get; set; }
 
     /// <summary>
@@ -372,7 +372,7 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Deployment is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Deployment block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Deployment block(s) allowed")]
-    [TerraformPropertyName("deployment")]
+    [TerraformProperty("deployment")]
     public TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionDeploymentBlock>>? Deployment { get; set; }
 
     /// <summary>
@@ -382,21 +382,21 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Entrypoint is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Entrypoint block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Entrypoint block(s) allowed")]
-    [TerraformPropertyName("entrypoint")]
+    [TerraformProperty("entrypoint")]
     public TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionEntrypointBlock>>? Entrypoint { get; set; }
 
     /// <summary>
     /// Block for handlers.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("handlers")]
+    [TerraformProperty("handlers")]
     public TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionHandlersBlock>>? Handlers { get; set; }
 
     /// <summary>
     /// Block for libraries.
     /// Nesting mode: list
     /// </summary>
-    [TerraformPropertyName("libraries")]
+    [TerraformProperty("libraries")]
     public TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionLibrariesBlock>>? Libraries { get; set; }
 
     /// <summary>
@@ -404,14 +404,14 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ManualScaling block(s) allowed")]
-    [TerraformPropertyName("manual_scaling")]
+    [TerraformProperty("manual_scaling")]
     public TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionManualScalingBlock>>? ManualScaling { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleAppEngineStandardAppVersionTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -419,14 +419,14 @@ public class GoogleAppEngineStandardAppVersion : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 VpcAccessConnector block(s) allowed")]
-    [TerraformPropertyName("vpc_access_connector")]
+    [TerraformProperty("vpc_access_connector")]
     public TerraformList<TerraformBlock<GoogleAppEngineStandardAppVersionVpcAccessConnectorBlock>>? VpcAccessConnector { get; set; }
 
     /// <summary>
     /// Full path to the Version resource in the API. Example, &amp;quot;v1&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
 }

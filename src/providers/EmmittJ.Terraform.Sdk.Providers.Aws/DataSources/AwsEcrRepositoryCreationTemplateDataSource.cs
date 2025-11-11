@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_ecr_repository_creation_template.
 /// </summary>
-public class AwsEcrRepositoryCreationTemplateDataSource : TerraformDataSource
+public partial class AwsEcrRepositoryCreationTemplateDataSource : TerraformDataSource
 {
     public AwsEcrRepositoryCreationTemplateDataSource(string name) : base("aws_ecr_repository_creation_template", name)
     {
@@ -14,93 +14,93 @@ public class AwsEcrRepositoryCreationTemplateDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The prefix attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Prefix is required")]
-    [TerraformPropertyName("prefix")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("prefix")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Prefix { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The resource_tags attribute.
     /// </summary>
-    [TerraformPropertyName("resource_tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> ResourceTags { get; set; } = default!;
+    [TerraformProperty("resource_tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> ResourceTags { get; set; }
 
     /// <summary>
     /// The applied_for attribute.
     /// </summary>
-    [TerraformPropertyName("applied_for")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> AppliedFor => new TerraformReference(this, "applied_for");
+    [TerraformProperty("applied_for")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> AppliedFor { get; }
 
     /// <summary>
     /// The custom_role_arn attribute.
     /// </summary>
-    [TerraformPropertyName("custom_role_arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CustomRoleArn => new TerraformReference(this, "custom_role_arn");
+    [TerraformProperty("custom_role_arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CustomRoleArn { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The encryption_configuration attribute.
     /// </summary>
-    [TerraformPropertyName("encryption_configuration")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> EncryptionConfiguration => new TerraformReference(this, "encryption_configuration");
+    [TerraformProperty("encryption_configuration")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> EncryptionConfiguration { get; }
 
     /// <summary>
     /// The image_tag_mutability attribute.
     /// </summary>
-    [TerraformPropertyName("image_tag_mutability")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ImageTagMutability => new TerraformReference(this, "image_tag_mutability");
+    [TerraformProperty("image_tag_mutability")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ImageTagMutability { get; }
 
     /// <summary>
     /// The image_tag_mutability_exclusion_filter attribute.
     /// </summary>
-    [TerraformPropertyName("image_tag_mutability_exclusion_filter")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ImageTagMutabilityExclusionFilter => new TerraformReference(this, "image_tag_mutability_exclusion_filter");
+    [TerraformProperty("image_tag_mutability_exclusion_filter")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ImageTagMutabilityExclusionFilter { get; }
 
     /// <summary>
     /// The lifecycle_policy attribute.
     /// </summary>
-    [TerraformPropertyName("lifecycle_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LifecyclePolicy => new TerraformReference(this, "lifecycle_policy");
+    [TerraformProperty("lifecycle_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LifecyclePolicy { get; }
 
     /// <summary>
     /// The registry_id attribute.
     /// </summary>
-    [TerraformPropertyName("registry_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RegistryId => new TerraformReference(this, "registry_id");
+    [TerraformProperty("registry_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RegistryId { get; }
 
     /// <summary>
     /// The repository_policy attribute.
     /// </summary>
-    [TerraformPropertyName("repository_policy")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> RepositoryPolicy => new TerraformReference(this, "repository_policy");
+    [TerraformProperty("repository_policy")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> RepositoryPolicy { get; }
 
 }

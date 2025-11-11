@@ -6,21 +6,21 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for target in .
 /// Nesting mode: list
 /// </summary>
-public class AwsDirectoryServiceSharedDirectoryTargetBlock
+public partial class AwsDirectoryServiceSharedDirectoryTargetBlock : TerraformBlockBase
 {
     /// <summary>
     /// The id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Id is required")]
-    [TerraformPropertyName("id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Type { get; set; }
 
 }
@@ -29,13 +29,13 @@ public class AwsDirectoryServiceSharedDirectoryTargetBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsDirectoryServiceSharedDirectoryTimeoutsBlock
+public partial class AwsDirectoryServiceSharedDirectoryTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -44,7 +44,7 @@ public class AwsDirectoryServiceSharedDirectoryTimeoutsBlock
 /// Manages a aws_directory_service_shared_directory resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsDirectoryServiceSharedDirectory : TerraformResource
+public partial class AwsDirectoryServiceSharedDirectory : TerraformResource
 {
     public AwsDirectoryServiceSharedDirectory(string name) : base("aws_directory_service_shared_directory", name)
     {
@@ -54,37 +54,37 @@ public class AwsDirectoryServiceSharedDirectory : TerraformResource
     /// The directory_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DirectoryId is required")]
-    [TerraformPropertyName("directory_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("directory_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DirectoryId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The method attribute.
     /// </summary>
-    [TerraformPropertyName("method")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("method")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Method { get; set; }
 
     /// <summary>
     /// The notes attribute.
     /// </summary>
-    [TerraformPropertyName("notes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("notes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Notes { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// Block for target.
@@ -93,21 +93,21 @@ public class AwsDirectoryServiceSharedDirectory : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Target is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Target block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Target block(s) allowed")]
-    [TerraformPropertyName("target")]
+    [TerraformProperty("target")]
     public TerraformList<TerraformBlock<AwsDirectoryServiceSharedDirectoryTargetBlock>>? Target { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsDirectoryServiceSharedDirectoryTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The shared_directory_id attribute.
     /// </summary>
-    [TerraformPropertyName("shared_directory_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SharedDirectoryId => new TerraformReference(this, "shared_directory_id");
+    [TerraformProperty("shared_directory_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SharedDirectoryId { get; }
 
 }

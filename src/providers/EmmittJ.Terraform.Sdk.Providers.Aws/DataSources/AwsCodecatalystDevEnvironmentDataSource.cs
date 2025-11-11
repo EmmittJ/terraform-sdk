@@ -6,7 +6,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for repositories in .
 /// Nesting mode: list
 /// </summary>
-public class AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock
+public partial class AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock : TerraformBlockBase
 {
 
 
@@ -16,7 +16,7 @@ public class AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock
 /// Retrieves information about a aws_codecatalyst_dev_environment.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
+public partial class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
 {
     public AwsCodecatalystDevEnvironmentDataSource(string name) : base("aws_codecatalyst_dev_environment", name)
     {
@@ -25,117 +25,117 @@ public class AwsCodecatalystDevEnvironmentDataSource : TerraformDataSource
     /// <summary>
     /// The alias attribute.
     /// </summary>
-    [TerraformPropertyName("alias")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("alias")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Alias { get; set; }
 
     /// <summary>
     /// The creator_id attribute.
     /// </summary>
-    [TerraformPropertyName("creator_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("creator_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CreatorId { get; set; }
 
     /// <summary>
     /// The env_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "EnvId is required")]
-    [TerraformPropertyName("env_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("env_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> EnvId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The project_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectName is required")]
-    [TerraformPropertyName("project_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("project_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProjectName { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The space_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "SpaceName is required")]
-    [TerraformPropertyName("space_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("space_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> SpaceName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// Block for repositories.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(100, ErrorMessage = "Maximum 100 Repositories block(s) allowed")]
-    [TerraformPropertyName("repositories")]
+    [TerraformProperty("repositories")]
     public TerraformList<TerraformBlock<AwsCodecatalystDevEnvironmentDataSourceRepositoriesBlock>>? Repositories { get; set; }
 
     /// <summary>
     /// The ides attribute.
     /// </summary>
-    [TerraformPropertyName("ides")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Ides => new TerraformReference(this, "ides");
+    [TerraformProperty("ides")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Ides { get; }
 
     /// <summary>
     /// The inactivity_timeout_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("inactivity_timeout_minutes")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<double> InactivityTimeoutMinutes => new TerraformReference(this, "inactivity_timeout_minutes");
+    [TerraformProperty("inactivity_timeout_minutes")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<double> InactivityTimeoutMinutes { get; }
 
     /// <summary>
     /// The instance_type attribute.
     /// </summary>
-    [TerraformPropertyName("instance_type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> InstanceType => new TerraformReference(this, "instance_type");
+    [TerraformProperty("instance_type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> InstanceType { get; }
 
     /// <summary>
     /// The last_updated_time attribute.
     /// </summary>
-    [TerraformPropertyName("last_updated_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LastUpdatedTime => new TerraformReference(this, "last_updated_time");
+    [TerraformProperty("last_updated_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LastUpdatedTime { get; }
 
     /// <summary>
     /// The persistent_storage attribute.
     /// </summary>
-    [TerraformPropertyName("persistent_storage")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> PersistentStorage => new TerraformReference(this, "persistent_storage");
+    [TerraformProperty("persistent_storage")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> PersistentStorage { get; }
 
     /// <summary>
     /// The status attribute.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Status { get; }
 
     /// <summary>
     /// The status_reason attribute.
     /// </summary>
-    [TerraformPropertyName("status_reason")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> StatusReason => new TerraformReference(this, "status_reason");
+    [TerraformProperty("status_reason")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> StatusReason { get; }
 
 }

@@ -6,27 +6,27 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermSynapseRoleAssignmentTimeoutsBlock
+public partial class AzurermSynapseRoleAssignmentTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -34,7 +34,7 @@ public class AzurermSynapseRoleAssignmentTimeoutsBlock
 /// <summary>
 /// Manages a azurerm_synapse_role_assignment resource.
 /// </summary>
-public class AzurermSynapseRoleAssignment : TerraformResource
+public partial class AzurermSynapseRoleAssignment : TerraformResource
 {
     public AzurermSynapseRoleAssignment(string name) : base("azurerm_synapse_role_assignment", name)
     {
@@ -43,52 +43,52 @@ public class AzurermSynapseRoleAssignment : TerraformResource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The principal_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PrincipalId is required")]
-    [TerraformPropertyName("principal_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("principal_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> PrincipalId { get; set; }
 
     /// <summary>
     /// The principal_type attribute.
     /// </summary>
-    [TerraformPropertyName("principal_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("principal_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PrincipalType { get; set; }
 
     /// <summary>
     /// The role_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RoleName is required")]
-    [TerraformPropertyName("role_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("role_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RoleName { get; set; }
 
     /// <summary>
     /// The synapse_spark_pool_id attribute.
     /// </summary>
-    [TerraformPropertyName("synapse_spark_pool_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("synapse_spark_pool_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SynapseSparkPoolId { get; set; }
 
     /// <summary>
     /// The synapse_workspace_id attribute.
     /// </summary>
-    [TerraformPropertyName("synapse_workspace_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("synapse_workspace_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SynapseWorkspaceId { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermSynapseRoleAssignmentTimeoutsBlock>? Timeouts { get; set; }
 
 }

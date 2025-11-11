@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for approval_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudbuildTriggerApprovalConfigBlock
+public partial class GoogleCloudbuildTriggerApprovalConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Whether or not approval is needed. If this is set on a build, it will become pending when run,
     /// and will need to be explicitly approved to start.
     /// </summary>
-    [TerraformPropertyName("approval_required")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("approval_required")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ApprovalRequired { get; set; }
 
 }
@@ -22,22 +22,22 @@ public class GoogleCloudbuildTriggerApprovalConfigBlock
 /// Block type for bitbucket_server_trigger_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock
+public partial class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The Bitbucket server config resource that this trigger config maps to.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BitbucketServerConfigResource is required")]
-    [TerraformPropertyName("bitbucket_server_config_resource")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bitbucket_server_config_resource")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BitbucketServerConfigResource { get; set; }
 
     /// <summary>
     /// Key of the project that the repo is in. For example: The key for https://mybitbucket.server/projects/TEST/repos/test-repo is &amp;quot;TEST&amp;quot;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ProjectKey is required")]
-    [TerraformPropertyName("project_key")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("project_key")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ProjectKey { get; set; }
 
     /// <summary>
@@ -45,8 +45,8 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock
     /// For example, if the repository name is &#39;test repo&#39;, in the URL it would become &#39;test-repo&#39; as in https://mybitbucket.server/projects/TEST/repos/test-repo.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoSlug is required")]
-    [TerraformPropertyName("repo_slug")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("repo_slug")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RepoSlug { get; set; }
 
 }
@@ -55,7 +55,7 @@ public class GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock
 /// Block type for build in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudbuildTriggerBuildBlock
+public partial class GoogleCloudbuildTriggerBuildBlock : TerraformBlockBase
 {
     /// <summary>
     /// A list of images to be pushed upon the successful completion of all build steps.
@@ -63,16 +63,16 @@ public class GoogleCloudbuildTriggerBuildBlock
     /// The digests of the pushed images will be stored in the Build resource&#39;s results field.
     /// If any of the images fail to be pushed, the build status is marked FAILURE.
     /// </summary>
-    [TerraformPropertyName("images")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("images")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Images { get; set; }
 
     /// <summary>
     /// Google Cloud Storage bucket where logs should be written.
     /// Logs file names will be of the format ${logsBucket}/log-${build_id}.txt.
     /// </summary>
-    [TerraformPropertyName("logs_bucket")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("logs_bucket")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? LogsBucket { get; set; }
 
     /// <summary>
@@ -81,22 +81,22 @@ public class GoogleCloudbuildTriggerBuildBlock
     /// The TTL starts ticking from createTime.
     /// A duration in seconds with up to nine fractional digits, terminated by &#39;s&#39;. Example: &amp;quot;3.5s&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("queue_ttl")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("queue_ttl")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? QueueTtl { get; set; }
 
     /// <summary>
     /// Substitutions data for Build resource.
     /// </summary>
-    [TerraformPropertyName("substitutions")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("substitutions")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Substitutions { get; set; }
 
     /// <summary>
     /// Tags for annotation of a Build. These are not docker tags.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Tags { get; set; }
 
     /// <summary>
@@ -106,8 +106,8 @@ public class GoogleCloudbuildTriggerBuildBlock
     /// The expected format is the number of seconds followed by s.
     /// Default time is ten minutes (600s).
     /// </summary>
-    [TerraformPropertyName("timeout")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("timeout")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Timeout { get; set; }
 
 }
@@ -116,14 +116,14 @@ public class GoogleCloudbuildTriggerBuildBlock
 /// Block type for developer_connect_event_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock
+public partial class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The Developer Connect Git repository link, formatted as &#39;projects/*/locations/*/connections/*/gitRepositoryLink/*&#39;.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GitRepositoryLink is required")]
-    [TerraformPropertyName("git_repository_link")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("git_repository_link")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GitRepositoryLink { get; set; }
 
 
@@ -133,30 +133,30 @@ public class GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock
 /// Block type for git_file_source in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudbuildTriggerGitFileSourceBlock
+public partial class GoogleCloudbuildTriggerGitFileSourceBlock : TerraformBlockBase
 {
     /// <summary>
     /// The full resource name of the bitbucket server config.
     /// Format: projects/{project}/locations/{location}/bitbucketServerConfigs/{id}.
     /// </summary>
-    [TerraformPropertyName("bitbucket_server_config")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bitbucket_server_config")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BitbucketServerConfig { get; set; }
 
     /// <summary>
     /// The full resource name of the github enterprise config.
     /// Format: projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}. projects/{project}/githubEnterpriseConfigs/{id}.
     /// </summary>
-    [TerraformPropertyName("github_enterprise_config")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("github_enterprise_config")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? GithubEnterpriseConfig { get; set; }
 
     /// <summary>
     /// The path of the file, with the repo root as the root of the path.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Path is required")]
-    [TerraformPropertyName("path")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("path")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Path { get; set; }
 
     /// <summary>
@@ -164,16 +164,16 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock
     /// Values can be UNKNOWN, CLOUD_SOURCE_REPOSITORIES, GITHUB, BITBUCKET_SERVER Possible values: [&amp;quot;UNKNOWN&amp;quot;, &amp;quot;CLOUD_SOURCE_REPOSITORIES&amp;quot;, &amp;quot;GITHUB&amp;quot;, &amp;quot;BITBUCKET_SERVER&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoType is required")]
-    [TerraformPropertyName("repo_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("repo_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RepoType { get; set; }
 
     /// <summary>
     /// The fully qualified resource name of the Repo API repository. The fully qualified resource name of the Repo API repository.
     /// If unspecified, the repo from which the trigger invocation originated is assumed to be the repo from which to read the specified path.
     /// </summary>
-    [TerraformPropertyName("repository")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("repository")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Repository { get; set; }
 
     /// <summary>
@@ -181,16 +181,16 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock
     /// filename (optional). This field respects the same syntax/resolution as described here: https://git-scm.com/docs/gitrevisions
     /// If unspecified, the revision from which the trigger invocation originated is assumed to be the revision from which to read the specified path.
     /// </summary>
-    [TerraformPropertyName("revision")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("revision")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Revision { get; set; }
 
     /// <summary>
     /// The URI of the repo (optional). If unspecified, the repo from which the trigger
     /// invocation originated is assumed to be the repo from which to read the specified path.
     /// </summary>
-    [TerraformPropertyName("uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Uri { get; set; }
 
 }
@@ -199,30 +199,30 @@ public class GoogleCloudbuildTriggerGitFileSourceBlock
 /// Block type for github in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudbuildTriggerGithubBlock
+public partial class GoogleCloudbuildTriggerGithubBlock : TerraformBlockBase
 {
     /// <summary>
     /// The resource name of the github enterprise config that should be applied to this installation.
     /// For example: &amp;quot;projects/{$projectId}/locations/{$locationId}/githubEnterpriseConfigs/{$configId}&amp;quot;
     /// </summary>
-    [TerraformPropertyName("enterprise_config_resource_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enterprise_config_resource_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EnterpriseConfigResourceName { get; set; }
 
     /// <summary>
     /// Name of the repository. For example: The name for
     /// https://github.com/googlecloudplatform/cloud-builders is &amp;quot;cloud-builders&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Name { get; set; }
 
     /// <summary>
     /// Owner of the repository. For example: The owner for
     /// https://github.com/googlecloudplatform/cloud-builders is &amp;quot;googlecloudplatform&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("owner")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("owner")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Owner { get; set; }
 
 }
@@ -231,13 +231,13 @@ public class GoogleCloudbuildTriggerGithubBlock
 /// Block type for pubsub_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudbuildTriggerPubsubConfigBlock
+public partial class GoogleCloudbuildTriggerPubsubConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Service account that will make the push request.
     /// </summary>
-    [TerraformPropertyName("service_account_email")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_account_email")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServiceAccountEmail { get; set; }
 
 
@@ -246,8 +246,8 @@ public class GoogleCloudbuildTriggerPubsubConfigBlock
     /// The name of the topic from which this subscription is receiving messages.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Topic is required")]
-    [TerraformPropertyName("topic")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("topic")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Topic { get; set; }
 
 }
@@ -256,13 +256,13 @@ public class GoogleCloudbuildTriggerPubsubConfigBlock
 /// Block type for repository_event_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudbuildTriggerRepositoryEventConfigBlock
+public partial class GoogleCloudbuildTriggerRepositoryEventConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The resource name of the Repo API resource.
     /// </summary>
-    [TerraformPropertyName("repository")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("repository")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Repository { get; set; }
 
 }
@@ -271,30 +271,30 @@ public class GoogleCloudbuildTriggerRepositoryEventConfigBlock
 /// Block type for source_to_build in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudbuildTriggerSourceToBuildBlock
+public partial class GoogleCloudbuildTriggerSourceToBuildBlock : TerraformBlockBase
 {
     /// <summary>
     /// The full resource name of the bitbucket server config.
     /// Format: projects/{project}/locations/{location}/bitbucketServerConfigs/{id}.
     /// </summary>
-    [TerraformPropertyName("bitbucket_server_config")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("bitbucket_server_config")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BitbucketServerConfig { get; set; }
 
     /// <summary>
     /// The full resource name of the github enterprise config.
     /// Format: projects/{project}/locations/{location}/githubEnterpriseConfigs/{id}. projects/{project}/githubEnterpriseConfigs/{id}.
     /// </summary>
-    [TerraformPropertyName("github_enterprise_config")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("github_enterprise_config")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? GithubEnterpriseConfig { get; set; }
 
     /// <summary>
     /// The branch or tag to use. Must start with &amp;quot;refs/&amp;quot; (required).
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Ref is required")]
-    [TerraformPropertyName("ref")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("ref")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Ref { get; set; }
 
     /// <summary>
@@ -302,23 +302,23 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock
     /// Values can be UNKNOWN, CLOUD_SOURCE_REPOSITORIES, GITHUB, BITBUCKET_SERVER Possible values: [&amp;quot;UNKNOWN&amp;quot;, &amp;quot;CLOUD_SOURCE_REPOSITORIES&amp;quot;, &amp;quot;GITHUB&amp;quot;, &amp;quot;BITBUCKET_SERVER&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "RepoType is required")]
-    [TerraformPropertyName("repo_type")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("repo_type")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> RepoType { get; set; }
 
     /// <summary>
     /// The qualified resource name of the Repo API repository.
     /// Either uri or repository can be specified and is required.
     /// </summary>
-    [TerraformPropertyName("repository")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("repository")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Repository { get; set; }
 
     /// <summary>
     /// The URI of the repo.
     /// </summary>
-    [TerraformPropertyName("uri")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("uri")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Uri { get; set; }
 
 }
@@ -327,27 +327,27 @@ public class GoogleCloudbuildTriggerSourceToBuildBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleCloudbuildTriggerTimeoutsBlock
+public partial class GoogleCloudbuildTriggerTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -356,21 +356,21 @@ public class GoogleCloudbuildTriggerTimeoutsBlock
 /// Block type for trigger_template in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudbuildTriggerTriggerTemplateBlock
+public partial class GoogleCloudbuildTriggerTriggerTemplateBlock : TerraformBlockBase
 {
     /// <summary>
     /// Name of the branch to build. Exactly one a of branch name, tag, or commit SHA must be provided.
     /// This field is a regular expression.
     /// </summary>
-    [TerraformPropertyName("branch_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("branch_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? BranchName { get; set; }
 
     /// <summary>
     /// Explicit commit SHA to build. Exactly one of a branch name, tag, or commit SHA must be provided.
     /// </summary>
-    [TerraformPropertyName("commit_sha")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("commit_sha")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CommitSha { get; set; }
 
     /// <summary>
@@ -380,38 +380,38 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock
     /// is an absolute path, this value is ignored for that step&#39;s
     /// execution.
     /// </summary>
-    [TerraformPropertyName("dir")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("dir")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Dir { get; set; }
 
     /// <summary>
     /// Only trigger a build if the revision regex does NOT match the revision regex.
     /// </summary>
-    [TerraformPropertyName("invert_regex")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("invert_regex")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? InvertRegex { get; set; }
 
     /// <summary>
     /// ID of the project that owns the Cloud Source Repository. If
     /// omitted, the project ID requesting the build is assumed.
     /// </summary>
-    [TerraformPropertyName("project_id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ProjectId { get; set; } = default!;
+    [TerraformProperty("project_id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ProjectId { get; set; }
 
     /// <summary>
     /// Name of the Cloud Source Repository. If omitted, the name &amp;quot;default&amp;quot; is assumed.
     /// </summary>
-    [TerraformPropertyName("repo_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("repo_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? RepoName { get; set; }
 
     /// <summary>
     /// Name of the tag to build. Exactly one of a branch name, tag, or commit SHA must be provided.
     /// This field is a regular expression.
     /// </summary>
-    [TerraformPropertyName("tag_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tag_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? TagName { get; set; }
 
 }
@@ -420,14 +420,14 @@ public class GoogleCloudbuildTriggerTriggerTemplateBlock
 /// Block type for webhook_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleCloudbuildTriggerWebhookConfigBlock
+public partial class GoogleCloudbuildTriggerWebhookConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Resource name for the secret required as a URL parameter.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Secret is required")]
-    [TerraformPropertyName("secret")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("secret")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Secret { get; set; }
 
 
@@ -437,7 +437,7 @@ public class GoogleCloudbuildTriggerWebhookConfigBlock
 /// Manages a google_cloudbuild_trigger resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleCloudbuildTrigger : TerraformResource
+public partial class GoogleCloudbuildTrigger : TerraformResource
 {
     public GoogleCloudbuildTrigger(string name) : base("google_cloudbuild_trigger", name)
     {
@@ -446,15 +446,15 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// <summary>
     /// Human-readable description of the trigger.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// Whether the trigger is disabled or not. If true, the trigger will never result in a build.
     /// </summary>
-    [TerraformPropertyName("disabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("disabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? Disabled { get; set; }
 
     /// <summary>
@@ -462,23 +462,23 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Either a filename or build template must be provided. Set this only when using trigger_template or github.
     /// When using Pub/Sub, Webhook or Manual set the file name using git_file_source instead.
     /// </summary>
-    [TerraformPropertyName("filename")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filename")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Filename { get; set; }
 
     /// <summary>
     /// A Common Expression Language string. Used only with Pub/Sub and Webhook.
     /// </summary>
-    [TerraformPropertyName("filter")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filter")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// ignoredFiles and includedFiles are file glob matches using https://golang.org/pkg/path/filepath/#Match
@@ -491,8 +491,8 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// of the ignored_file globs. If the change has no files that are outside
     /// of the ignoredFiles globs, then we do not trigger a build.
     /// </summary>
-    [TerraformPropertyName("ignored_files")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("ignored_files")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? IgnoredFiles { get; set; }
 
     /// <summary>
@@ -500,8 +500,8 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// result.  Values can be INCLUDE_BUILD_LOGS_UNSPECIFIED or
     /// INCLUDE_BUILD_LOGS_WITH_STATUS Possible values: [&amp;quot;INCLUDE_BUILD_LOGS_UNSPECIFIED&amp;quot;, &amp;quot;INCLUDE_BUILD_LOGS_WITH_STATUS&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("include_build_logs")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("include_build_logs")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? IncludeBuildLogs { get; set; }
 
     /// <summary>
@@ -517,31 +517,31 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// those files matches a includedFiles glob. If not, then we do not trigger
     /// a build.
     /// </summary>
-    [TerraformPropertyName("included_files")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("included_files")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? IncludedFiles { get; set; }
 
     /// <summary>
     /// The [Cloud Build location](https://cloud.google.com/build/docs/locations) for the trigger.
     /// If not specified, &amp;quot;global&amp;quot; is used.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// Name of the trigger. Must be unique within the project.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Name { get; set; } = default!;
+    [TerraformProperty("name")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// The service account used for all user-controlled operations including
@@ -552,22 +552,22 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// 
     /// Format: projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT_ID_OR_EMAIL}
     /// </summary>
-    [TerraformPropertyName("service_account")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service_account")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ServiceAccount { get; set; }
 
     /// <summary>
     /// Substitutions data for Build resource.
     /// </summary>
-    [TerraformPropertyName("substitutions")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("substitutions")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Substitutions { get; set; }
 
     /// <summary>
     /// Tags for annotation of a BuildTrigger
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Tags { get; set; }
 
     /// <summary>
@@ -575,7 +575,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ApprovalConfig block(s) allowed")]
-    [TerraformPropertyName("approval_config")]
+    [TerraformProperty("approval_config")]
     public TerraformList<TerraformBlock<GoogleCloudbuildTriggerApprovalConfigBlock>>? ApprovalConfig { get; set; }
 
     /// <summary>
@@ -583,7 +583,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BitbucketServerTriggerConfig block(s) allowed")]
-    [TerraformPropertyName("bitbucket_server_trigger_config")]
+    [TerraformProperty("bitbucket_server_trigger_config")]
     public TerraformList<TerraformBlock<GoogleCloudbuildTriggerBitbucketServerTriggerConfigBlock>>? BitbucketServerTriggerConfig { get; set; }
 
     /// <summary>
@@ -591,7 +591,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Build block(s) allowed")]
-    [TerraformPropertyName("build")]
+    [TerraformProperty("build")]
     public TerraformList<TerraformBlock<GoogleCloudbuildTriggerBuildBlock>>? Build { get; set; }
 
     /// <summary>
@@ -599,7 +599,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 DeveloperConnectEventConfig block(s) allowed")]
-    [TerraformPropertyName("developer_connect_event_config")]
+    [TerraformProperty("developer_connect_event_config")]
     public TerraformList<TerraformBlock<GoogleCloudbuildTriggerDeveloperConnectEventConfigBlock>>? DeveloperConnectEventConfig { get; set; }
 
     /// <summary>
@@ -607,7 +607,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 GitFileSource block(s) allowed")]
-    [TerraformPropertyName("git_file_source")]
+    [TerraformProperty("git_file_source")]
     public TerraformList<TerraformBlock<GoogleCloudbuildTriggerGitFileSourceBlock>>? GitFileSource { get; set; }
 
     /// <summary>
@@ -615,7 +615,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Github block(s) allowed")]
-    [TerraformPropertyName("github")]
+    [TerraformProperty("github")]
     public TerraformList<TerraformBlock<GoogleCloudbuildTriggerGithubBlock>>? Github { get; set; }
 
     /// <summary>
@@ -623,7 +623,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PubsubConfig block(s) allowed")]
-    [TerraformPropertyName("pubsub_config")]
+    [TerraformProperty("pubsub_config")]
     public TerraformList<TerraformBlock<GoogleCloudbuildTriggerPubsubConfigBlock>>? PubsubConfig { get; set; }
 
     /// <summary>
@@ -631,7 +631,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 RepositoryEventConfig block(s) allowed")]
-    [TerraformPropertyName("repository_event_config")]
+    [TerraformProperty("repository_event_config")]
     public TerraformList<TerraformBlock<GoogleCloudbuildTriggerRepositoryEventConfigBlock>>? RepositoryEventConfig { get; set; }
 
     /// <summary>
@@ -639,14 +639,14 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SourceToBuild block(s) allowed")]
-    [TerraformPropertyName("source_to_build")]
+    [TerraformProperty("source_to_build")]
     public TerraformList<TerraformBlock<GoogleCloudbuildTriggerSourceToBuildBlock>>? SourceToBuild { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleCloudbuildTriggerTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -654,7 +654,7 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 TriggerTemplate block(s) allowed")]
-    [TerraformPropertyName("trigger_template")]
+    [TerraformProperty("trigger_template")]
     public TerraformList<TerraformBlock<GoogleCloudbuildTriggerTriggerTemplateBlock>>? TriggerTemplate { get; set; }
 
     /// <summary>
@@ -662,21 +662,21 @@ public class GoogleCloudbuildTrigger : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 WebhookConfig block(s) allowed")]
-    [TerraformPropertyName("webhook_config")]
+    [TerraformProperty("webhook_config")]
     public TerraformList<TerraformBlock<GoogleCloudbuildTriggerWebhookConfigBlock>>? WebhookConfig { get; set; }
 
     /// <summary>
     /// Time when the trigger was created.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The unique identifier for the trigger.
     /// </summary>
-    [TerraformPropertyName("trigger_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TriggerId => new TerraformReference(this, "trigger_id");
+    [TerraformProperty("trigger_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TriggerId { get; }
 
 }

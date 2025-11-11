@@ -8,7 +8,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
     /// 
     /// ~&amp;gt; This resource will only work as expected if the provider is configured to use the https://www.googleapis.com/auth/userinfo.email scope! You will receive an error otherwise. The provider uses this scope by default.
 /// </summary>
-public class GoogleClientOpenidUserinfoDataSource : TerraformDataSource
+public partial class GoogleClientOpenidUserinfoDataSource : TerraformDataSource
 {
     public GoogleClientOpenidUserinfoDataSource(string name) : base("google_client_openid_userinfo", name)
     {
@@ -17,15 +17,15 @@ public class GoogleClientOpenidUserinfoDataSource : TerraformDataSource
     /// <summary>
     /// The email of the account used by the provider to authenticate with GCP.
     /// </summary>
-    [TerraformPropertyName("email")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Email => new TerraformReference(this, "email");
+    [TerraformProperty("email")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Email { get; }
 
     /// <summary>
     /// The ID of this data source in Terraform state. Its value is the same as the `email` attribute. Do not use this field, use the `email` attribute instead.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Id => new TerraformReference(this, "id");
+    [TerraformProperty("id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Id { get; }
 
 }

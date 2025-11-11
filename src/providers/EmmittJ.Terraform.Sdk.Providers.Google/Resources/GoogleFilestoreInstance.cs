@@ -6,23 +6,23 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for file_shares in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFilestoreInstanceFileSharesBlock
+public partial class GoogleFilestoreInstanceFileSharesBlock : TerraformBlockBase
 {
     /// <summary>
     /// File share capacity in GiB. This must be at least 1024 GiB
     /// for the standard tier, or 2560 GiB for the premium tier.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "CapacityGb is required")]
-    [TerraformPropertyName("capacity_gb")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("capacity_gb")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> CapacityGb { get; set; }
 
     /// <summary>
     /// The name of the fileshare (16 characters or less)
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
@@ -30,8 +30,8 @@ public class GoogleFilestoreInstanceFileSharesBlock
     /// projects/{projectId}/locations/{locationId}/backups/{backupId},
     /// that this file share has been restored from.
     /// </summary>
-    [TerraformPropertyName("source_backup")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("source_backup")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? SourceBackup { get; set; }
 
 }
@@ -40,13 +40,13 @@ public class GoogleFilestoreInstanceFileSharesBlock
 /// Block type for initial_replication in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFilestoreInstanceInitialReplicationBlock
+public partial class GoogleFilestoreInstanceInitialReplicationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The replication role. Default value: &amp;quot;STANDBY&amp;quot; Possible values: [&amp;quot;ROLE_UNSPECIFIED&amp;quot;, &amp;quot;ACTIVE&amp;quot;, &amp;quot;STANDBY&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("role")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("role")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Role { get; set; }
 
 }
@@ -55,15 +55,15 @@ public class GoogleFilestoreInstanceInitialReplicationBlock
 /// Block type for networks in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFilestoreInstanceNetworksBlock
+public partial class GoogleFilestoreInstanceNetworksBlock : TerraformBlockBase
 {
     /// <summary>
     /// The network connect mode of the Filestore instance.
     /// If not provided, the connect mode defaults to
     /// DIRECT_PEERING. Default value: &amp;quot;DIRECT_PEERING&amp;quot; Possible values: [&amp;quot;DIRECT_PEERING&amp;quot;, &amp;quot;PRIVATE_SERVICE_ACCESS&amp;quot;, &amp;quot;PRIVATE_SERVICE_CONNECT&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("connect_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("connect_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ConnectMode { get; set; }
 
 
@@ -72,8 +72,8 @@ public class GoogleFilestoreInstanceNetworksBlock
     /// IP addresses assigned. Possible values: [&amp;quot;ADDRESS_MODE_UNSPECIFIED&amp;quot;, &amp;quot;MODE_IPV4&amp;quot;, &amp;quot;MODE_IPV6&amp;quot;]
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Modes is required")]
-    [TerraformPropertyName("modes")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("modes")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? Modes { get; set; }
 
     /// <summary>
@@ -81,17 +81,17 @@ public class GoogleFilestoreInstanceNetworksBlock
     /// instance is connected.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Network is required")]
-    [TerraformPropertyName("network")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("network")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// A /29 CIDR block that identifies the range of IP
     /// addresses reserved for this instance.
     /// </summary>
-    [TerraformPropertyName("reserved_ip_range")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ReservedIpRange { get; set; } = default!;
+    [TerraformProperty("reserved_ip_range")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ReservedIpRange { get; set; }
 
 }
 
@@ -99,7 +99,7 @@ public class GoogleFilestoreInstanceNetworksBlock
 /// Block type for performance_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleFilestoreInstancePerformanceConfigBlock
+public partial class GoogleFilestoreInstancePerformanceConfigBlock : TerraformBlockBase
 {
 }
 
@@ -107,27 +107,27 @@ public class GoogleFilestoreInstancePerformanceConfigBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleFilestoreInstanceTimeoutsBlock
+public partial class GoogleFilestoreInstanceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -136,7 +136,7 @@ public class GoogleFilestoreInstanceTimeoutsBlock
 /// Manages a google_filestore_instance resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleFilestoreInstance : TerraformResource
+public partial class GoogleFilestoreInstance : TerraformResource
 {
     public GoogleFilestoreInstance(string name) : base("google_filestore_instance", name)
     {
@@ -145,36 +145,36 @@ public class GoogleFilestoreInstance : TerraformResource
     /// <summary>
     /// Indicates whether the instance is protected against deletion.
     /// </summary>
-    [TerraformPropertyName("deletion_protection_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deletion_protection_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? DeletionProtectionEnabled { get; set; }
 
     /// <summary>
     /// The reason for enabling deletion protection.
     /// </summary>
-    [TerraformPropertyName("deletion_protection_reason")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("deletion_protection_reason")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DeletionProtectionReason { get; set; }
 
     /// <summary>
     /// A description of the instance.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// KMS key name used for data encryption.
     /// </summary>
-    [TerraformPropertyName("kms_key_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("kms_key_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? KmsKeyName { get; set; }
 
     /// <summary>
@@ -184,31 +184,31 @@ public class GoogleFilestoreInstance : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The name of the location of the instance. This can be a region for ENTERPRISE tier instances.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Location { get; set; } = default!;
+    [TerraformProperty("location")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The resource name of the instance.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Either NFSv3, for using NFS version 3 as file sharing protocol,
@@ -216,8 +216,8 @@ public class GoogleFilestoreInstance : TerraformResource
     /// NFSv4.1 can be used with HIGH_SCALE_SSD, ZONAL, REGIONAL and ENTERPRISE.
     /// The default is NFSv3. Default value: &amp;quot;NFS_V3&amp;quot; Possible values: [&amp;quot;NFS_V3&amp;quot;, &amp;quot;NFS_V4_1&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("protocol")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("protocol")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Protocol { get; set; }
 
     /// <summary>
@@ -231,8 +231,8 @@ public class GoogleFilestoreInstance : TerraformResource
     /// will trigger recreation. To apply tags to an existing
     /// resource, see the &#39;google_tags_tag_value&#39; resource.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
@@ -240,17 +240,17 @@ public class GoogleFilestoreInstance : TerraformResource
     /// Possible values include: STANDARD, PREMIUM, BASIC_HDD, BASIC_SSD, HIGH_SCALE_SSD, ZONAL, REGIONAL and ENTERPRISE
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Tier is required")]
-    [TerraformPropertyName("tier")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("tier")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Tier { get; set; }
 
     /// <summary>
     /// The name of the Filestore zone of the instance.
     /// </summary>
     [Obsolete("This property is deprecated.")]
-    [TerraformPropertyName("zone")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Zone { get; set; } = default!;
+    [TerraformProperty("zone")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Zone { get; set; }
 
     /// <summary>
     /// Block for file_shares.
@@ -259,7 +259,7 @@ public class GoogleFilestoreInstance : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "FileShares is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 FileShares block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 FileShares block(s) allowed")]
-    [TerraformPropertyName("file_shares")]
+    [TerraformProperty("file_shares")]
     public TerraformList<TerraformBlock<GoogleFilestoreInstanceFileSharesBlock>>? FileShares { get; set; }
 
     /// <summary>
@@ -267,7 +267,7 @@ public class GoogleFilestoreInstance : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 InitialReplication block(s) allowed")]
-    [TerraformPropertyName("initial_replication")]
+    [TerraformProperty("initial_replication")]
     public TerraformList<TerraformBlock<GoogleFilestoreInstanceInitialReplicationBlock>>? InitialReplication { get; set; }
 
     /// <summary>
@@ -276,7 +276,7 @@ public class GoogleFilestoreInstance : TerraformResource
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Networks is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Networks block(s) required")]
-    [TerraformPropertyName("networks")]
+    [TerraformProperty("networks")]
     public TerraformList<TerraformBlock<GoogleFilestoreInstanceNetworksBlock>>? Networks { get; set; }
 
     /// <summary>
@@ -284,51 +284,51 @@ public class GoogleFilestoreInstance : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PerformanceConfig block(s) allowed")]
-    [TerraformPropertyName("performance_config")]
+    [TerraformProperty("performance_config")]
     public TerraformList<TerraformBlock<GoogleFilestoreInstancePerformanceConfigBlock>>? PerformanceConfig { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleFilestoreInstanceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Creation timestamp in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Output only fields for replication configuration.
     /// </summary>
-    [TerraformPropertyName("effective_replication")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> EffectiveReplication => new TerraformReference(this, "effective_replication");
+    [TerraformProperty("effective_replication")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> EffectiveReplication { get; }
 
     /// <summary>
     /// Server-specified ETag for the instance resource to prevent
     /// simultaneous updates from overwriting each other.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }

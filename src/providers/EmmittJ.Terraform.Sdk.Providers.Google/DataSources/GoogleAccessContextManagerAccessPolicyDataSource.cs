@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// <summary>
 /// Retrieves information about a google_access_context_manager_access_policy.
 /// </summary>
-public class GoogleAccessContextManagerAccessPolicyDataSource : TerraformDataSource
+public partial class GoogleAccessContextManagerAccessPolicyDataSource : TerraformDataSource
 {
     public GoogleAccessContextManagerAccessPolicyDataSource(string name) : base("google_access_context_manager_access_policy", name)
     {
@@ -14,37 +14,37 @@ public class GoogleAccessContextManagerAccessPolicyDataSource : TerraformDataSou
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The parent attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Parent is required")]
-    [TerraformPropertyName("parent")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("parent")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Parent { get; set; }
 
     /// <summary>
     /// The scopes attribute.
     /// </summary>
-    [TerraformPropertyName("scopes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("scopes")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? Scopes { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The title attribute.
     /// </summary>
-    [TerraformPropertyName("title")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Title => new TerraformReference(this, "title");
+    [TerraformProperty("title")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Title { get; }
 
 }

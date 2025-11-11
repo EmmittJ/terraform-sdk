@@ -6,15 +6,15 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for app_engine in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock
+public partial class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock : TerraformBlockBase
 {
     /// <summary>
     /// Optional serving service.
     /// The service name must be 1-63 characters long, and comply with RFC1035.
     /// Example value: &amp;quot;default&amp;quot;, &amp;quot;my-service&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("service")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Service { get; set; }
 
     /// <summary>
@@ -27,8 +27,8 @@ public class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock
     /// URL mask &amp;quot;-dot-appname.appspot.com/&amp;quot;. The URL mask will parse
     /// them to { service = &amp;quot;foo1&amp;quot;, version = &amp;quot;v1&amp;quot; } and { service = &amp;quot;foo1&amp;quot;, version = &amp;quot;v2&amp;quot; } respectively.
     /// </summary>
-    [TerraformPropertyName("url_mask")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("url_mask")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? UrlMask { get; set; }
 
     /// <summary>
@@ -36,8 +36,8 @@ public class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock
     /// The version must be 1-63 characters long, and comply with RFC1035.
     /// Example value: &amp;quot;v1&amp;quot;, &amp;quot;v2&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("version")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Version { get; set; }
 
 }
@@ -46,15 +46,15 @@ public class GoogleComputeRegionNetworkEndpointGroupAppEngineBlock
 /// Block type for cloud_function in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock
+public partial class GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock : TerraformBlockBase
 {
     /// <summary>
     /// A user-defined name of the Cloud Function.
     /// The function name is case-sensitive and must be 1-63 characters long.
     /// Example value: &amp;quot;func1&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("function")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("function")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Function { get; set; }
 
     /// <summary>
@@ -66,8 +66,8 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock
     /// can be backed by the same Serverless NEG with URL mask &amp;quot;/&amp;quot;. The URL mask
     /// will parse them to { function = &amp;quot;function1&amp;quot; } and { function = &amp;quot;function2&amp;quot; } respectively.
     /// </summary>
-    [TerraformPropertyName("url_mask")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("url_mask")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? UrlMask { get; set; }
 
 }
@@ -76,15 +76,15 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock
 /// Block type for cloud_run in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock
+public partial class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock : TerraformBlockBase
 {
     /// <summary>
     /// Cloud Run service is the main resource of Cloud Run.
     /// The service must be 1-63 characters long, and comply with RFC1035.
     /// Example value: &amp;quot;run-service&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("service")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("service")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Service { get; set; }
 
     /// <summary>
@@ -93,8 +93,8 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock
     /// The tag must be 1-63 characters long, and comply with RFC1035.
     /// Example value: &amp;quot;revision-0010&amp;quot;.
     /// </summary>
-    [TerraformPropertyName("tag")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tag")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Tag { get; set; }
 
     /// <summary>
@@ -107,8 +107,8 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock
     /// URL mask &amp;quot;.domain.com/&amp;quot;. The URL mask will parse them to { service=&amp;quot;bar1&amp;quot;, tag=&amp;quot;foo1&amp;quot; }
     /// and { service=&amp;quot;bar2&amp;quot;, tag=&amp;quot;foo2&amp;quot; } respectively.
     /// </summary>
-    [TerraformPropertyName("url_mask")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("url_mask")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? UrlMask { get; set; }
 
 }
@@ -117,7 +117,7 @@ public class GoogleComputeRegionNetworkEndpointGroupCloudRunBlock
 /// Block type for psc_data in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleComputeRegionNetworkEndpointGroupPscDataBlock
+public partial class GoogleComputeRegionNetworkEndpointGroupPscDataBlock : TerraformBlockBase
 {
     /// <summary>
     /// The PSC producer port to use when consumer PSC NEG connects to a producer. If
@@ -125,8 +125,8 @@ public class GoogleComputeRegionNetworkEndpointGroupPscDataBlock
     /// private-service-connect, then PSC NEG will be connected to a first port in the
     /// available PSC producer port range.
     /// </summary>
-    [TerraformPropertyName("producer_port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("producer_port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ProducerPort { get; set; }
 
 }
@@ -135,20 +135,20 @@ public class GoogleComputeRegionNetworkEndpointGroupPscDataBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock
+public partial class GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
 }
@@ -157,7 +157,7 @@ public class GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock
 /// Manages a google_compute_region_network_endpoint_group resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
+public partial class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
 {
     public GoogleComputeRegionNetworkEndpointGroup(string name) : base("google_compute_region_network_endpoint_group", name)
     {
@@ -167,16 +167,16 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// An optional description of this resource. Provide this property when
     /// you create the resource.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Name of the resource; provided by the client when the resource is
@@ -188,8 +188,8 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// character, which cannot be a dash.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
@@ -198,23 +198,23 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// The URL of the network to which all network endpoints in the NEG belong. Uses
     /// &amp;quot;default&amp;quot; project network if unspecified.
     /// </summary>
-    [TerraformPropertyName("network")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Network { get; set; } = default!;
+    [TerraformProperty("network")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Network { get; set; }
 
     /// <summary>
     /// Type of network endpoints in this network endpoint group. Defaults to SERVERLESS. Default value: &amp;quot;SERVERLESS&amp;quot; Possible values: [&amp;quot;SERVERLESS&amp;quot;, &amp;quot;PRIVATE_SERVICE_CONNECT&amp;quot;, &amp;quot;INTERNET_IP_PORT&amp;quot;, &amp;quot;INTERNET_FQDN_PORT&amp;quot;, &amp;quot;GCE_VM_IP_PORTMAP&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("network_endpoint_type")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("network_endpoint_type")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? NetworkEndpointType { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// This field is only used for PSC and INTERNET NEGs.
@@ -222,16 +222,16 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// The target service url used to set up private service connection to
     /// a Google API or a PSC Producer Service Attachment.
     /// </summary>
-    [TerraformPropertyName("psc_target_service")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("psc_target_service")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? PscTargetService { get; set; }
 
     /// <summary>
     /// A reference to the region where the regional NEGs reside.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Region is required")]
-    [TerraformPropertyName("region")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("region")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Region { get; set; }
 
     /// <summary>
@@ -239,8 +239,8 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// 
     /// Optional URL of the subnetwork to which all network endpoints in the NEG belong.
     /// </summary>
-    [TerraformPropertyName("subnetwork")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("subnetwork")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Subnetwork { get; set; }
 
     /// <summary>
@@ -248,7 +248,7 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 AppEngine block(s) allowed")]
-    [TerraformPropertyName("app_engine")]
+    [TerraformProperty("app_engine")]
     public TerraformList<TerraformBlock<GoogleComputeRegionNetworkEndpointGroupAppEngineBlock>>? AppEngine { get; set; }
 
     /// <summary>
@@ -256,7 +256,7 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudFunction block(s) allowed")]
-    [TerraformPropertyName("cloud_function")]
+    [TerraformProperty("cloud_function")]
     public TerraformList<TerraformBlock<GoogleComputeRegionNetworkEndpointGroupCloudFunctionBlock>>? CloudFunction { get; set; }
 
     /// <summary>
@@ -264,7 +264,7 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 CloudRun block(s) allowed")]
-    [TerraformPropertyName("cloud_run")]
+    [TerraformProperty("cloud_run")]
     public TerraformList<TerraformBlock<GoogleComputeRegionNetworkEndpointGroupCloudRunBlock>>? CloudRun { get; set; }
 
     /// <summary>
@@ -272,21 +272,21 @@ public class GoogleComputeRegionNetworkEndpointGroup : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 PscData block(s) allowed")]
-    [TerraformPropertyName("psc_data")]
+    [TerraformProperty("psc_data")]
     public TerraformList<TerraformBlock<GoogleComputeRegionNetworkEndpointGroupPscDataBlock>>? PscData { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleComputeRegionNetworkEndpointGroupTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The self_link attribute.
     /// </summary>
-    [TerraformPropertyName("self_link")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SelfLink => new TerraformReference(this, "self_link");
+    [TerraformProperty("self_link")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SelfLink { get; }
 
 }

@@ -6,64 +6,64 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureRM;
 /// Block type for access_rule in .
 /// Nesting mode: set
 /// </summary>
-public class AzurermHpcCacheAccessPolicyAccessRuleBlock
+public partial class AzurermHpcCacheAccessPolicyAccessRuleBlock : TerraformBlockBase
 {
     /// <summary>
     /// The access attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Access is required")]
-    [TerraformPropertyName("access")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("access")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Access { get; set; }
 
     /// <summary>
     /// The anonymous_gid attribute.
     /// </summary>
-    [TerraformPropertyName("anonymous_gid")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("anonymous_gid")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? AnonymousGid { get; set; }
 
     /// <summary>
     /// The anonymous_uid attribute.
     /// </summary>
-    [TerraformPropertyName("anonymous_uid")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("anonymous_uid")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? AnonymousUid { get; set; }
 
     /// <summary>
     /// The filter attribute.
     /// </summary>
-    [TerraformPropertyName("filter")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("filter")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Filter { get; set; }
 
     /// <summary>
     /// The root_squash_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("root_squash_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("root_squash_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? RootSquashEnabled { get; set; }
 
     /// <summary>
     /// The scope attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Scope is required")]
-    [TerraformPropertyName("scope")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("scope")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Scope { get; set; }
 
     /// <summary>
     /// The submount_access_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("submount_access_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("submount_access_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SubmountAccessEnabled { get; set; }
 
     /// <summary>
     /// The suid_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("suid_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("suid_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? SuidEnabled { get; set; }
 
 }
@@ -72,34 +72,34 @@ public class AzurermHpcCacheAccessPolicyAccessRuleBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzurermHpcCacheAccessPolicyTimeoutsBlock
+public partial class AzurermHpcCacheAccessPolicyTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -109,7 +109,7 @@ public class AzurermHpcCacheAccessPolicyTimeoutsBlock
 /// </summary>
 [Obsolete("This resource is deprecated.")]
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AzurermHpcCacheAccessPolicy : TerraformResource
+public partial class AzurermHpcCacheAccessPolicy : TerraformResource
 {
     public AzurermHpcCacheAccessPolicy(string name) : base("azurerm_hpc_cache_access_policy", name)
     {
@@ -119,23 +119,23 @@ public class AzurermHpcCacheAccessPolicy : TerraformResource
     /// The hpc_cache_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "HpcCacheId is required")]
-    [TerraformPropertyName("hpc_cache_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("hpc_cache_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> HpcCacheId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
@@ -145,14 +145,14 @@ public class AzurermHpcCacheAccessPolicy : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AccessRule is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 AccessRule block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(3, ErrorMessage = "Maximum 3 AccessRule block(s) allowed")]
-    [TerraformPropertyName("access_rule")]
+    [TerraformProperty("access_rule")]
     public TerraformSet<TerraformBlock<AzurermHpcCacheAccessPolicyAccessRuleBlock>>? AccessRule { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzurermHpcCacheAccessPolicyTimeoutsBlock>? Timeouts { get; set; }
 
 }

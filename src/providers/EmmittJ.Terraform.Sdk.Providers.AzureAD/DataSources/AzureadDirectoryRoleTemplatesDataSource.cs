@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.AzureAD;
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AzureadDirectoryRoleTemplatesDataSourceTimeoutsBlock
+public partial class AzureadDirectoryRoleTemplatesDataSourceTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The read attribute.
     /// </summary>
-    [TerraformPropertyName("read")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("read")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Read { get; set; }
 
 }
@@ -20,7 +20,7 @@ public class AzureadDirectoryRoleTemplatesDataSourceTimeoutsBlock
 /// <summary>
 /// Retrieves information about a azuread_directory_role_templates.
 /// </summary>
-public class AzureadDirectoryRoleTemplatesDataSource : TerraformDataSource
+public partial class AzureadDirectoryRoleTemplatesDataSource : TerraformDataSource
 {
     public AzureadDirectoryRoleTemplatesDataSource(string name) : base("azuread_directory_role_templates", name)
     {
@@ -29,29 +29,29 @@ public class AzureadDirectoryRoleTemplatesDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AzureadDirectoryRoleTemplatesDataSourceTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// The object IDs of the role templates
     /// </summary>
-    [TerraformPropertyName("object_ids")]
-    // Output-only attribute - read-only reference
-    public TerraformList<string> ObjectIds => new TerraformReference(this, "object_ids");
+    [TerraformProperty("object_ids")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<string> ObjectIds { get; }
 
     /// <summary>
     /// A list of role templates
     /// </summary>
-    [TerraformPropertyName("role_templates")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> RoleTemplates => new TerraformReference(this, "role_templates");
+    [TerraformProperty("role_templates")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> RoleTemplates { get; }
 
 }

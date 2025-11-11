@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_cur_report_definition.
 /// </summary>
-public class AwsCurReportDefinitionDataSource : TerraformDataSource
+public partial class AwsCurReportDefinitionDataSource : TerraformDataSource
 {
     public AwsCurReportDefinitionDataSource(string name) : base("aws_cur_report_definition", name)
     {
@@ -14,93 +14,93 @@ public class AwsCurReportDefinitionDataSource : TerraformDataSource
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The report_name attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ReportName is required")]
-    [TerraformPropertyName("report_name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("report_name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ReportName { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The additional_artifacts attribute.
     /// </summary>
-    [TerraformPropertyName("additional_artifacts")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> AdditionalArtifacts => new TerraformReference(this, "additional_artifacts");
+    [TerraformProperty("additional_artifacts")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> AdditionalArtifacts { get; }
 
     /// <summary>
     /// The additional_schema_elements attribute.
     /// </summary>
-    [TerraformPropertyName("additional_schema_elements")]
-    // Output-only attribute - read-only reference
-    public TerraformSet<string> AdditionalSchemaElements => new TerraformReference(this, "additional_schema_elements");
+    [TerraformProperty("additional_schema_elements")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformSet<string> AdditionalSchemaElements { get; }
 
     /// <summary>
     /// The compression attribute.
     /// </summary>
-    [TerraformPropertyName("compression")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Compression => new TerraformReference(this, "compression");
+    [TerraformProperty("compression")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Compression { get; }
 
     /// <summary>
     /// The format attribute.
     /// </summary>
-    [TerraformPropertyName("format")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Format => new TerraformReference(this, "format");
+    [TerraformProperty("format")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Format { get; }
 
     /// <summary>
     /// The refresh_closed_reports attribute.
     /// </summary>
-    [TerraformPropertyName("refresh_closed_reports")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> RefreshClosedReports => new TerraformReference(this, "refresh_closed_reports");
+    [TerraformProperty("refresh_closed_reports")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> RefreshClosedReports { get; }
 
     /// <summary>
     /// The report_versioning attribute.
     /// </summary>
-    [TerraformPropertyName("report_versioning")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> ReportVersioning => new TerraformReference(this, "report_versioning");
+    [TerraformProperty("report_versioning")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> ReportVersioning { get; }
 
     /// <summary>
     /// The s3_bucket attribute.
     /// </summary>
-    [TerraformPropertyName("s3_bucket")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> S3Bucket => new TerraformReference(this, "s3_bucket");
+    [TerraformProperty("s3_bucket")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> S3Bucket { get; }
 
     /// <summary>
     /// The s3_prefix attribute.
     /// </summary>
-    [TerraformPropertyName("s3_prefix")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> S3Prefix => new TerraformReference(this, "s3_prefix");
+    [TerraformProperty("s3_prefix")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> S3Prefix { get; }
 
     /// <summary>
     /// The s3_region attribute.
     /// </summary>
-    [TerraformPropertyName("s3_region")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> S3Region => new TerraformReference(this, "s3_region");
+    [TerraformProperty("s3_region")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> S3Region { get; }
 
     /// <summary>
     /// The time_unit attribute.
     /// </summary>
-    [TerraformPropertyName("time_unit")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> TimeUnit => new TerraformReference(this, "time_unit");
+    [TerraformProperty("time_unit")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> TimeUnit { get; }
 
 }

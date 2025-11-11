@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for binary_authorization in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterBinaryAuthorizationBlock
+public partial class GoogleGkeonpremBareMetalClusterBinaryAuthorizationBlock : TerraformBlockBase
 {
     /// <summary>
     /// Mode of operation for binauthz policy evaluation. If unspecified,
     /// defaults to DISABLED. Possible values: [&amp;quot;DISABLED&amp;quot;, &amp;quot;PROJECT_SINGLETON_POLICY_ENFORCE&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("evaluation_mode")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("evaluation_mode")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? EvaluationMode { get; set; }
 
 }
@@ -22,13 +22,13 @@ public class GoogleGkeonpremBareMetalClusterBinaryAuthorizationBlock
 /// Block type for cluster_operations in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterClusterOperationsBlock
+public partial class GoogleGkeonpremBareMetalClusterClusterOperationsBlock : TerraformBlockBase
 {
     /// <summary>
     /// Whether collection of application logs/metrics should be enabled (in addition to system logs/metrics).
     /// </summary>
-    [TerraformPropertyName("enable_application_logs")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enable_application_logs")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnableApplicationLogs { get; set; }
 
 }
@@ -37,7 +37,7 @@ public class GoogleGkeonpremBareMetalClusterClusterOperationsBlock
 /// Block type for control_plane in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterControlPlaneBlock
+public partial class GoogleGkeonpremBareMetalClusterControlPlaneBlock : TerraformBlockBase
 {
 }
 
@@ -45,7 +45,7 @@ public class GoogleGkeonpremBareMetalClusterControlPlaneBlock
 /// Block type for load_balancer in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterLoadBalancerBlock
+public partial class GoogleGkeonpremBareMetalClusterLoadBalancerBlock : TerraformBlockBase
 {
 }
 
@@ -53,7 +53,7 @@ public class GoogleGkeonpremBareMetalClusterLoadBalancerBlock
 /// Block type for maintenance_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterMaintenanceConfigBlock
+public partial class GoogleGkeonpremBareMetalClusterMaintenanceConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// All IPv4 address from these ranges will be placed into maintenance mode.
@@ -62,8 +62,8 @@ public class GoogleGkeonpremBareMetalClusterMaintenanceConfigBlock
     /// on the node resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "MaintenanceAddressCidrBlocks is required")]
-    [TerraformPropertyName("maintenance_address_cidr_blocks")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("maintenance_address_cidr_blocks")]
+    // Required argument - source generator will implement get/set
     public TerraformList<string>? MaintenanceAddressCidrBlocks { get; set; }
 
 }
@@ -72,7 +72,7 @@ public class GoogleGkeonpremBareMetalClusterMaintenanceConfigBlock
 /// Block type for network_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterNetworkConfigBlock
+public partial class GoogleGkeonpremBareMetalClusterNetworkConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Enables the use of advanced Anthos networking features, such as Bundled
@@ -80,8 +80,8 @@ public class GoogleGkeonpremBareMetalClusterNetworkConfigBlock
     /// Setting configuration for advanced networking features will automatically
     /// set this flag.
     /// </summary>
-    [TerraformPropertyName("advanced_networking")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("advanced_networking")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? AdvancedNetworking { get; set; }
 
 }
@@ -90,15 +90,15 @@ public class GoogleGkeonpremBareMetalClusterNetworkConfigBlock
 /// Block type for node_access_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterNodeAccessConfigBlock
+public partial class GoogleGkeonpremBareMetalClusterNodeAccessConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// LoginUser is the user name used to access node machines.
     /// It defaults to &amp;quot;root&amp;quot; if not set.
     /// </summary>
-    [TerraformPropertyName("login_user")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> LoginUser { get; set; } = default!;
+    [TerraformProperty("login_user")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> LoginUser { get; set; }
 
 }
 
@@ -106,22 +106,22 @@ public class GoogleGkeonpremBareMetalClusterNodeAccessConfigBlock
 /// Block type for node_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterNodeConfigBlock
+public partial class GoogleGkeonpremBareMetalClusterNodeConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// The available runtimes that can be used to run containers in a Bare Metal User Cluster. Possible values: [&amp;quot;CONTAINER_RUNTIME_UNSPECIFIED&amp;quot;, &amp;quot;DOCKER&amp;quot;, &amp;quot;CONTAINERD&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("container_runtime")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ContainerRuntime { get; set; } = default!;
+    [TerraformProperty("container_runtime")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ContainerRuntime { get; set; }
 
     /// <summary>
     /// The maximum number of pods a node can run. The size of the CIDR range
     /// assigned to the node will be derived from this parameter.
     /// </summary>
-    [TerraformPropertyName("max_pods_per_node")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<double> MaxPodsPerNode { get; set; } = default!;
+    [TerraformProperty("max_pods_per_node")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<double> MaxPodsPerNode { get; set; }
 
 }
 
@@ -129,15 +129,15 @@ public class GoogleGkeonpremBareMetalClusterNodeConfigBlock
 /// Block type for os_environment_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterOsEnvironmentConfigBlock
+public partial class GoogleGkeonpremBareMetalClusterOsEnvironmentConfigBlock : TerraformBlockBase
 {
     /// <summary>
     /// Whether the package repo should not be included when initializing
     /// bare metal machines.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "PackageRepoExcluded is required")]
-    [TerraformPropertyName("package_repo_excluded")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("package_repo_excluded")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<bool> PackageRepoExcluded { get; set; }
 
 }
@@ -146,14 +146,14 @@ public class GoogleGkeonpremBareMetalClusterOsEnvironmentConfigBlock
 /// Block type for proxy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterProxyBlock
+public partial class GoogleGkeonpremBareMetalClusterProxyBlock : TerraformBlockBase
 {
     /// <summary>
     /// A list of IPs, hostnames, and domains that should skip the proxy.
     /// For example [&amp;quot;127.0.0.1&amp;quot;, &amp;quot;example.com&amp;quot;, &amp;quot;.corp&amp;quot;, &amp;quot;localhost&amp;quot;].
     /// </summary>
-    [TerraformPropertyName("no_proxy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("no_proxy")]
+    // Optional argument - source generator will implement get/set
     public TerraformList<string>? NoProxy { get; set; }
 
     /// <summary>
@@ -163,8 +163,8 @@ public class GoogleGkeonpremBareMetalClusterProxyBlock
     /// of http://(username:password@)domain these will be rejected by the server.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Uri is required")]
-    [TerraformPropertyName("uri")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("uri")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Uri { get; set; }
 
 }
@@ -173,7 +173,7 @@ public class GoogleGkeonpremBareMetalClusterProxyBlock
 /// Block type for security_config in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterSecurityConfigBlock
+public partial class GoogleGkeonpremBareMetalClusterSecurityConfigBlock : TerraformBlockBase
 {
 }
 
@@ -181,7 +181,7 @@ public class GoogleGkeonpremBareMetalClusterSecurityConfigBlock
 /// Block type for storage in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterStorageBlock
+public partial class GoogleGkeonpremBareMetalClusterStorageBlock : TerraformBlockBase
 {
 }
 
@@ -189,27 +189,27 @@ public class GoogleGkeonpremBareMetalClusterStorageBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterTimeoutsBlock
+public partial class GoogleGkeonpremBareMetalClusterTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -218,13 +218,13 @@ public class GoogleGkeonpremBareMetalClusterTimeoutsBlock
 /// Block type for upgrade_policy in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleGkeonpremBareMetalClusterUpgradePolicyBlock
+public partial class GoogleGkeonpremBareMetalClusterUpgradePolicyBlock : TerraformBlockBase
 {
     /// <summary>
     /// Specifies which upgrade policy to use. Possible values: [&amp;quot;SERIAL&amp;quot;, &amp;quot;CONCURRENT&amp;quot;]
     /// </summary>
-    [TerraformPropertyName("policy")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("policy")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Policy { get; set; }
 
 }
@@ -233,7 +233,7 @@ public class GoogleGkeonpremBareMetalClusterUpgradePolicyBlock
 /// Manages a google_gkeonprem_bare_metal_cluster resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleGkeonpremBareMetalCluster : TerraformResource
+public partial class GoogleGkeonpremBareMetalCluster : TerraformResource
 {
     public GoogleGkeonpremBareMetalCluster(string name) : base("google_gkeonprem_bare_metal_cluster", name)
     {
@@ -244,8 +244,8 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// This is the full resource name of the Admin Cluster&#39;s hub membership.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "AdminClusterMembership is required")]
-    [TerraformPropertyName("admin_cluster_membership")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("admin_cluster_membership")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> AdminClusterMembership { get; set; }
 
     /// <summary>
@@ -262,61 +262,61 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the annotations present in your configuration.
     /// Please refer to the field &#39;effective_annotations&#39; for all of the annotations present on the resource.
     /// </summary>
-    [TerraformPropertyName("annotations")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("annotations")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Annotations { get; set; }
 
     /// <summary>
     /// A human readable description of this Bare Metal User Cluster.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "BareMetalVersion is required")]
-    [TerraformPropertyName("bare_metal_version")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("bare_metal_version")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> BareMetalVersion { get; set; }
 
     /// <summary>
     /// A human readable description of this Bare Metal User Cluster.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("description")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Description { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The location of the resource.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Location is required")]
-    [TerraformPropertyName("location")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("location")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Location { get; set; }
 
     /// <summary>
     /// The bare metal cluster name.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Name is required")]
-    [TerraformPropertyName("name")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("name")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Name { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for binary_authorization.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 BinaryAuthorization block(s) allowed")]
-    [TerraformPropertyName("binary_authorization")]
+    [TerraformProperty("binary_authorization")]
     public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterBinaryAuthorizationBlock>>? BinaryAuthorization { get; set; }
 
     /// <summary>
@@ -324,7 +324,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ClusterOperations block(s) allowed")]
-    [TerraformPropertyName("cluster_operations")]
+    [TerraformProperty("cluster_operations")]
     public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterClusterOperationsBlock>>? ClusterOperations { get; set; }
 
     /// <summary>
@@ -334,7 +334,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ControlPlane is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 ControlPlane block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ControlPlane block(s) allowed")]
-    [TerraformPropertyName("control_plane")]
+    [TerraformProperty("control_plane")]
     public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterControlPlaneBlock>>? ControlPlane { get; set; }
 
     /// <summary>
@@ -344,7 +344,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "LoadBalancer is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 LoadBalancer block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 LoadBalancer block(s) allowed")]
-    [TerraformPropertyName("load_balancer")]
+    [TerraformProperty("load_balancer")]
     public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterLoadBalancerBlock>>? LoadBalancer { get; set; }
 
     /// <summary>
@@ -352,7 +352,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 MaintenanceConfig block(s) allowed")]
-    [TerraformPropertyName("maintenance_config")]
+    [TerraformProperty("maintenance_config")]
     public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterMaintenanceConfigBlock>>? MaintenanceConfig { get; set; }
 
     /// <summary>
@@ -362,7 +362,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "NetworkConfig is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 NetworkConfig block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NetworkConfig block(s) allowed")]
-    [TerraformPropertyName("network_config")]
+    [TerraformProperty("network_config")]
     public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterNetworkConfigBlock>>? NetworkConfig { get; set; }
 
     /// <summary>
@@ -370,7 +370,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeAccessConfig block(s) allowed")]
-    [TerraformPropertyName("node_access_config")]
+    [TerraformProperty("node_access_config")]
     public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterNodeAccessConfigBlock>>? NodeAccessConfig { get; set; }
 
     /// <summary>
@@ -378,7 +378,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 NodeConfig block(s) allowed")]
-    [TerraformPropertyName("node_config")]
+    [TerraformProperty("node_config")]
     public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterNodeConfigBlock>>? NodeConfig { get; set; }
 
     /// <summary>
@@ -386,7 +386,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 OsEnvironmentConfig block(s) allowed")]
-    [TerraformPropertyName("os_environment_config")]
+    [TerraformProperty("os_environment_config")]
     public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterOsEnvironmentConfigBlock>>? OsEnvironmentConfig { get; set; }
 
     /// <summary>
@@ -394,7 +394,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Proxy block(s) allowed")]
-    [TerraformPropertyName("proxy")]
+    [TerraformProperty("proxy")]
     public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterProxyBlock>>? Proxy { get; set; }
 
     /// <summary>
@@ -402,7 +402,7 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 SecurityConfig block(s) allowed")]
-    [TerraformPropertyName("security_config")]
+    [TerraformProperty("security_config")]
     public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterSecurityConfigBlock>>? SecurityConfig { get; set; }
 
     /// <summary>
@@ -412,14 +412,14 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Storage is required")]
     [System.ComponentModel.DataAnnotations.MinLength(1, ErrorMessage = "At least 1 Storage block(s) required")]
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Storage block(s) allowed")]
-    [TerraformPropertyName("storage")]
+    [TerraformProperty("storage")]
     public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterStorageBlock>>? Storage { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleGkeonpremBareMetalClusterTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
@@ -427,36 +427,36 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 UpgradePolicy block(s) allowed")]
-    [TerraformPropertyName("upgrade_policy")]
+    [TerraformProperty("upgrade_policy")]
     public TerraformList<TerraformBlock<GoogleGkeonpremBareMetalClusterUpgradePolicyBlock>>? UpgradePolicy { get; set; }
 
     /// <summary>
     /// The time the cluster was created, in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The time the cluster was deleted, in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("delete_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DeleteTime => new TerraformReference(this, "delete_time");
+    [TerraformProperty("delete_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DeleteTime { get; }
 
     /// <summary>
     /// All of annotations (key/value pairs) present on the resource in GCP, including the annotations configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_annotations")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveAnnotations => new TerraformReference(this, "effective_annotations");
+    [TerraformProperty("effective_annotations")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveAnnotations { get; }
 
     /// <summary>
     /// The IP address name of Bare Metal User Cluster&#39;s API server.
     /// </summary>
-    [TerraformPropertyName("endpoint")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Endpoint => new TerraformReference(this, "endpoint");
+    [TerraformProperty("endpoint")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Endpoint { get; }
 
     /// <summary>
     /// This checksum is computed by the server based on the value of other
@@ -465,9 +465,9 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// Allows clients to perform consistent read-modify-writes
     /// through optimistic concurrency control.
     /// </summary>
-    [TerraformPropertyName("etag")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Etag => new TerraformReference(this, "etag");
+    [TerraformProperty("etag")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Etag { get; }
 
     /// <summary>
     /// Fleet related configuration.
@@ -477,9 +477,9 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// See [Anthos Fleets](https://cloud.google.com/anthos/multicluster-management/fleets) for
     /// more details on Anthos multi-cluster capabilities using Fleets.
     /// </summary>
-    [TerraformPropertyName("fleet")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Fleet => new TerraformReference(this, "fleet");
+    [TerraformProperty("fleet")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Fleet { get; }
 
     /// <summary>
     /// The object name of the Bare Metal Cluster custom resource on the
@@ -493,50 +493,50 @@ public class GoogleGkeonpremBareMetalCluster : TerraformResource
     /// kubectl and should expect to see the local name when viewing admin
     /// cluster controller logs.
     /// </summary>
-    [TerraformPropertyName("local_name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> LocalName => new TerraformReference(this, "local_name");
+    [TerraformProperty("local_name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> LocalName { get; }
 
     /// <summary>
     /// If set, there are currently changes in flight to the Bare Metal User Cluster.
     /// </summary>
-    [TerraformPropertyName("reconciling")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<bool> Reconciling => new TerraformReference(this, "reconciling");
+    [TerraformProperty("reconciling")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<bool> Reconciling { get; }
 
     /// <summary>
     /// The current state of this cluster.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// Specifies detailed cluster status.
     /// </summary>
-    [TerraformPropertyName("status")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Status => new TerraformReference(this, "status");
+    [TerraformProperty("status")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Status { get; }
 
     /// <summary>
     /// The unique identifier of the Bare Metal User Cluster.
     /// </summary>
-    [TerraformPropertyName("uid")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Uid => new TerraformReference(this, "uid");
+    [TerraformProperty("uid")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Uid { get; }
 
     /// <summary>
     /// The time the cluster was last updated, in RFC3339 text format.
     /// </summary>
-    [TerraformPropertyName("update_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> UpdateTime => new TerraformReference(this, "update_time");
+    [TerraformProperty("update_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> UpdateTime { get; }
 
     /// <summary>
     /// Specifies the security related settings for the Bare Metal User Cluster.
     /// </summary>
-    [TerraformPropertyName("validation_check")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> ValidationCheck => new TerraformReference(this, "validation_check");
+    [TerraformProperty("validation_check")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> ValidationCheck { get; }
 
 }

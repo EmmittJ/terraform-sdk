@@ -5,7 +5,7 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// <summary>
 /// Retrieves information about a aws_networkmanager_device.
 /// </summary>
-public class AwsNetworkmanagerDeviceDataSource : TerraformDataSource
+public partial class AwsNetworkmanagerDeviceDataSource : TerraformDataSource
 {
     public AwsNetworkmanagerDeviceDataSource(string name) : base("aws_networkmanager_device", name)
     {
@@ -15,93 +15,93 @@ public class AwsNetworkmanagerDeviceDataSource : TerraformDataSource
     /// The device_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DeviceId is required")]
-    [TerraformPropertyName("device_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("device_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DeviceId { get; set; }
 
     /// <summary>
     /// The global_network_id attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "GlobalNetworkId is required")]
-    [TerraformPropertyName("global_network_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("global_network_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> GlobalNetworkId { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> Tags { get; set; } = default!;
+    [TerraformProperty("tags")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> Tags { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The aws_location attribute.
     /// </summary>
-    [TerraformPropertyName("aws_location")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> AwsLocation => new TerraformReference(this, "aws_location");
+    [TerraformProperty("aws_location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> AwsLocation { get; }
 
     /// <summary>
     /// The description attribute.
     /// </summary>
-    [TerraformPropertyName("description")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Description => new TerraformReference(this, "description");
+    [TerraformProperty("description")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Description { get; }
 
     /// <summary>
     /// The location attribute.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Location => new TerraformReference(this, "location");
+    [TerraformProperty("location")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Location { get; }
 
     /// <summary>
     /// The model attribute.
     /// </summary>
-    [TerraformPropertyName("model")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Model => new TerraformReference(this, "model");
+    [TerraformProperty("model")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Model { get; }
 
     /// <summary>
     /// The serial_number attribute.
     /// </summary>
-    [TerraformPropertyName("serial_number")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SerialNumber => new TerraformReference(this, "serial_number");
+    [TerraformProperty("serial_number")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SerialNumber { get; }
 
     /// <summary>
     /// The site_id attribute.
     /// </summary>
-    [TerraformPropertyName("site_id")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> SiteId => new TerraformReference(this, "site_id");
+    [TerraformProperty("site_id")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> SiteId { get; }
 
     /// <summary>
     /// The type attribute.
     /// </summary>
-    [TerraformPropertyName("type")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Type => new TerraformReference(this, "type");
+    [TerraformProperty("type")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Type { get; }
 
     /// <summary>
     /// The vendor attribute.
     /// </summary>
-    [TerraformPropertyName("vendor")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Vendor => new TerraformReference(this, "vendor");
+    [TerraformProperty("vendor")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Vendor { get; }
 
 }

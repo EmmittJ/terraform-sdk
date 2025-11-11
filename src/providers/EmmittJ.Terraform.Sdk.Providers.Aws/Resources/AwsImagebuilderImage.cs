@@ -6,13 +6,13 @@ namespace EmmittJ.Terraform.Sdk.Providers.Aws;
 /// Block type for image_scanning_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderImageImageScanningConfigurationBlock
+public partial class AwsImagebuilderImageImageScanningConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The image_scanning_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("image_scanning_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("image_scanning_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ImageScanningEnabled { get; set; }
 
 }
@@ -21,20 +21,20 @@ public class AwsImagebuilderImageImageScanningConfigurationBlock
 /// Block type for image_tests_configuration in .
 /// Nesting mode: list
 /// </summary>
-public class AwsImagebuilderImageImageTestsConfigurationBlock
+public partial class AwsImagebuilderImageImageTestsConfigurationBlock : TerraformBlockBase
 {
     /// <summary>
     /// The image_tests_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("image_tests_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("image_tests_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? ImageTestsEnabled { get; set; }
 
     /// <summary>
     /// The timeout_minutes attribute.
     /// </summary>
-    [TerraformPropertyName("timeout_minutes")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("timeout_minutes")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? TimeoutMinutes { get; set; }
 
 }
@@ -43,13 +43,13 @@ public class AwsImagebuilderImageImageTestsConfigurationBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class AwsImagebuilderImageTimeoutsBlock
+public partial class AwsImagebuilderImageTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
 }
@@ -58,28 +58,28 @@ public class AwsImagebuilderImageTimeoutsBlock
 /// Block type for workflow in .
 /// Nesting mode: set
 /// </summary>
-public class AwsImagebuilderImageWorkflowBlock
+public partial class AwsImagebuilderImageWorkflowBlock : TerraformBlockBase
 {
     /// <summary>
     /// The on_failure attribute.
     /// </summary>
-    [TerraformPropertyName("on_failure")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("on_failure")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? OnFailure { get; set; }
 
     /// <summary>
     /// The parallel_group attribute.
     /// </summary>
-    [TerraformPropertyName("parallel_group")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("parallel_group")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ParallelGroup { get; set; }
 
     /// <summary>
     /// The workflow_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "WorkflowArn is required")]
-    [TerraformPropertyName("workflow_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("workflow_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> WorkflowArn { get; set; }
 
 }
@@ -88,7 +88,7 @@ public class AwsImagebuilderImageWorkflowBlock
 /// Manages a aws_imagebuilder_image resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class AwsImagebuilderImage : TerraformResource
+public partial class AwsImagebuilderImage : TerraformResource
 {
     public AwsImagebuilderImage(string name) : base("aws_imagebuilder_image", name)
     {
@@ -97,80 +97,80 @@ public class AwsImagebuilderImage : TerraformResource
     /// <summary>
     /// The container_recipe_arn attribute.
     /// </summary>
-    [TerraformPropertyName("container_recipe_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("container_recipe_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ContainerRecipeArn { get; set; }
 
     /// <summary>
     /// The distribution_configuration_arn attribute.
     /// </summary>
-    [TerraformPropertyName("distribution_configuration_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("distribution_configuration_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DistributionConfigurationArn { get; set; }
 
     /// <summary>
     /// The enhanced_image_metadata_enabled attribute.
     /// </summary>
-    [TerraformPropertyName("enhanced_image_metadata_enabled")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("enhanced_image_metadata_enabled")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<bool>? EnhancedImageMetadataEnabled { get; set; }
 
     /// <summary>
     /// The execution_role attribute.
     /// </summary>
-    [TerraformPropertyName("execution_role")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> ExecutionRole { get; set; } = default!;
+    [TerraformProperty("execution_role")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> ExecutionRole { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The image_recipe_arn attribute.
     /// </summary>
-    [TerraformPropertyName("image_recipe_arn")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("image_recipe_arn")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? ImageRecipeArn { get; set; }
 
     /// <summary>
     /// The infrastructure_configuration_arn attribute.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "InfrastructureConfigurationArn is required")]
-    [TerraformPropertyName("infrastructure_configuration_arn")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("infrastructure_configuration_arn")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> InfrastructureConfigurationArn { get; set; }
 
     /// <summary>
     /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
     /// </summary>
-    [TerraformPropertyName("region")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Region { get; set; } = default!;
+    [TerraformProperty("region")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Region { get; set; }
 
     /// <summary>
     /// The tags attribute.
     /// </summary>
-    [TerraformPropertyName("tags")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("tags")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Tags { get; set; }
 
     /// <summary>
     /// The tags_all attribute.
     /// </summary>
-    [TerraformPropertyName("tags_all")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformMap<string> TagsAll { get; set; } = default!;
+    [TerraformProperty("tags_all")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformMap<string> TagsAll { get; set; }
 
     /// <summary>
     /// Block for image_scanning_configuration.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageScanningConfiguration block(s) allowed")]
-    [TerraformPropertyName("image_scanning_configuration")]
+    [TerraformProperty("image_scanning_configuration")]
     public TerraformList<TerraformBlock<AwsImagebuilderImageImageScanningConfigurationBlock>>? ImageScanningConfiguration { get; set; }
 
     /// <summary>
@@ -178,70 +178,70 @@ public class AwsImagebuilderImage : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 ImageTestsConfiguration block(s) allowed")]
-    [TerraformPropertyName("image_tests_configuration")]
+    [TerraformProperty("image_tests_configuration")]
     public TerraformList<TerraformBlock<AwsImagebuilderImageImageTestsConfigurationBlock>>? ImageTestsConfiguration { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<AwsImagebuilderImageTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Block for workflow.
     /// Nesting mode: set
     /// </summary>
-    [TerraformPropertyName("workflow")]
+    [TerraformProperty("workflow")]
     public TerraformSet<TerraformBlock<AwsImagebuilderImageWorkflowBlock>>? Workflow { get; set; }
 
     /// <summary>
     /// The arn attribute.
     /// </summary>
-    [TerraformPropertyName("arn")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Arn => new TerraformReference(this, "arn");
+    [TerraformProperty("arn")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Arn { get; }
 
     /// <summary>
     /// The date_created attribute.
     /// </summary>
-    [TerraformPropertyName("date_created")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> DateCreated => new TerraformReference(this, "date_created");
+    [TerraformProperty("date_created")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> DateCreated { get; }
 
     /// <summary>
     /// The name attribute.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The os_version attribute.
     /// </summary>
-    [TerraformPropertyName("os_version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> OsVersion => new TerraformReference(this, "os_version");
+    [TerraformProperty("os_version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> OsVersion { get; }
 
     /// <summary>
     /// The output_resources attribute.
     /// </summary>
-    [TerraformPropertyName("output_resources")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> OutputResources => new TerraformReference(this, "output_resources");
+    [TerraformProperty("output_resources")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> OutputResources { get; }
 
     /// <summary>
     /// The platform attribute.
     /// </summary>
-    [TerraformPropertyName("platform")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Platform => new TerraformReference(this, "platform");
+    [TerraformProperty("platform")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Platform { get; }
 
     /// <summary>
     /// The version attribute.
     /// </summary>
-    [TerraformPropertyName("version")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Version => new TerraformReference(this, "version");
+    [TerraformProperty("version")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Version { get; }
 
 }

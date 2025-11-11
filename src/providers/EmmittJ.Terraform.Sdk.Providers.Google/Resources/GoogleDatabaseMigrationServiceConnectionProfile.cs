@@ -6,14 +6,14 @@ namespace EmmittJ.Terraform.Sdk.Providers.Google;
 /// Block type for alloydb in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock
+public partial class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock : TerraformBlockBase
 {
     /// <summary>
     /// Required. The AlloyDB cluster ID that this connection profile is associated with.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ClusterId is required")]
-    [TerraformPropertyName("cluster_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("cluster_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ClusterId { get; set; }
 
 }
@@ -22,7 +22,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock
 /// Block type for cloudsql in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock
+public partial class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock : TerraformBlockBase
 {
 
 
@@ -33,43 +33,43 @@ public class GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock
 /// Block type for mysql in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock
+public partial class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock : TerraformBlockBase
 {
     /// <summary>
     /// If the source is a Cloud SQL database, use this field to provide the Cloud SQL instance ID of the source.
     /// </summary>
-    [TerraformPropertyName("cloud_sql_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cloud_sql_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CloudSqlId { get; set; }
 
     /// <summary>
     /// The IP or hostname of the source MySQL database.
     /// </summary>
-    [TerraformPropertyName("host")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("host")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Host { get; set; }
 
     /// <summary>
     /// Input only. The password for the user that Database Migration Service will be using to connect to the database.
     /// This field is not returned on request, and the value is encrypted when stored in Database Migration Service.
     /// </summary>
-    [TerraformPropertyName("password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Password { get; set; }
 
 
     /// <summary>
     /// The network port of the source MySQL database.
     /// </summary>
-    [TerraformPropertyName("port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// The username that Database Migration Service will use to connect to the database. The value is encrypted when stored in Database Migration Service.
     /// </summary>
-    [TerraformPropertyName("username")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("username")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Username { get; set; }
 
 }
@@ -78,22 +78,22 @@ public class GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock
 /// Block type for oracle in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock
+public partial class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock : TerraformBlockBase
 {
     /// <summary>
     /// Required. Database service for the Oracle connection.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "DatabaseService is required")]
-    [TerraformPropertyName("database_service")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("database_service")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> DatabaseService { get; set; }
 
     /// <summary>
     /// Required. The IP or hostname of the source Oracle database.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Host is required")]
-    [TerraformPropertyName("host")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("host")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Host { get; set; }
 
     /// <summary>
@@ -101,8 +101,8 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock
     /// This field is not returned on request, and the value is encrypted when stored in Database Migration Service.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Password is required")]
-    [TerraformPropertyName("password")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("password")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Password { get; set; }
 
 
@@ -110,16 +110,16 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock
     /// Required. The network port of the source Oracle database.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Port is required")]
-    [TerraformPropertyName("port")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("port")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<double> Port { get; set; }
 
     /// <summary>
     /// Required. The username that Database Migration Service will use to connect to the database. The value is encrypted when stored in Database Migration Service.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "Username is required")]
-    [TerraformPropertyName("username")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("username")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> Username { get; set; }
 
 }
@@ -128,27 +128,27 @@ public class GoogleDatabaseMigrationServiceConnectionProfileOracleBlock
 /// Block type for postgresql in .
 /// Nesting mode: list
 /// </summary>
-public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock
+public partial class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock : TerraformBlockBase
 {
     /// <summary>
     /// If the connected database is an AlloyDB instance, use this field to provide the AlloyDB cluster ID.
     /// </summary>
-    [TerraformPropertyName("alloydb_cluster_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("alloydb_cluster_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? AlloydbClusterId { get; set; }
 
     /// <summary>
     /// If the source is a Cloud SQL database, use this field to provide the Cloud SQL instance ID of the source.
     /// </summary>
-    [TerraformPropertyName("cloud_sql_id")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("cloud_sql_id")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? CloudSqlId { get; set; }
 
     /// <summary>
     /// The IP or hostname of the source MySQL database.
     /// </summary>
-    [TerraformPropertyName("host")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("host")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Host { get; set; }
 
 
@@ -156,23 +156,23 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock
     /// Input only. The password for the user that Database Migration Service will be using to connect to the database.
     /// This field is not returned on request, and the value is encrypted when stored in Database Migration Service.
     /// </summary>
-    [TerraformPropertyName("password")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("password")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Password { get; set; }
 
 
     /// <summary>
     /// The network port of the source MySQL database.
     /// </summary>
-    [TerraformPropertyName("port")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("port")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<double>? Port { get; set; }
 
     /// <summary>
     /// The username that Database Migration Service will use to connect to the database. The value is encrypted when stored in Database Migration Service.
     /// </summary>
-    [TerraformPropertyName("username")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("username")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Username { get; set; }
 
 }
@@ -181,27 +181,27 @@ public class GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock
 /// Block type for timeouts in .
 /// Nesting mode: single
 /// </summary>
-public class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock
+public partial class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock : TerraformBlockBase
 {
     /// <summary>
     /// The create attribute.
     /// </summary>
-    [TerraformPropertyName("create")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("create")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Create { get; set; }
 
     /// <summary>
     /// The delete attribute.
     /// </summary>
-    [TerraformPropertyName("delete")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("delete")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Delete { get; set; }
 
     /// <summary>
     /// The update attribute.
     /// </summary>
-    [TerraformPropertyName("update")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("update")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Update { get; set; }
 
 }
@@ -210,7 +210,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock
 /// Manages a google_database_migration_service_connection_profile resource.
 /// </summary>
 [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCode("This class uses MinLength/MaxLength validation attributes which use reflection.")]
-public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
+public partial class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
 {
     public GoogleDatabaseMigrationServiceConnectionProfile(string name) : base("google_database_migration_service_connection_profile", name)
     {
@@ -220,23 +220,23 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     /// The ID of the connection profile.
     /// </summary>
     [System.ComponentModel.DataAnnotations.Required(ErrorMessage = "ConnectionProfileId is required")]
-    [TerraformPropertyName("connection_profile_id")]
-    // Required argument - user must set a value (no initializer for compile-time enforcement)
+    [TerraformProperty("connection_profile_id")]
+    // Required argument - source generator will implement get/set
     public required TerraformValue<string> ConnectionProfileId { get; set; }
 
     /// <summary>
     /// The connection profile display name.
     /// </summary>
-    [TerraformPropertyName("display_name")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("display_name")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? DisplayName { get; set; }
 
     /// <summary>
     /// The id attribute.
     /// </summary>
-    [TerraformPropertyName("id")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Id { get; set; } = default!;
+    [TerraformProperty("id")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Id { get; set; }
 
     /// <summary>
     /// The resource labels for connection profile to use to annotate any related underlying resources such as Compute Engine VMs.
@@ -245,30 +245,30 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     /// **Note**: This field is non-authoritative, and will only manage the labels present in your configuration.
     /// Please refer to the field &#39;effective_labels&#39; for all of the labels present on the resource.
     /// </summary>
-    [TerraformPropertyName("labels")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("labels")]
+    // Optional argument - source generator will implement get/set
     public TerraformMap<string>? Labels { get; set; }
 
     /// <summary>
     /// The location where the connection profile should reside.
     /// </summary>
-    [TerraformPropertyName("location")]
-    // Optional argument - user may or may not set a value
+    [TerraformProperty("location")]
+    // Optional argument - source generator will implement get/set
     public TerraformValue<string>? Location { get; set; }
 
     /// <summary>
     /// The project attribute.
     /// </summary>
-    [TerraformPropertyName("project")]
-    // Optional+Computed - use setter for literal value, or leave as computed reference
-    public TerraformValue<string> Project { get; set; } = default!;
+    [TerraformProperty("project")]
+    // Optional+Computed - source generator will implement get/set
+    public TerraformValue<string> Project { get; set; }
 
     /// <summary>
     /// Block for alloydb.
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Alloydb block(s) allowed")]
-    [TerraformPropertyName("alloydb")]
+    [TerraformProperty("alloydb")]
     public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileAlloydbBlock>>? Alloydb { get; set; }
 
     /// <summary>
@@ -276,7 +276,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Cloudsql block(s) allowed")]
-    [TerraformPropertyName("cloudsql")]
+    [TerraformProperty("cloudsql")]
     public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileCloudsqlBlock>>? Cloudsql { get; set; }
 
     /// <summary>
@@ -284,7 +284,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Mysql block(s) allowed")]
-    [TerraformPropertyName("mysql")]
+    [TerraformProperty("mysql")]
     public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileMysqlBlock>>? Mysql { get; set; }
 
     /// <summary>
@@ -292,7 +292,7 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Oracle block(s) allowed")]
-    [TerraformPropertyName("oracle")]
+    [TerraformProperty("oracle")]
     public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileOracleBlock>>? Oracle { get; set; }
 
     /// <summary>
@@ -300,64 +300,64 @@ public class GoogleDatabaseMigrationServiceConnectionProfile : TerraformResource
     /// Nesting mode: list
     /// </summary>
     [System.ComponentModel.DataAnnotations.MaxLength(1, ErrorMessage = "Maximum 1 Postgresql block(s) allowed")]
-    [TerraformPropertyName("postgresql")]
+    [TerraformProperty("postgresql")]
     public TerraformList<TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfilePostgresqlBlock>>? Postgresql { get; set; }
 
     /// <summary>
     /// Block for timeouts.
     /// Nesting mode: single
     /// </summary>
-    [TerraformPropertyName("timeouts")]
+    [TerraformProperty("timeouts")]
     public TerraformBlock<GoogleDatabaseMigrationServiceConnectionProfileTimeoutsBlock>? Timeouts { get; set; }
 
     /// <summary>
     /// Output only. The timestamp when the resource was created. A timestamp in RFC3339 UTC &#39;Zulu&#39; format, accurate to nanoseconds. Example: &#39;2014-10-02T15:01:23.045123456Z&#39;.
     /// </summary>
-    [TerraformPropertyName("create_time")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> CreateTime => new TerraformReference(this, "create_time");
+    [TerraformProperty("create_time")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> CreateTime { get; }
 
     /// <summary>
     /// The database provider.
     /// </summary>
-    [TerraformPropertyName("dbprovider")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Dbprovider => new TerraformReference(this, "dbprovider");
+    [TerraformProperty("dbprovider")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Dbprovider { get; }
 
     /// <summary>
     /// All of labels (key/value pairs) present on the resource in GCP, including the labels configured through Terraform, other clients and services.
     /// </summary>
-    [TerraformPropertyName("effective_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> EffectiveLabels => new TerraformReference(this, "effective_labels");
+    [TerraformProperty("effective_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> EffectiveLabels { get; }
 
     /// <summary>
     /// Output only. The error details in case of state FAILED.
     /// </summary>
-    [TerraformPropertyName("error")]
-    // Output-only attribute - read-only reference
-    public TerraformList<object> Error => new TerraformReference(this, "error");
+    [TerraformProperty("error")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformList<object> Error { get; }
 
     /// <summary>
     /// The name of this connection profile resource in the form of projects/{project}/locations/{location}/connectionProfiles/{connectionProfile}.
     /// </summary>
-    [TerraformPropertyName("name")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> Name => new TerraformReference(this, "name");
+    [TerraformProperty("name")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> Name { get; }
 
     /// <summary>
     /// The current connection profile state.
     /// </summary>
-    [TerraformPropertyName("state")]
-    // Output-only attribute - read-only reference
-    public TerraformValue<string> State => new TerraformReference(this, "state");
+    [TerraformProperty("state")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformValue<string> State { get; }
 
     /// <summary>
     /// The combination of labels configured directly on the resource
     ///  and default labels configured on the provider.
     /// </summary>
-    [TerraformPropertyName("terraform_labels")]
-    // Output-only attribute - read-only reference
-    public TerraformMap<string> TerraformLabels => new TerraformReference(this, "terraform_labels");
+    [TerraformProperty("terraform_labels")]
+    // Output-only attribute - source generator will implement read-only get
+    public TerraformMap<string> TerraformLabels { get; }
 
 }
